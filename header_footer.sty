@@ -1,0 +1,36 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{header_footer}
+
+\newcommand{\mytitle}{Titel der Arbeit}
+\newcommand{\myauthor}{Mein Name}
+
+\setlength{\headheight}{15pt}%Höhe des Headers muss je nach Inhalt ggf. angepasst werden
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\fancypagestyle{main}{%
+  \fancyhf{}%
+  \fancyhead[L]{\mytitle}%
+  \fancyhead[R]{\nouppercase\parttitle}%
+  \fancyfoot[L]{\myauthor}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+\newcommand{\plaintitle}{Abkürzungsverzeichnis}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[L]{\mytitle}%
+  \fancyhead[R]{\nouppercase\plaintitle}%
+  \fancyfoot[L]{\myauthor}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+%Befehle zum wechseln zwischen den Styles
+\appto\frontmatter{\pagestyle{plain}}
+\appto\mainmatter{\pagestyle{main}}
+
+\endinput

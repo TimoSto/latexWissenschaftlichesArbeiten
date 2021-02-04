@@ -1,0 +1,11 @@
+key;type;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand
+book1;buch;Brox Hans/Walker, Wolf-Dietrich;Allgemeiner Teil des BGB;2;München;2016;false
+hrsgbook;buch;Semler Johannes/von Schenck Kersten;Arbeitshandbuch für Aufsichtsratsmitglieder;2;München;2004;true
+comment1;kommentar;Staudinger;Kommentar zum Bürgerlichen Gesetzbuch, Erstes Buch, AT §§ 616 - 630;12;Berlin;2002;false;
+comment2;kommentar;Palandt;Bürgerliches Gesetzbuch, Kommentar;74;München;2016;false;
+comment3;kommentar;MeinHerausgeber;Meine Meinung zu XY, Kommentar;74;München;2016;true;
+essay1;essay;Weber, Sebatian/Wocken, Lisa;Mitbestimmung bei Einstallungsuntersuchungen im öffentlichen Dienst;;;2016;;;NZA;S.191-194
+festschrift1;festschrift;Bohm, Winfried;Die Konkurrenzlage;;Köln;2016;;;;S.235-255;System des verwaltungsgerichtlichen Rechtsschutzes, Festschrift für Christian Friedrich Menger zum 70. Geburtstag
+sammelwerk11;sammelwerk;Marquard, Ralf-M./Oligmüller, Peter;Die Besondere Ausgleichsreglung im EEG 2014 auf dem Prüfstand;;Frankfurt an Main;2016;;;;S.116-136;;Latour/Lewkowic/Wienbrück;An den Schnittstellen von Recht und Wirtschaft
+online1;online;Bachmann, Gregor;Habilitation Thesis Review - Peer Zumbansen;;;15.02.2016;;;;;;;{{\\}}http://www.germanlawjournal.com (Stand: 24.8.2005)
+online2;online;Bachmann, Gregor;Habilitation Thesis Review - Peer Zumbansen;;;15.02.2016;;;;;;;{{\\}}http://www.germanlawjournal.com (Stand: 24.8.2005)
