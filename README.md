@@ -111,3 +111,54 @@ Es werden zudem die standardmäßig größeren Abstände vor PArt und Section en
 \setlength{\cftbeforepartskip}{0cm}%Für Part
 \setlength{\cftbeforesecskip}{0pt}%für Section
 ```
+Um die Überschrift des ToC zu zentrieren:
+```
+%Übertschrift von ToC zentriert
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\LARGE}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+```
+## Abkürzungsverzeichnis
+Die Abkürzungen werden in einer CSV-Datei geführt:
+```
+abk;bed
+z.B.;zum Beispiel
+s.o.;siehe oben
+```
+Das Auslesen erfolgt über LaTeX`s datatool-Package:
+```
+%Abkürzungsverzeichnis aus CSV-Datei laden
+\usepackage[utf8]{datatool}
+\usepackage[utf8]{inputenc}
+
+\DTLsetseparator{;}
+
+\DTLloaddb{abkuerzungen}{abkuerzungen.csv}
+
+\newcommand{\printabbreviations}[0]
+{
+	\begin{center}
+		\begin{LARGE}
+			Abkürzungsverzeichnis
+		\end{LARGE}
+	\end{center}	 
+	\DTLforeach*{abkuerzungen}
+	{\abk=abk,\bed=bed}
+	{
+	  \par\noindent\abk\dotfill\bed
+	}
+}
+```
+Der Befehl ``\par\noindent\abk\dotfill\bed`` gibt dabei eine Zeile aus, in der links die Abkürzung steht und rechts die Bedeutung. Dazwischen befindet sich eine gepunktete Linie.
+## Fußnoten
+Für die Fußnoten wird der Einschub entfernt, die Größe angepasst und der Abstand zum Test definiert:
+```
+%Fußnoten ohne abstand nach links
+\usepackage[hang,flushmargin]{footmisc}
+
+%Größe der Fußnoten
+\renewcommand{\footnotesize}{\fontsize{10pt}{12pt}\selectfont}
+
+%Abstand Fußzeile-Text (kann auch auskommentiert werden, da default meistens passt)
+\setlength{\skip\footins}{12pt}
+```
+Der Abstand zwischen Fußnote und Zahl wird auf 3mm gesetzt:
