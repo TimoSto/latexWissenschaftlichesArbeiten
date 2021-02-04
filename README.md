@@ -11,3 +11,15 @@ A Part
         (1) Subparagraph
 ```
 ## Überschriften anpassen
+Für jede Ebene wird der Abstand vor und nach der Überschrift definiert:
+``
+\usepackage[noindentafter]{titlesec}
+\def\beforeheading{12pt}%Abstand vor allen Überschriften
+\def\afterheading{6pt}%Abstand nach allen Überschriften
+\titlespacing{\part}{0pt}{0pt}{\afterheading}
+\titlespacing{\section}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subsection}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subsubsection}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\paragraph}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subparagraph}{0pt}{\beforeheading}{\afterheading}
+``
