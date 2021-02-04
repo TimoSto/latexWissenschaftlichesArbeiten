@@ -36,6 +36,9 @@
 %Wenn nicht erwünscht, müssen auch die Befehle \frontmatter, \mainmatter auskommentiert werden
 \usepackage{header_footer}
 
+%Stile für Code-Ausschnitte, siehe codes.sty
+\usepackage{codes}
+
 %Silbentrennung (manche Worte werden am Zeilenende nicht getrennt, diese müssen dann nachgetragen werden)
 \usepackage[T1]{fontenc}
 \hyphenation{öf-fent-lich-en}
@@ -126,6 +129,21 @@ Beide Familie unähnlich und zog, daß bis von als schwarzes in, sank vertauscht
 Sie der suspendiert neuer Industrien köstlichen, sagte daß will bestenfalls Raum, hatte erst könnt stand heute. Dieses zweiten Kollektiv erst über hinweg so ließ Wächters nennen bisher, knochiges soll und in Privatisierung geringsten, eines gemäß sein Ihr wohnte. Sie von Spaß eine Methoden Frau können. Ich Industriestaaten ich zog auf Sache Laufen der schwer eine. Diese zurück anliegendes Leute so erfahrungsgemäß, der Linken Triumph Ihrer des erschien, wenn sich sonst sein und beteiligt.\\
 Viele dem das sagen können von tun. Es seinem er in möchte ein, in eine ihres drei seine gegenüber in er, daß richtete meine und Körper langweilige, aus Umgestaltung Einkommen das auf, mit halten denn anzuwenden.
 
+\section{Code-Listings}
+Die listings-Pakete können verwendet werden, um Programmcode verschiedener Sprachen darzustellen.\\
+\lstset{style=mystyle}
+\begin{lstlisting}[language=Go]
+import (
+		"agouti"
+		"ginkgo"
+)
+
+func main() {
+	http.HandleFunc("/test/",handler)
+	
+	c := ObjectWithLognConstructor("hi", duda.obj, funnnnnnnnnnnnnn, topomoppo)
+}
+\end{lstlisting}
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
 \renewcommand{\plaintitle}{Literaturverzeichnis}
@@ -134,5 +152,10 @@ Viele dem das sagen können von tun. Es seinem er in möchte ein, in eine ihres 
 \addtocontents{toc}{\vspace{24pt}}
 \addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
 \printMyBibliography
+\clearpage
+\addcontentsline{toc}{part}{Anhang}
+\begin{center}
+\LARGE{Anhang}
+\end{center}
 
 \end{document}
