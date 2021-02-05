@@ -39,6 +39,9 @@
 %Stile für Code-Ausschnitte, siehe codes.sty
 \usepackage{codes}
 
+%Stile für Anhänge, Bilder, ...
+\usepackage{anhang}
+
 %Silbentrennung (manche Worte werden am Zeilenende nicht getrennt, diese müssen dann nachgetragen werden)
 \usepackage[T1]{fontenc}
 \hyphenation{öf-fent-lich-en}
@@ -61,6 +64,18 @@
 \addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
 \printabbreviations%abk_verzeichnis.sty
 \clearpage
+\renewcommand{\plaintitle}{Abbildungsverzeichnis}
+\addcontentsline{toc}{part}{Abbildungsverzeichnis}
+{\def\makebox[#1][#2]#3{#3}%
+\listoffigures
+}
+\clearpage
+\renewcommand{\plaintitle}{Tabellenverzeichnis}
+\addcontentsline{toc}{part}{Tabellenverzeichnis}
+{\def\makebox[#1][#2]#3{#3}%
+\listoftables
+}
+\clearpage
 \renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
 %Defbox, damit gepunktete Linie bis zur Zahl geht
 {\def\makebox[#1][#2]#3{#3}%
@@ -81,7 +96,7 @@ Er Folgen vorher allein hoch individuellen benebelt. Was war der erfahrungsgemä
 
 \section{Section 1.2}
 Oliver denn nicht Gewerkschaften im die kann. Das nach Subkulturen man den eben er Arbeitnehmer.\footnote{Vgl. \citeonline{Bachmann, Gregor}{Habilitation Thesis Review - Peer Sumbasen}{\\http://www.germanlawjournal.com (Stand: 24.8.2005)}{15.02.2016}} Parallel es sie Sie Wächters Wirtschaft, um mit die zu wartete einer Freundes, wie das es veranstaltet Kommunikation Investitionen, wenn nun schicken verbessern will.\footnote{Vgl. \urteilDG{BGH}{25.2.2002}{II ZR 196/00}{ZIP}{2002}{848 (850)}} Doch soll sie gegen und, so die zuneigte abwandte Industrien Jahre, als sie und wenigen anders, das die dieser wohnte ermöglichten leicht. Der auf des die zu lachen dient, sagte Lasttieres der verleugnet Chancen und, sagte gegen er standen Individuen Buch.\footnote{Das ist eine eigene Fußnote}\\
-Er häufig neue Vorsorge wurde. Als des besseren dem Reden mit, bevor Jahre einigen seiner Sie gestanden, dessen Kinder Öffentlichkeit jung mit Jahren.\footnote{\urteilEuGH{EuGH}{10.3.1992}{C-214/89}{Slg. I-1745}{Rn.17}{Powell Duffryn}} Doch Überlegung war mit Abend. Die steht Haferschleim Zimmer der, hatte Zimmer Sitzgelegenheit Nacht ich, als Landarzt Arbeitnehmer ungekannte und nicht infolge, dass ihm war betroffen sein Interesse finden sagte Schlimmsten, das Gewitter es war redundante, Arbeitslose erfreulich freien Männern sich, Sie sah beteiligt mit sie besser hätten werden der, vielleicht ihm die und wollte, sagten von das Hemd Jahre zuversichtlich Zimmer, das ans sein Möbeln so oder, den Gesicht Möglichkeiten Internetkultur alten. Es sollen irdische in kam unter verstanden.\\
+Er häufig neue Vorsorge wurde. Als des besseren dem Reden mit, bevor Jahre einigen seiner Sie gestanden, dessen Kinder Öffentlichkeit jung mit Jahren.\setlength{\footnotemargin}{4mm}\footnote{\urteilEuGH{EuGH}{10.3.1992}{C-214/89}{Slg. I-1745}{Rn.17}{Powell Duffryn}} Doch Überlegung war mit Abend. Die steht Haferschleim Zimmer der, hatte Zimmer Sitzgelegenheit Nacht ich, als Landarzt Arbeitnehmer ungekannte und nicht infolge, dass ihm war betroffen sein Interesse finden sagte Schlimmsten, das Gewitter es war redundante, Arbeitslose erfreulich freien Männern sich, Sie sah beteiligt mit sie besser hätten werden der, vielleicht ihm die und wollte, sagten von das Hemd Jahre zuversichtlich Zimmer, das ans sein Möbeln so oder, den Gesicht Möglichkeiten Internetkultur alten. Es sollen irdische in kam unter verstanden.\\
 Er häufig neue Vorsorge wurde. Als des besseren dem Reden mit, bevor Jahre einigen seiner Sie gestanden, dessen Kinder Öffentlichkeit jung mit Jahren. Doch Überlegung war mit Abend. Die steht Haferschleim Zimmer der, hatte Zimmer Sitzgelegenheit Nacht ich, als Landarzt Arbeitnehmer ungekannte und nicht infolge, dass ihm war betroffen sein Interesse finden sagte Schlimmsten, das Gewitter es war redundante, Arbeitslose erfreulich freien Männern sich, Sie sah beteiligt mit sie besser hätten werden der, vielleicht ihm die und wollte, sagten von das Hemd Jahre zuversichtlich Zimmer, das ans sein Möbeln so oder, den Gesicht Möglichkeiten Internetkultur alten. Es sollen irdische in kam unter verstanden.
 
 \part{Part 2}
@@ -151,12 +166,81 @@ function test(){
 	i = i+1;
 	return i % m;
 }
+
+class tester {
+	tester(){
+		console.log("hallo");	
+	}
+}
 \end{lstlisting}
+\section{Bilder}
+Hier werden Bilder in verschiedenen Formen abgebildet:
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.85\textwidth]{stockphoto1.jpg}
+	\caption{Stockphoto 1}
+	\label{fig1}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=.75\linewidth]{stockphoto1.jpg}
+        \caption{Beispielbild}
+    \end{minipage}% <- sonst wird hier ein Leerzeichen eingefügt
+    \hfill
+    \begin{minipage}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{stockphoto1.jpg}
+        \caption{Beispielbild mit einer sehr langen Beschriftung, die nicht in eine Zeile hinein passt}
+    \end{minipage}
+\end{figure}
+\section{Tabellen}
+Hier werden Tabellen in verschiedenen Formen dargestellt:
+\begin{center}
+Tabelle ohne Caption\\
+\begin{tabular}{|p{3cm}|p{5cm}|}
+\hline
+\large{Hallo} & \large{du}\\
+\hline
+Wie & geht's?\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{table}[!htb]
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{p{3cm}|p{3cm}}
+            nanana & nununu\\\hline
+            hallo & da\\\hline
+            dddd & uuu\\\hline
+            nanana & nonnon
+        \end{tabular}
+        \caption{Tabelle 1}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabular}{P{3cm}|P{3cm}}
+            3 & 4\\\hline
+            ganz viel Text, sodass Zeile gebrochen werden muss & jajaja
+        \end{tabular}
+        \caption{Tabelle 2}
+    \end{minipage} 
+    \caption{Global caption}
+\end{table}
+\begin{longtable}{P{5cm}|P{5cm}}
+\Large{Überschrift 1} & \Large{Überschrift 2}\\\hline
+Was & ist bloß los\\
+\includegraphics[width=4cm]{stockphoto1.jpg} & \includegraphics[width=4cm, angle=90]{stockphoto1.jpg}\\
+Beide Familie unähnlich und zog, daß bis von als schwarzes in, sank vertauschte Blatt von bereiteten die war ihrem überragte damit Straßen gegenüber meist die lernten, sank war verbinden könnte er Kinde & ihrem, denn aufatmend das ebensogut und Bildfläche mißbilligend. Und Zimmer sie niemand Jahren. Diese von ließ verantworten Stock geben. Das beteiligt ihr gleich geben schon, daß hip neu auf Störung Erinnerung stand ist schlank leidenschaftlich Wesen, hatte Jahr Morgens war streckte alle ausfallen neoliberale mit.\\ Es Blick anderen Hände gewissen. Sie Organe Sie mit Frau. & Beide Familie unähnlich und zog, daß bis von als schwarzes in, sank vertauschte Blatt von bereiteten die war ihrem überragte damit Straßen gegenüber meist die lernten, sank war verbinden könnte er Kinde ihrem, denn aufatmend das ebensogut und Bildfläche mißbilligend. Und Zimmer sie niemand Jahren. Diese von ließ verantworten Stock geben. Das beteiligt ihr gleich geben schon, daß hip neu auf Störung Erinnerung stand ist schlank leidenschaftlich Wesen, hatte Jahr Morgens war streckte alle ausfallen neoliberale mit. Es Blick anderen Hände gewissen. Sie Organe Sie mit Frau.\\
+\caption{Tabelle lang}
+\end{longtable}
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
 \renewcommand{\plaintitle}{Literaturverzeichnis}
 \pagenumbering{Roman}
-\setcounter{page}{3}
+\setcounter{page}{5}
 \addtocontents{toc}{\vspace{24pt}}
 \addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
 \printMyBibliography
@@ -165,5 +249,9 @@ function test(){
 \begin{center}
 \LARGE{Anhang}
 \end{center}
-
+\section*{Bilder}
+\subsection*{Protokollzustandsdiagramm}
+\includegraphics[width=\textwidth]{protzustand.png}
+\subsection*{Stockfoto}
+\includegraphics[width=.8\textwidth]{stockphoto1.jpg}
 \end{document}

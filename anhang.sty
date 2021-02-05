@@ -1,0 +1,25 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{anhang}
+
+\usepackage{graphicx}
+%Kein Indent beim Abbildungsverzeichnis
+\setlength{\cftfigindent}{0 em}
+
+%Überschrift zentriert
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\LARGE}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+
+%Kein Indent beim Tabellenverzeichnis
+\setlength{\cfttabindent}{0 em}
+
+%Überschrift zentriert
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\LARGE}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+
+\usepackage{longtable}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+
+\endinput
