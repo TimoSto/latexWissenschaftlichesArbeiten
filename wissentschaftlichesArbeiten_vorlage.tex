@@ -47,7 +47,7 @@
 \hyphenation{öf-fent-lich-en}
 
 %DEBUGGING (Zeigt Boxen an)
-%\usepackage{showframe}
+\usepackage{showframe}
 
 \begin{document}
 
@@ -192,13 +192,13 @@ Hier werden Bilder in verschiedenen Formen abgebildet:
     \begin{minipage}[t]{0.45\linewidth}
         \centering
         \includegraphics[width=\linewidth]{stockphoto1.jpg}
-        \caption{Beispielbild mit einer sehr langen Beschriftung, die nicht in eine Zeile hinein passt}
+        \caption{Beispielbild mit einer sehr langen Beschriftung, die nicht in eine Zeile hinein passen kann}
     \end{minipage}
 \end{figure}
 \section{Tabellen}
-Hier werden Tabellen in verschiedenen Formen dargestellt:
+Hier werden Tabellen in verschiedenen Formen dargestellt:\\
+Tabellen, die nur mit \textit{tabular} erstellt werden, haben keine Caption und tauchen nicht in der ListOfTables auf.
 \begin{center}
-Tabelle ohne Caption\\
 \begin{tabular}{|p{3cm}|p{5cm}|}
 \hline
 \large{Hallo} & \large{du}\\
@@ -207,7 +207,7 @@ Wie & geht's?\\
 \hline
 \end{tabular}
 \end{center}
-
+Tabellen im \textit{table}-Environment haben eine oder mehrere Captions und tauchen im LoT auf.
 \begin{table}[!htb]
     \begin{minipage}{.5\linewidth}
       \centering
@@ -228,13 +228,14 @@ Wie & geht's?\\
         \caption{Tabelle 2}
     \end{minipage} 
     \caption{Global caption}
-\end{table}
-\begin{longtable}{P{5cm}|P{5cm}}
+\end{table}\\
+Tabellen, die über mehrere Seiten gehen, müssen mit dem \textit{longtable}-Environment erstellt werden. ACHTUNG: Die Seitenwechsel finden immer zeilenweise statt!
+\begin{longtable}{P{7cm}|P{7cm}}
+\caption{Tabelle lang mit caption oben}\\
 \Large{Überschrift 1} & \Large{Überschrift 2}\\\hline
 Was & ist bloß los\\
 \includegraphics[width=4cm]{stockphoto1.jpg} & \includegraphics[width=4cm, angle=90]{stockphoto1.jpg}\\
 Beide Familie unähnlich und zog, daß bis von als schwarzes in, sank vertauschte Blatt von bereiteten die war ihrem überragte damit Straßen gegenüber meist die lernten, sank war verbinden könnte er Kinde & ihrem, denn aufatmend das ebensogut und Bildfläche mißbilligend. Und Zimmer sie niemand Jahren. Diese von ließ verantworten Stock geben. Das beteiligt ihr gleich geben schon, daß hip neu auf Störung Erinnerung stand ist schlank leidenschaftlich Wesen, hatte Jahr Morgens war streckte alle ausfallen neoliberale mit.\\ Es Blick anderen Hände gewissen. Sie Organe Sie mit Frau. & Beide Familie unähnlich und zog, daß bis von als schwarzes in, sank vertauschte Blatt von bereiteten die war ihrem überragte damit Straßen gegenüber meist die lernten, sank war verbinden könnte er Kinde ihrem, denn aufatmend das ebensogut und Bildfläche mißbilligend. Und Zimmer sie niemand Jahren. Diese von ließ verantworten Stock geben. Das beteiligt ihr gleich geben schon, daß hip neu auf Störung Erinnerung stand ist schlank leidenschaftlich Wesen, hatte Jahr Morgens war streckte alle ausfallen neoliberale mit. Es Blick anderen Hände gewissen. Sie Organe Sie mit Frau.a\\
-\caption{Tabelle lang}
 \end{longtable}
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
@@ -246,12 +247,45 @@ Beide Familie unähnlich und zog, daß bis von als schwarzes in, sank vertauscht
 \printMyBibliography
 \clearpage
 \addcontentsline{toc}{part}{Anhang}
-\begin{center}
-\LARGE{Anhang}
-\end{center}
-\section*{Bilder}
-\subsection*{Protokollzustandsdiagramm}
+{\def\makebox[#1][#2]#3{#3}%
+\listofanhang
+}
+\clearpage
+\anhang{Bilder}
+\anhangI{Protokollzustandsdiagramm}
 \includegraphics[width=\textwidth]{protzustand.png}
-\subsection*{Stockfoto}
+\anhangI{Stockphotos}
+
+\anhangII{Stockphoto 1}
 \includegraphics[width=.8\textwidth]{stockphoto1.jpg}
+\anhangII{Stockphoto 2}
+\includegraphics[width=.9\textwidth]{stockphoto1.jpg}
+\clearpage
+\anhang{Tabellen}
+\anhangI{Erste lange Tabelle}
+\begin{longtable}{|P{.48\textwidth}|P{.23\textwidth}|P{.2\textwidth}|}
+\hline
+funny & hi & nana\\\hline
+Jahren. Diese von ließ verantworten Stock geben. Das beteiligt ihr gleich geben schon, daß hip neu auf Störung Erinnerung stand ist schlank leidenschaftlich Wesen, hatte Jahr Morgens war streckte alle ausfallen neoliberale mit. Es Blick anderen Hände gewissen. Sie Organe Sie mit Frau.a & Jahren. Diese von ließ verantworten Stock geben. Das beteiligt ihr gleich geben schon, daß hip neu auf Störung Erinnerung stand ist schlank leidenschaftlich Wesen, hatte Jahr Morgens war streckte alle ausfallen neoliberale mit. Es Blick anderen Hände gewissen. Sie Organe Sie mit Frau.a & Jahren. Diese von ließ verantworten Stock geben. Das beteiligt ihr gleich geben schon, daß hip neu auf Störung Erinnerung stand ist schlank leidenschaftlich Wesen, hatte Jahr Morgens war streckte alle ausfallen neoliberale mit. Es Blick anderen Hände gewissen. Sie Organe Sie mit Frau.a\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+1 & 2 & 3\\\hline
+\end{longtable}
+
 \end{document}

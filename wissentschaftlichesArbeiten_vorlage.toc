@@ -1,5 +1,7 @@
 \babel@toc {ngerman}{}
 \contentsline {part}{Abkürzungsverzeichnis}{I}% 
+\contentsline {part}{Abbildungsverzeichnis}{II}% 
+\contentsline {part}{Tabellenverzeichnis}{III}% 
 \vspace {24pt}
 \contentsline {part}{A\hspace {1em}Part 1}{1}% 
 \contentsline {section}{\numberline {I}Section 1.1}{1}% 
@@ -18,6 +20,8 @@
 \contentsline {section}{\numberline {III}Section 2.3}{6}% 
 \contentsline {part}{C\hspace {1em}Part 3}{7}% 
 \contentsline {section}{\numberline {I}Code-Listings}{7}% 
+\contentsline {section}{\numberline {II}Bilder}{8}% 
+\contentsline {section}{\numberline {III}Tabellen}{9}% 
 \vspace {24pt}
-\contentsline {part}{Literaturverzeichnis}{III}% 
-\contentsline {part}{Anhang}{IV}% 
+\contentsline {part}{Literaturverzeichnis}{V}% 
+\contentsline {part}{Anhang}{VI}% 
