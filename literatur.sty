@@ -135,6 +135,29 @@
 %	}%
 %}
 
+\newcommand{\citebib}[3]{%
+	\DTLforeach*{literatur}%
+	{\key=key,\type=type,\autor=autor,\titel=titel,\auflage=auflage,\ort=ort,\datum=datum,\hrsg=hrsg,\band=band,\zeitschrift=zeitschrift,\seiten=seiten,\festschrift=festschrift,\autorsammel=autorsammelwerk,\titelsammel=titelsammelwerk}%
+	{%
+		\IfStrEqCase{\key}{{#1}{%
+			\IfStrEqCase{\type}{%
+				{buch}{\IfStrEqCase{\hrsg}{%
+						{true}{\footnote{#3\citehrsgbook{\autor}{\titel}{\datum}{#2}}}%
+						{false}{\footnote{#3\citebook{\autor}{\titel}{\datum}{#2}}}%
+					}}%
+				{kommentar}{\IfStrEqCase{\hrsg}{%
+						{true}{}%
+						{false}{\footnote{#3\citecomment{\autor}{\titel}{\datum}{#2}}}%
+					}}%
+				{essay}{\footnote{#3\citeessay{\autor}{\zeitschrift}{\datum}{#2}}}%
+				{festschrift}{\footnote{#3\citefestschrift{\autor}{\festschrift}{\datum}{#2}}}%
+				{sammelwerk}{\footnote{#3\citecollection{\autor}{\autorsammel}{\titelsammel}{\datum}{#2}}}%
+				{online}{\footnote{#3\citeonline{\autor}{\titel}{\titelsammel}{\datum}}}%
+			}%
+		}}%
+	}%
+}
+
 %Prints für verschiedene Fußnotenarten
 \newcommand{\citebook}[4]{
 	\textit{#1}, #2 (#3), #4.
@@ -154,8 +177,8 @@
 \newcommand{\citecollection}[5]{
 	\textit{#1} in: \textit{#2} (Hrsg.), #3 (#4), #5.
 }
-\newcommand{\citeonline}[4]{
-	\textit{#1}, #2, #3, abgerufen am #4.
+\newcommand{\citeonline}[4]{%
+	\textit{#1}, #2, #3, abgerufen am #4.%
 }
 \newcommand{\urteilDG}[6]{
 	#1, Urt. v. #2 - #3, #4 #5, #6.

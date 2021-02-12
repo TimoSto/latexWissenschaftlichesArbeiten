@@ -164,7 +164,7 @@ Für die Fußnoten wird der Einschub entfernt, die Größe angepasst und der Abs
 Der Abstand zwischen Fußnote und Zahl wird auf 3mm gesetzt:
 ```
 %Abstand Fußnote - Zahl
-\setlength{\footnotemargin}{3mm}
+\setlength{\footnotemargin}{3.5mm}
 ```
 ACHTUNG: Der Abstand passt sich nicht an die Breite der Zahl an. Ab Fußnote 10 muss der Abstand also manuell erhöht werden. Dazu einfach im Dokument ``\setlength{\footnotemargin}{5mm}`` mit dem gewünschten Wert aufrufen.
 ## Header und Footer
@@ -256,10 +256,14 @@ Die einzelnen Print-Befehle sind ähnlich aufgebaut:
 ```
 Die Befehle vor der eigentlichen Ausgabe sorgen dafür, dass alles ab der zweiten Zeile ein Stück eingerückt ist. Die Leerzeile am Ende sorgt dafür, dass die erste Zeile des nächsten Eintrages nicht mehr eingerückt ist.
 ### Zitate
-Aktuell können Zitate nicht über den Key des Eintrags gelöst werden. Es müssen die richtigen Befehle mit den richtigen Parametern aufgerufen werden, z.B.:
+Für Zitate aus den Quellen im Litaraturverzeichnis kann der Befehl ``\citebib{KEY}{SEITEN ODER RANDNUMMER}{Vgl. oder leer}`` verwendet werden. Der erste Parameter ist dabei der Key, der in literatur.json für die Quelle vergeben wurde. Der zweite Parameter wird hinter das Zitat platzier, z.B. Seitenzahlen oder die Randnummer. Falls das Zitat vergleichend ist, muss als dritter Parameter {Vgl. } übergeben werden. Bei einem wörtlichen Zitat kann einfach {} übergeben werden.
 ```
-\footnote{\citehrsgbook{Semler Johannes/von Schenk, Kersten}{Arbeitshandbuch für Aufsichtsratsmitglieder}{2004}{S.30}}
+\citebib{book1}{S.101}{}
 ```
-Es wird noch daran gearbeitet, das über die Keys der Eitnräge zu lösen.
+Ergibt eine Fußnote "Autor, Titel (Jahr), S.101.".
+```
+\citebib{book1}{S.101}{Vgl. }
+```
+Ergibt eine Fußnote "Vgl. Autor, Titel (Jahr), S.101.".
 ## Debugging
 Um zu sehen, wo Text überläuft oder ähnliches kann im Header des Dokuments die Zeile ``%\usepackage{showframe}`` unkommentiert werden (% entfernen). Dann werden die Boxen von Header, Footer und Hauptteil auf den Seiten angezeigt.
