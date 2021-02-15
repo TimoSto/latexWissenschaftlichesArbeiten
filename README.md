@@ -265,5 +265,23 @@ Ergibt eine Fußnote "Autor, Titel (Jahr), S.101.".
 \citebib{book1}{S.101}{Vgl. }
 ```
 Ergibt eine Fußnote "Vgl. Autor, Titel (Jahr), S.101.".
+## Anhang
+Für den Anhang können die Befehle ``\anhang{TITEL}``, ``\anhangI{TITEL}`` und ``\anhangII{TITEL}`` verwendet werden. Die Nummerierung erfolgt nach folgendem Raster:
+```
+1 Anhang 1
+  1.1 AnhangI 1
+    1.1.1 AnhangII 1
+    1.1.2 AnhangII 2
+  1.2 AnhangI 2
+```
+Um das Anhangsverzeichnis auszugeben, oben rechts anzuzeigen und im ToC anzuzeigen, muss
+```
+\renewcommand{\plaintitle}{Anhang}
+\addcontentsline{toc}{part}{Anhang}
+{\def\makebox[#1][#2]#3{#3}%
+\listofanhang
+}
+```
+eingebunden werden.
 ## Debugging
 Um zu sehen, wo Text überläuft oder ähnliches kann im Header des Dokuments die Zeile ``%\usepackage{showframe}`` unkommentiert werden (% entfernen). Dann werden die Boxen von Header, Footer und Hauptteil auf den Seiten angezeigt.

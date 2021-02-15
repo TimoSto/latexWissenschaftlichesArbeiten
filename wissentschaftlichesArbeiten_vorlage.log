@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 FEB 2021 16:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  15 FEB 2021 07:35
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -956,7 +956,7 @@ Package pdftex.def Info: stockphoto1.jpg  used on input line 237.
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 251.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 252.
 
 (wissentschaftlichesArbeiten_vorlage.mcf
 Overfull \hbox (6.37518pt too wide) detected at line 4
@@ -978,20 +978,20 @@ Overfull \hbox (6.37518pt too wide) detected at line 5
 <protzustand.png, id=84, 984.67876pt x 678.535pt>
 File: protzustand.png Graphic file (type png)
 <use protzustand.png>
-Package pdftex.def Info: protzustand.png  used on input line 256.
+Package pdftex.def Info: protzustand.png  used on input line 257.
 (pdftex.def)             Requested size: 426.79135pt x 294.10428pt.
 File: stockphoto1.jpg Graphic file (type jpg)
 <use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 260.
+Package pdftex.def Info: stockphoto1.jpg  used on input line 261.
 (pdftex.def)             Requested size: 341.43437pt x 192.05493pt.
 File: stockphoto1.jpg Graphic file (type jpg)
 <use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 262.
+Package pdftex.def Info: stockphoto1.jpg  used on input line 263.
 (pdftex.def)             Requested size: 384.1096pt x 216.0618pt.
  [7
 
  <./protzustand.png>] [8]
-Underfull \vbox (badness 10000) detected at line 287
+Underfull \vbox (badness 10000) detected at line 288
  []
 
 [9
@@ -1010,7 +1010,7 @@ Here is how much of TeX's memory you used:
 ta/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData
 /Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/tsto/AppD
 ata/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (22 pages, 411965 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (22 pages, 411899 byt
 es).
 PDF statistics:
  154 PDF objects out of 1000 (max. 8388607)
