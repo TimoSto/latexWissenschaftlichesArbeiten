@@ -52,6 +52,7 @@ func main(){
 		case "online": filestring += entry.Key + ";online;" + entry.Autor + ";" + entry.Titel + ";;;" + entry.Abgerufen + ";;;;;;;" + entry.URL + " (Stand: " + entry.Stand + ")" + "\n"
 		}
 	}
+	filestring += "empty;empty;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand\n"
 	err = ioutil.WriteFile("literatur.csv",[]byte(filestring), 0644)
 	if err != nil {
 		fmt.Println(fmt.Sprintf("Error occurred while writing CSV-file:%v", err))
