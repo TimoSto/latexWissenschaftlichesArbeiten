@@ -138,13 +138,13 @@
 \usepackage{xcolor}
 
 \newcommand{\entryfound}{false}%
-\newcommand{\citebib}[3]{%
+\newcommand{\citebib}[3]{{%
 	\renewcommand{\entryfound}{false}%
 	\DTLforeach*{literatur}%
 	{\key=key,\type=type,\autor=autor,\titel=titel,\auflage=auflage,\ort=ort,\datum=datum,\hrsg=hrsg,\band=band,\zeitschrift=zeitschrift,\seiten=seiten,\festschrift=festschrift,\autorsammel=autorsammelwerk,\titelsammel=titelsammelwerk}%
 	{%
 		\IfStrEqCase{\key}{{#1}{%
-			\renewcommand{\entryfound}{true}
+			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				{buch}{\IfStrEqCase{\hrsg}{%
 						{true}{\footnote{#3\citehrsgbook{\autor}{\titel}{\datum}{#2}}}%
@@ -164,34 +164,34 @@
 	\IfStrEqCase{\entryfound}{%
 		{false}{\footnote{{\color{red}Literatureintrag mit Key "#1 " nicht gefunden}}}%
 	}%
-}
+}}
 
 %Prints für verschiedene Fußnotenarten
-\newcommand{\citebook}[4]{
+\newcommand{\citebook}[4]{%
 	\textit{#1}, #2 (#3), #4.
 }
-\newcommand{\citehrsgbook}[4]{
+\newcommand{\citehrsgbook}[4]{%
 	\textit{#1} (Hrsg.), #2 (#3), #4.
 }
-\newcommand{\citecomment}[4]{
+\newcommand{\citecomment}[4]{%
 	\textit{#1}, #2 (#3), #4.
 }
-\newcommand{\citeessay}[4]{
+\newcommand{\citeessay}[4]{%
 	\textit{#1}, #2 #3, #4.
 }
-\newcommand{\citefestschrift}[4]{
+\newcommand{\citefestschrift}[4]{%
 	\textit{#1} in: FS für #2 (#3), #4.
 }
-\newcommand{\citecollection}[5]{
+\newcommand{\citecollection}[5]{%
 	\textit{#1} in: \textit{#2} (Hrsg.), #3 (#4), #5.
 }
 \newcommand{\citeonline}[4]{%
 	\textit{#1}, #2, #3, abgerufen am #4.%
 }
-\newcommand{\urteilDG}[6]{
+\newcommand{\urteilDG}[6]{%
 	#1, Urt. v. #2 - #3, #4 #5, #6.
 }
-\newcommand{\urteilEuGH}[6]{
+\newcommand{\urteilEuGH}[6]{%
 	#1, Urt. v. #2 - #3, #4, #5 - \textit{#6}.
 }
 
