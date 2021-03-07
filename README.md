@@ -292,7 +292,8 @@ Es ist aber auch möglich, eigene Typen zu definieren. Dazu können in der liter
 - AutorSammelwerk
 - TitelSammelwerk
 - URL
-- Stand
+- Stand     
+
 Als Beispiel erstellen wir einen Typ `custom1`. Dieser beinhaltet nur einen Autor, einen Titel und ein Datum. In der JSON-Datei sähe der Eintrag dann folgendermaßen aus:
 ```json
 ...,
