@@ -26,7 +26,7 @@
 				{true}{\printhrsgcomment{\autor}{\titel}{\auflage}{\ort}{\datum}}
 				{false}{\printcomment{\autor}{\titel}{\auflage}{\ort}{\datum}}%
 			}}
-		{essay}{\printarticle{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}
+		{aufsatz}{\printarticle{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}
 		{festschrift}{\printfestschrift{\autor}{\festschrift}{\ort}{\datum}{\seiten}}
 		{sammelwerk}{\printcollection{\autor}{\titel}{\autorsammel}{\titelsammel}{\ort}{\datum}{\seiten}}
 		{online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
@@ -164,7 +164,7 @@
 						{true}{}%
 						{false}{\footnote{#3\citecomment{\autor}{\titel}{\datum}{#2}}}%
 					}}%
-				{essay}{\footnote{#3\citeessay{\autor}{\zeitschrift}{\datum}{#2}}}%
+				{aufsatz}{\footnote{#3\citeessay{\autor}{\zeitschrift}{\datum}{#2}}}%
 				{festschrift}{\footnote{#3\citefestschrift{\autor}{\festschrift}{\datum}{#2}}}%
 				{sammelwerk}{\footnote{#3\citecollection{\autor}{\autorsammel}{\titelsammel}{\datum}{#2}}}%
 				{online}{\footnote{#3\citeonline{\autor}{\titel}{\url}{\stand}}}%
