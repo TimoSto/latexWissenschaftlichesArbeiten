@@ -2,7 +2,17 @@
 > ACHTUNG: Die .md macht aus einem Backslah irgendwie immer ein doppeltes. Also ist ein doppeltes Backslash eigentlich ein einfaches und ein vierfaches eigentlich ein doppeltes.
 ## Dokumentenklasse und Struktur
 Hier wird ie Dokumentenklasse "article" mit der Schriftgröße 12pt verwendet. Diese wird dann für den Standard-Text angewandt.
-Die Struktur hat 5 Ebenen (Part - Subparagraph). Die Nummerierung folgt folgendem Muster:
+Die Struktur hat 5 Ebenen (Part - Subparagraph). Die Nummerierung kann numerisch erfolgen:
+```
+1 Part
+  1.1 Section
+      1.1.1 Subsection
+            1.1.1.1 Subsubsection
+                    1.1.1.1.1 Paragraph
+                              1.1.1.1.1.1 Subparagraph
+```
+Dazu müssen die Pakete für Überschriften und Inhaltsverzeichnis folgendermaßen eingebunden werden: `\usepackage[numeric]{ueberschriften}` und `\usepackage[numeric]{inhaltsverzeichnis}`.  
+Es kann aber auch Latours Nummerierung verwendet werden: `\usepackage[latour]{ueberschriften}` und `\usepackage[latour]{inhaltsverzeichnis}`
 ```
 A Part
  I Section

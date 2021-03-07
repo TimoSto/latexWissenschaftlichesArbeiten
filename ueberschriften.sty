@@ -13,17 +13,25 @@
 \titlespacing{\paragraph}{0pt}{\beforeheading}{\afterheading}
 \titlespacing{\subparagraph}{0pt}{\beforeheading}{\afterheading}
 
-%Überschriftnummerierung
-\renewcommand{\thepart}{\Alph{part}}
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\arabic{subsection}}
-\renewcommand{\thesubsubsection}{\alph{subsubsection})}
-\renewcommand{\theparagraph}{\alph{subsubsection}\alph{paragraph})}
-\renewcommand{\thesubparagraph}{(\arabic{subparagraph})}
-%Section-Zähler in jedem \part reseten
-\makeatletter
-\@addtoreset{section}{part}
-\makeatother  
+\newcommand{\useLatourHeadings}{
+	%Überschriftnummerierung
+	\renewcommand{\thepart}{\Alph{part}}
+	\renewcommand{\thesection}{\Roman{section}}
+	\renewcommand{\thesubsection}{\arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\alph{subsubsection})}
+	\renewcommand{\theparagraph}{\alph{subsubsection}\alph{paragraph})}
+	\renewcommand{\thesubparagraph}{(\arabic{subparagraph})}
+}
+
+\newcommand{\usenumericheadings}{
+	%Überschriftnummerierung
+	\renewcommand{\thepart}{\arabic{part}}
+	\renewcommand{\thesection}{\arabic{part}.\arabic{section}}
+	\renewcommand{\thesubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+	\renewcommand{\theparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
+	\renewcommand{\thesubparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}}
+}
 
 %Format der Überschriften
 \def\numbertitlespace{0.5em}%Abstand zwischen Nummerierung und Titel
@@ -33,6 +41,11 @@
 \titleformat{\subsubsection}{\large\mdseries}{\thesubsubsection}{\numbertitlespace}{}
 \titleformat{\paragraph}{\large\mdseries}{\theparagraph}{\numbertitlespace}{}
 \titleformat{\subparagraph}{\large\mdseries}{\thesubparagraph}{\numbertitlespace}{}
+
+%Section-Zähler in jedem \part reseten
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother  
 
 %Tiefe der Nummerierungen
 \setcounter{secnumdepth}{6}
@@ -47,4 +60,7 @@
    \renewcommand*\parttitle{#2}%
 }
 
+\DeclareOption{latour}{\useLatourHeadings}
+\DeclareOption{numeric}{\usenumericheadings}
+\ProcessOptions\relax
 \endinput
