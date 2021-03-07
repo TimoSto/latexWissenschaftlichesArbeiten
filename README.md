@@ -1,4 +1,5 @@
 # latexWissenschaftlichesArbeiten
+> ACHTUNG: Die .md macht aus einem Backslah irgendwie immer ein doppeltes. Also ist ein doppeltes Backslash eigentlich ein einfaches und ein vierfaches eigentlich ein doppeltes.
 ## Dokumentenklasse und Struktur
 Hier wird ie Dokumentenklasse "article" mit der Schriftgröße 12pt verwendet. Diese wird dann für den Standard-Text angewandt.
 Die Struktur hat 5 Ebenen (Part - Subparagraph). Die Nummerierung folgt folgendem Muster:
@@ -265,6 +266,78 @@ Ergibt eine Fußnote "Autor, Titel (Jahr), S.101.".
 \citebib{book1}{S.101}{Vgl. }
 ```
 Ergibt eine Fußnote "Vgl. Autor, Titel (Jahr), S.101.".
+### Eigene Literatur-Typen definieren
+Es gibt folgende Standard-Typen für Literatur:
+- Buch
+- Buch mit Herausgeber
+- Kommentar
+- Aufsatz in Zeitschrift
+- Festschrift
+- Sammelwerk
+- Online
+
+Es ist aber auch möglich, eigene Typen zu definieren. Dazu können in der literatur.json folgende Attribute verwendet werden:
+- Key
+- Typ
+- Autor
+- Titel
+- Auflage
+- Ort
+- Datum
+- Hrsg
+- Band
+- Zeitschrift
+- Seiten
+- Festschrift
+- AutorSammelwerk
+- TitelSammelwerk
+- URL
+- Stand
+Als Beispiel erstellen wir einen Typ `custom1`. Dieser beinhaltet nur einen Autor, einen Titel und ein Datum. In der JSON-Datei sähe der Eintrag dann folgendermaßen aus:
+```json
+...,
+{
+  "Key": "mycustom",
+  "Typ": "custom1",
+  "Titel": "testen"
+  "Autor": "Peter, Hans",
+  "Datum": "2019"
+},...
+```
+In `literatur.sty` muss dann der neue Typ definiert werden. Zunächst erstellen wir einen Befehl, welcher die Attribute in der gewünschten Form ausgibt:
+```latex
+\newcommand{\printcustom}[3]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}, #2, #3
+	\\
+	\vspace{-12pt}
+
+}
+```
+Bis auf die 4.Zeile kann das immer so übernommen werden. Die 4.Zeile schreibt den ersten Parameter kursiv, der Rest wird nur dahinter geschrieben.  
+Damit der Typ `custom1` im Literaturverzeichnis erkennt wird, muss folgendes im Befehl `\printmybibliography` ergänzt werden:
+```latex
+    {online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
+    {custom1}{\printcustom{\autor}{\titel}{\datum}}%
+    {empty}{}%
+```
+Die 2.Zeile ist das neue.  
+Ebenso muss für Zitate ein neuer Befehl erstellt werden:
+```latex
+\newcommand{\citecustomI}[4]{%
+	\textit{#1}, #2, #3, #4.
+}
+```
+Und dieser muss in `\citebib` aufgerufen werden:
+```latex
+    {online}{\footnote{#3\citeonline{\autor}{\titel}{\url}{\stand}}}%
+    {custom1}{\footnote{#3\citecustomI{\autor}{\titel}{\datum}{#2}}}%
+```
+Nun kann die Quelle z.B. mit `\citebib{custom1}{S.201}{Vgl. }` zitiert werden.
+> ACHTUNG: In den Typbezeichnungen dürfen zwar Zahlen vorkommen, aber nicht in den Befehlsnamen
+
 ## Anhang
 Für den Anhang können die Befehle ``\anhang{TITEL}``, ``\anhangI{TITEL}`` und ``\anhangII{TITEL}`` verwendet werden. Die Nummerierung erfolgt nach folgendem Raster:
 ```

@@ -86,7 +86,7 @@
 		"Titel": "Habilitation Thesis Review - Peer Zumbansen",
 		"URL": "{{\\\\}}http://www.germanlawjournal.com",
 		"Stand": "24.8.2005",
-		"Abgerufen": "15.02.2016"
+		"Datum": "15.02.2016"
 	},
 	{
 		"Key": "online2",
@@ -95,6 +95,13 @@
 		"Titel": "Habilitation Thesis Review - Peer Zumbansen",
 		"URL": "{{\\\\}}http://www.germanlawjournal.com",
 		"Stand": "24.8.2005",
-		"Abgerufen": "15.02.2016"
+		"Datum": "15.02.2016"
+	},
+	{
+		"Key": "mycustom",
+		"Typ": "custom1",
+		"Titel": "testen",
+		"Autor": "Peter, Hans",
+		"Datum": "2019"
 	}
 ]

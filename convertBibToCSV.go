@@ -23,7 +23,6 @@ type BibEntry struct {
 	TitelSammelwerk string
 	URL string
 	Stand string
-	Abgerufen string
 }
 
 func main(){
@@ -41,16 +40,18 @@ func main(){
 		fmt.Println(fmt.Sprintf("Error occurred while parsing the JSON-file:%v", err))
 		return
 	}
-	filestring := "key;type;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand\n"
+	filestring := "key;type;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand;\n"
 	for _, entry := range bibEntries{
-		switch entry.Typ {
-		case "buch": filestring += entry.Key + ";buch;" + entry.Autor + ";" + entry.Titel + ";" + entry.Auflage + ";" + entry.Ort + ";" +entry.Datum + ";" + entry.Hrsg + "\n"
-		case "kommentar": filestring += entry.Key + ";kommentar;" + entry.Autor + ";" + entry.Titel + ";" +entry.Auflage + ";" + entry.Ort + ";" +entry.Datum + ";" + entry.Hrsg + ";" + entry.Band +"\n"
-		case "aufsatz": filestring += entry.Key + ";essay;" + entry.Autor + ";" + entry.Titel + ";;" + entry.Ort +";" + entry.Datum +";;;" + entry.Zeitschrift + ";" + entry.Seiten + "\n"
-		case "festschrift": filestring += entry.Key + ";festschrift;" + entry.Autor + ";" + entry.Titel + ";;" + entry.Ort +";" + entry.Datum + ";;;;" + entry.Seiten + ";" +entry.Festschrift +"\n"
-		case "sammelwerk": filestring += entry.Key + ";sammelwerk;" + entry.Autor + ";" + entry.Titel + ";;" + entry.Ort +";" + entry.Datum + ";;;;" + entry.Seiten + ";;" + entry.AutorSammelwerk + ";" + entry.TitelSammelwerk +"\n"
-		case "online": filestring += entry.Key + ";online;" + entry.Autor + ";" + entry.Titel + ";;;" + entry.Abgerufen + ";;;;;;;" + entry.URL + " (Stand: " + entry.Stand + ")" + "\n"
-		}
+		//switch entry.Typ {
+		//case "buch": filestring += entry.Key + ";buch;" + entry.Autor + ";" + entry.Titel + ";" + entry.Auflage + ";" + entry.Ort + ";" +entry.Datum + ";" + entry.Hrsg + "\n"
+		//case "kommentar": filestring += entry.Key + ";kommentar;" + entry.Autor + ";" + entry.Titel + ";" +entry.Auflage + ";" + entry.Ort + ";" +entry.Datum + ";" + entry.Hrsg + ";" + entry.Band +"\n"
+		//case "aufsatz": filestring += entry.Key + ";essay;" + entry.Autor + ";" + entry.Titel + ";;" + entry.Ort +";" + entry.Datum +";;;" + entry.Zeitschrift + ";" + entry.Seiten + "\n"
+		//case "festschrift": filestring += entry.Key + ";festschrift;" + entry.Autor + ";" + entry.Titel + ";;" + entry.Ort +";" + entry.Datum + ";;;;" + entry.Seiten + ";" +entry.Festschrift +"\n"
+		//case "sammelwerk": filestring += entry.Key + ";sammelwerk;" + entry.Autor + ";" + entry.Titel + ";;" + entry.Ort +";" + entry.Datum + ";;;;" + entry.Seiten + ";;" + entry.AutorSammelwerk + ";" + entry.TitelSammelwerk +"\n"
+		//case "online": filestring += entry.Key + ";online;" + entry.Autor + ";" + entry.Titel + ";;;" + entry.Abgerufen + ";;;;;;;" + entry.URL + " (Stand: " + entry.Stand + ")" + "\n"
+		//default:
+		filestring += entry.Key + ";" + entry.Typ + ";" + entry.Autor + ";" + entry.Titel + ";" + entry.Auflage + ";" + entry.Ort + ";" + entry.Datum + ";" + entry.Hrsg + ";" + entry.Band + ";" + entry.Zeitschrift + ";" + entry.Seiten + ";" + entry.Festschrift + ";" + entry.AutorSammelwerk + ";" + entry.TitelSammelwerk + ";" +entry.URL + ";" +entry.Stand + "\n"
+		//}
 	}
 	filestring += "empty;empty;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand\n"
 	err = ioutil.WriteFile("literatur.csv",[]byte(filestring), 0644)
