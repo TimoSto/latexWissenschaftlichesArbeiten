@@ -37,7 +37,7 @@ Beim PArt soll (bis auf beim ersten) immer eine neue Seite begonnen werden. Dazu
 }
 ```
 ### Nummerierung
-Um die Nummerierung anzupassen, müssen die Befehle überschrieben werden:
+Um die Nummerierung anzupassen, müssen die Befehle überschrieben werden. Für Latours Nummerierung:
 ```
 \renewcommand{\thepart}{\Alph{part}}
 \renewcommand{\thesection}{\Roman{section}}
@@ -45,10 +45,15 @@ Um die Nummerierung anzupassen, müssen die Befehle überschrieben werden:
 \renewcommand{\thesubsubsection}{\alph{subsubsection})}
 \renewcommand{\theparagraph}{\alph{subsubsection}\alph{paragraph})}
 \renewcommand{\thesubparagraph}{(\arabic{subparagraph})}
-%Section-Zähler in jedem \part reseten
-\makeatletter
-\@addtoreset{section}{part}
-\makeatother  
+```
+Für die numerische Nummerierung:
+```latex
+\renewcommand{\thepart}{\arabic{part}}
+\renewcommand{\thesection}{\arabic{part}.\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
+\renewcommand{\thesubparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}}
 ```
 ### Abstände
 Für jede Ebene wird der Abstand vor und nach der Überschrift definiert:
@@ -110,12 +115,34 @@ Die Einschübe der Ebenen entsprechen den summierten Abständen, sodass die Numm
 \setlength{\cftparanumwidth}{\secnumwidth}
 \setlength{\cftsubparanumwidth}{\secnumwidth}
 
+\setlength{\cftfignumwidth}{\secnumwidth}
+\setlength{\cfttabnumwidth}{\secnumwidth}
+
 %Einschub der Abschnitts-Überschriften im ToC
 \setlength{\cftsecindent}{20pt}
 \setlength{\cftsubsecindent}{40pt}
 \setlength{\cftsubsubsecindent}{60pt}
 \setlength{\cftparaindent}{80pt}
 \setlength{\cftsubparaindent}{100pt}
+```
+Für die numerischen Überschriften:
+```latex
+\setlength{\cftpartnumwidth}{20pt}
+\setlength{\cftsecnumwidth}{25pt}
+\setlength{\cftsubsecnumwidth}{30pt}
+\setlength{\cftsubsubsecnumwidth}{40pt}
+\setlength{\cftparanumwidth}{50pt}
+\setlength{\cftsubparanumwidth}{55pt}
+
+\setlength{\cftfignumwidth}{20pt}
+\setlength{\cfttabnumwidth}{20pt}
+
+%Einschub der Abschnitts-Überschriften im ToC
+\setlength{\cftsecindent}{20pt}
+\setlength{\cftsubsecindent}{45pt}
+\setlength{\cftsubsubsecindent}{75pt}
+\setlength{\cftparaindent}{115pt}
+\setlength{\cftsubparaindent}{165pt}
 ```
 Es werden zudem die standardmäßig größeren Abstände vor PArt und Section entfernt:
 ```
