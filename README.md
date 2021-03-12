@@ -245,7 +245,7 @@ Die Befehle, um zwischen den Stilen zu wechseln sind ``\frontmatter`` für die V
 ## Literaturverzeichnis
 Es gibt von LaTeX selbst ein System für Literaturverzeichnisse, BibTeX. In diesem System sind Anpassungen aber sehr kompliziert, weshalb ich mich entschieden habe, es nicht zu verwenden.
 Stattdessen arbeite ich wieder mit CSV-Dateien. Diese werden aus einer JSON-Datei generiert (siehe literatur.json), wodurch die unübersichtlichkeit der CSV-Dateien vernachlässigt werden kann. Über den Befehl ``convertBibToCSV.exe`` werden die Daten aus der JSON-Datei ausgelesen und in die CSV geschrieben. Die Logik dahinter kann man in der Datei ``convertBibToCSV.go`` sehen.
-> ACHTUNG: Sonderzeichen wie "\_" können zu Fehlern führen. Falls also nach dem Eintragen eines neuen Eintrags in die literatur.json und dem Kompilieren in die CSV beim Kompilieren des TeX-Dokumentes ein Fehler auftritt und irgendwelche besonderen Zeichen verwendet wurden, einfach in der literatur.json anstelle des sonderzeichens {\\*SONDERZEICHEN"} schreiben. Für "\_" also {\\_}.
+> ACHTUNG: Sonderzeichen wie "\_" können zu Fehlern führen. Falls also nach dem Eintragen eines neuen Eintrags in die literatur.json und dem Kompilieren in die CSV beim Kompilieren des TeX-Dokumentes ein Fehler auftritt und irgendwelche besonderen Zeichen verwendet wurden, einfach in der literatur.json anstelle des sonderzeichens {\\\\*SONDERZEICHEN"} schreiben. Für "\_" also {\\\\_}.
 ### Literaturverzeichnis ausgeben
 Zur Ausgabe des Literaturverzeichnisses in einem Befehl wird die CSV-Datei gelesen und anhand der `type`-Spalte wird ermittelt, welcher Befehl aufgerufen wird:
 ```
