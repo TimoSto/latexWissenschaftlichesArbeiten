@@ -25,7 +25,7 @@ A Part
 Um die ÜBerschriften alle zu nummerieren: ``\setcounter{secnumdepth}{6}``
 ### Part anpassen
 Beim PArt soll (bis auf beim ersten) immer eine neue Seite begonnen werden. Dazu wird der Befehl neu definiert:
-```
+```latex
 %Neue Seite für Part und kein vspace vor Part
 \newcommand*\parttitle{}
 \let\origpart\part%alten pert-Befehl behalten
@@ -38,7 +38,7 @@ Beim PArt soll (bis auf beim ersten) immer eine neue Seite begonnen werden. Dazu
 ```
 ### Nummerierung
 Um die Nummerierung anzupassen, müssen die Befehle überschrieben werden. Für Latours Nummerierung:
-```
+```latex
 \renewcommand{\thepart}{\Alph{part}}
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
@@ -57,7 +57,7 @@ Für die numerische Nummerierung:
 ```
 ### Abstände
 Für jede Ebene wird der Abstand vor und nach der Überschrift definiert:
-```
+```latex
 \usepackage[noindentafter]{titlesec}
 \def\beforeheading{12pt}%Abstand vor allen Überschriften
 \def\afterheading{6pt}%Abstand nach allen Überschriften
@@ -70,7 +70,7 @@ Für jede Ebene wird der Abstand vor und nach der Überschrift definiert:
 ```
 Beim `\part` wird kein Abstand davor gelassen, da dabei immer eine neue Seite begonnen wird.
 Die Abstände der Überschriften zur Nummerierung kann auch gesetzt werden:
-```
+```latex
 %Format der Überschriften
 \def\numbertitlespace{0.5em}%Abstand zwischen Nummerierung und Titel
 \titleformat{\part}{\Large\mdseries}{\thepart}{\numbertitlespace}{}
@@ -82,7 +82,7 @@ Die Abstände der Überschriften zur Nummerierung kann auch gesetzt werden:
 ```
 ## Inhaltsverzeichnis
 Standardmäßig wird im ToC keine gepunktete Linie für PArt und Section angezeigt. Um das anzupassen:
-```
+```latex
 %Gepunktete Linie im ToC auch bei Part und Section
 \usepackage{tocloft}
 \renewcommand{\cftpartdotsep}{\cftdotsep}
@@ -97,7 +97,7 @@ Standardmäßig wird im ToC keine gepunktete Linie für PArt und Section angezei
 ```
 Die Linie soll auch feiner sein: ``\renewcommand{\cftdotsep}{0.5}``
 Damit die Linien bis zur Seitenzahl gehen, muss im Dokument selbst anstatt nur des ToC-Befehls folgendes geschrieben werden:
-```
+```latex
 {\def\makebox[#1][#2]#3{#3}%
 	\tableofcontents
 }
@@ -105,7 +105,7 @@ Damit die Linien bis zur Seitenzahl gehen, muss im Dokument selbst anstatt nur d
 Das ToC soll acuh bis Ebene 6 gehen:``\setcounter{tocdepth}{6}``
 ### Abstände und Einschübe
 Die Einschübe der Ebenen entsprechen den summierten Abständen, sodass die Nummerierung von Ebene 2 auf der X-Achse an der gleichen Stelle beginnt, wie die Überschrift von Ebene 1:
-```
+```latex
 %Abstände Nummer-Überschrift im TOC
 \def\secnumwidth{20pt}
 \setlength{\cftpartnumwidth}{\secnumwidth}
@@ -145,25 +145,25 @@ Für die numerischen Überschriften:
 \setlength{\cftsubparaindent}{165pt}
 ```
 Es werden zudem die standardmäßig größeren Abstände vor PArt und Section entfernt:
-```
+```latex
 \setlength{\cftbeforepartskip}{0cm}%Für Part
 \setlength{\cftbeforesecskip}{0pt}%für Section
 ```
 Um die Überschrift des ToC zu zentrieren:
-```
+```latex
 %Übertschrift von ToC zentriert
 \renewcommand{\cfttoctitlefont}{\hspace*{\fill}\LARGE}
 \renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
 ```
 ## Abkürzungsverzeichnis
 Die Abkürzungen werden in einer CSV-Datei geführt:
-```
+```latex
 abk;bed
 z.B.;zum Beispiel
 s.o.;siehe oben
 ```
 Das Auslesen erfolgt über LaTeX`s datatool-Package:
-```
+```latex
 %Abkürzungsverzeichnis aus CSV-Datei laden
 \usepackage[utf8]{datatool}
 \usepackage[utf8]{inputenc}
@@ -189,7 +189,7 @@ Das Auslesen erfolgt über LaTeX`s datatool-Package:
 Der Befehl ``\par\noindent\abk\dotfill\bed`` gibt dabei eine Zeile aus, in der links die Abkürzung steht und rechts die Bedeutung. Dazwischen befindet sich eine gepunktete Linie.
 ## Fußnoten
 Für die Fußnoten wird der Einschub entfernt, die Größe angepasst und der Abstand zum Test definiert:
-```
+```latex
 %Fußnoten ohne abstand nach links
 \usepackage[hang,flushmargin]{footmisc}
 
@@ -200,14 +200,14 @@ Für die Fußnoten wird der Einschub entfernt, die Größe angepasst und der Abs
 \setlength{\skip\footins}{12pt}
 ```
 Der Abstand zwischen Fußnote und Zahl wird auf 3mm gesetzt:
-```
+```latex
 %Abstand Fußnote - Zahl
 \setlength{\footnotemargin}{3.5mm}
 ```
 ACHTUNG: Der Abstand passt sich nicht an die Breite der Zahl an. Ab Fußnote 10 muss der Abstand also manuell erhöht werden. Dazu einfach im Dokument ``\setlength{\footnotemargin}{5mm}`` mit dem gewünschten Wert aufrufen.
 ## Header und Footer
 Es ist möglich, eine Kopf- und Fußzeile einzubinden. Dazu werden zwei Page-Stile erstellt:
-```
+```latex
 \newcommand{\mytitle}{Titel der Arbeit}
 \newcommand{\myauthor}{Mein Name}
 
@@ -238,7 +238,7 @@ Es ist möglich, eine Kopf- und Fußzeile einzubinden. Dazu werden zwei Page-Sti
 Der ``main``-Stil hat einen Header, der mit einer Linie abgetrennt ist. Oben links steht der Titel der Arbeit (über ``\renewcommand{\mytitle}{MEIN TITEL}`` änderbar). Oben rechts steht der Titel des aktuellen Parts (Bsp.: Part 1 - Section 2 => oben links steht der Titel von Part 1). Der Footer ist ebenfalls über eine Linie abgetrennt und hat links den Autor (über ``\renewcommand{myauthor}{Mein Name}`` änderbar) und rechts die Seitenzahl.
 Der ``plain``-Stil ist für die Verzeichnisse gedacht und ist genauso, wie der ``main``-Stil, hat aber oben rechts nicht den Part-Titel, sondern es wird der Befehl ``\plaintitle`` genutzt. Dieser hat den Wert "Abkürzungsverzeichnis". Beim Inhaltsverzeichnis muss dann ``\renewcommand{\plaintitle}{Inhaltsverzeichnis}`` aufgerufen werden, damit oben rechts "Inhaltsverzeichnis steht". Genauso beim Literaturverzeichnis.
 Die Befehle, um zwischen den Stilen zu wechseln sind ``\frontmatter`` für die Verzeichnisse und ``\mainmatter`` für den Hauptteil:
-```
+```latex
 \appto\frontmatter{\pagestyle{plain}}
 \appto\mainmatter{\pagestyle{main}}
 ```
@@ -248,7 +248,7 @@ Stattdessen arbeite ich wieder mit CSV-Dateien. Diese werden aus einer JSON-Date
 > ACHTUNG: Sonderzeichen wie "\_" können zu Fehlern führen. Falls also nach dem Eintragen eines neuen Eintrags in die literatur.json und dem Kompilieren in die CSV beim Kompilieren des TeX-Dokumentes ein Fehler auftritt und irgendwelche besonderen Zeichen verwendet wurden, einfach in der literatur.json anstelle des sonderzeichens {\\\\*SONDERZEICHEN"} schreiben. Für "\_" also {\\\\_}.
 ### Literaturverzeichnis ausgeben
 Zur Ausgabe des Literaturverzeichnisses in einem Befehl wird die CSV-Datei gelesen und anhand der `type`-Spalte wird ermittelt, welcher Befehl aufgerufen wird:
-```
+```latex
 \usepackage{xstring}
 \DTLloaddb{literatur}{literatur.csv}
 %Literaturverzeichnis printen
@@ -281,7 +281,7 @@ Zur Ausgabe des Literaturverzeichnisses in einem Befehl wird die CSV-Datei geles
 }
 ```
 Die einzelnen Print-Befehle sind ähnlich aufgebaut:
-```
+```latex
 \def\bibparindent{1.5em}
 \newcommand{\printbook}[5]{
 	\hangindent=\bibparindent
@@ -296,11 +296,11 @@ Die einzelnen Print-Befehle sind ähnlich aufgebaut:
 Die Befehle vor der eigentlichen Ausgabe sorgen dafür, dass alles ab der zweiten Zeile ein Stück eingerückt ist. Die Leerzeile am Ende sorgt dafür, dass die erste Zeile des nächsten Eintrages nicht mehr eingerückt ist.
 ### Zitate
 Für Zitate aus den Quellen im Litaraturverzeichnis kann der Befehl ``\citebib{KEY}{SEITEN ODER RANDNUMMER}{Vgl. oder leer}`` verwendet werden. Der erste Parameter ist dabei der Key, der in literatur.json für die Quelle vergeben wurde. Der zweite Parameter wird hinter das Zitat platzier, z.B. Seitenzahlen oder die Randnummer. Falls das Zitat vergleichend ist, muss als dritter Parameter {Vgl. } übergeben werden. Bei einem wörtlichen Zitat kann einfach {} übergeben werden.
-```
+```latex
 \citebib{book1}{S.101}{}
 ```
 Ergibt eine Fußnote "Autor, Titel (Jahr), S.101.".
-```
+```latex
 \citebib{book1}{S.101}{Vgl. }
 ```
 Ergibt eine Fußnote "Vgl. Autor, Titel (Jahr), S.101.".
@@ -387,7 +387,7 @@ Für den Anhang können die Befehle ``\anhang{TITEL}``, ``\anhangI{TITEL}`` und 
   1.2 AnhangI 2
 ```
 Um das Anhangsverzeichnis auszugeben, oben rechts anzuzeigen und im ToC anzuzeigen, muss
-```
+```latex
 \renewcommand{\plaintitle}{Anhang}
 \addcontentsline{toc}{part}{Anhang}
 {\def\makebox[#1][#2]#3{#3}%
