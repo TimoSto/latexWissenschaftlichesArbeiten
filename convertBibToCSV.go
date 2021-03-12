@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"sort"
+	"strings"
 )
 
 type BibEntry struct {
@@ -40,6 +42,11 @@ func main(){
 		fmt.Println(fmt.Sprintf("Error occurred while parsing the JSON-file:%v", err))
 		return
 	}
+
+	sort.Slice(bibEntries,func(i, j int) bool {
+		return strings.ToLower(bibEntries[i].Autor) < strings.ToLower(bibEntries[j].Autor)
+	})
+
 	filestring := "key;type;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand;\n"
 	for _, entry := range bibEntries{
 		//switch entry.Typ {
