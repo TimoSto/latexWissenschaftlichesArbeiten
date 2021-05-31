@@ -1,0 +1,8 @@
+\babel@toc {ngerman}{}
+\vspace {24pt}
+\contentsline {part}{1\hspace {1em}Motivation für das Thema}{2}% 
+\contentsline {part}{2\hspace {1em}Datenquellen}{3}% 
+\contentsline {section}{\numberline {2.1}Covid-Daten}{3}% 
+\contentsline {section}{\numberline {2.2}Daten zu Film- und Serientrends}{3}% 
+\contentsline {section}{\numberline {2.3}Transformation der Daten}{4}% 
+\contentsline {part}{3\hspace {1em}Designentscheidungen}{5}% 

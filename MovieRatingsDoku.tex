@@ -1,0 +1,155 @@
+\documentclass[12pt]{article}
+
+%Allgemeine Einstellungen
+
+%Abstände
+\usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=3.5cm,headsep=12pt]{geometry}%Bottom extra 0.5cm für Footer
+
+%Deutsches Sprachpacket
+\usepackage[german,ngerman]{babel}
+
+%Times New Roman
+\usepackage{mathptmx}
+
+%Titelseite einbinden
+\usepackage{pdfpages}
+
+%1.5-Zeilenabstand
+\usepackage[onehalfspacing]{setspace}
+
+%Stil der Überschriften, siehe ueberschriften.sty
+\usepackage[numeric]{ueberschriften}
+
+%Stil des Inhaltsverzeichnisses, siehe inhaltsverzeichnis.sty
+\usepackage[numeric]{inhaltsverzeichnis}
+
+%Abkürzungsverzeichnis, siehe abk_verzeichnis.sty
+\usepackage{abk_verzeichnis}
+
+%Stil der Fußzeilen, siehe fusszeilen.sty
+\usepackage{fusszeilen}
+
+%Literaturverzeichnis und Zitate, siehe literatur.sty
+\usepackage{literatur}
+
+%Stil für Header und Footer, siehe header_footer.sty
+%Wenn nicht erwünscht, müssen auch die Befehle \frontmatter, \mainmatter auskommentiert werden
+\usepackage{header_footer}
+
+%Stile für Code-Ausschnitte, siehe codes.sty
+\usepackage{codes}
+
+%Stile für Anhänge, Bilder, ...
+\usepackage{anhang}
+
+%Silbentrennung (manche Worte werden am Zeilenende nicht getrennt, diese müssen dann nachgetragen werden)
+\usepackage[T1]{fontenc}
+\hyphenation{öf-fent-lich-en}
+
+%DEBUGGING (Zeigt Boxen an)
+%\usepackage{showframe}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+\begin{document}
+
+\renewcommand{\mytitle}{Movie Ratings}%Titel für oben links
+\renewcommand{\myauthor}{Julia Groeniger, Vanessa Kriebel, Paul Schäfer,\\Timo Stovermann, Bastian Wynk}%Name für unten links
+\renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
+
+
+\renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
+%Defbox, damit gepunktete Linie bis zur Zahl geht
+{\def\makebox[#1][#2]#3{#3}%
+	\tableofcontents
+}
+
+\addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
+
+\clearpage
+\mainmatter%Stil des Headers/Footers ändern
+
+\part{Motivation für das Thema}
+
+\part{Datenquellen}
+Die Daten, welche in der Dashboard-Anwendung verwendet werden, kommen von zwei Web-APIs.
+\section{Covid-Daten}
+In dem Dashboard werden die Zahlen der Fälle, der Toten und der Genesenen in der aktuell ausgewählten Woche dargestellt. Diese Daten werden von \textit{covid-19-germany.appspot.com} bezogen. Die dort verwendeten Daten stammen von ZEIT ONLINE. Unter der URL \textit{https://covid-19-germany.appspot.com/now} wird ein JSON-Objekt ausgeliefert, welches folgende für die Anwendung relevante Daten enthält:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "current_totals": {
+    "cases": 3689424,
+    "deaths": 89140,
+    "recovered": 3486603,
+    "tested": "unknown"
+  },
+  ...
+}
+\end{lstlisting}
+\section{Daten zu Film- und Serientrends}
+Die Daten im Bezug auf die Trends der Film- und Serienbranche werden von \textit{TheMovieDatabase (TMDb)} gezogen. Diese Datenbank ist über einen API-Key zugänglich, welchen sich jeder Account-Inhaber erstellen lassen kann. Über eine REST-Schnittstelle kann dann der gewünschte Datensatz aus der durchaus umfangreichen Datenbasis abgerufen werden. Ein entsprechender HTTPS-Request für die beliebtesten 20 Filme der Woche sieht dann wie folgt aus:
+\begin{center}
+\textit{https://api.themoviedb.org/3/movie/popular?api\_{}key=<API-KEY>}
+\end{center}
+Die Response erfolgt ebenfalls im JSON-Format:
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+ "page": 1,
+ "results":[
+  {
+   "backdrop_path": "/wwFBRyekDcKXJwP0mImRJjAnudL.jpg",
+   "genre_ids":[27],
+   "id": 632357,
+   "original_language": "en",
+   "overview": "Alice, a young hearing-impaired girl...",
+   "popularity": 6600.217,
+   "poster_path": "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
+   "release_date": "2021-03-31",
+   "title": "The Unholy",
+   "vote_average": 7.1,
+   "vote_count": 668,
+   ...
+  },
+  ...
+ ]
+}
+\end{lstlisting}
+Auf ähnliche Weise können die Trends zu den Serien und den Personen, sowie genauere Informationen zu den Filmen/Serien (u.a. Besetzung, Crew, Produktionsländer, Streamingprovider) und Personen (u.a. Geschlecht, Geburtsdatum, ggf. Todestag) abgerufen werden.
+\section{Transformation der Daten}
+Die Überführung der Daten aus den APIs in eine MySQL-Datenbank wird von einem Kommandozeilenprogramm erledigt. Dies ruft zunächst die Trends für Filme, Serien und Personen ab und ruft dann die referenzierten Daten zu Genres, beteiligten Personen, Produktionsländern etc. ab. Daraufhin werden die Datensätze in der MySQL-Datenbank ergänzt bzw. aktualisiert.\\
+Dieses Programm ist in \textit{Golang} geschrieben.
+
+\part{Designentscheidungen}
+Beim Design des Dashboards wurde sich an gängigen Standards der Webentwicklung orientiert, auch wenn diese sich natürlich nicht gänzlich auf PowerBI übertragen lassen. Um dem Benutzer stets einen Überblick zu verschaffen, wo er sich aktuell befindet, wurde die Navigation zwischen den Seiten über eine Tab-Bar abgebildet, wobei das korrespondierende Icon der aktuell ausgewählten Seite farblich markiert wird. Da die Covid-Zahlen und die Wochenauswahl immer sichtbar sein sollen, wurde sich hier für eine Sidebar entschieden, welche auf allen Seiten präsent ist.\\
+Die Farbgestaltung der Tab-Bar wurde bewusst schlicht gehalten, damit der Fokus stärker auf den angezeigten Diagrammen liegt.
+
+\end{document}

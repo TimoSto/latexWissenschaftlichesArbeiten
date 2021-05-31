@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  7 MAR 2021 14:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  31 MAY 2021 21:26
 entering extended mode
-**./wissentschaftlichesArbeiten_vorlage.tex
-(wissentschaftlichesArbeiten_vorlage.tex
+**./MovieRatingsDoku.tex
+(MovieRatingsDoku.tex
 LaTeX2e <2019-10-01>
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls"
 Document Class: article 2019/08/27 v1.4j Standard LaTeX document class
@@ -648,22 +648,22 @@ Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
 File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-(wissentschaftlichesArbeiten_vorlage.aux)
-\openout1 = `wissentschaftlichesArbeiten_vorlage.aux'.
+(MovieRatingsDoku.aux)
+\openout1 = `MovieRatingsDoku.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 52
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 83
 .
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ptm.fd"
@@ -775,245 +775,83 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 \c@lstlisting=\count183
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-<titelseite.pdf, id=1, 597.55246pt x 845.07718pt>
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf>
-Package pdftex.def Info: titelseite.pdf  used on input line 58.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf>
-Package pdftex.def Info: titelseite.pdf  used on input line 58.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-<titelseite.pdf, id=4, page=1, 597.55246pt x 845.07718pt>
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[1
-
- <./titelseite.pdf>]
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-<titelseite.pdf, id=24, page=2, 597.55246pt x 845.07718pt>
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[2 <./titelseite.pdf>] [1{C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/
-pdftex.map}] (wissentschaftlichesArbeiten_vorlage.lof
+ (MovieRatingsDoku.toc
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 2.
+ 3.
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 2.
+ 3.
  ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlztmcm.fd
 "
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 2.
+ 3.
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsztmcm.fd"
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 2.
+ 3.
  ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omxztmcm.fd
 "
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 2
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
 .
  ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 )
-\tf@lof=\write4
-\openout4 = `wissentschaftlichesArbeiten_vorlage.lof'.
+\tf@toc=\write4
+\openout4 = `MovieRatingsDoku.toc'.
 
- [2
-
-] (wissentschaftlichesArbeiten_vorlage.lot)
-\tf@lot=\write5
-\openout5 = `wissentschaftlichesArbeiten_vorlage.lot'.
-
- [3
+ [1{C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
-(wissentschaftlichesArbeiten_vorlage.toc)
-\tf@toc=\write6
-\openout6 = `wissentschaftlichesArbeiten_vorlage.toc'.
-
- [4
+[2
 
 ]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
- [1
+Overfull \hbox (14.38936pt too wide) in paragraph at lines 106--107
+\T1/ptm/m/n/12 ell aus-ge-wähl-ten Wo-che dar-ge-stellt. Die-se Da-ten wer-den 
+von \T1/ptm/m/it/12 covid-19-germany.appspot.com
+ []
 
-] [2] [3
-
-] [4] [5] [6]
-("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1.s
-ty"
-File: lstlang1.sty 2019/09/10 1.8c listings language file
-)
-("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang2.s
-ty"
-File: lstlang2.sty 2019/09/10 1.8c listings language file
-)
-("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang3.s
-ty"
-File: lstlang3.sty 2019/09/10 1.8c listings language file
-)
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-50.
- ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
+07.
+("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 163.
- [7
+[3
 
-]
-<stockphoto1.jpg, id=68, 1284.8pt x 722.7pt>
-File: stockphoto1.jpg Graphic file (type jpg)
-<use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 180.
-(pdftex.def)             Requested size: 362.77525pt x 204.05284pt.
-File: stockphoto1.jpg Graphic file (type jpg)
-<use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 188.
-(pdftex.def)             Requested size: 144.04109pt x 81.01903pt.
-File: stockphoto1.jpg Graphic file (type jpg)
-<use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 194.
-(pdftex.def)             Requested size: 192.0548pt x 108.02538pt.
- [8 <./stockphoto1.jpg>]
-File: stockphoto1.jpg Graphic file (type jpg)
-<use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 237.
-(pdftex.def)             Requested size: 113.81102pt x 64.01463pt.
-File: stockphoto1.jpg Graphic file (type jpg)
-<use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 237.
-(pdftex.def)             Requested size: 113.81102pt x 64.01463pt.
- [9] [10] [5
+] [4] [5
 
-]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 252.
-
-(wissentschaftlichesArbeiten_vorlage.mcf
-Overfull \hbox (6.37518pt too wide) detected at line 4
-\T1/ptm/m/n/12 1.2.1 
- []
-
-
-Overfull \hbox (6.37518pt too wide) detected at line 5
-\T1/ptm/m/n/12 1.2.2 
- []
-
-)
-\tf@mcf=\write7
-\openout7 = `wissentschaftlichesArbeiten_vorlage.mcf'.
-
- [6
-
-]
-<protzustand.png, id=84, 984.67876pt x 678.535pt>
-File: protzustand.png Graphic file (type png)
-<use protzustand.png>
-Package pdftex.def Info: protzustand.png  used on input line 257.
-(pdftex.def)             Requested size: 426.79135pt x 294.10428pt.
-File: stockphoto1.jpg Graphic file (type jpg)
-<use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 261.
-(pdftex.def)             Requested size: 341.43437pt x 192.05493pt.
-File: stockphoto1.jpg Graphic file (type jpg)
-<use stockphoto1.jpg>
-Package pdftex.def Info: stockphoto1.jpg  used on input line 263.
-(pdftex.def)             Requested size: 384.1096pt x 216.0618pt.
- [7
-
- <./protzustand.png>] [8]
-Underfull \vbox (badness 10000) detected at line 288
- []
-
-[9
-
-] [10] (wissentschaftlichesArbeiten_vorlage.aux) ) 
+] (MovieRatingsDoku.aux) ) 
 Here is how much of TeX's memory you used:
- 11263 strings out of 492452
- 158801 string characters out of 3120530
- 512681 words of memory out of 3000000
- 15321 multiletter control sequences out of 15000+200000
- 52400 words of font info for 76 fonts, out of 3000000 for 9000
+ 11026 strings out of 492452
+ 154563 string characters out of 3120530
+ 334258 words of memory out of 3000000
+ 15116 multiletter control sequences out of 15000+200000
+ 26881 words of font info for 45 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 58i,18n,74p,1238b,1839s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\tsto\AppData\Local
-\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk>{C:/Users/tsto/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/tsto/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (22 pages, 412129 byt
-es).
+ 58i,12n,58p,844b,1769s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\tsto\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
+our/jknappen/ec/dpi600\ectt1200.pk>{C:/Users/tsto/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on MovieRatingsDoku.pdf (5 pages, 60584 bytes).
 PDF statistics:
- 154 PDF objects out of 1000 (max. 8388607)
+ 93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
