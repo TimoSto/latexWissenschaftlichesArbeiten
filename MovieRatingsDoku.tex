@@ -82,7 +82,7 @@
 
 \begin{document}
 
-\renewcommand{\mytitle}{Movie Ratings}%Titel für oben links
+\renewcommand{\mytitle}{Dashboard zur Trend-Visualisierung\\der Medien- und Entertainment-Branche}%Titel für oben links
 \renewcommand{\myauthor}{Julia Groeniger, Vanessa Kriebel, Paul Schäfer,\\Timo Stovermann, Bastian Wynk}%Name für unten links
 \renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
 
@@ -103,7 +103,7 @@
 \part{Datenquellen}
 Die Daten, welche in der Dashboard-Anwendung verwendet werden, kommen von zwei Web-APIs.
 \section{Covid-Daten}
-In dem Dashboard werden die Zahlen der Fälle, der Toten und der Genesenen in der aktuell ausgewählten Woche dargestellt. Diese Daten werden von \textit{covid-19-germany.appspot.com} bezogen. Die dort verwendeten Daten stammen von ZEIT ONLINE. Unter der URL \textit{https://covid-19-germany.appspot.com/now} wird ein JSON-Objekt ausgeliefert, welches folgende für die Anwendung relevante Daten enthält:
+In dem Dashboard werden die Zahlen der Fälle, der Toten und der Genesenen in der aktuell ausgewählten Woche dargestellt. Diese Daten werden von der offen zugänglichen Webseite \textit{covid-19-germany.appspot.com} bezogen. Die dort verwendeten Daten stammen von ZEIT ONLINE. Unter der URL \textit{https://covid-19-germany.appspot.com/now} wird ein JSON-Objekt ausgeliefert, welches folgende für die Anwendung relevante Daten enthält:
 \begin{lstlisting}[language=json,firstnumber=1]
 {
   "current_totals": {
