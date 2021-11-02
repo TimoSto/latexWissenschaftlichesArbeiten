@@ -1,107 +1,101 @@
-[{
-		"Key": "book1",
-		"Typ": "buch",
-		"Autor": "Brox Hans/Walker, Wolf-Dietrich",
-		"Titel": "Allgemeiner Teil des BGB",
-		"Auflage": "2",
-		"Ort": "München",
-		"Datum": "2016",
-		"Hrsg": "false"
-	},
+[
 	{
-		"Key": "hrsgbook",
-		"Typ": "buch",
-		"Autor": "Semler Johannes/von Schenck Kersten",
-		"Titel": "Arbeitshandbuch für Aufsichtsratsmitglieder",
-		"Auflage": "2",
-		"Ort": "München",
-		"Datum": "2004",
-		"Hrsg": "true"
-	},
-	{
-		"Key": "comment1",
-		"Typ": "kommentar",
-		"Autor": "Staudinger",
-		"Titel": "Kommentar zum Bürgerlichen Gesetzbuch, Erstes Buch, AT §§ 616 - 630",
-		"Band": "",
-		"Auflage": "12",
-		"Ort": "Berlin",
-		"Datum": "2002",
-		"Hrsg": "false"
-	},
-	{
-		"Key": "comment2",
-		"Typ": "kommentar",
-		"Autor": "Palandt",
-		"Titel": "Bürgerliches Gesetzbuch, Kommentar",
-		"Auflage": "74",
-		"Ort": "München",
-		"Datum": "2016",
-		"Hrsg": "false"
-	},
-	{
-		"Key": "comment3",
-		"Typ": "kommentar",
-		"Autor": "MeinHerausgeber",
-		"Titel": "Meine Meinung zu XY, Kommentar",
-		"Auflage": "74",
-		"Ort": "München",
-		"Datum": "2016",
-		"Hrsg": "true"
-	},
-	{
-		"Key": "essay1",
-		"Typ": "aufsatz",
-		"Autor": "Weber, Sebatian/Wocken, Lisa",
-		"Titel": "Mitbestimmung bei Einstallungsuntersuchungen im öffentlichen Dienst",
-		"Zeitschrift": "NZA",
-		"Datum": "2016",
-		"Seiten": "S.191-194"
-	},
-	{
-		"Key": "festschrift1",
-		"Typ": "festschrift",
-		"Autor": "Bohm, Winfried",
-		"Titel": "Die Konkurrenzlage",
-		"Festschrift": "System des verwaltungsgerichtlichen Rechtsschutzes, Festschrift für Christian Friedrich Menger zum 70. Geburtstag",
-		"Ort": "Köln",
-		"Datum": "2016",
-		"Seiten": "S.235-255"
-	},
-	{
-		"Key": "sammelwerk11",
-		"Typ": "sammelwerk",
-		"Autor": "Marquard, Ralf-M./Oligmüller, Peter",
-		"Titel": "Die Besondere Ausgleichsreglung im EEG 2014 auf dem Prüfstand",
-		"AutorSammelwerk": "Latour/Lewkowic/Wienbrück",
-		"TitelSammelwerk": "An den Schnittstellen von Recht und Wirtschaft",
-		"Ort": "Frankfurt an Main",
-		"Datum": "2016",
-		"Seiten": "S.116-136"
-	},
-	{
-		"Key": "online1",
-		"Typ": "online",
-		"Autor": "Bachmann, Gregor",
-		"Titel": "Habilitation Thesis Review - Peer Zumbansen",
-		"URL": "{{\\\\}}http://www.germanlawjournal.com",
-		"Stand": "24.8.2005",
-		"Datum": "15.02.2016"
-	},
-	{
-		"Key": "online2",
-		"Typ": "online",
-		"Autor": "Bachmann, Gregor",
-		"Titel": "Habilitation Thesis Review - Peer Zumbansen",
-		"URL": "{{\\\\}}http://www.germanlawjournal.com",
-		"Stand": "24.8.2005",
-		"Datum": "15.02.2016"
-	},
-	{
-		"Key": "mycustom",
+		"Key": "wieland1",
 		"Typ": "custom1",
-		"Titel": "testen",
-		"Autor": "Peter, Hans",
-		"Datum": "2019"
-	}
+		"Autor": "Wieland, J.",
+		"Titel": "Governanceethik und moralische Anreize",
+		"Datum": "2004"
+	},
+	{
+		"Key": "governanceDef",
+		"Typ": "aufsatz",
+		"Autor": "B. Kohler-Koch/B. Rittberger",
+		"Titel": "The Governance Turn in EU Studies",
+		"Zeitschrift": "Journal of Common Market Studies (JCMS)",
+		"Datum": "2006",
+		"Seiten": "S.27-49"
+	},
+	{
+		"Key": "wieland2",
+		"Typ": "custom1",
+		"Autor": "Wieland, J.",
+		"Titel": "Eine Theorie der Governanceethik",
+		"Datum": "2004"
+	},
+	{
+		"Key": "wieland3",
+		"Typ": "custom1",
+		"Autor": "Wieland, J.",
+		"Titel": "Glaubwürdigkeit und eine Ethik der Governance",
+		"Datum": "2004"
+	},
+	{
+		"Key": "homann",
+		"Typ": "custom1",
+		"Autor": "Homann, Karl",
+		"Titel": "Wirtschaftsethik: ökonomischer Reduktionsimus?",
+		"Datum": "2006"
+	},{
+		"Key": "defCO",
+		"Typ": "online",
+		"Autor": "Prof. Dr. Axel v. Werder",
+		"Titel": "Corporate Governance",
+		"Stand": "27.11.201827.11.2018",
+		"Datum": "01.11.2021",
+		"URL": "https://wirtschaftslexikon.gabler.de/{{\\\\}}definition/corporate-governance-28617/version-367554"
+	},{
+		"Key": "treibhaus",
+		"Typ": "online",
+		"Autor": "Breitkopf, A.",
+		"Titel": "Treibhausgas Emissionen in Deutschland bis 2020",
+		"Datum": "01.11.2021",
+		"Stand": "17.03.2021",
+		"URL": "https://de.statista.com/{{\\\\}}statistik/daten/studie/76558/umfrage/entwicklung-der-treibhausgas-emissionen-in-{{\\\\}}deutschland"
+	},{
+		"Key": "ethikDef",
+		"Typ": "buch",
+		"Autor": "Schweidler, W.",
+		"Titel": "Kleine Einführung in die angewandte Ethik. Springer VS",
+		"Datum": "2018",
+		"Ort": "Wiesbaden",
+		"Auflage": "1",
+		"Hrsg": "false"
+	},{
+		"Key": "funksysDef",
+		"Typ": "buch",
+		"Autor": "Krause, D.",
+		"Titel": "Luhmann Lexikon. Lucius {{\\&}} Lucius",
+		"Datum": "2005",
+		"Ort": "Stuttgart",
+		"Auflage": "4",
+		"Hrsg": "false"
+	},{
+		"Key": "etzioni",
+		"Typ": "buch",
+		"Autor": "Etzioni, A.",
+		"Titel": "Jenseits des Egoismus-Prinzips: Ein neues Bild von Wirtschaft und Gesellschaft. Schäfter-Pöschel",
+		"Datum": "1994",
+		"Ort": "Stuttgart",
+		"Auflage": "1",
+		"Hrsg": "false"
+	},{
+		"Key": "schneider",
+		"Typ": "buch",
+		"Autor": "Schneider, H.",
+		"Titel": "Implementierung eines Wertemanagementsystems am Praxisbeispiel der Evenord-Bank eG-KG Nürnberg",
+		"Datum": "2011",
+		"Ort": "Nürnberg",
+		"Auflage": "1",
+		"Hrsg": "false"
+	},
+	{
+		"Key": "wieland3",
+		"Typ": "aufsatz",
+		"Autor": "Wieland, J.",
+		"Titel": "Eine Theorie der Governanceethik",
+		"Zeitschrift": "Zeitschrift für Wirtschafts- und Unternehmensethik",
+		"Datum": "2001",
+		"Seiten": "S.8-49"
+		}
+	
 ]

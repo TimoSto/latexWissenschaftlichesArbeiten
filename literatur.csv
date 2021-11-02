@@ -1,13 +1,14 @@
 key;type;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand;
-online1;online;Bachmann, Gregor;Habilitation Thesis Review - Peer Zumbansen;;;15.02.2016;;;;;;;;{{\\}}http://www.germanlawjournal.com;24.8.2005
-online2;online;Bachmann, Gregor;Habilitation Thesis Review - Peer Zumbansen;;;15.02.2016;;;;;;;;{{\\}}http://www.germanlawjournal.com;24.8.2005
-festschrift1;festschrift;Bohm, Winfried;Die Konkurrenzlage;;Köln;2016;;;;S.235-255;System des verwaltungsgerichtlichen Rechtsschutzes, Festschrift für Christian Friedrich Menger zum 70. Geburtstag;;;;
-book1;buch;Brox Hans/Walker, Wolf-Dietrich;Allgemeiner Teil des BGB;2;München;2016;false;;;;;;;;
-sammelwerk11;sammelwerk;Marquard, Ralf-M./Oligmüller, Peter;Die Besondere Ausgleichsreglung im EEG 2014 auf dem Prüfstand;;Frankfurt an Main;2016;;;;S.116-136;;Latour/Lewkowic/Wienbrück;An den Schnittstellen von Recht und Wirtschaft;;
-comment3;kommentar;MeinHerausgeber;Meine Meinung zu XY, Kommentar;74;München;2016;true;;;;;;;;
-comment2;kommentar;Palandt;Bürgerliches Gesetzbuch, Kommentar;74;München;2016;false;;;;;;;;
-mycustom;custom1;Peter, Hans;testen;;;2019;;;;;;;;;
-hrsgbook;buch;Semler Johannes/von Schenck Kersten;Arbeitshandbuch für Aufsichtsratsmitglieder;2;München;2004;true;;;;;;;;
-comment1;kommentar;Staudinger;Kommentar zum Bürgerlichen Gesetzbuch, Erstes Buch, AT §§ 616 - 630;12;Berlin;2002;false;;;;;;;;
-essay1;aufsatz;Weber, Sebatian/Wocken, Lisa;Mitbestimmung bei Einstallungsuntersuchungen im öffentlichen Dienst;;;2016;;;NZA;S.191-194;;;;;
+governanceDef;aufsatz;B. Kohler-Koch/B. Rittberger;The Governance Turn in EU Studies;;;2006;;;Journal of Common Market Studies (JCMS);S.27-49;;;;;
+treibhaus;online;Breitkopf, A.;Treibhausgas Emissionen in Deutschland bis 2020;;;01.11.2021;;;;;;;;https://de.statista.com/{{\\}}statistik/daten/studie/76558/umfrage/entwicklung-der-treibhausgas-emissionen-in-{{\\}}deutschland;17.03.2021
+etzioni;buch;Etzioni, A.;Jenseits des Egoismus-Prinzips: Ein neues Bild von Wirtschaft und Gesellschaft. Schäfter-Pöschel;1;Stuttgart;1994;false;;;;;;;;
+homann;custom1;Homann, Karl;Wirtschaftsethik: ökonomischer Reduktionsimus?;;;2006;;;;;;;;;
+funksysDef;buch;Krause, D.;Luhmann Lexikon. Lucius {{\&}} Lucius;4;Stuttgart;2005;false;;;;;;;;
+defCO;online;Prof. Dr. Axel v. Werder;Corporate Governance;;;01.11.2021;;;;;;;;https://wirtschaftslexikon.gabler.de/{{\\}}definition/corporate-governance-28617/version-367554;27.11.201827.11.2018
+schneider;buch;Schneider, H.;Implementierung eines Wertemanagementsystems am Praxisbeispiel der Evenord-Bank eG-KG Nürnberg;1;Nürnberg;2011;false;;;;;;;;
+ethikDef;buch;Schweidler, W.;Kleine Einführung in die angewandte Ethik. Springer VS;1;Wiesbaden;2018;false;;;;;;;;
+wieland1;custom1;Wieland, J.;Governanceethik und moralische Anreize;;;2004;;;;;;;;;
+wieland2;custom1;Wieland, J.;Eine Theorie der Governanceethik;;;2004;;;;;;;;;
+wieland3;custom1;Wieland, J.;Glaubwürdigkeit und eine Ethik der Governance;;;2004;;;;;;;;;
+wieland3;aufsatz;Wieland, J.;Eine Theorie der Governanceethik;;;2001;;;Zeitschrift für Wirtschafts- und Unternehmensethik;S.8-49;;;;;
 empty;empty;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand
