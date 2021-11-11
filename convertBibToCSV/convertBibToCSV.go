@@ -1,4 +1,4 @@
-package main
+package convertBibToCSV
 
 import (
 	"encoding/json"
@@ -27,7 +27,7 @@ type BibEntry struct {
 	Stand string
 }
 
-func main(){
+func ConvertBibToCSV(){
 	fmt.Println("Convertig literatur.json to literatur.csv...")
 
 	file, err := ioutil.ReadFile("literatur.json")
