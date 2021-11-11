@@ -1,7 +1,11 @@
 @use 'common';
 
+body{
+  padding: 0 8px;
+}
+
 .my-table {
-  width: 100%;
+  width: calc(100% - 16px);
 }
 
 .my-table--row{

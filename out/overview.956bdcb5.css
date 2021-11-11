@@ -12,4 +12,8 @@ body, html {
   color: var(--mdc-theme-primary) !important;
 }
 
+body {
+  padding: 0 8px;
+}
+
 /*# sourceMappingURL=/assets/overview.956bdcb5.css.map */

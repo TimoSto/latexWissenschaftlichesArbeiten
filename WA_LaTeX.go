@@ -21,6 +21,10 @@ func main() {
 
 	http.HandleFunc("/type/", handlers.HandleType)
 
+	http.HandleFunc("/save", handlers.HandleSave)
+
+	http.HandleFunc("/delete", handlers.HandleDelete)
+
 	http.Handle( "/assets/" , http.StripPrefix("/assets", http.FileServer(http.Dir("./out"))))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
