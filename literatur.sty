@@ -110,19 +110,13 @@
 		\IfStrEqCase{\key}{{#1}{%
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
-				{buch}{\IfStrEqCase{\hrsg}{%
-						{true}{\footnote{#3\citehrsgbook{\autor}{\titel}{\datum}{#2}}}%
-						{false}{\footnote{#3\citebook{\autor}{\titel}{\datum}{#2}}}%
-					}}%
-				{kommentar}{\IfStrEqCase{\hrsg}{%
-						{true}{}%
-						{false}{\footnote{#3\citecomment{\autor}{\titel}{\datum}{#2}}}%
-					}}%
-				{aufsatz}{\footnote{#3\citeessay{\autor}{\zeitschrift}{\datum}{#2}}}%
-				{festschrift}{\footnote{#3\citefestschrift{\autor}{\festschrift}{\datum}{#2}}}%
-				{sammelwerk}{\footnote{#3\citecollection{\autor}{\autorsammel}{\titelsammel}{\datum}{#2}}}%
-				{online}{\footnote{#3\citeonline{\autor}{\titel}{\url}{\stand}}}%
-				{custom1}{\footnote{#3\citecustomI{\autor}{\titel}{\datum}{#2}}}%
+				%Area to add citeifs via gui
+			{buch}{\footnote{#3\citebuch{\autor}{\titel}{\datum}{#2}}}%
+			{kommentar}{\footnote{#3\citekommentar{\autor}{\titel}{\datum}{#2}}}%
+			{aufsatz}{\footnote{#3\citeaufsatz{\autor}{\zeitschrift}{\datum}{#2}}}%
+			{online}{\footnote{#3\citeonline{\autor}{\titel}{\stand}{#2}}}%
+			{asdda}{\footnote{#3\citeasdda{\autor}{\ort}{\datum}{#2}}}%
+		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
 	}%
@@ -132,35 +126,22 @@
 }}
 
 %Prints für verschiedene Fußnotenarten
-\newcommand{\citebook}[4]{%
-	\textit{#1}, #2 (#3), #4.
+%Area to add citecommands via gui
+\newcommand{\citebuch}[4]{
+	\textit{#1}, #2, #3.
 }
-\newcommand{\citehrsgbook}[4]{%
-	\textit{#1} (Hrsg.), #2 (#3), #4.
+\newcommand{\citekommentar}[4]{
+	\textit{#1}, #2, #3.
 }
-\newcommand{\citecomment}[4]{%
-	\textit{#1}, #2 (#3), #4.
+\newcommand{\citeaufsatz}[4]{
+	\textit{#1}, #2, #3.
 }
-\newcommand{\citeessay}[4]{%
-	\textit{#1}, #2 #3, #4.
+\newcommand{\citeonline}[4]{
+	\textit{#1}, #2, #3.
 }
-\newcommand{\citefestschrift}[4]{%
-	\textit{#1} in: FS für #2 (#3), #4.
+\newcommand{\citeasdda}[4]{
+	\textit{#1}, #2, #3.
 }
-\newcommand{\citecollection}[5]{%
-	\textit{#1} in: \textit{#2} (Hrsg.), #3 (#4), #5.
-}
-\newcommand{\citeonline}[4]{%
-	\textit{#1}, #2, #3, abgerufen am #4.%
-}
-\newcommand{\urteilDG}[6]{%
-	#1, Urt. v. #2 - #3, #4 #5, #6.
-}
-\newcommand{\urteilEuGH}[6]{%
-	#1, Urt. v. #2 - #3, #4, #5 - \textit{#6}.
-}
-\newcommand{\citecustomI}[4]{%
-	\textit{#1}, #2, #3, #4.
-}
+%end area
 
 \endinput

@@ -12,6 +12,10 @@ func SaveTypesToLaTeX(types []LiteratureType) error{
 	printBibCommands := "%Area to add new bibprints via gui\n" + GeneratePrintBibCommands(types) + "\n\t\t%end area"
 	//fmt.Println(printBibCommands)
 	ifsForBibCommands := "%Area to add new bibifs via gui\n" + GenerateIfsForBibCommands(types) + "\t\t%end area"
+
+	citeCommands := "%Area to add citecommands via gui\n" + GenerateCiteCommands(types) + "%end area"
+	ifsForCiteCommands := "%Area to add citeifs via gui\n" + GenerateIfsForCiteCommands(types) + "\t\t%end area"
+	fmt.Println(ifsForCiteCommands)
 	file, err := ioutil.ReadFile("./literatur.sty")
 	if err != nil {
 		fmt.Println(err)
@@ -21,6 +25,10 @@ func SaveTypesToLaTeX(types []LiteratureType) error{
 	newFile := m1.ReplaceAllString(string(file), ifsForBibCommands)
 	m2 := regexp.MustCompile(`(?s)%Area to add new bibprints via gui(.*?)%end area`)
 	newFile = m2.ReplaceAllString(newFile, printBibCommands)
+	m3 := regexp.MustCompile(`(?s)%Area to add citecommands via gui(.*?)%end area`)
+	newFile = m3.ReplaceAllString(newFile, citeCommands)
+	m4 := regexp.MustCompile(`(?s)%Area to add citeifs via gui(.*?)%end area`)
+	newFile = m4.ReplaceAllString(newFile, ifsForCiteCommands)
 
 	return ioutil.WriteFile("./literatur.sty", []byte(newFile), 0644)
 }
@@ -58,6 +66,45 @@ func GenerateIfsForBibCommands(types []LiteratureType) string{
 		for _,field := range lType.Fields {
 			command += `{\` + field.Field + `}`
 		}
+		command += `}%` + "\n"
+		commands += command
+	}
+	return commands
+}
+
+func GenerateCiteCommands(types []LiteratureType) string {
+	commands := ""
+
+	for _,lType := range types {
+		command := `\newcommand{\cite`+strings.ToLower(lType.Name)+"}[" + strconv.Itoa(len(lType.CiteFields)+1) + "]{\n\t"
+
+		for i,field := range lType.CiteFields {
+			command += field.Prefix
+			switch field.Style {
+			case "italic":
+				command += `\textit{#` + strconv.Itoa(i+1) + `}`
+				break
+			default:
+				command += `#` + strconv.Itoa(i+1)
+			}
+			command += field.Suffix
+		}
+		command += ".\n}\n"
+		commands += command
+	}
+
+	return commands
+}
+
+func GenerateIfsForCiteCommands(types []LiteratureType) string{
+	commands := ""
+
+	for _,lType := range types {
+		command := "\t\t\t{" + lType.Name + `}{\footnote{#3\cite` + strings.ToLower(lType.Name)
+		for _,field := range lType.CiteFields {
+			command += `{\` + field.Field + `}`
+		}
+		command += `{#2}}`
 		command += `}%` + "\n"
 		commands += command
 	}

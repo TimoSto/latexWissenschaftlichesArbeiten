@@ -52,13 +52,13 @@
 					"Field": "datum",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ""
 				}
 			]
 		},
 		{
 			"Name": "kommentar",
-			"HasCitePage": true,
+			"HasCitePage": false,
 			"Fields": [
 				{
 					"Field": "autor",
@@ -108,13 +108,13 @@
 					"Field": "datum",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ""
 				}
 			]
 		},
 		{
 			"Name": "aufsatz",
-			"HasCitePage": true,
+			"HasCitePage": false,
 			"Fields": [
 				{
 					"Field": "autor",
@@ -164,13 +164,13 @@
 					"Field": "datum",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ""
 				}
 			]
 		},
 		{
 			"Name": "online",
-			"HasCitePage": true,
+			"HasCitePage": false,
 			"Fields": [
 				{
 					"Field": "autor",
@@ -220,7 +220,7 @@
 					"Field": "stand",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ""
 				}
 			]
 		},
