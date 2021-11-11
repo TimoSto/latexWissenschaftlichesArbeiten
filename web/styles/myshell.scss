@@ -1,0 +1,42 @@
+body, html{
+  margin: 0;
+  height: 100%;
+}
+
+:root{
+  --mdc-theme-primary: #438f85;
+}
+
+.mdc-top-app-bar{
+  background-color: white;
+  color: rgba(0,0,0,0.80);
+  border-bottom: 1px solid rgba(0,0,0,0.50);
+}
+
+.mdc-top-app-bar__title {
+  font-weight: bold;
+}
+
+.mdc-top-app-bar-dense--fixed-adjust {
+  height: 100%;
+  padding-top: 48px;
+  box-sizing: border-box;
+}
+
+.res_container{
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow-x: hidden;
+}
+
+.res_container--hidden{
+  width: 0;
+}
+
+.res_container iframe{
+  width: calc(100% - 0px);
+  height: calc(100% - 8px);
+  margin: 0 auto;
+  border: none;
+}

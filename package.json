@@ -1,0 +1,15 @@
+{
+  "name": "WA_LaTeX",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/TimoSto/latexWissenschaftlichesArbeiten.git",
+  "author": "Timo Stovermann <timo.stovermann@d-velop.de>",
+  "license": "MIT",
+  "scripts": {
+    "parcel:watch": "parcel watch web/*.html --public-url /assets --no-hmr --out-dir ./out"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.43.4"
+  }
+}
