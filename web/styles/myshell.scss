@@ -1,11 +1,4 @@
-body, html{
-  margin: 0;
-  height: 100%;
-}
-
-:root{
-  --mdc-theme-primary: #438f85;
-}
+@use 'common';
 
 .mdc-top-app-bar{
   background-color: white;

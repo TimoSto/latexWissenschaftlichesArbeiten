@@ -2,10 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Literatur-Organisation</title>
+    <link href="https://unpkg.com/material-components-web@10.0.0/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@10.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="scripts/shellLoader.js"></script>
+    <script src="scripts/Overview.ts"></script>
+    <link rel="stylesheet" href="styles/overview.scss">
 </head>
 <body>
+    <p class="mdc-typography--body1">Hier sind alle Literatur-Typen aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
+    <ul class="mdc-list">
+        {{ range $value := .Types }}
 
+        <li class="mdc-list-item" tabindex="0" >
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text">{{$value.Name}}</span>
+            <span class="mdc-list-item__meta">
+                <button class="mdc-icon-button material-icons" data-edit-type="{{$value.Name}}">edit</button>
+                <button class="mdc-icon-button material-icons" data-delete-type="{{$value.Name}}">delete</button>
+            </span>
+        </li>
+
+        {{ end }}
+    </ul>
+
+    <label class="mdc-text-field mdc-text-field--filled">
+        <span class="mdc-text-field__ripple"></span>
+        <span class="mdc-floating-label">Neuer Typ</span>
+        <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+        <span class="mdc-line-ripple"></span>
+    </label>
+    <button class="mdc-button mdc-button--raised">
+        <span class="mdc-button__label">Neuen Typen erstellen</span>
+    </button>
 </body>
 </html>

@@ -1,10 +1,15 @@
 body, html {
   margin: 0;
-  height: 100%;
+  height: calc(100% - 16px);
 }
 
 :root {
   --mdc-theme-primary: #438f85;
+}
+
+.mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) .mdc-floating-label--float-above:not(.mdc-floating-label--shake),
+.mdc-select--focused .mdc-floating-label--float-above {
+  color: var(--mdc-theme-primary) !important;
 }
 
 .mdc-top-app-bar {

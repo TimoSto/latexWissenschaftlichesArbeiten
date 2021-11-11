@@ -117,10 +117,29 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scripts/shellLoader.js":[function(require,module,exports) {
-if (window.parent === window) {
-  console.log('loadShell');
-  window.location.replace('/assets/myshell.html?page=overview');
-}
-},{}]},{},["scripts/shellLoader.js"], null)
-//# sourceMappingURL=/assets/shellLoader.6712d781.js.map
+})({"scripts/MyShell.ts":[function(require,module,exports) {
+var MyShell =
+/** @class */
+function () {
+  function MyShell() {
+    var _this = this;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var urlFrag = new URLSearchParams(window.location.search).get('page');
+      _this._res1 = document.querySelector('#res_1');
+      _this._res2 = document.querySelector('#res_2');
+      _this._titleElement = document.querySelector('.mdc-top-app-bar__title');
+      _this._res1.src = '/' + urlFrag;
+    });
+  }
+
+  MyShell.prototype.setTitle = function (title) {
+    this._titleElement.innerText = title;
+  };
+
+  return MyShell;
+}();
+
+window.shell = new MyShell();
+},{}]},{},["scripts/MyShell.ts"], null)
+//# sourceMappingURL=/assets/MyShell.ad4b36ec.js.map

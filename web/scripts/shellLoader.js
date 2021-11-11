@@ -1,3 +1,4 @@
 if( window.parent === window ) {
-    window.location.replace('/assets/myshell.html#page=overview')
+    console.log('loadShell')
+    window.location.replace('/assets/myshell.html?page=overview')
 }

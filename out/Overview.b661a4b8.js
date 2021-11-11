@@ -117,10 +117,22 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scripts/shellLoader.js":[function(require,module,exports) {
-if (window.parent === window) {
-  console.log('loadShell');
-  window.location.replace('/assets/myshell.html?page=overview');
-}
-},{}]},{},["scripts/shellLoader.js"], null)
-//# sourceMappingURL=/assets/shellLoader.6712d781.js.map
+})({"scripts/Overview.ts":[function(require,module,exports) {
+var Overview =
+/** @class */
+function () {
+  function Overview() {
+    var _this = this;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      window.parent.shell.setTitle("Literatur-Organisation");
+      _this._textfield = window.mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+    });
+  }
+
+  return Overview;
+}();
+
+new Overview();
+},{}]},{},["scripts/Overview.ts"], null)
+//# sourceMappingURL=/assets/Overview.b661a4b8.js.map

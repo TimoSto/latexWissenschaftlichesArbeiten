@@ -1,0 +1,272 @@
+{
+	"Types": [
+		{
+			"Name": "buch",
+			"HasCitePage": true,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "auflage",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". Auflage, "
+				},
+				{
+					"Field": "ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				}
+			]
+		},
+		{
+			"Name": "kommentar",
+			"HasCitePage": true,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "auflage",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". Auflage,"
+				},
+				{
+					"Field": "ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				}
+			]
+		},
+		{
+			"Name": "aufsatz",
+			"HasCitePage": true,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "zeitschrift",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "seiten",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "zeitschrift",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				}
+			]
+		},
+		{
+			"Name": "online",
+			"HasCitePage": true,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "url",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "stand",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "abgerufen am ",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "stand",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				}
+			]
+		},
+		{
+			"Name": "asdda",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			]
+		}
+	]
+}
