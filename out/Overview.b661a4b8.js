@@ -155,6 +155,7 @@ function SaveType(name, bibFields, citeFields) {
   }).then(function (response) {
     console.log(response);
   });
+  window.parent.shell.NavigateToType(name);
 }
 
 exports.default = SaveType;

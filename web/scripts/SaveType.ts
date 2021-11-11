@@ -11,5 +11,6 @@ export default function SaveType(name: string, bibFields: Field[], citeFields: F
         body: JSON.stringify(obj)
     }).then(response => {
         console.log(response);
-    })
+    });
+    (<any>window.parent).shell.NavigateToType(name)
 }
