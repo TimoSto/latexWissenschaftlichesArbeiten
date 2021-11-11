@@ -2,7 +2,7 @@
 	"Types": [
 		{
 			"Name": "buch",
-			"HasCitePage": true,
+			"HasCitePage": false,
 			"Fields": [
 				{
 					"Field": "autor",

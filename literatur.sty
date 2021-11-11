@@ -18,96 +18,48 @@
 	{\key=key,\type=type,\autor=autor,\titel=titel,\auflage=auflage,\ort=ort,\datum=datum,\hrsg=hrsg,\band=band,\zeitschrift=zeitschrift,\seiten=seiten,\festschrift=festschrift,\autorsammel=autorsammelwerk,\titelsammel=titelsammelwerk,\url=url,\stand=stand}
 	{
 		\IfStrEqCase{\type}{%
-        {buch}{\IfStrEqCase{\hrsg}{
-				{true}{\printhrsgbook{\autor}{\titel}{\auflage}{\ort}{\datum}}
-				{false}{\printbook{\autor}{\titel}{\auflage}{\ort}{\datum}}%
-			}}
-		{kommentar}{\IfStrEqCase{\hrsg}{
-				{true}{\printhrsgcomment{\autor}{\titel}{\auflage}{\ort}{\datum}}
-				{false}{\printcomment{\autor}{\titel}{\auflage}{\ort}{\datum}}%
-			}}
-		{aufsatz}{\printarticle{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}
-		{festschrift}{\printfestschrift{\autor}{\festschrift}{\ort}{\datum}{\seiten}}
-		{sammelwerk}{\printcollection{\autor}{\titel}{\autorsammel}{\titelsammel}{\ort}{\datum}{\seiten}}
+		%Area to add new bibifs via gui
+		{buch}{\printbuch{\autor}{\titel}{\auflage}{\ort}{\datum}}%
+		{kommentar}{\printkommentar{\autor}{\titel}{\auflage}{\ort}{\datum}}%
+		{aufsatz}{\printaufsatz{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
 		{online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
-		{custom1}{\printcustom{\autor}{\titel}{\datum}}%
+		{asdda}{\printasdda{\autor}{\titel}{\ort}{\datum}}%
+		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
 	}
 }
 
 %!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
-%Print für Buch mit Autor
 \def\bibparindent{1.5em}
-\newcommand{\printbook}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1	
-	\textit{#1}, #2, #3. Auflage, #4 #5
-	\\
-	\vspace{-12pt}%Ein Absatz (//) ist etwas viel, deswegen wird wieder 12 pt nach oben gegangen
-	
-}
-%Print für Buch mit Hrsg
-\newcommand{\printhrsgbook}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1	
-	\textit{#1} (Hrsg.), #2, #3. Auflage, #4 #5
-	\\
-	\vspace{-12pt}
-	
-}
-%Print für Kommentar
-\newcommand{\printcomment}[5]{
+%Area to add new bibprints via gui
+\newcommand{\printbuch}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
 	\textit{#1}, #2, #3. Auflage, #4 #5
 	\\
 	\vspace{-12pt}
-	
+
 }
-\newcommand{\printhrsgcomment}[5]{
+\newcommand{\printkommentar}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (Hrsg.), #2, #3. Auflage, #4 #5
+	\textit{#1}, #2, #3. Auflage,#4#5
 	\\
 	\vspace{-12pt}
-	
+
 }
-%Print für Aufsatz
-\newcommand{\printarticle}[5]{
+\newcommand{\printaufsatz}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}, #2, #3 #4, #5
+	\textit{#1}, #2, #3, #4 #5 
 	\\
 	\vspace{-12pt}
-	
+
 }
-%Print für Festschriften
-\newcommand{\printfestschrift}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, in: #2, #3 #4, #5
-	\\
-	\vspace{-12pt}
-	
-}
-%Print für Collection
-\newcommand{\printcollection}[7]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2, in: \textit{#3} #4, #5 #6, #7
-	\\
-	\vspace{-12pt}
-	
-}
-%Print für online
 \newcommand{\printonline}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
@@ -115,17 +67,19 @@
 	\textit{#1}, #2, #3 (#4), abgerufen am #5
 	\\
 	\vspace{-12pt}
-	
+
 }
-\newcommand{\printcustom}[3]{
+\newcommand{\printasdda}[4]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}, #2, #3
+	\textit{#1}, \textit{#2}, #3 #4
 	\\
 	\vspace{-12pt}
-	
+
 }
+
+		%end area
 
 %Zitation => Suche nach Key in literatur-DB => Passenden Command aufrufen
 %\newcommand{\citebib}[3]{%
