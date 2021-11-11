@@ -129,12 +129,42 @@ function () {
       _this._res1 = document.querySelector('#res_1');
       _this._res2 = document.querySelector('#res_2');
       _this._titleElement = document.querySelector('.mdc-top-app-bar__title');
+      _this._backBtn = document.querySelector('.mdc-top-app-bar button');
+
+      _this._backBtn.addEventListener('click', function () {
+        _this.NavBack();
+      });
+
       _this._res1.src = '/' + urlFrag;
     });
   }
 
+  MyShell.prototype.NavBack = function () {
+    this._res2.parentElement.classList.remove('res_container--open');
+
+    this._res2.parentElement.classList.add('res_container--close');
+
+    this._res1.parentElement.classList.remove('res_container--close');
+
+    this._res1.parentElement.classList.add('res_container--open');
+
+    this._backBtn.style.display = 'none';
+  };
+
   MyShell.prototype.setTitle = function (title) {
     this._titleElement.innerText = title;
+  };
+
+  MyShell.prototype.NavigateToType = function (type) {
+    this._res1.parentElement.classList.remove('res_container--open');
+
+    this._res1.parentElement.classList.add('res_container--close');
+
+    this._res2.src = '/type/' + type;
+
+    this._res2.parentElement.classList.add('res_container--open');
+
+    this._backBtn.style.display = '';
   };
 
   return MyShell;

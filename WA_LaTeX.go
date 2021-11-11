@@ -19,6 +19,8 @@ func main() {
 
 	http.HandleFunc("/overview", handlers.HandleOverview)
 
+	http.HandleFunc("/type/", handlers.HandleType)
+
 	http.Handle( "/assets/" , http.StripPrefix("/assets", http.FileServer(http.Dir("./out"))))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )

@@ -6,6 +6,10 @@
   border-bottom: 1px solid rgba(0,0,0,0.50);
 }
 
+.mdc-top-app-bar button{
+  color: rgba(0,0,0,0.80)!important;
+}
+
 .mdc-top-app-bar__title {
   font-weight: bold;
 }
@@ -17,14 +21,10 @@
 }
 
 .res_container{
-  width: 100%;
+  width: 0;
   height: 100%;
   float: left;
   overflow-x: hidden;
-}
-
-.res_container--hidden{
-  width: 0;
 }
 
 .res_container iframe{
@@ -32,4 +32,15 @@
   height: calc(100% - 8px);
   margin: 0 auto;
   border: none;
+}
+
+.res_container--close{
+  width: 0;
+  transition: width 500ms ease-in-out;
+  overflow-x: hidden;
+}
+
+.res_container--open{
+  width: 100%;
+  transition: width 500ms ease-in-out;
 }

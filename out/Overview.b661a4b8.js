@@ -117,16 +117,101 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scripts/Overview.ts":[function(require,module,exports) {
+})({"scripts/DeleteType.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function DeleteType(type) {
+  window.fetch('/delete', {
+    method: 'POST',
+    body: JSON.stringify({
+      Type: type
+    })
+  }).then(function (response) {
+    return console.log(response);
+  });
+}
+
+exports.default = DeleteType;
+},{}],"scripts/SaveType.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function SaveType(name, bibFields, citeFields) {
+  var obj = {
+    Name: name,
+    Fields: bibFields,
+    CiteFields: citeFields
+  };
+  window.fetch('/save', {
+    method: 'POST',
+    body: JSON.stringify(obj)
+  }).then(function (response) {
+    console.log(response);
+  });
+}
+
+exports.default = SaveType;
+},{}],"scripts/Overview.ts":[function(require,module,exports) {
+"use strict";
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var DeleteType_1 = __importDefault(require("./DeleteType"));
+
+var SaveType_1 = __importDefault(require("./SaveType"));
+
 var Overview =
 /** @class */
 function () {
   function Overview() {
     var _this = this;
 
+    this.types = [];
     document.addEventListener('DOMContentLoaded', function () {
       window.parent.shell.setTitle("Literatur-Organisation");
-      _this._textfield = window.mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+      var editElements = document.querySelectorAll('[data-edit-type]');
+      editElements.forEach(function (el) {
+        var type = el.getAttribute('data-edit-type');
+
+        _this.types.push(type);
+
+        el.addEventListener('click', function (evt) {
+          window.parent.shell.NavigateToType(type);
+        });
+      });
+      var deleteElements = document.querySelectorAll('[data-delete-type]');
+      deleteElements.forEach(function (el) {
+        var type = el.getAttribute('data-delete-type');
+
+        _this.types.push(type);
+
+        el.addEventListener('click', function (evt) {
+          (0, DeleteType_1.default)(type);
+        });
+      });
+      var input = window.mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+      var saveButton = document.querySelector('.mdc-button--raised');
+      saveButton.addEventListener('click', function () {
+        (0, SaveType_1.default)(input.value, [], []);
+      });
+      input.root.querySelector('input').addEventListener('change', function () {
+        saveButton.disabled = !(input.value.length > 0 && _this.types.indexOf(input.value) == -1);
+      });
     });
   }
 
@@ -134,5 +219,5 @@ function () {
 }();
 
 new Overview();
-},{}]},{},["scripts/Overview.ts"], null)
+},{"./DeleteType":"scripts/DeleteType.ts","./SaveType":"scripts/SaveType.ts"}]},{},["scripts/Overview.ts"], null)
 //# sourceMappingURL=/assets/Overview.b661a4b8.js.map
