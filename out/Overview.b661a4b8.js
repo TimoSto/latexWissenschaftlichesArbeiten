@@ -125,7 +125,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 function DeleteType(type) {
-  window.fetch('/delete', {
+  window.fetch('/delete/type', {
     method: 'POST',
     body: JSON.stringify({
       Type: type
@@ -159,6 +159,25 @@ function SaveType(name, bibFields, citeFields) {
 }
 
 exports.default = SaveType;
+},{}],"scripts/DeleteEntry.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function DeleteEntry(i) {
+  window.fetch('/delete/entry', {
+    method: 'POST',
+    body: JSON.stringify({
+      Entry: i
+    })
+  }).then(function (response) {
+    return console.log(response);
+  });
+}
+
+exports.default = DeleteEntry;
 },{}],"scripts/Overview.ts":[function(require,module,exports) {
 "use strict";
 
@@ -176,6 +195,8 @@ var DeleteType_1 = __importDefault(require("./DeleteType"));
 
 var SaveType_1 = __importDefault(require("./SaveType"));
 
+var DeleteEntry_1 = __importDefault(require("./DeleteEntry"));
+
 var Overview =
 /** @class */
 function () {
@@ -183,6 +204,7 @@ function () {
     var _this = this;
 
     this.types = [];
+    this.entries = [];
     document.addEventListener('DOMContentLoaded', function () {
       window.parent.shell.setTitle("Literatur-Organisation");
       var editElements = document.querySelectorAll('[data-edit-type]');
@@ -222,6 +244,23 @@ function () {
       lis[1].addEventListener('click', function () {
         expand_divs[1].classList.toggle('area-closed');
       });
+      var editElements2 = document.querySelectorAll('[data-edit-entry]');
+      editElements2.forEach(function (el) {
+        var type = el.getAttribute('data-edit-entry');
+
+        _this.entries.push(type);
+
+        el.addEventListener('click', function (evt) {
+          window.parent.shell.NavigateToType(type);
+        });
+      });
+      var deleteElements2 = document.querySelectorAll('[data-delete-entry]');
+      deleteElements2.forEach(function (el) {
+        var type = el.getAttribute('data-delete-entry');
+        el.addEventListener('click', function (evt) {
+          (0, DeleteEntry_1.default)(parseInt(type));
+        });
+      });
     });
   }
 
@@ -229,5 +268,5 @@ function () {
 }();
 
 new Overview();
-},{"./DeleteType":"scripts/DeleteType.ts","./SaveType":"scripts/SaveType.ts"}]},{},["scripts/Overview.ts"], null)
+},{"./DeleteType":"scripts/DeleteType.ts","./SaveType":"scripts/SaveType.ts","./DeleteEntry":"scripts/DeleteEntry.ts"}]},{},["scripts/Overview.ts"], null)
 //# sourceMappingURL=/assets/Overview.b661a4b8.js.map

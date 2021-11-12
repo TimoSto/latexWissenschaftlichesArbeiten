@@ -1,8 +1,10 @@
 import DeleteType from "./DeleteType";
 import SaveType from "./SaveType";
+import DeleteEntry from "./DeleteEntry";
 
 class Overview {
     private types = [];
+    private entries = [];
 
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
@@ -48,6 +50,28 @@ class Overview {
             lis[1].addEventListener('click', ()=>{
                 expand_divs[1].classList.toggle('area-closed');
             })
+
+            let editElements2 = document.querySelectorAll('[data-edit-entry]');
+
+            editElements2.forEach(el => {
+                let type = el.getAttribute('data-edit-entry');
+                this.entries.push(type);
+                el.addEventListener('click', (evt)=>{
+
+                    (<any>window.parent).shell.NavigateToType(type);
+                })
+            });
+
+            let deleteElements2 = document.querySelectorAll('[data-delete-entry]');
+
+            deleteElements2.forEach(el => {
+                let type = el.getAttribute('data-delete-entry');
+
+                el.addEventListener('click', (evt)=>{
+
+                    DeleteEntry(parseInt(type));
+                })
+            });
         })
     }
 }

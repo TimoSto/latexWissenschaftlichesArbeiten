@@ -23,7 +23,9 @@ func main() {
 
 	http.HandleFunc("/save", handlers.HandleSave)
 
-	http.HandleFunc("/delete", handlers.HandleDelete)
+	http.HandleFunc("/delete/type", handlers.HandleDeleteType)
+
+	http.HandleFunc("/delete/entry", handlers.HandleDeleteEntry)
 
 	http.Handle( "/assets/" , http.StripPrefix("/assets", http.FileServer(http.Dir("./out"))))
 

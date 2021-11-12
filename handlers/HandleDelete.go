@@ -11,9 +11,10 @@ import (
 
 type DeleteObj struct {
 	Type string
+	Entry int
 }
 
-func HandleDelete(w http.ResponseWriter, r *http.Request) {
+func HandleDeleteType(w http.ResponseWriter, r *http.Request) {
 	var delObj DeleteObj
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&delObj)
@@ -40,6 +41,34 @@ func HandleDelete(w http.ResponseWriter, r *http.Request) {
 	strings.Replace(str, "[", "[\n", -1)
 
 	err = ioutil.WriteFile("./literature_types.json", []byte(str), 0644)
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+	}
+}
+
+func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
+	var delObj DeleteObj
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&delObj)
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+	}
+
+	entries := domain.ReadBibEntries()
+	entries = append(entries[:delObj.Entry], entries[delObj.Entry+1:]...)
+
+	jsonStr,err := json.MarshalIndent(entries, "", "\t")
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+	}
+
+	str := string(jsonStr)
+	strings.Replace(str, "[", "[\n", -1)
+
+	err = ioutil.WriteFile("./literatur.json", []byte(str), 0644)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)

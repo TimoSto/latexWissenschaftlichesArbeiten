@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"WA_LaTeX/convertBibToCSV"
 	"WA_LaTeX/domain"
 	"fmt"
 	"html/template"
@@ -10,7 +9,7 @@ import (
 
 type OverviewHTMLDto struct {
 	Types []domain.LiteratureType
-	Entries []convertBibToCSV.BibEntry
+	Entries []domain.BibEntry
 }
 
 func HandleOverview(w http.ResponseWriter,r *http.Request) {
@@ -30,7 +29,7 @@ func HandleOverview(w http.ResponseWriter,r *http.Request) {
 
 	data := OverviewHTMLDto{
 		Types:   types.Types,
-		Entries: convertBibToCSV.ReadBibEntries(),
+		Entries: domain.ReadBibEntries(),
 	}
 
 	err = tmpl.Execute(w, data)
