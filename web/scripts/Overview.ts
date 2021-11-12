@@ -38,6 +38,16 @@ class Overview {
             input.root.querySelector('input').addEventListener('change', ()=>{
                 saveButton.disabled = !(input.value.length > 0 && this.types.indexOf(input.value) == -1);
             })
+
+            let lis = document.querySelectorAll('#expand-list li[data-eindex]');
+            let expand_divs = document.querySelectorAll('#expand-list .area');
+            console.log(lis)
+            lis[0].addEventListener('click', ()=>{
+                expand_divs[0].classList.toggle('area-closed');
+            });
+            lis[1].addEventListener('click', ()=>{
+                expand_divs[1].classList.toggle('area-closed');
+            })
         })
     }
 }

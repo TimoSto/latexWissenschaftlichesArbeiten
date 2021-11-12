@@ -67,3 +67,24 @@ func ConvertBibToCSV(){
 		return
 	}
 }
+
+func ReadBibEntries() []BibEntry{
+	file, err := ioutil.ReadFile("literatur.json")
+	if err != nil {
+		fmt.Println(fmt.Sprintf("Error occurred while opening the JSON-file:%v", err))
+		return []BibEntry{}
+	}
+	//fmt.Println(string(file))
+	var bibEntries []BibEntry
+	err = json.Unmarshal([]byte(file), &bibEntries)
+	if err != nil {
+		fmt.Println(fmt.Sprintf("Error occurred while parsing the JSON-file:%v", err))
+		return []BibEntry{}
+	}
+
+	sort.Slice(bibEntries,func(i, j int) bool {
+		return strings.ToLower(bibEntries[i].Autor) < strings.ToLower(bibEntries[j].Autor)
+	})
+
+	return bibEntries
+}

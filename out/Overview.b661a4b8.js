@@ -213,6 +213,15 @@ function () {
       input.root.querySelector('input').addEventListener('change', function () {
         saveButton.disabled = !(input.value.length > 0 && _this.types.indexOf(input.value) == -1);
       });
+      var lis = document.querySelectorAll('#expand-list li[data-eindex]');
+      var expand_divs = document.querySelectorAll('#expand-list .area');
+      console.log(lis);
+      lis[0].addEventListener('click', function () {
+        expand_divs[0].classList.toggle('area-closed');
+      });
+      lis[1].addEventListener('click', function () {
+        expand_divs[1].classList.toggle('area-closed');
+      });
     });
   }
 

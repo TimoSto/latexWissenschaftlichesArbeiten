@@ -16,4 +16,13 @@ body {
   padding: 0 8px;
 }
 
+.area {
+  height: auto;
+}
+
+.area-closed {
+  height: 0;
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=/assets/overview.956bdcb5.css.map */

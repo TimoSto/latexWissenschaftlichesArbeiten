@@ -11,30 +11,69 @@
     <link rel="stylesheet" href="/assets/overview.956bdcb5.css">
 </head>
 <body>
-    <p class="mdc-typography--body1">Hier sind alle Literatur-Typen aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
-    <ul class="mdc-list">
-        {{ range $value := .Types }}
-
-        <li class="mdc-list-item" tabindex="0">
+    <ul class="mdc-list" id="expand-list">
+        <li class="mdc-list-item" tabindex="0" data-eindex="0">
             <span class="mdc-list-item__ripple"></span>
-            <span class="mdc-list-item__text">{{$value.Name}}</span>
-            <span class="mdc-list-item__meta">
-                <button class="mdc-icon-button material-icons" data-edit-type="{{$value.Name}}">edit</button>
-                <button class="mdc-icon-button material-icons" data-delete-type="{{$value.Name}}">delete</button>
+            <span class="mdc-list-item__graphic">
+                <span class="material-icons">expand_more</span>
             </span>
+            <span class="mdc-list-item__text">Literaturtypen</span>
         </li>
+        <div class="area area-closed">
+            <p class="mdc-typography--body1">Hier sind alle Literatur-Typen aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
+            <ul class="mdc-list">
+                {{ range $value := .Types }}
 
-        {{ end }}
+                <li class="mdc-list-item" tabindex="0">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">{{$value.Name}}</span>
+                    <span class="mdc-list-item__meta">
+                        <button class="mdc-icon-button material-icons" data-edit-type="{{$value.Name}}">edit</button>
+                        <button class="mdc-icon-button material-icons" data-delete-type="{{$value.Name}}">delete</button>
+                    </span>
+                </li>
+
+                {{ end }}
+            </ul>
+
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Neuer Typ</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <button class="mdc-button mdc-button--raised" disabled="">
+                <span class="mdc-button__label">Neuen Typen erstellen</span>
+            </button>
+        </div>
+        <li class="mdc-list-item" tabindex="0" data-eindex="1">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__graphic">
+                <span class="material-icons">expand_more</span>
+            </span>
+            <span class="mdc-list-item__text">Literatureinträge</span>
+        </li>
+        <div class="area area-closed">
+            <p class="mdc-typography--body1">Hier sind alle Literatur-Einträge aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
+            <ul class="mdc-list">
+                {{ range $key,$value := .Entries }}
+
+                <li class="mdc-list-item mdc-list-item--two-line" tabindex="0">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">
+                      <span class="mdc-list-item__primary-text">{{ $value.Autor }} - {{ $value.Titel }}</span>
+                      <span class="mdc-list-item__secondary-text">{{ $value.Typ }}</span>
+                    </span>
+                    <span class="mdc-list-item__meta">
+                        <button class="mdc-icon-button material-icons" data-edit-entry="{{$key}}">edit</button>
+                        <button class="mdc-icon-button material-icons" data-delete-entry="{{$key}}">delete</button>
+                    </span>
+                </li>
+
+                {{ end }}
+            </ul>
+        </div>
     </ul>
 
-    <label class="mdc-text-field mdc-text-field--filled">
-        <span class="mdc-text-field__ripple"></span>
-        <span class="mdc-floating-label">Neuer Typ</span>
-        <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
-        <span class="mdc-line-ripple"></span>
-    </label>
-    <button class="mdc-button mdc-button--raised" disabled="">
-        <span class="mdc-button__label">Neuen Typen erstellen</span>
-    </button>
 </body>
 </html>
