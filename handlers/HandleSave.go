@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"WA_LaTeX/convertBibToCSV"
 	"WA_LaTeX/domain"
 	"encoding/json"
 	"fmt"
@@ -115,4 +116,6 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 	}
+
+	convertBibToCSV.ConvertBibToCSV()
 }
