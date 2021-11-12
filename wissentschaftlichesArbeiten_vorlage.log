@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 15:29
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -897,25 +897,36 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 
  [4
 
-] [5
+]
+Overfull \hbox (2.41232pt too wide) in paragraph at lines 96--97
+\T1/ptm/m/n/12 wel-che es ge-steu-ert wird. Bei der Wirt-schaft ist dies der An
+gebot-Nachfrage-Mechanismus
+ []
 
+[1
+
+]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 102.
+ [2] [5
 
 ] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 10732 strings out of 492452
- 152266 string characters out of 3120530
- 294992 words of memory out of 3000000
- 14822 multiletter control sequences out of 15000+200000
- 18276 words of font info for 38 fonts, out of 3000000 for 9000
+ 10744 strings out of 492452
+ 152412 string characters out of 3120530
+ 297858 words of memory out of 3000000
+ 14830 multiletter control sequences out of 15000+200000
+ 26523 words of font info for 44 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 58i,18n,51p,863b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,18n,51p,970b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/tsto/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (7 pages, 211739 byte
+s/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/tsto/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (9 pages, 230648 byte
 s).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
