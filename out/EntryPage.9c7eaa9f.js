@@ -130,6 +130,7 @@ function SaveEntry(initialKey, valuePairs, typ) {
     ValuePairs: valuePairs,
     Typ: typ
   };
+  document.body.setAttribute('data-key', valuePairs[0].Value);
   window.fetch('/saveEntry', {
     method: 'POST',
     body: JSON.stringify(obj)

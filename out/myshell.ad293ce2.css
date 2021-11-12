@@ -12,10 +12,15 @@ body, html {
   color: var(--mdc-theme-primary) !important;
 }
 
+body {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
 #content {
   max-width: 960px;
   margin: 0 auto;
   height: 100%;
+  background-color: white;
 }
 
 .mdc-top-app-bar {
