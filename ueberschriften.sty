@@ -54,7 +54,8 @@
 \newcommand*\parttitle{}
 \let\origpart\part%alten pert-Befehl behalten
 \renewcommand*{\part}[2][]{%
-   
+   \ifnum\value{part}=0\vspace*{-9mm}\else\fi%at first part no \clearpage
+   %Remove vertical space before part-title
    \origpart{#2}%
    \renewcommand*\parttitle{#2}%
 }

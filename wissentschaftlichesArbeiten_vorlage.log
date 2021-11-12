@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 16:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 16:44
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -921,7 +921,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--108
 \T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
  []
 
-[3]
+
 Underfull \hbox (badness 3029) in paragraph at lines 120--120
 \T1/ptm/m/n/12 (Eigeninteresse, Iden-ti-fi-ka-ti-
  []
@@ -931,25 +931,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--121
 \T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
  []
 
-
-Overfull \hbox (23.84456pt too wide) in paragraph at lines 124--125
-\T1/ptm/m/n/12 Die vier An-reiz-for-men tre-ten auf un-ter-schied-li-che Art in
- Er-schei-nung. Extrinsich-ökonomische
- []
-
-
-Overfull \hbox (22.62798pt too wide) in paragraph at lines 124--125
-\T1/ptm/m/n/12 An-rei-ze sind von au-ÿen de-ter-mi-nier-te ma-te-ri-el-le Kal-k
-u-la-tio-nen wo-ge-gen extrinsich-moralische
- []
-
-
-Overfull \hbox (23.85718pt too wide) in paragraph at lines 124--125
-\T1/ptm/m/n/12 schen nach An-er-ken-nung und Ach-tung durch Mit-mnschen ba-sie-
-ren. Die intrinsich-moralischen
- []
-
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 126--129
 
  []
@@ -961,12 +943,6 @@ File: wieland1.png Graphic file (type png)
 Package pdftex.def Info: wieland1.png  used on input line 133.
 (pdftex.def)             Requested size: 320.0935pt x 179.11288pt.
  [5 <./wieland1.png>]
-Overfull \hbox (7.99474pt too wide) in paragraph at lines 154--157
-\T1/ptm/m/n/12 die per-sön-li-che Ent-schei-dung be-kommt, liegt Glo-ba-le Ethi
-k vor. Und wenn die Governance-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 154--157
 
  []
@@ -975,10 +951,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 154--157
 
 ] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 10789 strings out of 492452
- 152706 string characters out of 3120530
- 301816 words of memory out of 3000000
- 14861 multiletter control sequences out of 15000+200000
+ 10791 strings out of 492452
+ 152735 string characters out of 3120530
+ 302479 words of memory out of 3000000
+ 14863 multiletter control sequences out of 15000+200000
  54231 words of font info for 84 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  58i,18n,51p,1314b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -989,7 +965,7 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
 tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 332728 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 333479 byt
 es).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)

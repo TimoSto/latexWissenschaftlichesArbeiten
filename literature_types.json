@@ -264,7 +264,51 @@
 					"Field": "titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ""
+				}
+			]
+		},
+		{
+			"Name": "sammelwerk",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " (Hrsg.), "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", in: "
+				},
+				{
+					"Field": "zeitschrift",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": " (",
+					"Suffix": ")"
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " , "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
 				}
 			]
 		}

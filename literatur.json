@@ -52,5 +52,41 @@
 		"TitelSammelwerk": "",
 		"URL": "https://wirtschaftslexikon.gabler.de/def-{\\\\}inition/corporate-governance-28617/version-367554",
 		"Stand": "27.11.2018"
+	},
+	{
+		"Key": "wielandGMA",
+		"Typ": "workingpaper",
+		"Autor": "Wieland, J.",
+		"Titel": "Governanceethik und moralische Anreize",
+		"Auflage": "",
+		"Ort": "",
+		"Datum": "07/2004",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "https://d-nb.info/1203820755/34",
+		"Stand": "01.11.2021"
+	},
+	{
+		"Key": "gvethWieland",
+		"Typ": "sammelwerk",
+		"Autor": "Gabler",
+		"Titel": "Die Governanceethik von Wieland",
+		"Auflage": "",
+		"Ort": "",
+		"Datum": "2008",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "Moralisches Handeln von Unternehmen",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "",
+		"Stand": ""
 	}
 ]
