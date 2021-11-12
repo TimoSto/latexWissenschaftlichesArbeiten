@@ -1,2 +1,5 @@
 key;type;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand;
+treibhaus;online;Breitkopf, A.;Treibhausgas Emissionen in Deutschland bis 2020;;;01.11.2021;;;;;;;;https://de.statista.com/{{\\}}statistik/daten/studie/76558/umfrage/entwicklung-der-treibhausgas-emissionen-in-{{\\}}deutschland;17.03.2021
+governanceDef;online;Krems, Prof. Dr. Burkhardt;Governance;;;07.11.2021;;;;;;;;https://olev.de/g/governance.htm;20.06.2012
+CODef;online;V. Werder, Prof. Dr. Axel;Corporate Governance;;;{\\}07.11.2021;;;;;;;;https://wirtschaftslexikon.gabler.de/def-{\\}inition/corporate-governance-28617/version-367554;27.11.2018
 empty;empty;autor;titel;auflage;ort;datum;hrsg;band;zeitschrift;seiten;festschrift;autorsammelwerk;titelsammelwerk;url;stand

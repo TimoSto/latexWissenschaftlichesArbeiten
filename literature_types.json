@@ -241,21 +241,15 @@
 					"Suffix": ", "
 				},
 				{
-					"Field": "url",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
-				},
-				{
-					"Field": "stand",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "), "
-				},
-				{
 					"Field": "datum",
 					"Style": "normal",
 					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "url",
+					"Style": "normal",
+					"Prefix": "abrufbar unter: ",
 					"Suffix": ""
 				}
 			],
@@ -270,7 +264,7 @@
 					"Field": "titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": ", "
 				}
 			]
 		}
