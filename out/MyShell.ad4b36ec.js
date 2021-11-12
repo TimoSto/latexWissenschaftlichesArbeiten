@@ -167,6 +167,18 @@ function () {
     this._backBtn.style.display = '';
   };
 
+  MyShell.prototype.NavigateToEntry = function (index) {
+    this._res1.parentElement.classList.remove('res_container--open');
+
+    this._res1.parentElement.classList.add('res_container--close');
+
+    this._res2.src = '/entry/' + index;
+
+    this._res2.parentElement.classList.add('res_container--open');
+
+    this._backBtn.style.display = '';
+  };
+
   return MyShell;
 }();
 

@@ -41,6 +41,14 @@ class MyShell {
         this._res2.parentElement.classList.add('res_container--open')
         this._backBtn.style.display = '';
     }
+
+    NavigateToEntry(index: number) {
+        this._res1.parentElement.classList.remove('res_container--open')
+        this._res1.parentElement.classList.add('res_container--close')
+        this._res2.src = '/entry/' + index;
+        this._res2.parentElement.classList.add('res_container--open')
+        this._backBtn.style.display = '';
+    }
 }
 
 (<any>window).shell = new MyShell();

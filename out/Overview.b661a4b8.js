@@ -255,7 +255,7 @@ function () {
         _this.entries.push(type);
 
         el.addEventListener('click', function (evt) {
-          window.parent.shell.NavigateToType(type);
+          window.parent.shell.NavigateToEntry(parseInt(type));
         });
       });
       var deleteElements2 = document.querySelectorAll('[data-delete-entry]');

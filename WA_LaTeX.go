@@ -21,6 +21,8 @@ func main() {
 
 	http.HandleFunc("/type/", handlers.HandleType)
 
+	http.HandleFunc("/entry/", handlers.HandleEntry)
+
 	http.HandleFunc("/save", handlers.HandleSave)
 
 	http.HandleFunc("/delete/type", handlers.HandleDeleteType)

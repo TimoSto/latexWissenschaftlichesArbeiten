@@ -58,7 +58,7 @@ class Overview {
                 this.entries.push(type);
                 el.addEventListener('click', (evt)=>{
 
-                    (<any>window.parent).shell.NavigateToType(type);
+                    (<any>window.parent).shell.NavigateToEntry(parseInt(type));
                 })
             });
 
