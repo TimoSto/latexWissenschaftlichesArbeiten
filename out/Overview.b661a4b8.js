@@ -173,7 +173,11 @@ function DeleteEntry(i) {
       Entry: i
     })
   }).then(function (response) {
-    return console.log(response);
+    console.log(response.status);
+
+    if (response.status == 200) {
+      window.location.reload();
+    }
   });
 }
 
