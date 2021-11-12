@@ -24,7 +24,7 @@
 		{aufsatz}{\printaufsatz{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
 		{online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
 		{workingpaper}{\printworkingpaper{\autor}{\titel}{\datum}{\url}}%
-		{sammelwerk}{\printsammelwerk{\autor}{\titel}{\zeitschrift}{\datum}}%
+		{sammelwerk}{\printsammelwerk{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -79,11 +79,11 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printsammelwerk}[4]{
+\newcommand{\printsammelwerk}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (Hrsg.), #2, in: #3  (#4)
+	\textit{#1} (Hrsg.), #2, in: #3  (#4), #5
 	\\
 	\vspace{-12pt}
 

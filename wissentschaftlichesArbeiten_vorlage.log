@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 16:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 16:48
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -953,7 +953,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 154--157
 Here is how much of TeX's memory you used:
  10791 strings out of 492452
  152735 string characters out of 3120530
- 302479 words of memory out of 3000000
+ 302495 words of memory out of 3000000
  14863 multiletter control sequences out of 15000+200000
  54231 words of font info for 84 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -965,7 +965,7 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
 tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 333479 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 333632 byt
 es).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)

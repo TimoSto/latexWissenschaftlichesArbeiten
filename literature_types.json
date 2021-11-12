@@ -294,7 +294,13 @@
 					"Field": "datum",
 					"Style": "normal",
 					"Prefix": " (",
-					"Suffix": ")"
+					"Suffix": "), "
+				},
+				{
+					"Field": "seiten",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
 				}
 			],
 			"CiteFields": [

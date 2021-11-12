@@ -18,6 +18,24 @@
 		"Stand": "17.03.2021"
 	},
 	{
+		"Key": "gvethWieland",
+		"Typ": "sammelwerk",
+		"Autor": "Gabler",
+		"Titel": "Die Governanceethik von Wieland",
+		"Auflage": "",
+		"Ort": "",
+		"Datum": "2008",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "Moralisches Handeln von Unternehmen",
+		"Seiten": "S.189-242",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "",
+		"Stand": ""
+	},
+	{
 		"Key": "governanceDef",
 		"Typ": "online",
 		"Autor": "Krems, Prof. Dr. Burkhardt",
@@ -70,23 +88,5 @@
 		"TitelSammelwerk": "",
 		"URL": "https://d-nb.info/1203820755/34",
 		"Stand": "01.11.2021"
-	},
-	{
-		"Key": "gvethWieland",
-		"Typ": "sammelwerk",
-		"Autor": "Gabler",
-		"Titel": "Die Governanceethik von Wieland",
-		"Auflage": "",
-		"Ort": "",
-		"Datum": "2008",
-		"Hrsg": "",
-		"Band": "",
-		"Zeitschrift": "Moralisches Handeln von Unternehmen",
-		"Seiten": "",
-		"Festschrift": "",
-		"AutorSammelwerk": "",
-		"TitelSammelwerk": "",
-		"URL": "",
-		"Stand": ""
 	}
 ]
