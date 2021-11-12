@@ -58,7 +58,7 @@ class Overview {
                 this.entries.push(type);
                 el.addEventListener('click', (evt)=>{
 
-                    (<any>window.parent).shell.NavigateToEntry(parseInt(type));
+                    (<any>window.parent).shell.NavigateToEntry(type);
                 })
             });
 
@@ -69,7 +69,7 @@ class Overview {
 
                 el.addEventListener('click', (evt)=>{
 
-                    DeleteEntry(parseInt(type));
+                    DeleteEntry(type);
                 })
             });
         })

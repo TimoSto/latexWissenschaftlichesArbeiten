@@ -12,7 +12,7 @@ import (
 
 type DeleteObj struct {
 	Type string
-	Entry int
+	Entry string
 }
 
 func HandleDeleteType(w http.ResponseWriter, r *http.Request) {
@@ -58,7 +58,12 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 	}
 
 	entries := domain.ReadBibEntries()
-	entries = append(entries[:delObj.Entry], entries[delObj.Entry+1:]...)
+	for i:=0 ; i<len(entries);i++ {
+		if strings.Compare(entries[i].Key, delObj.Entry) == 0 {
+			entries = append(entries[:i], entries[i+1:]...)
+			break
+		}
+	}
 
 	jsonStr,err := json.MarshalIndent(entries, "", "\t")
 	if err != nil {

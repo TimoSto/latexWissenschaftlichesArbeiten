@@ -166,11 +166,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function DeleteEntry(i) {
+function DeleteEntry(key) {
   window.fetch('/delete/entry', {
     method: 'POST',
     body: JSON.stringify({
-      Entry: i
+      Entry: key
     })
   }).then(function (response) {
     console.log(response.status);
@@ -255,14 +255,14 @@ function () {
         _this.entries.push(type);
 
         el.addEventListener('click', function (evt) {
-          window.parent.shell.NavigateToEntry(parseInt(type));
+          window.parent.shell.NavigateToEntry(type);
         });
       });
       var deleteElements2 = document.querySelectorAll('[data-delete-entry]');
       deleteElements2.forEach(function (el) {
         var type = el.getAttribute('data-delete-entry');
         el.addEventListener('click', function (evt) {
-          (0, DeleteEntry_1.default)(parseInt(type));
+          (0, DeleteEntry_1.default)(type);
         });
       });
     });
