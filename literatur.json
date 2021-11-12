@@ -18,24 +18,6 @@
 		"Stand": "24.8.2005"
 	},
 	{
-		"Key": "book1",
-		"Typ": "buch",
-		"Autor": "Brox Hans/Walker, Wolf-Dietrich",
-		"Titel": "Allgemeiner Teil des BGB",
-		"Auflage": "2",
-		"Ort": "München",
-		"Datum": "2016",
-		"Hrsg": "false",
-		"Band": "",
-		"Zeitschrift": "",
-		"Seiten": "",
-		"Festschrift": "",
-		"AutorSammelwerk": "",
-		"TitelSammelwerk": "",
-		"URL": "",
-		"Stand": ""
-	},
-	{
 		"Key": "hrsgbook",
 		"Typ": "buch",
 		"Autor": "Semler Johannes/von Schenck Kersten",
