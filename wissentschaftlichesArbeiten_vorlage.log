@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 16:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 17:06
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -891,9 +891,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
 
-Overfull \hbox (2.41232pt too wide) in paragraph at lines 84--85
-\T1/ptm/m/n/12 wel-che es ge-steu-ert wird. Bei der Wirt-schaft ist dies der An
-gebot-Nachfrage-Mechanismus
+Overfull \hbox (7.41232pt too wide) in paragraph at lines 84--85
+\T1/ptm/m/n/12 wel-che es ge-steu-ert wird.[] Bei der Wirt-schaft ist dies der 
+Angebot-Nachfrage-Mechanismus
  []
 
 [1
@@ -921,7 +921,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--108
 \T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
  []
 
-
+[3]
 Underfull \hbox (badness 3029) in paragraph at lines 120--120
 \T1/ptm/m/n/12 (Eigeninteresse, Iden-ti-fi-ka-ti-
  []
@@ -931,7 +931,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--121
 \T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 126--129
 
  []
@@ -947,13 +947,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 154--157
 
  []
 
-[6] [7] [5
+[6] [7]
+Overfull \hbox (239.226pt too wide) in paragraph at lines 164--164
+\T1/ptm/m/n/12 https://www.wcge.org/images/wissenschaft/publikationen/DP_2006-3
+_Homann-Wirtschaftsethik_oekonomischer_Reduktionismus.pdf 
+ []
+
+[5
 
 ] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
  10791 strings out of 492452
  152735 string characters out of 3120530
- 302495 words of memory out of 3000000
+ 303864 words of memory out of 3000000
  14863 multiletter control sequences out of 15000+200000
  54231 words of font info for 84 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -965,7 +971,7 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
 tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 333632 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 334904 byt
 es).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)

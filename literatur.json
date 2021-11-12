@@ -36,6 +36,24 @@
 		"Stand": ""
 	},
 	{
+		"Key": "homann",
+		"Typ": "workingpaper",
+		"Autor": "Homann, K.",
+		"Titel": "Wirtschaftsethik: ökonomischer Reduktionismus?",
+		"Auflage": "",
+		"Ort": "",
+		"Datum": "03/2006",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "https://www.wcge.org/images/wissenschaft/publikationen/DP{{\\_}}2006-3{{\\_}}Homann-Wirtschaftsethik{{\\_}}oekonomischer{{\\_}}Reduktionismus.pdf",
+		"Stand": ""
+	},
+	{
 		"Key": "governanceDef",
 		"Typ": "online",
 		"Autor": "Krems, Prof. Dr. Burkhardt",

@@ -8,7 +8,7 @@
 \contentsline {part}{2\hspace {1em}Treiber moralischen Handelns}{2}% 
 \contentsline {section}{\numberline {2.1}Die monistische Sichtweise}{2}% 
 \contentsline {section}{\numberline {2.2}Die dualistische Sichtweise}{3}% 
-\contentsline {subsection}{\numberline {2.2.1}Das Anreizsystem nach Wieland}{3}% 
+\contentsline {subsection}{\numberline {2.2.1}Das Anreizsystem nach Wieland}{4}% 
 \contentsline {subsection}{\numberline {2.2.2}Die Bedeutung von Moral in der Wirtschaft}{4}% 
 \contentsline {subsection}{\numberline {2.2.3}Governanceethik nach Wieland}{5}% 
 \contentsline {section}{\numberline {2.3}Einordnung in philosophische Landschaft}{6}% 
