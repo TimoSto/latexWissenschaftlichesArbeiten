@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 15:49
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -908,25 +908,98 @@ gebot-Nachfrage-Mechanismus
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 102.
- [2] [5
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--115
+
+ []
+
+[2]
+Underfull \hbox (badness 5446) in paragraph at lines 119--119
+\T1/ptm/m/n/12 (Gewinnmaximierung, Mar-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
+\T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 132--132
+\T1/ptm/m/n/12 (Eigeninteresse, Iden-ti-fi-ka-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--133
+\T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
+ []
+
+[3]
+Overfull \hbox (23.84456pt too wide) in paragraph at lines 136--137
+\T1/ptm/m/n/12 Die vier An-reiz-for-men tre-ten auf un-ter-schied-li-che Art in
+ Er-schei-nung. Extrinsich-ökonomische
+ []
+
+
+Overfull \hbox (22.62798pt too wide) in paragraph at lines 136--137
+\T1/ptm/m/n/12 An-rei-ze sind von au-ÿen de-ter-mi-nier-te ma-te-ri-el-le Kal-k
+u-la-tio-nen wo-ge-gen extrinsich-moralische
+ []
+
+
+Overfull \hbox (23.85718pt too wide) in paragraph at lines 136--137
+\T1/ptm/m/n/12 schen nach An-er-ken-nung und Ach-tung durch Mit-mnschen ba-sie-
+ren. Die intrinsich-moralischen
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--141
+
+ []
+
+[4]
+<wieland1.png, id=57, 480.29437pt x 268.75406pt>
+File: wieland1.png Graphic file (type png)
+<use wieland1.png>
+Package pdftex.def Info: wieland1.png  used on input line 145.
+(pdftex.def)             Requested size: 320.0935pt x 179.11288pt.
+ [5 <./wieland1.png>]
+Overfull \hbox (7.99474pt too wide) in paragraph at lines 166--169
+\T1/ptm/m/n/12 die per-sön-li-che Ent-schei-dung be-kommt, liegt Glo-ba-le Ethi
+k vor. Und wenn die Governance-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--169
+
+ []
+
+[6] [7] [5
 
 ] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 10744 strings out of 492452
- 152412 string characters out of 3120530
- 297858 words of memory out of 3000000
- 14830 multiletter control sequences out of 15000+200000
- 26523 words of font info for 44 fonts, out of 3000000 for 9000
+ 10769 strings out of 492452
+ 152654 string characters out of 3120530
+ 300858 words of memory out of 3000000
+ 14839 multiletter control sequences out of 15000+200000
+ 34453 words of font info for 58 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 58i,18n,51p,970b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,18n,51p,1314b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/tsto/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/tsto/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (9 pages, 230648 byte
-s).
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/tsto/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
+o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
+tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
+rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (14 pages, 328384 byt
+es).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
+ 94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
