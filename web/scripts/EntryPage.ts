@@ -6,12 +6,13 @@ class EntryPage {
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=> {
             this._typeSelect =  (<any>window).mdc.select.MDCSelect.attachTo( document.querySelector('.mdc-select') );
+            this._typeSelect.value = document.body.getAttribute('data-typ');
 
             let saveBtn = document.querySelector('button');
 
             saveBtn.addEventListener('click', ()=>{
                 console.log(this.valuePairs)
-                SaveEntry(document.body.getAttribute('data-key'), this.valuePairs)
+                SaveEntry(document.body.getAttribute('data-key'), this.valuePairs, this._typeSelect.value)
             })
 
             let preElementes = document.querySelectorAll('#prevalues span')

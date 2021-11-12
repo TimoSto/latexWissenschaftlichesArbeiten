@@ -124,10 +124,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function SaveEntry(initialKey, valuePairs) {
+function SaveEntry(initialKey, valuePairs, typ) {
   var obj = {
     InitialKey: initialKey,
-    ValuePairs: valuePairs
+    ValuePairs: valuePairs,
+    Typ: typ
   };
   window.fetch('/saveEntry', {
     method: 'POST',
@@ -162,10 +163,11 @@ function () {
     this.valuePairs = [];
     document.addEventListener('DOMContentLoaded', function () {
       _this._typeSelect = window.mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
+      _this._typeSelect.value = document.body.getAttribute('data-typ');
       var saveBtn = document.querySelector('button');
       saveBtn.addEventListener('click', function () {
         console.log(_this.valuePairs);
-        (0, SaveEntry_1.default)(document.body.getAttribute('data-key'), _this.valuePairs);
+        (0, SaveEntry_1.default)(document.body.getAttribute('data-key'), _this.valuePairs, _this._typeSelect.value);
       });
       var preElementes = document.querySelectorAll('#prevalues span');
       var tf_elements = document.querySelectorAll('.mdc-text-field');
