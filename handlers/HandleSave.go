@@ -92,6 +92,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		Stand:           saveObj.ValuePairs[11].Value,
 	}
 	entries := domain.ReadBibEntries()
+	fmt.Println(entry)
 	if len(saveObj.InitialKey)  == 0 {
 		entries = append(entries, entry)
 	} else {
@@ -104,6 +105,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	}
 
 	jsonStr, err := json.MarshalIndent(entries, "", "\t")
+	fmt.Println(string(jsonStr))
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)

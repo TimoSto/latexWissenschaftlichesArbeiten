@@ -24,6 +24,7 @@
 		{aufsatz}{\printaufsatz{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
 		{online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
 		{asdda}{\printasdda{\autor}{\titel}{\ort}{\datum}}%
+		{workingpaper}{\printworkingpaper{\autor}{\titel}{\url}{\stand}{\datum}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -78,6 +79,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printworkingpaper}[5]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}, #2, #3(#4), #5
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -116,6 +126,7 @@
 			{aufsatz}{\footnote{#3\citeaufsatz{\autor}{\zeitschrift}{\datum}{#2}}}%
 			{online}{\footnote{#3\citeonline{\autor}{\titel}{\stand}{#2}}}%
 			{asdda}{\footnote{#3\citeasdda{\autor}{\ort}{\datum}{#2}}}%
+			{workingpaper}{\footnote{#3\citeworkingpaper{\autor}{\titel}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -141,6 +152,9 @@
 }
 \newcommand{\citeasdda}[4]{
 	\textit{#1}, #2, #3.
+}
+\newcommand{\citeworkingpaper}[3]{
+	\textit{#1}, #2.
 }
 %end area
 

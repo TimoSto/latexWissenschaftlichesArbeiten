@@ -1,6 +1,7 @@
 import DeleteType from "./DeleteType";
 import SaveType from "./SaveType";
 import DeleteEntry from "./DeleteEntry";
+import SaveEntry from "./SaveEntry";
 
 class Overview {
     private types = [];
@@ -33,7 +34,7 @@ class Overview {
             });
 
             let input = (<any>window).mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
-            let saveButton = <HTMLButtonElement>document.querySelector('.mdc-button--raised');
+            let saveButton = <HTMLButtonElement>document.querySelector('#createTypeBtn');
             saveButton.addEventListener('click', ()=>{
                 SaveType(input.value, [], []);
             })
@@ -72,6 +73,12 @@ class Overview {
                     DeleteEntry(type);
                 })
             });
+
+            let saveBtn2 = document.querySelector('#createEntryBtn');
+            saveBtn2.addEventListener('click', ()=>{
+                //SaveEntry("", [], "");
+                (<any>window.parent).shell.NavigateToEntry('')
+            })
         })
     }
 }

@@ -70,5 +70,23 @@
 		"TitelSammelwerk": "",
 		"URL": "",
 		"Stand": ""
+	},
+	{
+		"Key": "wieland1",
+		"Typ": "workingpaper",
+		"Autor": "Wieland, J.",
+		"Titel": "Governanceethik vbsv",
+		"Auflage": "",
+		"Ort": "",
+		"Datum": "1996",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "https:{\\\\\\\\}blabla",
+		"Stand": "20.9.2010"
 	}
 ]

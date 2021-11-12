@@ -36,13 +36,13 @@
                 {{ end }}
             </ul>
 
-            <label class="mdc-text-field mdc-text-field--filled">
+            <label class="mdc-text-field mdc-text-field--filled" id="newType">
                 <span class="mdc-text-field__ripple"></span>
                 <span class="mdc-floating-label">Neuer Typ</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
-            <button class="mdc-button mdc-button--raised" disabled="">
+            <button class="mdc-button mdc-button--raised" id="createTypeBtn" disabled="">
                 <span class="mdc-button__label">Neuen Typen erstellen</span>
             </button>
         </div>
@@ -55,6 +55,15 @@
         </li>
         <div class="area area-closed">
             <p class="mdc-typography--body1">Hier sind alle Literatur-Einträge aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
+            <label class="mdc-text-field mdc-text-field--filled" id="new-entry">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Neuer Eintrag</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <button class="mdc-button mdc-button--raised" id="createEntryBtn">
+                <span class="mdc-button__label">Neuen Typen erstellen</span>
+            </button>
             <ul class="mdc-list">
                 {{ range $key,$value := .Entries }}
 

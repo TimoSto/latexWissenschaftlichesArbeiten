@@ -273,6 +273,56 @@
 					"Suffix": ""
 				}
 			]
+		},
+		{
+			"Name": "workingpaper",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "url",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				},
+				{
+					"Field": "stand",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			]
 		}
 	]
 }

@@ -232,7 +232,7 @@ function () {
         });
       });
       var input = window.mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
-      var saveButton = document.querySelector('.mdc-button--raised');
+      var saveButton = document.querySelector('#createTypeBtn');
       saveButton.addEventListener('click', function () {
         (0, SaveType_1.default)(input.value, [], []);
       });
@@ -264,6 +264,11 @@ function () {
         el.addEventListener('click', function (evt) {
           (0, DeleteEntry_1.default)(type);
         });
+      });
+      var saveBtn2 = document.querySelector('#createEntryBtn');
+      saveBtn2.addEventListener('click', function () {
+        //SaveEntry("", [], "");
+        window.parent.shell.NavigateToEntry('');
       });
     });
   }
