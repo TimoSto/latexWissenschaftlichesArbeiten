@@ -64,18 +64,6 @@
 \addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
 \printabbreviations%abk_verzeichnis.sty
 \clearpage
-\renewcommand{\plaintitle}{Abbildungsverzeichnis}
-\addcontentsline{toc}{part}{Abbildungsverzeichnis}
-{\def\makebox[#1][#2]#3{#3}%
-\listoffigures
-}
-\clearpage
-\renewcommand{\plaintitle}{Tabellenverzeichnis}
-\addcontentsline{toc}{part}{Tabellenverzeichnis}
-{\def\makebox[#1][#2]#3{#3}%
-\listoftables
-}
-\clearpage
 \renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
 %Defbox, damit gepunktete Linie bis zur Zahl geht
 {\def\makebox[#1][#2]#3{#3}%

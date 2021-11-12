@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 15:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 15:51
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -841,21 +841,7 @@ File: titelseite.pdf Graphic file (type pdf)
 Package pdftex.def Info: titelseite.pdf , page2 used on input line 58.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 [2 <./titelseite.pdf>] [1{C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/
-pdftex.map}] (wissentschaftlichesArbeiten_vorlage.lof)
-\tf@lof=\write4
-\openout4 = `wissentschaftlichesArbeiten_vorlage.lof'.
-
- [2
-
-]
-(wissentschaftlichesArbeiten_vorlage.lot)
-\tf@lot=\write5
-\openout5 = `wissentschaftlichesArbeiten_vorlage.lot'.
-
- [3
-
-]
-(wissentschaftlichesArbeiten_vorlage.toc
+pdftex.map}] (wissentschaftlichesArbeiten_vorlage.toc
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
  2.
 
@@ -892,13 +878,13 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 )
-\tf@toc=\write6
-\openout6 = `wissentschaftlichesArbeiten_vorlage.toc'.
+\tf@toc=\write4
+\openout4 = `wissentschaftlichesArbeiten_vorlage.toc'.
 
- [4
+ [2
 
 ]
-Overfull \hbox (2.41232pt too wide) in paragraph at lines 96--97
+Overfull \hbox (2.41232pt too wide) in paragraph at lines 84--85
 \T1/ptm/m/n/12 wel-che es ge-steu-ert wird. Bei der Wirt-schaft ist dies der An
 gebot-Nachfrage-Mechanismus
  []
@@ -907,74 +893,74 @@ gebot-Nachfrage-Mechanismus
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 102.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 90.
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--115
+Underfull \hbox (badness 10000) in paragraph at lines 98--103
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--115
+Underfull \hbox (badness 10000) in paragraph at lines 98--103
 
  []
 
 [2]
-Underfull \hbox (badness 5446) in paragraph at lines 119--119
+Underfull \hbox (badness 5446) in paragraph at lines 107--107
 \T1/ptm/m/n/12 (Gewinnmaximierung, Mar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--120
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
 \T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
  []
 
 
-Underfull \hbox (badness 3029) in paragraph at lines 132--132
+Underfull \hbox (badness 3029) in paragraph at lines 120--120
 \T1/ptm/m/n/12 (Eigeninteresse, Iden-ti-fi-ka-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
 \T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
  []
 
 [3]
-Overfull \hbox (23.84456pt too wide) in paragraph at lines 136--137
+Overfull \hbox (23.84456pt too wide) in paragraph at lines 124--125
 \T1/ptm/m/n/12 Die vier An-reiz-for-men tre-ten auf un-ter-schied-li-che Art in
  Er-schei-nung. Extrinsich-ökonomische
  []
 
 
-Overfull \hbox (22.62798pt too wide) in paragraph at lines 136--137
+Overfull \hbox (22.62798pt too wide) in paragraph at lines 124--125
 \T1/ptm/m/n/12 An-rei-ze sind von au-ÿen de-ter-mi-nier-te ma-te-ri-el-le Kal-k
 u-la-tio-nen wo-ge-gen extrinsich-moralische
  []
 
 
-Overfull \hbox (23.85718pt too wide) in paragraph at lines 136--137
+Overfull \hbox (23.85718pt too wide) in paragraph at lines 124--125
 \T1/ptm/m/n/12 schen nach An-er-ken-nung und Ach-tung durch Mit-mnschen ba-sie-
 ren. Die intrinsich-moralischen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--141
+Underfull \hbox (badness 10000) in paragraph at lines 126--129
 
  []
 
 [4]
-<wieland1.png, id=57, 480.29437pt x 268.75406pt>
+<wieland1.png, id=51, 480.29437pt x 268.75406pt>
 File: wieland1.png Graphic file (type png)
 <use wieland1.png>
-Package pdftex.def Info: wieland1.png  used on input line 145.
+Package pdftex.def Info: wieland1.png  used on input line 133.
 (pdftex.def)             Requested size: 320.0935pt x 179.11288pt.
  [5 <./wieland1.png>]
-Overfull \hbox (7.99474pt too wide) in paragraph at lines 166--169
+Overfull \hbox (7.99474pt too wide) in paragraph at lines 154--157
 \T1/ptm/m/n/12 die per-sön-li-che Ent-schei-dung be-kommt, liegt Glo-ba-le Ethi
 k vor. Und wenn die Governance-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--169
+Underfull \hbox (badness 10000) in paragraph at lines 154--157
 
  []
 
@@ -982,10 +968,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--169
 
 ] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 10769 strings out of 492452
- 152654 string characters out of 3120530
+ 10759 strings out of 492452
+ 152286 string characters out of 3120530
  300858 words of memory out of 3000000
- 14839 multiletter control sequences out of 15000+200000
+ 14835 multiletter control sequences out of 15000+200000
  34453 words of font info for 58 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  58i,18n,51p,1314b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -996,10 +982,10 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
 tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (14 pages, 328384 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 326996 byt
 es).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
