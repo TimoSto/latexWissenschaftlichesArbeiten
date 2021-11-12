@@ -225,56 +225,6 @@
 			]
 		},
 		{
-			"Name": "asdda",
-			"HasCitePage": false,
-			"Fields": [
-				{
-					"Field": "autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "titel",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "ort",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
-				}
-			],
-			"CiteFields": [
-				{
-					"Field": "autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "ort",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
-				}
-			]
-		},
-		{
 			"Name": "workingpaper",
 			"HasCitePage": false,
 			"Fields": [

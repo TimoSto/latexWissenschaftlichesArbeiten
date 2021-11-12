@@ -46,6 +46,12 @@ func HandleDeleteType(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 	}
+
+	err = domain.SaveTypesToLaTeX(types.Types)
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+	}
 }
 
 func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {

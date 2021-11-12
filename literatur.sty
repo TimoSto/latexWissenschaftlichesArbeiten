@@ -23,7 +23,6 @@
 		{kommentar}{\printkommentar{\autor}{\titel}{\auflage}{\ort}{\datum}}%
 		{aufsatz}{\printaufsatz{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
 		{online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
-		{asdda}{\printasdda{\autor}{\titel}{\ort}{\datum}}%
 		{workingpaper}{\printworkingpaper{\autor}{\titel}{\url}{\stand}{\datum}}%
 		%end area
 		{empty}{}%
@@ -66,15 +65,6 @@
 	\parindent 0pt
 	\hangafter=1
 	\textit{#1}, #2, #3 (#4), abgerufen am #5
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printasdda}[4]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, \textit{#2}, #3 #4
 	\\
 	\vspace{-12pt}
 
@@ -125,7 +115,6 @@
 			{kommentar}{\footnote{#3\citekommentar{\autor}{\titel}{\datum}{#2}}}%
 			{aufsatz}{\footnote{#3\citeaufsatz{\autor}{\zeitschrift}{\datum}{#2}}}%
 			{online}{\footnote{#3\citeonline{\autor}{\titel}{\stand}{#2}}}%
-			{asdda}{\footnote{#3\citeasdda{\autor}{\ort}{\datum}{#2}}}%
 			{workingpaper}{\footnote{#3\citeworkingpaper{\autor}{\titel}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
@@ -148,9 +137,6 @@
 	\textit{#1}, #2, #3.
 }
 \newcommand{\citeonline}[4]{
-	\textit{#1}, #2, #3.
-}
-\newcommand{\citeasdda}[4]{
 	\textit{#1}, #2, #3.
 }
 \newcommand{\citeworkingpaper}[3]{
