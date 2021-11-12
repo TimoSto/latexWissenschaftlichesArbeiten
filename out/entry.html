@@ -5,8 +5,105 @@
     <title>Title</title>
     <link href="https://unpkg.com/material-components-web@10.0.0/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@10.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="/assets/entry.0dc49de2.css">
+    <script src="/assets/EntryPage.9c7eaa9f.js"></script>
 </head>
 <body>
-    <h2 class="mcy-typography--headline6">Eintrag: {{ .Key }}</h2>
+    <h2 class="mdc-typography--headline6">Eintrag: {{ .Entry.Key }}</h2>
+
+    <div class="mdc-select mdc-select--filled demo-width-class">
+        <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+            <span class="mdc-select__ripple"></span>
+            <span class="mdc-floating-label">Typ</span>
+            <span class="mdc-select__selected-text-container">
+                          <span class="mdc-select__selected-text"></span>
+                        </span>
+            <span class="mdc-select__dropdown-icon">
+                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          </svg>
+                        </span>
+            <span class="mdc-line-ripple"></span>
+        </div>
+
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <ul class="mdc-list" role="listbox" aria-label="Food picker listbox">
+
+                {{ range $value := .Types }}
+                <li class="mdc-list-item" aria-selected="false" data-value="{{ $value.Name }}" role="option">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">
+                      {{ $value.Name }}
+                    </span>
+                </li>
+                {{ end }}
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="outer">
+        <div class="lane">
+            <label class="mdc-text-field mdc-text-field--filled" data-attr="key">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+        </div>
+        <div class="lane">
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+        </div>
+        <div class="lane">
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Autor</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+        </div>
+    </div>
 </body>
 </html>

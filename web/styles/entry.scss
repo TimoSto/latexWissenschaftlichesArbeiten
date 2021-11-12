@@ -1,0 +1,11 @@
+@use 'common';
+
+.lane{
+  width: 200px;
+  float: left;
+  padding: 0 8px;
+}
+
+.lane .mdc-text-field{
+  margin: 8px 0;
+}
