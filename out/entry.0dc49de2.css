@@ -18,8 +18,17 @@ body, html {
   padding: 0 8px;
 }
 
+.outer {
+  width: 100%;
+  min-height: 230px;
+}
+
 .lane .mdc-text-field {
   margin: 8px 0;
+}
+
+#prevalues {
+  display: none;
 }
 
 /*# sourceMappingURL=/assets/entry.0dc49de2.css.map */

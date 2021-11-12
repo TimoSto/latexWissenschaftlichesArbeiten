@@ -131,18 +131,20 @@ function () {
       saveBtn.addEventListener('click', function () {
         console.log(_this.valuePairs);
       });
+      var preElementes = document.querySelectorAll('#prevalues span');
       var tf_elements = document.querySelectorAll('.mdc-text-field');
       tf_elements.forEach(function (el, i) {
         var tf = window.mdc.textField.MDCTextField.attachTo(el);
         var attr = el.querySelector('.mdc-floating-label').innerHTML;
 
-        _this.valuePairs.push(new ValuePair(attr, ''));
+        _this.valuePairs.push(new ValuePair(attr, preElementes[i].innerHTML));
 
         var input = el.querySelector('input');
         var index = i;
         input.addEventListener('change', function () {
           _this.valuePairs[index].Value = input.value;
         });
+        tf.value = preElementes[i].innerHTML;
       });
     });
   }

@@ -9,11 +9,21 @@
     <script src="/assets/EntryPage.9c7eaa9f.js"></script>
 </head>
 <body>
-    <h2 class="mdc-typography--headline6">Eintrag: {{ .Entry.Key }}</h2>
+    <div id="prevalues">
+        <span>{{ .Entry.Key }}</span>
+        <span>{{ .Entry.Titel }}</span>
+        <span>{{ .Entry.Auflage }}</span>
+        <span>{{ .Entry.Ort }}</span>
+        <span>{{ .Entry.Datum }}</span>
+        <span>{{ .Entry.Hrsg }}</span>
+        <span>{{ .Entry.Band }}</span>
+        <span>{{ .Entry.Zeitschrift }}</span>
+        <span>{{ .Entry.Seiten }}</span>
+        <span>{{ .Entry.URL }}</span>
+        <span>{{ .Entry.Stand }}</span>
 
-    <button class="mdc-button mdc-button--raised">
-        <span class="mdc-button__label">Speichern</span>
-    </button>
+    </div>
+    <h2 class="mdc-typography--headline6">Eintrag bearbeiten</h2>
 
     <div class="mdc-select mdc-select--filled demo-width-class">
         <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
@@ -124,5 +134,9 @@
 
         </div>
     </div>
+
+    <button class="mdc-button mdc-button--raised">
+        <span class="mdc-button__label">Speichern</span>
+    </button>
 </body>
 </html>

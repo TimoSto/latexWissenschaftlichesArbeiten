@@ -12,16 +12,19 @@ class EntryPage {
                 console.log(this.valuePairs)
             })
 
+            let preElementes = document.querySelectorAll('#prevalues span')
+
             let tf_elements = document.querySelectorAll('.mdc-text-field');
             tf_elements.forEach((el, i) => {
                 let tf = (<any>window).mdc.textField.MDCTextField.attachTo( el );
                 const attr = el.querySelector('.mdc-floating-label').innerHTML;
-                this.valuePairs.push(new ValuePair(attr, ''));
+                this.valuePairs.push(new ValuePair(attr, preElementes[i].innerHTML));
                 const input = el.querySelector('input');
                 const index = i;
                 input.addEventListener('change', ()=>{
                     this.valuePairs[index].Value = input.value;
                 })
+                tf.value = preElementes[i].innerHTML;
             })
         })
     }
