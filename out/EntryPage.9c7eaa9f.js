@@ -127,6 +127,10 @@ function () {
     this.valuePairs = [];
     document.addEventListener('DOMContentLoaded', function () {
       _this._typeSelect = window.mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
+      var saveBtn = document.querySelector('button');
+      saveBtn.addEventListener('click', function () {
+        console.log(_this.valuePairs);
+      });
       var tf_elements = document.querySelectorAll('.mdc-text-field');
       tf_elements.forEach(function (el, i) {
         var tf = window.mdc.textField.MDCTextField.attachTo(el);

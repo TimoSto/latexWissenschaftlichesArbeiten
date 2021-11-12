@@ -6,6 +6,12 @@ class EntryPage {
         document.addEventListener('DOMContentLoaded', ()=> {
             this._typeSelect =  (<any>window).mdc.select.MDCSelect.attachTo( document.querySelector('.mdc-select') );
 
+            let saveBtn = document.querySelector('button');
+
+            saveBtn.addEventListener('click', ()=>{
+                console.log(this.valuePairs)
+            })
+
             let tf_elements = document.querySelectorAll('.mdc-text-field');
             tf_elements.forEach((el, i) => {
                 let tf = (<any>window).mdc.textField.MDCTextField.attachTo( el );

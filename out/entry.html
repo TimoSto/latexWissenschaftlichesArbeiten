@@ -11,6 +11,10 @@
 <body>
     <h2 class="mdc-typography--headline6">Eintrag: {{ .Entry.Key }}</h2>
 
+    <button class="mdc-button mdc-button--raised">
+        <span class="mdc-button__label">Speichern</span>
+    </button>
+
     <div class="mdc-select mdc-select--filled demo-width-class">
         <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
             <span class="mdc-select__ripple"></span>
@@ -47,19 +51,19 @@
         <div class="lane">
             <label class="mdc-text-field mdc-text-field--filled" data-attr="key">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Key</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Titel</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Auflage</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
@@ -67,19 +71,19 @@
         <div class="lane">
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Ort</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Datum</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Hrsg</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
@@ -87,22 +91,37 @@
         <div class="lane">
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Band</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Zeitschrift</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
             <label class="mdc-text-field mdc-text-field--filled">
                 <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label">Autor</span>
+                <span class="mdc-floating-label">Seiten</span>
                 <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
                 <span class="mdc-line-ripple"></span>
             </label>
+        </div>
+        <div class="lane">
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">URL</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <label class="mdc-text-field mdc-text-field--filled">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Stand</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+
         </div>
     </div>
 </body>
