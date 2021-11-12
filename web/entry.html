@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/entry.scss">
     <script src="scripts/EntryPage.ts"></script>
 </head>
-<body>
+<body data-key="{{ .Entry.Key }}">
     <div id="prevalues">
         <span>{{ .Entry.Key }}</span>
         <span>{{ .Entry.Titel }}</span>

@@ -1,3 +1,4 @@
+import SaveEntry from "./SaveEntry";
 
 class EntryPage {
     private _typeSelect;
@@ -10,6 +11,7 @@ class EntryPage {
 
             saveBtn.addEventListener('click', ()=>{
                 console.log(this.valuePairs)
+                SaveEntry(document.body.getAttribute('data-key'), this.valuePairs)
             })
 
             let preElementes = document.querySelectorAll('#prevalues span')

@@ -117,7 +117,42 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scripts/EntryPage.ts":[function(require,module,exports) {
+})({"scripts/SaveEntry.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function SaveEntry(initialKey, valuePairs) {
+  var obj = {
+    InitialKey: initialKey,
+    ValuePairs: valuePairs
+  };
+  window.fetch('/saveEntry', {
+    method: 'POST',
+    body: JSON.stringify(obj)
+  }).then(function (response) {
+    console.log(response);
+  });
+}
+
+exports.default = SaveEntry;
+},{}],"scripts/EntryPage.ts":[function(require,module,exports) {
+"use strict";
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var SaveEntry_1 = __importDefault(require("./SaveEntry"));
+
 var EntryPage =
 /** @class */
 function () {
@@ -130,6 +165,7 @@ function () {
       var saveBtn = document.querySelector('button');
       saveBtn.addEventListener('click', function () {
         console.log(_this.valuePairs);
+        (0, SaveEntry_1.default)(document.body.getAttribute('data-key'), _this.valuePairs);
       });
       var preElementes = document.querySelectorAll('#prevalues span');
       var tf_elements = document.querySelectorAll('.mdc-text-field');
@@ -164,5 +200,5 @@ function () {
 }();
 
 new EntryPage();
-},{}]},{},["scripts/EntryPage.ts"], null)
+},{"./SaveEntry":"scripts/SaveEntry.ts"}]},{},["scripts/EntryPage.ts"], null)
 //# sourceMappingURL=/assets/EntryPage.9c7eaa9f.js.map
