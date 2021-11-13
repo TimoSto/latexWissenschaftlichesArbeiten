@@ -49,6 +49,8 @@
 %DEBUGGING (Zeigt Boxen an)
 %\usepackage{showframe}
 \setlength{\skip\footins}{12pt}
+
+\usepackage{makecell}
 \begin{document}
 
 \renewcommand{\mytitle}{Governanceethik und\\moralische Anreize}%Titel für oben links
@@ -64,16 +66,13 @@
 
 \pagenumbering{Roman}
 
-\addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
-\printabbreviations%abk_verzeichnis.sty
-\clearpage
 \renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
 %Defbox, damit gepunktete Linie bis zur Zahl geht
 {\def\makebox[#1][#2]#3{#3}%
 	\tableofcontents
 }
 
-\addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
+%\addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
 
 \clearpage
 \mainmatter%Stil des Headers/Footers ändern
@@ -99,14 +98,14 @@ Anreize & \textbf{extrinsisch} & \textbf{intrinsisch}\\\hline
 Der jeweilige Stellenwert bzw. überhaupt die Existenz der in 1.3 aufgezeigten Kategorien im System der Governance ist unter Ökonomen und Philosophen strittig. Grob lassen sich zwei Sichtweisen erkennen, die monistische und die dualistische.
 \section{Die monistische Sichtweise}
 Nach der monistischen Ansicht sind die Problemstellungen von Ethik und Ökonomik im Grunde deckungsgleich. Der Soziologe Amitati Etzioni argumentiert, dass moralisches Verhalten nicht auf ein Anreizsystem zurückführbar sei.\citebib{wielandGMA}{S.5}{Vgl. } Vielmehr sei es gleichermaßen durch ökonomische und moralische Erwartungen bestimmt, die letztenendes alle auf ökonomische Ziele abgestellt sind. Nach dieser Ansicht wäre der Rückgang von industriellen CO2-Emissionen darauf zurückzuführen, dass die Unternehmen so ihren Kundenkreis sichern und erweitern wollen, da erwartet wird, dass die Kunden die ethische Dimension des Umweltschutzes bei ihrer Kaufentscheidung mit einbeziehen.\\
-Der Ökonom Karl Homann beschreibt den weitergehenden Standpunkt, dass die Betriebswirtschaftslehre in sich bereits moralisch richtig sei.\citebib{homann}{S.5}{Vgl. } Demnach lägen für fast alle ethischen Probleme ökonomische Rekonstruktionen vor und die Ökonomik sei sogar in der Lage, ethische Probleme zu lösen, da diese in letzter Instanz auch nur auf individuellen Kalkülen basieren. Die Gründe dafür sieht Homann zum einen in der unter 1.2 beschriebenen funktionalen Differenzierung der Gesellschaft, zum anderen in der Beschaffenheit des Menschen als vollständig rational und nutzenorientiert handelnden \textit{homo oeconomicus}.\footnote{Vgl. ebd. S.4}\\
+Der Ökonom Karl Homann beschreibt den weitergehenden Standpunkt, dass die Betriebswirtschaftslehre in sich bereits moralisch richtig sei.\citebib{homann}{S.5}{Vgl. } Demnach lägen für fast alle ethischen Probleme ökonomische Rekonstruktionen vor und die Ökonomik sei sogar in der Lage, ethische Probleme zu lösen, da diese in letzter Instanz auch nur auf individuellen Kalkülen basieren. Die Gründe dafür sieht Homann zum einen in der unter 1.2 beschriebenen funktionalen Differenzierung der Gesellschaft, zum anderen in der Beschaffenheit des Menschen als vollständig rational und nutzenorientiert handelnden \textit{homo oeconomicus}.\setlength{\footnotemargin}{4mm}\footnote{Vgl. ebd. S.4}\\
 Wenn wir versuchen, die Anreize-Matrix aus 1.3 im monistischen Sinne zu füllen, kommen nur extrinsisch-ökonomische und intrinsisch-moralische infrage, da sämtliche ökonomisch relevanten Anreize auf eine materielle Vorteilskalkulation zurückführbar sind und der materielle Gewinn durch die externe Partei der Kunden bestimmt wird während alle immateriellen Anreize sich auf die Präferenzen der Akteure im Unternehmen beziehen und ohne monetären Vorteilseffekt sind.
 \begin{center}
 \begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 Anreize & \textbf{extrinsisch} & \textbf{intrinsisch}\\\hline
-\textbf{ökonomisch} & materiell\newline(Gewinnmaximierung, Markenimage, ...) & /\\\hline
-\textbf{moralisch} & / & immateriell\newline(Sinn für Gerechtigkeit, Überzeugungen, ...)\\\hline
+\makecell[lt]{\textbf{ökonomisch}} & \makecell[lt]{materiell\\(Gewinnmaximierung,\\ Markenimage, ...)} & \makecell[lt]{/}\\\hline
+\makecell[lt]{\textbf{moralisch}} & / & \makecell[lt]{immateriell\\(Sinn für Gerechtigkeit,\\Überzeugungen, ...)}\\\hline
 \end{tabular}
 \end{center}
 Der Versuch, immaterielle Anreize in die ökonomische Kalkulation mit einzubeziehen, würde demnach nur Rauschen in der Wirtschaft hervorrufen, indem sie für das Wirtschaftssystem irrelevante Diskussionen provozieren.
@@ -118,8 +117,8 @@ Für Wieland beschränken sich moralische Anreize nicht bloß auf die intrinsisc
 \begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 Anreize & \textbf{extrinsisch} & \textbf{intrinsisch}\\\hline
-\textbf{ökonomisch} & materiell\newline(Gewinnmaximierung, ...) & immateriell\newline (Eigeninteresse, Identifikation, ...)\\\hline
-\textbf{moralisch} & immateriell\newline (Achtung, Anerkennung) & immateriell\newline(Sinn für Gerechtigkeit, Überzeugungen, ...)\\\hline
+\textbf{ökonomisch} & \makecell[lt]{materiell\\(Gewinnmaximierung, ...)} & \makecell[lt]{immateriell\\ (Eigeninteresse, Identität,...)}\\\hline
+\textbf{moralisch} & \makecell[lt]{immateriell\\(Achtung, Anerkennung)} & \makecell[lt]{immateriell\\(Sinn für Gerechtigkeit,\\Überzeugungen, ...)}\\\hline
 \end{tabular}
 \end{center}
 Die vier Anreizformen treten in Wielands System auf unterschiedliche Art in Erscheinung.\citebib{wielandGMA}{S.7}{Vgl. } Extrinsich-ökonomische Anreize sind von außen determinierte materielle Kalkulationen wogegen extrinsisch-moralische Anreize nicht auf monetären Zielen sondern auf dem immateriellen Bedürfnis des Menschen nach Anerkennung und Achtung durch Mitmenschen basieren. Die intrinsich-moralischen Anreize stellen die Anreize dar, die befolgt werden um ein inneres Bedürfnis zu erfüllen, und intrinsich-ökonomische Anreize sind interne Anforderungen an das Unternehmen als wirtschaftlichen Akteur, wie zum Beispiel eine Unternehmenskultur.
@@ -155,15 +154,14 @@ Wenn sich das Handeln an den persönlichen Überzeugungen orientiert, ist das ha
 Die Tugendethik Immanuel Kants besagt im kategorischen Imperativ, dass eine moralische Handlung nicht nur \textit{pflichtgemäß} sein muss, sondern auch \textit{aus der Pflicht heraus} motiviert sein muss. Demnach wäre die Reduktion der CO2-Emmissionen mit dem Ziel der Imagesteigerung keine moralische Handlung, da die Begründung nicht \textit{um ihrer selbst Willen} ist. Wieland sieht hier aber die Schwäche, dass moralische Handlungen, die aus der reinen Überzeugung, dass sie richtig sind, entstehen, eigentlich auch nur ein Bedürfnis des Menschen stillen sollen, nämlich das, in Einklang mit seinen natürlichen Regungen und dem gesellschaftlichen Habitus zu leben, und somit einen Selbstnutzen mit sich bringen. Zudem sei dieser Habitus nicht naturgegeben, sondern werde über einen sozialen Lernprozess vermittelt. Stattdessen entwickelte Wieland für die Unternehmensethik den organisatorischen Imperativ. Dieser besagt, dass ein Akteur so handeln soll, moralische Güter zu aktivieren und Opportunismus zu minimieren. Das bedeutet, dass moralsensitive Governancestrukturen dafür sorgen müssen, dass die moralischen Anreize genügend Beachtung finden und so opportunistisches Verhalten, wie das Abschließen eines billigen Kaufvertrages über Kleidung aus Kinderarbeit, einzudämmen. In diesem Konstrukt werden Entscheidungen nicht mehr anhand des \textit{homo oeconomicus} getroffen, sondern aus einer situativen Abwägung von Moral und Ökonomie.
 
 \part{Fazit}
-Moralisches Handeln ist heutzutage wichtig, um am Markt bestehen zu können. Wir sind jedoch der Meinung, dass die monistische Sichtweise nicht lang bestehen kann. Nur moralisch zu handeln, um Gewinn zu machen ist zwar legitim aber unserer Meinung nach irgendwann nicht mehr durchsetzbar, da Stakeholder sich auch überlegen aus welchen Gründen Sie bei einem Arbeitgeber arbeiten. Deshalb ist unser Meinung nach die dualistische Sichtweise, auch auf lange Sicht gesehen, die richtige Art moralisch zu handeln.
-Wir bekommen immer mehr mit, dass zum Beispiel Kunden heutzutage beim Kauf von Lebensmitteln nicht mehr so sehr auf den Preis achten, sondern das Produkt nur kaufen, wenn es BIO ist. Und es sind am Ende nicht nur die Kunden, sondern auch, um das Beispiel mal weiterzuführen, die Mitarbeiter, die sich aufgrund von der moralischen Ausrichtung einem Unternehmen den Rücken kehren und ein Unternehmen suchen, was den eigenen moralischen Ansichten eher entspricht. Es spielen sehr viele Faktoren eine Rolle und um alle zu beachten, ist es notwendig noch mehr über das Thema Governane Ethik und moralische Anreize zu erfahren.
+Moralisches Handeln ist heutzutage unabdingbar, um am Markt bestehen zu können. Wir sind der Meinung, dass die monistische Sichtweise nicht lang bestehen kann. Nur moralisch zu handeln, um Gewinn zu machen, ist zwar legitim aber irgendwann nicht mehr durchsetzbar, da zum einen Stakeholder und Kunden solch ein Handeln durchschauen und anprangern könnten. Beispielsweise kaufen viele Kunden Lebensmittel nicht aufgrund des Preises sondern weil sie aus BIO-Produktionen stammen und gegebenenfalls kehren Mitarbeiter ihrem Arbeitgeber den Rücken, weil dessen Handeln nicht mit ihrem persönlichen Wertevorstellungen einhergeht. Zum andern sehen wir es wie Wieland aber auch als wichtig an, moralische Werte auf ehrliche Weise im Unternehmen zu verankern. Nur so können ehrliche Zusammenarbeit und ehrliche Kundenbeziehungen entstehen. Wenn ein Unternehmen seine Entscheidungen immer an gerade aktuellen Trends orientiert, ist keine ehrliche Kommunikation möglich, da man als Partner oder Kunde nicht einschätzen kann, ob die Aussagen des Akteurs ehrlich oder nur Fassade sind. Deshalb ist unser Meinung nach die dualistische Sichtweise auch auf lange Sicht gesehen die richtige Art moralisches Handeln in die Wirtschaft einzubetten. Die relevanten Einflussfaktoren überschreiten natürlich die in dieser Hausarbeit angesprochenen Punkte, jedoch bietet Wielands Governanceethik aus unserer Sicht vielversprechende Ansätze, Dialoge zwischen diesen Einflussfaktoren möglichst effektiv zu gestalten.
 
 
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
 \renewcommand{\plaintitle}{Literaturverzeichnis}
 \pagenumbering{Roman}
-\setcounter{page}{5}
+\setcounter{page}{2}
 \addtocontents{toc}{\vspace{24pt}}
 \addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
 \printMyBibliography

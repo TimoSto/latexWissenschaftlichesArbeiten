@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  13 NOV 2021 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  13 NOV 2021 15:21
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -648,22 +648,28 @@ Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
 File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-(wissentschaftlichesArbeiten_vorlage.aux)
+("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/makecell\makecell.s
+ty"
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen151
+\c@nlinenum=\count177
+\TeXr@lab=\toks59
+) (wissentschaftlichesArbeiten_vorlage.aux)
 \openout1 = `wissentschaftlichesArbeiten_vorlage.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 52
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 54
 .
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ptm.fd"
@@ -708,17 +714,17 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
 f.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count177
-\scratchdimen=\dimen151
+\scratchcounter=\count178
+\scratchdimen=\dimen152
 \scratchbox=\box46
-\nofMPsegments=\count178
-\nofMParguments=\count179
-\everyMPshowfont=\toks59
-\MPscratchCnt=\count180
-\MPscratchDim=\dimen152
-\MPnumerator=\count181
-\makeMPintoPDFobject=\count182
-\everyMPtoPDFconversion=\toks60
+\nofMPsegments=\count179
+\nofMParguments=\count180
+\everyMPshowfont=\toks60
+\MPscratchCnt=\count181
+\MPscratchDim=\dimen153
+\MPnumerator=\count182
+\makeMPintoPDFobject=\count183
+\everyMPtoPDFconversion=\toks61
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-b
 ase.sty"
@@ -774,13 +780,11 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count183
+\c@lstlisting=\count184
  [1
 
 {C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-[1
-
-] (wissentschaftlichesArbeiten_vorlage.toc
+(wissentschaftlichesArbeiten_vorlage.toc
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
  2.
 
@@ -820,75 +824,55 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 \tf@toc=\write4
 \openout4 = `wissentschaftlichesArbeiten_vorlage.toc'.
 
- [2
+ [1
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 82.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 82.
  [1
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 93.
-
-Underfull \hbox (badness 5446) in paragraph at lines 108--108
-\T1/ptm/m/n/12 (Gewinnmaximierung, Mar-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--109
-\T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
- []
-
-[2]
-Underfull \hbox (badness 3029) in paragraph at lines 121--121
-\T1/ptm/m/n/12 (Eigeninteresse, Iden-ti-fi-ka-ti-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--122
-\T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
- []
-
-[3] [4]
-<wieland1.png, id=27, 480.29437pt x 268.75406pt>
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 92.
+ [2] [3]
+<wieland1.png, id=20, 480.29437pt x 268.75406pt>
 File: wieland1.png Graphic file (type png)
 <use wieland1.png>
-Package pdftex.def Info: wieland1.png  used on input line 129.
+Package pdftex.def Info: wieland1.png  used on input line 128.
 (pdftex.def)             Requested size: 362.77525pt x 202.99625pt.
-
-Overfull \hbox (0.7524pt too wide) in paragraph at lines 131--133
+ [4]
+Overfull \hbox (0.7524pt too wide) in paragraph at lines 130--132
 \T1/ptm/m/n/12 schafts-gü-tern un-ter-schei-den und im Zwei-fels-fall auch ein 
 Stück Klei-dung zu ei-nem Moral-
  []
 
 [5 <./wieland1.png>] [6] [7] [8]
-Overfull \hbox (3.6924pt too wide) in paragraph at lines 169--169
+Overfull \hbox (3.6924pt too wide) in paragraph at lines 167--167
 \T1/ptm/m/n/12 https://www.wcge.org/images/wissenschaft/publikationen/DP_2006-3
 _Homann-Wirt-
  []
 
 
-Overfull \hbox (3.84955pt too wide) in paragraph at lines 169--169
+Overfull \hbox (3.84955pt too wide) in paragraph at lines 167--167
 []\T1/ptm/m/it/12 Statistisches Bun-des-amt\T1/ptm/m/n/12 , Gen-der Pay Gap, ht
 tps://www.destatis.de/DE/Themen/Arbeit/Ar-
  []
 
-[5
+[2
 
 ] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 10778 strings out of 492452
- 152399 string characters out of 3120530
- 304936 words of memory out of 3000000
- 14852 multiletter control sequences out of 15000+200000
+ 10927 strings out of 492452
+ 154030 string characters out of 3120530
+ 307713 words of memory out of 3000000
+ 14997 multiletter control sequences out of 15000+200000
  54231 words of font info for 84 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 58i,11n,49p,1818b,502s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,15n,49p,1818b,496s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/tsto/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/tsto/AppData/L
@@ -896,10 +880,10 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
 tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 147240 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (11 pages, 146640 byt
 es).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
