@@ -50,7 +50,7 @@
 		"Festschrift": "",
 		"AutorSammelwerk": "",
 		"TitelSammelwerk": "",
-		"URL": "https://www.wcge.org/images/wissenschaft/publikationen/DP{{\\_}}2006-3{{\\_}}Homann-Wirtschaftsethik{{\\_}}oekonomischer{{\\_}}Reduktionismus.pdf",
+		"URL": "https://www.wcge.org/images/wissenschaft/publi{{kationen/DP{{\\_}}2006-3{{\\_}}Homann-Wirt-schaftsethik\\_}}oekonomischer{{\\_}}Reduktionismus.pdf",
 		"Stand": ""
 	},
 	{
@@ -70,6 +70,42 @@
 		"TitelSammelwerk": "",
 		"URL": "https://olev.de/g/governance.htm",
 		"Stand": "20.06.2012"
+	},
+	{
+		"Key": "schneider",
+		"Typ": "aufsatz",
+		"Autor": "Schneider, H.",
+		"Titel": "Implementierung eines Wertemanagementsystems am Praxisbeispiel der Evenord-Bank-eG-KG-Nürnberg",
+		"Auflage": "",
+		"Ort": "Nürnberg",
+		"Datum": "2011",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "e-Unternehmensethik",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "",
+		"Stand": ""
+	},
+	{
+		"Key": "genderpay",
+		"Typ": "online",
+		"Autor": "Statistisches Bundesamt",
+		"Titel": "Gender Pay Gap",
+		"Auflage": "",
+		"Ort": "",
+		"Datum": "07.11.2021",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "https://www.destatis.de/DE/Themen/Arbeit/Ar-beitsmarkt/Qualitaet-Arbeit/Dimension-1/gender-pay-gap.html",
+		"Stand": "2021"
 	},
 	{
 		"Key": "CODef",
@@ -106,5 +142,23 @@
 		"TitelSammelwerk": "",
 		"URL": "https://d-nb.info/1203820755/34",
 		"Stand": "01.11.2021"
+	},
+	{
+		"Key": "wieland2",
+		"Typ": "hrsgsammel",
+		"Autor": "Wieland, J.",
+		"Titel": "Eine Theorie der Governanceethik",
+		"Auflage": "",
+		"Ort": "Wiesbaden",
+		"Datum": "2020",
+		"Hrsg": "",
+		"Band": "Springer VS",
+		"Zeitschrift": "Wirtschafts- und Unternehmensethik",
+		"Seiten": "S.717-739",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "",
+		"Stand": ""
 	}
 ]

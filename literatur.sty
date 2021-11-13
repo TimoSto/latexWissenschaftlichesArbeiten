@@ -25,6 +25,7 @@
 		{online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
 		{workingpaper}{\printworkingpaper{\autor}{\titel}{\datum}{\url}}%
 		{sammelwerk}{\printsammelwerk{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
+		{hrsgsammel}{\printhrsgsammel{\autor}{\titel}{\zeitschrift}{\datum}{\band}{\ort}{\seiten}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -88,6 +89,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printhrsgsammel}[7]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}, #2, #3 (#4), #5 (Hrsg.), #6, #7
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -127,6 +137,7 @@
 			{online}{\footnote{#3\citeonline{\autor}{\titel}{\stand}{#2}}}%
 			{workingpaper}{\footnote{#3\citeworkingpaper{\autor}{\titel}{#2}}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\autor}{\titel}{#2}}}%
+			{hrsgsammel}{\footnote{#3\citehrsgsammel{\autor}{\titel}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -155,6 +166,9 @@
 }
 \newcommand{\citesammelwerk}[3]{
 	\textit{#1} , #2, #3.
+}
+\newcommand{\citehrsgsammel}[3]{
+	\textit{#1}, #2, #3.
 }
 %end area
 

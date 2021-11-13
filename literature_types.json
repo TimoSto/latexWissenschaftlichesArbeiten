@@ -317,6 +317,68 @@
 					"Suffix": ", "
 				}
 			]
+		},
+		{
+			"Name": "hrsgsammel",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "zeitschrift",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				},
+				{
+					"Field": "band",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " (Hrsg.), "
+				},
+				{
+					"Field": "ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "seiten",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				}
+			]
 		}
 	]
 }
