@@ -337,7 +337,7 @@
 				{
 					"Field": "zeitschrift",
 					"Style": "normal",
-					"Prefix": "",
+					"Prefix": "in: ",
 					"Suffix": " "
 				},
 				{
