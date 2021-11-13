@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 17:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  12 NOV 2021 17:39
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -775,73 +775,12 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 \c@lstlisting=\count183
+ [1
 
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-<titelseite.pdf, id=1, 597.55246pt x 845.07718pt>
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf>
-Package pdftex.def Info: titelseite.pdf  used on input line 58.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf>
-Package pdftex.def Info: titelseite.pdf  used on input line 58.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-<titelseite.pdf, id=4, page=1, 597.55246pt x 845.07718pt>
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+{C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 [1
 
- <./titelseite.pdf>]
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-<titelseite.pdf, id=24, page=2, 597.55246pt x 845.07718pt>
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 58.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[2 <./titelseite.pdf>] [1{C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/
-pdftex.map}] (wissentschaftlichesArbeiten_vorlage.toc
+] (wissentschaftlichesArbeiten_vorlage.toc
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
  2.
 
@@ -885,13 +824,13 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
 
-Overfull \hbox (7.41232pt too wide) in paragraph at lines 84--85
+Overfull \hbox (7.41232pt too wide) in paragraph at lines 87--88
 \T1/ptm/m/n/12 wel-che es ge-steu-ert wird.[] Bei der Wirt-schaft ist dies der 
 Angebot-Nachfrage-Mechanismus
  []
@@ -900,55 +839,60 @@ Angebot-Nachfrage-Mechanismus
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 90.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 93.
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--103
+Underfull \hbox (badness 10000) in paragraph at lines 101--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--103
+Underfull \hbox (badness 10000) in paragraph at lines 101--106
 
  []
 
 [2]
-Underfull \hbox (badness 5446) in paragraph at lines 107--107
+Underfull \hbox (badness 5446) in paragraph at lines 110--110
 \T1/ptm/m/n/12 (Gewinnmaximierung, Mar-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 \T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
  []
 
 [3]
-Underfull \hbox (badness 3029) in paragraph at lines 120--120
+Underfull \hbox (badness 3029) in paragraph at lines 123--123
 \T1/ptm/m/n/12 (Eigeninteresse, Iden-ti-fi-ka-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--121
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
 \T1/ptm/m/n/12 (Sinn für Ge-rech-tig-keit,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--129
+Underfull \hbox (badness 10000) in paragraph at lines 129--132
 
  []
 
 [4]
-<wieland1.png, id=52, 480.29437pt x 268.75406pt>
+Overfull \hbox (6.5492pt too wide) in paragraph at lines 134--135
+\T1/ptm/m/n/12 Wie be-schrie-ben liegt in der Wert-schät-zung die Ker-n-es-senz
+ von Wie-lands Go-ver-nanceethik,
+ []
+
+<wieland1.png, id=27, 480.29437pt x 268.75406pt>
 File: wieland1.png Graphic file (type png)
 <use wieland1.png>
-Package pdftex.def Info: wieland1.png  used on input line 133.
-(pdftex.def)             Requested size: 320.0935pt x 179.11288pt.
- [5 <./wieland1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 154--157
+Package pdftex.def Info: wieland1.png  used on input line 136.
+(pdftex.def)             Requested size: 362.77525pt x 202.99625pt.
+[5 <./wieland1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 157--160
 
  []
 
 [6] [7]
-Overfull \hbox (239.226pt too wide) in paragraph at lines 164--164
+Overfull \hbox (239.226pt too wide) in paragraph at lines 167--167
 \T1/ptm/m/n/12 https://www.wcge.org/images/wissenschaft/publikationen/DP_2006-3
 _Homann-Wirtschaftsethik_oekonomischer_Reduktionismus.pdf 
  []
@@ -957,13 +901,13 @@ _Homann-Wirtschaftsethik_oekonomischer_Reduktionismus.pdf
 
 ] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 10791 strings out of 492452
- 152735 string characters out of 3120530
- 303864 words of memory out of 3000000
- 14863 multiletter control sequences out of 15000+200000
+ 10776 strings out of 492452
+ 152370 string characters out of 3120530
+ 304864 words of memory out of 3000000
+ 14850 multiletter control sequences out of 15000+200000
  54231 words of font info for 84 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 58i,18n,51p,1314b,548s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,11n,49p,1525b,434s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/tsto/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/tsto/AppData/L
@@ -971,10 +915,10 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
 tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 334904 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (11 pages, 144559 byt
 es).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
