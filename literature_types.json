@@ -52,7 +52,7 @@
 					"Field": "datum",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": ", "
 				}
 			]
 		},
@@ -164,7 +164,7 @@
 					"Field": "datum",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": ", "
 				}
 			]
 		},
@@ -264,7 +264,7 @@
 					"Field": "titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": ", "
 				}
 			]
 		},
@@ -314,7 +314,7 @@
 					"Field": "titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": ", "
 				}
 			]
 		}
