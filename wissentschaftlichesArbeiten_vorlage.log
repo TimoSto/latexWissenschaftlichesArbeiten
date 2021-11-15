@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  13 NOV 2021 15:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  15 NOV 2021 07:08
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -838,13 +838,13 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 92.
- [2] [3]
-<wieland1.png, id=20, 480.29437pt x 268.75406pt>
+ [2] [3] [4]
+<wieland1.png, id=23, 480.29437pt x 268.75406pt>
 File: wieland1.png Graphic file (type png)
 <use wieland1.png>
 Package pdftex.def Info: wieland1.png  used on input line 128.
 (pdftex.def)             Requested size: 362.77525pt x 202.99625pt.
- [4]
+
 Overfull \hbox (0.7524pt too wide) in paragraph at lines 130--132
 \T1/ptm/m/n/12 schafts-gü-tern un-ter-schei-den und im Zwei-fels-fall auch ein 
 Stück Klei-dung zu ei-nem Moral-
@@ -872,7 +872,7 @@ Here is how much of TeX's memory you used:
  14997 multiletter control sequences out of 15000+200000
  54231 words of font info for 84 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 58i,15n,49p,1818b,496s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,15n,49p,1833b,496s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/tsto/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/tsto/AppData/L
@@ -880,7 +880,7 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
 tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (11 pages, 146640 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (11 pages, 146909 byt
 es).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
