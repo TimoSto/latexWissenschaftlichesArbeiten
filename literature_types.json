@@ -47,12 +47,6 @@
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
 				}
 			]
 		},
@@ -131,14 +125,14 @@
 				{
 					"Field": "zeitschrift",
 					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
+					"Prefix": "in: ",
+					"Suffix": " "
 				},
 				{
 					"Field": "datum",
 					"Style": "normal",
-					"Prefix": "",
-					"Suffix": " "
+					"Prefix": "(",
+					"Suffix": "), "
 				},
 				{
 					"Field": "seiten",
@@ -156,12 +150,6 @@
 				},
 				{
 					"Field": "zeitschrift",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "datum",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
@@ -214,12 +202,6 @@
 					"Field": "titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "stand",
-					"Style": "normal",
-					"Prefix": "",
 					"Suffix": ""
 				}
 			]
@@ -250,6 +232,12 @@
 					"Field": "url",
 					"Style": "normal",
 					"Prefix": "abrufbar unter: ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "stand",
+					"Style": "normal",
+					"Prefix": "abgerufen am: ",
 					"Suffix": ""
 				}
 			],
@@ -308,7 +296,7 @@
 					"Field": "autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " , "
+					"Suffix": ", "
 				},
 				{
 					"Field": "titel",

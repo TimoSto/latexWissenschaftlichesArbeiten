@@ -23,7 +23,7 @@
 		{kommentar}{\printkommentar{\autor}{\titel}{\auflage}{\ort}{\datum}}%
 		{aufsatz}{\printaufsatz{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
 		{online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
-		{workingpaper}{\printworkingpaper{\autor}{\titel}{\datum}{\url}}%
+		{workingpaper}{\printworkingpaper{\autor}{\titel}{\datum}{\url}{\stand}}%
 		{sammelwerk}{\printsammelwerk{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
 		{hrsgsammel}{\printhrsgsammel{\autor}{\titel}{\zeitschrift}{\datum}{\band}{\ort}{\seiten}}%
 		%end area
@@ -57,7 +57,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}, #2, #3, #4 #5 
+	\textit{#1}, #2, in: #3 (#4), #5 
 	\\
 	\vspace{-12pt}
 
@@ -71,11 +71,11 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printworkingpaper}[4]{
+\newcommand{\printworkingpaper}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}, #2, #3, abrufbar unter: #4
+	\textit{#1}, #2, #3, abrufbar unter: #4, abgerufen am: #5
 	\\
 	\vspace{-12pt}
 
@@ -131,10 +131,10 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{buch}{\footnote{#3\citebuch{\autor}{\titel}{\datum}{#2}}}%
+			{buch}{\footnote{#3\citebuch{\autor}{\titel}{#2}}}%
 			{kommentar}{\footnote{#3\citekommentar{\autor}{\titel}{\datum}{#2}}}%
-			{aufsatz}{\footnote{#3\citeaufsatz{\autor}{\zeitschrift}{\datum}{#2}}}%
-			{online}{\footnote{#3\citeonline{\autor}{\titel}{\stand}{#2}}}%
+			{aufsatz}{\footnote{#3\citeaufsatz{\autor}{\zeitschrift}{#2}}}%
+			{online}{\footnote{#3\citeonline{\autor}{\titel}{#2}}}%
 			{workingpaper}{\footnote{#3\citeworkingpaper{\autor}{\titel}{#2}}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\autor}{\titel}{#2}}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\autor}{\titel}{#2}}}%
@@ -149,23 +149,23 @@
 
 %Prints für verschiedene Fußnotenarten
 %Area to add citecommands via gui
-\newcommand{\citebuch}[4]{
-	\textit{#1}, #2, #3, #4.
+\newcommand{\citebuch}[3]{
+	\textit{#1}, #2, #3.
 }
 \newcommand{\citekommentar}[4]{
 	\textit{#1}, #2, #3#4.
 }
-\newcommand{\citeaufsatz}[4]{
-	\textit{#1}, #2, #3, #4.
+\newcommand{\citeaufsatz}[3]{
+	\textit{#1}, #2, #3.
 }
-\newcommand{\citeonline}[4]{
-	\textit{#1}, #2, #3#4.
+\newcommand{\citeonline}[3]{
+	\textit{#1}, #2#3.
 }
 \newcommand{\citeworkingpaper}[3]{
 	\textit{#1}, #2, #3.
 }
 \newcommand{\citesammelwerk}[3]{
-	\textit{#1} , #2, #3.
+	\textit{#1}, #2, #3.
 }
 \newcommand{\citehrsgsammel}[3]{
 	\textit{#1}, #2, #3.

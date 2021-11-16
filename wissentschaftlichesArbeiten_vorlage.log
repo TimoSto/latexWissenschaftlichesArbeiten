@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  15 NOV 2021 07:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  16 NOV 2021 19:07
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -654,22 +654,26 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen151
 \c@nlinenum=\count177
 \TeXr@lab=\toks59
+)
+("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/placeins\placeins.s
+ty"
+Package: placeins 2005/04/18  v 2.2
 ) (wissentschaftlichesArbeiten_vorlage.aux)
 \openout1 = `wissentschaftlichesArbeiten_vorlage.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 54
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 55
 .
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ptm.fd"
@@ -784,7 +788,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
  [1
 
 {C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(wissentschaftlichesArbeiten_vorlage.toc
+(wissentschaftlichesArbeiten_vorlage.lot
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
  2.
 
@@ -821,58 +825,63 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 )
-\tf@toc=\write4
-\openout4 = `wissentschaftlichesArbeiten_vorlage.toc'.
+\tf@lot=\write4
+\openout4 = `wissentschaftlichesArbeiten_vorlage.lot'.
 
  [1
+
+] (wissentschaftlichesArbeiten_vorlage.toc)
+\tf@toc=\write5
+\openout5 = `wissentschaftlichesArbeiten_vorlage.toc'.
+
+ [2
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 82.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 82.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 82.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 102.
  [1
 
-]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 92.
- [2] [3] [4]
-<wieland1.png, id=23, 480.29437pt x 268.75406pt>
+] [2] [3] [4]
+<wieland1.png, id=27, 480.29437pt x 268.75406pt>
 File: wieland1.png Graphic file (type png)
 <use wieland1.png>
-Package pdftex.def Info: wieland1.png  used on input line 128.
+Package pdftex.def Info: wieland1.png  used on input line 149.
 (pdftex.def)             Requested size: 362.77525pt x 202.99625pt.
 
-Overfull \hbox (0.7524pt too wide) in paragraph at lines 130--132
+Overfull \hbox (0.7524pt too wide) in paragraph at lines 153--156
 \T1/ptm/m/n/12 schafts-gü-tern un-ter-schei-den und im Zwei-fels-fall auch ein 
 Stück Klei-dung zu ei-nem Moral-
  []
 
 [5 <./wieland1.png>] [6] [7] [8]
-Overfull \hbox (3.6924pt too wide) in paragraph at lines 167--167
+Overfull \hbox (3.6924pt too wide) in paragraph at lines 194--194
 \T1/ptm/m/n/12 https://www.wcge.org/images/wissenschaft/publikationen/DP_2006-3
 _Homann-Wirt-
  []
 
 
-Overfull \hbox (3.84955pt too wide) in paragraph at lines 167--167
+Overfull \hbox (3.84955pt too wide) in paragraph at lines 194--194
 []\T1/ptm/m/it/12 Statistisches Bun-des-amt\T1/ptm/m/n/12 , Gen-der Pay Gap, ht
 tps://www.destatis.de/DE/Themen/Arbeit/Ar-
  []
 
-[2
+[3
 
 ] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 10927 strings out of 492452
- 154030 string characters out of 3120530
- 307713 words of memory out of 3000000
- 14997 multiletter control sequences out of 15000+200000
+ 10949 strings out of 492452
+ 154606 string characters out of 3120530
+ 307815 words of memory out of 3000000
+ 15012 multiletter control sequences out of 15000+200000
  54231 words of font info for 84 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 58i,15n,49p,1833b,496s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,17n,49p,1833b,496s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/tsto/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/tsto/AppData/L
@@ -880,10 +889,10 @@ ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/tst
 o/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/
 tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Use
 rs/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (11 pages, 146909 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (12 pages, 148931 byt
 es).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
+ 65 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
