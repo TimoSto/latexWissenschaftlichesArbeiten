@@ -73,7 +73,12 @@ Ergibt eine Fußnote "Autor, Titel (Jahr), S.101.".
 \citebib{book1}{S.101}{Vgl. }
 ```
 Ergibt eine Fußnote "Vgl. Autor, Titel (Jahr), S.101.".
-
+###Screenshots
+![gui](https://github.com/TimoSto/latexWissenschaftlichesArbeiten/blob/main/dokuImages/gui1.PNG)
+![gui](https://github.com/TimoSto/latexWissenschaftlichesArbeiten/blob/main/dokuImages/gui2.PNG)
+![gui](https://github.com/TimoSto/latexWissenschaftlichesArbeiten/blob/main/dokuImages/gui3.PNG)
+![gui](https://github.com/TimoSto/latexWissenschaftlichesArbeiten/blob/main/dokuImages/gui4.PNG)
+![gui](https://github.com/TimoSto/latexWissenschaftlichesArbeiten/blob/main/dokuImages/gui5.PNG)
 ## Anhang
 Für den Anhang können die Befehle ``\anhang{TITEL}``, ``\anhangI{TITEL}`` und ``\anhangII{TITEL}`` verwendet werden. Die Nummerierung erfolgt nach folgendem Raster:
 ```
