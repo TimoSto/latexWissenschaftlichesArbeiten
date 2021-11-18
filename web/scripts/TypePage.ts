@@ -26,6 +26,11 @@ class TypePage {
                     if( index > this.bibFields.length - 1 ) {
                         this.bibFields.push(new Field("", "normal", "", ""))
                     }
+                    console.log(newSelect.value)
+                    if(index === this.bibFields.length - 1 && newSelect.value == "") {
+                        this.bibFields.pop();
+                        return
+                    }
                     if( this.bibFields[index].Field != newSelect.value) {
                         this.bibFields[index].Field = newSelect.value;
                         this.syncExample();
@@ -87,6 +92,11 @@ class TypePage {
                 newSelect.listen('MDCSelect:change', ()=> {
                     if( index > this.citeFields.length - 1 ) {
                         this.citeFields.push(new Field("", "normal", "", ""))
+                    }
+                    console.log(index === this.citeFields.length - 1 , newSelect.value == "")
+                    if(index === this.citeFields.length - 1 && newSelect.value == "") {
+                        this.citeFields.pop();
+                        return
                     }
                     if( this.citeFields[index].Field != newSelect.value) {
                         this.citeFields[index].Field = newSelect.value;

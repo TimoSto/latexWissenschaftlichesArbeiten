@@ -204,6 +204,14 @@ function () {
             _this.bibFields.push(new Field_1.default("", "normal", "", ""));
           }
 
+          console.log(newSelect.value);
+
+          if (index === _this.bibFields.length - 1 && newSelect.value == "") {
+            _this.bibFields.pop();
+
+            return;
+          }
+
           if (_this.bibFields[index].Field != newSelect.value) {
             _this.bibFields[index].Field = newSelect.value;
 
@@ -270,6 +278,14 @@ function () {
         newSelect.listen('MDCSelect:change', function () {
           if (index > _this.citeFields.length - 1) {
             _this.citeFields.push(new Field_1.default("", "normal", "", ""));
+          }
+
+          console.log(index === _this.citeFields.length - 1, newSelect.value == "");
+
+          if (index === _this.citeFields.length - 1 && newSelect.value == "") {
+            _this.citeFields.pop();
+
+            return;
           }
 
           if (_this.citeFields[index].Field != newSelect.value) {
