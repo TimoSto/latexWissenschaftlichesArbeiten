@@ -1,0 +1,16 @@
+\babel@toc {ngerman}{}
+\contentsline {part}{Abkürzungsverzeichnis}{I}% 
+\contentsline {part}{Abbildungsverzeichnis}{II}% 
+\contentsline {part}{Tabellenverzeichnis}{III}% 
+\vspace {24pt}
+\contentsline {part}{1\hspace {1em}Vorwort}{1}% 
+\contentsline {part}{2\hspace {1em}Dokumentenstruktur}{2}% 
+\contentsline {section}{\numberline {2.1}test}{2}% 
+\contentsline {subsection}{\numberline {2.1.1}test1}{2}% 
+\contentsline {subsubsection}{\numberline {2.1.1.1}test11}{2}% 
+\contentsline {paragraph}{\numberline {2.1.1.1.1}test111}{2}% 
+\contentsline {subparagraph}{\numberline {0.1}test1111}{2}% 
+\contentsline {mysection}{\numberline {1}test111111}{2}% 
+\vspace {24pt}
+\contentsline {part}{Literaturverzeichnis}{V}% 
+\contentsfinish 

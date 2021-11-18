@@ -1,9 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
 
 \ProvidesPackage{ueberschriften}
+\usepackage[noindentafter]{titlesec}
 
 %Abstand vor und nach Überschriften
-\usepackage[noindentafter]{titlesec}
+
 \def\beforeheading{12pt}%Abstand vor allen Überschriften
 \def\afterheading{6pt}%Abstand nach allen Überschriften
 \titlespacing{\part}{0pt}{0pt}{\afterheading}
@@ -59,6 +60,20 @@
    \origpart{#2}%
    \renewcommand*\parttitle{#2}%
 }
+
+%Neue Überschriften-Ebene
+%\usepackage{titletoc}
+%\usepackage{chngcntr}
+%\newcounter{mysection}
+%\titleclass{\mysection}{straight}[\part]
+%\titleformat{\mysection}{\large\mdseries}{\themysection}{\numbertitlespace}{}
+%\titlespacing{\mysection}{0pt}{\beforeheading}{\afterheading}
+%\renewcommand{\themysection}{\arabic{mysection}}
+%%\counterwithin{subparagraph}{mysection}
+%\renewcommand{\themysection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}.\arabic{mysection}}
+%
+%\titlecontents*{mysection}[285pt]{}{\contentslabel{65pt}}{}
+%{\normalfont\cftdotfill{\cftpartdotsep}\contentspage}[]
 
 \DeclareOption{latour}{\useLatourHeadings}
 \DeclareOption{numeric}{\usenumericheadings}
