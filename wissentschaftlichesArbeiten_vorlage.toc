@@ -19,9 +19,10 @@
 \contentsline {section}{\numberline {2.2}Section 2.2}{6}% 
 \contentsline {section}{\numberline {2.3}Section 2.3}{6}% 
 \contentsline {part}{3\hspace {1em}Part 3}{7}% 
-\contentsline {section}{\numberline {3.1}Code-Listings}{7}% 
-\contentsline {section}{\numberline {3.2}Bilder}{8}% 
-\contentsline {section}{\numberline {3.3}Tabellen}{9}% 
+\contentsline {section}{\numberline {3.1}Mathematisches Zeugs}{7}% 
+\contentsline {section}{\numberline {3.2}Code-Listings}{7}% 
+\contentsline {section}{\numberline {3.3}Bilder}{8}% 
+\contentsline {section}{\numberline {3.4}Tabellen}{9}% 
 \vspace {24pt}
 \contentsline {part}{Literaturverzeichnis}{V}% 
 \contentsline {part}{Anhang}{VI}% 
