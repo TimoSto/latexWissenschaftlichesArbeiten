@@ -1,6 +1,6 @@
 [
 	{
-		"Key": "treibhaus",
+		"Key": "online1",
 		"Typ": "online",
 		"Autor": "Breitkopf, A.",
 		"Titel": "Treibhausgas Emissionen in Deutschland bis 2020",
@@ -36,7 +36,7 @@
 		"Stand": ""
 	},
 	{
-		"Key": "homann",
+		"Key": "mycustom",
 		"Typ": "workingpaper",
 		"Autor": "Homann, K.",
 		"Titel": "Wirtschaftsethik: ökonomischer Reduktionismus?",
@@ -54,7 +54,25 @@
 		"Stand": "20.10.2021"
 	},
 	{
-		"Key": "governanceDef",
+		"Key": "book1",
+		"Typ": "buch",
+		"Autor": "Knippschild, K.",
+		"Titel": "Das Baumhaus",
+		"Auflage": "",
+		"Ort": "Burhave",
+		"Datum": "2021",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "",
+		"Stand": ""
+	},
+	{
+		"Key": "online2",
 		"Typ": "online",
 		"Autor": "Krems, Prof. Dr. Burkhardt",
 		"Titel": "Governance",
