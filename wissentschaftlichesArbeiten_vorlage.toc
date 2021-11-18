@@ -1,4 +1,6 @@
 \babel@toc {ngerman}{}
+\contentsline {part}{Tabellenverzeichnis}{I}% 
+\vspace {24pt}
 \contentsline {part}{1\hspace {1em}Theoretische Grundlagen}{1}% 
 \contentsline {section}{\numberline {1.1}Governance}{1}% 
 \contentsline {section}{\numberline {1.2}Die Anreiz-Dimensionen}{1}% 
@@ -8,7 +10,7 @@
 \contentsline {subsection}{\numberline {2.2.1}Das Anreizsystem nach Wieland}{3}% 
 \contentsline {subsection}{\numberline {2.2.2}Die Bedeutung von Moral in der Wirtschaft}{4}% 
 \contentsline {subsection}{\numberline {2.2.3}Die Transaktionsformel der Governanceethik}{6}% 
-\contentsline {section}{\numberline {2.3}Einordnung in philosophische Landschaft}{7}% 
+\contentsline {section}{\numberline {2.3}Einordnung in die philosophische Landschaft}{7}% 
 \contentsline {part}{3\hspace {1em}Fazit}{8}% 
 \vspace {24pt}
 \contentsline {part}{Literaturverzeichnis}{III}% 
