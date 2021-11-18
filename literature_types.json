@@ -47,12 +47,6 @@
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
 				}
 			]
 		},
@@ -131,14 +125,14 @@
 				{
 					"Field": "zeitschrift",
 					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
+					"Prefix": "in: ",
+					"Suffix": " "
 				},
 				{
 					"Field": "datum",
 					"Style": "normal",
-					"Prefix": "",
-					"Suffix": " "
+					"Prefix": "(",
+					"Suffix": "), "
 				},
 				{
 					"Field": "seiten",
@@ -159,12 +153,6 @@
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
 				}
 			]
 		},
@@ -214,62 +202,6 @@
 					"Field": "titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "stand",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
-				}
-			]
-		},
-		{
-			"Name": "asdda",
-			"HasCitePage": false,
-			"Fields": [
-				{
-					"Field": "autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "titel",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "ort",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
-				}
-			],
-			"CiteFields": [
-				{
-					"Field": "autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "ort",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "",
 					"Suffix": ""
 				}
 			]
@@ -291,19 +223,69 @@
 					"Suffix": ", "
 				},
 				{
-					"Field": "url",
+					"Field": "datum",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": ", "
+				},
+				{
+					"Field": "url",
+					"Style": "normal",
+					"Prefix": "abrufbar unter: ",
+					"Suffix": ", "
 				},
 				{
 					"Field": "stand",
 					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "), "
+					"Prefix": "abgerufen am: ",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				}
+			]
+		},
+		{
+			"Name": "sammelwerk",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " (Hrsg.), "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", in: "
+				},
+				{
+					"Field": "zeitschrift",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
 				},
 				{
 					"Field": "datum",
+					"Style": "normal",
+					"Prefix": " (",
+					"Suffix": "), "
+				},
+				{
+					"Field": "seiten",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
@@ -320,7 +302,69 @@
 					"Field": "titel",
 					"Style": "normal",
 					"Prefix": "",
+					"Suffix": ", "
+				}
+			]
+		},
+		{
+			"Name": "hrsgsammel",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "zeitschrift",
+					"Style": "normal",
+					"Prefix": "in: ",
+					"Suffix": " "
+				},
+				{
+					"Field": "datum",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				},
+				{
+					"Field": "band",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " (Hrsg.), "
+				},
+				{
+					"Field": "ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "seiten",
+					"Style": "normal",
+					"Prefix": "",
 					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
 				}
 			]
 		}

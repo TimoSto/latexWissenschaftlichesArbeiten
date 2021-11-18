@@ -89,7 +89,7 @@ func GenerateCiteCommands(types []LiteratureType) string {
 			}
 			command += field.Suffix
 		}
-		command += ".\n}\n"
+		command += "#"+ strconv.Itoa(len(lType.CiteFields) + 1) +".\n}\n"
 		commands += command
 	}
 
