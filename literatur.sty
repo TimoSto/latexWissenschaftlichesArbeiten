@@ -26,6 +26,7 @@
 		{workingpaper}{\printworkingpaper{\autor}{\titel}{\datum}{\url}{\stand}}%
 		{sammelwerk}{\printsammelwerk{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
 		{hrsgsammel}{\printhrsgsammel{\autor}{\titel}{\zeitschrift}{\datum}{\band}{\ort}{\seiten}}%
+		{meintype}{\printmeintype{\autor}{\titel}{\ort}{\datum}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -98,6 +99,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printmeintype}[4]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}, #2, #3 (#4)
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -138,6 +148,7 @@
 			{workingpaper}{\footnote{#3\citeworkingpaper{\autor}{\titel}{#2}}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\autor}{\titel}{#2}}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\autor}{\titel}{#2}}}%
+			{meintype}{\footnote{#3\citemeintype{\autor}{\datum}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -169,6 +180,9 @@
 }
 \newcommand{\citehrsgsammel}[3]{
 	\textit{#1}, #2, #3.
+}
+\newcommand{\citemeintype}[3]{
+	\textit{#1} (#2), #3.
 }
 %end area
 

@@ -5,12 +5,11 @@
 \vspace {24pt}
 \contentsline {part}{1\hspace {1em}Vorwort}{1}% 
 \contentsline {part}{2\hspace {1em}Dokumentenstruktur}{2}% 
-\contentsline {section}{\numberline {2.1}test}{2}% 
-\contentsline {subsection}{\numberline {2.1.1}test1}{2}% 
-\contentsline {subsubsection}{\numberline {2.1.1.1}test11}{2}% 
-\contentsline {paragraph}{\numberline {2.1.1.1.1}test111}{2}% 
-\contentsline {subparagraph}{\numberline {0.1}test1111}{2}% 
-\contentsline {mysection}{\numberline {1}test111111}{2}% 
+\contentsline {part}{3\hspace {1em}Abkürzungsverzeichnis}{3}% 
+\contentsline {part}{4\hspace {1em}Literaturverzeichnis und Zitate}{4}% 
+\contentsline {section}{\numberline {4.1}Workflow}{4}% 
+\contentsline {subsection}{\numberline {4.1.1}Web-GUI}{4}% 
+\contentsline {part}{5\hspace {1em}Tabellen- und Abbildungsverzeichnis}{8}% 
+\contentsline {part}{6\hspace {1em}Häufig auftretende Fehler/Warnungen}{9}% 
 \vspace {24pt}
 \contentsline {part}{Literaturverzeichnis}{V}% 
-\contentsfinish 

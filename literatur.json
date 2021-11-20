@@ -178,5 +178,23 @@
 		"TitelSammelwerk": "",
 		"URL": "",
 		"Stand": ""
+	},
+	{
+		"Key": "meinEntry",
+		"Typ": "meintype",
+		"Autor": "Peterson, P.",
+		"Titel": "Die kleine Raupe Nimmersatt",
+		"Auflage": "",
+		"Ort": "Lummerland",
+		"Datum": "2021",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "",
+		"Stand": ""
 	}
 ]

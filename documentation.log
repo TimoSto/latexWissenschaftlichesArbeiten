@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  18 NOV 2021 16:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  20 NOV 2021 12:36
 entering extended mode
 **./documentation.tex
 (documentation.tex
@@ -658,35 +658,22 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/placeins\placeins.s
 ty"
 Package: placeins 2005/04/18  v 2.2
-)
-("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/titlesec\titletoc.s
-ty"
-Package: titletoc 2019/10/16 v2.13 TOC entries
-\ttl@leftsep=\dimen152
-)
-("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/chngcntr\chngcntr.s
-ty"
-Package: chngcntr 2018/04/09 v1.1a change counter resetting
-Package chngcntr Info: \counterwithout already defined.
-(chngcntr)             Quitting chngcntr on input line 21.
-)
-\c@mysection=\count178
- (documentation.aux)
+) (documentation.aux)
 \openout1 = `documentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 70
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 61
 .
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ptm.fd"
@@ -731,16 +718,16 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
 f.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count179
-\scratchdimen=\dimen153
+\scratchcounter=\count178
+\scratchdimen=\dimen152
 \scratchbox=\box46
-\nofMPsegments=\count180
-\nofMParguments=\count181
+\nofMPsegments=\count179
+\nofMParguments=\count180
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count182
-\MPscratchDim=\dimen154
-\MPnumerator=\count183
-\makeMPintoPDFobject=\count184
+\MPscratchCnt=\count181
+\MPscratchDim=\dimen153
+\MPnumerator=\count182
+\makeMPintoPDFobject=\count183
 \everyMPtoPDFconversion=\toks61
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-b
@@ -797,7 +784,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count185
+\c@lstlisting=\count184
 
 
 pdfTeX warning: pdflatex.exe (file ./titelseiteAlternative.pdf): PDF inclusion:
@@ -805,7 +792,7 @@ pdfTeX warning: pdflatex.exe (file ./titelseiteAlternative.pdf): PDF inclusion:
 <titelseiteAlternative.pdf, id=1, 597.55246pt x 845.07718pt>
 File: titelseiteAlternative.pdf Graphic file (type pdf)
 <use titelseiteAlternative.pdf>
-Package pdftex.def Info: titelseiteAlternative.pdf  used on input line 75.
+Package pdftex.def Info: titelseiteAlternative.pdf  used on input line 66.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -813,7 +800,7 @@ pdfTeX warning: pdflatex.exe (file ./titelseiteAlternative.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
 File: titelseiteAlternative.pdf Graphic file (type pdf)
 <use titelseiteAlternative.pdf>
-Package pdftex.def Info: titelseiteAlternative.pdf  used on input line 75.
+Package pdftex.def Info: titelseiteAlternative.pdf  used on input line 66.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -826,28 +813,28 @@ pdfTeX warning: pdflatex.exe (file ./titelseiteAlternative.pdf): PDF inclusion:
 <titelseiteAlternative.pdf, id=4, page=1, 597.55246pt x 845.07718pt>
 File: titelseiteAlternative.pdf Graphic file (type pdf)
 <use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-5.
+Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 6
+6.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: titelseiteAlternative.pdf Graphic file (type pdf)
 <use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-5.
+Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 6
+6.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: titelseiteAlternative.pdf Graphic file (type pdf)
 <use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-5.
+Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 6
+6.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: titelseiteAlternative.pdf Graphic file (type pdf)
 <use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-5.
+Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 6
+6.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: titelseiteAlternative.pdf Graphic file (type pdf)
 <use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-5.
+Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 6
+6.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 [1
 
@@ -901,8 +888,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 13.
 )
 \tf@toc=\write6
 \openout6 = `documentation.toc'.
@@ -912,18 +897,86 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 ] [1
 
 ]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 122.
- [2
+Overfull \hbox (9.0pt too wide) in paragraph at lines 102--124
+[][][][][][] 
+ []
+
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 102--124
+[][][][][][] 
+ []
+
+[2
 
 ]
-Overfull \hbox (3.6924pt too wide) in paragraph at lines 132--132
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 134.
+ [3
+
+]
+Overfull \hbox (5.88148pt too wide) in paragraph at lines 141--142
+\T1/ptm/m/n/12 Webser-ver auf Port 8081. Nun kannst du in dei-nem Brow-ser \T1/
+ptm/m/it/12 http://localhost:8081/overview
+ []
+
+<dokuImages/gui1.png, id=53, 1087.81406pt x 618.81187pt>
+File: dokuImages/gui1.png Graphic file (type png)
+<use dokuImages/gui1.png>
+Package pdftex.def Info: dokuImages/gui1.png  used on input line 143.
+(pdftex.def)             Requested size: 426.79135pt x 242.78976pt.
+<dokuImages/gui_2.png, id=55, 1194.71344pt x 676.02562pt>
+File: dokuImages/gui_2.png Graphic file (type png)
+<use dokuImages/gui_2.png>
+Package pdftex.def Info: dokuImages/gui_2.png  used on input line 147.
+(pdftex.def)             Requested size: 426.79135pt x 241.50195pt.
+[4
+
+ <./dokuImages/gui1.png>]
+<dokuImages/gui_21.png, id=60, 1193.20781pt x 677.53125pt>
+File: dokuImages/gui_21.png Graphic file (type png)
+<use dokuImages/gui_21.png>
+Package pdftex.def Info: dokuImages/gui_21.png  used on input line 151.
+(pdftex.def)             Requested size: 426.79135pt x 242.33965pt.
+<dokuImages/gui41.png, id=61, 1176.64594pt x 678.28406pt>
+File: dokuImages/gui41.png Graphic file (type png)
+<use dokuImages/gui41.png>
+Package pdftex.def Info: dokuImages/gui41.png  used on input line 152.
+(pdftex.def)             Requested size: 426.79135pt x 246.02432pt.
+ [5 <./dokuImages/gui_2.png> <./dokuImages/gui_21.png>]
+<dokuImages/gui2.png, id=67, 1084.80281pt x 621.82312pt>
+File: dokuImages/gui2.png Graphic file (type png)
+<use dokuImages/gui2.png>
+Package pdftex.def Info: dokuImages/gui2.png  used on input line 156.
+(pdftex.def)             Requested size: 426.79135pt x 244.64488pt.
+<dokuImages/gui_4.png, id=68, 1196.97188pt x 673.01437pt>
+File: dokuImages/gui_4.png Graphic file (type png)
+<use dokuImages/gui_4.png>
+Package pdftex.def Info: dokuImages/gui_4.png  used on input line 157.
+(pdftex.def)             Requested size: 426.79135pt x 239.96411pt.
+ [6 <./dokuImages/gui41.png> <./dokuImages/gui2.png>]
+<dokuImages/litentry.png, id=74, 322.95656pt x 21.83156pt>
+File: dokuImages/litentry.png Graphic file (type png)
+<use dokuImages/litentry.png>
+Package pdftex.def Info: dokuImages/litentry.png  used on input line 161.
+(pdftex.def)             Requested size: 426.79135pt x 28.85204pt.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 163.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 163.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 163.
+ [7 <./dokuImages/gui_4.png> <./dokuImages/litentry.png>] [8
+
+] [9
+
+]
+Overfull \hbox (3.6924pt too wide) in paragraph at lines 184--184
 \T1/ptm/m/n/12 https://www.wcge.org/images/wissenschaft/publikationen/DP_2006-3
 _Homann-Wirt-
  []
 
 
-Overfull \hbox (3.84955pt too wide) in paragraph at lines 132--132
+Overfull \hbox (3.84955pt too wide) in paragraph at lines 184--184
 []\T1/ptm/m/it/12 Statistisches Bun-des-amt\T1/ptm/m/n/12 , Gen-der Pay Gap, ht
 tps://www.destatis.de/DE/Themen/Arbeit/Ar-
  []
@@ -932,11 +985,11 @@ tps://www.destatis.de/DE/Themen/Arbeit/Ar-
 
 ] (documentation.aux) ) 
 Here is how much of TeX's memory you used:
- 11062 strings out of 492452
- 156463 string characters out of 3120530
- 305875 words of memory out of 3000000
- 15130 multiletter control sequences out of 15000+200000
- 32174 words of font info for 48 fonts, out of 3000000 for 9000
+ 10999 strings out of 492452
+ 155695 string characters out of 3120530
+ 303401 words of memory out of 3000000
+ 15062 multiletter control sequences out of 15000+200000
+ 48515 words of font info for 72 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  58i,18n,49p,841b,546s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/e
@@ -944,9 +997,9 @@ nc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
 e1/urw/times/utmb8a.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/urw/times/utmr8a.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on documentation.pdf (8 pages, 108667 bytes).
+Output written on documentation.pdf (15 pages, 452346 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
