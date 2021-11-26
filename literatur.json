@@ -90,6 +90,24 @@
 		"Stand": "20.06.2012"
 	},
 	{
+		"Key": "meinEntry",
+		"Typ": "meintype",
+		"Autor": "Peterson, P.",
+		"Titel": "Die kleine Raupe Nimmersatt",
+		"Auflage": "",
+		"Ort": "Lummerland",
+		"Datum": "2021",
+		"Hrsg": "",
+		"Band": "",
+		"Zeitschrift": "",
+		"Seiten": "",
+		"Festschrift": "",
+		"AutorSammelwerk": "",
+		"TitelSammelwerk": "",
+		"URL": "",
+		"Stand": ""
+	},
+	{
 		"Key": "schneider",
 		"Typ": "aufsatz",
 		"Autor": "Schneider, H.",
@@ -180,12 +198,12 @@
 		"Stand": ""
 	},
 	{
-		"Key": "meinEntry",
-		"Typ": "meintype",
-		"Autor": "Peterson, P.",
+		"Key": "ttt",
+		"Typ": "buch",
+		"Autor": "Napf, K.",
 		"Titel": "Die kleine Raupe Nimmersatt",
 		"Auflage": "",
-		"Ort": "Lummerland",
+		"Ort": "Gescher",
 		"Datum": "2021",
 		"Hrsg": "",
 		"Band": "",
