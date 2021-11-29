@@ -204,4 +204,4 @@ function () {
 
 new EntryPage();
 },{"./SaveEntry":"scripts/SaveEntry.ts"}]},{},["scripts/EntryPage.ts"], null)
-//# sourceMappingURL=/assets/EntryPage.9c7eaa9f.js.map
+//# sourceMappingURL=/shell/EntryPage.9c7eaa9f.js.map

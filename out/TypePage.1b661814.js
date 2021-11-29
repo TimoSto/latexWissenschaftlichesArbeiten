@@ -516,4 +516,4 @@ function () {
 
 new TypePage();
 },{"./Field":"scripts/Field.ts","./SaveType":"scripts/SaveType.ts"}]},{},["scripts/TypePage.ts"], null)
-//# sourceMappingURL=/assets/TypePage.1b661814.js.map
+//# sourceMappingURL=/shell/TypePage.1b661814.js.map

@@ -120,7 +120,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"scripts/shellLoader.js":[function(require,module,exports) {
 if (window.parent === window) {
   console.log('loadShell');
-  window.location.replace('/assets/myshell.html?page=overview');
+  var urlParts = window.location.href.split("/");
+  window.location.replace("/shell/#".concat(urlParts[urlParts.length - 1]));
 }
 },{}]},{},["scripts/shellLoader.js"], null)
-//# sourceMappingURL=/assets/shellLoader.6712d781.js.map
+//# sourceMappingURL=/shell/shellLoader.6712d781.js.map

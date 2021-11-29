@@ -125,7 +125,7 @@ function () {
     var _this = this;
 
     document.addEventListener('DOMContentLoaded', function () {
-      var urlFrag = new URLSearchParams(window.location.search).get('page');
+      var urlFrag = window.location.hash.substr(1);
       _this._res1 = document.querySelector('#res_1');
       _this._res2 = document.querySelector('#res_2');
       _this._titleElement = document.querySelector('.mdc-top-app-bar__title');
@@ -136,6 +136,7 @@ function () {
       });
 
       _this._res1.src = '/' + urlFrag;
+      window.history.replaceState(null, urlFrag, '/' + urlFrag);
     });
   }
 
@@ -184,4 +185,4 @@ function () {
 
 window.shell = new MyShell();
 },{}]},{},["scripts/MyShell.ts"], null)
-//# sourceMappingURL=/assets/MyShell.ad4b36ec.js.map
+//# sourceMappingURL=/shell/MyShell.ad4b36ec.js.map

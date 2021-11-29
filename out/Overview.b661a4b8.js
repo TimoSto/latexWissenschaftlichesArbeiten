@@ -278,4 +278,4 @@ function () {
 
 new Overview();
 },{"./DeleteType":"scripts/DeleteType.ts","./SaveType":"scripts/SaveType.ts","./DeleteEntry":"scripts/DeleteEntry.ts"}]},{},["scripts/Overview.ts"], null)
-//# sourceMappingURL=/assets/Overview.b661a4b8.js.map
+//# sourceMappingURL=/shell/Overview.b661a4b8.js.map

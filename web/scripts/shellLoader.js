@@ -1,4 +1,5 @@
 if( window.parent === window ) {
     console.log('loadShell')
-    window.location.replace('/assets/myshell.html?page=overview')
+    let urlParts = window.location.href.split("/");
+    window.location.replace(`/shell/#${ urlParts[urlParts.length - 1] }`)
 }

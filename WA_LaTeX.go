@@ -31,7 +31,7 @@ func main() {
 
 	http.HandleFunc("/delete/entry", handlers.HandleDeleteEntry)
 
-	http.Handle( "/assets/" , http.StripPrefix("/assets", http.FileServer(http.Dir("./out"))))
+	http.Handle( "/shell/" , http.StripPrefix("/shell", http.FileServer(http.Dir("./out"))))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
 }

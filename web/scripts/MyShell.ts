@@ -9,7 +9,7 @@ class MyShell {
 
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
-           let urlFrag = new URLSearchParams(window.location.search).get('page');
+           let urlFrag = window.location.hash.substr(1);
            this._res1 = document.querySelector('#res_1');
            this._res2 = document.querySelector('#res_2');
            this._titleElement = document.querySelector('.mdc-top-app-bar__title');
@@ -19,6 +19,8 @@ class MyShell {
             })
 
            this._res1.src = '/'+urlFrag;
+
+            window.history.replaceState(null, urlFrag, '/' + urlFrag);
         });
     }
 
