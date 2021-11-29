@@ -121,7 +121,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 if (window.parent === window) {
   console.log('loadShell');
   var urlParts = window.location.href.split("/");
-  window.location.replace("/shell/#".concat(urlParts[urlParts.length - 1]));
+  window.location.replace("/shell/#".concat(window.location.pathname));
 }
 },{}]},{},["scripts/shellLoader.js"], null)
 //# sourceMappingURL=/shell/shellLoader.6712d781.js.map
