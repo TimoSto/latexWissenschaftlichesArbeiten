@@ -65,7 +65,7 @@
                 <li class="mdc-list-item mdc-list-item--two-line" tabindex="0">
                     <span class="mdc-list-item__ripple"></span>
                     <span class="mdc-list-item__text">
-                      <span class="mdc-list-item__primary-text">{{ $value.Autor }} - {{ $value.Titel }}</span>
+                      <span class="mdc-list-item__primary-text">{{ index $value.Fields 0 }} - {{ index $value.Fields 1 }}</span>
                       <span class="mdc-list-item__secondary-text">{{ $value.Typ }}</span>
                     </span>
                     <span class="mdc-list-item__meta">

@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"WA_LaTeX/convertBibToCSV"
 	"WA_LaTeX/domain"
 	"encoding/json"
 	"fmt"
@@ -80,18 +79,15 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	entry := domain.BibEntry{
 		Key:             saveObj.ValuePairs[0].Value,
 		Typ:             saveObj.Typ,
-		Autor:           saveObj.ValuePairs[1].Value,
-		Titel:           saveObj.ValuePairs[2].Value,
-		Auflage:         saveObj.ValuePairs[3].Value,
-		Ort:             saveObj.ValuePairs[4].Value,
-		Datum:           saveObj.ValuePairs[5].Value,
-		Hrsg:            saveObj.ValuePairs[6].Value,
-		Band:            saveObj.ValuePairs[7].Value,
-		Zeitschrift:     saveObj.ValuePairs[8].Value,
-		Seiten:          saveObj.ValuePairs[9].Value,
-		URL:             saveObj.ValuePairs[10].Value,
-		Stand:           saveObj.ValuePairs[11].Value,
+		Fields: []string{},
 	}
+
+	for i:=1 ; i<len(saveObj.ValuePairs) ; i++ {
+		entry.Fields = append(entry.Fields, saveObj.ValuePairs[i].Value)
+	}
+
+	fmt.Println(entry.Fields)
+
 	entries := domain.ReadBibEntries()
 	fmt.Println(entry)
 	if len(saveObj.InitialKey)  == 0 {
@@ -117,5 +113,5 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 
-	convertBibToCSV.ConvertBibToCSV()
+	domain.ConvertBibToCSV()
 }

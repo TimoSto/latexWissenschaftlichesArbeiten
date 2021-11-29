@@ -10,18 +10,9 @@
 </head>
 <body data-key="{{ .Entry.Key }}" data-typ="{{ .Entry.Typ }}">
     <div id="prevalues">
-        <span>{{ .Entry.Key }}</span>
-        <span>{{ .Entry.Autor }}</span>
-        <span>{{ .Entry.Titel }}</span>
-        <span>{{ .Entry.Auflage }}</span>
-        <span>{{ .Entry.Ort }}</span>
-        <span>{{ .Entry.Datum }}</span>
-        <span>{{ .Entry.Hrsg }}</span>
-        <span>{{ .Entry.Band }}</span>
-        <span>{{ .Entry.Zeitschrift }}</span>
-        <span>{{ .Entry.Seiten }}</span>
-        <span>{{ .Entry.URL }}</span>
-        <span>{{ .Entry.Stand }}</span>
+        {{ range $key,$value := .Entry.Fields }}
+        <span>{{ $value }}</span>
+        {{end}}
 
     </div>
     <h2 class="mdc-typography--headline6">Eintrag bearbeiten</h2>

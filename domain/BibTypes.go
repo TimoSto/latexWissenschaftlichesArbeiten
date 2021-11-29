@@ -11,20 +11,7 @@ import (
 type BibEntry struct {
 	Key string
 	Typ string
-	Autor string
-	Titel string
-	Auflage string
-	Ort string
-	Datum string
-	Hrsg string
-	Band string
-	Zeitschrift string
-	Seiten string
-	Festschrift string
-	AutorSammelwerk string
-	TitelSammelwerk string
-	URL string
-	Stand string
+	Fields []string
 }
 
 func ReadBibEntries() []BibEntry{
@@ -42,7 +29,7 @@ func ReadBibEntries() []BibEntry{
 	}
 
 	sort.Slice(bibEntries,func(i, j int) bool {
-		return strings.ToLower(bibEntries[i].Autor) < strings.ToLower(bibEntries[j].Autor)
+		return strings.ToLower(bibEntries[i].Fields[0]) < strings.ToLower(bibEntries[j].Fields[0])
 	})
 
 	return bibEntries

@@ -58,13 +58,17 @@ func GeneratePrintBibCommands(types []LiteratureType) string {
 	return commands
 }
 
+func toChar(i int) string {
+	return strings.ToLower(string('A' - 1 + i))
+}
+
 func GenerateIfsForBibCommands(types []LiteratureType) string{
 	commands := ""
 
 	for _,lType := range types {
 		command := "\t\t{" + lType.Name + `}{\print` + strings.ToLower(lType.Name)
-		for _,field := range lType.Fields {
-			command += `{\` + field.Field + `}`
+		for n,_ := range lType.Fields {
+			command += `{\` + toChar(n+1) + `}`
 		}
 		command += `}%` + "\n"
 		commands += command
@@ -101,8 +105,8 @@ func GenerateIfsForCiteCommands(types []LiteratureType) string{
 
 	for _,lType := range types {
 		command := "\t\t\t{" + lType.Name + `}{\footnote{#3\cite` + strings.ToLower(lType.Name)
-		for _,field := range lType.CiteFields {
-			command += `{\` + field.Field + `}`
+		for n,_ := range lType.CiteFields {
+			command += `{\` + toChar(n+1) + `}`
 		}
 		command += `{#2}}`
 		command += `}%` + "\n"

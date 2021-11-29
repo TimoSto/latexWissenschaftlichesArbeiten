@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"WA_LaTeX/convertBibToCSV"
 	"WA_LaTeX/domain"
 	"encoding/json"
 	"fmt"
@@ -85,5 +84,5 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 
-	convertBibToCSV.ConvertBibToCSV()
+	domain.ConvertBibToCSV()
 }

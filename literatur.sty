@@ -15,18 +15,18 @@
 	\end{center}
 	%Jeder Eintrag in CSV-Datei (literatur-DB) wird auf den type überprüft und die Daten werden an den jeweiligen Command weitergegeben. (Falls type anders ist, kommt es zu einem Fehler)
 	\DTLforeach*{literatur}
-	{\key=key,\type=type,\autor=autor,\titel=titel,\auflage=auflage,\ort=ort,\datum=datum,\hrsg=hrsg,\band=band,\zeitschrift=zeitschrift,\seiten=seiten,\festschrift=festschrift,\autorsammel=autorsammelwerk,\titelsammel=titelsammelwerk,\url=url,\stand=stand}
+	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h}
 	{
 		\IfStrEqCase{\type}{%
 		%Area to add new bibifs via gui
-		{buch}{\printbuch{\autor}{\titel}{\auflage}{\ort}{\datum}{\Herausgeber}}%
-		{kommentar}{\printkommentar{\autor}{\titel}{\auflage}{\ort}{\datum}}%
-		{aufsatz}{\printaufsatz{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
-		{online}{\printonline{\autor}{\titel}{\url}{\stand}{\datum}}%
-		{workingpaper}{\printworkingpaper{\autor}{\titel}{\datum}{\url}{\stand}}%
-		{sammelwerk}{\printsammelwerk{\autor}{\titel}{\zeitschrift}{\datum}{\seiten}}%
-		{hrsgsammel}{\printhrsgsammel{\autor}{\titel}{\zeitschrift}{\datum}{\band}{\ort}{\seiten}}%
-		{meintype}{\printmeintype{\autor}{\titel}{\ort}{\datum}}%
+		{buch}{\printbuch{\a}{\b}{\c}{\d}{\e}{\f}}%
+		{kommentar}{\printkommentar{\a}{\b}{\c}{\d}{\e}}%
+		{aufsatz}{\printaufsatz{\a}{\b}{\c}{\d}{\e}}%
+		{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
+		{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
+		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
+		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+		{meintype}{\printmeintype{\a}{\b}{\c}{\d}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -135,20 +135,20 @@
 \newcommand{\citebib}[3]{{%
 	\renewcommand{\entryfound}{false}%
 	\DTLforeach*{literatur}%
-	{\key=key,\type=type,\autor=autor,\titel=titel,\auflage=auflage,\ort=ort,\datum=datum,\hrsg=hrsg,\band=band,\zeitschrift=zeitschrift,\seiten=seiten,\festschrift=festschrift,\autorsammel=autorsammelwerk,\titelsammel=titelsammelwerk,\url=url,\stand=stand}%
+	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h}%
 	{%
 		\IfStrEqCase{\key}{{#1}{%
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{buch}{\footnote{#3\citebuch{\autor}{\titel}{#2}}}%
-			{kommentar}{\footnote{#3\citekommentar{\autor}{\titel}{\datum}{#2}}}%
-			{aufsatz}{\footnote{#3\citeaufsatz{\autor}{\zeitschrift}{#2}}}%
-			{online}{\footnote{#3\citeonline{\autor}{\titel}{#2}}}%
-			{workingpaper}{\footnote{#3\citeworkingpaper{\autor}{\titel}{#2}}}%
-			{sammelwerk}{\footnote{#3\citesammelwerk{\autor}{\titel}{#2}}}%
-			{hrsgsammel}{\footnote{#3\citehrsgsammel{\autor}{\titel}{#2}}}%
-			{meintype}{\footnote{#3\citemeintype{\autor}{\datum}{#2}}}%
+			{buch}{\footnote{#3\citebuch{\a}{\b}{#2}}}%
+			{kommentar}{\footnote{#3\citekommentar{\a}{\b}{\c}{#2}}}%
+			{aufsatz}{\footnote{#3\citeaufsatz{\a}{\b}{#2}}}%
+			{online}{\footnote{#3\citeonline{\a}{\b}{#2}}}%
+			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}}}%
+			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}}}%
+			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
+			{meintype}{\footnote{#3\citemeintype{\a}{\b}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
