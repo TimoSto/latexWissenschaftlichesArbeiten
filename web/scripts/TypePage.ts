@@ -2,12 +2,12 @@ import Field from "./Field";
 import SaveType from "./SaveType";
 
 class TypePage {
-    private bib_attrSelects = [];
+    private bib_attrTextFields = [];
     private bib_styleSelects = [];
     private bib_prefixTfs = [];
     private bib_suffixTfs = [];
 
-    private cite_attrSelects = [];
+    private cite_attrTextFields = [];
     private cite_styleSelects = [];
     private cite_prefixTfs = [];
     private cite_suffixTfs = [];
@@ -17,26 +17,26 @@ class TypePage {
 
     constructor() {
         document.addEventListener( 'DOMContentLoaded', ()=>{
-            let elements = document.querySelectorAll('#bibtable .my-table--row .my-table-cell:nth-child(2) .mdc-select')
+            let elements = document.querySelectorAll('#bibtable .my-table--row .my-table-cell:nth-child(2) .mdc-text-field')
 
             elements.forEach((el, n) => {
                 const index = n;
-                const newSelect = (<any>window).mdc.select.MDCSelect.attachTo( el );
-                newSelect.listen('MDCSelect:change', ()=> {
+                const attrTextField = (<any>window).mdc.textField.MDCTextField.attachTo( el );
+                attrTextField.root.querySelector('input').addEventListener('change', ()=> {
                     if( index > this.bibFields.length - 1 ) {
                         this.bibFields.push(new Field("", "normal", "", ""))
                     }
-                    console.log(newSelect.value)
-                    if(index === this.bibFields.length - 1 && newSelect.value == "") {
+                    console.log(attrTextField.value)
+                    if(index === this.bibFields.length - 1 && attrTextField.value == "") {
                         this.bibFields.pop();
                         return
                     }
-                    if( this.bibFields[index].Field != newSelect.value) {
-                        this.bibFields[index].Field = newSelect.value;
+                    if( this.bibFields[index].Field != attrTextField.value) {
+                        this.bibFields[index].Field = attrTextField.value;
                         this.syncExample();
                     }
                 })
-                this.bib_attrSelects.push(newSelect);
+                this.bib_attrTextFields.push(attrTextField);
             });
 
             let styleElements = document.querySelectorAll('#bibtable .my-table--row .my-table-cell:nth-child(3) .mdc-select')
@@ -84,26 +84,26 @@ class TypePage {
                 })
             });
 
-            let elementsc = document.querySelectorAll('#citetable .my-table--row .my-table-cell:nth-child(2) .mdc-select')
+            let elementsc = document.querySelectorAll('#citetable .my-table--row .my-table-cell:nth-child(2) .mdc-text-field')
 
             elementsc.forEach((el, n) => {
                 const index = n;
-                const newSelect = (<any>window).mdc.select.MDCSelect.attachTo( el );
-                newSelect.listen('MDCSelect:change', ()=> {
-                    if( index > this.citeFields.length - 1 ) {
-                        this.citeFields.push(new Field("", "normal", "", ""))
+                const attrTextField = (<any>window).mdc.textField.MDCTextField.attachTo( el );
+                attrTextField.root.querySelector('input').addEventListener('change', ()=> {
+                    if( index > this.bibFields.length - 1 ) {
+                        this.bibFields.push(new Field("", "normal", "", ""))
                     }
-                    console.log(index === this.citeFields.length - 1 , newSelect.value == "")
-                    if(index === this.citeFields.length - 1 && newSelect.value == "") {
-                        this.citeFields.pop();
+                    console.log(attrTextField.value)
+                    if(index === this.bibFields.length - 1 && attrTextField.value == "") {
+                        this.bibFields.pop();
                         return
                     }
-                    if( this.citeFields[index].Field != newSelect.value) {
-                        this.citeFields[index].Field = newSelect.value;
+                    if( this.bibFields[index].Field != attrTextField.value) {
+                        this.bibFields[index].Field = attrTextField.value;
                         this.syncExample();
                     }
                 })
-                this.cite_attrSelects.push(newSelect);
+                this.cite_attrTextFields.push(attrTextField);
             });
 
             let styleElementsc = document.querySelectorAll('#citetable .my-table--row .my-table-cell:nth-child(3) .mdc-select')
@@ -181,7 +181,7 @@ class TypePage {
         let bibExample = '';
         this.bibFields.forEach( (field, n) => {
 
-            this.bib_attrSelects[n].value = field.Field;
+            this.bib_attrTextFields[n].value = field.Field;
             this.bib_styleSelects[n].value = field.Style;
             this.bib_prefixTfs[n].value = field.Prefix;
             this.bib_suffixTfs[n].value = field.Suffix;
@@ -238,8 +238,8 @@ class TypePage {
 
         let citeExample = '';
         this.citeFields.forEach( (field, n) => {
-
-            this.cite_attrSelects[n].value = field.Field;
+            console.log(n, field.Field)
+            this.cite_attrTextFields[n].value = field.Field;
             this.cite_styleSelects[n].value = field.Style;
             this.cite_prefixTfs[n].value = field.Prefix;
             this.cite_suffixTfs[n].value = field.Suffix;

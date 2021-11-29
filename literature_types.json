@@ -33,6 +33,12 @@
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
+				},
+				{
+					"Field": "Herausgeber",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
 				}
 			],
 			"CiteFields": [
