@@ -19,7 +19,7 @@
 	{
 		\IfStrEqCase{\type}{%
 		%Area to add new bibifs via gui
-		{buch}{\printbuch{\a}{\b}{\c}{\d}{\e}{\f}}%
+		{buch}{\printbuch{\a}{\b}{\c}{\d}{\e}}%
 		{kommentar}{\printkommentar{\a}{\b}{\c}{\d}{\e}}%
 		{aufsatz}{\printaufsatz{\a}{\b}{\c}{\d}{\e}}%
 		{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
@@ -36,11 +36,11 @@
 %!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
 \def\bibparindent{1.5em}
 %Area to add new bibprints via gui
-\newcommand{\printbuch}[6]{
+\newcommand{\printbuch}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}, #2, #3. Auflage, #4 #5#6
+	\textit{#1}, #2, #3. Auflage, #4 #5
 	\\
 	\vspace{-12pt}
 

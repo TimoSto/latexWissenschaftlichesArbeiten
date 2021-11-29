@@ -10,6 +10,7 @@ import (
 
 type EntryHTMLDto struct {
 	Entry domain.BibEntry
+	Type domain.LiteratureType
 	Types []domain.LiteratureType
 }
 
@@ -39,8 +40,11 @@ func HandleEntry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	thisType, err := domain.GetType(entry.Typ)
+
 	data := EntryHTMLDto{
 		Entry: entry,
+		Type: thisType,
 		Types: types.Types,
 	}
 	err = tmpl.Execute(w, data)

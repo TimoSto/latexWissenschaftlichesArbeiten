@@ -1,6 +1,6 @@
 [
 	{
-		"Key": "online1",
+		"Key": "wassa",
 		"Typ": "online",
 		"Fields": [
 			"Breitkopf, A.",
@@ -11,11 +11,12 @@
 		]
 	},
 	{
-		"Key": "book1",
+		"Key": "buch1",
 		"Typ": "buch",
 		"Fields": [
 			"Knippschild, K.",
 			"Das Baumhaus",
+			"1",
 			"Burhave",
 			"2021"
 		]

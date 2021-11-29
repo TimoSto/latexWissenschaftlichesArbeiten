@@ -66,6 +66,7 @@ type SaveEntryObj struct {
 	InitialKey string
 	ValuePairs []ValuePair
 	Typ string
+	Key string
 }
 
 func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
@@ -77,12 +78,12 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 	entry := domain.BibEntry{
-		Key:             saveObj.ValuePairs[0].Value,
+		Key:             saveObj.Key,
 		Typ:             saveObj.Typ,
 		Fields: []string{},
 	}
 
-	for i:=1 ; i<len(saveObj.ValuePairs) ; i++ {
+	for i:=0 ; i<len(saveObj.ValuePairs) ; i++ {
 		entry.Fields = append(entry.Fields, saveObj.ValuePairs[i].Value)
 	}
 

@@ -124,11 +124,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function SaveEntry(initialKey, valuePairs, typ) {
+function SaveEntry(initialKey, valuePairs, typ, key) {
   var obj = {
     InitialKey: initialKey,
     ValuePairs: valuePairs,
-    Typ: typ
+    Typ: typ,
+    Key: key
   };
   document.body.setAttribute('data-key', valuePairs[0].Value);
   window.fetch('/saveEntry', {
@@ -165,14 +166,17 @@ function () {
     document.addEventListener('DOMContentLoaded', function () {
       _this._typeSelect = window.mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
       _this._typeSelect.value = document.body.getAttribute('data-typ');
+      var keyTF = window.mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-select + .mdc-text-field'));
+      keyTF.value = document.body.getAttribute('data-key');
       var saveBtn = document.querySelector('button');
       saveBtn.addEventListener('click', function () {
         console.log(_this.valuePairs);
-        (0, SaveEntry_1.default)(document.body.getAttribute('data-key'), _this.valuePairs, _this._typeSelect.value);
+        (0, SaveEntry_1.default)(document.body.getAttribute('data-key'), _this.valuePairs, _this._typeSelect.value, keyTF.value);
       });
       var preElementes = document.querySelectorAll('#prevalues span');
-      var tf_elements = document.querySelectorAll('.mdc-text-field');
+      var tf_elements = document.querySelectorAll('.lane .mdc-text-field');
       tf_elements.forEach(function (el, i) {
+        console.log(preElementes[i], i);
         var tf = window.mdc.textField.MDCTextField.attachTo(el);
         var attr = el.querySelector('.mdc-floating-label').innerHTML;
 

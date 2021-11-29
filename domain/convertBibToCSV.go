@@ -31,7 +31,7 @@ func ConvertBibToCSV(){
 	filestring := "key;type;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;\n"
 	for _, entry := range bibEntries{
 		filestring += entry.Key + ";" + entry.Typ + ";"
-		for i:=1 ; i<=26; i++ {
+		for i:=0 ; i<26; i++ {
 			if i < len(entry.Fields) {
 				filestring += entry.Fields[i];
 			}

@@ -1,14 +1,13 @@
 @use 'common';
 
 .lane{
-  width: 200px;
+  height: auto;
   float: left;
   padding: 0 8px;
 }
 
 .outer{
   width: 100%;
-  min-height: 230px;
 }
 .lane .mdc-text-field{
   margin: 8px 0;

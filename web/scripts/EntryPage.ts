@@ -8,17 +8,21 @@ class EntryPage {
             this._typeSelect =  (<any>window).mdc.select.MDCSelect.attachTo( document.querySelector('.mdc-select') );
             this._typeSelect.value = document.body.getAttribute('data-typ');
 
+            let keyTF = (<any>window).mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-select + .mdc-text-field'));
+            keyTF.value = document.body.getAttribute('data-key');
+
             let saveBtn = document.querySelector('button');
 
             saveBtn.addEventListener('click', ()=>{
                 console.log(this.valuePairs)
-                SaveEntry(document.body.getAttribute('data-key'), this.valuePairs, this._typeSelect.value)
+                SaveEntry(document.body.getAttribute('data-key'), this.valuePairs, this._typeSelect.value, keyTF.value)
             })
 
             let preElementes = document.querySelectorAll('#prevalues span')
 
-            let tf_elements = document.querySelectorAll('.mdc-text-field');
+            let tf_elements = document.querySelectorAll('.lane .mdc-text-field');
             tf_elements.forEach((el, i) => {
+                console.log(preElementes[i], i);
                 let tf = (<any>window).mdc.textField.MDCTextField.attachTo( el );
                 const attr = el.querySelector('.mdc-floating-label').innerHTML;
                 this.valuePairs.push(new ValuePair(attr, preElementes[i].innerHTML));
