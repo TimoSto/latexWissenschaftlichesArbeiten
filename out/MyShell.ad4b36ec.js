@@ -136,7 +136,7 @@ function () {
       });
 
       _this._res1.src = urlFrag;
-      window.history.replaceState(null, urlFrag, location.protocol + '//' + window.location.host + "/" + urlFrag);
+      window.history.replaceState(null, urlFrag, location.protocol + '//' + window.location.host + urlFrag);
     });
   }
 
@@ -150,7 +150,7 @@ function () {
     this._res1.parentElement.classList.add('res_container--open');
 
     this._backBtn.style.display = 'none';
-    window.history.replaceState(null, 'overview', location.protocol + '//' + window.location.host + '/overview');
+    window.history.replaceState(null, 'overview', location.protocol + '//' + window.location.host + 'overview');
   };
 
   MyShell.prototype.setTitle = function (title) {
@@ -167,7 +167,7 @@ function () {
     this._res2.parentElement.classList.add('res_container--open');
 
     this._backBtn.style.display = '';
-    window.history.replaceState(null, type, location.protocol + '//' + window.location.host + '/type/' + type);
+    window.history.replaceState(null, type, location.protocol + '//' + window.location.host + 'type/' + type);
   };
 
   MyShell.prototype.NavigateToEntry = function (index) {
@@ -180,7 +180,7 @@ function () {
     this._res2.parentElement.classList.add('res_container--open');
 
     this._backBtn.style.display = '';
-    window.history.replaceState(null, "Eintrag", location.protocol + '//' + window.location.host + '/entry/' + index);
+    window.history.replaceState(null, "Eintrag", location.protocol + '//' + window.location.host + 'entry/' + index);
   };
 
   return MyShell;
