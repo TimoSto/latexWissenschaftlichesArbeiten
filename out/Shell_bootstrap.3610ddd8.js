@@ -127,9 +127,13 @@ Object.defineProperty(exports, "__esModule", {
 var Shell =
 /** @class */
 function () {
-  function Shell(view) {}
+  function Shell(view) {
+    this._view = view;
+  }
 
-  Shell.prototype.NavigateToType = function (type) {};
+  Shell.prototype.NavigateToType = function (type) {
+    this._view.NavigateToType(type);
+  };
 
   return Shell;
 }();
@@ -158,12 +162,37 @@ function () {
       _this._titleElement = document.querySelector('.mdc-top-app-bar__title');
       _this._backBtn = document.querySelector('.mdc-top-app-bar button');
 
-      _this._backBtn.addEventListener('click', function () {//this.NavBack();
+      _this._backBtn.addEventListener('click', function () {
+        _this.NavBack();
       });
 
       _this._res1.src = urlFrag;
       window.history.replaceState(null, urlFrag, location.protocol + '//' + window.location.host + urlFrag);
     });
+  };
+
+  ShellView.prototype.NavigateToType = function (type) {
+    this._res1.parentElement.classList.remove('res_container--open');
+
+    this._res1.parentElement.classList.add('res_container--close');
+
+    this._res2.src = '/type/' + type;
+
+    this._res2.parentElement.classList.add('res_container--open');
+
+    this._backBtn.style.display = '';
+  };
+
+  ShellView.prototype.NavBack = function () {
+    this._res2.parentElement.classList.remove('res_container--open');
+
+    this._res2.parentElement.classList.add('res_container--close');
+
+    this._res1.parentElement.classList.remove('res_container--close');
+
+    this._res1.parentElement.classList.add('res_container--open');
+
+    this._backBtn.style.display = 'none';
   };
 
   return ShellView;

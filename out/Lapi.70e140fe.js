@@ -118,6 +118,29 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scripts/Lapi.ts":[function(require,module,exports) {
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var Lapi =
+/** @class */
+function () {
+  function Lapi(shell) {
+    this._shell = shell;
+    console.log(shell);
+  }
+
+  Lapi.prototype.NavigateToType = function (type) {
+    console.log('n');
+
+    this._shell.NavigateToType(type);
+  };
+
+  return Lapi;
+}();
+
+exports.default = Lapi;
 },{}]},{},["scripts/Lapi.ts"], null)
 //# sourceMappingURL=/shell/Lapi.70e140fe.js.map

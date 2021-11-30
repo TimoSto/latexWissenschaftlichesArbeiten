@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/shell/type.253fe20e.css">
-    <script src="/shell/Lapi.70e140fe.js"></script>
-    <script src="/shell/TypePage.1b661814.js"></script>
+    <link rel="stylesheet" href="styles/type.scss">
+    <script src="scripts/Lapi.ts"></script>
+    <script src="scripts/TypePage.ts"></script>
 </head>
 <body>
     <div id="values" data-name="{{ .Name }}" data-has-cite-page="{{ .HasCitePage }}">
         <div id="bibFields">
             {{ range $value := .Fields }}
-                <div data-field="{{ $value.Field }}" data-style="{{ $value.Style}}" data-suffix="{{ $value.Suffix }}" data-prefix="{{ $value.Prefix }}"></div>
+                <div data-field="{{ $value.Field }}" data-style="{{ $value.Style}}" data-suffix="{{ $value.Suffix }}" data-prefix= "{{ $value.Prefix }}"></div>
             {{ end }}
         </div>
         <div id="citeFields">
             {{ range $value := .CiteFields }}
-                <div data-field="{{ $value.Field }}" data-style="{{ $value.Style}}" data-suffix="{{ $value.Suffix }}" data-prefix="{{ $value.Prefix }}"></div>
+                <div data-field="{{ $value.Field }}" data-style="{{ $value.Style}}" data-suffix="{{ $value.Suffix }}" data-prefix= "{{ $value.Prefix }}"></div>
             {{ end }}
         </div>
     </div>
@@ -50,16 +50,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -126,16 +137,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -202,16 +224,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -278,16 +311,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -354,16 +398,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -430,16 +485,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -506,16 +572,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -582,16 +659,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -658,16 +746,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -734,16 +833,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -824,16 +934,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -900,16 +1021,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -976,16 +1108,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -1052,16 +1195,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -1128,16 +1282,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -1204,16 +1369,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -1280,16 +1456,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -1356,16 +1543,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>
@@ -1432,16 +1630,27 @@
             <div class="my-table-cell mdc-typography--headline6">
 
                 <div class="mdc-select mdc-select--filled demo-width-class">
-                    <div class="mdc-select__anchor" role="button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="demo-label demo-selected-text">
+                    <div class="mdc-select__anchor"
+                         role="button"
+                         aria-haspopup="listbox"
+                         aria-expanded="false"
+                         aria-labelledby="demo-label demo-selected-text">
                         <span class="mdc-select__ripple"></span>
                         <span class="mdc-floating-label">Style</span>
                         <span class="mdc-select__selected-text-container">
                           <span class="mdc-select__selected-text"></span>
                         </span>
                         <span class="mdc-select__dropdown-icon">
-                          <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                          <svg class="mdc-select__dropdown-icon-graphic"
+                               viewBox="7 10 10 5" focusable="false">
+                            <polygon class="mdc-select__dropdown-icon-inactive"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active"
+                                     stroke="none"
+                                     fill-rule="evenodd"
+                                     points="7 15 12 10 17 15"></polygon>
                           </svg>
                         </span>
                         <span class="mdc-line-ripple"></span>

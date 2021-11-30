@@ -18,12 +18,28 @@ export default class ShellView {
             this._titleElement = document.querySelector('.mdc-top-app-bar__title');
             this._backBtn = document.querySelector('.mdc-top-app-bar button');
             this._backBtn.addEventListener('click', ()=>{
-                //this.NavBack();
+                this.NavBack();
             });
 
             this._res1.src = urlFrag;
 
             window.history.replaceState(null, urlFrag, location.protocol + '//' + window.location.host +  urlFrag);
         });
+    }
+
+    NavigateToType(type: string) {
+        this._res1.parentElement.classList.remove('res_container--open')
+        this._res1.parentElement.classList.add('res_container--close')
+        this._res2.src = '/type/' + type;
+        this._res2.parentElement.classList.add('res_container--open')
+        this._backBtn.style.display = '';
+    }
+
+    NavBack(){
+        this._res2.parentElement.classList.remove('res_container--open')
+        this._res2.parentElement.classList.add('res_container--close')
+        this._res1.parentElement.classList.remove('res_container--close')
+        this._res1.parentElement.classList.add('res_container--open')
+        this._backBtn.style.display = 'none';
     }
 }

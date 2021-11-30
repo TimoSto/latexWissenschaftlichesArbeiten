@@ -117,50 +117,25 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scripts/Lapi.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
+})({"scripts/OverviewPage.ts":[function(require,module,exports) {
+document.addEventListener('DOMContentLoaded', function () {
+  new OverviewPage();
 });
 
-var Lapi =
+var OverviewPage =
 /** @class */
 function () {
-  function Lapi(shell) {
-    this._shell = shell;
-    console.log(shell);
+  function OverviewPage() {
+    document.querySelectorAll('[data-edit-type]').forEach(function (el) {
+      var typeToEdit = el.getAttribute('data-edit-type');
+      el.addEventListener('click', function () {
+        console.log('hey');
+        window.lapi.NavigateToType(typeToEdit);
+      });
+    });
   }
 
-  Lapi.prototype.NavigateToType = function (type) {
-    console.log('n');
-
-    this._shell.NavigateToType(type);
-  };
-
-  return Lapi;
+  return OverviewPage;
 }();
-
-exports.default = Lapi;
-},{}],"scripts/Lapi_bootstrap.ts":[function(require,module,exports) {
-"use strict";
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var Lapi_1 = __importDefault(require("./Lapi"));
-
-if (window.parent === window) {
-  window.location.replace("/shell/#" + window.location.pathname);
-} else {
-  window.lapi = new Lapi_1.default(window.parent.shell);
-}
-},{"./Lapi":"scripts/Lapi.ts"}]},{},["scripts/Lapi_bootstrap.ts"], null)
-//# sourceMappingURL=/shell/Lapi_bootstrap.25989ded.js.map
+},{}]},{},["scripts/OverviewPage.ts"], null)
+//# sourceMappingURL=/shell/OverviewPage.778f9b09.js.map

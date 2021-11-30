@@ -10,7 +10,7 @@ export default class Lapi {
     }
 
     NavigateToType(type: string) {
-        //console.log('n')
+        console.log('n')
         this._shell.NavigateToType(type);
     }
 }
