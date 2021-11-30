@@ -1,0 +1,33 @@
+@use '~@material/typography/mdc-typography';
+
+body{
+  padding: 8px;
+}
+
+.my-list{
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.my-list-item{
+  width: 100%;
+  height: 32px;
+  cursor: pointer;
+}
+
+.my-list-item__graphic{
+  width: 32px;
+  height: 32px;
+  float: left;
+  margin-right: 8px;
+}
+
+.my-list-item__graphic .material-icons{
+  padding: 4px;
+}
+
+.my-list-item__text{
+  line-height: 32px;
+  font-size: 20px;
+}
