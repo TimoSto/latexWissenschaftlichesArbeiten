@@ -1,4 +1,9 @@
 @use '~@material/typography/mdc-typography';
+@use '~@material/textfield/mdc-text-field';
+@use '~@material/button/mdc-button';
+@use '~@material/icon-button/mdc-icon-button';
+@use '~@material/ripple/mdc-ripple';
+
 
 body{
   padding: 8px;
@@ -12,22 +17,58 @@ body{
 
 .my-list-item{
   width: 100%;
-  height: 32px;
+  height: 48px;
   cursor: pointer;
 }
 
 .my-list-item__graphic{
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   float: left;
-  margin-right: 8px;
+  margin-right: 12px;
 }
 
 .my-list-item__graphic .material-icons{
-  padding: 4px;
+  padding: 12px;
 }
 
 .my-list-item__text{
-  line-height: 32px;
+  line-height: 48px;
   font-size: 20px;
+}
+
+.my-list-item__meta{
+  float: right;
+}
+
+.my-list-item__meta button{
+  padding: 0;
+  color: rgba(0,0,0,0.65);
+}
+
+.my-list-item__meta>button:hover:not(:active)::after{
+  position: absolute;
+  border-radius: 50%;
+  /* opacity: 0; */
+  opacity: 0.5;
+  pointer-events: none;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.12);
+  left: calc(50% - 50%);
+  top: calc(50% - 50%);
+}
+
+.my-list-item__meta>button:active::after{
+  position: absolute;
+  border-radius: 50%;
+  /* opacity: 0; */
+  pointer-events: none;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.12);
+  left: calc(50% - 50%);
+  top: calc(50% - 50%);
 }

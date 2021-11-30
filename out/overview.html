@@ -15,6 +15,33 @@
             </span>
             <span class="my-list-item__text">Literaturtypen</span>
         </li>
+        <div class="area">
+            <p class="mdc-typography--body1">Hier sind alle Literatur-Typen aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
+            <ul class="my-list">
+                {{ range $value := .Types }}
+
+                <li class="my-list-item" tabindex="0">
+                    <span class="my-list-item__ripple"></span>
+                    <span class="my-list-item__text">{{$value.Name}}</span>
+                    <span class="my-list-item__meta">
+                        <button class="mdc-icon-button material-icons" data-edit-type="{{$value.Name}}">edit</button>
+                        <button class="mdc-icon-button material-icons" data-delete-type="{{$value.Name}}">delete</button>
+                    </span>
+                </li>
+
+                {{ end }}
+            </ul>
+
+            <label class="mdc-text-field mdc-text-field--filled" id="newType">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label">Neuer Typ</span>
+                <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            <button class="mdc-button mdc-button--raised" id="createTypeBtn" disabled="">
+                <span class="mdc-button__label">Neuen Typen erstellen</span>
+            </button>
+        </div>
     </ul>
 </body>
 </html>
