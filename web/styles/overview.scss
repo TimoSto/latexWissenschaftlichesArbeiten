@@ -19,6 +19,11 @@ body{
   width: 100%;
   height: 48px;
   cursor: pointer;
+  //border-top: 1px solid rgba(0,0,0,0.24);
+}
+
+.my-list .my-list-item:last-child{
+  //border-bottom: 1px solid rgba(0,0,0,0.24);
 }
 
 .my-list-item__graphic{
@@ -35,6 +40,7 @@ body{
 .my-list-item__text{
   line-height: 48px;
   font-size: 20px;
+  color: rgba(0,0,0,0.87);
 }
 
 .my-list-item__meta{
@@ -71,4 +77,8 @@ body{
   background-color: rgba(0,0,0,0.12);
   left: calc(50% - 50%);
   top: calc(50% - 50%);
+}
+
+#createTypeBtn{
+  margin-top:16px;
 }

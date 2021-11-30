@@ -3225,6 +3225,7 @@ body {
 .my-list-item__text {
   line-height: 48px;
   font-size: 20px;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .my-list-item__meta {
@@ -3261,6 +3262,10 @@ body {
   background-color: rgba(0, 0, 0, 0.12);
   left: 0%;
   top: 0%;
+}
+
+#createTypeBtn {
+  margin-top: 16px;
 }
 
 /*# sourceMappingURL=/shell/overview.956bdcb5.css.map */
