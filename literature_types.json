@@ -387,6 +387,50 @@
 					"Suffix": ""
 				}
 			]
+		},
+		{
+			"Name": "magazin",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Magazin",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Nummer",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ")"
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " , "
+				},
+				{
+					"Field": "Magazin",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				}
+			]
 		}
 	]
 }

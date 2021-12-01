@@ -8,36 +8,28 @@
     <script src="/shell/OverviewPage.778f9b09.js"></script>
 </head>
 <body class="mdc-typography">
-    <span class="mdc-typography--headline5">Übersicht</span>
-    <ul class="my-list">
-        <li class="my-list-item">
-            <span class="my-list-item__graphic">
-                <span class="material-icons">expand_more</span>
-            </span>
-            <span class="my-list-item__text">Literaturtypen</span>
-        </li>
-        <div class="area">
-            <p class="mdc-typography--body1">Hier sind alle Literatur-Typen aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
-            <ul class="my-list">
-                {{ range $value := .Types }}
+    <div class="mdc-typography--headline5 part-heading">Literaturtypen</div>
+    <div class="area">
+        <p class="mdc-typography--body1">Hier sind alle Literatur-Typen aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
+        <ul class="my-list">
+            {{ range $value := .Types }}
 
-                <li class="my-list-item" tabindex="0">
-                    <span class="my-list-item__ripple"></span>
-                    <span class="my-list-item__text">{{$value.Name}}</span>
-                    <span class="my-list-item__meta">
-                        <button class="mdc-icon-button material-icons" data-edit-type="{{$value.Name}}">edit</button>
-                        <button class="mdc-icon-button material-icons" data-delete-type="{{$value.Name}}">delete</button>
-                    </span>
-                </li>
+            <li class="my-list-item" tabindex="0">
+                <span class="my-list-item__ripple"></span>
+                <span class="my-list-item__text">{{$value.Name}}</span>
+                <span class="my-list-item__meta">
+                    <button class="mdc-icon-button material-icons" data-edit-type="{{$value.Name}}">edit</button>
+                    <button class="mdc-icon-button material-icons" data-delete-type="{{$value.Name}}">delete</button>
+                </span>
+            </li>
 
-                {{ end }}
-            </ul>
+            {{ end }}
+        </ul>
 
-            <button class="mdc-button mdc-button--raised" id="createTypeBtn">
-                <span class="mdc-button__label">Neuen Typen erstellen</span>
-            </button>
-        </div>
-    </ul>
+        <button class="mdc-button mdc-button--raised" id="createTypeBtn">
+            <span class="mdc-button__label">Neuen Typen erstellen</span>
+        </button>
+    </div>
 
     <div class="mdc-dialog">
         <div class="mdc-dialog__container">

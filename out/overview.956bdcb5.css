@@ -3096,4 +3096,13 @@ body {
   margin-top: 16px;
 }
 
+.area-closed {
+  height: 0;
+  overflow: hidden;
+}
+
+.part-heading {
+  width: 100%;
+}
+
 /*# sourceMappingURL=/shell/overview.956bdcb5.css.map */
