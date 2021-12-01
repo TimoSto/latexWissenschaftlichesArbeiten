@@ -1,5 +1,7 @@
 import Field from "./Field";
 import SaveType from "./SaveType";
+import {MDCTextField} from "@material/textfield/component";
+import {MDCSelect} from "@material/select/component";
 
 class TypePage {
     private bib_attrTextFields = [];
@@ -21,7 +23,7 @@ class TypePage {
 
             elements.forEach((el, n) => {
                 const index = n;
-                const attrTextField = (<any>window).mdc.textField.MDCTextField.attachTo( el );
+                const attrTextField = new MDCTextField( el );
                 attrTextField.root.querySelector('input').addEventListener('change', ()=> {
                     if( index > this.bibFields.length - 1 ) {
                         this.bibFields.push(new Field("", "normal", "", ""))
@@ -43,7 +45,7 @@ class TypePage {
 
             styleElements.forEach((el, n) => {
                 const index = n;
-                const newSelect = (<any>window).mdc.select.MDCSelect.attachTo( el );
+                const newSelect = new MDCSelect( el );
                 newSelect.listen('MDCSelect:change', ()=> {
                     if( index > this.bibFields.length - 1 ) {
                         this.bibFields.push(new Field("", "normal", "", ""))
@@ -60,7 +62,7 @@ class TypePage {
 
             tf_elements.forEach((el, n) => {
                 const index = n;
-                this.bib_prefixTfs.push( (<any>window).mdc.textField.MDCTextField.attachTo( el ));
+                this.bib_prefixTfs.push( new MDCTextField( el ));
                 el.querySelector('input').addEventListener('change', ()=>{
                     if( index > this.bibFields.length - 1 ) {
                         this.bibFields.push(new Field("", "normal", "", ""))
@@ -74,7 +76,7 @@ class TypePage {
 
             tf_elements2.forEach((el, n) => {
                 const index = n;
-                this.bib_suffixTfs.push( (<any>window).mdc.textField.MDCTextField.attachTo( el ));
+                this.bib_suffixTfs.push( new MDCTextField( el ));
                 el.querySelector('input').addEventListener('change', ()=>{
                     if( index > this.bibFields.length - 1 ) {
                         this.bibFields.push(new Field("", "normal", "", ""))
@@ -88,7 +90,7 @@ class TypePage {
 
             elementsc.forEach((el, n) => {
                 const index = n;
-                const attrTextField = (<any>window).mdc.textField.MDCTextField.attachTo( el );
+                const attrTextField = new MDCTextField( el );
                 attrTextField.root.querySelector('input').addEventListener('change', ()=> {
                     if( index > this.bibFields.length - 1 ) {
                         this.bibFields.push(new Field("", "normal", "", ""))
@@ -110,7 +112,7 @@ class TypePage {
 
             styleElementsc.forEach((el, n) => {
                 const index = n;
-                const newSelect = (<any>window).mdc.select.MDCSelect.attachTo( el );
+                const newSelect = new MDCSelect( el );
                 newSelect.listen('MDCSelect:change', ()=> {
                     if( index > this.citeFields.length - 1 ) {
                         this.citeFields.push(new Field("", "normal", "", ""))
@@ -127,7 +129,7 @@ class TypePage {
 
             tf_elementsc.forEach((el, n) => {
                 const index = n;
-                this.cite_prefixTfs.push( (<any>window).mdc.textField.MDCTextField.attachTo( el ));
+                this.cite_prefixTfs.push( new MDCTextField( el ));
                 el.querySelector('input').addEventListener('change', ()=>{
                     if( index > this.citeFields.length - 1 ) {
                         this.citeFields.push(new Field("", "normal", "", ""))
@@ -141,7 +143,7 @@ class TypePage {
 
             tf_elements2c.forEach((el, n) => {
                 const index = n;
-                this.cite_suffixTfs.push( (<any>window).mdc.textField.MDCTextField.attachTo( el ));
+                this.cite_suffixTfs.push( new MDCTextField( el ));
                 el.querySelector('input').addEventListener('change', ()=>{
                     if( index > this.citeFields.length - 1 ) {
                         this.citeFields.push(new Field("", "normal", "", ""))
@@ -168,7 +170,7 @@ class TypePage {
 
             this.syncExample();
 
-            document.querySelector('.mdc-button--raised').addEventListener('click', ()=>{
+            document.querySelector('header button').addEventListener('click', ()=>{
                 SaveType((<any>window).location.href.split('/type/')[1], this.bibFields, this.citeFields)
             });
 

@@ -8,6 +8,7 @@
 @use "~@material/menu-surface/mdc-menu-surface";
 @use "~@material/menu/mdc-menu";
 @use "~@material/select/styles";
+@use '@material/top-app-bar/mdc-top-app-bar';
 @use 'common';
 
 @include list.core-styles;
@@ -18,7 +19,12 @@ body, html{
 }
 
 body{
-  padding: 0 8px;
+  padding: 0;
+}
+
+main {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .my-table {
@@ -53,4 +59,14 @@ body{
   min-width: 100px;
   margin: 4px;
   width: 100%;
+}
+
+.mdc-top-app-bar{
+  background-color: white;
+  color: black;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.mdc-top-app-bar button {
+  color: black!important;
 }

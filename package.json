@@ -20,7 +20,7 @@
     "@material/ripple": "^10.0.0",
     "@material/select": "^10.0.0",
     "@material/textfield": "^10.0.0",
-    "@material/top-app-bar": "^10.0.0"
+    "@material/top-app-bar": "10.0.0"
   },
   "sass": {
     "includePaths": [

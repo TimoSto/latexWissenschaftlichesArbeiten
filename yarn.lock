@@ -1147,7 +1147,7 @@
   dependencies:
     "@material/feature-targeting" "^10.0.0"
 
-"@material/top-app-bar@^10.0.0":
+"@material/top-app-bar@10.0.0":
   version "10.0.0"
   resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/top-app-bar/-/top-app-bar-10.0.0.tgz#c9a1449453aa8d28d448e5eed46f788c882472b0"
   integrity sha1-yaFElFOqjSjUSOXu1G94jIgkcrA=
