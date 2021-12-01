@@ -827,6 +827,10 @@
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.12);
 }
 
+:root {
+  --mdc-theme-primary: #438f85;
+}
+
 body, html {
   margin: 0;
   height: calc(100% - 16px);

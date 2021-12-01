@@ -3,10 +3,7 @@
 @use '~@material/button/mdc-button';
 @use '~@material/icon-button/mdc-icon-button';
 @use '~@material/ripple/mdc-ripple';
-
-:root{
-  --mdc-theme-primary: #438f85;
-}
+@use './common';
 
 body{
   padding: 8px;

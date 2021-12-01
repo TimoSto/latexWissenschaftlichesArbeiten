@@ -8,6 +8,7 @@
 @use "~@material/menu-surface/mdc-menu-surface";
 @use "~@material/menu/mdc-menu";
 @use "~@material/select/styles";
+@use 'common';
 
 @include list.core-styles;
 

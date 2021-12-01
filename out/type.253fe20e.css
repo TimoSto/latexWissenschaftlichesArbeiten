@@ -3773,6 +3773,10 @@ svg.mdc-button__icon {
   display: inline;
 }
 
+:root {
+  --mdc-theme-primary: #438f85;
+}
+
 .mdc-list {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
