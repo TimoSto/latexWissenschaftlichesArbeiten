@@ -26,7 +26,7 @@
 		{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
 		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
 		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
-		{meintype}{\printmeintype{\a}{\b}{\c}{\d}}%
+		{meintype}{\printmeintype{\a}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -99,11 +99,11 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printmeintype}[4]{
+\newcommand{\printmeintype}[1]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}, #2, #3 (#4)
+	#1
 	\\
 	\vspace{-12pt}
 
@@ -148,7 +148,7 @@
 			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
-			{meintype}{\footnote{#3\citemeintype{\a}{\b}{#2}}}%
+			{meintype}{\footnote{#3\citemeintype{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -181,8 +181,8 @@
 \newcommand{\citehrsgsammel}[3]{
 	\textit{#1}, #2, #3.
 }
-\newcommand{\citemeintype}[3]{
-	\textit{#1} (#2), #3.
+\newcommand{\citemeintype}[1]{
+	#1.
 }
 %end area
 

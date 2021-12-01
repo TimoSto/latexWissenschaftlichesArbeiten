@@ -373,44 +373,13 @@
 			"HasCitePage": false,
 			"Fields": [
 				{
-					"Field": "autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "titel",
+					"Field": "Autor",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "ort",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": ")"
+					"Suffix": ""
 				}
 			],
-			"CiteFields": [
-				{
-					"Field": "autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "datum",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "), "
-				}
-			]
+			"CiteFields": []
 		}
 	]
 }

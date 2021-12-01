@@ -4,6 +4,9 @@
 @use '~@material/icon-button/mdc-icon-button';
 @use '~@material/ripple/mdc-ripple';
 @use './common';
+@use "@material/dialog";
+
+@include dialog.core-styles;
 
 body{
   padding: 8px;

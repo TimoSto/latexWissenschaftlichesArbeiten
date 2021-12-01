@@ -949,6 +949,26 @@
   resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/density/-/density-10.0.0.tgz#24795406d092cf0e6422e1c9dc8bc2b978c46e7a"
   integrity sha1-JHlUBtCSzw5kIuHJ3IvCuXjEbno=
 
+"@material/dialog@10.0.0":
+  version "10.0.0"
+  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/dialog/-/dialog-10.0.0.tgz#f0a9192081291767ec9517ff8cccd8320cb4cd53"
+  integrity sha1-8KkZIIEpF2fslRf/jMzYMgy0zVM=
+  dependencies:
+    "@material/animation" "^10.0.0"
+    "@material/base" "^10.0.0"
+    "@material/button" "^10.0.0"
+    "@material/dom" "^10.0.0"
+    "@material/elevation" "^10.0.0"
+    "@material/feature-targeting" "^10.0.0"
+    "@material/icon-button" "^10.0.0"
+    "@material/ripple" "^10.0.0"
+    "@material/rtl" "^10.0.0"
+    "@material/shape" "^10.0.0"
+    "@material/theme" "^10.0.0"
+    "@material/touch-target" "^10.0.0"
+    "@material/typography" "^10.0.0"
+    tslib "^1.9.3"
+
 "@material/dom@^10.0.0":
   version "10.0.0"
   resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/dom/-/dom-10.0.0.tgz#83bc5c4cdbcb6337c9687d962953919e1a624e30"

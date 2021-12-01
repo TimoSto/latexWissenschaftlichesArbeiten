@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@material/button": "^10.0.0",
+    "@material/dialog": "10.0.0",
     "@material/icon-button": "^10.0.0",
     "@material/list": "10.0.0",
     "@material/ripple": "^10.0.0",
