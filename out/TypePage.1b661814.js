@@ -10903,20 +10903,20 @@ function () {
         var index = n;
         var attrTextField = new component_1.MDCTextField(el);
         attrTextField.root.querySelector('input').addEventListener('change', function () {
-          if (index > _this.bibFields.length - 1) {
-            _this.bibFields.push(new Field_1.default("", "normal", "", ""));
+          if (index > _this.citeFields.length - 1) {
+            _this.citeFields.push(new Field_1.default("", "normal", "", ""));
           }
 
           console.log(attrTextField.value);
 
-          if (index === _this.bibFields.length - 1 && attrTextField.value == "") {
-            _this.bibFields.pop();
+          if (index === _this.citeFields.length - 1 && attrTextField.value == "") {
+            _this.citeFields.pop();
 
             return;
           }
 
-          if (_this.bibFields[index].Field != attrTextField.value) {
-            _this.bibFields[index].Field = attrTextField.value;
+          if (_this.citeFields[index].Field != attrTextField.value) {
+            _this.citeFields[index].Field = attrTextField.value;
 
             _this.syncExample();
           }
@@ -11016,43 +11016,7 @@ function () {
           break;
       }
 
-      switch (field.Field) {
-        case 'autor':
-          bibExample += 'Mustermann, M.';
-          break;
-
-        case 'titel':
-          bibExample += 'Beispieltitel';
-          break;
-
-        case 'auflage':
-          bibExample += '1';
-          break;
-
-        case 'ort':
-          bibExample += "Hamburg";
-          break;
-
-        case 'datum':
-          bibExample += "23.01.2021";
-          break;
-
-        case 'url':
-          bibExample += 'https://example.com/page';
-          break;
-
-        case 'stand':
-          bibExample += '23.01.2020';
-          break;
-
-        case 'zeitschrift':
-          bibExample += 'Playboy';
-          break;
-
-        case 'seiten':
-          bibExample += 'S. 76-90';
-          break;
-      }
+      bibExample += field.Field;
 
       switch (field.Style) {
         case 'italic':
@@ -11086,43 +11050,7 @@ function () {
           break;
       }
 
-      switch (field.Field) {
-        case 'autor':
-          citeExample += 'Mustermann, M.';
-          break;
-
-        case 'titel':
-          citeExample += 'Beispieltitel';
-          break;
-
-        case 'auflage':
-          citeExample += '1';
-          break;
-
-        case 'ort':
-          citeExample += "Hamburg";
-          break;
-
-        case 'datum':
-          citeExample += "23.01.2021";
-          break;
-
-        case 'url':
-          citeExample += 'https://example.com/page';
-          break;
-
-        case 'stand':
-          citeExample += '23.01.2020';
-          break;
-
-        case 'zeitschrift':
-          citeExample += 'Playboy';
-          break;
-
-        case 'seiten':
-          citeExample += 'S. 76-90';
-          break;
-      }
+      citeExample += field.Field;
 
       switch (field.Style) {
         case 'italic':

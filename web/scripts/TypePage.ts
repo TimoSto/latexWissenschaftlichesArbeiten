@@ -92,16 +92,16 @@ class TypePage {
                 const index = n;
                 const attrTextField = new MDCTextField( el );
                 attrTextField.root.querySelector('input').addEventListener('change', ()=> {
-                    if( index > this.bibFields.length - 1 ) {
-                        this.bibFields.push(new Field("", "normal", "", ""))
+                    if( index > this.citeFields.length - 1 ) {
+                        this.citeFields.push(new Field("", "normal", "", ""))
                     }
                     console.log(attrTextField.value)
-                    if(index === this.bibFields.length - 1 && attrTextField.value == "") {
-                        this.bibFields.pop();
+                    if(index === this.citeFields.length - 1 && attrTextField.value == "") {
+                        this.citeFields.pop();
                         return
                     }
-                    if( this.bibFields[index].Field != attrTextField.value) {
-                        this.bibFields[index].Field = attrTextField.value;
+                    if( this.citeFields[index].Field != attrTextField.value) {
+                        this.citeFields[index].Field = attrTextField.value;
                         this.syncExample();
                     }
                 })
@@ -196,35 +196,8 @@ class TypePage {
                     bibExample += '<b>'
                     break;
             }
-            switch (field.Field) {
-                case 'autor':
-                    bibExample += 'Mustermann, M.'
-                    break;
-                case 'titel':
-                    bibExample += 'Beispieltitel'
-                    break;
-                case 'auflage':
-                    bibExample += '1'
-                    break;
-                case 'ort':
-                    bibExample += "Hamburg"
-                    break;
-                case 'datum':
-                    bibExample += "23.01.2021"
-                    break
-                case 'url':
-                    bibExample += 'https://example.com/page'
-                    break
-                case 'stand':
-                    bibExample += '23.01.2020'
-                    break;
-                case 'zeitschrift':
-                    bibExample += 'Playboy'
-                    break;
-                case 'seiten':
-                    bibExample += 'S. 76-90';
-                    break;
-            }
+
+            bibExample += field.Field;
             switch (field.Style){
                 case 'italic':
                     bibExample += '</i>';
@@ -254,35 +227,7 @@ class TypePage {
                     citeExample += '<b>'
                     break;
             }
-            switch (field.Field) {
-                case 'autor':
-                    citeExample += 'Mustermann, M.'
-                    break;
-                case 'titel':
-                    citeExample += 'Beispieltitel'
-                    break;
-                case 'auflage':
-                    citeExample += '1'
-                    break;
-                case 'ort':
-                    citeExample += "Hamburg"
-                    break;
-                case 'datum':
-                    citeExample += "23.01.2021"
-                    break
-                case 'url':
-                    citeExample += 'https://example.com/page'
-                    break
-                case 'stand':
-                    citeExample += '23.01.2020'
-                    break;
-                case 'zeitschrift':
-                    citeExample += 'Playboy'
-                    break;
-                case 'seiten':
-                    citeExample += 'S. 76-90';
-                    break;
-            }
+            citeExample += field.Field;
             switch (field.Style){
                 case 'italic':
                     citeExample += '</i>';

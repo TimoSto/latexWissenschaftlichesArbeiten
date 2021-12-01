@@ -148,7 +148,7 @@
 			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
-			{meintype}{\footnote{#3\citemeintype{#2}}}%
+			{meintype}{\footnote{#3\citemeintype{\a}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -181,8 +181,8 @@
 \newcommand{\citehrsgsammel}[3]{
 	\textit{#1}, #2, #3.
 }
-\newcommand{\citemeintype}[1]{
-	#1.
+\newcommand{\citemeintype}[2]{
+	#1#2.
 }
 %end area
 

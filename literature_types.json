@@ -379,7 +379,14 @@
 					"Suffix": ""
 				}
 			],
-			"CiteFields": []
+			"CiteFields": [
+				{
+					"Field": "Autor",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			]
 		}
 	]
 }
