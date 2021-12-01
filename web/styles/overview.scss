@@ -5,7 +5,9 @@
 @use '~@material/ripple/mdc-ripple';
 @use './common';
 @use "@material/dialog";
+@use '@material/list';
 
+@include list.core-styles;
 @include dialog.core-styles;
 
 body{

@@ -30,6 +30,31 @@
             <span class="mdc-button__label">Neuen Typen erstellen</span>
         </button>
     </div>
+    <div class="mdc-typography--headline5 part-heading">Literatureinträge</div>
+    <div class="area">
+        <p class="mdc-typography--body1">Hier sind alle Literatur-Einträge aufgelistet. Klicke sie an, um sie zu bearbeiten oder füre einen Neues hinzu.</p>
+
+        <button class="mdc-button mdc-button--raised" id="createEntryBtn">
+            <span class="mdc-button__label">Neuen Eintrag erstellen</span>
+        </button>
+        <ul class="mdc-list">
+            {{ range $key,$value := .Entries }}
+
+            <li class="mdc-list-item mdc-list-item--two-line" tabindex="0">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">
+                      <span class="mdc-list-item__primary-text">{{ index $value.Fields 0 }} - {{ index $value.Fields 1 }}</span>
+                      <span class="mdc-list-item__secondary-text">{{ $value.Typ }}</span>
+                    </span>
+                <span class="mdc-list-item__meta">
+                        <button class="mdc-icon-button material-icons" data-edit-entry="{{$value.Key}}">edit</button>
+                        <button class="mdc-icon-button material-icons" data-delete-entry="{{$value.Key}}">delete</button>
+                    </span>
+            </li>
+
+            {{ end }}
+        </ul>
+    </div>
 
     <div class="mdc-dialog">
         <div class="mdc-dialog__container">
