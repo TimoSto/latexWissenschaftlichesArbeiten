@@ -5866,10 +5866,6 @@ body {
   top: 0%;
 }
 
-#createTypeBtn {
-  margin-bottom: 16px;
-}
-
 .area-closed {
   height: 0;
   overflow: hidden;
