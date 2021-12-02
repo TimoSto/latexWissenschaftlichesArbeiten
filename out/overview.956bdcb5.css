@@ -5867,7 +5867,7 @@ body {
 }
 
 #createTypeBtn {
-  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .area-closed {
@@ -5877,6 +5877,11 @@ body {
 
 .part-heading {
   width: 100%;
+}
+
+.area {
+  border-bottom: 1px solid black;
+  margin-bottom: 8px;
 }
 
 /*# sourceMappingURL=/shell/overview.956bdcb5.css.map */

@@ -394,6 +394,12 @@
 			"CiteFields": [
 				{
 					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
