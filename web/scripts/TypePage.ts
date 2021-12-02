@@ -171,7 +171,7 @@ class TypePage {
             this.syncExample();
 
             document.querySelector('header button').addEventListener('click', ()=>{
-                SaveType((<any>window).location.href.split('/type/')[1], this.bibFields, this.citeFields)
+                SaveType((<any>window).location.href.split('/type/')[1], this.bibFields, this.citeFields, true)
             });
 
         });

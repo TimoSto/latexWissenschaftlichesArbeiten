@@ -26,7 +26,7 @@
 		{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
 		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
 		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
-		{meintype}{\printmeintype{\a}}%
+		{meintype}{\printmeintype{\a}{\b}{\c}}%
 		{magazin}{\printmagazin{\a}{\b}{\c}{\d}}%
 		%end area
 		{empty}{}%
@@ -100,11 +100,11 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printmeintype}[1]{
+\newcommand{\printmeintype}[3]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	#1
+	\textit{#1}, #2 (#3)
 	\\
 	\vspace{-12pt}
 

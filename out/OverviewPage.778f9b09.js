@@ -6242,7 +6242,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function SaveType(name, bibFields, citeFields) {
+function SaveType(name, bibFields, citeFields, reload) {
   var obj = {
     Name: name,
     Fields: bibFields,
@@ -6253,8 +6253,13 @@ function SaveType(name, bibFields, citeFields) {
     body: JSON.stringify(obj)
   }).then(function (response) {
     console.log(response);
+
+    if (reload) {
+      window.location.reload();
+    }
+
+    window.parent.shell.NavigateToType(name);
   });
-  window.parent.shell.NavigateToType(name);
 }
 
 exports.default = SaveType;
