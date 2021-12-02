@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  29 NOV 2021 18:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  2 DEC 2021 16:44
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -1012,11 +1012,11 @@ Underfull \vbox (badness 10000) detected at line 303
 
 ] [10] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 11446 strings out of 492452
- 160706 string characters out of 3120530
- 515207 words of memory out of 3000000
- 15486 multiletter control sequences out of 15000+200000
- 52740 words of font info for 85 fonts, out of 3000000 for 9000
+ 11450 strings out of 492452
+ 160750 string characters out of 3120530
+ 515644 words of memory out of 3000000
+ 15489 multiletter control sequences out of 15000+200000
+ 55588 words of font info for 87 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  58i,18n,74p,1238b,1864s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\tsto\AppData\Local
@@ -1029,7 +1029,7 @@ m/cmsy10.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/s
 ymbol/usyr.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
 /times/utmr8a.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (22 pages, 433123 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (22 pages, 433279 byt
 es).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)
