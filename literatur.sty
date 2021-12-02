@@ -152,14 +152,14 @@
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
 			{buch}{\footnote{#3\citebuch{\a}{\b}{#2}}}%
-			{kommentar}{\footnote{#3\citekommentar{\a}{\b}{\c}{#2}}}%
-			{aufsatz}{\footnote{#3\citeaufsatz{\a}{\b}{#2}}}%
+			{kommentar}{\footnote{#3\citekommentar{\a}{\b}{\e}{#2}}}%
+			{aufsatz}{\footnote{#3\citeaufsatz{\a}{\c}{#2}}}%
 			{online}{\footnote{#3\citeonline{\a}{\b}{#2}}}%
 			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
-			{meintype}{\footnote{#3\citemeintype{\a}{\b}{#2}}}%
-			{magazin}{\footnote{#3\citemagazin{\a}{\b}{#2}}}%
+			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}}}%
+			{magazin}{\footnote{#3\citemagazin{\a}{\c}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%

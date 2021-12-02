@@ -105,12 +105,24 @@ func GenerateIfsForCiteCommands(types []LiteratureType) string{
 
 	for _,lType := range types {
 		command := "\t\t\t{" + lType.Name + `}{\footnote{#3\cite` + strings.ToLower(lType.Name)
-		for n,_ := range lType.CiteFields {
-			command += `{\` + toChar(n+1) + `}`
+
+		for _,field := range lType.CiteFields {
+			fieldIndex := GetFieldIndex(lType.Fields, field.Field)
+			command += `{\` + toChar(fieldIndex+1) + `}`
 		}
 		command += `{#2}}`
 		command += `}%` + "\n"
 		commands += command
 	}
 	return commands
+}
+
+func GetFieldIndex(bibFields []Field, field string) int{
+	for i:=0 ; i < len(bibFields) ; i++ {
+		if strings.Compare(bibFields[i].Field, field) == 0 {
+			return i
+		}
+	}
+
+	return -1
 }
