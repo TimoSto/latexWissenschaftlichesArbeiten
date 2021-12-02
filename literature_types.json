@@ -399,7 +399,7 @@
 					"Suffix": ", "
 				},
 				{
-					"Field": "Titel",
+					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""

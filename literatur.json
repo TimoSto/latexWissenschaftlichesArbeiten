@@ -20,5 +20,14 @@
 			"Burhave",
 			"2021"
 		]
+	},
+	{
+		"Key": "tommel",
+		"Typ": "meintype",
+		"Fields": [
+			"Tom",
+			"Tommelst",
+			"2001"
+		]
 	}
 ]
