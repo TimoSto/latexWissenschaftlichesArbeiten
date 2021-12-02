@@ -21,6 +21,8 @@ func main() {
 
 	http.HandleFunc("/type/", handlers.HandleType)
 
+	http.HandleFunc("/typeFields/", handlers.HandleTypeFields)
+
 	http.HandleFunc("/entry/", handlers.HandleEntry)
 
 	http.HandleFunc("/save", handlers.HandleSave)
