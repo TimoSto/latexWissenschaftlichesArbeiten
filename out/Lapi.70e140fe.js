@@ -138,6 +138,10 @@ function () {
     this._shell.NavigateToType(type);
   };
 
+  Lapi.prototype.NavigateToEntry = function (key) {
+    this._shell.NavigateToEntry(key);
+  };
+
   return Lapi;
 }();
 

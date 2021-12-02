@@ -13,4 +13,8 @@ export default class Lapi {
         console.log('n')
         this._shell.NavigateToType(type);
     }
+
+    NavigateToEntry(key: string) {
+        this._shell.NavigateToEntry(key)
+    }
 }

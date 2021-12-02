@@ -101,3 +101,7 @@ body{
   border-bottom: 1px solid black;
   margin-bottom: 8px;
 }
+
+.mdc-list{
+  width: calc(100% - 16px);
+}

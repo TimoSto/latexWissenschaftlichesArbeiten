@@ -1,0 +1,18 @@
+@use 'common';
+@use '@material/list';
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+@use "@material/select/styles";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/textfield";
+
+@include textfield.core-styles;
+
+@include list.core-styles;
+
+#keyField, #typeSelect{
+  width: 200px;
+  margin-right: 16px;
+}

@@ -6313,6 +6313,10 @@ function () {
         (0, SaveType_1.default)(_this._newTypeTF.value, [], []);
         window.lapi.NavigateToType(_this._newTypeTF.value);
       });
+
+      document.querySelector('#createEntryBtn').addEventListener('click', function () {
+        window.lapi.NavigateToEntry('new');
+      });
     });
   }
 

@@ -35,6 +35,10 @@ class OverviewPage {
                 SaveType(this._newTypeTF.value, [], []);
                 (<any>window).lapi.NavigateToType(this._newTypeTF.value);
             });
+
+            document.querySelector('#createEntryBtn').addEventListener( 'click', ()=>{
+                (<any>window).lapi.NavigateToEntry('new');
+            });
         })
 
     }

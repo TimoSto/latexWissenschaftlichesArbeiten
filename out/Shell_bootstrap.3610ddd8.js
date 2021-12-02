@@ -135,6 +135,10 @@ function () {
     this._view.NavigateToType(type);
   };
 
+  Shell.prototype.NavigateToEntry = function (key) {
+    this._view.NavigateToEntry(key);
+  };
+
   return Shell;
 }();
 
@@ -177,6 +181,18 @@ function () {
     this._res1.parentElement.classList.add('res_container--close');
 
     this._res2.src = '/type/' + type;
+
+    this._res2.parentElement.classList.add('res_container--open');
+
+    this._backBtn.style.display = '';
+  };
+
+  ShellView.prototype.NavigateToEntry = function (key) {
+    this._res1.parentElement.classList.remove('res_container--open');
+
+    this._res1.parentElement.classList.add('res_container--close');
+
+    this._res2.src = '/entry/' + key;
 
     this._res2.parentElement.classList.add('res_container--open');
 

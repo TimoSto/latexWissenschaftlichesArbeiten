@@ -10,4 +10,8 @@ export default class Shell {
     NavigateToType(type: string) {
         this._view.NavigateToType(type);
     }
+
+    NavigateToEntry(key: string) {
+        this._view.NavigateToEntry(key);
+    }
 }
