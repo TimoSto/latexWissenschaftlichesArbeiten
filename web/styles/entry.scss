@@ -16,3 +16,8 @@
   width: 200px;
   margin-right: 16px;
 }
+
+#fieldsArea .mdc-text-field{
+  width: calc(50% - 32px);
+  margin: 16px;
+}

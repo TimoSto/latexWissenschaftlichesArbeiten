@@ -5805,4 +5805,9 @@ a.mdc-evolution-list-item {
   margin-right: 16px;
 }
 
+#fieldsArea .mdc-text-field {
+  width: calc(50% - 32px);
+  margin: 16px;
+}
+
 /*# sourceMappingURL=/shell/entry.0dc49de2.css.map */
