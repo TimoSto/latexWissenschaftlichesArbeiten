@@ -1,6 +1,7 @@
 import {MDCDialog} from "@material/dialog/component";
 import {MDCTextField} from "@material/textfield/component";
 import SaveType from "./SaveType";
+import DeleteType from "./DeleteType";
 
 document.addEventListener('DOMContentLoaded', () => {
     new OverviewPage();
@@ -22,6 +23,13 @@ class OverviewPage {
             });
 
         });
+
+        document.querySelectorAll('[data-delete-type]').forEach( el => {
+            const typeToDelete = el.getAttribute('data-delete-type');
+            el.addEventListener('click', ()=>{
+                DeleteType(typeToDelete);
+            });
+        })
 
         this._dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
 

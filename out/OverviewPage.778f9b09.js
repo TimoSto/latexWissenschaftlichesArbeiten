@@ -6263,6 +6263,29 @@ function SaveType(name, bibFields, citeFields, reload) {
 }
 
 exports.default = SaveType;
+},{}],"scripts/DeleteType.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function DeleteType(type) {
+  window.fetch('/delete/type', {
+    method: 'POST',
+    body: JSON.stringify({
+      Type: type
+    })
+  }).then(function (response) {
+    console.log(response);
+
+    if (response.status === 200) {
+      window.location.reload();
+    }
+  });
+}
+
+exports.default = DeleteType;
 },{}],"scripts/OverviewPage.ts":[function(require,module,exports) {
 "use strict";
 
@@ -6282,6 +6305,8 @@ var component_2 = require("@material/textfield/component");
 
 var SaveType_1 = __importDefault(require("./SaveType"));
 
+var DeleteType_1 = __importDefault(require("./DeleteType"));
+
 document.addEventListener('DOMContentLoaded', function () {
   new OverviewPage();
 });
@@ -6297,6 +6322,12 @@ function () {
       el.addEventListener('click', function () {
         console.log('hey');
         window.lapi.NavigateToType(typeToEdit);
+      });
+    });
+    document.querySelectorAll('[data-delete-type]').forEach(function (el) {
+      var typeToDelete = el.getAttribute('data-delete-type');
+      el.addEventListener('click', function () {
+        (0, DeleteType_1.default)(typeToDelete);
       });
     });
     this._dialog = new component_1.MDCDialog(document.querySelector('.mdc-dialog'));
@@ -6329,5 +6360,5 @@ function () {
 
   return OverviewPage;
 }();
-},{"@material/dialog/component":"../node_modules/@material/dialog/component.js","@material/textfield/component":"../node_modules/@material/textfield/component.js","./SaveType":"scripts/SaveType.ts"}]},{},["scripts/OverviewPage.ts"], null)
+},{"@material/dialog/component":"../node_modules/@material/dialog/component.js","@material/textfield/component":"../node_modules/@material/textfield/component.js","./SaveType":"scripts/SaveType.ts","./DeleteType":"scripts/DeleteType.ts"}]},{},["scripts/OverviewPage.ts"], null)
 //# sourceMappingURL=/shell/OverviewPage.778f9b09.js.map
