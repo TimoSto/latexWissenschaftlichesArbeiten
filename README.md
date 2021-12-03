@@ -31,4 +31,4 @@
 
 ## Dokumentation
 <a name="documentation" />
-Die Dokumentation zur Benutzung und des Programmcodes ist in `documentation.tex` bzw. `documentation.pdf` zu finden.
+Die Dokumentation zur Benutzung und des Programmcodes ist in `documentation.tex` bzw. `documentation.pdf` zu finden. Sie ist nach dem "How-To"-Schema aufgebaut.

@@ -46,6 +46,8 @@
 \usepackage[T1]{fontenc}
 \hyphenation{öf-fent-lich-en}
 
+\hyphenation{apl-pha--num-me-rischen}
+
 %DEBUGGING (Zeigt Boxen an)
 %\usepackage{showframe}
 \setlength{\skip\footins}{12pt}
@@ -57,6 +59,8 @@
 
 %Ab hier kommt spezifisches für dieses Dokument
 \definecolor{grayBack}{rgb}{0.8,0.8,0.8}
+
+\usepackage{verbatim}
 
 \begin{document}
 
@@ -96,83 +100,167 @@
 \mainmatter%Stil des Headers/Footers ändern
 \pagenumbering{arabic}
 
-\part{Tutorial}
-In dieser Doku wird der Aufbau und die Funktionsweise dieser Vorlage und der dahinter stehenden Mechanismen erläutert. Ein grundlegendes Verständnis von \textit{LaTeX} wird vorausgesetzt. Diese Doku wurde mithilfe der Vorlage erstellt.
-\section{Dokumentenstruktur}
-Die Struktur kann bis zu sechs Kapitelebenen umfassen und basiert auf der Dokumentenklasse \textit{article}. Die Nummerierung kann in numerischer Form erfolgen:\\\textit{\textbackslash usepackage[numeric]\{ueberschriften\}}\\[6pt]
-\colorbox{grayBack}{\begin{minipage}{\textwidth}
-\vspace{5pt}
-\hspace{5pt}1\hspace{15pt}Part\\
-\-\hspace{25pt} 1.1\hspace{10pt}Section\\
-\-\hspace{50pt} 1.1.1\hspace{5pt}Subsection\\
-\-\hspace{80pt} 1.1.1.1\hspace{5pt}Subsubsection\\
-\-\hspace{120pt} 1.1.1.1.1\hspace{5pt}Paragraph\\
-\-\hspace{170pt} 1.1.1.1.1.1\hspace{5pt}Subparagraph\vspace{5pt}
-\end{minipage}
-}\\[6pt]
-Oder in alpha-numerlischer Form:\\\textit{\textbackslash usepackage[latour]\{ueberschriften\}}\\[6pt]
-\colorbox{grayBack}{\begin{minipage}{\textwidth}
-\vspace{5pt}
-\hspace{5pt}A\hspace{10pt}Part\\
-\-\hspace{25pt} I\hspace{10pt}Section\\
-\-\hspace{45pt} 1\hspace{10pt}Subsection\\
-\-\hspace{65pt} a)\hspace{10pt}Subsubsection\\
-\-\hspace{85pt} aa)\hspace{5pt}Paragraph\\
-\-\hspace{105pt} (1)\hspace{10pt}Subparagraph\vspace{5pt}
-\end{minipage}
+
+\part{Wie kann ich dieses Template benutzen?}
+
+\section{Überschriften und Inhaltsverzeichnis}
+
+\subsection{Wie kann ich Überschriften auf verschiedenen Ebenen erzeugen?}
+Es können Überschriften auf 6 Ebenen erzeugt werden:
+\begin{verbatim}
+\part{Ebene 1}
+\section{Ebene 2}
+\subsection{Ebene 3}
+\subsubsection{Ebene 4}
+\paragraph{Ebene 5}
+\subparagraph{Ebene 6}
+\end{verbatim}
+
+\noindent Wenn die Überschrift nicht nummeriert werden soll, muss der jeweilige Befehl mit einem * aufgerufen werden:
+\begin{verbatim}
+\section*{Ebene 1}
+\end{verbatim}
+
+\subsection{Wie kann ich die Nummerierung der Überschriften ändern?}
+Die Überschriften können entweder nach einer rein nummerischen oder einer alphanummerischen Form nummeriert werden:
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{dokuImages/toc_num.png}
+        \caption{numerisch}
+    \end{minipage}% <- sonst wird hier ein Leerzeichen eingefügt
+    \hfill
+    \begin{minipage}[t]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{dokuImages/toc_alphanum.png}
+        \caption{alpha-numerisch}
+    \end{minipage}
+\end{figure}
+Der Wechsel erfolgt in der \textit{.tex}-Datei im Preämbel:\\[6pt]
+Für numerisch:
+\begin{verbatim}
+\usepackage[numeric]{ueberschriften}
+\usepackage[numeric]{inhaltsverzeichnis}
+\end{verbatim}
+Für alpha-numerisch:
+\begin{verbatim}
+\usepackage[latour]{ueberschriften}
+\usepackage[latour]{inhaltsverzeichnis}
+\end{verbatim}
+
+\subsection{Wie kann ich einen Eintrag zum Inhaltsverzeichnis hinzufügen?}
+\begin{verbatim}
+%Abk-Verz. ins Inhaltsverzeichnis
+\addcontentsline{toc}{part}{Abkürzungsverzeichnis}
+\end{verbatim}
+Die Parameter sind das Element, zu dem hinzugefügt werde soll, die Ebene und der Titel.
+
+\subsection{Wie kann ich das Inhaltsverzeichnis ausgeben?}
+Um die gepunkteten Linien wirklich ganz bis zur Seitenzahl durchzuziehen, muss der Standard-Befehl noch in eine Box gewrappt werden:
+\begin{verbatim}
+{\def\makebox[#1][#2]#3{#3}%
+	\tableofcontents
 }
+\end{verbatim}
 
 \section{Abkürzungsverzeichnis}
-Die abkürzungen werden aus der Datei \textit{abkuerzungen.csv} bezogen. Dort können Sie einfach im CSV-Format eingetragen werden:\\[6pt]
-\colorbox{grayBack}{\begin{minipage}{4cm}
-\vspace{5pt}
-\hspace{5pt}abk;bed\\
-\-\hspace{5pt}z.B.;zum Beispiel\\
-\-\hspace{5pt}s.o.;siehe oben\vspace{5pt}
-\end{minipage}
-}\\[6pt]
-\textbf{Achtung:} Die erste Zeile muss so stehen bleiben!
+Die Einträge im Abkürzungsverzeichnis werden automatisch aus der Datei \textit{abkuerzungen.csv} generiert. Dort sind sie in folgendem Format aufgeführt:
+\begin{align*}
+\text{abk}&;\text{bed};\\
+\text{z.B.} &;\text{zum Beispiel};
+\end{align*}
+\noindent Um das Abkürzungsverzeichnis auf einer eigenen Seite auszugeben und auch im Inhaltsverzeichnis einzufügen:
+\begin{verbatim}
+\addcontentsline{toc}{part}{Abkürzungsverzeichnis}
+\printabbreviations%abk_verzeichnis.sty
+\clearpage
+\end{verbatim}
 
-\section{Literaturverzeichnis und Zitate}
-Für LaTeX gibt es ein eigenes Tool zum Management von Literatur und Zitaten, \textit{BibLaTeX}. Allerdings sind individuelle Anpassungen dort sehr kompliziert. Deshalb wird hier eine eigene Lösung verwendet.
-\subsection{Workflow}
-Hier werden der Ablauf dieser eigenen Lösung und die groben technischen Abläufe beschrieben.
-\subsubsection{Web-GUI}
-Die Konfiguration der Literatur-Typen und -Einträge findet auf einer kleinen Webanwendung statt, welche in diesem Projekt mitgeliefert wird. Rufe dazu in einer Kommandozeile in deinem lokalen Projektordner \textit{WA\_ LaTeX.exe} auf. Dieser Befehl startet einen lokalen Webserver auf Port 8081. Nun kannst du in deinem Browser \textit{http://localhost:8081/overview} aufrufen:
-\begin{center}
-\includegraphics[width=\textwidth]{dokuImages/gui1.png}
-\end{center}
-Hier können zunächst Literaturtypen bearbeitet, gelöscht oder erstellt werden.
-\begin{center}
-\includegraphics[width=\textwidth]{dokuImages/gui_2.png}
-\end{center}
-Es können jeweils die im Literaturverzeichnis und in Zitaten gewünschten Attribute ausgewählt und nach Wunsch mit einem Style (normal, kursiv, fett) und einem Prefix/Suffix versehen werden. Wie das Ergebnis aussehen würde, ist am Beispiel zu sehen:
-\begin{center}
-\includegraphics[width=\textwidth]{dokuImages/gui_21.png}
-\includegraphics[width=\textwidth]{dokuImages/gui41.png}
-\end{center}
-Im nächsten Schritt können Einträge dieses Typen hinzugefügt werden:
-\begin{center}
-\includegraphics[width=\textwidth]{dokuImages/gui2.png}
-\includegraphics[width=\textwidth]{dokuImages/gui_4.png}
-\end{center}
-Wenn nun das LaTeX-Dokument erneut kompiliert wird, tuacht im Literaturverzeichnis der neue Eintrag auf:
-\begin{center}
-\includegraphics[width=\textwidth]{dokuImages/litentry.png}
-\end{center}
-Zitate können über den Befehl \textit{\textbackslash citebib\{KEY\}\{SEITE\}\{LEER oder Vgl. \}} gemacht werden.\citebib{meinEntry}{S.15}{Vgl. }
+\section{Bilder und Tabellen}
+\subsection{Wie kann ich ein Bild im Text einbinden?}
+\begin{verbatim}
+\includegraphics[width=.9\textwidth]{./relativer/bildpfad.png}
+\end{verbatim}
 
-\section{Tabellen- und Abbildungsverzeichnis}
-Um Tabellen darzustellen kann das \textit{table}-Envirmonment verwendet werden. Um eine Verschiebung zu vermeiden, können vor und nach der Tabelle \textit{\textbackslash FloatBarrier} verwendet werden:
-\FloatBarrier
-\begin{table}[!ht]
-\begin{tabular}{|p{3cm}|l|l|}
-Zelle 1.1 & 1.2 & 1.3\\
-\end{tabular}
-\end{table}
-\FloatBarrier
+\subsection{Wie kann ich ein Bild im Abbildungsverzeichnis anzeigen?}
+Um ein Bild im Abbildungsverzeichnis anzuzeigen, muss es in eine \textit{figure} gewrappt und mit einer Caption versehen werden:
+\begin{verbatim}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{relativer/bildpfad.png}
+    \caption{Bild}
+\end{figure}
+\end{verbatim}
+\noindent Die Option \textit{ht} gibt an, dass die Figure an diesem Ort stehen soll und nicht im Text fließen soll.
 
-\section{Häufig auftretende Fehler/Warnungen}
+\section{Kopf- und Fußzeile}
+Dieses Template bietet die Möglichkeit, folgende Informationen in Kopf- und Fußzeile anzuzeigen:
+\begin{itemize}
+\item oben-links: Titel der Arbeit
+\item oben-rechts: aktueller Part (Überschrift Ebene 1)
+\item unten-links: Autor
+\item unten-rechts: Seite
+\end{itemize}
+
+\subsection{Wie kann ich den Titel und den Autor in der Kopf-/Fußzeile ändern?}
+\begin{verbatim}
+\renewcommand{\mytitle}{Dokumentation/Tutorial}%Titel für oben links
+\renewcommand{\myauthor}{Dr. Frank N. Furter}%Name für unten links
+\end{verbatim}
+Bei einem Titel, der besser in zwei Zeilen passt, muss die Höhe der Kopfzeile angepasst werden:
+\begin{verbatim}
+\renewcommand{\headheight}{27pt}
+\end{verbatim}
+
+\subsection{Wie kann ich den oben-rechts angezeigten Abschnitts-Titel ändern?}
+Der Stil für die Header/Footer des Inhalts- und Literaturverzeichnisses sollen nicht auf den aktuellen Abschnittstitel zurückgreifen, sondern es soll der jeweilige Verzeichnisname angezeigt werden. Dieser wird in dem Befehl \textit{\textbackslash plaintitle} gespeichert/überschrieben.
+\begin{verbatim}
+...
+
+\frontmatter%Stil des Headers/Footers ändern
+
+\pagenumbering{Roman}
+...
+
+\clearpage
+\renewcommand{\plaintitle}{Abbildungsverzeichnis}
+...
+
+\clearpage
+\renewcommand{\plaintitle}{Tabellenverzeichnis}
+...
+
+\clearpage
+\renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
+...
+
+\clearpage
+\mainmatter%Stil des Headers/Footers ändern
+
+\part{Inhalt}
+...
+
+\clearpage
+\frontmatter%Stil des Headers/Footers ändern
+\renewcommand{\plaintitle}{Literaturverzeichnis}
+\pagenumbering{Roman}
+...
+\end{verbatim}
+
+
+\part{Wie wurde dieses Template umgesetzt?}
+
+\part{Häufig auftretende Fehler/Warnungen}
+\section{Overfull hbox}
+\subsection{Silbentrennung}
+\section{Invalid Character, missing \$ inserted, o.ä.}
+Viele Sonderzeichen werden von LaTeX für Befehle verwendet und können deshalb nicht einfach so im Text verwendet werden. Man kann am besten googeln oder ausprobieren, einfach ein \textbackslash{} vor das Sonderzeichen zu setzen.
+\section{Leerzeichen nach Sonderzeichen fehlt}
+
+\section{Text eingeschoben}
+
+\section{Bilder und Tabellen fließen in Text}
 
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
