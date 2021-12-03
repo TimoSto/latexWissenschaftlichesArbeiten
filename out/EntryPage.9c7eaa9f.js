@@ -10798,7 +10798,6 @@ function () {
     this._typeSelect = new component_2.MDCSelect(document.querySelector('#typeSelect'));
 
     this._typeSelect.listen('MDCSelect:change', function () {
-      var fields;
       fetch('/typeFields/' + _this._typeSelect.value).then(function (response) {
         return response.json();
       }).then(function (data) {
@@ -10814,6 +10813,14 @@ function () {
     document.querySelector('#saveEntry').addEventListener('click', function () {
       _this.Save();
     });
+    this._prevValuesElement = document.querySelector('#values');
+
+    var key = this._prevValuesElement.getAttribute('data-key');
+
+    if (key) {
+      this._keyField.value = key;
+      this._typeSelect.value = this._prevValuesElement.getAttribute('data-typ');
+    }
   }
 
   EntryPage.prototype.SetupFieldsForType = function (obj) {
@@ -10838,6 +10845,12 @@ function () {
 
       _this._fieldNames.push(field.Field);
     });
+
+    for (var i = 0; i < this._valueFields.length; i++) {
+      if (this._prevValuesElement.children[i]) {
+        this._valueFields[i].value = this._prevValuesElement.children[i].innerHTML;
+      }
+    }
   };
 
   EntryPage.prototype.Save = function () {

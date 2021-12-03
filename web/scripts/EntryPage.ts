@@ -18,13 +18,15 @@ class EntryPage {
     private _valueFields: MDCTextField[] = [];
     private _fieldNames: string[];
 
+    private _prevValuesElement: HTMLElement;
+
     constructor() {
         this._keyField = new MDCTextField( document.querySelector('#keyField'));
 
         this._typeSelect = new MDCSelect( document.querySelector('#typeSelect') );
 
         this._typeSelect.listen('MDCSelect:change', ()=>{
-            let fields;
+
             fetch('/typeFields/' + this._typeSelect.value).then(response => response.json())
                 .then(data => {this.SetupFieldsForType( data ); });
         });
@@ -36,7 +38,15 @@ class EntryPage {
 
         document.querySelector('#saveEntry').addEventListener( 'click', ()=>{
             this.Save()
-        })
+        });
+
+        this._prevValuesElement = document.querySelector('#values');
+        let key=this._prevValuesElement.getAttribute('data-key');
+        if( key ) {
+            this._keyField.value = key;
+            this._typeSelect.value = this._prevValuesElement.getAttribute('data-typ');
+
+        }
     }
 
     SetupFieldsForType(obj: any) {
@@ -51,6 +61,12 @@ class EntryPage {
             this._valueFields.push(newTF);
             this._fieldNames.push(field.Field);
         });
+
+        for( let i=0 ; i<this._valueFields.length ; i++ ) {
+            if( this._prevValuesElement.children[i] ) {
+                this._valueFields[i].value = this._prevValuesElement.children[i].innerHTML;
+            }
+        }
     }
 
     Save() {

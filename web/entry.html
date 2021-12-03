@@ -9,11 +9,17 @@
   <script src="scripts/EntryPage.ts"></script>
 </head>
 <body>
+
+    <div id="values" data-key="{{ .Entry.Key }}" data-typ="{{ .Entry.Typ }}">
+        {{ range $key,$value := .Entry.Fields }}
+        <span>{{$value}}</span>
+        {{end}}
+    </div>
     <p class="mdc-typography--body1">Wähle einen Literaturtypen aus, dann werden die zugehörigen Felder angezeigt.</p>
 
     <label class="mdc-text-field mdc-text-field--filled" id="keyField">
         <span class="mdc-text-field__ripple"></span>
-        <span class="mdc-floating-label" id="my-label-id">Hint text</span>
+        <span class="mdc-floating-label" id="my-label-id">Key</span>
         <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
         <span class="mdc-line-ripple"></span>
     </label>
