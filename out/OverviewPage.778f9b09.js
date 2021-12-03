@@ -6286,6 +6286,29 @@ function DeleteType(type) {
 }
 
 exports.default = DeleteType;
+},{}],"scripts/DeleteEntry.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function DeleteEntry(key) {
+  window.fetch('/delete/entry', {
+    method: 'POST',
+    body: JSON.stringify({
+      Entry: key
+    })
+  }).then(function (response) {
+    console.log(response.status);
+
+    if (response.status == 200) {
+      window.location.reload();
+    }
+  });
+}
+
+exports.default = DeleteEntry;
 },{}],"scripts/OverviewPage.ts":[function(require,module,exports) {
 "use strict";
 
@@ -6306,6 +6329,8 @@ var component_2 = require("@material/textfield/component");
 var SaveType_1 = __importDefault(require("./SaveType"));
 
 var DeleteType_1 = __importDefault(require("./DeleteType"));
+
+var DeleteEntry_1 = __importDefault(require("./DeleteEntry"));
 
 document.addEventListener('DOMContentLoaded', function () {
   new OverviewPage();
@@ -6356,9 +6381,15 @@ function () {
         window.lapi.NavigateToEntry(entryToEdit);
       });
     });
+    document.querySelectorAll('[data-delete-entry]').forEach(function (el) {
+      var typeToEntry = el.getAttribute('data-delete-entry');
+      el.addEventListener('click', function () {
+        (0, DeleteEntry_1.default)(typeToEntry);
+      });
+    });
   }
 
   return OverviewPage;
 }();
-},{"@material/dialog/component":"../node_modules/@material/dialog/component.js","@material/textfield/component":"../node_modules/@material/textfield/component.js","./SaveType":"scripts/SaveType.ts","./DeleteType":"scripts/DeleteType.ts"}]},{},["scripts/OverviewPage.ts"], null)
+},{"@material/dialog/component":"../node_modules/@material/dialog/component.js","@material/textfield/component":"../node_modules/@material/textfield/component.js","./SaveType":"scripts/SaveType.ts","./DeleteType":"scripts/DeleteType.ts","./DeleteEntry":"scripts/DeleteEntry.ts"}]},{},["scripts/OverviewPage.ts"], null)
 //# sourceMappingURL=/shell/OverviewPage.778f9b09.js.map

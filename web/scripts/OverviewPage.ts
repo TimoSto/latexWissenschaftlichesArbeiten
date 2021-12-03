@@ -2,6 +2,7 @@ import {MDCDialog} from "@material/dialog/component";
 import {MDCTextField} from "@material/textfield/component";
 import SaveType from "./SaveType";
 import DeleteType from "./DeleteType";
+import DeleteEntry from "./DeleteEntry";
 
 document.addEventListener('DOMContentLoaded', () => {
     new OverviewPage();
@@ -59,5 +60,12 @@ class OverviewPage {
             });
 
         });
+
+        document.querySelectorAll('[data-delete-entry]').forEach( el => {
+            const typeToEntry = el.getAttribute('data-delete-entry');
+            el.addEventListener('click', ()=>{
+                DeleteEntry(typeToEntry);
+            });
+        })
     }
 }

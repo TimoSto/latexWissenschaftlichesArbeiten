@@ -1,16 +1,5 @@
 [
 	{
-		"Key": "wassa",
-		"Typ": "online",
-		"Fields": [
-			"Breitkopf, A.",
-			"Treibhausgas Emissionen in Deutschland bis 2020",
-			"01.11.2021",
-			"https://de.statista.com/{{\\\\}}statistik/daten/studie/76558/umfrage/entwicklung-der-treibhausgas-emissionen-in-{{\\\\}}deutschland",
-			"17.03.2021"
-		]
-	},
-	{
 		"Key": "testens",
 		"Typ": "online",
 		"Fields": [
