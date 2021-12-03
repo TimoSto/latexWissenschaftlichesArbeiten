@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  2 DEC 2021 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  3 DEC 2021 10:16
 entering extended mode
 **./wissentschaftlichesArbeiten_vorlage.tex
 (wissentschaftlichesArbeiten_vorlage.tex
@@ -961,18 +961,13 @@ File: stockphoto1.jpg Graphic file (type jpg)
 <use stockphoto1.jpg>
 Package pdftex.def Info: stockphoto1.jpg  used on input line 251.
 (pdftex.def)             Requested size: 113.81102pt x 64.01463pt.
- [9] [10]
-Overfull \hbox (49.88216pt too wide) in paragraph at lines 262--262
-\T1/ptm/m/it/12 Breitkopf, A.\T1/ptm/m/n/12 , Treib-h-aus-gas Emis-sio-nen in D
-eutsch-land bis 2020, 01.11.2021 (htt-ps://de.statista.com/ 
- []
-
-[5
+ [9] [10] [5
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 267.
- (wissentschaftlichesArbeiten_vorlage.mcf
+
+(wissentschaftlichesArbeiten_vorlage.mcf
 Overfull \hbox (6.37518pt too wide) detected at line 4
 \T1/ptm/m/n/12 1.2.1 
  []
@@ -1012,10 +1007,10 @@ Underfull \vbox (badness 10000) detected at line 303
 
 ] [10] (wissentschaftlichesArbeiten_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 11450 strings out of 492452
- 160750 string characters out of 3120530
- 515644 words of memory out of 3000000
- 15489 multiletter control sequences out of 15000+200000
+ 11448 strings out of 492452
+ 160727 string characters out of 3120530
+ 516042 words of memory out of 3000000
+ 15487 multiletter control sequences out of 15000+200000
  55588 words of font info for 87 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  58i,18n,74p,1238b,1864s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1029,7 +1024,7 @@ m/cmsy10.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/s
 ymbol/usyr.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
 /times/utmr8a.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on wissentschaftlichesArbeiten_vorlage.pdf (22 pages, 433275 byt
+Output written on wissentschaftlichesArbeiten_vorlage.pdf (22 pages, 433187 byt
 es).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)

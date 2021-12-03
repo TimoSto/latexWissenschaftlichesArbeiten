@@ -7,13 +7,13 @@ export default function SaveEntry(initialKey: string, valuePairs: {Value: string
         Key: key,
     }
     document.body.setAttribute('data-key', valuePairs[0].Value)
-    window.fetch('/saveEntry', {
+    return window.fetch('/saveEntry', {
         method: 'POST',
         body: JSON.stringify(obj)
     }).then(response => {
         console.log(response);
         if( response.status === 200 ) {
-            window.location.href= '/entry/' + key;
+            return true
         }
     });
 }

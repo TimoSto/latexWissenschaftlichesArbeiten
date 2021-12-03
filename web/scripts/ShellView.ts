@@ -50,4 +50,8 @@ export default class ShellView {
         this._res1.parentElement.classList.add('res_container--open')
         this._backBtn.style.display = 'none';
     }
+
+    ReloadOverview() {
+        this._res1.contentDocument.location.reload();
+    }
 }

@@ -10755,14 +10755,14 @@ function SaveEntry(initialKey, valuePairs, typ, key) {
     Key: key
   };
   document.body.setAttribute('data-key', valuePairs[0].Value);
-  window.fetch('/saveEntry', {
+  return window.fetch('/saveEntry', {
     method: 'POST',
     body: JSON.stringify(obj)
   }).then(function (response) {
     console.log(response);
 
     if (response.status === 200) {
-      window.location.href = '/entry/' + key;
+      return true;
     }
   });
 }
@@ -10860,6 +10860,8 @@ function () {
   };
 
   EntryPage.prototype.Save = function () {
+    var _this = this;
+
     var valuePairs = [];
 
     for (var i = 0; i < this._valueFields.length; i++) {
@@ -10869,7 +10871,13 @@ function () {
       });
     }
 
-    (0, SaveEntry_1.default)(this._initialKey, valuePairs, this._typeSelect.value, this._keyField.value);
+    (0, SaveEntry_1.default)(this._initialKey, valuePairs, this._typeSelect.value, this._keyField.value).then(function (valid) {
+      if (valid) {
+        console.log('valid');
+        window.lapi.ReloadOverview();
+        window.location.href = '/entry/' + _this._keyField.value;
+      }
+    });
   };
 
   return EntryPage;

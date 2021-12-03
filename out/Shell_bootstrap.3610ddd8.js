@@ -139,6 +139,10 @@ function () {
     this._view.NavigateToEntry(key);
   };
 
+  Shell.prototype.ReloadOverview = function () {
+    this._view.ReloadOverview();
+  };
+
   return Shell;
 }();
 
@@ -209,6 +213,10 @@ function () {
     this._res1.parentElement.classList.add('res_container--open');
 
     this._backBtn.style.display = 'none';
+  };
+
+  ShellView.prototype.ReloadOverview = function () {
+    this._res1.contentDocument.location.reload();
   };
 
   return ShellView;

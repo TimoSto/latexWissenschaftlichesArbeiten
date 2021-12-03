@@ -81,6 +81,12 @@ class EntryPage {
             })
         }
 
-        SaveEntry(this._initialKey, valuePairs, this._typeSelect.value, this._keyField.value);
+        SaveEntry(this._initialKey, valuePairs, this._typeSelect.value, this._keyField.value).then(valid => {
+            if( valid ) {
+                console.log('valid');
+                (<any>window).lapi.ReloadOverview();
+                window.location.href= '/entry/' + this._keyField.value;
+            }
+        });
     }
 }

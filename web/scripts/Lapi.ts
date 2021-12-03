@@ -17,4 +17,8 @@ export default class Lapi {
     NavigateToEntry(key: string) {
         this._shell.NavigateToEntry(key)
     }
+
+    ReloadOverview() {
+        this._shell.ReloadOverview();
+    }
 }

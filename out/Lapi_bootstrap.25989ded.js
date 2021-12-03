@@ -142,6 +142,10 @@ function () {
     this._shell.NavigateToEntry(key);
   };
 
+  Lapi.prototype.ReloadOverview = function () {
+    this._shell.ReloadOverview();
+  };
+
   return Lapi;
 }();
 

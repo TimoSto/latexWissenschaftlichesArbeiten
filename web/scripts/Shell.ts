@@ -14,4 +14,8 @@ export default class Shell {
     NavigateToEntry(key: string) {
         this._view.NavigateToEntry(key);
     }
+
+    ReloadOverview() {
+        this._view.ReloadOverview();
+    }
 }
