@@ -20,26 +20,36 @@ class OverviewPage {
                 console.log('hey');
                 (<any>window).lapi.NavigateToType(typeToEdit);
             });
-            this._dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
 
-            document.getElementById('createTypeBtn').addEventListener( 'click', ()=>{
-                this._dialog.open();
+        });
+
+        this._dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
+
+        document.getElementById('createTypeBtn').addEventListener( 'click', ()=>{
+            this._dialog.open();
+        });
+
+        this._newTypeTF = new MDCTextField(this._dialog.root.querySelector('.mdc-text-field'));
+        this._newTypeBtn = this._dialog.root.querySelector('button:disabled');
+        this._newTypeTF.root.querySelector('input').addEventListener('change', ()=>{
+            this._newTypeBtn.disabled = this._newTypeTF.value === '';
+        });
+        this._newTypeBtn.addEventListener('click', ()=>{
+            SaveType(this._newTypeTF.value, [], []);
+            (<any>window).lapi.NavigateToType(this._newTypeTF.value);
+        });
+
+        document.querySelector('#createEntryBtn').addEventListener( 'click', ()=>{
+            (<any>window).lapi.NavigateToEntry('new');
+        });
+
+        document.querySelectorAll('[data-edit-entry]').forEach(el => {
+            const entryToEdit = el.getAttribute('data-edit-entry');
+            el.addEventListener('click', ()=>{
+                console.log('hey');
+                (<any>window).lapi.NavigateToEntry(entryToEdit);
             });
 
-            this._newTypeTF = new MDCTextField(this._dialog.root.querySelector('.mdc-text-field'));
-            this._newTypeBtn = this._dialog.root.querySelector('button:disabled');
-            this._newTypeTF.root.querySelector('input').addEventListener('change', ()=>{
-                this._newTypeBtn.disabled = this._newTypeTF.value === '';
-            });
-            this._newTypeBtn.addEventListener('click', ()=>{
-                SaveType(this._newTypeTF.value, [], []);
-                (<any>window).lapi.NavigateToType(this._newTypeTF.value);
-            });
-
-            document.querySelector('#createEntryBtn').addEventListener( 'click', ()=>{
-                (<any>window).lapi.NavigateToEntry('new');
-            });
-        })
-
+        });
     }
 }

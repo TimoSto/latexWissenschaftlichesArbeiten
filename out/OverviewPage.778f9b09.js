@@ -6298,24 +6298,31 @@ function () {
         console.log('hey');
         window.lapi.NavigateToType(typeToEdit);
       });
-      _this._dialog = new component_1.MDCDialog(document.querySelector('.mdc-dialog'));
-      document.getElementById('createTypeBtn').addEventListener('click', function () {
-        _this._dialog.open();
-      });
-      _this._newTypeTF = new component_2.MDCTextField(_this._dialog.root.querySelector('.mdc-text-field'));
-      _this._newTypeBtn = _this._dialog.root.querySelector('button:disabled');
+    });
+    this._dialog = new component_1.MDCDialog(document.querySelector('.mdc-dialog'));
+    document.getElementById('createTypeBtn').addEventListener('click', function () {
+      _this._dialog.open();
+    });
+    this._newTypeTF = new component_2.MDCTextField(this._dialog.root.querySelector('.mdc-text-field'));
+    this._newTypeBtn = this._dialog.root.querySelector('button:disabled');
 
-      _this._newTypeTF.root.querySelector('input').addEventListener('change', function () {
-        _this._newTypeBtn.disabled = _this._newTypeTF.value === '';
-      });
+    this._newTypeTF.root.querySelector('input').addEventListener('change', function () {
+      _this._newTypeBtn.disabled = _this._newTypeTF.value === '';
+    });
 
-      _this._newTypeBtn.addEventListener('click', function () {
-        (0, SaveType_1.default)(_this._newTypeTF.value, [], []);
-        window.lapi.NavigateToType(_this._newTypeTF.value);
-      });
+    this._newTypeBtn.addEventListener('click', function () {
+      (0, SaveType_1.default)(_this._newTypeTF.value, [], []);
+      window.lapi.NavigateToType(_this._newTypeTF.value);
+    });
 
-      document.querySelector('#createEntryBtn').addEventListener('click', function () {
-        window.lapi.NavigateToEntry('new');
+    document.querySelector('#createEntryBtn').addEventListener('click', function () {
+      window.lapi.NavigateToEntry('new');
+    });
+    document.querySelectorAll('[data-edit-entry]').forEach(function (el) {
+      var entryToEdit = el.getAttribute('data-edit-entry');
+      el.addEventListener('click', function () {
+        console.log('hey');
+        window.lapi.NavigateToEntry(entryToEdit);
       });
     });
   }
