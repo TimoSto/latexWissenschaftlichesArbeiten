@@ -2,4 +2,4 @@
 - TeX-Template für wissenschaftliches Arbeiten
 - Eigenes Literatur-System entwickelt
 - GUI für Literatur-System
-- 
+- Dokumentation in documentation.tex
