@@ -145,23 +145,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function SaveType(name, bibFields, citeFields, reload) {
+function SaveType(name, bibFields, citeFields) {
   var obj = {
     Name: name,
     Fields: bibFields,
     CiteFields: citeFields
   };
-  window.fetch('/save', {
+  return window.fetch('/save', {
     method: 'POST',
     body: JSON.stringify(obj)
   }).then(function (response) {
     console.log(response);
 
-    if (reload) {
-      window.location.reload();
+    if (response.status === 200) {
+      return true;
     }
-
-    window.parent.shell.NavigateToType(name);
   });
 }
 
@@ -10995,7 +10993,10 @@ function () {
       _this.syncExample();
 
       document.querySelector('header button').addEventListener('click', function () {
-        (0, SaveType_1.default)(window.location.href.split('/type/')[1], _this.bibFields, _this.citeFields, true);
+        (0, SaveType_1.default)(window.location.href.split('/type/')[1], _this.bibFields, _this.citeFields).then(function (valid) {
+          window.lapi.ReloadOverview();
+          window.location.reload();
+        });
       });
     });
   }

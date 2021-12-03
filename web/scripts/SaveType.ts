@@ -1,22 +1,20 @@
 import Field from "./Field";
 
-export default function SaveType(name: string, bibFields: Field[], citeFields: Field[], reload?: boolean) {
+export default function SaveType(name: string, bibFields: Field[], citeFields: Field[]) {
     let obj = {
         Name: name,
         Fields: bibFields,
         CiteFields: citeFields
     }
-    window.fetch('/save', {
+    return window.fetch('/save', {
         method: 'POST',
         body: JSON.stringify(obj)
     }).then(response => {
         console.log(response);
 
-        if(reload) {
-            window.location.reload();
+        if( response.status === 200 ){
+            return true
         }
-
-        (<any>window.parent).shell.NavigateToType(name)
     });
 
 

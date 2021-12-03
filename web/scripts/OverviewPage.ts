@@ -44,8 +44,13 @@ class OverviewPage {
             this._newTypeBtn.disabled = this._newTypeTF.value === '';
         });
         this._newTypeBtn.addEventListener('click', ()=>{
-            SaveType(this._newTypeTF.value, [], []);
-            (<any>window).lapi.NavigateToType(this._newTypeTF.value);
+            SaveType(this._newTypeTF.value, [], []).then(valid => {
+                if(valid) {
+                    (<any>window).lapi.NavigateToType(this._newTypeTF.value);
+                    window.location.reload();
+                }
+            });
+
         });
 
         document.querySelector('#createEntryBtn').addEventListener( 'click', ()=>{

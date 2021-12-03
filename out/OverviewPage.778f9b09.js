@@ -6242,23 +6242,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function SaveType(name, bibFields, citeFields, reload) {
+function SaveType(name, bibFields, citeFields) {
   var obj = {
     Name: name,
     Fields: bibFields,
     CiteFields: citeFields
   };
-  window.fetch('/save', {
+  return window.fetch('/save', {
     method: 'POST',
     body: JSON.stringify(obj)
   }).then(function (response) {
     console.log(response);
 
-    if (reload) {
-      window.location.reload();
+    if (response.status === 200) {
+      return true;
     }
-
-    window.parent.shell.NavigateToType(name);
   });
 }
 
@@ -6367,8 +6365,12 @@ function () {
     });
 
     this._newTypeBtn.addEventListener('click', function () {
-      (0, SaveType_1.default)(_this._newTypeTF.value, [], []);
-      window.lapi.NavigateToType(_this._newTypeTF.value);
+      (0, SaveType_1.default)(_this._newTypeTF.value, [], []).then(function (valid) {
+        if (valid) {
+          window.lapi.NavigateToType(_this._newTypeTF.value);
+          window.location.reload();
+        }
+      });
     });
 
     document.querySelector('#createEntryBtn').addEventListener('click', function () {

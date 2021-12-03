@@ -405,6 +405,12 @@
 					"Suffix": ""
 				}
 			]
+		},
+		{
+			"Name": "test",
+			"HasCitePage": false,
+			"Fields": [],
+			"CiteFields": []
 		}
 	]
 }

@@ -171,7 +171,14 @@ class TypePage {
             this.syncExample();
 
             document.querySelector('header button').addEventListener('click', ()=>{
-                SaveType((<any>window).location.href.split('/type/')[1], this.bibFields, this.citeFields, true)
+                SaveType((<any>window).location.href.split('/type/')[1], this.bibFields, this.citeFields). then(valid => {
+
+                    (<any>window).lapi.ReloadOverview();
+
+                    window.location.reload();
+
+
+                })
             });
 
         });
