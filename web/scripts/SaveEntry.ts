@@ -12,5 +12,8 @@ export default function SaveEntry(initialKey: string, valuePairs: {Value: string
         body: JSON.stringify(obj)
     }).then(response => {
         console.log(response);
+        if( response.status === 200 ) {
+            window.location.href= '/entry/' + key;
+        }
     });
 }

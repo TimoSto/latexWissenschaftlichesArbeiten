@@ -20,6 +20,8 @@ class EntryPage {
 
     private _prevValuesElement: HTMLElement;
 
+    private _initialKey: string = "";
+
     constructor() {
         this._keyField = new MDCTextField( document.querySelector('#keyField'));
 
@@ -41,9 +43,10 @@ class EntryPage {
         });
 
         this._prevValuesElement = document.querySelector('#values');
-        let key=this._prevValuesElement.getAttribute('data-key');
+        let key = this._prevValuesElement.getAttribute('data-key');
         if( key ) {
             this._keyField.value = key;
+            this._initialKey = key;
             this._typeSelect.value = this._prevValuesElement.getAttribute('data-typ');
 
         }
@@ -78,6 +81,6 @@ class EntryPage {
             })
         }
 
-        SaveEntry("", valuePairs, this._typeSelect.value, this._keyField.value);
+        SaveEntry(this._initialKey, valuePairs, this._typeSelect.value, this._keyField.value);
     }
 }
