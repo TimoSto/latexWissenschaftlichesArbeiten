@@ -3,6 +3,7 @@
 ## Inhalt
 
 [Projektstruktur](#structure)
+[Dokumentation](#documentation)
 
 ## Projektstruktur
 <a name="structure" />
@@ -29,4 +30,5 @@
   * Dateien, die zu einer PDF kompiliert werden können
 
 ## Dokumentation
+<a name="documentation" />
 Die Dokumentation zur Benutzung und des Programmcodes ist in `documentation.tex` bzw. `documentation.pdf` zu finden.
