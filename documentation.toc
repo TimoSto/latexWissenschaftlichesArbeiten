@@ -16,13 +16,16 @@
 \contentsline {section}{\numberline {1.4}Kopf- und Fußzeile}{3}% 
 \contentsline {subsection}{\numberline {1.4.1}Wie kann ich den Titel und den Autor in der Kopf-/Fußzeile ändern?}{3}% 
 \contentsline {subsection}{\numberline {1.4.2}Wie kann ich den oben-rechts angezeigten Abschnitts-Titel ändern?}{3}% 
-\contentsline {part}{2\hspace {1em}Wie wurde dieses Template umgesetzt?}{5}% 
-\contentsline {part}{3\hspace {1em}Häufig auftretende Fehler/Warnungen}{6}% 
-\contentsline {section}{\numberline {3.1}Overfull hbox}{6}% 
-\contentsline {subsection}{\numberline {3.1.1}Silbentrennung}{6}% 
-\contentsline {section}{\numberline {3.2}Invalid Character, missing \$ inserted, o.ä.}{6}% 
-\contentsline {section}{\numberline {3.3}Leerzeichen nach Sonderzeichen fehlt}{6}% 
-\contentsline {section}{\numberline {3.4}Text eingeschoben}{6}% 
-\contentsline {section}{\numberline {3.5}Bilder und Tabellen fließen in Text}{6}% 
+\contentsline {section}{\numberline {1.5}Literaturverzeichnis und Zitate}{4}% 
+\contentsline {subsection}{\numberline {1.5.1}Wie kann ich einen Literatur-Typen anlegen/bearbeiten?}{5}% 
+\contentsline {subsection}{\numberline {1.5.2}Wie kann ich einen Literatur-Eintrag anlegen/bearbeiten?}{7}% 
+\contentsline {part}{2\hspace {1em}Wie wurde dieses Template umgesetzt?}{9}% 
+\contentsline {part}{3\hspace {1em}Häufig auftretende Fehler/Warnungen}{10}% 
+\contentsline {section}{\numberline {3.1}Overfull hbox}{10}% 
+\contentsline {subsection}{\numberline {3.1.1}Silbentrennung}{10}% 
+\contentsline {section}{\numberline {3.2}Invalid Character, missing \$ inserted, o.ä.}{10}% 
+\contentsline {section}{\numberline {3.3}Leerzeichen nach Sonderzeichen fehlt}{10}% 
+\contentsline {section}{\numberline {3.4}Text eingeschoben}{10}% 
+\contentsline {section}{\numberline {3.5}Bilder und Tabellen fließen in Text}{10}% 
 \vspace {24pt}
 \contentsline {part}{Literaturverzeichnis}{V}% 

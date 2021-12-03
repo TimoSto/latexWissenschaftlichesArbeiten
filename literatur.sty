@@ -28,6 +28,7 @@
 		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
 		{meintype}{\printmeintype{\a}{\b}{\c}}%
 		{test}{\printtest}%
+		{meinLT}{\printmeinlt}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -118,6 +119,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printmeinlt}[0]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -160,6 +170,7 @@
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
 			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}}}%
 			{test}{\footnote{#3\citetest{#2}}}%
+			{meinLT}{\footnote{#3\citemeinlt{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -196,6 +207,9 @@
 	\textit{#1}, #2#3.
 }
 \newcommand{\citetest}[1]{
+	#1.
+}
+\newcommand{\citemeinlt}[1]{
 	#1.
 }
 %end area

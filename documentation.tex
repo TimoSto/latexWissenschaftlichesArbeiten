@@ -210,11 +210,12 @@ Dieses Template bietet die Möglichkeit, folgende Informationen in Kopf- und Fu�
 \end{verbatim}
 Bei einem Titel, der besser in zwei Zeilen passt, muss die Höhe der Kopfzeile angepasst werden:
 \begin{verbatim}
+\renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}
 \renewcommand{\headheight}{27pt}
 \end{verbatim}
 
 \subsection{Wie kann ich den oben-rechts angezeigten Abschnitts-Titel ändern?}
-Der Stil für die Header/Footer des Inhalts- und Literaturverzeichnisses sollen nicht auf den aktuellen Abschnittstitel zurückgreifen, sondern es soll der jeweilige Verzeichnisname angezeigt werden. Dieser wird in dem Befehl \textit{\textbackslash plaintitle} gespeichert/überschrieben.
+Der Stil für die Header/Footer des Inhalts- und Literaturverzeichnisses sollen nicht auf den aktuellen Abschnittstitel zurückgreifen, sondern es soll der jeweilige Verzeichnisname angezeigt werden. Dieser wird in dem Befehl \textit{\textbackslash plaintitle} gespeichert/überschrieben. Die Art der Nummerierung kann ebenfalls gewechselt werden.
 \begin{verbatim}
 ...
 
@@ -245,9 +246,38 @@ Der Stil für die Header/Footer des Inhalts- und Literaturverzeichnisses sollen 
 \frontmatter%Stil des Headers/Footers ändern
 \renewcommand{\plaintitle}{Literaturverzeichnis}
 \pagenumbering{Roman}
+\setcounter{page}{5}
 ...
 \end{verbatim}
 
+\section{Literaturverzeichnis und Zitate}
+LaTeX bietet zwar ein eigenes System zur Anzeige von Literatur an, darin sind Anpassungen aber sehr komplex/nicht so einfach umsetzbar. Deshab wurde für dieses Template ein eigenes System zur Literatur-Verwaltung entwickelt. Um dieses effektiv nutzen zu können, muss das Programm \textit{WA\_ LaTeX.exe} ausgeführt werden. Dies startet einen Webserver, welcher unter \textit{http://localhost:8081/overview} zu erreichen ist.
+
+\subsection{Wie kann ich einen Literatur-Typen anlegen/bearbeiten?}
+\begin{enumerate}
+\item gehe auf \textit{http://localhost:8081/overview}
+\item Klicke auf \textit{Neuen Typen erstellen}\newline
+\includegraphics[width=\linewidth]{dokuImages/gui1_1.png}
+\item gib einen Namen für den Literaturtyp an\\
+\includegraphics[width=\linewidth]{dokuImages/gui1_2.png}
+\item Attribute fürs Literaturverzeichnis eingeben und stylen\\
+\includegraphics[width=\linewidth]{dokuImages/gui1_3.png}
+\item Attribute für Zitate auswählen\\
+\includegraphics[width=\linewidth]{dokuImages/gui1_4.png}
+\item Speichern
+\item zum Bearbeiten oder Löschen einfach auf die Icons in der Liste klicken
+\end{enumerate}
+
+\subsection{Wie kann ich einen Literatur-Eintrag anlegen/bearbeiten?}
+\begin{enumerate}
+\item gehe auf \textit{http://localhost:8081/overview}
+\item Klicke auf \textit{Neuen Eintrag erstellen}\newline
+\includegraphics[width=\linewidth]{dokuImages/gui2_1.png}
+\item gib einen Key ein, wähle einen Typen aus und fülle die Felder aus (die Felder passen sich an den Typen an)\\
+\includegraphics[width=\linewidth]{dokuImages/gui2_2.png}
+\item Speichern
+\item zum Bearbeiten oder Löschen einfach auf die Icons in der Liste klicken
+\end{enumerate}
 
 \part{Wie wurde dieses Template umgesetzt?}
 
