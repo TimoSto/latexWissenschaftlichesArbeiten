@@ -290,14 +290,38 @@ Der zweite und dritte Parameter können leer bleiben.
 
 \part{Häufig auftretende Fehler/Warnungen}
 \section{Overfull hbox}
+Manchmal ist der Inhalt zu breit, sodass rechts ein Überfluss entsteht. Um diesen zu erkennen, kann das Package \textit{showframe}  eingebunden werden.
+\begin{verbatim}
+%DEBUGGING (Zeigt Boxen an)
+%\usepackage{showframe}
+\end{verbatim}
+Dies zeigt die Boxen von Header, Footer, Content und Seitenrand an.
 \subsection{Silbentrennung}
+Manchmal entsteht solch ein Überfluss, weil LaTeX die Silbentrennung nicht kennt. Dann kann dieses Wort im Preämel ergänzt werden:
+\begin{verbatim}
+\hyphenation{öf-fent-lich-en}
+\end{verbatim}
+
 \section{Invalid Character, missing \$ inserted, o.ä.}
 Viele Sonderzeichen werden von LaTeX für Befehle verwendet und können deshalb nicht einfach so im Text verwendet werden. Man kann am besten googeln oder ausprobieren, einfach ein \textbackslash{} vor das Sonderzeichen zu setzen.
+
 \section{Leerzeichen nach Sonderzeichen fehlt}
+Entweder zwei Leerzeichen nach Sonderzeichen oder \textbackslash SONDERZEICHEN\{\}.
 
 \section{Text eingeschoben}
+Nach Bildern oder Tabellen ist Text ggf. eingeschoben. Um diesen Einschub zu entfernen muss vor dem Test \textit{\textbackslash noindent} eingefügt werden.
 
 \section{Bilder und Tabellen fließen in Text}
+Vor und nach dem Bild/der Tabelle muss eine \textit{Floatbarrier} eingefügt werden:
+\begin{verbatim}
+Text Text Text
+\FloatBarrier
+\begin{fiure}[ht]
+...
+\end{figure}
+\FloatBarrier
+Text Text Text
+\end{verbatim}
 
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
