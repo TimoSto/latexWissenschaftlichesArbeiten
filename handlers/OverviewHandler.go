@@ -12,6 +12,7 @@ import (
 type OverviewHTMLDto struct {
 	Types []domain.LiteratureType
 	Projects []string
+	TypeExamples []string
 }
 
 func HandleOverview(w http.ResponseWriter,r *http.Request) {
