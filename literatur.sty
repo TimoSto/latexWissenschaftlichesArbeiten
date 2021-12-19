@@ -27,7 +27,7 @@
 		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
 		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
 		{meintype}{\printmeintype{\a}{\b}{\c}}%
-		{test}{\printtest}%
+		{test}{\printtest{\a}}%
 		{meinLT}{\printmeinlt}%
 		%end area
 		{empty}{}%
@@ -110,11 +110,11 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printtest}[0]{
+\newcommand{\printtest}[1]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	
+	#1
 	\\
 	\vspace{-12pt}
 

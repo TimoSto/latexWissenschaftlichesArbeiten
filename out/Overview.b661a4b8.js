@@ -140,6 +140,18 @@ function DeleteType(type) {
 }
 
 exports.default = DeleteType;
+},{}],"scripts/EditType.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function EditType(type) {
+  window.lapi.NavigateToType(type);
+}
+
+exports.default = EditType;
 },{}],"scripts/Overview.ts":[function(require,module,exports) {
 "use strict";
 
@@ -155,6 +167,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var DeleteType_1 = __importDefault(require("./DeleteType"));
 
+var EditType_1 = __importDefault(require("./EditType"));
+
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('#typelist [data-delete]').forEach(function (el) {
     var value = el.getAttribute('data-delete');
@@ -162,6 +176,12 @@ document.addEventListener('DOMContentLoaded', function () {
       (0, DeleteType_1.default)(value);
     });
   });
+  document.querySelectorAll('#typelist [data-edit]').forEach(function (el) {
+    var value = el.getAttribute('data-edit');
+    el.addEventListener('click', function () {
+      (0, EditType_1.default)(value);
+    });
+  });
 });
-},{"./DeleteType":"scripts/DeleteType.ts"}]},{},["scripts/Overview.ts"], null)
+},{"./DeleteType":"scripts/DeleteType.ts","./EditType":"scripts/EditType.ts"}]},{},["scripts/Overview.ts"], null)
 //# sourceMappingURL=/shell/Overview.b661a4b8.js.map
