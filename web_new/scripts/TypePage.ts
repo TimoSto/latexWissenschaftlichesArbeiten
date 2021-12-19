@@ -17,8 +17,16 @@ class TypePage {
     private bibFields: Field[] = [];
     private citeFields: Field[] = [];
 
+    private _nameField: MDCTextField;
+    private _initialName: string;
+
     constructor() {
         document.addEventListener( 'DOMContentLoaded', ()=>{
+
+            this._nameField = new MDCTextField(document.querySelector('.headline .mdc-text-field'));
+
+            this._initialName = this._nameField.value;
+
             let elements = document.querySelectorAll('#bibtable .my-table--row .my-table-cell:nth-child(2) .mdc-text-field')
 
             elements.forEach((el, n) => {
@@ -170,12 +178,12 @@ class TypePage {
 
             this.syncExample();
 
-            document.querySelector('header button').addEventListener('click', ()=>{
-                SaveType((<any>window).location.href.split('/type/')[1], this.bibFields, this.citeFields). then(valid => {
+            document.querySelector('.headline button').addEventListener('click', ()=>{
+                SaveType(this._nameField.value, this._initialName, this.bibFields, this.citeFields). then(valid => {
 
                     (<any>window).lapi.ReloadOverview();
 
-                    window.location.reload();
+                    window.location.replace('/type/'+this._nameField.value);
 
 
                 })

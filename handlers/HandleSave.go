@@ -17,7 +17,8 @@ func HandleSave(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 	}
-	fmt.Println(bibType)
+	initialName := r.URL.Query().Get("initialName")
+	fmt.Println(initialName)
 	literatureTypes, err := domain.ReadTypes()
 	if err != nil {
 		fmt.Println(err)
@@ -25,7 +26,7 @@ func HandleSave(w http.ResponseWriter, r *http.Request) {
 	}
 	found := false
 	for i,typ := range literatureTypes.Types {
-		if strings.Compare(typ.Name, bibType.Name) == 0 {
+		if strings.Compare(typ.Name, bibType.Name) == 0 || strings.Compare(typ.Name, initialName) == 0{
 			literatureTypes.Types[i] = bibType
 			found = true
 			break

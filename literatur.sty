@@ -19,7 +19,7 @@
 	{
 		\IfStrEqCase{\type}{%
 		%Area to add new bibifs via gui
-		{buch}{\printbuch{\a}{\b}{\c}{\d}{\e}}%
+		{Buch}{\printbuch{\a}{\b}{\c}{\d}{\e}}%
 		{kommentar}{\printkommentar{\a}{\b}{\c}{\d}{\e}}%
 		{aufsatz}{\printaufsatz{\a}{\b}{\c}{\d}{\e}}%
 		{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
@@ -161,7 +161,7 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{buch}{\footnote{#3\citebuch{\a}{\b}{#2}}}%
+			{Buch}{\footnote{#3\citebuch{\a}{\b}{#2}}}%
 			{kommentar}{\footnote{#3\citekommentar{\a}{\b}{\e}{#2}}}%
 			{aufsatz}{\footnote{#3\citeaufsatz{\a}{\c}{#2}}}%
 			{online}{\footnote{#3\citeonline{\a}{\b}{#2}}}%
