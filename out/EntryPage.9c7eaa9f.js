@@ -10747,12 +10747,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function SaveEntry(initialKey, valuePairs, typ, key) {
+function SaveEntry(initialKey, project, valuePairs, typ, key) {
   var obj = {
     InitialKey: initialKey,
     ValuePairs: valuePairs,
     Typ: typ,
-    Key: key
+    Key: key,
+    Project: project
   };
   document.body.setAttribute('data-key', valuePairs[0].Value);
   return window.fetch('/saveEntry', {
@@ -10799,6 +10800,7 @@ function () {
 
     this._valueFields = [];
     this._initialKey = "";
+    this.project = new URLSearchParams(window.location.search).get('project');
     this._keyField = new component_1.MDCTextField(document.querySelector('#keyField'));
     this._typeSelect = new component_2.MDCSelect(document.querySelector('#typeSelect'));
 
@@ -10871,7 +10873,7 @@ function () {
       });
     }
 
-    (0, SaveEntry_1.default)(this._initialKey, valuePairs, this._typeSelect.value, this._keyField.value).then(function (valid) {
+    (0, SaveEntry_1.default)(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(function (valid) {
       if (valid) {
         console.log('valid');
         window.lapi.ReloadOverview();

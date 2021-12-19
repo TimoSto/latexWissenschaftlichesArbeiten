@@ -135,8 +135,8 @@ function () {
     this._shell.NavigateToType(type);
   };
 
-  Lapi.prototype.NavigateToEntry = function (key) {
-    this._shell.NavigateToEntry(key);
+  Lapi.prototype.NavigateToEntry = function (key, project) {
+    this._shell.NavigateToEntry(key, project);
   };
 
   Lapi.prototype.NavigateToProject = function (key) {

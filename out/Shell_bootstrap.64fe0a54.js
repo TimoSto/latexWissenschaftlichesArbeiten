@@ -135,8 +135,8 @@ function () {
     this._view.NavigateToType(type);
   };
 
-  Shell.prototype.NavigateToEntry = function (key) {
-    this._view.NavigateToEntry(key);
+  Shell.prototype.NavigateToEntry = function (key, project) {
+    this._view.NavigateToEntry(key, project);
   };
 
   Shell.prototype.NavigateToProject = function (key) {
@@ -210,12 +210,12 @@ function () {
     this._backBtn.style.display = '';
   };
 
-  ShellView.prototype.NavigateToEntry = function (key) {
+  ShellView.prototype.NavigateToEntry = function (key, project) {
     this._res2.parentElement.classList.remove('res_container--open');
 
     this._res2.parentElement.classList.add('res_container--close');
 
-    this._res3.src = '/entry/' + key;
+    this._res3.src = '/entry/' + key + '?project=' + project;
 
     this._res3.parentElement.classList.add('res_container--open'); //this._backBtn.style.display = '';
 

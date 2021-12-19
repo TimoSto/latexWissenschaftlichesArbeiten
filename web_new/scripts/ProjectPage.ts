@@ -29,7 +29,7 @@ class ProjectPage {
         document.querySelectorAll('#entrylist [data-edit]').forEach(el =>{
             const value = el.getAttribute('data-edit');
             el.addEventListener( 'click', ()=>{
-                (<any>window).lapi.NavigateToEntry(value);
+                (<any>window).lapi.NavigateToEntry(value, this._initialName);
             });
         });
     }

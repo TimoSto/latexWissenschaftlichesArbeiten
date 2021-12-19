@@ -12,8 +12,8 @@ export default class Lapi {
         this._shell.NavigateToType(type);
     }
 
-    NavigateToEntry(key: string) {
-        this._shell.NavigateToEntry(key)
+    NavigateToEntry(key: string, project: string) {
+        this._shell.NavigateToEntry(key, project)
     }
 
     NavigateToProject(key: string) {

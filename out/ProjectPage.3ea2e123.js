@@ -5134,7 +5134,7 @@ function () {
     document.querySelectorAll('#entrylist [data-edit]').forEach(function (el) {
       var value = el.getAttribute('data-edit');
       el.addEventListener('click', function () {
-        window.lapi.NavigateToEntry(value);
+        window.lapi.NavigateToEntry(value, _this._initialName);
       });
     });
   }

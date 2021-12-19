@@ -11,8 +11,8 @@ export default class Shell {
         this._view.NavigateToType(type);
     }
 
-    NavigateToEntry(key: string) {
-        this._view.NavigateToEntry(key);
+    NavigateToEntry(key: string, project: string) {
+        this._view.NavigateToEntry(key, project);
     }
 
     NavigateToProject(key: string) {
