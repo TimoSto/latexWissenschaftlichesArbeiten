@@ -45,6 +45,20 @@
             </button>
         </div>
 
+        <ul class="mdc-list">
+            {{ range $key, $value := .Projects}}
+            <li class="mdc-list-item" tabindex="0">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">{{ $value }}</span>
+
+                <span class="mdc-list-item__meta">
+                <button class="mdc-icon-button material-icons">edit</button>
+                <button class="mdc-icon-button material-icons">delete</button>
+            </span>
+            </li>
+            {{ end }}
+        </ul>
+
 
     </div>
 </body>
