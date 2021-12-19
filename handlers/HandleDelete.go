@@ -89,5 +89,5 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 
-	domain.ConvertBibToCSV()
+	domain.ConvertBibToCSV(delObj.Project)
 }
