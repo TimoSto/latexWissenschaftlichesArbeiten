@@ -11,7 +11,7 @@ export default function SaveProjectName(name: string, initialName: string) {
         console.log(response);
 
         if( response.status === 200 ){
-            window.lapi.ReloadOverview();
+            (<any>window).lapi.ReloadOverview();
             window.location.replace('/project/'+name);
             return true
         }

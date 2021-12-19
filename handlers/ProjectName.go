@@ -20,9 +20,7 @@ func HandleProjectName(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 	}
-
-	fmt.Println(saveObj)
-
+	
 	err = os.Rename("./projects/"+saveObj.InitialName, "./projects/" + saveObj.Name)
 	if err != nil {
 		fmt.Println(err)
