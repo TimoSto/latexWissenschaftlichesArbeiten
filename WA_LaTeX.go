@@ -29,6 +29,8 @@ func main() {
 
 	http.HandleFunc("/save", handlers.HandleSave)
 
+	http.HandleFunc("/saveProjectName", handlers.HandleProjectName)
+
 	http.HandleFunc("/saveEntry", handlers.HandleSaveEntry)
 
 	http.HandleFunc("/delete/type", handlers.HandleDeleteType)
