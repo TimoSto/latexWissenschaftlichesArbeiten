@@ -1,0 +1,55 @@
+[
+	{
+		"Key": "book1",
+		"Typ": "buch",
+		"Fields": [
+			"Der Baumeister, Bob",
+			"Die kleine Raupe Nimmersatt",
+			"1",
+			"Panama",
+			"1971"
+		]
+	},
+	{
+		"Key": "testens",
+		"Typ": "online",
+		"Fields": [
+			"Hansison, H.",
+			"hanselt",
+			"https:/www",
+			"2021",
+			"2022"
+		]
+	},
+	{
+		"Key": "online1",
+		"Typ": "online",
+		"Fields": [
+			"Johnson, J.",
+			"Johann johannselt",
+			"https://johannsen.de/johann",
+			"21.11.2021",
+			"1999"
+		]
+	},
+	{
+		"Key": "buch1",
+		"Typ": "buch",
+		"Fields": [
+			"Knippschild, K.",
+			"Das Baumhaus",
+			"1",
+			"Burhave",
+			"2021"
+		]
+	},
+	{
+		"Key": "tommel",
+		"Typ": "meintype",
+		"Fields": [
+			"Tom",
+			"Tommelst",
+			"2001"
+		]
+	}
+]
