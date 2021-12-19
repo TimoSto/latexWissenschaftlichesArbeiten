@@ -52,35 +52,35 @@
 			"Example": "Autor, Titel, Auflage. Auflage, Ort Datum"
 		},
 		{
-			"Name": "kommentar",
+			"Name": "Kommentar",
 			"HasCitePage": false,
 			"Fields": [
 				{
-					"Field": "autor",
+					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "titel",
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "auflage",
+					"Field": "Auflage",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ". Auflage,"
 				},
 				{
-					"Field": "ort",
+					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
 				},
 				{
-					"Field": "datum",
+					"Field": "Datum",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
@@ -88,25 +88,25 @@
 			],
 			"CiteFields": [
 				{
-					"Field": "autor",
+					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "titel",
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "datum",
+					"Field": "Datum",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
 				}
 			],
-			"Example": "autor, titel, auflage. Auflage,ortdatum"
+			"Example": ""
 		},
 		{
 			"Name": "aufsatz",
@@ -451,7 +451,7 @@
 					"Suffix": ""
 				}
 			],
-			"Example": ""
+			"Example": "AutorDatumTitel"
 		}
 	]
 }

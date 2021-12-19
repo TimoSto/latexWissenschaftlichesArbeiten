@@ -20,7 +20,7 @@
 		\IfStrEqCase{\type}{%
 		%Area to add new bibifs via gui
 		{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
-		{kommentar}{\printkommentar{\a}{\b}{\c}{\d}{\e}}%
+		{Kommentar}{\printKommentar{\a}{\b}{\c}{\d}{\e}}%
 		{aufsatz}{\printaufsatz{\a}{\b}{\c}{\d}{\e}}%
 		{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
 		{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
@@ -46,7 +46,7 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printkommentar}[5]{
+\newcommand{\printKommentar}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
@@ -152,7 +152,7 @@
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
 			{Buch}{\footnote{#3\citeBuch{\a}{\b}{#2}}}%
-			{kommentar}{\footnote{#3\citekommentar{\a}{\b}{\e}{#2}}}%
+			{Kommentar}{\footnote{#3\citeKommentar{\a}{\b}{\e}{#2}}}%
 			{aufsatz}{\footnote{#3\citeaufsatz{\a}{\c}{#2}}}%
 			{online}{\footnote{#3\citeonline{\a}{\b}{#2}}}%
 			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}}}%
@@ -174,7 +174,7 @@
 \newcommand{\citeBuch}[3]{
 	\textit{#1}, #2, #3.
 }
-\newcommand{\citekommentar}[4]{
+\newcommand{\citeKommentar}[4]{
 	\textit{#1}, #2, #3#4.
 }
 \newcommand{\citeaufsatz}[3]{
