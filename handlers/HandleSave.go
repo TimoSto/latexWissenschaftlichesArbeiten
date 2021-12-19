@@ -68,6 +68,7 @@ type SaveEntryObj struct {
 	ValuePairs []ValuePair
 	Typ string
 	Key string
+	Project string
 }
 
 func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
@@ -77,6 +78,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
 	entry := domain.BibEntry{
 		Key:             saveObj.Key,
@@ -90,7 +92,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(entry.Fields)
 
-	entries := domain.ReadBibEntries("")
+	entries := domain.ReadBibEntries(saveObj.Project)
 	fmt.Println(entry)
 	//if len(saveObj.InitialKey)  == 0 {
 	//	entries = append(entries, entry)
@@ -114,12 +116,14 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
-	err = ioutil.WriteFile("./literatur.json", jsonStr, 0644)
+	err = ioutil.WriteFile("./projects/" + saveObj.Project +"/literatur.json", jsonStr, 0644)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
 
-	domain.ConvertBibToCSV("")
+	domain.ConvertBibToCSV(saveObj.Project)
 }
