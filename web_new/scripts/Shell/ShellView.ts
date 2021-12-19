@@ -8,6 +8,7 @@ export default class ShellView {
 
     private _res1: HTMLIFrameElement;
     private _res2: HTMLIFrameElement;
+    private _res3: HTMLIFrameElement;
 
     private _titleElement: HTMLElement;
     private _backBtn: HTMLElement;
@@ -19,6 +20,7 @@ export default class ShellView {
             let urlFrag = window.location.hash.substr(1);
             this._res1 = document.querySelector('#res_1');
             this._res2 = document.querySelector('#res_2');
+            this._res3 = document.querySelector('#res_3');
             this._titleElement = document.querySelector('.mdc-top-app-bar__title');
             this._backBtn = document.querySelector('.mdc-top-app-bar button');
             this._backBtn.addEventListener('click', ()=>{
@@ -52,19 +54,26 @@ export default class ShellView {
     }
 
     NavigateToEntry(key: string) {
-        this._res1.parentElement.classList.remove('res_container--open')
-        this._res1.parentElement.classList.add('res_container--close')
-        this._res2.src = '/entry/' + key;
-        this._res2.parentElement.classList.add('res_container--open')
-        this._backBtn.style.display = '';
+        this._res2.parentElement.classList.remove('res_container--open')
+        this._res2.parentElement.classList.add('res_container--close')
+        this._res3.src = '/entry/' + key;
+        this._res3.parentElement.classList.add('res_container--open')
+        //this._backBtn.style.display = '';
     }
 
     NavBack(){
-        this._res2.parentElement.classList.remove('res_container--open')
-        this._res2.parentElement.classList.add('res_container--close')
-        this._res1.parentElement.classList.remove('res_container--close')
-        this._res1.parentElement.classList.add('res_container--open')
-        this._backBtn.style.display = 'none';
+        if( this._res3.parentElement.classList.contains('res_container--open') ) {
+            this._res3.parentElement.classList.remove('res_container--open')
+            this._res3.parentElement.classList.add('res_container--close')
+            this._res2.parentElement.classList.remove('res_container--close')
+            this._res2.parentElement.classList.add('res_container--open')
+        } else {
+            this._res2.parentElement.classList.remove('res_container--open')
+            this._res2.parentElement.classList.add('res_container--close')
+            this._res1.parentElement.classList.remove('res_container--close')
+            this._res1.parentElement.classList.add('res_container--open')
+            this._backBtn.style.display = 'none';
+        }
     }
 
     ReloadOverview() {

@@ -169,6 +169,7 @@ function () {
       var urlFrag = window.location.hash.substr(1);
       _this._res1 = document.querySelector('#res_1');
       _this._res2 = document.querySelector('#res_2');
+      _this._res3 = document.querySelector('#res_3');
       _this._titleElement = document.querySelector('.mdc-top-app-bar__title');
       _this._backBtn = document.querySelector('.mdc-top-app-bar button');
 
@@ -210,27 +211,36 @@ function () {
   };
 
   ShellView.prototype.NavigateToEntry = function (key) {
-    this._res1.parentElement.classList.remove('res_container--open');
-
-    this._res1.parentElement.classList.add('res_container--close');
-
-    this._res2.src = '/entry/' + key;
-
-    this._res2.parentElement.classList.add('res_container--open');
-
-    this._backBtn.style.display = '';
-  };
-
-  ShellView.prototype.NavBack = function () {
     this._res2.parentElement.classList.remove('res_container--open');
 
     this._res2.parentElement.classList.add('res_container--close');
 
-    this._res1.parentElement.classList.remove('res_container--close');
+    this._res3.src = '/entry/' + key;
 
-    this._res1.parentElement.classList.add('res_container--open');
+    this._res3.parentElement.classList.add('res_container--open'); //this._backBtn.style.display = '';
 
-    this._backBtn.style.display = 'none';
+  };
+
+  ShellView.prototype.NavBack = function () {
+    if (this._res3.parentElement.classList.contains('res_container--open')) {
+      this._res3.parentElement.classList.remove('res_container--open');
+
+      this._res3.parentElement.classList.add('res_container--close');
+
+      this._res2.parentElement.classList.remove('res_container--close');
+
+      this._res2.parentElement.classList.add('res_container--open');
+    } else {
+      this._res2.parentElement.classList.remove('res_container--open');
+
+      this._res2.parentElement.classList.add('res_container--close');
+
+      this._res1.parentElement.classList.remove('res_container--close');
+
+      this._res1.parentElement.classList.add('res_container--open');
+
+      this._backBtn.style.display = 'none';
+    }
   };
 
   ShellView.prototype.ReloadOverview = function () {
