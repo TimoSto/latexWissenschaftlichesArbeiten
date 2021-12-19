@@ -16,8 +16,14 @@
 
 .headline{
   width: 100%;
+  padding-top: 8px;
 }
 
 .headline button{
   float: right;
+}
+
+.divider{
+  border-color: rgba(0,0,0,0.5);
+  width: 100%;
 }
