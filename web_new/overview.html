@@ -6,6 +6,7 @@
     <script src="scripts/Lapi/Lapi_bootstrap.ts"></script>
     <link rel="stylesheet" href="styles/overview.scss">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="scripts/Overview.ts"></script>
 </head>
 <body>
 
@@ -20,7 +21,7 @@
         </div>
 
         <p class="mdc-typography--body1">Die Literatur-Typen gelten für alle angelegten Projekte.</p>
-        <ul class="mdc-list mdc-list--two-line">
+        <ul class="mdc-list mdc-list--two-line" id="typelist">
             {{ range $key, $value := .Types}}
             <li class="mdc-list-item" tabindex="0">
                 <span class="mdc-list-item__ripple"></span>
@@ -29,8 +30,8 @@
               <span class="mdc-list-item__secondary-text">{{ $value.Example }}</span>
             </span>
                 <span class="mdc-list-item__meta">
-                <button class="mdc-icon-button material-icons">edit</button>
-                <button class="mdc-icon-button material-icons">delete</button>
+                <button class="mdc-icon-button material-icons" data-edit="{{ $value.Name }}">edit</button>
+                <button class="mdc-icon-button material-icons" data-delete="{{ $value.Name }}">delete</button>
             </span>
             </li>
             {{ end }}
