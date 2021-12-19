@@ -5071,6 +5071,30 @@ function SaveProjectName(name, initialName) {
 }
 
 exports.default = SaveProjectName;
+},{}],"scripts/DeleteEntry.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function DeleteEntry(key, project) {
+  window.fetch('/delete/entry', {
+    method: 'POST',
+    body: JSON.stringify({
+      Entry: key,
+      Project: project
+    })
+  }).then(function (response) {
+    console.log(response.status);
+
+    if (response.status == 200) {
+      window.location.reload();
+    }
+  });
+}
+
+exports.default = DeleteEntry;
 },{}],"scripts/ProjectPage.ts":[function(require,module,exports) {
 "use strict";
 
@@ -5088,6 +5112,8 @@ var component_1 = require("@material/textfield/component");
 
 var SaveProjectName_1 = __importDefault(require("./SaveProjectName"));
 
+var DeleteEntry_1 = __importDefault(require("./DeleteEntry"));
+
 var ProjectPage =
 /** @class */
 function () {
@@ -5099,6 +5125,18 @@ function () {
     document.querySelector('.headline button').addEventListener('click', function () {
       (0, SaveProjectName_1.default)(_this._nameField.value, _this._initialName);
     });
+    document.querySelectorAll('#entrylist [data-delete]').forEach(function (el) {
+      var value = el.getAttribute('data-delete');
+      el.addEventListener('click', function () {
+        (0, DeleteEntry_1.default)(value, _this._initialName);
+      });
+    });
+    document.querySelectorAll('#entrylist [data-edit]').forEach(function (el) {
+      var value = el.getAttribute('data-edit');
+      el.addEventListener('click', function () {
+        window.lapi.NavigateToEntry(value);
+      });
+    });
   }
 
   return ProjectPage;
@@ -5107,5 +5145,5 @@ function () {
 document.addEventListener('DOMContentLoaded', function () {
   new ProjectPage();
 });
-},{"@material/textfield/component":"../node_modules/@material/textfield/component.js","./SaveProjectName":"scripts/SaveProjectName.ts"}]},{},["scripts/ProjectPage.ts"], null)
+},{"@material/textfield/component":"../node_modules/@material/textfield/component.js","./SaveProjectName":"scripts/SaveProjectName.ts","./DeleteEntry":"scripts/DeleteEntry.ts"}]},{},["scripts/ProjectPage.ts"], null)
 //# sourceMappingURL=/shell/ProjectPage.3ea2e123.js.map

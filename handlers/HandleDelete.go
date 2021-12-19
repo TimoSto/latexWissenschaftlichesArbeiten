@@ -12,6 +12,7 @@ import (
 type DeleteObj struct {
 	Type string
 	Entry string
+	Project string
 }
 
 func HandleDeleteType(w http.ResponseWriter, r *http.Request) {
@@ -61,7 +62,11 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 
-	entries := domain.ReadBibEntries("")
+	fmt.Println(r.Body)
+
+	fmt.Println(delObj)
+
+	entries := domain.ReadBibEntries(delObj.Project)
 	for i:=0 ; i<len(entries);i++ {
 		if strings.Compare(entries[i].Key, delObj.Entry) == 0 {
 			entries = append(entries[:i], entries[i+1:]...)
@@ -78,7 +83,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 	str := string(jsonStr)
 	strings.Replace(str, "[", "[\n", -1)
 
-	err = ioutil.WriteFile("./literatur.json", []byte(str), 0644)
+	err = ioutil.WriteFile("./projects/" + delObj.Project + "/literatur.json", []byte(str), 0644)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
