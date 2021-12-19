@@ -182,6 +182,9 @@ document.addEventListener('DOMContentLoaded', function () {
       (0, EditType_1.default)(value);
     });
   });
+  document.querySelector('#newType').addEventListener('click', function () {
+    window.lapi.NavigateToType('');
+  });
 });
 },{"./DeleteType":"scripts/DeleteType.ts","./EditType":"scripts/EditType.ts"}]},{},["scripts/Overview.ts"], null)
 //# sourceMappingURL=/shell/Overview.b661a4b8.js.map

@@ -19,7 +19,7 @@
 	{
 		\IfStrEqCase{\type}{%
 		%Area to add new bibifs via gui
-		{Buch}{\printbuch{\a}{\b}{\c}{\d}{\e}}%
+		{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
 		{kommentar}{\printkommentar{\a}{\b}{\c}{\d}{\e}}%
 		{aufsatz}{\printaufsatz{\a}{\b}{\c}{\d}{\e}}%
 		{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
@@ -27,8 +27,8 @@
 		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
 		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
 		{meintype}{\printmeintype{\a}{\b}{\c}}%
-		{test}{\printtest{\a}}%
-		{meinLT}{\printmeinlt}%
+		{meinLT}{\printmeinLT}%
+		{Test}{\printTest{\a}{\b}{\c}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -38,7 +38,7 @@
 %!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
 \def\bibparindent{1.5em}
 %Area to add new bibprints via gui
-\newcommand{\printbuch}[5]{
+\newcommand{\printBuch}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
@@ -110,20 +110,20 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printtest}[1]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	#1
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printmeinlt}[0]{
+\newcommand{\printmeinLT}[0]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
 	
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printTest}[3]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	#1#2#3
 	\\
 	\vspace{-12pt}
 
@@ -161,7 +161,7 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{Buch}{\footnote{#3\citebuch{\a}{\b}{#2}}}%
+			{Buch}{\footnote{#3\citeBuch{\a}{\b}{#2}}}%
 			{kommentar}{\footnote{#3\citekommentar{\a}{\b}{\e}{#2}}}%
 			{aufsatz}{\footnote{#3\citeaufsatz{\a}{\c}{#2}}}%
 			{online}{\footnote{#3\citeonline{\a}{\b}{#2}}}%
@@ -169,8 +169,8 @@
 			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
 			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}}}%
-			{test}{\footnote{#3\citetest{#2}}}%
-			{meinLT}{\footnote{#3\citemeinlt{#2}}}%
+			{meinLT}{\footnote{#3\citemeinLT{#2}}}%
+			{Test}{\footnote{#3\citeTest{\a}{\@}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -182,7 +182,7 @@
 
 %Prints für verschiedene Fußnotenarten
 %Area to add citecommands via gui
-\newcommand{\citebuch}[3]{
+\newcommand{\citeBuch}[3]{
 	\textit{#1}, #2, #3.
 }
 \newcommand{\citekommentar}[4]{
@@ -206,11 +206,11 @@
 \newcommand{\citemeintype}[3]{
 	\textit{#1}, #2#3.
 }
-\newcommand{\citetest}[1]{
+\newcommand{\citemeinLT}[1]{
 	#1.
 }
-\newcommand{\citemeinlt}[1]{
-	#1.
+\newcommand{\citeTest}[3]{
+	#1#2#3.
 }
 %end area
 

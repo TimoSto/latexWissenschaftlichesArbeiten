@@ -16,4 +16,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             EditType(value)
         });
     });
+
+    document.querySelector('#newType').addEventListener('click', ()=> {
+        window.lapi.NavigateToType('');
+    })
 })

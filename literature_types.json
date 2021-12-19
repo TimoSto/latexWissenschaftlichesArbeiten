@@ -49,7 +49,7 @@
 					"Suffix": ", "
 				}
 			],
-			"Example": ""
+			"Example": "Autor, Titel, Auflage. Auflage, Ort Datum"
 		},
 		{
 			"Name": "kommentar",
@@ -415,7 +415,14 @@
 			"Example": "Autor, Titel (Jahr)"
 		},
 		{
-			"Name": "test",
+			"Name": "meinLT",
+			"HasCitePage": false,
+			"Fields": [],
+			"CiteFields": [],
+			"Example": ""
+		},
+		{
+			"Name": "Test",
 			"HasCitePage": false,
 			"Fields": [
 				{
@@ -423,16 +430,34 @@
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
+				},
+				{
+					"Field": "Datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				},
+				{
+					"Field": "Tital",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
 				}
 			],
-			"CiteFields": [],
-			"Example": "Autor"
-		},
-		{
-			"Name": "meinLT",
-			"HasCitePage": false,
-			"Fields": [],
-			"CiteFields": [],
+			"CiteFields": [
+				{
+					"Field": "Autor",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
 			"Example": ""
 		}
 	]
