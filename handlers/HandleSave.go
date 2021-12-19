@@ -90,7 +90,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(entry.Fields)
 
-	entries := domain.ReadBibEntries()
+	entries := domain.ReadBibEntries("")
 	fmt.Println(entry)
 	//if len(saveObj.InitialKey)  == 0 {
 	//	entries = append(entries, entry)

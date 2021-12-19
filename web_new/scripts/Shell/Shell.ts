@@ -16,7 +16,7 @@ export default class Shell {
     }
 
     NavigateToProject(key: string) {
-
+        this._view.NavigateToProject(key);
     }
 
     ReloadPrevious() {

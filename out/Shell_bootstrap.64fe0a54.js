@@ -139,7 +139,9 @@ function () {
     this._view.NavigateToEntry(key);
   };
 
-  Shell.prototype.NavigateToProject = function (key) {};
+  Shell.prototype.NavigateToProject = function (key) {
+    this._view.NavigateToProject(key);
+  };
 
   Shell.prototype.ReloadPrevious = function () {
     this._view.ReloadOverview();
@@ -189,6 +191,18 @@ function () {
     this._res1.parentElement.classList.add('res_container--close');
 
     this._res2.src = '/type/' + type;
+
+    this._res2.parentElement.classList.add('res_container--open');
+
+    this._backBtn.style.display = '';
+  };
+
+  ShellView.prototype.NavigateToProject = function (key) {
+    this._res1.parentElement.classList.remove('res_container--open');
+
+    this._res1.parentElement.classList.add('res_container--close');
+
+    this._res2.src = '/project/' + key;
 
     this._res2.parentElement.classList.add('res_container--open');
 

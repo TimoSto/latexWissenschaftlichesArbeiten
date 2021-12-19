@@ -61,7 +61,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 
-	entries := domain.ReadBibEntries()
+	entries := domain.ReadBibEntries("")
 	for i:=0 ; i<len(entries);i++ {
 		if strings.Compare(entries[i].Key, delObj.Entry) == 0 {
 			entries = append(entries[:i], entries[i+1:]...)

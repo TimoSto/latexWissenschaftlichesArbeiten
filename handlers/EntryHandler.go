@@ -18,7 +18,7 @@ func HandleEntry(w http.ResponseWriter, r *http.Request) {
 	reqType := strings.Split(r.URL.Path, "/entry/")[1]
 
 	entry := domain.BibEntry{}
-	entries := domain.ReadBibEntries()
+	entries := domain.ReadBibEntries("")
 	for i:=0 ; i<len(entries);i++ {
 		if strings.Compare(entries[i].Key, reqType) == 0 {
 			entry = entries[i]

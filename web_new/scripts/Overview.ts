@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
 
     document.querySelector('#newType').addEventListener('click', ()=> {
-        window.lapi.NavigateToType('');
-    })
+        (<any>window).lapi.NavigateToType('');
+    });
+
+    document.querySelectorAll('#projectlist [data-edit]').forEach(el =>{
+        const value = el.getAttribute('data-edit');
+        el.addEventListener( 'click', ()=>{
+            (<any>window).lapi.NavigateToProject(value);
+        });
+    });
 })

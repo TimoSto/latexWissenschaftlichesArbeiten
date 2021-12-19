@@ -25,6 +25,8 @@ func main() {
 
 	http.HandleFunc("/entry/", handlers.HandleEntry)
 
+	http.HandleFunc("/project/", handlers.HandleProject)
+
 	http.HandleFunc("/save", handlers.HandleSave)
 
 	http.HandleFunc("/saveEntry", handlers.HandleSaveEntry)

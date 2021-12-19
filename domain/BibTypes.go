@@ -14,8 +14,8 @@ type BibEntry struct {
 	Fields []string
 }
 
-func ReadBibEntries() []BibEntry{
-	file, err := ioutil.ReadFile("literatur.json")
+func ReadBibEntries(project string) []BibEntry{
+	file, err := ioutil.ReadFile("projects/" + project + "/literatur.json")
 	if err != nil {
 		fmt.Println(fmt.Sprintf("Error occurred while opening the JSON-file:%v", err))
 		return []BibEntry{}

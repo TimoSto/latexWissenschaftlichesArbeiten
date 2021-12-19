@@ -43,6 +43,14 @@ export default class ShellView {
         this._backBtn.style.display = '';
     }
 
+    NavigateToProject(key: string) {
+        this._res1.parentElement.classList.remove('res_container--open')
+        this._res1.parentElement.classList.add('res_container--close')
+        this._res2.src = '/project/' + key;
+        this._res2.parentElement.classList.add('res_container--open')
+        this._backBtn.style.display = '';
+    }
+
     NavigateToEntry(key: string) {
         this._res1.parentElement.classList.remove('res_container--open')
         this._res1.parentElement.classList.add('res_container--close')
