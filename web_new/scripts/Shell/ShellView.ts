@@ -78,5 +78,8 @@ export default class ShellView {
 
     ReloadOverview() {
         this._res1.contentDocument.location.reload();
+        if( this._res3.parentElement.classList.contains('res_container--open') ) {
+            this._res2.contentDocument.location.reload();
+        }
     }
 }

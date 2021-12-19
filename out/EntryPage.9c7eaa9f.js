@@ -10877,7 +10877,7 @@ function () {
       if (valid) {
         console.log('valid');
         window.lapi.ReloadOverview();
-        window.location.href = '/entry/' + _this._keyField.value;
+        window.location.href = '/entry/' + _this._keyField.value + '?project=' + _this.project;
       }
     });
   };

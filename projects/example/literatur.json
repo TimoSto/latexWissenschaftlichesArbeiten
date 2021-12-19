@@ -1,9 +1,9 @@
 [
 	{
-		"Key": "book1",
+		"Key": "myBook",
 		"Typ": "Buch",
 		"Fields": [
-			"Der Baumeister, Bob",
+			"Der Baumeister, Bobi",
 			"Die kleine Raupe Nimmersatt",
 			"1",
 			"Panama",

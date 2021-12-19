@@ -89,7 +89,7 @@ class EntryPage {
             if( valid ) {
                 console.log('valid');
                 (<any>window).lapi.ReloadOverview();
-                window.location.href= '/entry/' + this._keyField.value;
+                window.location.href= '/entry/' + this._keyField.value+'?project='+this.project;
             }
         });
     }
