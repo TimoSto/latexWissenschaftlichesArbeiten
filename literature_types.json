@@ -415,13 +415,6 @@
 			"Example": "Autor, Titel (Jahr)"
 		},
 		{
-			"Name": "meinLT",
-			"HasCitePage": false,
-			"Fields": [],
-			"CiteFields": [],
-			"Example": ""
-		},
-		{
 			"Name": "Test",
 			"HasCitePage": false,
 			"Fields": [
@@ -438,7 +431,7 @@
 					"Suffix": ""
 				},
 				{
-					"Field": "Tital",
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""

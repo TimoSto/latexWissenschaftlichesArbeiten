@@ -27,7 +27,6 @@
 		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
 		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
 		{meintype}{\printmeintype{\a}{\b}{\c}}%
-		{meinLT}{\printmeinLT}%
 		{Test}{\printTest{\a}{\b}{\c}}%
 		%end area
 		{empty}{}%
@@ -110,15 +109,6 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printmeinLT}[0]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	
-	\\
-	\vspace{-12pt}
-
-}
 \newcommand{\printTest}[3]{
 	\hangindent=\bibparindent
 	\parindent 0pt
@@ -169,8 +159,7 @@
 			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
 			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}}}%
-			{meinLT}{\footnote{#3\citemeinLT{#2}}}%
-			{Test}{\footnote{#3\citeTest{\a}{\@}{#2}}}%
+			{Test}{\footnote{#3\citeTest{\a}{\c}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -205,9 +194,6 @@
 }
 \newcommand{\citemeintype}[3]{
 	\textit{#1}, #2#3.
-}
-\newcommand{\citemeinLT}[1]{
-	#1.
 }
 \newcommand{\citeTest}[3]{
 	#1#2#3.
