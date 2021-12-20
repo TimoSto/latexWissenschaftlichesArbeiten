@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -62,10 +63,6 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 
-	fmt.Println(r.Body)
-
-	fmt.Println(delObj)
-
 	entries := domain.ReadBibEntries(delObj.Project)
 	for i:=0 ; i<len(entries);i++ {
 		if strings.Compare(entries[i].Key, delObj.Entry) == 0 {
@@ -90,4 +87,25 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 	}
 
 	domain.ConvertBibToCSV(delObj.Project)
+}
+
+func HandleDeleteProject(w http.ResponseWriter, r *http.Request) {
+
+	var delObj ProjectName
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&delObj)
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+	}
+
+	fmt.Println(delObj.Name)
+
+	if len(delObj.Name) > 0 && strings.Compare(delObj.Name, "example") != 0 {
+		err := os.RemoveAll("./projects/"+delObj.Name)
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+	}
 }

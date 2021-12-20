@@ -3,6 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"os"
 )
@@ -21,10 +22,44 @@ func HandleProjectName(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 
-	err = os.Rename("./projects/"+saveObj.InitialName, "./projects/" + saveObj.Name)
-	if err != nil {
-		fmt.Println(err)
-		http.Error(w, err.Error(), 500)
+	if len(saveObj.InitialName) > 0 {
+		err = os.Rename("./projects/"+saveObj.InitialName, "./projects/" + saveObj.Name)
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+	} else {
+		err := os.Mkdir("./projects/"+saveObj.Name, 0755)
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+
+		err = ioutil.WriteFile("./projects/"+saveObj.Name+"/literatur.json", []byte("[]"), 0644)
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+		inputcsv, err := ioutil.ReadFile("literatur_template.csv")
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+		err = ioutil.WriteFile("./projects/"+saveObj.Name+"/literatur.csv", inputcsv, 0644)
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+		inputtex, err := ioutil.ReadFile("template.tex")
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+		err = ioutil.WriteFile("./projects/"+saveObj.Name+"/"+saveObj.Name+".tex", inputtex, 0644)
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
 	}
 
 	//TODO: rename files?

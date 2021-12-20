@@ -1,5 +1,6 @@
 import DeleteType from "./DeleteType";
 import EditType from "./EditType";
+import DeleteProject from "./DeleteProject";
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -27,4 +28,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
             (<any>window).lapi.NavigateToProject(value);
         });
     });
+
+    document.querySelectorAll('#projectlist [data-delete]').forEach(el =>{
+        const value = el.getAttribute('data-delete');
+        el.addEventListener( 'click', ()=>{
+            DeleteProject(value);
+        });
+    });
+
+
+    document.querySelector('#newProject').addEventListener('click', ()=>{
+        (<any>window).lapi.NavigateToProject('');
+    })
 })

@@ -152,6 +152,27 @@ function EditType(type) {
 }
 
 exports.default = EditType;
+},{}],"scripts/DeleteProject.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function DeleteProject(name) {
+  fetch('/delete/project', {
+    method: 'POST',
+    body: JSON.stringify({
+      Name: name
+    })
+  }).then(function (resp) {
+    if (resp.status == 200) {
+      window.location.reload();
+    }
+  });
+}
+
+exports.default = DeleteProject;
 },{}],"scripts/Overview.ts":[function(require,module,exports) {
 "use strict";
 
@@ -168,6 +189,8 @@ Object.defineProperty(exports, "__esModule", {
 var DeleteType_1 = __importDefault(require("./DeleteType"));
 
 var EditType_1 = __importDefault(require("./EditType"));
+
+var DeleteProject_1 = __importDefault(require("./DeleteProject"));
 
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('#typelist [data-delete]').forEach(function (el) {
@@ -191,6 +214,15 @@ document.addEventListener('DOMContentLoaded', function () {
       window.lapi.NavigateToProject(value);
     });
   });
+  document.querySelectorAll('#projectlist [data-delete]').forEach(function (el) {
+    var value = el.getAttribute('data-delete');
+    el.addEventListener('click', function () {
+      (0, DeleteProject_1.default)(value);
+    });
+  });
+  document.querySelector('#newProject').addEventListener('click', function () {
+    window.lapi.NavigateToProject('');
+  });
 });
-},{"./DeleteType":"scripts/DeleteType.ts","./EditType":"scripts/EditType.ts"}]},{},["scripts/Overview.ts"], null)
+},{"./DeleteType":"scripts/DeleteType.ts","./EditType":"scripts/EditType.ts","./DeleteProject":"scripts/DeleteProject.ts"}]},{},["scripts/Overview.ts"], null)
 //# sourceMappingURL=/shell/Overview.b661a4b8.js.map

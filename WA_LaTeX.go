@@ -36,6 +36,8 @@ func main() {
 
 	http.HandleFunc("/delete/entry", handlers.HandleDeleteEntry)
 
+	http.HandleFunc("/delete/project", handlers.HandleDeleteProject)
+
 	http.Handle( "/shell/" , http.StripPrefix("/shell", http.FileServer(http.Dir("./out"))))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
