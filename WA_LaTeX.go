@@ -1,7 +1,6 @@
 package main
 
 import (
-	"WA_LaTeX/domain"
 	"WA_LaTeX/handlers"
 	"log"
 	"net/http"
@@ -13,7 +12,7 @@ func main() {
 	argsWithoutProg := os.Args[1:]
 
 	if len(argsWithoutProg) > 0 && strings.Compare(argsWithoutProg[0], "convert") == 0 {
-		domain.ConvertBibToCSV()
+		//domain.ConvertBibToCSV()
 		return
 	}
 
@@ -25,13 +24,19 @@ func main() {
 
 	http.HandleFunc("/entry/", handlers.HandleEntry)
 
+	http.HandleFunc("/project/", handlers.HandleProject)
+
 	http.HandleFunc("/save", handlers.HandleSave)
+
+	http.HandleFunc("/saveProjectName", handlers.HandleProjectName)
 
 	http.HandleFunc("/saveEntry", handlers.HandleSaveEntry)
 
 	http.HandleFunc("/delete/type", handlers.HandleDeleteType)
 
 	http.HandleFunc("/delete/entry", handlers.HandleDeleteEntry)
+
+	http.HandleFunc("/delete/project", handlers.HandleDeleteProject)
 
 	http.Handle( "/shell/" , http.StripPrefix("/shell", http.FileServer(http.Dir("./out"))))
 

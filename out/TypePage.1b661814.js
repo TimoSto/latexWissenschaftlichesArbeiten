@@ -145,13 +145,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function SaveType(name, bibFields, citeFields) {
+function SaveType(name, initialName, bibFields, citeFields) {
   var obj = {
     Name: name,
     Fields: bibFields,
     CiteFields: citeFields
   };
-  return window.fetch('/save', {
+  return window.fetch('/save?initialName=' + initialName, {
     method: 'POST',
     body: JSON.stringify(obj)
   }).then(function (response) {
@@ -10825,6 +10825,8 @@ function () {
     this.bibFields = [];
     this.citeFields = [];
     document.addEventListener('DOMContentLoaded', function () {
+      _this._nameField = new component_1.MDCTextField(document.querySelector('.headline .mdc-text-field'));
+      _this._initialName = _this._nameField.value;
       var elements = document.querySelectorAll('#bibtable .my-table--row .my-table-cell:nth-child(2) .mdc-text-field');
       elements.forEach(function (el, n) {
         var index = n;
@@ -10992,10 +10994,10 @@ function () {
 
       _this.syncExample();
 
-      document.querySelector('header button').addEventListener('click', function () {
-        (0, SaveType_1.default)(window.location.href.split('/type/')[1], _this.bibFields, _this.citeFields).then(function (valid) {
+      document.querySelector('.headline button').addEventListener('click', function () {
+        (0, SaveType_1.default)(_this._nameField.value, _this._initialName, _this.bibFields, _this.citeFields).then(function (valid) {
           window.lapi.ReloadOverview();
-          window.location.reload();
+          window.location.replace('/type/' + _this._nameField.value);
         });
       });
     });

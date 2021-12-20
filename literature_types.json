@@ -1,35 +1,35 @@
 {
 	"Types": [
 		{
-			"Name": "buch",
+			"Name": "Buch",
 			"HasCitePage": false,
 			"Fields": [
 				{
-					"Field": "autor",
+					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "titel",
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "auflage",
+					"Field": "Auflage",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ". Auflage, "
 				},
 				{
-					"Field": "ort",
+					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": " "
 				},
 				{
-					"Field": "datum",
+					"Field": "Datum",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
@@ -37,49 +37,50 @@
 			],
 			"CiteFields": [
 				{
-					"Field": "autor",
+					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "titel",
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				}
-			]
+			],
+			"Example": "Autor, Titel, Auflage. Auflage, Ort Datum"
 		},
 		{
-			"Name": "kommentar",
+			"Name": "Kommentar",
 			"HasCitePage": false,
 			"Fields": [
 				{
-					"Field": "autor",
+					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "titel",
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "auflage",
+					"Field": "Auflage",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ". Auflage,"
 				},
 				{
-					"Field": "ort",
+					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
 				},
 				{
-					"Field": "datum",
+					"Field": "Datum",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
@@ -87,24 +88,25 @@
 			],
 			"CiteFields": [
 				{
-					"Field": "autor",
+					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "titel",
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "datum",
+					"Field": "Datum",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
 				}
-			]
+			],
+			"Example": ""
 		},
 		{
 			"Name": "aufsatz",
@@ -154,7 +156,8 @@
 					"Prefix": "",
 					"Suffix": ", "
 				}
-			]
+			],
+			"Example": "autor, titel, in: zeitschrift (datum), seiten "
 		},
 		{
 			"Name": "online",
@@ -204,7 +207,8 @@
 					"Prefix": "",
 					"Suffix": ""
 				}
-			]
+			],
+			"Example": "autor, titel, url (stand), abgerufen am datum"
 		},
 		{
 			"Name": "workingpaper",
@@ -254,7 +258,8 @@
 					"Prefix": "",
 					"Suffix": ", "
 				}
-			]
+			],
+			"Example": "autor, titel, datum, abrufbar unter: url, abgerufen am: stand"
 		},
 		{
 			"Name": "sammelwerk",
@@ -304,7 +309,8 @@
 					"Prefix": "",
 					"Suffix": ", "
 				}
-			]
+			],
+			"Example": "autor (Hrsg.), titel, in: zeitschrift  (datum), seiten"
 		},
 		{
 			"Name": "hrsgsammel",
@@ -366,7 +372,8 @@
 					"Prefix": "",
 					"Suffix": ", "
 				}
-			]
+			],
+			"Example": "autor, titel, in: zeitschrift (datum), band (Hrsg.), ort, seiten"
 		},
 		{
 			"Name": "meintype",
@@ -404,19 +411,47 @@
 					"Prefix": "",
 					"Suffix": ""
 				}
-			]
+			],
+			"Example": "Autor, Titel (Jahr)"
 		},
 		{
-			"Name": "test",
+			"Name": "Test",
 			"HasCitePage": false,
-			"Fields": [],
-			"CiteFields": []
-		},
-		{
-			"Name": "meinLT",
-			"HasCitePage": false,
-			"Fields": [],
-			"CiteFields": []
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				},
+				{
+					"Field": "Datum",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"Example": "AutorDatumTitel"
 		}
 	]
 }

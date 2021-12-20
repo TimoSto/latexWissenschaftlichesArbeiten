@@ -8,10 +8,10 @@ import (
 	"strings"
 )
 
-func ConvertBibToCSV(){
-	fmt.Println("Convertig literatur.json to literatur.csv...")
+func ConvertBibToCSV(project string){
+	fmt.Println("Convertig ./projects/"+project+"/literatur.json to literatur.csv...")
 
-	file, err := ioutil.ReadFile("literatur.json")
+	file, err := ioutil.ReadFile("./projects/"+project+"/literatur.json")
 	if err != nil {
 		fmt.Println(fmt.Sprintf("Error occurred while opening the JSON-file:%v", err))
 		return
@@ -40,7 +40,7 @@ func ConvertBibToCSV(){
 		filestring += "\n"
 	}
 	filestring += "empty;empty;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;\n"
-	err = ioutil.WriteFile("literatur.csv",[]byte(filestring), 0644)
+	err = ioutil.WriteFile("./projects/"+project+"/literatur.csv",[]byte(filestring), 0644)
 	if err != nil {
 		fmt.Println(fmt.Sprintf("Error occurred while writing CSV-file:%v", err))
 		return

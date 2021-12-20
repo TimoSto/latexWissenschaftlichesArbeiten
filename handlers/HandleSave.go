@@ -17,7 +17,8 @@ func HandleSave(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 	}
-	fmt.Println(bibType)
+	initialName := r.URL.Query().Get("initialName")
+	fmt.Println(initialName)
 	literatureTypes, err := domain.ReadTypes()
 	if err != nil {
 		fmt.Println(err)
@@ -25,7 +26,7 @@ func HandleSave(w http.ResponseWriter, r *http.Request) {
 	}
 	found := false
 	for i,typ := range literatureTypes.Types {
-		if strings.Compare(typ.Name, bibType.Name) == 0 {
+		if strings.Compare(typ.Name, bibType.Name) == 0 || strings.Compare(typ.Name, initialName) == 0{
 			literatureTypes.Types[i] = bibType
 			found = true
 			break
@@ -67,6 +68,7 @@ type SaveEntryObj struct {
 	ValuePairs []ValuePair
 	Typ string
 	Key string
+	Project string
 }
 
 func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
@@ -76,6 +78,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
 	entry := domain.BibEntry{
 		Key:             saveObj.Key,
@@ -89,7 +92,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(entry.Fields)
 
-	entries := domain.ReadBibEntries()
+	entries := domain.ReadBibEntries(saveObj.Project)
 	fmt.Println(entry)
 	//if len(saveObj.InitialKey)  == 0 {
 	//	entries = append(entries, entry)
@@ -113,12 +116,14 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
-	err = ioutil.WriteFile("./literatur.json", jsonStr, 0644)
+	err = ioutil.WriteFile("./projects/" + saveObj.Project +"/literatur.json", jsonStr, 0644)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
 
-	domain.ConvertBibToCSV()
+	domain.ConvertBibToCSV(saveObj.Project)
 }

@@ -1,0 +1,8 @@
+\babel@toc {ngerman}{}
+\contentsline {part}{Abkürzungsverzeichnis}{I}% 
+\contentsline {part}{Abbildungsverzeichnis}{II}% 
+\contentsline {part}{Tabellenverzeichnis}{III}% 
+\vspace {24pt}
+\vspace {24pt}
+\contentsline {part}{Literaturverzeichnis}{V}% 
+\contentsline {part}{Anhang}{VI}% 

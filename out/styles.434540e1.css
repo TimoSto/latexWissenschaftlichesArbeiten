@@ -831,23 +831,39 @@
   --mdc-theme-primary: #438f85;
 }
 
-body, html {
-  margin: 0;
-  height: calc(100% - 16px);
-}
-
 #content {
   max-width: 960px;
   margin: 0 auto;
-  height: 100%;
-  background-color: white;
+}
+
+.mdc-typography--headline5 {
+  margin: 8px;
+  display: block;
+}
+
+.headline {
+  width: 100%;
+  padding-top: 8px;
+}
+
+.headline button {
+  float: right;
+}
+
+.divider {
+  border-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+body, html {
+  margin: 0;
+  height: calc(100% - 16px);
 }
 
 .mdc-top-app-bar {
   background-color: white;
   color: rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  max-width: 960px;
 }
 
 .mdc-top-app-bar button {
