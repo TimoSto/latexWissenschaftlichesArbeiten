@@ -15,8 +15,12 @@ class ProjectPage {
 
         this._initialName = this._nameField.value;
 
-        document.querySelector('.headline button').addEventListener('click', ()=>{
+        document.querySelector('.headline button.mdc-button--raised').addEventListener('click', ()=>{
             SaveProjectName(this._nameField.value, this._initialName)
+        });
+
+        document.querySelector('.headline button:not(.mdc-button--raised)').addEventListener('click', ()=>{
+            (<any>window).lapi.NavigateToEntry('', this._initialName);
         });
 
         document.querySelectorAll('#entrylist [data-delete]').forEach(el =>{

@@ -5122,8 +5122,11 @@ function () {
 
     this._nameField = new component_1.MDCTextField(document.querySelector('.mdc-text-field'));
     this._initialName = this._nameField.value;
-    document.querySelector('.headline button').addEventListener('click', function () {
+    document.querySelector('.headline button.mdc-button--raised').addEventListener('click', function () {
       (0, SaveProjectName_1.default)(_this._nameField.value, _this._initialName);
+    });
+    document.querySelector('.headline button:not(.mdc-button--raised)').addEventListener('click', function () {
+      window.lapi.NavigateToEntry('', _this._initialName);
     });
     document.querySelectorAll('#entrylist [data-delete]').forEach(function (el) {
       var value = el.getAttribute('data-delete');
