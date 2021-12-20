@@ -15,6 +15,7 @@ type LiteratureType struct {
 	HasCitePage bool
 	Fields []Field
 	CiteFields []Field
+	Example string
 }
 
 type Field struct {
@@ -34,6 +35,14 @@ func ReadTypes() (LiteratureTypes, error){
 	err = json.Unmarshal(file, &literatureTypes)
 	if err != nil {
 		return LiteratureTypes{}, err
+	}
+
+	for i, typ := range literatureTypes.Types {
+		str := ""
+		for _, field := range typ.Fields {
+			str += field.Prefix + field.Field + field.Suffix
+		}
+		literatureTypes.Types[i].Example = str
 	}
 
 	return literatureTypes, nil

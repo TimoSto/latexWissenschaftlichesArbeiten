@@ -36,7 +36,7 @@ func SaveTypesToLaTeX(types []LiteratureType) error{
 func GeneratePrintBibCommands(types []LiteratureType) string {
 	commands := ""
 	for _,lType := range types {
-		command := `\newcommand{\print`+strings.ToLower(lType.Name)+"}[" + strconv.Itoa(len(lType.Fields)) + "]{\n" +
+		command := `\newcommand{\print`+lType.Name+"}[" + strconv.Itoa(len(lType.Fields)) + "]{\n" +
 						"\t" + `\hangindent=\bibparindent` + "\n" +
 						"\t" + `\parindent 0pt` + "\n" +
 						"\t" + `\hangafter=1` + "\n\t"
@@ -66,7 +66,7 @@ func GenerateIfsForBibCommands(types []LiteratureType) string{
 	commands := ""
 
 	for _,lType := range types {
-		command := "\t\t{" + lType.Name + `}{\print` + strings.ToLower(lType.Name)
+		command := "\t\t{" + lType.Name + `}{\print` + lType.Name
 		for n,_ := range lType.Fields {
 			command += `{\` + toChar(n+1) + `}`
 		}
@@ -80,7 +80,7 @@ func GenerateCiteCommands(types []LiteratureType) string {
 	commands := ""
 
 	for _,lType := range types {
-		command := `\newcommand{\cite`+strings.ToLower(lType.Name)+"}[" + strconv.Itoa(len(lType.CiteFields)+1) + "]{\n\t"
+		command := `\newcommand{\cite`+lType.Name+"}[" + strconv.Itoa(len(lType.CiteFields)+1) + "]{\n\t"
 
 		for i,field := range lType.CiteFields {
 			command += field.Prefix
@@ -104,7 +104,7 @@ func GenerateIfsForCiteCommands(types []LiteratureType) string{
 	commands := ""
 
 	for _,lType := range types {
-		command := "\t\t\t{" + lType.Name + `}{\footnote{#3\cite` + strings.ToLower(lType.Name)
+		command := "\t\t\t{" + lType.Name + `}{\footnote{#3\cite` + lType.Name
 
 		for _,field := range lType.CiteFields {
 			fieldIndex := GetFieldIndex(lType.Fields, field.Field)
