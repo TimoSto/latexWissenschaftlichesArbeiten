@@ -1,0 +1,107 @@
+@use 'node_modules/@material/typography/mdc-typography';
+@use 'node_modules/@material/textfield/mdc-text-field';
+@use 'node_modules/@material/button/mdc-button';
+@use 'node_modules/@material/icon-button/mdc-icon-button';
+@use 'node_modules/@material/ripple/mdc-ripple';
+@use 'web_old/web_deprecated/styles/common';
+@use "node_modules/@material/dialog/index";
+@use 'node_modules/@material/list/index';
+
+@include list.core-styles;
+@include dialog.core-styles;
+
+body{
+  padding: 8px;
+}
+
+.my-list{
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+.my-list-item{
+  width: 100%;
+  height: 48px;
+  cursor: pointer;
+  //border-top: 1px solid rgba(0,0,0,0.24);
+}
+
+.my-list .my-list-item:last-child{
+  //border-bottom: 1px solid rgba(0,0,0,0.24);
+}
+
+.my-list-item__graphic{
+  width: 48px;
+  height: 48px;
+  float: left;
+  margin-right: 12px;
+}
+
+.my-list-item__graphic .material-icons{
+  padding: 12px;
+}
+
+.my-list-item__text{
+  line-height: 48px;
+  font-size: 20px;
+  color: rgba(0,0,0,0.87);
+}
+
+.my-list-item__meta{
+  float: right;
+}
+
+.my-list-item__meta button{
+  padding: 0;
+  color: rgba(0,0,0,0.65);
+}
+
+.my-list-item__meta>button:hover:not(:active)::after{
+  position: absolute;
+  border-radius: 50%;
+  /* opacity: 0; */
+  opacity: 0.5;
+  pointer-events: none;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.12);
+  left: calc(50% - 50%);
+  top: calc(50% - 50%);
+}
+
+.my-list-item__meta>button:active::after{
+  position: absolute;
+  border-radius: 50%;
+  /* opacity: 0; */
+  pointer-events: none;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.12);
+  left: calc(50% - 50%);
+  top: calc(50% - 50%);
+}
+
+#createTypeBtn{
+  //margin-bottom:16px;
+}
+
+.area-closed{
+  height: 0;
+  overflow: hidden;
+}
+
+.part-heading{
+  width: 100%;
+}
+
+.area{
+  border-bottom: 1px solid black;
+  margin-bottom: 8px;
+}
+
+.mdc-list{
+  width: calc(100% - 16px);
+}

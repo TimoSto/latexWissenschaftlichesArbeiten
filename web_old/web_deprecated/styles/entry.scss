@@ -1,0 +1,32 @@
+@use 'common';
+@use 'node_modules/@material/list/index';
+@use "node_modules/@material/menu-surface/mdc-menu-surface";
+@use "node_modules/@material/menu/mdc-menu";
+@use "node_modules/@material/select/styles";
+@use "node_modules/@material/floating-label/mdc-floating-label";
+@use "node_modules/@material/line-ripple/mdc-line-ripple";
+@use "node_modules/@material/notched-outline/mdc-notched-outline";
+@use "node_modules/@material/textfield/index";
+@use 'node_modules/@material/button/mdc-button';
+
+@include textfield.core-styles;
+
+@include list.core-styles;
+
+#keyField, #typeSelect{
+  width: 200px;
+  margin-right: 16px;
+}
+
+#fieldsArea .mdc-text-field{
+  width: calc(50% - 32px);
+  margin: 16px;
+}
+
+#fieldsArea{
+  padding-top: 16px;
+}
+
+ #values{
+   display: none;
+ }

@@ -1,14 +1,14 @@
-@use '~@material/typography/mdc-typography';
-@use '~@material/textfield/mdc-text-field';
-@use '~@material/button/mdc-button';
-@use '~@material/icon-button/mdc-icon-button';
-@use '~@material/ripple/mdc-ripple';
-@use '~@material/select/mdc-select';
-@use '@material/list';
-@use "~@material/menu-surface/mdc-menu-surface";
-@use "~@material/menu/mdc-menu";
-@use "~@material/select/styles";
-@use '@material/top-app-bar/mdc-top-app-bar';
+@use 'node_modules/@material/typography/mdc-typography';
+@use 'node_modules/@material/textfield/mdc-text-field';
+@use 'node_modules/@material/button/mdc-button';
+@use 'node_modules/@material/icon-button/mdc-icon-button';
+@use 'node_modules/@material/ripple/mdc-ripple';
+@use 'node_modules/@material/select/mdc-select';
+@use 'node_modules/@material/list/index';
+@use "node_modules/@material/menu-surface/mdc-menu-surface";
+@use "node_modules/@material/menu/mdc-menu";
+@use "node_modules/@material/select/styles";
+@use 'node_modules/@material/top-app-bar/mdc-top-app-bar';
 @use 'common';
 
 @include list.core-styles;

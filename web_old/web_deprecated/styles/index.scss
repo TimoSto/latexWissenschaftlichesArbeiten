@@ -1,7 +1,6 @@
-
-@use "~@material/top-app-bar/mdc-top-app-bar";
-@use "~@material/typography/mdc-typography";
-@use '~@material/icon-button/mdc-icon-button';
+@use "node_modules/@material/top-app-bar/mdc-top-app-bar";
+@use "node_modules/@material/typography/mdc-typography";
+@use 'node_modules/@material/icon-button/mdc-icon-button';
 @use 'common';
 
 body, html{
@@ -9,10 +8,17 @@ body, html{
   margin: 0;
   height: calc(100% - 16px);
 }
+#content{
+  max-width: 960px;
+  margin: 0 auto;
+  height: 100%;
+  background-color: white;
+}
 .mdc-top-app-bar{
   background-color: white;
   color: rgba(0,0,0,0.80);
   border-bottom: 1px solid rgba(0,0,0,0.50);
+  max-width: 960px;
 }
 
 .mdc-top-app-bar button{
