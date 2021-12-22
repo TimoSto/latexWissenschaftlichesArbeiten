@@ -21,7 +21,7 @@
 		%Area to add new bibifs via gui
 		{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
 		{Kommentar}{\printKommentar{\a}{\b}{\c}{\d}{\e}}%
-		{aufsatz}{\printaufsatz{\a}{\b}{\c}{\d}{\e}}%
+		{Aufsatz}{\printAufsatz{\a}{\b}{\c}{\d}{\e}}%
 		{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
 		{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
 		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
@@ -55,7 +55,7 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printaufsatz}[5]{
+\newcommand{\printAufsatz}[5]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
@@ -153,7 +153,7 @@
 				%Area to add citeifs via gui
 			{Buch}{\footnote{#3\citeBuch{\a}{\b}{#2}}}%
 			{Kommentar}{\footnote{#3\citeKommentar{\a}{\b}{\e}{#2}}}%
-			{aufsatz}{\footnote{#3\citeaufsatz{\a}{\c}{#2}}}%
+			{Aufsatz}{\footnote{#3\citeAufsatz{\a}{\c}{#2}}}%
 			{online}{\footnote{#3\citeonline{\a}{\b}{#2}}}%
 			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}}}%
@@ -177,7 +177,7 @@
 \newcommand{\citeKommentar}[4]{
 	\textit{#1}, #2, #3#4.
 }
-\newcommand{\citeaufsatz}[3]{
+\newcommand{\citeAufsatz}[3]{
 	\textit{#1}, #2, #3.
 }
 \newcommand{\citeonline}[3]{
