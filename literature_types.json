@@ -106,38 +106,38 @@
 					"Suffix": ""
 				}
 			],
-			"Example": ""
+			"Example": "Autor, Titel, Auflage. Auflage,OrtDatum"
 		},
 		{
-			"Name": "aufsatz",
+			"Name": "Aufsatz",
 			"HasCitePage": false,
 			"Fields": [
 				{
-					"Field": "autor",
+					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "titel",
+					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "zeitschrift",
+					"Field": "Zeitschrift",
 					"Style": "normal",
 					"Prefix": "in: ",
 					"Suffix": " "
 				},
 				{
-					"Field": "datum",
+					"Field": "Datum",
 					"Style": "normal",
 					"Prefix": "(",
 					"Suffix": "), "
 				},
 				{
-					"Field": "seiten",
+					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": " "
@@ -145,19 +145,19 @@
 			],
 			"CiteFields": [
 				{
-					"Field": "autor",
+					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "zeitschrift",
+					"Field": "Zeitschrift",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				}
 			],
-			"Example": "autor, titel, in: zeitschrift (datum), seiten "
+			"Example": ""
 		},
 		{
 			"Name": "online",

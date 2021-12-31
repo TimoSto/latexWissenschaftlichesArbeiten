@@ -1,12 +1,12 @@
 import Field from "./Field";
 
-export default function SaveType(name: string, initialName: string, bibFields: Field[], citeFields: Field[]) {
+export default function SaveType(name: string, bibFields: Field[], citeFields: Field[]) {
     let obj = {
         Name: name,
         Fields: bibFields,
         CiteFields: citeFields
     }
-    return window.fetch('/save?initialName='+initialName, {
+    return window.fetch('/save', {
         method: 'POST',
         body: JSON.stringify(obj)
     }).then(response => {

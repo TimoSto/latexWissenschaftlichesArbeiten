@@ -31,4 +31,9 @@
 
 ## Dokumentation
 <a name="documentation" />
-Die Dokumentation zur Benutzung und des Programmcodes ist in `documentation.tex` bzw. [documentation](https://github.com/TimoSto/latexWissenschaftlichesArbeiten/blob/main/documentation.pdf) zu finden. Sie ist nach dem "How-To"-Schema aufgebaut.
+Die Dokumentation zur Benutzung und des Programmcodes ist in 
+
+
+[documentation.pdf](projects/documentation/documentation.pdf)
+
+zu finden. Sie ist nach dem "How-To"-Schema aufgebaut.

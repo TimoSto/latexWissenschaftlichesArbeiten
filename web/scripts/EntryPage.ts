@@ -1,6 +1,5 @@
 import {MDCTextField} from "@material/textfield/component";
 import {MDCSelect} from "@material/select/component";
-import GetTypeFields from "./GetTypeFields";
 import SaveEntry from "./SaveEntry";
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -22,7 +21,12 @@ class EntryPage {
 
     private _initialKey: string = "";
 
+    private project: string;
+
     constructor() {
+
+        this.project = new URLSearchParams(window.location.search).get('project');
+
         this._keyField = new MDCTextField( document.querySelector('#keyField'));
 
         this._typeSelect = new MDCSelect( document.querySelector('#typeSelect') );
@@ -81,11 +85,11 @@ class EntryPage {
             })
         }
 
-        SaveEntry(this._initialKey, valuePairs, this._typeSelect.value, this._keyField.value).then(valid => {
+        SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(valid => {
             if( valid ) {
                 console.log('valid');
                 (<any>window).lapi.ReloadOverview();
-                window.location.href= '/entry/' + this._keyField.value;
+                window.location.href= '/entry/' + this._keyField.value+'?project='+this.project;
             }
         });
     }

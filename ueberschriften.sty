@@ -61,6 +61,15 @@
    \renewcommand*\parttitle{#2}%
 }
 
+\newcommand{\partOnSamePage}[0]{
+	\renewcommand*{\part}[2][]{%
+	%\ifnum\value{part}=0\else\fi%at first part no \clearpage
+		\vspace*{5mm}%Remove vertical space before part-title
+		\origpart{##2}%
+		\renewcommand*\parttitle{##2}%
+	}
+}
+
 %Neue Überschriften-Ebene
 %\usepackage{titletoc}
 %\usepackage{chngcntr}

@@ -1,0 +1,26 @@
+\babel@toc {ngerman}{}
+\contentsline {part}{1\hspace {1em}Wie kann ich dieses Template benutzen?}{1}% 
+\contentsline {section}{\numberline {1.1}Überschriften und Inhaltsverzeichnis}{1}% 
+\contentsline {subsection}{\numberline {1.1.1}Wie kann ich Überschriften auf verschiedenen Ebenen erzeugen?}{1}% 
+\contentsline {subsection}{\numberline {1.1.2}Wie kann ich die Nummerierung der Überschriften ändern?}{1}% 
+\contentsline {subsection}{\numberline {1.1.3}Wie kann ich es verhindern, dass für die oberste Ebene eine neue Seite gemacht wird?}{2}% 
+\contentsline {subsection}{\numberline {1.1.4}Wie kann ich einen Eintrag zum Inhaltsverzeichnis hinzufügen?}{2}% 
+\contentsline {subsection}{\numberline {1.1.5}Wie kann ich das Inhaltsverzeichnis ausgeben?}{2}% 
+\contentsline {section}{\numberline {1.2}Abkürzungsverzeichnis}{2}% 
+\contentsline {section}{\numberline {1.3}Bilder und Tabellen}{2}% 
+\contentsline {subsection}{\numberline {1.3.1}Wie kann ich ein Bild im Text einbinden?}{2}% 
+\contentsline {subsection}{\numberline {1.3.2}Wie kann ich ein Bild im Abbildungsverzeichnis anzeigen?}{3}% 
+\contentsline {section}{\numberline {1.4}Kopf- und Fußzeile}{3}% 
+\contentsline {subsection}{\numberline {1.4.1}Wie kann ich den Titel und den Autor in der Kopf-/Fußzeile ändern?}{3}% 
+\contentsline {subsection}{\numberline {1.4.2}Wie kann ich den oben-rechts angezeigten Abschnitts-Titel ändern?}{3}% 
+\contentsline {section}{\numberline {1.5}Literaturverzeichnis und Zitate}{4}% 
+\contentsline {subsection}{\numberline {1.5.1}Wie kann ich einen Literatur-Typen anlegen/bearbeiten?}{5}% 
+\contentsline {subsection}{\numberline {1.5.2}Wie kann ich ein neues Projekt starten?}{6}% 
+\contentsline {subsection}{\numberline {1.5.3}Wir kann ich diesen erstellten Eintrag dann zitieren und im Literaturverzeichnis aufnehmen?}{7}% 
+\contentsline {part}{2\hspace {1em}Häufig auftretende Fehler/Warnungen}{8}% 
+\contentsline {section}{\numberline {2.1}Overfull hbox}{8}% 
+\contentsline {subsection}{\numberline {2.1.1}Silbentrennung}{8}% 
+\contentsline {section}{\numberline {2.2}Invalid Character, missing \$ inserted, o.ä.}{8}% 
+\contentsline {section}{\numberline {2.3}Leerzeichen nach Sonderzeichen fehlt}{8}% 
+\contentsline {section}{\numberline {2.4}Text eingeschoben}{8}% 
+\contentsline {section}{\numberline {2.5}Bilder und Tabellen fließen in Text}{8}% 

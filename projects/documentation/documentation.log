@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  4 DEC 2021 07:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  31 DEC 2021 11:55
 entering extended mode
 **./documentation.tex
 (documentation.tex
@@ -20,6 +20,31 @@ File: size12.clo 2019/08/27 v1.4j Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/silence\silence.sty
+"
+Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error mes
+sages
+\sl@Save=\count88
+\sl@StateNumber=\count89
+\sl@MessageCount=\count90
+\sl@Casualties=\count91
+\sl@Filter=\toks14
+\sl@Message=\toks15
+\sl@UnexpandedMessage=\toks16
+\sl@Mess@ge=\toks17
+\sl@WarningCount=\count92
+\sl@WarningNumber=\count93
+\sl@WarningCasualties=\count94
+\sl@TempBOW=\toks18
+\sl@BankOfWarnings=\toks19
+LaTeX Info: Redefining \GenericWarning on input line 433.
+\sl@ErrorCount=\count95
+\sl@ErrorNumber=\count96
+\sl@ErrorCasualties=\count97
+\sl@TempBOE=\toks20
+\sl@BankOfErrors=\toks21
+LaTeX Info: Redefining \GenericError on input line 601.
+)
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.s
 ty"
 Package: geometry 2018/04/16 v5.8 Page Geometry
@@ -27,7 +52,7 @@ Package: geometry 2018/04/16 v5.8 Page Geometry
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty
 "
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks14
+\KV@toks@=\toks22
 ) ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifpdf.sty
 "
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
@@ -41,9 +66,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 "
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count88
-\Gm@cntv=\count89
-\c@Gm@tempcnt=\count90
+\Gm@cnth=\count98
+\Gm@cntv=\count99
+\c@Gm@tempcnt=\count100
 \Gm@bindingoffset=\dimen103
 \Gm@wd@mp=\dimen104
 \Gm@odd@mp=\dimen105
@@ -52,7 +77,7 @@ Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen108
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
-\Gm@dimlist=\toks15
+\Gm@dimlist=\toks23
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.c
 fg"))
@@ -81,12 +106,12 @@ hy)
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def"
 File: babel.def 2019/09/27 3.34 Babel common definitions
-\babel@savecnt=\count91
+\babel@savecnt=\count101
 \U@D=\dimen111
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.de
 f")
-\bbl@dirlevel=\count92
+\bbl@dirlevel=\count102
 )
 Package babel Info: Making " an active character on input line 135.
 ))
@@ -144,15 +169,15 @@ Package: pdfpages 2020/01/28 v0.5q Insert pages of external PDF documents (AM)
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 ) ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count93
-\calc@Bcount=\count94
+\calc@Acount=\count103
+\calc@Bcount=\count104
 \calc@Adimen=\dimen112
 \calc@Bdimen=\dimen113
 \calc@Askip=\skip43
 \calc@Bskip=\skip44
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count95
+\calc@Ccount=\count105
 \calc@Cskip=\skip45
 ) ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/eso-pic\eso-pic.s
 ty"
@@ -221,16 +246,16 @@ ef"
 File: pppdftex.def 2020/01/28 v0.5q Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box27
-\AM@global@opts=\toks16
-\AM@pagecnt=\count96
-\AM@toc@title=\toks17
-\c@AM@survey=\count97
+\AM@global@opts=\toks24
+\AM@pagecnt=\count106
+\AM@toc@title=\toks25
+\c@AM@survey=\count107
 \AM@templatesizebox=\box28
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/setspace\setspace.s
 ty"
 Package: setspace 2011/12/19 v6.7a set line spacing
-) (ueberschriften.sty
+) (../../ueberschriften.sty
 Package: ueberschriften 
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/titlesec\titlesec.s
@@ -241,11 +266,11 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \aftertitleunit=\skip47
 \ttl@plus=\dimen118
 \ttl@minus=\dimen119
-\ttl@toksa=\toks18
+\ttl@toksa=\toks26
 \titlewidth=\dimen120
 \titlewidthlast=\dimen121
 \titlewidthfirst=\dimen122
-)) (inhaltsverzeichnis.sty
+)) (../../inhaltsverzeichnis.sty
 Package: inhaltsverzeichnis 
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tocloft\tocloft.sty
@@ -278,14 +303,14 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cftbeforefigskip=\skip71
 \cftfigindent=\skip72
 \cftfignumwidth=\skip73
-\c@lofdepth=\count98
-\c@lotdepth=\count99
+\c@lofdepth=\count108
+\c@lotdepth=\count109
 \cftbeforelottitleskip=\skip74
 \cftafterlottitleskip=\skip75
 \cftbeforetabskip=\skip76
 \cfttabindent=\skip77
 \cfttabnumwidth=\skip78
-)) (abk_verzeichnis.sty
+)) (../../abk_verzeichnis.sty
 Package: abk_verzeichnis 
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/datatool\datatool.s
@@ -300,10 +325,10 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 ex"
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xkeyval\xkvutils.
 tex"
-\XKV@toks=\toks19
-\XKV@tempa@toks=\toks20
+\XKV@toks=\toks27
+\XKV@tempa@toks=\toks28
 )
-\XKV@depth=\count100
+\XKV@depth=\count110
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xfor\xfor.sty"
@@ -311,12 +336,12 @@ Package: xfor 2009/02/05 v1.05 (NLCT)
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/substr\substr.sty"
 Package: substr 2009/10/20 v1.2 Handle substrings
-\c@su@anzahl=\count101
+\c@su@anzahl=\count111
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.s
 ty"
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count102
+\etb@tempcnta=\count112
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/datatool\datatool-b
 ase.sty"
@@ -334,7 +359,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
  ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
 "
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
+\@emptytoks=\toks29
 \ex@=\dimen123
 ))
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
@@ -344,13 +369,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 y"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count103
+\inf@bad=\count113
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count104
-\leftroot@=\count105
+\uproot@=\count114
+\leftroot@=\count115
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count106
-\DOTSCASE@=\count107
+\classnum@=\count116
+\DOTSCASE@=\count117
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
@@ -359,26 +384,26 @@ LaTeX Info: Redefining \cdots on input line 610.
 \big@size=\dimen125
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count108
-\c@MaxMatrixCols=\count109
+\macc@depth=\count118
+\c@MaxMatrixCols=\count119
 \dotsspace@=\muskip10
-\c@parentequation=\count110
-\dspbrk@lvl=\count111
-\tag@help=\toks22
-\row@=\count112
-\column@=\count113
-\maxfields@=\count114
-\andhelp@=\toks23
+\c@parentequation=\count120
+\dspbrk@lvl=\count121
+\tag@help=\toks30
+\row@=\count122
+\column@=\count123
+\maxfields@=\count124
+\andhelp@=\toks31
 \eqnshift@=\dimen126
 \alignsep@=\dimen127
 \tagshift@=\dimen128
 \tagwidth@=\dimen129
 \totwidth@=\dimen130
 \lineht@=\dimen131
-\@envbody=\toks24
+\@envbody=\toks32
 \multlinegap=\skip80
 \multlinetaggap=\skip81
-\mathdisplay@stack=\toks25
+\mathdisplay@stack=\toks33
 LaTeX Info: Redefining \[ on input line 2855.
 LaTeX Info: Redefining \] on input line 2856.
 )
@@ -391,18 +416,18 @@ Package: fp 1995/04/02
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fp\defpattern.sty"
 Package: defpattern 1994/10/12
-\actioncount=\count115
+\actioncount=\count125
 ) ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fp\fp-basic.sty"
 Package: fp-basic 1996/05/13
-\FP@xs=\count116
-\FP@xia=\count117
-\FP@xib=\count118
-\FP@xfa=\count119
-\FP@xfb=\count120
-\FP@rega=\count121
-\FP@regb=\count122
-\FP@regs=\count123
-\FP@times=\count124
+\FP@xs=\count126
+\FP@xia=\count127
+\FP@xib=\count128
+\FP@xfa=\count129
+\FP@xfb=\count130
+\FP@rega=\count131
+\FP@regb=\count132
+\FP@regs=\count133
+\FP@times=\count134
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fp\fp-addons.sty"
 Package: fp-addons 1995/03/15
@@ -421,7 +446,7 @@ Package: fp-pas 1994/08/29
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fp\fp-random.sty"
 Package: fp-random 1995/02/23
-\FPseed=\count125
+\FPseed=\count135
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fp\fp-eqn.sty"
 Package: fp-eqn 1995/04/03
@@ -432,70 +457,70 @@ Package: fp-upn 1996/10/21
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fp\fp-eval.sty"
 Package: fp-eval 1995/04/03
 )))
-\@dtl@toks=\toks26
-\@dtl@tmpcount=\count126
+\@dtl@toks=\toks34
+\@dtl@tmpcount=\count136
 \dtl@tmplength=\skip82
-\dtl@sortresult=\count127
-\@dtl@numgrpsepcount=\count128
-\@dtl@datatype=\count129
-\dtl@codeA=\count130
-\dtl@codeB=\count131
-\@dtl@foreach@level=\count132
+\dtl@sortresult=\count137
+\@dtl@numgrpsepcount=\count138
+\@dtl@datatype=\count139
+\dtl@codeA=\count140
+\dtl@codeB=\count141
+\@dtl@foreach@level=\count142
 )
-\dtlcolumnnum=\count133
-\dtlrownum=\count134
-\@dtl@before=\toks27
-\@dtl@after=\toks28
-\@dtl@colhead=\toks29
-\dtlcurrentrow=\toks30
-\dtlbeforerow=\toks31
-\dtlafterrow=\toks32
-\dtlforeachlevel=\count135
-\c@DTLrowi=\count136
-\c@DTLrowii=\count137
-\c@DTLrowiii=\count138
-\c@DTLrow=\count139
-\dtl@rowi=\count140
-\dtl@rowii=\count141
-\dtl@rowiii=\count142
-\@dtl@curi=\toks33
-\@dtl@previ=\toks34
-\@dtl@nexti=\toks35
-\@dtl@curii=\toks36
-\@dtl@previi=\toks37
-\@dtl@nextii=\toks38
-\@dtl@curiii=\toks39
-\@dtl@previii=\toks40
-\@dtl@nextiii=\toks41
-\@dtl@elements=\count143
-\@dtl@list=\toks42
-\@dtl@rowa=\toks43
-\@dtl@rowb=\toks44
-\@dtl@toksA=\toks45
-\@dtl@toksB=\toks46
+\dtlcolumnnum=\count143
+\dtlrownum=\count144
+\@dtl@before=\toks35
+\@dtl@after=\toks36
+\@dtl@colhead=\toks37
+\dtlcurrentrow=\toks38
+\dtlbeforerow=\toks39
+\dtlafterrow=\toks40
+\dtlforeachlevel=\count145
+\c@DTLrowi=\count146
+\c@DTLrowii=\count147
+\c@DTLrowiii=\count148
+\c@DTLrow=\count149
+\dtl@rowi=\count150
+\dtl@rowii=\count151
+\dtl@rowiii=\count152
+\@dtl@curi=\toks41
+\@dtl@previ=\toks42
+\@dtl@nexti=\toks43
+\@dtl@curii=\toks44
+\@dtl@previi=\toks45
+\@dtl@nextii=\toks46
+\@dtl@curiii=\toks47
+\@dtl@previii=\toks48
+\@dtl@nextiii=\toks49
+\@dtl@elements=\count153
+\@dtl@list=\toks50
+\@dtl@rowa=\toks51
+\@dtl@rowb=\toks52
+\@dtl@toksA=\toks53
+\@dtl@toksB=\toks54
 \@dtl@write=\write3
 \@dtl@read=\read1
-\dtl@entrycr=\count144
-\dtl@omitlines=\count145
+\dtl@entrycr=\count154
+\dtl@omitlines=\count155
 ) ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty
 "
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks47
-\inpenc@posthook=\toks48
+\inpenc@prehook=\toks55
+\inpenc@posthook=\toks56
 )
-\dtldb@abkuerzungen=\toks49
-\dtlkeys@abkuerzungen=\toks50
-\dtlrows@abkuerzungen=\count146
-\dtlcols@abkuerzungen=\count147
-) (fusszeilen.sty
+\dtldb@abkuerzungen=\toks57
+\dtlkeys@abkuerzungen=\toks58
+\dtlrows@abkuerzungen=\count156
+\dtlcols@abkuerzungen=\count157
+) (../../fusszeilen.sty
 Package: fusszeilen 
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/footmisc\footmisc.s
 ty"
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
-\FN@temptoken=\toks51
+\FN@temptoken=\toks59
 \footnotemargin=\dimen132
-\c@pp@next@reset=\count148
+\c@pp@next@reset=\count158
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
 Package footmisc Info: Declaring symbol style wiley on input line 872.
@@ -504,23 +529,23 @@ Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
 Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
-)) (literatur.sty
+)) (../../literatur.sty
 Package: literatur 
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xstring\xstring.sty
 "
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/generic/xstring\xstring.t
 ex"
-\integerpart=\count149
-\decimalpart=\count150
+\integerpart=\count159
+\decimalpart=\count160
 )
 Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 )
-\dtldb@literatur=\toks52
-\dtlkeys@literatur=\toks53
-\dtlrows@literatur=\count151
-\dtlcols@literatur=\count152
-) (header_footer.sty
+\dtldb@literatur=\toks60
+\dtlkeys@literatur=\toks61
+\dtlrows@literatur=\count161
+\dtlcols@literatur=\count162
+) (../../header_footer.sty
 Package: header_footer 
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fancyhdr.s
@@ -536,29 +561,29 @@ s
 \f@nch@O@erf=\skip89
 \f@nch@O@olf=\skip90
 \f@nch@O@orf=\skip91
-)) (codes.sty
+)) (../../codes.sty
 Package: codes 
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.s
 ty"
-\lst@mode=\count153
+\lst@mode=\count163
 \lst@gtempboxa=\box32
-\lst@token=\toks54
-\lst@length=\count154
+\lst@token=\toks62
+\lst@length=\count164
 \lst@currlwidth=\dimen133
-\lst@column=\count155
-\lst@pos=\count156
+\lst@column=\count165
+\lst@pos=\count166
 \lst@lostspace=\dimen134
 \lst@width=\dimen135
-\lst@newlines=\count157
-\lst@lineno=\count158
+\lst@newlines=\count167
+\lst@lineno=\count168
 \lst@maxwidth=\dimen136
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.st
 y"
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\c@lstnumber=\count159
-\lst@skipnumbers=\count160
+\c@lstnumber=\count169
+\lst@skipnumbers=\count170
 \lst@framebox=\box33
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.c
@@ -566,7 +591,7 @@ fg"
 File: listings.cfg 2019/09/10 1.8c listings configuration
 ))
 Package: listings 2019/09/10 1.8c (Carsten Heinz)
-) (anhang.sty
+) (../../anhang.sty
 Package: anhang 
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\longtable.sty
@@ -576,17 +601,17 @@ Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LTright=\skip93
 \LTpre=\skip94
 \LTpost=\skip95
-\LTchunksize=\count161
+\LTchunksize=\count171
 \LTcapwidth=\dimen137
 \LT@head=\box34
 \LT@firsthead=\box35
 \LT@foot=\box36
 \LT@lastfoot=\box37
-\LT@cols=\count162
-\LT@rows=\count163
-\c@LT@tables=\count164
-\c@LT@chunks=\count165
-\LT@p@ftn=\toks55
+\LT@cols=\count172
+\LT@rows=\count173
+\c@LT@tables=\count174
+\c@LT@chunks=\count175
+\LT@p@ftn=\toks63
 ) ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tabu\tabu.sty"
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 
@@ -595,7 +620,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen138
 \ar@mcellbox=\box38
 \extrarowheight=\dimen139
-\NC@list=\toks56
+\NC@list=\toks64
 \extratabsurround=\skip96
 \backup@length=\skip97
 \ar@cellbox=\box39
@@ -604,16 +629,16 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 ty"
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box40
-\sift@deathcycles=\count166
+\sift@deathcycles=\count176
 \@vwid@loff=\dimen140
 \@vwid@roff=\dimen141
 )
-\c@taburow=\count167
-\tabu@nbcols=\count168
-\tabu@cnt=\count169
-\tabu@Xcol=\count170
-\tabu@alloc=\count171
-\tabu@nested=\count172
+\c@taburow=\count177
+\tabu@nbcols=\count178
+\tabu@cnt=\count179
+\tabu@Xcol=\count180
+\tabu@alloc=\count181
+\tabu@nested=\count182
 \tabu@target=\dimen142
 \tabu@spreadtarget=\dimen143
 \tabu@naturalX=\dimen144
@@ -623,23 +648,23 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \abovetabulinesep=\dimen148
 \belowtabulinesep=\dimen149
 \tabustrutrule=\dimen150
-\tabu@thebody=\toks57
-\tabu@footnotes=\toks58
+\tabu@thebody=\toks65
+\tabu@footnotes=\toks66
 \tabu@box=\box41
 \tabu@arstrutbox=\box42
 \tabu@hleads=\box43
 \tabu@vleads=\box44
 \tabu@cellskip=\skip98
 )
-\c@anhang=\count173
+\c@anhang=\count183
 \cftbeforeanhangskip=\skip99
 \cftanhangindent=\skip100
 \cftanhangnumwidth=\skip101
-\c@mcfdepth=\count174
+\c@mcfdepth=\count184
 \cftbeforemcftitleskip=\skip102
 \cftaftermcftitleskip=\skip103
-\c@theanhangI=\count175
-\c@theanhangII=\count176
+\c@theanhangI=\count185
+\c@theanhangII=\count186
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty"
 Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
@@ -652,34 +677,28 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ty"
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen151
-\c@nlinenum=\count177
-\TeXr@lab=\toks59
+\c@nlinenum=\count187
+\TeXr@lab=\toks67
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/placeins\placeins.s
 ty"
 Package: placeins 2005/04/18  v 2.2
-)
-("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim.sty"
-Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks60
-\verbatim@line=\toks61
-\verbatim@in@stream=\read2
 ) (documentation.aux)
 \openout1 = `documentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 65
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 61
 .
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ptm.fd"
@@ -724,17 +743,17 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
 f.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count178
+\scratchcounter=\count188
 \scratchdimen=\dimen152
 \scratchbox=\box46
-\nofMPsegments=\count179
-\nofMParguments=\count180
-\everyMPshowfont=\toks62
-\MPscratchCnt=\count181
+\nofMPsegments=\count189
+\nofMParguments=\count190
+\everyMPshowfont=\toks68
+\MPscratchCnt=\count191
 \MPscratchDim=\dimen153
-\MPnumerator=\count182
-\makeMPintoPDFobject=\count183
-\everyMPtoPDFconversion=\toks63
+\MPnumerator=\count192
+\makeMPintoPDFobject=\count193
+\everyMPtoPDFconversion=\toks69
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-b
 ase.sty"
@@ -790,62 +809,11 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count184
+\c@lstlisting=\count194
+ [1
 
-
-pdfTeX warning: pdflatex.exe (file ./titelseiteAlternative.pdf): PDF inclusion:
- found PDF version <1.7>, but at most version <1.5> allowed
-<titelseiteAlternative.pdf, id=1, 597.55246pt x 845.07718pt>
-File: titelseiteAlternative.pdf Graphic file (type pdf)
-<use titelseiteAlternative.pdf>
-Package pdftex.def Info: titelseiteAlternative.pdf  used on input line 70.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseiteAlternative.pdf): PDF inclusion:
- found PDF version <1.7>, but at most version <1.5> allowed
-File: titelseiteAlternative.pdf Graphic file (type pdf)
-<use titelseiteAlternative.pdf>
-Package pdftex.def Info: titelseiteAlternative.pdf  used on input line 70.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseiteAlternative.pdf): PDF inclusion:
- found PDF version <1.7>, but at most version <1.5> allowed
-
-
-pdfTeX warning: pdflatex.exe (file ./titelseiteAlternative.pdf): PDF inclusion:
- found PDF version <1.7>, but at most version <1.5> allowed
-<titelseiteAlternative.pdf, id=4, page=1, 597.55246pt x 845.07718pt>
-File: titelseiteAlternative.pdf Graphic file (type pdf)
-<use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-0.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-File: titelseiteAlternative.pdf Graphic file (type pdf)
-<use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-0.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseiteAlternative.pdf Graphic file (type pdf)
-<use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-0.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseiteAlternative.pdf Graphic file (type pdf)
-<use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-0.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseiteAlternative.pdf Graphic file (type pdf)
-<use titelseiteAlternative.pdf, page 1>
-Package pdftex.def Info: titelseiteAlternative.pdf , page1 used on input line 7
-0.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[1
-
- <./titelseiteAlternative.pdf>] [1{C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdfte
-x/config/pdftex.map}] (documentation.lof
+{C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(documentation.toc
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
  2.
 
@@ -882,110 +850,90 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 )
-\tf@lof=\write4
-\openout4 = `documentation.lof'.
+\tf@toc=\write4
+\openout4 = `documentation.toc'.
 
- [2
-
-] (documentation.lot)
-\tf@lot=\write5
-\openout5 = `documentation.lot'.
-
- [3
-
-] (documentation.toc)
-\tf@toc=\write6
-\openout6 = `documentation.toc'.
-
- [4
+ [1
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-10.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9
+5.
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-<dokuImages/toc_num.png, id=41, 434.37282pt x 269.50688pt>
+<dokuImages/toc_num.png, id=9, 434.37282pt x 269.50688pt>
 File: dokuImages/toc_num.png Graphic file (type png)
 <use dokuImages/toc_num.png>
-Package pdftex.def Info: dokuImages/toc_num.png  used on input line 130.
+Package pdftex.def Info: dokuImages/toc_num.png  used on input line 115.
 (pdftex.def)             Requested size: 209.1301pt x 129.7566pt.
-<dokuImages/toc_alphanum.png, id=43, 432.86719pt x 268.75406pt>
+<dokuImages/toc_alphanum.png, id=11, 432.86719pt x 268.75406pt>
 File: dokuImages/toc_alphanum.png Graphic file (type png)
 <use dokuImages/toc_alphanum.png>
-Package pdftex.def Info: dokuImages/toc_alphanum.png  used on input line 136.
+Package pdftex.def Info: dokuImages/toc_alphanum.png  used on input line 121.
 (pdftex.def)             Requested size: 209.1301pt x 129.84116pt.
 
 [1
 
  <./dokuImages/toc_num.png> <./dokuImages/toc_alphanum.png>] [2]
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 2
-00.
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 1
+90.
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 200.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 190.
 
 [3] [4]
-<dokuImages/gui1_1.png, id=62, 1445.4pt x 775.39688pt>
+<dokuImages/gui1_1.png, id=29, 1443.89438pt x 590.205pt>
 File: dokuImages/gui1_1.png Graphic file (type png)
 <use dokuImages/gui1_1.png>
-Package pdftex.def Info: dokuImages/gui1_1.png  used on input line 260.
-(pdftex.def)             Requested size: 397.41666pt x 213.19339pt.
-<dokuImages/gui1_2.png, id=63, 911.65594pt x 679.03688pt>
+Package pdftex.def Info: dokuImages/gui1_1.png  used on input line 250.
+(pdftex.def)             Requested size: 397.41666pt x 162.44646pt.
+<dokuImages/gui1_2.png, id=30, 1445.4pt x 590.205pt>
 File: dokuImages/gui1_2.png Graphic file (type png)
 <use dokuImages/gui1_2.png>
-Package pdftex.def Info: dokuImages/gui1_2.png  used on input line 262.
-(pdftex.def)             Requested size: 397.41666pt x 296.0107pt.
-<dokuImages/gui1_3.png, id=64, 915.42pt x 674.52pt>
+Package pdftex.def Info: dokuImages/gui1_2.png  used on input line 253.
+(pdftex.def)             Requested size: 397.41666pt x 162.27534pt.
+<dokuImages/gui1_3.png, id=31, 1443.14156pt x 694.84593pt>
 File: dokuImages/gui1_3.png Graphic file (type png)
 <use dokuImages/gui1_3.png>
-Package pdftex.def Info: dokuImages/gui1_3.png  used on input line 264.
-(pdftex.def)             Requested size: 397.41666pt x 292.82716pt.
+Package pdftex.def Info: dokuImages/gui1_3.png  used on input line 255.
+(pdftex.def)             Requested size: 397.41666pt x 191.34297pt.
  [5 <./dokuImages/gui1_1.png> <./dokuImages/gui1_2.png>]
-<dokuImages/gui1_4.png, id=69, 919.93687pt x 673.76718pt>
-File: dokuImages/gui1_4.png Graphic file (type png)
-<use dokuImages/gui1_4.png>
-Package pdftex.def Info: dokuImages/gui1_4.png  used on input line 266.
-(pdftex.def)             Requested size: 397.41666pt x 291.0713pt.
- [6 <./dokuImages/gui1_3.png> <./dokuImages/gui1_4.png>]
-<dokuImages/gui2_1.png, id=75, 919.93687pt x 670.00313pt>
+<dokuImages/gui2_1.png, id=38, 1444.64719pt x 694.84593pt>
 File: dokuImages/gui2_1.png Graphic file (type png)
 <use dokuImages/gui2_1.png>
-Package pdftex.def Info: dokuImages/gui2_1.png  used on input line 275.
-(pdftex.def)             Requested size: 397.41666pt x 289.44522pt.
-<dokuImages/gui2_2.png, id=76, 888.31876pt x 607.51968pt>
+Package pdftex.def Info: dokuImages/gui2_1.png  used on input line 265.
+(pdftex.def)             Requested size: 397.41666pt x 191.14153pt.
+<dokuImages/gui2_2.png, id=39, 1444.64719pt x 701.62125pt>
 File: dokuImages/gui2_2.png Graphic file (type png)
 <use dokuImages/gui2_2.png>
-Package pdftex.def Info: dokuImages/gui2_2.png  used on input line 277.
-(pdftex.def)             Requested size: 397.41666pt x 271.78688pt.
- [7 <./dokuImages/gui2_1.png>] [8 <./dokuImages/gui2_2.png>] [9
+Package pdftex.def Info: dokuImages/gui2_2.png  used on input line 268.
+(pdftex.def)             Requested size: 397.41666pt x 193.00531pt.
+ [6 <./dokuImages/gui1_3.png> <./dokuImages/gui2_1.png>] [7 <./dokuImages/gui2_
+2.png>] [8
 
-] [10
-
-] [11] [5
-
-] (documentation.aux) ) 
+]
+[9] (documentation.aux) ) 
 Here is how much of TeX's memory you used:
- 11059 strings out of 492452
- 157329 string characters out of 3120530
- 304627 words of memory out of 3000000
- 15115 multiletter control sequences out of 15000+200000
+ 11141 strings out of 492452
+ 158487 string characters out of 3120530
+ 305434 words of memory out of 3000000
+ 15203 multiletter control sequences out of 15000+200000
  31056 words of font info for 50 fonts, out of 3000000 for 9000
- 1143 hyphenation exceptions out of 8191
- 58i,18n,49p,841b,546s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/e
-nc/dvips/base/8r.enc} <C:\Users\tsto\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/j
-knappen/ec/dpi600\ectt1200.pk><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/tsto/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/tsto/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on documentation.pdf (17 pages, 478246 bytes).
+ 1142 hyphenation exceptions out of 8191
+ 58i,11n,49p,841b,358s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts
+/enc/dvips/base/8r.enc} <C:\Users\tsto\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
+/jknappen/ec/dpi600\ectt1200.pk><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/tsto/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/tsto/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on documentation.pdf (11 pages, 309827 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
+ 140 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
