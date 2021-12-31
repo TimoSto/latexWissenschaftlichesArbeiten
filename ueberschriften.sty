@@ -63,8 +63,8 @@
 
 \newcommand{\partOnSamePage}[0]{
 	\renewcommand*{\part}[2][]{%
-	%\ifnum\value{part}=0\else\fi%at first part no \clearpage
-		\vspace*{5mm}%Remove vertical space before part-title
+		\ifnum\value{part}=0\vspace*{-12pt}\else\vspace*{12pt}\fi%at first part no \clearpage
+		%Remove vertical space before part-title
 		\origpart{##2}%
 		\renewcommand*\parttitle{##2}%
 	}
