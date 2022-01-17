@@ -157,7 +157,7 @@
 					"Suffix": ", "
 				}
 			],
-			"Example": ""
+			"Example": "Autor, Titel, in: Zeitschrift (Datum), Seiten "
 		},
 		{
 			"Name": "online",
@@ -452,6 +452,183 @@
 				}
 			],
 			"Example": "AutorDatumTitel"
+		},
+		{
+			"Name": "AufsatzAusgabe",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Zeitschrift",
+					"Style": "normal",
+					"Prefix": "in: ",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Ausgabe",
+					"Style": "normal",
+					"Prefix": "Ausgabe ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Heft",
+					"Style": "normal",
+					"Prefix": "Heft ",
+					"Suffix": "), "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S.",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Zeitschrift",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				}
+			],
+			"Example": "Autor, Titel, in: Zeitschrift (Jahr, Ausgabe Ausgabe, Heft Heft), S.Seiten"
+		},
+		{
+			"Name": "AufsatzURL",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Zeitschrift",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Ausgabe",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				},
+				{
+					"Field": "URL",
+					"Style": "normal",
+					"Prefix": "abrufbar unter: ",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Zeitschrift",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Autor, Titel, Zeitschrift Ausgabe, S. Seiten (Jahr), abrufbar unter: URL"
+		},
+		{
+			"Name": "onlineArticle",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				},
+				{
+					"Field": "OnlineDB",
+					"Style": "italic",
+					"Prefix": "abrufbar unter ",
+					"Suffix": ": "
+				},
+				{
+					"Field": "URL",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": ""
 		}
 	]
 }

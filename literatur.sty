@@ -28,6 +28,9 @@
 		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
 		{meintype}{\printmeintype{\a}{\b}{\c}}%
 		{Test}{\printTest{\a}{\b}{\c}}%
+		{AufsatzAusgabe}{\printAufsatzAusgabe{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+		{AufsatzURL}{\printAufsatzURL{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+		{onlineArticle}{\printonlineArticle{\a}{\b}{\c}{\d}{\e}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -118,6 +121,33 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printAufsatzAusgabe}[7]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}, #2, in: #3 (#4, Ausgabe #5, Heft #6), S.#7
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printAufsatzURL}[7]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	#1, #2, \textit{#3} #4, S. #5 (#6), abrufbar unter: #7
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printonlineArticle}[5]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}, #2 (#3), abrufbar unter \textit{#4}: #5
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -160,6 +190,9 @@
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
 			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}}}%
 			{Test}{\footnote{#3\citeTest{\a}{\c}{#2}}}%
+			{AufsatzAusgabe}{\footnote{#3\citeAufsatzAusgabe{\a}{\c}{#2}}}%
+			{AufsatzURL}{\footnote{#3\citeAufsatzURL{\c}{\f}{#2}}}%
+			{onlineArticle}{\footnote{#3\citeonlineArticle{\a}{\c}{#2}}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -197,6 +230,15 @@
 }
 \newcommand{\citeTest}[3]{
 	#1#2#3.
+}
+\newcommand{\citeAufsatzAusgabe}[3]{
+	\textit{#1}, #2, #3.
+}
+\newcommand{\citeAufsatzURL}[3]{
+	\textit{#1} (#2), #3.
+}
+\newcommand{\citeonlineArticle}[3]{
+	\textit{#1} (#2), #3.
 }
 %end area
 
