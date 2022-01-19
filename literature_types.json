@@ -412,7 +412,7 @@
 					"Suffix": ""
 				}
 			],
-			"Example": "Autor, Titel (Jahr)"
+			"Example": ""
 		},
 		{
 			"Name": "Test",
@@ -628,7 +628,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": ""
+			"Example": "Autor, Titel (Jahr), abrufbar unter OnlineDB: URL"
 		}
 	]
 }

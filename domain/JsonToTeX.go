@@ -15,6 +15,7 @@ func SaveTypesToLaTeX(types []LiteratureType) error{
 
 	citeCommands := "%Area to add citecommands via gui\n" + GenerateCiteCommands(types) + "%end area"
 	ifsForCiteCommands := "%Area to add citeifs via gui\n" + GenerateIfsForCiteCommands(types) + "\t\t%end area"
+	ifsForInlineCiteCommands := "%Area to add citeifs_inline via gui\n" + GenerateIfsForInlineCiteCommands(types) + "\t\t%end area"
 	fmt.Println(ifsForCiteCommands)
 	file, err := ioutil.ReadFile("./literatur.sty")
 	if err != nil {
@@ -29,6 +30,8 @@ func SaveTypesToLaTeX(types []LiteratureType) error{
 	newFile = m3.ReplaceAllString(newFile, citeCommands)
 	m4 := regexp.MustCompile(`(?s)%Area to add citeifs via gui(.*?)%end area`)
 	newFile = m4.ReplaceAllString(newFile, ifsForCiteCommands)
+	m5 := regexp.MustCompile(`(?s)%Area to add citeifs_inline via gui(.*?)%end area`)
+	newFile = m5.ReplaceAllString(newFile, ifsForInlineCiteCommands)
 
 	return ioutil.WriteFile("./literatur.sty", []byte(newFile), 0644)
 }
@@ -80,7 +83,7 @@ func GenerateCiteCommands(types []LiteratureType) string {
 	commands := ""
 
 	for _,lType := range types {
-		command := `\newcommand{\cite`+lType.Name+"}[" + strconv.Itoa(len(lType.CiteFields)+1) + "]{\n\t"
+		command := `\newcommand{\cite`+lType.Name+"}[" + strconv.Itoa(len(lType.CiteFields)+1) + "]{%\n\t"
 
 		for i,field := range lType.CiteFields {
 			command += field.Prefix
@@ -93,7 +96,7 @@ func GenerateCiteCommands(types []LiteratureType) string {
 			}
 			command += field.Suffix
 		}
-		command += "#"+ strconv.Itoa(len(lType.CiteFields) + 1) +".\n}\n"
+		command += "#"+ strconv.Itoa(len(lType.CiteFields) + 1) +"%\n}\n"
 		commands += command
 	}
 
@@ -110,7 +113,24 @@ func GenerateIfsForCiteCommands(types []LiteratureType) string{
 			fieldIndex := GetFieldIndex(lType.Fields, field.Field)
 			command += `{\` + toChar(fieldIndex+1) + `}`
 		}
-		command += `{#2}}`
+		command += `{#2}.}`
+		command += `}%` + "\n"
+		commands += command
+	}
+	return commands
+}
+
+func GenerateIfsForInlineCiteCommands(types []LiteratureType) string{
+	commands := ""
+
+	for _,lType := range types {
+		command := "\t\t\t{" + lType.Name + `}{ ({#3\cite` + lType.Name
+
+		for _,field := range lType.CiteFields {
+			fieldIndex := GetFieldIndex(lType.Fields, field.Field)
+			command += `{\` + toChar(fieldIndex+1) + `}`
+		}
+		command += `{#2})}`
 		command += `}%` + "\n"
 		commands += command
 	}

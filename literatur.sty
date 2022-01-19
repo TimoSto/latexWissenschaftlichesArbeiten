@@ -220,20 +220,20 @@
 		\IfStrEqCase{\key}{{#1}{%
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
-			%Area to add citeifs via gui
-					{Buch}{ (#3\citeBuch{\a}{\b}{#2})}%
-					{Kommentar}{ (#3\citeKommentar{\a}{\b}{\e}{#2})}%
-					{Aufsatz}{ (#3\citeAufsatz{\a}{\c}{#2})}%
-					{online}{ (#3\citeonline{\a}{\b}{#2})}%
-					{workingpaper}{ (#3\citeworkingpaper{\a}{\b}{#2})}%
-					{sammelwerk}{ (#3\citesammelwerk{\a}{\b}{#2})}%
-					{hrsgsammel}{ (#3\citehrsgsammel{\a}{\b}{#2})}%
-					{meintype}{ (#3\citemeintype{\a}{\c}{#2})}%
-					{Test}{ (#3\citeTest{\a}{\c}{#2})}%
-					{AufsatzAusgabe}{ (#3\citeAufsatzAusgabe{\a}{\c}{#2})}%
-					{AufsatzURL}{ (#3\citeAufsatzURL{\c}{\f}{#2})}%
-					{onlineArticle}{ (#3\citeonlineArticle{\a}{\c}{#2})}%
-			%end area
+			%Area to add citeifs_inline via gui
+			{Buch}{ ({#3\citeBuch{\a}{\b}{#2})}}%
+			{Kommentar}{ ({#3\citeKommentar{\a}{\b}{\e}{#2})}}%
+			{Aufsatz}{ ({#3\citeAufsatz{\a}{\c}{#2})}}%
+			{online}{ ({#3\citeonline{\a}{\b}{#2})}}%
+			{workingpaper}{ ({#3\citeworkingpaper{\a}{\b}{#2})}}%
+			{sammelwerk}{ ({#3\citesammelwerk{\a}{\b}{#2})}}%
+			{hrsgsammel}{ ({#3\citehrsgsammel{\a}{\b}{#2})}}%
+			{meintype}{ ({#3\citemeintype{\a}{\c}{#2})}}%
+			{Test}{ ({#3\citeTest{\a}{\c}{#2})}}%
+			{AufsatzAusgabe}{ ({#3\citeAufsatzAusgabe{\a}{\c}{#2})}}%
+			{AufsatzURL}{ ({#3\citeAufsatzURL{\c}{\f}{#2})}}%
+			{onlineArticle}{ ({#3\citeonlineArticle{\a}{\c}{#2})}}%
+		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
 	}%
@@ -244,40 +244,40 @@
 
 %Prints für verschiedene Fußnotenarten
 %Area to add citecommands via gui
-\newcommand{\citeBuch}[3]{
+\newcommand{\citeBuch}[3]{%
 	\textit{#1}, #2, #3%
 }
-\newcommand{\citeKommentar}[4]{
+\newcommand{\citeKommentar}[4]{%
 	\textit{#1}, #2, #3#4%
 }
-\newcommand{\citeAufsatz}[3]{
+\newcommand{\citeAufsatz}[3]{%
 	\textit{#1}, #2, #3%
 }
-\newcommand{\citeonline}[3]{
+\newcommand{\citeonline}[3]{%
 	\textit{#1}, #2#3%
 }
-\newcommand{\citeworkingpaper}[3]{
+\newcommand{\citeworkingpaper}[3]{%
 	\textit{#1}, #2, #3%
 }
-\newcommand{\citesammelwerk}[3]{
+\newcommand{\citesammelwerk}[3]{%
 	\textit{#1}, #2, #3%
 }
-\newcommand{\citehrsgsammel}[3]{
+\newcommand{\citehrsgsammel}[3]{%
 	\textit{#1}, #2, #3%
 }
-\newcommand{\citemeintype}[3]{
+\newcommand{\citemeintype}[3]{%
 	\textit{#1}, #2#3%
 }
-\newcommand{\citeTest}[3]{
+\newcommand{\citeTest}[3]{%
 	#1#2#3%
 }
-\newcommand{\citeAufsatzAusgabe}[3]{
+\newcommand{\citeAufsatzAusgabe}[3]{%
 	\textit{#1}, #2, #3%
 }
-\newcommand{\citeAufsatzURL}[3]{
+\newcommand{\citeAufsatzURL}[3]{%
 	\textit{#1} (#2), #3%
 }
-\newcommand{\citeonlineArticle}[3]{
+\newcommand{\citeonlineArticle}[3]{%
 	\textit{#1} (#2), #3%
 }
 %end area
