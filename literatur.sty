@@ -171,8 +171,18 @@
 %}
 \usepackage{xcolor}
 
+\newcommand{\citebib}[3]{%
+	\citebibFootnote{#1}{#2}{#3}%
+}
+
+\newcommand{\useInlineCites}[0]{%
+	\renewcommand{\citebib}[3]{%
+		\citebibInline{##1}{##2}{##3}%
+	}%
+}%
+
 \newcommand{\entryfound}{false}%
-\newcommand{\citebib}[3]{{%
+\newcommand{\citebibFootnote}[3]{{%
 	\renewcommand{\entryfound}{false}%
 	\DTLforeach*{literatur}%
 	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h}%
@@ -181,18 +191,18 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{Buch}{\footnote{#3\citeBuch{\a}{\b}{#2}}}%
-			{Kommentar}{\footnote{#3\citeKommentar{\a}{\b}{\e}{#2}}}%
-			{Aufsatz}{\footnote{#3\citeAufsatz{\a}{\c}{#2}}}%
-			{online}{\footnote{#3\citeonline{\a}{\b}{#2}}}%
-			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}}}%
-			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}}}%
-			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}}}%
-			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}}}%
-			{Test}{\footnote{#3\citeTest{\a}{\c}{#2}}}%
-			{AufsatzAusgabe}{\footnote{#3\citeAufsatzAusgabe{\a}{\c}{#2}}}%
-			{AufsatzURL}{\footnote{#3\citeAufsatzURL{\c}{\f}{#2}}}%
-			{onlineArticle}{\footnote{#3\citeonlineArticle{\a}{\c}{#2}}}%
+			{Buch}{\footnote{#3\citeBuch{\a}{\b}{#2}.}}%
+			{Kommentar}{\footnote{#3\citeKommentar{\a}{\b}{\e}{#2}.}}%
+			{Aufsatz}{\footnote{#3\citeAufsatz{\a}{\c}{#2}.}}%
+			{online}{\footnote{#3\citeonline{\a}{\b}{#2}.}}%
+			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}.}}%
+			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}.}}%
+			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}.}}%
+			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}.}}%
+			{Test}{\footnote{#3\citeTest{\a}{\c}{#2}.}}%
+			{AufsatzAusgabe}{\footnote{#3\citeAufsatzAusgabe{\a}{\c}{#2}.}}%
+			{AufsatzURL}{\footnote{#3\citeAufsatzURL{\c}{\f}{#2}.}}%
+			{onlineArticle}{\footnote{#3\citeonlineArticle{\a}{\c}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -202,43 +212,73 @@
 	}%
 }}
 
+\newcommand{\citebibInline}[3]{{%
+	\renewcommand{\entryfound}{false}%
+	\DTLforeach*{literatur}%
+	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h}%
+	{%
+		\IfStrEqCase{\key}{{#1}{%
+			\renewcommand{\entryfound}{true}%
+			\IfStrEqCase{\type}{%
+			%Area to add citeifs via gui
+					{Buch}{ (#3\citeBuch{\a}{\b}{#2})}%
+					{Kommentar}{ (#3\citeKommentar{\a}{\b}{\e}{#2})}%
+					{Aufsatz}{ (#3\citeAufsatz{\a}{\c}{#2})}%
+					{online}{ (#3\citeonline{\a}{\b}{#2})}%
+					{workingpaper}{ (#3\citeworkingpaper{\a}{\b}{#2})}%
+					{sammelwerk}{ (#3\citesammelwerk{\a}{\b}{#2})}%
+					{hrsgsammel}{ (#3\citehrsgsammel{\a}{\b}{#2})}%
+					{meintype}{ (#3\citemeintype{\a}{\c}{#2})}%
+					{Test}{ (#3\citeTest{\a}{\c}{#2})}%
+					{AufsatzAusgabe}{ (#3\citeAufsatzAusgabe{\a}{\c}{#2})}%
+					{AufsatzURL}{ (#3\citeAufsatzURL{\c}{\f}{#2})}%
+					{onlineArticle}{ (#3\citeonlineArticle{\a}{\c}{#2})}%
+			%end area
+			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
+		}}%
+	}%
+	\IfStrEqCase{\entryfound}{%
+			{false}{ ({\color{red}Literatureintrag mit Key "#1 " nicht gefunden})}%
+	}%
+}}
+
 %Prints für verschiedene Fußnotenarten
 %Area to add citecommands via gui
 \newcommand{\citeBuch}[3]{
-	\textit{#1}, #2, #3.
+	\textit{#1}, #2, #3%
 }
 \newcommand{\citeKommentar}[4]{
-	\textit{#1}, #2, #3#4.
+	\textit{#1}, #2, #3#4%
 }
 \newcommand{\citeAufsatz}[3]{
-	\textit{#1}, #2, #3.
+	\textit{#1}, #2, #3%
 }
 \newcommand{\citeonline}[3]{
-	\textit{#1}, #2#3.
+	\textit{#1}, #2#3%
 }
 \newcommand{\citeworkingpaper}[3]{
-	\textit{#1}, #2, #3.
+	\textit{#1}, #2, #3%
 }
 \newcommand{\citesammelwerk}[3]{
-	\textit{#1}, #2, #3.
+	\textit{#1}, #2, #3%
 }
 \newcommand{\citehrsgsammel}[3]{
-	\textit{#1}, #2, #3.
+	\textit{#1}, #2, #3%
 }
 \newcommand{\citemeintype}[3]{
-	\textit{#1}, #2#3.
+	\textit{#1}, #2#3%
 }
 \newcommand{\citeTest}[3]{
-	#1#2#3.
+	#1#2#3%
 }
 \newcommand{\citeAufsatzAusgabe}[3]{
-	\textit{#1}, #2, #3.
+	\textit{#1}, #2, #3%
 }
 \newcommand{\citeAufsatzURL}[3]{
-	\textit{#1} (#2), #3.
+	\textit{#1} (#2), #3%
 }
 \newcommand{\citeonlineArticle}[3]{
-	\textit{#1} (#2), #3.
+	\textit{#1} (#2), #3%
 }
 %end area
 
