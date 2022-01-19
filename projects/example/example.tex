@@ -57,6 +57,8 @@
 
 \usepackage{makecell}
 \usepackage{placeins}
+
+%\useInlineCites
 \begin{document}
 
 \renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}%Titel für oben links
@@ -95,7 +97,9 @@
 \clearpage
 \mainmatter%Stil des Headers/Footers ändern
 \pagenumbering{arabic}
-
+\section{test}
+hallo\citebib{tommel}{S.3}{Vgl. }\\
+du\citebib{tommel}{S.3}{Vgl. }
 
 
 \clearpage
