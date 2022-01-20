@@ -34,7 +34,7 @@
 	},
 	{
 		"Key": "buch1",
-		"Typ": "buch",
+		"Typ": "Buch",
 		"Fields": [
 			"Knippschild, K.",
 			"Das Baumhaus",

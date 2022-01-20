@@ -28,9 +28,10 @@
 		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
 		{meintype}{\printmeintype{\a}{\b}{\c}}%
 		{Test}{\printTest{\a}{\b}{\c}}%
-		{AufsatzAusgabe}{\printAufsatzAusgabe{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+		{AufsatzAusgabe}{\printAufsatzAusgabe{\a}{\b}{\c}{\d}{\e}{\f}}%
 		{AufsatzURL}{\printAufsatzURL{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
 		{onlineArticle}{\printonlineArticle{\a}{\b}{\c}{\d}{\e}}%
+		{Norm}{\printNorm{\a}{\b}{\c}{\d}{\e}{\f}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -121,11 +122,11 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printAufsatzAusgabe}[7]{
+\newcommand{\printAufsatzAusgabe}[6]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}, #2, in: #3 (#4, Ausgabe #5, Heft #6), S.#7
+	\textit{#1}, #2, in: #3 (#4, Ausgabe #5), S.#6
 	\\
 	\vspace{-12pt}
 
@@ -144,6 +145,15 @@
 	\parindent 0pt
 	\hangafter=1
 	\textit{#1}, #2 (#3), abrufbar unter \textit{#4}: #5
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printNorm}[6]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	#1 (Hrsg.) (\textit{#2}):#3, #4, #5, #6
 	\\
 	\vspace{-12pt}
 
@@ -195,7 +205,7 @@
 			{Kommentar}{\footnote{#3\citeKommentar{\a}{\b}{\e}{#2}.}}%
 			{Aufsatz}{\footnote{#3\citeAufsatz{\a}{\c}{#2}.}}%
 			{online}{\footnote{#3\citeonline{\a}{\b}{#2}.}}%
-			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\b}{#2}.}}%
+			{workingpaper}{\footnote{#3\citeworkingpaper{\a}{\@}{#2}.}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}.}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}.}}%
 			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}.}}%
@@ -203,6 +213,7 @@
 			{AufsatzAusgabe}{\footnote{#3\citeAufsatzAusgabe{\a}{\c}{#2}.}}%
 			{AufsatzURL}{\footnote{#3\citeAufsatzURL{\c}{\f}{#2}.}}%
 			{onlineArticle}{\footnote{#3\citeonlineArticle{\a}{\c}{#2}.}}%
+			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -225,7 +236,7 @@
 			{Kommentar}{ ({#3\citeKommentar{\a}{\b}{\e}{#2})}}%
 			{Aufsatz}{ ({#3\citeAufsatz{\a}{\c}{#2})}}%
 			{online}{ ({#3\citeonline{\a}{\b}{#2})}}%
-			{workingpaper}{ ({#3\citeworkingpaper{\a}{\b}{#2})}}%
+			{workingpaper}{ ({#3\citeworkingpaper{\a}{\@}{#2})}}%
 			{sammelwerk}{ ({#3\citesammelwerk{\a}{\b}{#2})}}%
 			{hrsgsammel}{ ({#3\citehrsgsammel{\a}{\b}{#2})}}%
 			{meintype}{ ({#3\citemeintype{\a}{\c}{#2})}}%
@@ -233,6 +244,7 @@
 			{AufsatzAusgabe}{ ({#3\citeAufsatzAusgabe{\a}{\c}{#2})}}%
 			{AufsatzURL}{ ({#3\citeAufsatzURL{\c}{\f}{#2})}}%
 			{onlineArticle}{ ({#3\citeonlineArticle{\a}{\c}{#2})}}%
+			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -257,7 +269,7 @@
 	\textit{#1}, #2#3%
 }
 \newcommand{\citeworkingpaper}[3]{%
-	\textit{#1}, #2, #3%
+	\textit{#1}, #2#3%
 }
 \newcommand{\citesammelwerk}[3]{%
 	\textit{#1}, #2, #3%
@@ -279,6 +291,9 @@
 }
 \newcommand{\citeonlineArticle}[3]{%
 	\textit{#1} (#2), #3%
+}
+\newcommand{\citeNorm}[2]{%
+	\textit{#1}#2%
 }
 %end area
 

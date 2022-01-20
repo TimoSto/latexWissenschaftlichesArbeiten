@@ -58,7 +58,7 @@
 \usepackage{makecell}
 \usepackage{placeins}
 
-%\useInlineCites
+\useInlineCites
 \begin{document}
 
 \renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}%Titel für oben links
@@ -68,6 +68,7 @@
 %\includepdf[pages={1-}]{titelseite.pdf}
 
 \frontmatter%Stil des Headers/Footers ändern
+
 
 \pagenumbering{Roman}
 
@@ -98,6 +99,8 @@
 \mainmatter%Stil des Headers/Footers ändern
 \pagenumbering{arabic}
 
+\part{test}
+hallihallo\citebib{buch1}{S.32}{Vgl. }
 
 \clearpage
 \frontmatter%Stil des Headers/Footers ändern
