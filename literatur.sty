@@ -32,6 +32,7 @@
 		{AufsatzURL}{\printAufsatzURL{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
 		{onlineArticle}{\printonlineArticle{\a}{\b}{\c}{\d}{\e}}%
 		{Norm}{\printNorm{\a}{\b}{\c}{\d}{\e}{\f}}%
+		{Test_M}{\printTest_M{\a}{\b}}%
 		%end area
 		{empty}{}%
     }[Oppsss, unknown case '\type'.]
@@ -158,6 +159,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printTest_M}[2]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}, #2
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -214,6 +224,7 @@
 			{AufsatzURL}{\footnote{#3\citeAufsatzURL{\c}{\f}{#2}.}}%
 			{onlineArticle}{\footnote{#3\citeonlineArticle{\a}{\c}{#2}.}}%
 			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
+			{Test_M}{\footnote{#3\citeTest_M{\@}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -245,6 +256,7 @@
 			{AufsatzURL}{ ({#3\citeAufsatzURL{\c}{\f}{#2})}}%
 			{onlineArticle}{ ({#3\citeonlineArticle{\a}{\c}{#2})}}%
 			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
+			{Test_M}{ ({#3\citeTest_M{\@}{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -293,6 +305,9 @@
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citeNorm}[2]{%
+	\textit{#1}#2%
+}
+\newcommand{\citeTest_M}[2]{%
 	\textit{#1}#2%
 }
 %end area

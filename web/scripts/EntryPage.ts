@@ -68,6 +68,14 @@ class EntryPage {
             this._valueFields.push(newTF);
             this._fieldNames.push(field.Field);
         });
+        obj.CiteFields.forEach(field => {
+            let element = this._templateTF.cloneNode(true);
+            (<HTMLElement>element).querySelector('.mdc-floating-label').innerHTML = field.Field;
+            let newTF = new MDCTextField(<HTMLElement>element);
+            this._fieldsArea.append(element);
+            this._valueFields.push(newTF);
+            this._fieldNames.push(field.Field);
+        })
 
         for( let i=0 ; i<this._valueFields.length ; i++ ) {
             if( this._prevValuesElement.children[i] ) {

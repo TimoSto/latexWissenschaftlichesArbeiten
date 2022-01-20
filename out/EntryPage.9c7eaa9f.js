@@ -10853,6 +10853,18 @@ function () {
 
       _this._fieldNames.push(field.Field);
     });
+    obj.CiteFields.forEach(function (field) {
+      var element = _this._templateTF.cloneNode(true);
+
+      element.querySelector('.mdc-floating-label').innerHTML = field.Field;
+      var newTF = new component_1.MDCTextField(element);
+
+      _this._fieldsArea.append(element);
+
+      _this._valueFields.push(newTF);
+
+      _this._fieldNames.push(field.Field);
+    });
 
     for (var i = 0; i < this._valueFields.length; i++) {
       if (this._prevValuesElement.children[i]) {

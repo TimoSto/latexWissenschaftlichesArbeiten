@@ -508,7 +508,7 @@
 					"Suffix": ", "
 				}
 			],
-			"Example": ""
+			"Example": "Autor, Titel, in: Zeitschrift (Jahr, Ausgabe Ausgabe), S.Seiten"
 		},
 		{
 			"Name": "AufsatzURL",
@@ -674,6 +674,33 @@
 				}
 			],
 			"Example": "Hrsg (Hrsg.) (ISO-Nr):Titel, Verlag, Ort, Jahr"
+		},
+		{
+			"Name": "Test_M",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"Example": ""
 		}
 	]
 }
