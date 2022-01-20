@@ -5125,8 +5125,11 @@ function () {
     document.querySelector('.headline button.mdc-button--raised').addEventListener('click', function () {
       (0, SaveProjectName_1.default)(_this._nameField.value, _this._initialName);
     });
-    document.querySelector('.headline button:not(.mdc-button--raised)').addEventListener('click', function () {
+    document.querySelector('.headline button:not(.mdc-button--raised)#new').addEventListener('click', function () {
       window.lapi.NavigateToEntry('', _this._initialName);
+    });
+    document.querySelector('.headline button:not(.mdc-button--raised)#clean').addEventListener('click', function () {
+      fetch('/cleanupCites?project=' + _this._initialName);
     });
     document.querySelectorAll('#entrylist [data-delete]').forEach(function (el) {
       var value = el.getAttribute('data-delete');

@@ -19,8 +19,12 @@ class ProjectPage {
             SaveProjectName(this._nameField.value, this._initialName)
         });
 
-        document.querySelector('.headline button:not(.mdc-button--raised)').addEventListener('click', ()=>{
+        document.querySelector('.headline button:not(.mdc-button--raised)#new').addEventListener('click', ()=>{
             (<any>window).lapi.NavigateToEntry('', this._initialName);
+        });
+
+        document.querySelector('.headline button:not(.mdc-button--raised)#clean').addEventListener('click', ()=>{
+            fetch('/cleanupCites?project='+this._initialName)
         });
 
         document.querySelectorAll('#entrylist [data-delete]').forEach(el =>{

@@ -40,5 +40,7 @@ func main() {
 
 	http.Handle( "/shell/" , http.StripPrefix("/shell", http.FileServer(http.Dir("./out"))))
 
+	http.HandleFunc("/cleanupCites", handlers.HandleCiteCleanup)
+
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
 }
