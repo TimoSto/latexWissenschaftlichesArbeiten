@@ -65,6 +65,11 @@ func HandleProjectName(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(err)
 			http.Error(w, err.Error(), 500)
 		}
+		err = ioutil.WriteFile("./projects/"+saveObj.Name+"/citedKeys.csv", []byte("ckey;"), 0644)
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
 	}
 
 	//TODO: rename files?
