@@ -247,7 +247,7 @@
 			],
 			"CiteFields": [
 				{
-					"Field": "autor",
+					"Field": "autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
