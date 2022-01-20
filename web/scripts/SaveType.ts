@@ -1,6 +1,7 @@
 import Field from "./Field";
 
 export default function SaveType(name: string, initialName: string, bibFields: Field[], citeFields: Field[]) {
+    console.log(citeFields)
     let obj = {
         Name: name,
         Fields: bibFields,

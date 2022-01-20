@@ -251,15 +251,9 @@
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": ", "
-				},
-				{
-					"Field": "",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
 				}
 			],
-			"Example": "autor, titel, datum, abrufbar unter: url, abgerufen am: stand"
+			"Example": ""
 		},
 		{
 			"Name": "sammelwerk",
@@ -700,7 +694,7 @@
 					"Suffix": ""
 				}
 			],
-			"Example": ""
+			"Example": "Autor, Titel"
 		}
 	]
 }

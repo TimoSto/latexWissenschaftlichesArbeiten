@@ -17,6 +17,7 @@ func HandleSave(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 	}
+	fmt.Println(bibType)
 	initialName := r.URL.Query().Get("initialName")
 	fmt.Println(initialName)
 	literatureTypes, err := domain.ReadTypes()

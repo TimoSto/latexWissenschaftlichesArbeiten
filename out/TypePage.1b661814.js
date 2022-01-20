@@ -146,6 +146,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 function SaveType(name, initialName, bibFields, citeFields) {
+  console.log(citeFields);
   var obj = {
     Name: name,
     Fields: bibFields,
@@ -10836,7 +10837,7 @@ function () {
             _this.bibFields.push(new Field_1.default("", "normal", "", ""));
           }
 
-          console.log(attrTextField.value);
+          console.log(attrTextField.value == "", index === _this.bibFields.length - 1);
 
           if (index === _this.bibFields.length - 1 && attrTextField.value == "") {
             _this.bibFields.pop();
@@ -10912,11 +10913,14 @@ function () {
             _this.citeFields.push(new Field_1.default("", "normal", "", ""));
           }
 
-          console.log(attrTextField.value);
+          console.log(attrTextField.value == "", index === _this.citeFields.length - 1, attrTextField.value);
 
           if (index === _this.citeFields.length - 1 && attrTextField.value == "") {
+            console.log(_this.citeFields);
+
             _this.citeFields.pop();
 
+            console.log(_this.citeFields);
             return;
           }
 

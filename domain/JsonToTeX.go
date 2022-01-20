@@ -111,6 +111,9 @@ func GenerateIfsForCiteCommands(types []LiteratureType) string{
 
 		for _,field := range lType.CiteFields {
 			fieldIndex := GetFieldIndex(lType.Fields, field.Field)
+			if fieldIndex == -1 {
+				fieldIndex = len(lType.Fields) + GetFieldIndex(lType.CiteFields, field.Field)
+			}
 			command += `{\` + toChar(fieldIndex+1) + `}`
 		}
 		command += `{#2}.}`
@@ -128,6 +131,9 @@ func GenerateIfsForInlineCiteCommands(types []LiteratureType) string{
 
 		for _,field := range lType.CiteFields {
 			fieldIndex := GetFieldIndex(lType.Fields, field.Field)
+			if fieldIndex == -1 {
+				fieldIndex = len(lType.Fields) + GetFieldIndex(lType.CiteFields, field.Field)
+			}
 			command += `{\` + toChar(fieldIndex+1) + `}`
 		}
 		command += `{#2})}`
