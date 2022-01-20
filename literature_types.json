@@ -676,7 +676,7 @@
 			"Example": "Hrsg (Hrsg.) (ISO-Nr):Titel, Verlag, Ort, Jahr"
 		},
 		{
-			"Name": "Test_M",
+			"Name": "TestM",
 			"HasCitePage": false,
 			"Fields": [
 				{
