@@ -5,6 +5,10 @@
 %Literatur-DB aus CSV laden
 \usepackage{xstring}
 \DTLloaddb{literatur}{literatur.csv}
+
+%tatsächlich zitierte sachen laden
+\DTLloaddb{citedKeys}{citedKeys.csv}
+
 %Literaturverzeichnis printen
 \newcommand{\printMyBibliography}[0]{
 	
@@ -17,25 +21,32 @@
 	\DTLforeach*{literatur}
 	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h}
 	{
-		\IfStrEqCase{\type}{%
-		%Area to add new bibifs via gui
-		{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
-		{Kommentar}{\printKommentar{\a}{\b}{\c}{\d}{\e}}%
-		{Aufsatz}{\printAufsatz{\a}{\b}{\c}{\d}{\e}}%
-		{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
-		{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
-		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
-		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
-		{meintype}{\printmeintype{\a}{\b}{\c}}%
-		{Test}{\printTest{\a}{\b}{\c}}%
-		{AufsatzAusgabe}{\printAufsatzAusgabe{\a}{\b}{\c}{\d}{\e}{\f}}%
-		{AufsatzURL}{\printAufsatzURL{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
-		{onlineArticle}{\printonlineArticle{\a}{\b}{\c}{\d}{\e}}%
-		{Norm}{\printNorm{\a}{\b}{\c}{\d}{\e}{\f}}%
-		{TestM}{\printTestM{\a}{\b}}%
-		%end area
-		{empty}{}%
-    }[Oppsss, unknown case '\type'.]
+		\DTLforeach*{citedKeys}
+		{\ckey=ckey}
+		{
+			\IfStrEqCase{\ckey}{{\key}{
+				\IfStrEqCase{\type}{%
+				%Area to add new bibifs via gui
+						{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
+						{Kommentar}{\printKommentar{\a}{\b}{\c}{\d}{\e}}%
+						{Aufsatz}{\printAufsatz{\a}{\b}{\c}{\d}{\e}}%
+						{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
+						{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
+						{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
+						{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+						{meintype}{\printmeintype{\a}{\b}{\c}}%
+						{Test}{\printTest{\a}{\b}{\c}}%
+						{AufsatzAusgabe}{\printAufsatzAusgabe{\a}{\b}{\c}{\d}{\e}{\f}}%
+						{AufsatzURL}{\printAufsatzURL{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+						{onlineArticle}{\printonlineArticle{\a}{\b}{\c}{\d}{\e}}%
+						{Norm}{\printNorm{\a}{\b}{\c}{\d}{\e}{\f}}%
+						{TestM}{\printTestM{\a}{\b}}%
+				%end area
+						{empty}{}%
+				}[Oppsss, unknown case '\type'.]
+			}}
+		}
+
 	}
 }
 

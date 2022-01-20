@@ -29,7 +29,7 @@ func HandleCiteCleanup(w http.ResponseWriter, r *http.Request) {
 	reg := regexp.MustCompile(`citebib{(.*?)}{(.*?)}{(.*?)}`)
 	matches := reg.FindAllString(string(texFile), -1)
 	var citedEntries []string
-	filecontent := "key;+\n"
+	filecontent := "ckey;\n"
 	for _,match := range matches {
 		match = strings.Split(match, "citebib{")[1]
 		match = strings.Split(match, "}")[0]
