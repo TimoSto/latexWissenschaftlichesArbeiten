@@ -1,7 +1,11 @@
-SET PROJECTNAME=
+@echo off
 
-IF "%1" == "--cleanup" "../../Wa_LaTeX.exe" cleanupCites %PROJECTNAME%
+SET PROJECTNAME=MY_PROJECT_NAME
+
+IF "%1" == "--cleanup" cd ../../ & "Wa_LaTeX.exe" cleanupCites %PROJECTNAME% & cd "./projects/%PROJECTNAME%/"
 
 SET FILE="%PROJECTNAME%.tex"
 
 echo %FILE%
+
+pdflatex %FILE%

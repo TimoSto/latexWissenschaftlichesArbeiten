@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 )
 
 type ProjectName struct {
@@ -66,6 +67,18 @@ func HandleProjectName(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), 500)
 		}
 		err = ioutil.WriteFile("./projects/"+saveObj.Name+"/citedKeys.csv", []byte("ckey;\n*;"), 0644)
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+
+		inputbat, err := ioutil.ReadFile("compile.bat")
+		if err != nil {
+			fmt.Println(err)
+			http.Error(w, err.Error(), 500)
+		}
+		inputbat = []byte(strings.Replace(string(inputbat), "MY_PROJECT_NAME", saveObj.Name, 1))
+		err = ioutil.WriteFile("./projects/"+saveObj.Name+"/compile.bat", inputbat, 0644)
 		if err != nil {
 			fmt.Println(err)
 			http.Error(w, err.Error(), 500)
