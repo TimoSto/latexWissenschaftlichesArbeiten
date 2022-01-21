@@ -24,7 +24,8 @@
 		\DTLforeach*{citedKeys}
 		{\ckey=ckey}
 		{
-			\IfStrEqCase{\ckey}{{\key}{
+			\IfStrEqCase{\ckey}{
+					{\key}{
 				\IfStrEqCase{\type}{%
 				%Area to add new bibifs via gui
 		{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
@@ -45,7 +46,29 @@
 		%end area
 						{empty}{}%
 				}[Oppsss, unknown case '\type'.]
-			}}
+			}
+					{*}{
+					\IfStrEqCase{\type}{%
+					%Area to add new bibifs via gui
+							{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
+							{Kommentar}{\printKommentar{\a}{\b}{\c}{\d}{\e}}%
+							{Aufsatz}{\printAufsatz{\a}{\b}{\c}{\d}{\e}}%
+							{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
+							{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
+							{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
+							{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+							{meintype}{\printmeintype{\a}{\b}{\c}}%
+							{Test}{\printTest{\a}{\b}{\c}}%
+							{AufsatzAusgabe}{\printAufsatzAusgabe{\a}{\b}{\c}{\d}{\e}{\f}}%
+							{AufsatzURL}{\printAufsatzURL{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+							{onlineArticle}{\printonlineArticle{\a}{\b}{\c}{\d}{\e}}%
+							{Norm}{\printNorm{\a}{\b}{\c}{\d}{\e}{\f}}%
+							{TestM}{\printTestM{\a}{\b}}%
+							{Handbuch}{\printHandbuch{\a}{\b}{\c}{\d}{\e}{\f}}%
+					%end area
+							{empty}{}%
+					}[Oppsss, unknown case '\type'.]
+				}}
 		}
 
 	}
