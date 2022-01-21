@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  20 JAN 2022 20:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  21 JAN 2022 10:41
 entering extended mode
 **./example.tex
 (example.tex
@@ -545,6 +545,10 @@ Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 \dtlkeys@literatur=\toks61
 \dtlrows@literatur=\count161
 \dtlcols@literatur=\count162
+\dtldb@citedKeys=\toks62
+\dtlkeys@citedKeys=\toks63
+\dtlrows@citedKeys=\count163
+\dtlcols@citedKeys=\count164
 ) (../../header_footer.sty
 Package: header_footer 
 
@@ -566,24 +570,24 @@ Package: codes
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.s
 ty"
-\lst@mode=\count163
+\lst@mode=\count165
 \lst@gtempboxa=\box32
-\lst@token=\toks62
-\lst@length=\count164
+\lst@token=\toks64
+\lst@length=\count166
 \lst@currlwidth=\dimen133
-\lst@column=\count165
-\lst@pos=\count166
+\lst@column=\count167
+\lst@pos=\count168
 \lst@lostspace=\dimen134
 \lst@width=\dimen135
-\lst@newlines=\count167
-\lst@lineno=\count168
+\lst@newlines=\count169
+\lst@lineno=\count170
 \lst@maxwidth=\dimen136
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.st
 y"
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\c@lstnumber=\count169
-\lst@skipnumbers=\count170
+\c@lstnumber=\count171
+\lst@skipnumbers=\count172
 \lst@framebox=\box33
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.c
@@ -601,17 +605,17 @@ Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LTright=\skip93
 \LTpre=\skip94
 \LTpost=\skip95
-\LTchunksize=\count171
+\LTchunksize=\count173
 \LTcapwidth=\dimen137
 \LT@head=\box34
 \LT@firsthead=\box35
 \LT@foot=\box36
 \LT@lastfoot=\box37
-\LT@cols=\count172
-\LT@rows=\count173
-\c@LT@tables=\count174
-\c@LT@chunks=\count175
-\LT@p@ftn=\toks63
+\LT@cols=\count174
+\LT@rows=\count175
+\c@LT@tables=\count176
+\c@LT@chunks=\count177
+\LT@p@ftn=\toks65
 ) ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tabu\tabu.sty"
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 
@@ -620,7 +624,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen138
 \ar@mcellbox=\box38
 \extrarowheight=\dimen139
-\NC@list=\toks64
+\NC@list=\toks66
 \extratabsurround=\skip96
 \backup@length=\skip97
 \ar@cellbox=\box39
@@ -629,16 +633,16 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 ty"
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box40
-\sift@deathcycles=\count176
+\sift@deathcycles=\count178
 \@vwid@loff=\dimen140
 \@vwid@roff=\dimen141
 )
-\c@taburow=\count177
-\tabu@nbcols=\count178
-\tabu@cnt=\count179
-\tabu@Xcol=\count180
-\tabu@alloc=\count181
-\tabu@nested=\count182
+\c@taburow=\count179
+\tabu@nbcols=\count180
+\tabu@cnt=\count181
+\tabu@Xcol=\count182
+\tabu@alloc=\count183
+\tabu@nested=\count184
 \tabu@target=\dimen142
 \tabu@spreadtarget=\dimen143
 \tabu@naturalX=\dimen144
@@ -648,23 +652,23 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \abovetabulinesep=\dimen148
 \belowtabulinesep=\dimen149
 \tabustrutrule=\dimen150
-\tabu@thebody=\toks65
-\tabu@footnotes=\toks66
+\tabu@thebody=\toks67
+\tabu@footnotes=\toks68
 \tabu@box=\box41
 \tabu@arstrutbox=\box42
 \tabu@hleads=\box43
 \tabu@vleads=\box44
 \tabu@cellskip=\skip98
 )
-\c@anhang=\count183
+\c@anhang=\count185
 \cftbeforeanhangskip=\skip99
 \cftanhangindent=\skip100
 \cftanhangnumwidth=\skip101
-\c@mcfdepth=\count184
+\c@mcfdepth=\count186
 \cftbeforemcftitleskip=\skip102
 \cftaftermcftitleskip=\skip103
-\c@theanhangI=\count185
-\c@theanhangII=\count186
+\c@theanhangI=\count187
+\c@theanhangII=\count188
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fontenc.sty"
 Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
@@ -677,8 +681,8 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ty"
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen151
-\c@nlinenum=\count187
-\TeXr@lab=\toks67
+\c@nlinenum=\count189
+\TeXr@lab=\toks69
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/placeins\placeins.s
 ty"
@@ -743,17 +747,17 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
 f.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count188
+\scratchcounter=\count190
 \scratchdimen=\dimen152
 \scratchbox=\box46
-\nofMPsegments=\count189
-\nofMParguments=\count190
-\everyMPshowfont=\toks68
-\MPscratchCnt=\count191
+\nofMPsegments=\count191
+\nofMParguments=\count192
+\everyMPshowfont=\toks70
+\MPscratchCnt=\count193
 \MPscratchDim=\dimen153
-\MPnumerator=\count192
-\makeMPintoPDFobject=\count193
-\everyMPtoPDFconversion=\toks69
+\MPnumerator=\count194
+\makeMPintoPDFobject=\count195
+\everyMPtoPDFconversion=\toks71
 )
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-b
 ase.sty"
@@ -809,7 +813,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-\c@lstlisting=\count194
+\c@lstlisting=\count196
  [1{C:/Users/tsto/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 ]
@@ -882,10 +886,10 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 
 ] (example.aux) ) 
 Here is how much of TeX's memory you used:
- 11074 strings out of 492452
- 156688 string characters out of 3120530
- 304592 words of memory out of 3000000
- 15145 multiletter control sequences out of 15000+200000
+ 11092 strings out of 492452
+ 156948 string characters out of 3120530
+ 306527 words of memory out of 3000000
+ 15162 multiletter control sequences out of 15000+200000
  27186 words of font info for 44 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  58i,11n,49p,835b,308s stack positions out of 5000i,500n,10000p,200000b,50000s
