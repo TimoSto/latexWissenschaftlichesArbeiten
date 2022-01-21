@@ -3,6 +3,9 @@ package domain
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
+	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 )
@@ -25,11 +28,39 @@ func CiteCleanup(project string) error{
 			filecontent += fmt.Sprintf("%s;\n", match)
 		}
 	}
+
+	filepath.Walk(fmt.Sprintf("./projects/%s/", project), func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			log.Fatalf(err.Error())
+		}
+		if strings.Compare(filepath.Ext(info.Name()), ".tex") == 0 {
+
+			texFile, err := ioutil.ReadFile(path)
+			if err != nil {
+				return err
+			}
+
+			reg = regexp.MustCompile(`citebib{(.*?)}{(.*?)}{(.*?)}`)
+			matches = reg.FindAllString(string(texFile), -1)
+			for _, match := range matches {
+				match = strings.Split(match, "citebib{")[1]
+				match = strings.Split(match, "}")[0]
+				if SliceIndex(len(citedEntries), func(i int) bool { return strings.Compare(citedEntries[i], match) == 0 }) == -1 {
+					citedEntries = append(citedEntries, match)
+					filecontent += fmt.Sprintf("%s;\n", match)
+				}
+			}
+			err = ioutil.WriteFile(fmt.Sprintf("./projects/%s/citedKeys.csv", project), []byte(filecontent), 0644)
+			if err != nil {
+				return err
+			}
+
+		}
+		return nil
+	})
+	fmt.Println(filecontent)
 	err = ioutil.WriteFile(fmt.Sprintf("./projects/%s/citedKeys.csv", project), []byte(filecontent), 0644)
-	if err != nil {
-		return err
-	}
-	return nil
+	return err
 }
 
 
