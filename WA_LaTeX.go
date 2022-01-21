@@ -1,7 +1,9 @@
 package main
 
 import (
+	"WA_LaTeX/domain"
 	"WA_LaTeX/handlers"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -11,8 +13,13 @@ import (
 func main() {
 	argsWithoutProg := os.Args[1:]
 
-	if len(argsWithoutProg) > 0 && strings.Compare(argsWithoutProg[0], "convert") == 0 {
+	if len(argsWithoutProg) > 1 && strings.Compare(argsWithoutProg[0], "cleanupCites") == 0 {
 		//domain.ConvertBibToCSV()
+		fmt.Println(argsWithoutProg[1])
+		err := domain.CiteCleanup(argsWithoutProg[1])
+		if err != nil {
+			fmt.Println(err)
+		}
 		return
 	}
 
