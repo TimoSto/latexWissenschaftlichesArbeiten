@@ -27,21 +27,22 @@
 			\IfStrEqCase{\ckey}{{\key}{
 				\IfStrEqCase{\type}{%
 				%Area to add new bibifs via gui
-						{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
-						{Kommentar}{\printKommentar{\a}{\b}{\c}{\d}{\e}}%
-						{Aufsatz}{\printAufsatz{\a}{\b}{\c}{\d}{\e}}%
-						{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
-						{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
-						{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
-						{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
-						{meintype}{\printmeintype{\a}{\b}{\c}}%
-						{Test}{\printTest{\a}{\b}{\c}}%
-						{AufsatzAusgabe}{\printAufsatzAusgabe{\a}{\b}{\c}{\d}{\e}{\f}}%
-						{AufsatzURL}{\printAufsatzURL{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
-						{onlineArticle}{\printonlineArticle{\a}{\b}{\c}{\d}{\e}}%
-						{Norm}{\printNorm{\a}{\b}{\c}{\d}{\e}{\f}}%
-						{TestM}{\printTestM{\a}{\b}}%
-				%end area
+		{Buch}{\printBuch{\a}{\b}{\c}{\d}{\e}}%
+		{Kommentar}{\printKommentar{\a}{\b}{\c}{\d}{\e}}%
+		{Aufsatz}{\printAufsatz{\a}{\b}{\c}{\d}{\e}}%
+		{online}{\printonline{\a}{\b}{\c}{\d}{\e}}%
+		{workingpaper}{\printworkingpaper{\a}{\b}{\c}{\d}{\e}}%
+		{sammelwerk}{\printsammelwerk{\a}{\b}{\c}{\d}{\e}}%
+		{hrsgsammel}{\printhrsgsammel{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+		{meintype}{\printmeintype{\a}{\b}{\c}}%
+		{Test}{\printTest{\a}{\b}{\c}}%
+		{AufsatzAusgabe}{\printAufsatzAusgabe{\a}{\b}{\c}{\d}{\e}{\f}}%
+		{AufsatzURL}{\printAufsatzURL{\a}{\b}{\c}{\d}{\e}{\f}{\g}}%
+		{onlineArticle}{\printonlineArticle{\a}{\b}{\c}{\d}{\e}}%
+		{Norm}{\printNorm{\a}{\b}{\c}{\d}{\e}{\f}}%
+		{TestM}{\printTestM{\a}{\b}}%
+		{Handbuch}{\printHandbuch{\a}{\b}{\c}{\d}{\e}{\f}}%
+		%end area
 						{empty}{}%
 				}[Oppsss, unknown case '\type'.]
 			}}
@@ -179,6 +180,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printHandbuch}[6]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (Hg.) (#2), #3, #4 (#5, #6)
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -225,17 +235,18 @@
 			{Buch}{\footnote{#3\citeBuch{\a}{\b}{#2}.}}%
 			{Kommentar}{\footnote{#3\citeKommentar{\a}{\b}{\e}{#2}.}}%
 			{Aufsatz}{\footnote{#3\citeAufsatz{\a}{\c}{#2}.}}%
-			{online}{\footnote{#3\citeonline{\a}{\b}{#2}.}}%
+			{online}{\footnote{#3\citeonline{\f}{#2}.}}%
 			{workingpaper}{\footnote{#3\citeworkingpaper{\f}{#2}.}}%
 			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}.}}%
 			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}.}}%
 			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}.}}%
 			{Test}{\footnote{#3\citeTest{\a}{\c}{#2}.}}%
-			{AufsatzAusgabe}{\footnote{#3\citeAufsatzAusgabe{\a}{\c}{#2}.}}%
+			{AufsatzAusgabe}{\footnote{#3\citeAufsatzAusgabe{\g}{\d}{#2}.}}%
 			{AufsatzURL}{\footnote{#3\citeAufsatzURL{\c}{\f}{#2}.}}%
 			{onlineArticle}{\footnote{#3\citeonlineArticle{\a}{\c}{#2}.}}%
 			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
 			{TestM}{\footnote{#3\citeTestM{\c}{#2}.}}%
+			{Handbuch}{\footnote{#3\citeHandbuch{\g}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -257,17 +268,18 @@
 			{Buch}{ ({#3\citeBuch{\a}{\b}{#2})}}%
 			{Kommentar}{ ({#3\citeKommentar{\a}{\b}{\e}{#2})}}%
 			{Aufsatz}{ ({#3\citeAufsatz{\a}{\c}{#2})}}%
-			{online}{ ({#3\citeonline{\a}{\b}{#2})}}%
+			{online}{ ({#3\citeonline{\f}{#2})}}%
 			{workingpaper}{ ({#3\citeworkingpaper{\f}{#2})}}%
 			{sammelwerk}{ ({#3\citesammelwerk{\a}{\b}{#2})}}%
 			{hrsgsammel}{ ({#3\citehrsgsammel{\a}{\b}{#2})}}%
 			{meintype}{ ({#3\citemeintype{\a}{\c}{#2})}}%
 			{Test}{ ({#3\citeTest{\a}{\c}{#2})}}%
-			{AufsatzAusgabe}{ ({#3\citeAufsatzAusgabe{\a}{\c}{#2})}}%
+			{AufsatzAusgabe}{ ({#3\citeAufsatzAusgabe{\g}{\d}{#2})}}%
 			{AufsatzURL}{ ({#3\citeAufsatzURL{\c}{\f}{#2})}}%
 			{onlineArticle}{ ({#3\citeonlineArticle{\a}{\c}{#2})}}%
 			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
 			{TestM}{ ({#3\citeTestM{\c}{#2})}}%
+			{Handbuch}{ ({#3\citeHandbuch{\g}{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -288,8 +300,8 @@
 \newcommand{\citeAufsatz}[3]{%
 	\textit{#1}, #2, #3%
 }
-\newcommand{\citeonline}[3]{%
-	\textit{#1}, #2#3%
+\newcommand{\citeonline}[2]{%
+	\textit{#1}#2%
 }
 \newcommand{\citeworkingpaper}[2]{%
 	\textit{#1}, #2%
@@ -307,7 +319,7 @@
 	#1#2#3%
 }
 \newcommand{\citeAufsatzAusgabe}[3]{%
-	\textit{#1}, #2, #3%
+	\textit{#1} (#2), #3%
 }
 \newcommand{\citeAufsatzURL}[3]{%
 	\textit{#1} (#2), #3%
@@ -320,6 +332,9 @@
 }
 \newcommand{\citeTestM}[2]{%
 	\textit{#1}#2%
+}
+\newcommand{\citeHandbuch}[2]{%
+	\textit{#1} (Hg.), #2%
 }
 %end area
 
