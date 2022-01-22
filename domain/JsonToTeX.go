@@ -17,7 +17,7 @@ func SaveTypesToLaTeX(types []LiteratureType) error{
 	ifsForCiteCommands := "%Area to add citeifs via gui\n" + GenerateIfsForCiteCommands(types) + "\t\t%end area"
 	ifsForInlineCiteCommands := "%Area to add citeifs_inline via gui\n" + GenerateIfsForInlineCiteCommands(types) + "\t\t%end area"
 	fmt.Println(ifsForCiteCommands)
-	file, err := ioutil.ReadFile("./literatur.sty")
+	file, err := ioutil.ReadFile("./styPackages/literatur.sty")
 	if err != nil {
 		fmt.Println(err)
 		return err
@@ -33,7 +33,7 @@ func SaveTypesToLaTeX(types []LiteratureType) error{
 	m5 := regexp.MustCompile(`(?s)%Area to add citeifs_inline via gui(.*?)%end area`)
 	newFile = m5.ReplaceAllString(newFile, ifsForInlineCiteCommands)
 
-	return ioutil.WriteFile("./literatur.sty", []byte(newFile), 0644)
+	return ioutil.WriteFile("./styPackages/literatur.sty", []byte(newFile), 0644)
 }
 
 func GeneratePrintBibCommands(types []LiteratureType) string {
@@ -69,9 +69,13 @@ func GenerateIfsForBibCommands(types []LiteratureType) string{
 	commands := ""
 
 	for _,lType := range types {
-		command := "\t\t{" + lType.Name + `}{\print` + lType.Name
+		command := "\t\t\t{" + lType.Name + `}{\print` + lType.Name
 		for n,_ := range lType.Fields {
-			command += `{\` + toChar(n+1) + `}`
+			fieldCommand := "#" + strconv.Itoa(n+2)
+			if n > 7 {
+				fieldCommand = "\temp" + toChar(n+2)
+			}
+			command += `{` + fieldCommand + `}`
 		}
 		command += `}%` + "\n"
 		commands += command
