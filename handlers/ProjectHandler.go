@@ -11,6 +11,7 @@ import (
 type ProjectHTMLDto struct {
 	ProjectName string
 	Entries []domain.BibEntry
+
 }
 
 func HandleProject(w http.ResponseWriter,r *http.Request) {
