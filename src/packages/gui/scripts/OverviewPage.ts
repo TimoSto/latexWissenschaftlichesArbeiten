@@ -23,7 +23,7 @@ class OverviewPage {
         });
 
         this._mainFrame = document.querySelector('#main-frame');
-        this._mainFrame.src = '/welcome';
+        this._mainFrame.src = '/welcome.html';
     }
 }
 
