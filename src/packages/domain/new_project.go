@@ -36,6 +36,14 @@ func CreateNewProject(name string) (bool, error) {
 	if err != nil {
 		return false, err
 	}
+	inputljson, err := ioutil.ReadFile("literature_types.json")
+	if err != nil {
+		return false, err
+	}
+	err = ioutil.WriteFile("./projects/"+name+"/literature_types.json", inputljson, 0644)
+	if err != nil {
+		return false, err
+	}
 	inputtex, err := ioutil.ReadFile("example.tex")
 	if err != nil {
 		return false, err

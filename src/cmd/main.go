@@ -12,6 +12,8 @@ func main() {
 
 	http.HandleFunc("/createProject", handlers.HandleNewProject)
 
+	http.HandleFunc("/projects/", handlers.HandleGetProject)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
