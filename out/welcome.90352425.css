@@ -372,8 +372,26 @@
   height: 40px;
 }
 
+.expandable-area--open {
+  height: auto;
+  transition: height 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expandable-area--closing {
+  height: 0 !important;
+  transition: height 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
 .expandable-area--closed {
-  height: 0;
+  height: auto;
+  opacity: 0;
+  position: fixed;
+  pointer-events: none;
+}
+
+.expandable-area--opening {
+  transition: height 200ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 

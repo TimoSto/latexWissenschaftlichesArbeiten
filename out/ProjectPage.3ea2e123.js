@@ -117,7 +117,68 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scripts/ProjectPage.ts":[function(require,module,exports) {
+})({"scripts/InitExpandableAreas.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function InitExpandableAreas() {
+  var expandableAreas = document.querySelectorAll('.expandable-area');
+  var triggerIcons = document.querySelectorAll('.trigger-icon');
+  triggerIcons.forEach(function (el, i) {
+    var ind = i;
+    el.addEventListener('click', function () {
+      var container = expandableAreas[ind];
+      var height = container.getBoundingClientRect().height;
+
+      if (container.classList.contains('expandable-area--open')) {
+        container.style.height = height + "px";
+        setTimeout(function () {
+          container.classList.remove('expandable-area--open');
+          container.classList.add('expandable-area--closing');
+          setTimeout(function () {
+            container.style.removeProperty('height');
+            container.classList.remove('expandable-area--closing');
+            container.classList.add('expandable-area--closed');
+          }, 350);
+        }, 0);
+      } else if (container.classList.contains('expandable-area--closed')) {
+        container.style.height = '0px';
+        setTimeout(function () {
+          container.classList.remove('expandable-area--closed');
+          container.classList.add('expandable-area--opening');
+          container.style.height = height + "px";
+          setTimeout(function () {
+            container.style.removeProperty('height');
+            container.classList.remove('expandable-area--opening');
+            container.classList.add('expandable-area--open');
+          }, 350);
+        }, 0);
+      }
+
+      el.classList.toggle('trigger-icon--rotated');
+    });
+  });
+}
+
+exports.default = InitExpandableAreas;
+},{}],"scripts/ProjectPage.ts":[function(require,module,exports) {
+"use strict";
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var InitExpandableAreas_1 = __importDefault(require("./InitExpandableAreas"));
+
 var ProjectPage =
 /** @class */
 function () {
@@ -130,20 +191,12 @@ function () {
   }
 
   ProjectPage.prototype.init = function () {
-    var expandableAreas = document.querySelectorAll('.expandable-area');
-    var triggerIcons = document.querySelectorAll('.trigger-icon');
-    triggerIcons.forEach(function (el, i) {
-      var ind = i;
-      el.addEventListener('click', function () {
-        expandableAreas[ind].classList.toggle('expandable-area--closed');
-        el.classList.toggle('trigger-icon--rotated');
-      });
-    });
+    (0, InitExpandableAreas_1.default)();
   };
 
   return ProjectPage;
 }();
 
 new ProjectPage();
-},{}]},{},["scripts/ProjectPage.ts"], null)
+},{"./InitExpandableAreas":"scripts/InitExpandableAreas.ts"}]},{},["scripts/ProjectPage.ts"], null)
 //# sourceMappingURL=/ProjectPage.3ea2e123.js.map
