@@ -192,11 +192,12 @@ function () {
 
   ProjectPage.prototype.init = function () {
     (0, InitExpandableAreas_1.default)();
+    var pname = window.location.href.split('/projects/')[1];
     document.querySelector('#new-type').addEventListener('click', function () {
-      window.parent.setEdit('/editType');
+      window.parent.setEdit('/editType?project=' + pname);
     });
     document.querySelector('#new-entry').addEventListener('click', function () {
-      window.parent.setEdit('/editEntry');
+      window.parent.setEdit('/editEntry?project=' + pname);
     });
   };
 

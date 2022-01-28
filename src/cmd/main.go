@@ -14,6 +14,8 @@ func main() {
 
 	http.HandleFunc("/projects/", handlers.HandleGetProject)
 
+	http.HandleFunc("/editType", handlers.HandleEditType)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
