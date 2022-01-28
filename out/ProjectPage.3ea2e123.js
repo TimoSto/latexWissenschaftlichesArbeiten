@@ -192,6 +192,12 @@ function () {
 
   ProjectPage.prototype.init = function () {
     (0, InitExpandableAreas_1.default)();
+    document.querySelector('#new-type').addEventListener('click', function () {
+      window.parent.setEdit('/editType');
+    });
+    document.querySelector('#new-entry').addEventListener('click', function () {
+      window.parent.setEdit('/editEntry');
+    });
   };
 
   return ProjectPage;
