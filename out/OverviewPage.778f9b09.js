@@ -138,6 +138,9 @@ function () {
     this._sidebarBtn.addEventListener('click', function () {
       _this._sidebar.classList.toggle('sidebar--open');
     });
+
+    this._mainFrame = document.querySelector('#main-frame');
+    this._mainFrame.src = '/welcome';
   };
 
   return OverviewPage;

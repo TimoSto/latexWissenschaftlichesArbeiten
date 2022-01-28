@@ -7,6 +7,8 @@ class OverviewPage {
     private _sidebarBtn: HTMLButtonElement;
     private _sidebar: HTMLElement;
 
+    private _mainFrame: HTMLIFrameElement;
+
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
             this.init();
@@ -19,6 +21,9 @@ class OverviewPage {
         this._sidebarBtn.addEventListener('click', ()=>{
             this._sidebar.classList.toggle('sidebar--open');
         });
+
+        this._mainFrame = document.querySelector('#main-frame');
+        this._mainFrame.src = '/welcome';
     }
 }
 
