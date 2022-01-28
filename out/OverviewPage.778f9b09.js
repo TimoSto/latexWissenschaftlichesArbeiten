@@ -133,6 +133,14 @@ function () {
       if (name) {
         _this.setMain("/projects/" + name);
       }
+
+      window.setMain = function (uri) {
+        _this.setMain(uri);
+      };
+
+      window.setEdit = function (uri) {
+        _this.setEdit(uri);
+      };
     });
   }
 
@@ -151,10 +159,16 @@ function () {
     document.querySelector('#new_project').addEventListener('click', function () {
       _this.setMain('/newProject.html');
     });
+    this._editArea = document.querySelector('#editArea');
+    this._editFrame = document.querySelector('#edit-frame');
   };
 
   OverviewPage.prototype.setMain = function (uri) {
     this._mainFrame.src = uri;
+  };
+
+  OverviewPage.prototype.setEdit = function (uri) {
+    this._editFrame.src = uri;
   };
 
   return OverviewPage;

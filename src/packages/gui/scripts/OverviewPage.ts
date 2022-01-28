@@ -9,6 +9,9 @@ class OverviewPage {
 
     private _mainFrame: HTMLIFrameElement;
 
+    private _editArea: HTMLElement;
+    private _editFrame: HTMLIFrameElement;
+
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
             this.init();
@@ -16,6 +19,13 @@ class OverviewPage {
             let name = params.get("project");
             if (name) {
                 this.setMain(`/projects/${name}`);
+            }
+
+            (<any>window).setMain = (uri) => {
+                this.setMain(uri);
+            }
+            (<any>window).setEdit = (uri) => {
+                this.setEdit(uri);
             }
         });
     }
@@ -33,10 +43,17 @@ class OverviewPage {
         document.querySelector('#new_project').addEventListener('click', ()=>{
             this.setMain('/newProject.html');
         });
+
+        this._editArea = document.querySelector('#editArea');
+        this._editFrame = document.querySelector('#edit-frame');
     }
 
     private setMain(uri: string) {
         this._mainFrame.src = uri;
+    }
+
+    private setEdit(uri: string) {
+        this._editFrame.src = uri;
     }
 }
 
