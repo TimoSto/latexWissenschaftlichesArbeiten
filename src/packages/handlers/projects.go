@@ -11,6 +11,7 @@ import (
 type ProjectHTMLDto struct {
 	ProjectName string
 	LiteratureTypes domain.LiteratureTypes
+	BibEntries []domain.BibEntry
 }
 
 func HandleGetProject(w http.ResponseWriter,r *http.Request) {
@@ -31,9 +32,12 @@ func HandleGetProject(w http.ResponseWriter,r *http.Request) {
 		return
 	}
 
+	bib, err := domain.ReadBibEntries(name)
+
 	data := ProjectHTMLDto{
 		ProjectName: name,
 		LiteratureTypes: literatureTypes,
+		BibEntries: bib,
 	}
 
 	err = tmpl.Execute(w, data)

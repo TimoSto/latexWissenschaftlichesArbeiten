@@ -369,7 +369,7 @@
 }
 
 .expandable-area--trigger-line {
-  height: 40px;
+  height: 48px;
 }
 
 .expandable-area--open {
@@ -403,6 +403,10 @@
 .trigger-icon--rotated button {
   transform: rotate(180deg);
   transition: transform 200ms linear;
+}
+
+.expandable-area--trigger-line .mdc-button--raised {
+  float: right;
 }
 
 .mdc-floating-label {
