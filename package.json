@@ -6,7 +6,8 @@
   "author": "Timo Stovermann <timo.stovermann@d-velop.de>",
   "license": "MIT",
   "scripts": {
-    "parcel:watch": "parcel watch web/*.html --public-url /shell --no-hmr --out-dir ./out"
+    "parcel:watch:v1": "parcel watch web/*.html --public-url /shell --no-hmr --out-dir ./out_v1",
+    "parcel:watch": "parcel watch src/packages/gui/*.html --no-hmr --out-dir ./out"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
