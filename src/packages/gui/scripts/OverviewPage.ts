@@ -12,7 +12,12 @@ class OverviewPage {
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
             this.init();
-        })
+            let params = new URLSearchParams(document.location.search);
+            let name = params.get("project");
+            if (name) {
+                this.setMain(`/projects/${name}`);
+            }
+        });
     }
 
     private init() {
@@ -24,6 +29,14 @@ class OverviewPage {
 
         this._mainFrame = document.querySelector('#main-frame');
         this._mainFrame.src = '/welcome.html';
+
+        document.querySelector('#new_project').addEventListener('click', ()=>{
+            this.setMain('/newProject.html');
+        });
+    }
+
+    private setMain(uri: string) {
+        this._mainFrame.src = uri;
     }
 }
 

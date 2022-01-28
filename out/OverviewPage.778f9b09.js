@@ -126,6 +126,13 @@ function () {
 
     document.addEventListener('DOMContentLoaded', function () {
       _this.init();
+
+      var params = new URLSearchParams(document.location.search);
+      var name = params.get("project");
+
+      if (name) {
+        _this.setMain("/projects/" + name);
+      }
     });
   }
 
@@ -141,6 +148,13 @@ function () {
 
     this._mainFrame = document.querySelector('#main-frame');
     this._mainFrame.src = '/welcome.html';
+    document.querySelector('#new_project').addEventListener('click', function () {
+      _this.setMain('/newProject.html');
+    });
+  };
+
+  OverviewPage.prototype.setMain = function (uri) {
+    this._mainFrame.src = uri;
   };
 
   return OverviewPage;

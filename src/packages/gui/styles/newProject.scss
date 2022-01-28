@@ -1,0 +1,11 @@
+@use 'common';
+@use '@material/textfield/mdc-text-field';
+@use '@material/button/mdc-button';
+
+body{
+  padding: 8px;
+}
+
+.mdc-text-field{
+  margin-top: 8px;
+}
