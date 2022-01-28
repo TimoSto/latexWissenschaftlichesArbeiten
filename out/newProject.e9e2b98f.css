@@ -368,6 +368,10 @@
   margin: 0;
 }
 
+.expandable-area--trigger-line {
+  height: 40px;
+}
+
 .mdc-floating-label {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

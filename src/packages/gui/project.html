@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/project.scss">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
     <h1 class="mdc-typography--headline4">{{ .ProjectName }}</h1>
+    <div class="expandable-area--trigger-line">
+        <span class="trigger-icon">
+            <button class="mdc-icon-button material-icons">expand_less</button>
+        </span>
+        <span class="mdc-typography--headline6">Literatur-Typen</span>
+
+    </div>
+    <div class="expandable-area">
+        <ul class="mdc-list mdc-list--two-line" id="typelist">
+            {{ range $key, $value := .LiteratureTypes.Types}}
+            <li class="mdc-list-item" tabindex="0">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">
+              <span class="mdc-list-item__primary-text">{{ $value.Name }}</span>
+              <span class="mdc-list-item__secondary-text">{{ $value.Example }}</span>
+            </span>
+                <span class="mdc-list-item__meta">
+                <button class="mdc-icon-button material-icons" data-edit="{{ $value.Name }}">edit</button>
+                <button class="mdc-icon-button material-icons" data-delete="{{ $value.Name }}">delete</button>
+            </span>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
 </body>
 </html>
