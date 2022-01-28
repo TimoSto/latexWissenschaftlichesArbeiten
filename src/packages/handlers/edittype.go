@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"WA_LaTeX/src/packages/domain"
 	"fmt"
 	"html/template"
 	"log"
@@ -9,7 +10,7 @@ import (
 
 type EditTypeHTMLDto struct {
 	Project string
-
+	Type domain.LiteratureType
 }
 
 func HandleEditType(w http.ResponseWriter,r *http.Request) {
