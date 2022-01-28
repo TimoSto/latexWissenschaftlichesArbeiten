@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/project.scss">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="scripts/ProjectPage.ts"></script>
 </head>
 <body>
     <h1 class="mdc-typography--headline4">{{ .ProjectName }}</h1>
@@ -14,7 +15,7 @@
         <span class="mdc-typography--headline6">Literatur-Typen</span>
 
     </div>
-    <div class="expandable-area">
+    <div class="expandable-area expandable-area--closed">
         <ul class="mdc-list mdc-list--two-line" id="typelist">
             {{ range $key, $value := .LiteratureTypes.Types}}
             <li class="mdc-list-item" tabindex="0">

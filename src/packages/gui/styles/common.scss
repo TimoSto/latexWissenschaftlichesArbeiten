@@ -31,3 +31,27 @@
 .expandable-area--trigger-line{
   height: 40px;
 }
+
+.expandable-area--closed{
+  height: 0;
+  overflow: hidden;
+}
+
+.trigger-icon{
+  & button{
+    transform: rotate(0deg);
+    transition: transform 200ms linear;
+  }
+}
+
+.trigger-icon--rotated{
+  & button{
+    transform: rotate(180deg);
+    transition: transform 200ms linear;
+  }
+}
+
+//@keyframes turner{
+//  from{  transform: rotate(0deg)   }
+//  to  {  transform: rotate(180deg) }
+//}
