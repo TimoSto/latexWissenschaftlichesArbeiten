@@ -1,6 +1,7 @@
 import Field from "./Field";
 import {MDCTextField} from "@material/textfield/component";
 import {MDCSelect} from "@material/select/component";
+import SaveType from "./SaveType";
 
 class TypePage {
     private bib_attrTextFields = [];
@@ -19,8 +20,14 @@ class TypePage {
     private _nameField: MDCTextField;
     private _initialName: string;
 
+    private _project: string;
+
     constructor() {
         document.addEventListener( 'DOMContentLoaded', ()=>{
+
+            let search = new URLSearchParams(window.location.search)
+
+            this._project = search.get('project');
 
             this._nameField = new MDCTextField(document.querySelector('.headline .mdc-text-field'));
 
@@ -179,16 +186,16 @@ class TypePage {
 
             this.syncExample();
 
-            // document.querySelector('.headline button').addEventListener('click', ()=>{
-            //     SaveType(this._nameField.value, this._initialName, this.bibFields, this.citeFields). then(valid => {
-            //
-            //         (<any>window).lapi.ReloadOverview();
-            //
-            //         window.location.replace('/type/'+this._nameField.value);
-            //
-            //
-            //     })
-            // });
+            document.querySelector('.mdc-button--raised').addEventListener('click', ()=>{
+                SaveType(this._project, this._nameField.value, this._initialName, this.bibFields, this.citeFields). then(valid => {
+
+                    // (<any>window).lapi.ReloadOverview();
+                    //
+                    // window.location.replace('/type/'+this._nameField.value);
+
+
+                })
+            });
 
         });
 

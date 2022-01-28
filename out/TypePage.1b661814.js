@@ -10761,7 +10761,36 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCSelect = MDCSelect;
-},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/floating-label/component":"../../../node_modules/@material/floating-label/component.js","@material/line-ripple/component":"../../../node_modules/@material/line-ripple/component.js","@material/menu-surface/constants":"../../../node_modules/@material/menu-surface/constants.js","@material/menu/component":"../../../node_modules/@material/menu/component.js","@material/menu/constants":"../../../node_modules/@material/menu/constants.js","@material/notched-outline/component":"../../../node_modules/@material/notched-outline/component.js","@material/ripple/component":"../../../node_modules/@material/ripple/component.js","@material/ripple/foundation":"../../../node_modules/@material/ripple/foundation.js","./constants":"../../../node_modules/@material/select/constants.js","./foundation":"../../../node_modules/@material/select/foundation.js","./helper-text/component":"../../../node_modules/@material/select/helper-text/component.js","./icon/component":"../../../node_modules/@material/select/icon/component.js"}],"scripts/TypePage.ts":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/floating-label/component":"../../../node_modules/@material/floating-label/component.js","@material/line-ripple/component":"../../../node_modules/@material/line-ripple/component.js","@material/menu-surface/constants":"../../../node_modules/@material/menu-surface/constants.js","@material/menu/component":"../../../node_modules/@material/menu/component.js","@material/menu/constants":"../../../node_modules/@material/menu/constants.js","@material/notched-outline/component":"../../../node_modules/@material/notched-outline/component.js","@material/ripple/component":"../../../node_modules/@material/ripple/component.js","@material/ripple/foundation":"../../../node_modules/@material/ripple/foundation.js","./constants":"../../../node_modules/@material/select/constants.js","./foundation":"../../../node_modules/@material/select/foundation.js","./helper-text/component":"../../../node_modules/@material/select/helper-text/component.js","./icon/component":"../../../node_modules/@material/select/icon/component.js"}],"scripts/SaveType.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function SaveType(project, name, initialName, bibFields, citeFields) {
+  console.log(citeFields);
+  var obj = {
+    Name: name,
+    Fields: bibFields,
+    CiteFields: citeFields,
+    InitialName: initialName,
+    Project: project
+  };
+  return window.fetch('/saveType', {
+    method: 'POST',
+    body: JSON.stringify(obj)
+  }).then(function (response) {
+    console.log(response);
+
+    if (response.status === 200) {
+      return true;
+    }
+  });
+}
+
+exports.default = SaveType;
+},{}],"scripts/TypePage.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -10780,6 +10809,8 @@ var component_1 = require("@material/textfield/component");
 
 var component_2 = require("@material/select/component");
 
+var SaveType_1 = __importDefault(require("./SaveType"));
+
 var TypePage =
 /** @class */
 function () {
@@ -10797,6 +10828,8 @@ function () {
     this.bibFields = [];
     this.citeFields = [];
     document.addEventListener('DOMContentLoaded', function () {
+      var search = new URLSearchParams(window.location.search);
+      _this._project = search.get('project');
       _this._nameField = new component_1.MDCTextField(document.querySelector('.headline .mdc-text-field'));
       _this._initialName = _this._nameField.value;
       var elements = document.querySelectorAll('#bibtable .my-table--row .my-table-cell:nth-child(2) .mdc-text-field');
@@ -10967,17 +11000,14 @@ function () {
         _this.citeFields.push(new Field_1.default(el.getAttribute('data-field'), el.getAttribute('data-style'), el.getAttribute('data-prefix'), el.getAttribute('data-suffix')));
       });
 
-      _this.syncExample(); // document.querySelector('.headline button').addEventListener('click', ()=>{
-      //     SaveType(this._nameField.value, this._initialName, this.bibFields, this.citeFields). then(valid => {
-      //
-      //         (<any>window).lapi.ReloadOverview();
-      //
-      //         window.location.replace('/type/'+this._nameField.value);
-      //
-      //
-      //     })
-      // });
+      _this.syncExample();
 
+      document.querySelector('.mdc-button--raised').addEventListener('click', function () {
+        (0, SaveType_1.default)(_this._project, _this._nameField.value, _this._initialName, _this.bibFields, _this.citeFields).then(function (valid) {// (<any>window).lapi.ReloadOverview();
+          //
+          // window.location.replace('/type/'+this._nameField.value);
+        });
+      });
     });
   }
 
@@ -11057,5 +11087,5 @@ function () {
 }();
 
 new TypePage();
-},{"./Field":"scripts/Field.ts","@material/textfield/component":"../../../node_modules/@material/textfield/component.js","@material/select/component":"../../../node_modules/@material/select/component.js"}]},{},["scripts/TypePage.ts"], null)
+},{"./Field":"scripts/Field.ts","@material/textfield/component":"../../../node_modules/@material/textfield/component.js","@material/select/component":"../../../node_modules/@material/select/component.js","./SaveType":"scripts/SaveType.ts"}]},{},["scripts/TypePage.ts"], null)
 //# sourceMappingURL=/TypePage.1b661814.js.map
