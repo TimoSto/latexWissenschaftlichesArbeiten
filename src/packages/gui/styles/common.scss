@@ -3,3 +3,23 @@
 :root{
   --mdc-theme-primary: #1976D2;
 }
+
+.plain-top-app-bar{
+  background-color: transparent;
+  color: black;
+  position: relative;
+  //border-bottom: 1px solid rgba(0,0,0,0.2);
+
+  & .mdc-icon-button{
+    color: black!important;
+  }
+
+  & .mdc-icon-button:before,
+  & .mdc-icon-button:after{
+    background-color: rgba(0,0,0,0.5)!important;
+  }
+}
+
+.no-space-list{
+  padding: 0!important;
+}

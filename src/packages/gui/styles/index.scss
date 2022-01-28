@@ -1,8 +1,45 @@
-@use 'common';
 @use '@material/top-app-bar/mdc-top-app-bar';
 @use '@material/icon-button/mdc-icon-button';
+@use '@material/list';
+@use 'common';
+
+@include list.core-styles;
 
 html, body{
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+main{
+  height: calc(100% - 64px);
+}
+
+.sidebar{
+  width: 72px;
+  border-right: 1px solid rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  height: 100%;
+  transition: width 200ms;
+
+  & .mdc-list-item__text{
+    max-width: 210px;
+  }
+
+}
+
+.sidebar:not(.sidebar--open) {
+  & .mdc-top-app-bar {
+    display: none;
+  }
+
+  & .mdc-list-item__meta {
+    display: none;
+  }
+}
+
+.sidebar--open{
+  width: 300px;
+  //max-width: 300px;
+  //transition: width 200ms;
 }
