@@ -157,7 +157,7 @@ function () {
         });
       });
       document.querySelectorAll('[data-delete-value]').forEach(function (el) {
-        var project = el.getAttribute('data-edit-value');
+        var project = el.getAttribute('data-delete-value');
         el.addEventListener('click', function (e) {
           fetch('/deleteProject?project=' + project).then(function (resp) {
             if (resp.status === 200) {

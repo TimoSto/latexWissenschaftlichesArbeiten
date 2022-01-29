@@ -28,6 +28,8 @@ func main() {
 
 	http.HandleFunc("/deleteEntry", handlers.HandleDeleteEntry)
 
+	http.HandleFunc("/deleteProject", handlers.HandleDeleteProject)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )

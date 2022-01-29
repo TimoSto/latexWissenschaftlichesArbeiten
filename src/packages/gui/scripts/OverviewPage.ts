@@ -47,7 +47,7 @@ class OverviewPage {
             });
 
             document.querySelectorAll('[data-delete-value]').forEach(el => {
-                const project = el.getAttribute('data-edit-value');
+                const project = el.getAttribute('data-delete-value');
                 el.addEventListener('click', (e)=>{
                     fetch('/deleteProject?project='+project).then(resp => {
                         if ( resp.status === 200 ) {
