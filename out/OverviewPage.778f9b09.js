@@ -141,6 +141,16 @@ function () {
       window.setEdit = function (uri) {
         _this.setEdit(uri);
       };
+
+      document.querySelector('#close_edit').addEventListener('click', function () {
+        _this._editArea.classList.remove('editArea--open');
+      });
+      document.querySelectorAll('[data-edit-value]').forEach(function (el) {
+        var project = el.getAttribute('data-edit-value');
+        el.addEventListener('click', function () {
+          window.location.replace('/overview?project=' + project); //this.setMain('/projects/'+project);
+        });
+      });
     });
   }
 
@@ -168,6 +178,8 @@ function () {
   };
 
   OverviewPage.prototype.setEdit = function (uri) {
+    this._editArea.classList.add('editArea--open');
+
     this._editFrame.src = uri;
   };
 

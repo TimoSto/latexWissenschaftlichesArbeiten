@@ -27,6 +27,18 @@ class OverviewPage {
             (<any>window).setEdit = (uri) => {
                 this.setEdit(uri);
             }
+
+            document.querySelector('#close_edit').addEventListener('click', ()=>{
+                this._editArea.classList.remove('editArea--open');
+            })
+
+            document.querySelectorAll('[data-edit-value]').forEach(el => {
+                const project = el.getAttribute('data-edit-value');
+                el.addEventListener('click', ()=>{
+                    window.location.replace('/overview?project='+project)
+                    //this.setMain('/projects/'+project);
+                })
+            })
         });
     }
 
@@ -53,6 +65,7 @@ class OverviewPage {
     }
 
     private setEdit(uri: string) {
+        this._editArea.classList.add('editArea--open')
         this._editFrame.src = uri;
     }
 }
