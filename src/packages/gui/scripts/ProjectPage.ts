@@ -22,7 +22,18 @@ class ProjectPage {
             el.addEventListener('click', ()=>{
                 (<any>window.parent).setEdit('/editType?project='+pname+'&type='+typeKey)
             });
-        })
+        });
+
+        document.querySelectorAll('[data-delete-type]').forEach(el => {
+            const typeKey = el.getAttribute('data-delete-type');
+            el.addEventListener('click', ()=>{
+                fetch('/deleteType?project='+pname+'&type='+typeKey).then(resp =>{
+                    if( resp.status === 200 ) {
+                        window.location.reload();
+                    }
+                })
+            });
+        });
 
         document.querySelector('#new-entry').addEventListener('click', ()=>{
             (<any>window.parent).setEdit('/editEntry?project='+pname)

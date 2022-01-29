@@ -18,6 +18,8 @@ func main() {
 
 	http.HandleFunc("/saveType", handlers.HandleSaveType)
 
+	http.HandleFunc("/deleteType", handlers.HandleDeleteType)
+
 	http.HandleFunc("/editEntry", handlers.HandleEditEntry)
 
 	http.HandleFunc("/typeFields/", handlers.HandleTypeFields)
