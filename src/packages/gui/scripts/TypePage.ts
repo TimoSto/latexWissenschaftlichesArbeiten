@@ -189,9 +189,11 @@ class TypePage {
             document.querySelector('.mdc-button--raised').addEventListener('click', ()=>{
                 SaveType(this._project, this._nameField.value, this._initialName, this.bibFields, this.citeFields). then(valid => {
 
-                    // (<any>window).lapi.ReloadOverview();
-                    //
-                    // window.location.replace('/type/'+this._nameField.value);
+                    if (valid) {
+                        (<any>window.parent).reloadMain();
+
+                        window.location.replace('/editType?type='+this._nameField.value+'&project='+this._project);
+                    }
 
 
                 })

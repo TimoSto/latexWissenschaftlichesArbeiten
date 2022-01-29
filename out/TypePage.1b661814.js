@@ -11005,9 +11005,11 @@ function () {
       _this.syncExample();
 
       document.querySelector('.mdc-button--raised').addEventListener('click', function () {
-        (0, SaveType_1.default)(_this._project, _this._nameField.value, _this._initialName, _this.bibFields, _this.citeFields).then(function (valid) {// (<any>window).lapi.ReloadOverview();
-          //
-          // window.location.replace('/type/'+this._nameField.value);
+        (0, SaveType_1.default)(_this._project, _this._nameField.value, _this._initialName, _this.bibFields, _this.citeFields).then(function (valid) {
+          if (valid) {
+            window.parent.reloadMain();
+            window.location.replace('/editType?type=' + _this._nameField.value + '&project=' + _this._project);
+          }
         });
       });
     });
