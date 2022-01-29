@@ -10760,8 +10760,6 @@ function SaveEntry(initialKey, project, valuePairs, typ, key) {
     method: 'POST',
     body: JSON.stringify(obj)
   }).then(function (response) {
-    console.log(response);
-
     if (response.status === 200) {
       return true;
     }
@@ -10896,7 +10894,6 @@ function () {
 
     (0, SaveEntry_1.default)(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(function (valid) {
       if (valid) {
-        console.log('valid');
         window.parent.reloadMain();
         window.location.href = '/editEntry?entry=' + _this._keyField.value + '&project=' + _this.project;
       }

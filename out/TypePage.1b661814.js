@@ -10769,7 +10769,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 function SaveType(project, name, initialName, bibFields, citeFields) {
-  console.log(citeFields);
   var obj = {
     Type: {
       Name: name,
@@ -10783,8 +10782,6 @@ function SaveType(project, name, initialName, bibFields, citeFields) {
     method: 'POST',
     body: JSON.stringify(obj)
   }).then(function (response) {
-    console.log(response);
-
     if (response.status === 200) {
       return true;
     }
@@ -10841,9 +10838,8 @@ function () {
         attrTextField.root.querySelector('input').addEventListener('change', function () {
           if (index > _this.bibFields.length - 1) {
             _this.bibFields.push(new Field_1.default("", "normal", "", ""));
-          }
+          } //console.log(attrTextField.value == "", index === this.bibFields.length - 1)
 
-          console.log(attrTextField.value == "", index === _this.bibFields.length - 1);
 
           if (index === _this.bibFields.length - 1 && attrTextField.value == "") {
             _this.bibFields.pop();
@@ -10917,16 +10913,12 @@ function () {
         attrTextField.root.querySelector('input').addEventListener('change', function () {
           if (index > _this.citeFields.length - 1) {
             _this.citeFields.push(new Field_1.default("", "normal", "", ""));
-          }
+          } //console.log(attrTextField.value == "", index === this.citeFields.length -1, attrTextField.value)
 
-          console.log(attrTextField.value == "", index === _this.citeFields.length - 1, attrTextField.value);
 
           if (index === _this.citeFields.length - 1 && attrTextField.value == "") {
-            console.log(_this.citeFields);
-
             _this.citeFields.pop();
 
-            console.log(_this.citeFields);
             return;
           }
 
@@ -11053,7 +11045,6 @@ function () {
     document.getElementById('bibExample').innerHTML = bibExample;
     var citeExample = '';
     this.citeFields.forEach(function (field, n) {
-      console.log(n, field.Field);
       _this.cite_attrTextFields[n].value = field.Field;
       _this.cite_styleSelects[n].value = field.Style;
       _this.cite_prefixTfs[n].value = field.Prefix;

@@ -42,7 +42,7 @@ class TypePage {
                     if( index > this.bibFields.length - 1 ) {
                         this.bibFields.push(new Field("", "normal", "", ""))
                     }
-                    console.log(attrTextField.value == "", index === this.bibFields.length - 1)
+                    //console.log(attrTextField.value == "", index === this.bibFields.length - 1)
                     if(index === this.bibFields.length - 1 && attrTextField.value == "") {
                         this.bibFields.pop();
                         return
@@ -109,11 +109,10 @@ class TypePage {
                     if( index > this.citeFields.length - 1 ) {
                         this.citeFields.push(new Field("", "normal", "", ""))
                     }
-                    console.log(attrTextField.value == "", index === this.citeFields.length -1, attrTextField.value)
+                    //console.log(attrTextField.value == "", index === this.citeFields.length -1, attrTextField.value)
                     if(index === this.citeFields.length -1 && attrTextField.value == "") {
-                        console.log(this.citeFields)
+
                         this.citeFields.pop();
-                        console.log(this.citeFields)
                         return
                     }
                     if( this.citeFields[index].Field != attrTextField.value) {
@@ -238,7 +237,7 @@ class TypePage {
 
         let citeExample = '';
         this.citeFields.forEach( (field, n) => {
-            console.log(n, field.Field)
+
             this.cite_attrTextFields[n].value = field.Field;
             this.cite_styleSelects[n].value = field.Style;
             this.cite_prefixTfs[n].value = field.Prefix;

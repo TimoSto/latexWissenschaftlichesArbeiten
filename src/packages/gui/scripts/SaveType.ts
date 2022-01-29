@@ -1,7 +1,7 @@
 import Field from "./Field";
 
 export default function SaveType(project: string, name: string, initialName: string, bibFields: Field[], citeFields: Field[]) {
-    console.log(citeFields)
+
     let obj = {
         Type: {
             Name: name,
@@ -15,7 +15,6 @@ export default function SaveType(project: string, name: string, initialName: str
         method: 'POST',
         body: JSON.stringify(obj)
     }).then(response => {
-        console.log(response);
 
         if( response.status === 200 ){
             return true

@@ -12,7 +12,7 @@ export default function SaveEntry(initialKey: string, project: string, valuePair
         method: 'POST',
         body: JSON.stringify(obj)
     }).then(response => {
-        console.log(response);
+
         if( response.status === 200 ) {
             return true
         }
