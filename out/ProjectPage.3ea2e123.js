@@ -205,6 +205,16 @@ function () {
         window.parent.setEdit('/editEntry?project=' + pname + '&entry=' + entryKey);
       });
     });
+    document.querySelectorAll('[data-delete-entry]').forEach(function (el) {
+      var entryKey = el.getAttribute('data-delete-entry');
+      el.addEventListener('click', function () {
+        fetch('/deleteEntry?project=' + pname + '&entry=' + entryKey).then(function (resp) {
+          if (resp.status === 200) {
+            window.location.reload();
+          }
+        });
+      });
+    });
   };
 
   return ProjectPage;

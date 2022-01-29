@@ -27,6 +27,17 @@ class ProjectPage {
                 (<any>window.parent).setEdit('/editEntry?project='+pname+'&entry='+entryKey)
             });
         })
+
+        document.querySelectorAll('[data-delete-entry]').forEach(el => {
+            const entryKey = el.getAttribute('data-delete-entry');
+            el.addEventListener('click', ()=>{
+                fetch('/deleteEntry?project='+pname+'&entry='+entryKey).then(resp =>{
+                    if( resp.status === 200 ) {
+                        window.location.reload();
+                    }
+                })
+            });
+        })
     }
 }
 

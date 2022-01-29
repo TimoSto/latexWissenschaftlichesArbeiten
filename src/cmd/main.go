@@ -24,6 +24,8 @@ func main() {
 
 	http.HandleFunc("/saveEntry", handlers.HandleSaveEntry)
 
+	http.HandleFunc("/deleteEntry", handlers.HandleDeleteEntry)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
