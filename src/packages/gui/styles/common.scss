@@ -74,6 +74,10 @@
   float: right;
 }
 
+.expandable-area .mdc-list-item__text{
+  max-width: calc(100% - 100px);
+}
+
 //@keyframes turner{
 //  from{  transform: rotate(0deg)   }
 //  to  {  transform: rotate(180deg) }
