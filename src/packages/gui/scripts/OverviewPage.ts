@@ -38,11 +38,25 @@ class OverviewPage {
 
             document.querySelectorAll('[data-edit-value]').forEach(el => {
                 const project = el.getAttribute('data-edit-value');
-                el.addEventListener('click', ()=>{
+                el.addEventListener('click', (e)=>{
+                    if ((<HTMLElement>e.target).getAttribute('data-delete-value')) return
+
                     window.location.replace('/overview?project='+project)
                     //this.setMain('/projects/'+project);
                 })
-            })
+            });
+
+            document.querySelectorAll('[data-delete-value]').forEach(el => {
+                const project = el.getAttribute('data-edit-value');
+                el.addEventListener('click', (e)=>{
+                    fetch('/deleteProject?project='+project).then(resp => {
+                        if ( resp.status === 200 ) {
+                            window.location.reload();
+                        }
+                    })
+                    //this.setMain('/projects/'+project);
+                })
+            });
         });
     }
 

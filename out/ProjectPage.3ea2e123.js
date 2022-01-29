@@ -198,7 +198,8 @@ function () {
     });
     document.querySelectorAll('[data-edit-type]').forEach(function (el) {
       var typeKey = el.getAttribute('data-edit-type');
-      el.addEventListener('click', function () {
+      el.addEventListener('click', function (e) {
+        if (e.target.getAttribute('data-delete-type')) return;
         window.parent.setEdit('/editType?project=' + pname + '&type=' + typeKey);
       });
     });
@@ -217,7 +218,8 @@ function () {
     });
     document.querySelectorAll('[data-edit-entry]').forEach(function (el) {
       var entryKey = el.getAttribute('data-edit-entry');
-      el.addEventListener('click', function () {
+      el.addEventListener('click', function (e) {
+        if (e.target.getAttribute('data-delete-entry')) return;
         window.parent.setEdit('/editEntry?project=' + pname + '&entry=' + entryKey);
       });
     });

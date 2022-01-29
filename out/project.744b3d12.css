@@ -410,7 +410,7 @@
 }
 
 .expandable-area .mdc-list-item__text {
-  max-width: calc(100% - 100px);
+  max-width: calc(100% - 50px);
 }
 
 .mdc-floating-label {

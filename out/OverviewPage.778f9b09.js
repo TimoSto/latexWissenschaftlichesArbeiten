@@ -151,8 +151,19 @@ function () {
       });
       document.querySelectorAll('[data-edit-value]').forEach(function (el) {
         var project = el.getAttribute('data-edit-value');
-        el.addEventListener('click', function () {
+        el.addEventListener('click', function (e) {
+          if (e.target.getAttribute('data-delete-value')) return;
           window.location.replace('/overview?project=' + project); //this.setMain('/projects/'+project);
+        });
+      });
+      document.querySelectorAll('[data-delete-value]').forEach(function (el) {
+        var project = el.getAttribute('data-edit-value');
+        el.addEventListener('click', function (e) {
+          fetch('/deleteProject?project=' + project).then(function (resp) {
+            if (resp.status === 200) {
+              window.location.reload();
+            }
+          }); //this.setMain('/projects/'+project);
         });
       });
     });

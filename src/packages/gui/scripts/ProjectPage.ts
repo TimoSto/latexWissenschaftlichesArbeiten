@@ -19,7 +19,9 @@ class ProjectPage {
 
         document.querySelectorAll('[data-edit-type]').forEach(el => {
             const typeKey = el.getAttribute('data-edit-type');
-            el.addEventListener('click', ()=>{
+            el.addEventListener('click', (e)=>{
+                if ((<HTMLElement>e.target).getAttribute('data-delete-type')) return
+
                 (<any>window.parent).setEdit('/editType?project='+pname+'&type='+typeKey)
             });
         });
@@ -41,7 +43,9 @@ class ProjectPage {
 
         document.querySelectorAll('[data-edit-entry]').forEach(el => {
             const entryKey = el.getAttribute('data-edit-entry');
-            el.addEventListener('click', ()=>{
+            el.addEventListener('click', (e)=>{
+                if ((<HTMLElement>e.target).getAttribute('data-delete-entry')) return
+
                 (<any>window.parent).setEdit('/editEntry?project='+pname+'&entry='+entryKey)
             });
         })
