@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/editEntry.scss">
+    <script src="scripts/EntryPage.ts"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="values" data-key="{{ .Entry.Key }}" data-typ="{{ .Entry.Typ }}">
+            {{ range $key,$value := .Entry.Fields }}
+            <span>{{$value}}</span>
+            {{end}}
+        </div>
+        <p class="mdc-typography--body1">Wähle einen Literaturtypen aus, dann werden die zugehörigen Felder angezeigt.</p>
+
+        <label class="mdc-text-field mdc-text-field--filled" id="keyField">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label" id="my-label-id">Key</span>
+            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+            <span class="mdc-line-ripple"></span>
+        </label>
+
+        <div class="mdc-select mdc-select--filled demo-width-class" id="typeSelect">
+            <div class="mdc-select__anchor">
+                <span class="mdc-select__ripple"></span>
+                <span id="demo-label" class="mdc-floating-label">Literaturtyp</span>
+                <span class="mdc-select__selected-text-container">
+                  <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+                </span>
+                <span class="mdc-select__dropdown-icon">
+                    <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                    </svg>
+                </span>
+                <span class="mdc-line-ripple"></span>
+            </div>
+
+            <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                <ul class="mdc-list" role="listbox">
+                    {{ range $key,$value := .Types }}
+                    <li class="mdc-list-item" aria-selected="false" data-value="{{$value.Name}}" role="option">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">
+                          {{$value.Name}}
+                        </span>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+
+        <button class="mdc-button mdc-button--raised" id="saveEntry">
+            <span class="mdc-button__label">Speichern</span>
+        </button>
+
+        <label class="mdc-text-field mdc-text-field--filled" id="template">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label">Hint text</span>
+            <input class="mdc-text-field__input" type="text">
+            <span class="mdc-line-ripple"></span>
+        </label>
+
+        <div id="fieldsArea"></div>
+    </div>
+</body>
+</html>

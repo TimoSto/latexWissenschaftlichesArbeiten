@@ -18,6 +18,8 @@ func main() {
 
 	http.HandleFunc("/saveType", handlers.HandleSaveType)
 
+	http.HandleFunc("/editEntry", handlers.HandleEditEntry)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
