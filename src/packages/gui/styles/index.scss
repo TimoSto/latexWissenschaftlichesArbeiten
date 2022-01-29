@@ -4,6 +4,9 @@
 @use "@material/menu/mdc-menu";
 @use '@material/list';
 @use 'common';
+@use "@material/dialog";
+
+@include dialog.core-styles;
 
 @include list.core-styles;
 

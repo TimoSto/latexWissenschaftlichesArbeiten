@@ -27,6 +27,18 @@
                                 <span class="mdc-list-item__ripple"></span>
                                 <span class="mdc-list-item__text">Wie kann ich nur die wirklich zitierten Quellen ins Literaturverzeichnis aufnehmen?</span>
                             </li>
+                            <li class="mdc-list-item" role="menuitem">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Wie kann ich einen neuen Literaturtypen erstellen?</span>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Wie kann ich einen Literaturtypen in ein anderes Projekt übernehmen?</span>
+                            </li>
+                            <li class="mdc-list-item" role="menuitem">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text">Wie kann ich einen Literatureintrag über Citavi erstellen?</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -76,5 +88,50 @@
             <iframe id="edit-frame"></iframe>
         </section>
     </main>
+    <div class="mdc-dialog">
+        <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title" id="my-dialog-title">
+                    Wie kann ich ein neues Projekt anlegen
+                </h2>
+                <div class="mdc-dialog__content" id="my-dialog-content">
+                    <div tabindex="0">
+                        <ol class="mdc-typography--body1">
+                            <li>Öffne das Projekt über den linken Bereich</li>
+                            <li>Klicke auf NEU neben "Literatureinträge"</li>
+                            <li>Vergebe eine ID und wähle den gewünschten Literaturtypen aus</li>
+                            <li>Fülle die Felder aus</li>
+                            <li>Klicke speichern</li>
+                        </ol>
+                    </div>
+                    <div tabindex="0">
+                        <ol class="mdc-typography--body1">
+                            <li>Öffne das Projekt über den linken Bereich</li>
+                            <li>Klicke auf "Zitate aufräumen"</li>
+                            <li>Nun musst du diesen Button immer klicken, wenn du eine neue Quelle zum ersten Mal zitierst!</li>
+                        </ol>
+                        <p class="mdc-typography--body1">Wenn wieder alle Quellen gelistet werden sollten, schreibe in die "citedKeys.csv" im Projektordner ein *</p>
+                    </div>
+                    <div tabindex="0">
+                        <p class="mdc-typography--body1">Die Literaturtypen werden pro Projekt gepflegt. Um einen neuen zu erstellen befolge diese Schritte:</p>
+                        <ol class="mdc-typography--body1">
+                            <li>Öffne das Projekt über den linken Bereich</li>
+                            <li>Klicke auf NEU neben "Literaturtypen"</li>
+                            <li>Vergebe einen Namen und gib die gewünschten Felder für das Literaturverzeichnis an</li>
+                            <li>Gib die gewünschten Felder für Zitate an</li>
+                            <li>Vergiss nicht, eventuell gewüschte Präfixe oder Suffixe anzugeben</li>
+                            <li>Die Attribute können auch kursiv dargestellt werden</li>
+                            <li>Klicke speichern</li>
+                        </ol>
+                    </div>
+                    <div tabindex="0">
+                        <p class="mdc-typography--body1">Kopiere das Element aus der "literature_types.json" in die JSON-Datei in deinem Projekt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+    </div>
 </body>
 </html>

@@ -5367,7 +5367,11 @@ a.mdc-evolution-list-item {
 }
 
 body {
-  padding: 8px;
+  margin: 0;
+}
+
+.headline {
+  margin: 8px 0px 0px 8px;
 }
 
 /*# sourceMappingURL=/project.744b3d12.css.map */

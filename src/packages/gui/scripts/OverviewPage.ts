@@ -1,5 +1,6 @@
 import {MDCMenu} from '@material/menu';
 import {MDCMenuSurface} from '@material/menu-surface';
+import {MDCDialog} from "@material/dialog/component";
 
 class OverviewPage {
 
@@ -74,6 +75,23 @@ class OverviewPage {
                 if(!open) {
                     menu.open();
                 }
+            });
+
+            let dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
+
+            let dialogContents = document.querySelectorAll('.mdc-dialog__content div');
+            let dialog_title = <HTMLElement>document.querySelector('.mdc-dialog__title');
+            document.querySelectorAll('.mdc-menu li').forEach((el, i) =>{
+                const index = i;
+                const text = el.querySelector('.mdc-list-item__text').innerHTML;
+                el.addEventListener('click', ()=>{
+                    dialog_title.innerHTML = text;
+                    dialogContents.forEach((dc, n) => {
+                        (<HTMLElement>dc).style.display = n === index ? 'block' : 'none';
+                    });
+                    dialog.open()
+                    menu.close();
+                })
             })
         });
     }

@@ -1992,7 +1992,2332 @@ Object.keys(_foundation).forEach(function (key) {
     }
   });
 });
-},{"./component":"../../../node_modules/@material/menu-surface/component.js","./constants":"../../../node_modules/@material/menu-surface/constants.js","./foundation":"../../../node_modules/@material/menu-surface/foundation.js"}],"scripts/OverviewPage.ts":[function(require,module,exports) {
+},{"./component":"../../../node_modules/@material/menu-surface/component.js","./constants":"../../../node_modules/@material/menu-surface/constants.js","./foundation":"../../../node_modules/@material/menu-surface/foundation.js"}],"../../../node_modules/@material/dom/focus-trap.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FocusTrap = void 0;
+
+/**
+ * @license
+ * Copyright 2020 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var FOCUS_SENTINEL_CLASS = 'mdc-dom-focus-sentinel';
+/**
+ * Utility to trap focus in a given root element, e.g. for modal components such
+ * as dialogs. The root should have at least one focusable child element,
+ * for setting initial focus when trapping focus.
+ * Also tracks the previously focused element, and restores focus to that
+ * element when releasing focus.
+ */
+
+var FocusTrap =
+/** @class */
+function () {
+  function FocusTrap(root, options) {
+    if (options === void 0) {
+      options = {};
+    }
+
+    this.root = root;
+    this.options = options; // Previously focused element before trapping focus.
+
+    this.elFocusedBeforeTrapFocus = null;
+  }
+  /**
+   * Traps focus in `root`. Also focuses on either `initialFocusEl` if set;
+   * otherwises sets initial focus to the first focusable child element.
+   */
+
+
+  FocusTrap.prototype.trapFocus = function () {
+    var focusableEls = this.getFocusableElements(this.root);
+
+    if (focusableEls.length === 0) {
+      throw new Error('FocusTrap: Element must have at least one focusable child.');
+    }
+
+    this.elFocusedBeforeTrapFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    this.wrapTabFocus(this.root, focusableEls);
+
+    if (!this.options.skipInitialFocus) {
+      this.focusInitialElement(focusableEls, this.options.initialFocusEl);
+    }
+  };
+  /**
+   * Releases focus from `root`. Also restores focus to the previously focused
+   * element.
+   */
+
+
+  FocusTrap.prototype.releaseFocus = function () {
+    [].slice.call(this.root.querySelectorAll("." + FOCUS_SENTINEL_CLASS)).forEach(function (sentinelEl) {
+      sentinelEl.parentElement.removeChild(sentinelEl);
+    });
+
+    if (this.elFocusedBeforeTrapFocus) {
+      this.elFocusedBeforeTrapFocus.focus();
+    }
+  };
+  /**
+   * Wraps tab focus within `el` by adding two hidden sentinel divs which are
+   * used to mark the beginning and the end of the tabbable region. When
+   * focused, these sentinel elements redirect focus to the first/last
+   * children elements of the tabbable region, ensuring that focus is trapped
+   * within that region.
+   */
+
+
+  FocusTrap.prototype.wrapTabFocus = function (el, focusableEls) {
+    var sentinelStart = this.createSentinel();
+    var sentinelEnd = this.createSentinel();
+    sentinelStart.addEventListener('focus', function () {
+      if (focusableEls.length > 0) {
+        focusableEls[focusableEls.length - 1].focus();
+      }
+    });
+    sentinelEnd.addEventListener('focus', function () {
+      if (focusableEls.length > 0) {
+        focusableEls[0].focus();
+      }
+    });
+    el.insertBefore(sentinelStart, el.children[0]);
+    el.appendChild(sentinelEnd);
+  };
+  /**
+   * Focuses on `initialFocusEl` if defined and a child of the root element.
+   * Otherwise, focuses on the first focusable child element of the root.
+   */
+
+
+  FocusTrap.prototype.focusInitialElement = function (focusableEls, initialFocusEl) {
+    var focusIndex = 0;
+
+    if (initialFocusEl) {
+      focusIndex = Math.max(focusableEls.indexOf(initialFocusEl), 0);
+    }
+
+    focusableEls[focusIndex].focus();
+  };
+
+  FocusTrap.prototype.getFocusableElements = function (root) {
+    var focusableEls = [].slice.call(root.querySelectorAll('[autofocus], [tabindex], a, input, textarea, select, button'));
+    return focusableEls.filter(function (el) {
+      var isDisabledOrHidden = el.getAttribute('aria-disabled') === 'true' || el.getAttribute('disabled') != null || el.getAttribute('hidden') != null || el.getAttribute('aria-hidden') === 'true';
+      var isTabbableAndVisible = el.tabIndex >= 0 && el.getBoundingClientRect().width > 0 && !el.classList.contains(FOCUS_SENTINEL_CLASS) && !isDisabledOrHidden;
+      var isProgrammaticallyHidden = false;
+
+      if (isTabbableAndVisible) {
+        var style = getComputedStyle(el);
+        isProgrammaticallyHidden = style.display === 'none' || style.visibility === 'hidden';
+      }
+
+      return isTabbableAndVisible && !isProgrammaticallyHidden;
+    });
+  };
+
+  FocusTrap.prototype.createSentinel = function () {
+    var sentinel = document.createElement('div');
+    sentinel.setAttribute('tabindex', '0'); // Don't announce in screen readers.
+
+    sentinel.setAttribute('aria-hidden', 'true');
+    sentinel.classList.add(FOCUS_SENTINEL_CLASS);
+    return sentinel;
+  };
+
+  return FocusTrap;
+}();
+
+exports.FocusTrap = FocusTrap;
+},{}],"../../../node_modules/@material/dom/ponyfill.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.closest = closest;
+exports.estimateScrollWidth = estimateScrollWidth;
+exports.matches = matches;
+
+/**
+ * @license
+ * Copyright 2018 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/**
+ * @fileoverview A "ponyfill" is a polyfill that doesn't modify the global prototype chain.
+ * This makes ponyfills safer than traditional polyfills, especially for libraries like MDC.
+ */
+function closest(element, selector) {
+  if (element.closest) {
+    return element.closest(selector);
+  }
+
+  var el = element;
+
+  while (el) {
+    if (matches(el, selector)) {
+      return el;
+    }
+
+    el = el.parentElement;
+  }
+
+  return null;
+}
+
+function matches(element, selector) {
+  var nativeMatches = element.matches || element.webkitMatchesSelector || element.msMatchesSelector;
+  return nativeMatches.call(element, selector);
+}
+/**
+ * Used to compute the estimated scroll width of elements. When an element is
+ * hidden due to display: none; being applied to a parent element, the width is
+ * returned as 0. However, the element will have a true width once no longer
+ * inside a display: none context. This method computes an estimated width when
+ * the element is hidden or returns the true width when the element is visble.
+ * @param {Element} element the element whose width to estimate
+ */
+
+
+function estimateScrollWidth(element) {
+  // Check the offsetParent. If the element inherits display: none from any
+  // parent, the offsetParent property will be null (see
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent).
+  // This check ensures we only clone the node when necessary.
+  var htmlEl = element;
+
+  if (htmlEl.offsetParent !== null) {
+    return htmlEl.scrollWidth;
+  }
+
+  var clone = htmlEl.cloneNode(true);
+  clone.style.setProperty('position', 'absolute');
+  clone.style.setProperty('transform', 'translate(-9999px, -9999px)');
+  document.documentElement.appendChild(clone);
+  var scrollWidth = clone.scrollWidth;
+  document.documentElement.removeChild(clone);
+  return scrollWidth;
+}
+},{}],"../../../node_modules/@material/dom/events.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.applyPassive = applyPassive;
+
+/**
+ * @license
+ * Copyright 2019 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/**
+ * Determine whether the current browser supports passive event listeners, and
+ * if so, use them.
+ */
+function applyPassive(globalObj) {
+  if (globalObj === void 0) {
+    globalObj = window;
+  }
+
+  return supportsPassiveOption(globalObj) ? {
+    passive: true
+  } : false;
+}
+
+function supportsPassiveOption(globalObj) {
+  if (globalObj === void 0) {
+    globalObj = window;
+  } // See
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+
+
+  var passiveSupported = false;
+
+  try {
+    var options = {
+      // This function will be called when the browser
+      // attempts to access the passive property.
+      get passive() {
+        passiveSupported = true;
+        return false;
+      }
+
+    };
+
+    var handler = function () {};
+
+    globalObj.document.addEventListener('test', handler, options);
+    globalObj.document.removeEventListener('test', handler, options);
+  } catch (err) {
+    passiveSupported = false;
+  }
+
+  return passiveSupported;
+}
+},{}],"../../../node_modules/@material/ripple/constants.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.strings = exports.numbers = exports.cssClasses = void 0;
+
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var cssClasses = {
+  // Ripple is a special case where the "root" component is really a "mixin" of sorts,
+  // given that it's an 'upgrade' to an existing component. That being said it is the root
+  // CSS class that all other CSS classes derive from.
+  BG_FOCUSED: 'mdc-ripple-upgraded--background-focused',
+  FG_ACTIVATION: 'mdc-ripple-upgraded--foreground-activation',
+  FG_DEACTIVATION: 'mdc-ripple-upgraded--foreground-deactivation',
+  ROOT: 'mdc-ripple-upgraded',
+  UNBOUNDED: 'mdc-ripple-upgraded--unbounded'
+};
+exports.cssClasses = cssClasses;
+var strings = {
+  VAR_FG_SCALE: '--mdc-ripple-fg-scale',
+  VAR_FG_SIZE: '--mdc-ripple-fg-size',
+  VAR_FG_TRANSLATE_END: '--mdc-ripple-fg-translate-end',
+  VAR_FG_TRANSLATE_START: '--mdc-ripple-fg-translate-start',
+  VAR_LEFT: '--mdc-ripple-left',
+  VAR_TOP: '--mdc-ripple-top'
+};
+exports.strings = strings;
+var numbers = {
+  DEACTIVATION_TIMEOUT_MS: 225,
+  FG_DEACTIVATION_MS: 150,
+  INITIAL_ORIGIN_SCALE: 0.6,
+  PADDING: 10,
+  TAP_DELAY_MS: 300
+};
+exports.numbers = numbers;
+},{}],"../../../node_modules/@material/ripple/util.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getNormalizedEventCoords = getNormalizedEventCoords;
+exports.supportsCssVariables = supportsCssVariables;
+
+/**
+ * Stores result from supportsCssVariables to avoid redundant processing to
+ * detect CSS custom variable support.
+ */
+var supportsCssVariables_;
+
+function supportsCssVariables(windowObj, forceRefresh) {
+  if (forceRefresh === void 0) {
+    forceRefresh = false;
+  }
+
+  var CSS = windowObj.CSS;
+  var supportsCssVars = supportsCssVariables_;
+
+  if (typeof supportsCssVariables_ === 'boolean' && !forceRefresh) {
+    return supportsCssVariables_;
+  }
+
+  var supportsFunctionPresent = CSS && typeof CSS.supports === 'function';
+
+  if (!supportsFunctionPresent) {
+    return false;
+  }
+
+  var explicitlySupportsCssVars = CSS.supports('--css-vars', 'yes'); // See: https://bugs.webkit.org/show_bug.cgi?id=154669
+  // See: README section on Safari
+
+  var weAreFeatureDetectingSafari10plus = CSS.supports('(--css-vars: yes)') && CSS.supports('color', '#00000000');
+  supportsCssVars = explicitlySupportsCssVars || weAreFeatureDetectingSafari10plus;
+
+  if (!forceRefresh) {
+    supportsCssVariables_ = supportsCssVars;
+  }
+
+  return supportsCssVars;
+}
+
+function getNormalizedEventCoords(evt, pageOffset, clientRect) {
+  if (!evt) {
+    return {
+      x: 0,
+      y: 0
+    };
+  }
+
+  var x = pageOffset.x,
+      y = pageOffset.y;
+  var documentX = x + clientRect.left;
+  var documentY = y + clientRect.top;
+  var normalizedX;
+  var normalizedY; // Determine touch point relative to the ripple container.
+
+  if (evt.type === 'touchstart') {
+    var touchEvent = evt;
+    normalizedX = touchEvent.changedTouches[0].pageX - documentX;
+    normalizedY = touchEvent.changedTouches[0].pageY - documentY;
+  } else {
+    var mouseEvent = evt;
+    normalizedX = mouseEvent.pageX - documentX;
+    normalizedY = mouseEvent.pageY - documentY;
+  }
+
+  return {
+    x: normalizedX,
+    y: normalizedY
+  };
+}
+},{}],"../../../node_modules/@material/ripple/foundation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.MDCRippleFoundation = void 0;
+
+var _tslib = require("tslib");
+
+var _foundation = require("@material/base/foundation");
+
+var _constants = require("./constants");
+
+var _util = require("./util");
+
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+// Activation events registered on the root element of each instance for activation
+var ACTIVATION_EVENT_TYPES = ['touchstart', 'pointerdown', 'mousedown', 'keydown']; // Deactivation events registered on documentElement when a pointer-related down event occurs
+
+var POINTER_DEACTIVATION_EVENT_TYPES = ['touchend', 'pointerup', 'mouseup', 'contextmenu']; // simultaneous nested activations
+
+var activatedTargets = [];
+
+var MDCRippleFoundation =
+/** @class */
+function (_super) {
+  (0, _tslib.__extends)(MDCRippleFoundation, _super);
+
+  function MDCRippleFoundation(adapter) {
+    var _this = _super.call(this, (0, _tslib.__assign)((0, _tslib.__assign)({}, MDCRippleFoundation.defaultAdapter), adapter)) || this;
+
+    _this.activationAnimationHasEnded_ = false;
+    _this.activationTimer_ = 0;
+    _this.fgDeactivationRemovalTimer_ = 0;
+    _this.fgScale_ = '0';
+    _this.frame_ = {
+      width: 0,
+      height: 0
+    };
+    _this.initialSize_ = 0;
+    _this.layoutFrame_ = 0;
+    _this.maxRadius_ = 0;
+    _this.unboundedCoords_ = {
+      left: 0,
+      top: 0
+    };
+    _this.activationState_ = _this.defaultActivationState_();
+
+    _this.activationTimerCallback_ = function () {
+      _this.activationAnimationHasEnded_ = true;
+
+      _this.runDeactivationUXLogicIfReady_();
+    };
+
+    _this.activateHandler_ = function (e) {
+      return _this.activate_(e);
+    };
+
+    _this.deactivateHandler_ = function () {
+      return _this.deactivate_();
+    };
+
+    _this.focusHandler_ = function () {
+      return _this.handleFocus();
+    };
+
+    _this.blurHandler_ = function () {
+      return _this.handleBlur();
+    };
+
+    _this.resizeHandler_ = function () {
+      return _this.layout();
+    };
+
+    return _this;
+  }
+
+  Object.defineProperty(MDCRippleFoundation, "cssClasses", {
+    get: function () {
+      return _constants.cssClasses;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCRippleFoundation, "strings", {
+    get: function () {
+      return _constants.strings;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCRippleFoundation, "numbers", {
+    get: function () {
+      return _constants.numbers;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCRippleFoundation, "defaultAdapter", {
+    get: function () {
+      return {
+        addClass: function () {
+          return undefined;
+        },
+        browserSupportsCssVars: function () {
+          return true;
+        },
+        computeBoundingRect: function () {
+          return {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            width: 0,
+            height: 0
+          };
+        },
+        containsEventTarget: function () {
+          return true;
+        },
+        deregisterDocumentInteractionHandler: function () {
+          return undefined;
+        },
+        deregisterInteractionHandler: function () {
+          return undefined;
+        },
+        deregisterResizeHandler: function () {
+          return undefined;
+        },
+        getWindowPageOffset: function () {
+          return {
+            x: 0,
+            y: 0
+          };
+        },
+        isSurfaceActive: function () {
+          return true;
+        },
+        isSurfaceDisabled: function () {
+          return true;
+        },
+        isUnbounded: function () {
+          return true;
+        },
+        registerDocumentInteractionHandler: function () {
+          return undefined;
+        },
+        registerInteractionHandler: function () {
+          return undefined;
+        },
+        registerResizeHandler: function () {
+          return undefined;
+        },
+        removeClass: function () {
+          return undefined;
+        },
+        updateCssVariable: function () {
+          return undefined;
+        }
+      };
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  MDCRippleFoundation.prototype.init = function () {
+    var _this = this;
+
+    var supportsPressRipple = this.supportsPressRipple_();
+    this.registerRootHandlers_(supportsPressRipple);
+
+    if (supportsPressRipple) {
+      var _a = MDCRippleFoundation.cssClasses,
+          ROOT_1 = _a.ROOT,
+          UNBOUNDED_1 = _a.UNBOUNDED;
+      requestAnimationFrame(function () {
+        _this.adapter.addClass(ROOT_1);
+
+        if (_this.adapter.isUnbounded()) {
+          _this.adapter.addClass(UNBOUNDED_1); // Unbounded ripples need layout logic applied immediately to set coordinates for both shade and ripple
+
+
+          _this.layoutInternal_();
+        }
+      });
+    }
+  };
+
+  MDCRippleFoundation.prototype.destroy = function () {
+    var _this = this;
+
+    if (this.supportsPressRipple_()) {
+      if (this.activationTimer_) {
+        clearTimeout(this.activationTimer_);
+        this.activationTimer_ = 0;
+        this.adapter.removeClass(MDCRippleFoundation.cssClasses.FG_ACTIVATION);
+      }
+
+      if (this.fgDeactivationRemovalTimer_) {
+        clearTimeout(this.fgDeactivationRemovalTimer_);
+        this.fgDeactivationRemovalTimer_ = 0;
+        this.adapter.removeClass(MDCRippleFoundation.cssClasses.FG_DEACTIVATION);
+      }
+
+      var _a = MDCRippleFoundation.cssClasses,
+          ROOT_2 = _a.ROOT,
+          UNBOUNDED_2 = _a.UNBOUNDED;
+      requestAnimationFrame(function () {
+        _this.adapter.removeClass(ROOT_2);
+
+        _this.adapter.removeClass(UNBOUNDED_2);
+
+        _this.removeCssVars_();
+      });
+    }
+
+    this.deregisterRootHandlers_();
+    this.deregisterDeactivationHandlers_();
+  };
+  /**
+   * @param evt Optional event containing position information.
+   */
+
+
+  MDCRippleFoundation.prototype.activate = function (evt) {
+    this.activate_(evt);
+  };
+
+  MDCRippleFoundation.prototype.deactivate = function () {
+    this.deactivate_();
+  };
+
+  MDCRippleFoundation.prototype.layout = function () {
+    var _this = this;
+
+    if (this.layoutFrame_) {
+      cancelAnimationFrame(this.layoutFrame_);
+    }
+
+    this.layoutFrame_ = requestAnimationFrame(function () {
+      _this.layoutInternal_();
+
+      _this.layoutFrame_ = 0;
+    });
+  };
+
+  MDCRippleFoundation.prototype.setUnbounded = function (unbounded) {
+    var UNBOUNDED = MDCRippleFoundation.cssClasses.UNBOUNDED;
+
+    if (unbounded) {
+      this.adapter.addClass(UNBOUNDED);
+    } else {
+      this.adapter.removeClass(UNBOUNDED);
+    }
+  };
+
+  MDCRippleFoundation.prototype.handleFocus = function () {
+    var _this = this;
+
+    requestAnimationFrame(function () {
+      return _this.adapter.addClass(MDCRippleFoundation.cssClasses.BG_FOCUSED);
+    });
+  };
+
+  MDCRippleFoundation.prototype.handleBlur = function () {
+    var _this = this;
+
+    requestAnimationFrame(function () {
+      return _this.adapter.removeClass(MDCRippleFoundation.cssClasses.BG_FOCUSED);
+    });
+  };
+  /**
+   * We compute this property so that we are not querying information about the client
+   * until the point in time where the foundation requests it. This prevents scenarios where
+   * client-side feature-detection may happen too early, such as when components are rendered on the server
+   * and then initialized at mount time on the client.
+   */
+
+
+  MDCRippleFoundation.prototype.supportsPressRipple_ = function () {
+    return this.adapter.browserSupportsCssVars();
+  };
+
+  MDCRippleFoundation.prototype.defaultActivationState_ = function () {
+    return {
+      activationEvent: undefined,
+      hasDeactivationUXRun: false,
+      isActivated: false,
+      isProgrammatic: false,
+      wasActivatedByPointer: false,
+      wasElementMadeActive: false
+    };
+  };
+  /**
+   * supportsPressRipple Passed from init to save a redundant function call
+   */
+
+
+  MDCRippleFoundation.prototype.registerRootHandlers_ = function (supportsPressRipple) {
+    var _this = this;
+
+    if (supportsPressRipple) {
+      ACTIVATION_EVENT_TYPES.forEach(function (evtType) {
+        _this.adapter.registerInteractionHandler(evtType, _this.activateHandler_);
+      });
+
+      if (this.adapter.isUnbounded()) {
+        this.adapter.registerResizeHandler(this.resizeHandler_);
+      }
+    }
+
+    this.adapter.registerInteractionHandler('focus', this.focusHandler_);
+    this.adapter.registerInteractionHandler('blur', this.blurHandler_);
+  };
+
+  MDCRippleFoundation.prototype.registerDeactivationHandlers_ = function (evt) {
+    var _this = this;
+
+    if (evt.type === 'keydown') {
+      this.adapter.registerInteractionHandler('keyup', this.deactivateHandler_);
+    } else {
+      POINTER_DEACTIVATION_EVENT_TYPES.forEach(function (evtType) {
+        _this.adapter.registerDocumentInteractionHandler(evtType, _this.deactivateHandler_);
+      });
+    }
+  };
+
+  MDCRippleFoundation.prototype.deregisterRootHandlers_ = function () {
+    var _this = this;
+
+    ACTIVATION_EVENT_TYPES.forEach(function (evtType) {
+      _this.adapter.deregisterInteractionHandler(evtType, _this.activateHandler_);
+    });
+    this.adapter.deregisterInteractionHandler('focus', this.focusHandler_);
+    this.adapter.deregisterInteractionHandler('blur', this.blurHandler_);
+
+    if (this.adapter.isUnbounded()) {
+      this.adapter.deregisterResizeHandler(this.resizeHandler_);
+    }
+  };
+
+  MDCRippleFoundation.prototype.deregisterDeactivationHandlers_ = function () {
+    var _this = this;
+
+    this.adapter.deregisterInteractionHandler('keyup', this.deactivateHandler_);
+    POINTER_DEACTIVATION_EVENT_TYPES.forEach(function (evtType) {
+      _this.adapter.deregisterDocumentInteractionHandler(evtType, _this.deactivateHandler_);
+    });
+  };
+
+  MDCRippleFoundation.prototype.removeCssVars_ = function () {
+    var _this = this;
+
+    var rippleStrings = MDCRippleFoundation.strings;
+    var keys = Object.keys(rippleStrings);
+    keys.forEach(function (key) {
+      if (key.indexOf('VAR_') === 0) {
+        _this.adapter.updateCssVariable(rippleStrings[key], null);
+      }
+    });
+  };
+
+  MDCRippleFoundation.prototype.activate_ = function (evt) {
+    var _this = this;
+
+    if (this.adapter.isSurfaceDisabled()) {
+      return;
+    }
+
+    var activationState = this.activationState_;
+
+    if (activationState.isActivated) {
+      return;
+    } // Avoid reacting to follow-on events fired by touch device after an already-processed user interaction
+
+
+    var previousActivationEvent = this.previousActivationEvent_;
+    var isSameInteraction = previousActivationEvent && evt !== undefined && previousActivationEvent.type !== evt.type;
+
+    if (isSameInteraction) {
+      return;
+    }
+
+    activationState.isActivated = true;
+    activationState.isProgrammatic = evt === undefined;
+    activationState.activationEvent = evt;
+    activationState.wasActivatedByPointer = activationState.isProgrammatic ? false : evt !== undefined && (evt.type === 'mousedown' || evt.type === 'touchstart' || evt.type === 'pointerdown');
+    var hasActivatedChild = evt !== undefined && activatedTargets.length > 0 && activatedTargets.some(function (target) {
+      return _this.adapter.containsEventTarget(target);
+    });
+
+    if (hasActivatedChild) {
+      // Immediately reset activation state, while preserving logic that prevents touch follow-on events
+      this.resetActivationState_();
+      return;
+    }
+
+    if (evt !== undefined) {
+      activatedTargets.push(evt.target);
+      this.registerDeactivationHandlers_(evt);
+    }
+
+    activationState.wasElementMadeActive = this.checkElementMadeActive_(evt);
+
+    if (activationState.wasElementMadeActive) {
+      this.animateActivation_();
+    }
+
+    requestAnimationFrame(function () {
+      // Reset array on next frame after the current event has had a chance to bubble to prevent ancestor ripples
+      activatedTargets = [];
+
+      if (!activationState.wasElementMadeActive && evt !== undefined && (evt.key === ' ' || evt.keyCode === 32)) {
+        // If space was pressed, try again within an rAF call to detect :active, because different UAs report
+        // active states inconsistently when they're called within event handling code:
+        // - https://bugs.chromium.org/p/chromium/issues/detail?id=635971
+        // - https://bugzilla.mozilla.org/show_bug.cgi?id=1293741
+        // We try first outside rAF to support Edge, which does not exhibit this problem, but will crash if a CSS
+        // variable is set within a rAF callback for a submit button interaction (#2241).
+        activationState.wasElementMadeActive = _this.checkElementMadeActive_(evt);
+
+        if (activationState.wasElementMadeActive) {
+          _this.animateActivation_();
+        }
+      }
+
+      if (!activationState.wasElementMadeActive) {
+        // Reset activation state immediately if element was not made active.
+        _this.activationState_ = _this.defaultActivationState_();
+      }
+    });
+  };
+
+  MDCRippleFoundation.prototype.checkElementMadeActive_ = function (evt) {
+    return evt !== undefined && evt.type === 'keydown' ? this.adapter.isSurfaceActive() : true;
+  };
+
+  MDCRippleFoundation.prototype.animateActivation_ = function () {
+    var _this = this;
+
+    var _a = MDCRippleFoundation.strings,
+        VAR_FG_TRANSLATE_START = _a.VAR_FG_TRANSLATE_START,
+        VAR_FG_TRANSLATE_END = _a.VAR_FG_TRANSLATE_END;
+    var _b = MDCRippleFoundation.cssClasses,
+        FG_DEACTIVATION = _b.FG_DEACTIVATION,
+        FG_ACTIVATION = _b.FG_ACTIVATION;
+    var DEACTIVATION_TIMEOUT_MS = MDCRippleFoundation.numbers.DEACTIVATION_TIMEOUT_MS;
+    this.layoutInternal_();
+    var translateStart = '';
+    var translateEnd = '';
+
+    if (!this.adapter.isUnbounded()) {
+      var _c = this.getFgTranslationCoordinates_(),
+          startPoint = _c.startPoint,
+          endPoint = _c.endPoint;
+
+      translateStart = startPoint.x + "px, " + startPoint.y + "px";
+      translateEnd = endPoint.x + "px, " + endPoint.y + "px";
+    }
+
+    this.adapter.updateCssVariable(VAR_FG_TRANSLATE_START, translateStart);
+    this.adapter.updateCssVariable(VAR_FG_TRANSLATE_END, translateEnd); // Cancel any ongoing activation/deactivation animations
+
+    clearTimeout(this.activationTimer_);
+    clearTimeout(this.fgDeactivationRemovalTimer_);
+    this.rmBoundedActivationClasses_();
+    this.adapter.removeClass(FG_DEACTIVATION); // Force layout in order to re-trigger the animation.
+
+    this.adapter.computeBoundingRect();
+    this.adapter.addClass(FG_ACTIVATION);
+    this.activationTimer_ = setTimeout(function () {
+      return _this.activationTimerCallback_();
+    }, DEACTIVATION_TIMEOUT_MS);
+  };
+
+  MDCRippleFoundation.prototype.getFgTranslationCoordinates_ = function () {
+    var _a = this.activationState_,
+        activationEvent = _a.activationEvent,
+        wasActivatedByPointer = _a.wasActivatedByPointer;
+    var startPoint;
+
+    if (wasActivatedByPointer) {
+      startPoint = (0, _util.getNormalizedEventCoords)(activationEvent, this.adapter.getWindowPageOffset(), this.adapter.computeBoundingRect());
+    } else {
+      startPoint = {
+        x: this.frame_.width / 2,
+        y: this.frame_.height / 2
+      };
+    } // Center the element around the start point.
+
+
+    startPoint = {
+      x: startPoint.x - this.initialSize_ / 2,
+      y: startPoint.y - this.initialSize_ / 2
+    };
+    var endPoint = {
+      x: this.frame_.width / 2 - this.initialSize_ / 2,
+      y: this.frame_.height / 2 - this.initialSize_ / 2
+    };
+    return {
+      startPoint: startPoint,
+      endPoint: endPoint
+    };
+  };
+
+  MDCRippleFoundation.prototype.runDeactivationUXLogicIfReady_ = function () {
+    var _this = this; // This method is called both when a pointing device is released, and when the activation animation ends.
+    // The deactivation animation should only run after both of those occur.
+
+
+    var FG_DEACTIVATION = MDCRippleFoundation.cssClasses.FG_DEACTIVATION;
+    var _a = this.activationState_,
+        hasDeactivationUXRun = _a.hasDeactivationUXRun,
+        isActivated = _a.isActivated;
+    var activationHasEnded = hasDeactivationUXRun || !isActivated;
+
+    if (activationHasEnded && this.activationAnimationHasEnded_) {
+      this.rmBoundedActivationClasses_();
+      this.adapter.addClass(FG_DEACTIVATION);
+      this.fgDeactivationRemovalTimer_ = setTimeout(function () {
+        _this.adapter.removeClass(FG_DEACTIVATION);
+      }, _constants.numbers.FG_DEACTIVATION_MS);
+    }
+  };
+
+  MDCRippleFoundation.prototype.rmBoundedActivationClasses_ = function () {
+    var FG_ACTIVATION = MDCRippleFoundation.cssClasses.FG_ACTIVATION;
+    this.adapter.removeClass(FG_ACTIVATION);
+    this.activationAnimationHasEnded_ = false;
+    this.adapter.computeBoundingRect();
+  };
+
+  MDCRippleFoundation.prototype.resetActivationState_ = function () {
+    var _this = this;
+
+    this.previousActivationEvent_ = this.activationState_.activationEvent;
+    this.activationState_ = this.defaultActivationState_(); // Touch devices may fire additional events for the same interaction within a short time.
+    // Store the previous event until it's safe to assume that subsequent events are for new interactions.
+
+    setTimeout(function () {
+      return _this.previousActivationEvent_ = undefined;
+    }, MDCRippleFoundation.numbers.TAP_DELAY_MS);
+  };
+
+  MDCRippleFoundation.prototype.deactivate_ = function () {
+    var _this = this;
+
+    var activationState = this.activationState_; // This can happen in scenarios such as when you have a keyup event that blurs the element.
+
+    if (!activationState.isActivated) {
+      return;
+    }
+
+    var state = (0, _tslib.__assign)({}, activationState);
+
+    if (activationState.isProgrammatic) {
+      requestAnimationFrame(function () {
+        return _this.animateDeactivation_(state);
+      });
+      this.resetActivationState_();
+    } else {
+      this.deregisterDeactivationHandlers_();
+      requestAnimationFrame(function () {
+        _this.activationState_.hasDeactivationUXRun = true;
+
+        _this.animateDeactivation_(state);
+
+        _this.resetActivationState_();
+      });
+    }
+  };
+
+  MDCRippleFoundation.prototype.animateDeactivation_ = function (_a) {
+    var wasActivatedByPointer = _a.wasActivatedByPointer,
+        wasElementMadeActive = _a.wasElementMadeActive;
+
+    if (wasActivatedByPointer || wasElementMadeActive) {
+      this.runDeactivationUXLogicIfReady_();
+    }
+  };
+
+  MDCRippleFoundation.prototype.layoutInternal_ = function () {
+    var _this = this;
+
+    this.frame_ = this.adapter.computeBoundingRect();
+    var maxDim = Math.max(this.frame_.height, this.frame_.width); // Surface diameter is treated differently for unbounded vs. bounded ripples.
+    // Unbounded ripple diameter is calculated smaller since the surface is expected to already be padded appropriately
+    // to extend the hitbox, and the ripple is expected to meet the edges of the padded hitbox (which is typically
+    // square). Bounded ripples, on the other hand, are fully expected to expand beyond the surface's longest diameter
+    // (calculated based on the diagonal plus a constant padding), and are clipped at the surface's border via
+    // `overflow: hidden`.
+
+    var getBoundedRadius = function () {
+      var hypotenuse = Math.sqrt(Math.pow(_this.frame_.width, 2) + Math.pow(_this.frame_.height, 2));
+      return hypotenuse + MDCRippleFoundation.numbers.PADDING;
+    };
+
+    this.maxRadius_ = this.adapter.isUnbounded() ? maxDim : getBoundedRadius(); // Ripple is sized as a fraction of the largest dimension of the surface, then scales up using a CSS scale transform
+
+    var initialSize = Math.floor(maxDim * MDCRippleFoundation.numbers.INITIAL_ORIGIN_SCALE); // Unbounded ripple size should always be even number to equally center align.
+
+    if (this.adapter.isUnbounded() && initialSize % 2 !== 0) {
+      this.initialSize_ = initialSize - 1;
+    } else {
+      this.initialSize_ = initialSize;
+    }
+
+    this.fgScale_ = "" + this.maxRadius_ / this.initialSize_;
+    this.updateLayoutCssVars_();
+  };
+
+  MDCRippleFoundation.prototype.updateLayoutCssVars_ = function () {
+    var _a = MDCRippleFoundation.strings,
+        VAR_FG_SIZE = _a.VAR_FG_SIZE,
+        VAR_LEFT = _a.VAR_LEFT,
+        VAR_TOP = _a.VAR_TOP,
+        VAR_FG_SCALE = _a.VAR_FG_SCALE;
+    this.adapter.updateCssVariable(VAR_FG_SIZE, this.initialSize_ + "px");
+    this.adapter.updateCssVariable(VAR_FG_SCALE, this.fgScale_);
+
+    if (this.adapter.isUnbounded()) {
+      this.unboundedCoords_ = {
+        left: Math.round(this.frame_.width / 2 - this.initialSize_ / 2),
+        top: Math.round(this.frame_.height / 2 - this.initialSize_ / 2)
+      };
+      this.adapter.updateCssVariable(VAR_LEFT, this.unboundedCoords_.left + "px");
+      this.adapter.updateCssVariable(VAR_TOP, this.unboundedCoords_.top + "px");
+    }
+  };
+
+  return MDCRippleFoundation;
+}(_foundation.MDCFoundation);
+
+exports.MDCRippleFoundation = MDCRippleFoundation;
+// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
+var _default = MDCRippleFoundation;
+exports.default = _default;
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/ripple/constants.js","./util":"../../../node_modules/@material/ripple/util.js"}],"../../../node_modules/@material/ripple/component.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MDCRipple = void 0;
+
+var _tslib = require("tslib");
+
+var _component = require("@material/base/component");
+
+var _events = require("@material/dom/events");
+
+var _ponyfill = require("@material/dom/ponyfill");
+
+var _foundation = require("./foundation");
+
+var util = _interopRequireWildcard(require("./util"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var MDCRipple =
+/** @class */
+function (_super) {
+  (0, _tslib.__extends)(MDCRipple, _super);
+
+  function MDCRipple() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.disabled = false;
+    return _this;
+  }
+
+  MDCRipple.attachTo = function (root, opts) {
+    if (opts === void 0) {
+      opts = {
+        isUnbounded: undefined
+      };
+    }
+
+    var ripple = new MDCRipple(root); // Only override unbounded behavior if option is explicitly specified
+
+    if (opts.isUnbounded !== undefined) {
+      ripple.unbounded = opts.isUnbounded;
+    }
+
+    return ripple;
+  };
+
+  MDCRipple.createAdapter = function (instance) {
+    return {
+      addClass: function (className) {
+        return instance.root.classList.add(className);
+      },
+      browserSupportsCssVars: function () {
+        return util.supportsCssVariables(window);
+      },
+      computeBoundingRect: function () {
+        return instance.root.getBoundingClientRect();
+      },
+      containsEventTarget: function (target) {
+        return instance.root.contains(target);
+      },
+      deregisterDocumentInteractionHandler: function (evtType, handler) {
+        return document.documentElement.removeEventListener(evtType, handler, (0, _events.applyPassive)());
+      },
+      deregisterInteractionHandler: function (evtType, handler) {
+        return instance.root.removeEventListener(evtType, handler, (0, _events.applyPassive)());
+      },
+      deregisterResizeHandler: function (handler) {
+        return window.removeEventListener('resize', handler);
+      },
+      getWindowPageOffset: function () {
+        return {
+          x: window.pageXOffset,
+          y: window.pageYOffset
+        };
+      },
+      isSurfaceActive: function () {
+        return (0, _ponyfill.matches)(instance.root, ':active');
+      },
+      isSurfaceDisabled: function () {
+        return Boolean(instance.disabled);
+      },
+      isUnbounded: function () {
+        return Boolean(instance.unbounded);
+      },
+      registerDocumentInteractionHandler: function (evtType, handler) {
+        return document.documentElement.addEventListener(evtType, handler, (0, _events.applyPassive)());
+      },
+      registerInteractionHandler: function (evtType, handler) {
+        return instance.root.addEventListener(evtType, handler, (0, _events.applyPassive)());
+      },
+      registerResizeHandler: function (handler) {
+        return window.addEventListener('resize', handler);
+      },
+      removeClass: function (className) {
+        return instance.root.classList.remove(className);
+      },
+      updateCssVariable: function (varName, value) {
+        return instance.root.style.setProperty(varName, value);
+      }
+    };
+  };
+
+  Object.defineProperty(MDCRipple.prototype, "unbounded", {
+    get: function () {
+      return Boolean(this.unbounded_);
+    },
+    set: function (unbounded) {
+      this.unbounded_ = Boolean(unbounded);
+      this.setUnbounded_();
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  MDCRipple.prototype.activate = function () {
+    this.foundation.activate();
+  };
+
+  MDCRipple.prototype.deactivate = function () {
+    this.foundation.deactivate();
+  };
+
+  MDCRipple.prototype.layout = function () {
+    this.foundation.layout();
+  };
+
+  MDCRipple.prototype.getDefaultFoundation = function () {
+    return new _foundation.MDCRippleFoundation(MDCRipple.createAdapter(this));
+  };
+
+  MDCRipple.prototype.initialSyncWithDOM = function () {
+    var root = this.root;
+    this.unbounded = 'mdcRippleIsUnbounded' in root.dataset;
+  };
+  /**
+   * Closure Compiler throws an access control error when directly accessing a
+   * protected or private property inside a getter/setter, like unbounded above.
+   * By accessing the protected property inside a method, we solve that problem.
+   * That's why this function exists.
+   */
+
+
+  MDCRipple.prototype.setUnbounded_ = function () {
+    this.foundation.setUnbounded(Boolean(this.unbounded_));
+  };
+
+  return MDCRipple;
+}(_component.MDCComponent);
+
+exports.MDCRipple = MDCRipple;
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/dom/events":"../../../node_modules/@material/dom/events.js","@material/dom/ponyfill":"../../../node_modules/@material/dom/ponyfill.js","./foundation":"../../../node_modules/@material/ripple/foundation.js","./util":"../../../node_modules/@material/ripple/util.js"}],"../../../node_modules/@material/animation/animationframe.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.AnimationFrame = void 0;
+
+/**
+ * @license
+ * Copyright 2020 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/**
+ * AnimationFrame provides a user-friendly abstraction around requesting
+ * and canceling animation frames.
+ */
+var AnimationFrame =
+/** @class */
+function () {
+  function AnimationFrame() {
+    this.rafIDs = new Map();
+  }
+  /**
+   * Requests an animation frame. Cancels any existing frame with the same key.
+   * @param {string} key The key for this callback.
+   * @param {FrameRequestCallback} callback The callback to be executed.
+   */
+
+
+  AnimationFrame.prototype.request = function (key, callback) {
+    var _this = this;
+
+    this.cancel(key);
+    var frameID = requestAnimationFrame(function (frame) {
+      _this.rafIDs.delete(key); // Callback must come *after* the key is deleted so that nested calls to
+      // request with the same key are not deleted.
+
+
+      callback(frame);
+    });
+    this.rafIDs.set(key, frameID);
+  };
+  /**
+   * Cancels a queued callback with the given key.
+   * @param {string} key The key for this callback.
+   */
+
+
+  AnimationFrame.prototype.cancel = function (key) {
+    var rafID = this.rafIDs.get(key);
+
+    if (rafID) {
+      cancelAnimationFrame(rafID);
+      this.rafIDs.delete(key);
+    }
+  };
+  /**
+   * Cancels all queued callback.
+   */
+
+
+  AnimationFrame.prototype.cancelAll = function () {
+    var _this = this; // Need to use forEach because it's the only iteration method supported
+    // by IE11. Suppress the underscore because we don't need it.
+    // tslint:disable-next-line:enforce-name-casing
+
+
+    this.rafIDs.forEach(function (_, key) {
+      _this.cancel(key);
+    });
+  };
+  /**
+   * Returns the queue of unexecuted callback keys.
+   */
+
+
+  AnimationFrame.prototype.getQueue = function () {
+    var queue = []; // Need to use forEach because it's the only iteration method supported
+    // by IE11. Suppress the underscore because we don't need it.
+    // tslint:disable-next-line:enforce-name-casing
+
+    this.rafIDs.forEach(function (_, key) {
+      queue.push(key);
+    });
+    return queue;
+  };
+
+  return AnimationFrame;
+}();
+
+exports.AnimationFrame = AnimationFrame;
+},{}],"../../../node_modules/@material/dialog/constants.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.strings = exports.numbers = exports.cssClasses = void 0;
+
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var cssClasses = {
+  CLOSING: 'mdc-dialog--closing',
+  OPEN: 'mdc-dialog--open',
+  OPENING: 'mdc-dialog--opening',
+  SCROLLABLE: 'mdc-dialog--scrollable',
+  SCROLL_LOCK: 'mdc-dialog-scroll-lock',
+  STACKED: 'mdc-dialog--stacked',
+  FULLSCREEN: 'mdc-dialog--fullscreen',
+  // Class for showing a scroll divider on full-screen dialog header element.
+  // Should only be displayed on scrollable content, when the dialog content is
+  // scrolled "underneath" the header.
+  SCROLL_DIVIDER_HEADER: 'mdc-dialog-scroll-divider-header',
+  // Class for showing a scroll divider on a full-screen dialog footer element.
+  // Should only be displayed on scrolalble content, when the dialog content is
+  // obscured "underneath" the footer.
+  SCROLL_DIVIDER_FOOTER: 'mdc-dialog-scroll-divider-footer'
+};
+exports.cssClasses = cssClasses;
+var strings = {
+  ACTION_ATTRIBUTE: 'data-mdc-dialog-action',
+  BUTTON_DEFAULT_ATTRIBUTE: 'data-mdc-dialog-button-default',
+  BUTTON_SELECTOR: '.mdc-dialog__button',
+  CLOSED_EVENT: 'MDCDialog:closed',
+  CLOSE_ACTION: 'close',
+  CLOSING_EVENT: 'MDCDialog:closing',
+  CONTAINER_SELECTOR: '.mdc-dialog__container',
+  CONTENT_SELECTOR: '.mdc-dialog__content',
+  DESTROY_ACTION: 'destroy',
+  INITIAL_FOCUS_ATTRIBUTE: 'data-mdc-dialog-initial-focus',
+  OPENED_EVENT: 'MDCDialog:opened',
+  OPENING_EVENT: 'MDCDialog:opening',
+  SCRIM_SELECTOR: '.mdc-dialog__scrim',
+  SUPPRESS_DEFAULT_PRESS_SELECTOR: ['textarea', '.mdc-menu .mdc-list-item'].join(', '),
+  SURFACE_SELECTOR: '.mdc-dialog__surface'
+};
+exports.strings = strings;
+var numbers = {
+  DIALOG_ANIMATION_CLOSE_TIME_MS: 75,
+  DIALOG_ANIMATION_OPEN_TIME_MS: 150
+};
+exports.numbers = numbers;
+},{}],"../../../node_modules/@material/dialog/foundation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.MDCDialogFoundation = void 0;
+
+var _tslib = require("tslib");
+
+var _animationframe = require("@material/animation/animationframe");
+
+var _foundation = require("@material/base/foundation");
+
+var _constants = require("./constants");
+
+/**
+ * @license
+ * Copyright 2017 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var AnimationKeys;
+
+(function (AnimationKeys) {
+  AnimationKeys["POLL_SCROLL_POS"] = "poll_scroll_position";
+})(AnimationKeys || (AnimationKeys = {}));
+
+var MDCDialogFoundation =
+/** @class */
+function (_super) {
+  (0, _tslib.__extends)(MDCDialogFoundation, _super);
+
+  function MDCDialogFoundation(adapter) {
+    var _this = _super.call(this, (0, _tslib.__assign)((0, _tslib.__assign)({}, MDCDialogFoundation.defaultAdapter), adapter)) || this;
+
+    _this.dialogOpen = false;
+    _this.isFullscreen = false;
+    _this.animationFrame = 0;
+    _this.animationTimer = 0;
+    _this.layoutFrame = 0;
+    _this.escapeKeyAction = _constants.strings.CLOSE_ACTION;
+    _this.scrimClickAction = _constants.strings.CLOSE_ACTION;
+    _this.autoStackButtons = true;
+    _this.areButtonsStacked = false;
+    _this.suppressDefaultPressSelector = _constants.strings.SUPPRESS_DEFAULT_PRESS_SELECTOR;
+    _this.animFrame = new _animationframe.AnimationFrame();
+
+    _this.contentScrollHandler = function () {
+      _this.handleScrollEvent();
+    };
+
+    return _this;
+  }
+
+  Object.defineProperty(MDCDialogFoundation, "cssClasses", {
+    get: function () {
+      return _constants.cssClasses;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCDialogFoundation, "strings", {
+    get: function () {
+      return _constants.strings;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCDialogFoundation, "numbers", {
+    get: function () {
+      return _constants.numbers;
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCDialogFoundation, "defaultAdapter", {
+    get: function () {
+      return {
+        addBodyClass: function () {
+          return undefined;
+        },
+        addClass: function () {
+          return undefined;
+        },
+        areButtonsStacked: function () {
+          return false;
+        },
+        clickDefaultButton: function () {
+          return undefined;
+        },
+        eventTargetMatches: function () {
+          return false;
+        },
+        getActionFromEvent: function () {
+          return '';
+        },
+        getInitialFocusEl: function () {
+          return null;
+        },
+        hasClass: function () {
+          return false;
+        },
+        isContentScrollable: function () {
+          return false;
+        },
+        notifyClosed: function () {
+          return undefined;
+        },
+        notifyClosing: function () {
+          return undefined;
+        },
+        notifyOpened: function () {
+          return undefined;
+        },
+        notifyOpening: function () {
+          return undefined;
+        },
+        releaseFocus: function () {
+          return undefined;
+        },
+        removeBodyClass: function () {
+          return undefined;
+        },
+        removeClass: function () {
+          return undefined;
+        },
+        reverseButtons: function () {
+          return undefined;
+        },
+        trapFocus: function () {
+          return undefined;
+        },
+        registerContentEventHandler: function () {
+          return undefined;
+        },
+        deregisterContentEventHandler: function () {
+          return undefined;
+        },
+        isScrollableContentAtTop: function () {
+          return false;
+        },
+        isScrollableContentAtBottom: function () {
+          return false;
+        }
+      };
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  MDCDialogFoundation.prototype.init = function () {
+    if (this.adapter.hasClass(_constants.cssClasses.STACKED)) {
+      this.setAutoStackButtons(false);
+    }
+
+    this.isFullscreen = this.adapter.hasClass(_constants.cssClasses.FULLSCREEN);
+  };
+
+  MDCDialogFoundation.prototype.destroy = function () {
+    if (this.dialogOpen) {
+      this.close(_constants.strings.DESTROY_ACTION);
+    }
+
+    if (this.animationTimer) {
+      clearTimeout(this.animationTimer);
+      this.handleAnimationTimerEnd();
+    }
+
+    if (this.layoutFrame) {
+      cancelAnimationFrame(this.layoutFrame);
+      this.layoutFrame = 0;
+    }
+
+    if (this.isFullscreen && this.adapter.isContentScrollable()) {
+      this.adapter.deregisterContentEventHandler('scroll', this.contentScrollHandler);
+    }
+  };
+
+  MDCDialogFoundation.prototype.open = function () {
+    var _this = this;
+
+    this.dialogOpen = true;
+    this.adapter.notifyOpening();
+    this.adapter.addClass(_constants.cssClasses.OPENING);
+
+    if (this.isFullscreen && this.adapter.isContentScrollable()) {
+      this.adapter.registerContentEventHandler('scroll', this.contentScrollHandler);
+    } // Wait a frame once display is no longer "none", to establish basis for
+    // animation
+
+
+    this.runNextAnimationFrame(function () {
+      _this.adapter.addClass(_constants.cssClasses.OPEN);
+
+      _this.adapter.addBodyClass(_constants.cssClasses.SCROLL_LOCK);
+
+      _this.layout();
+
+      _this.animationTimer = setTimeout(function () {
+        _this.handleAnimationTimerEnd();
+
+        _this.adapter.trapFocus(_this.adapter.getInitialFocusEl());
+
+        _this.adapter.notifyOpened();
+      }, _constants.numbers.DIALOG_ANIMATION_OPEN_TIME_MS);
+    });
+  };
+
+  MDCDialogFoundation.prototype.close = function (action) {
+    var _this = this;
+
+    if (action === void 0) {
+      action = '';
+    }
+
+    if (!this.dialogOpen) {
+      // Avoid redundant close calls (and events), e.g. from keydown on elements
+      // that inherently emit click
+      return;
+    }
+
+    this.dialogOpen = false;
+    this.adapter.notifyClosing(action);
+    this.adapter.addClass(_constants.cssClasses.CLOSING);
+    this.adapter.removeClass(_constants.cssClasses.OPEN);
+    this.adapter.removeBodyClass(_constants.cssClasses.SCROLL_LOCK);
+
+    if (this.isFullscreen && this.adapter.isContentScrollable()) {
+      this.adapter.deregisterContentEventHandler('scroll', this.contentScrollHandler);
+    }
+
+    cancelAnimationFrame(this.animationFrame);
+    this.animationFrame = 0;
+    clearTimeout(this.animationTimer);
+    this.animationTimer = setTimeout(function () {
+      _this.adapter.releaseFocus();
+
+      _this.handleAnimationTimerEnd();
+
+      _this.adapter.notifyClosed(action);
+    }, _constants.numbers.DIALOG_ANIMATION_CLOSE_TIME_MS);
+  };
+
+  MDCDialogFoundation.prototype.isOpen = function () {
+    return this.dialogOpen;
+  };
+
+  MDCDialogFoundation.prototype.getEscapeKeyAction = function () {
+    return this.escapeKeyAction;
+  };
+
+  MDCDialogFoundation.prototype.setEscapeKeyAction = function (action) {
+    this.escapeKeyAction = action;
+  };
+
+  MDCDialogFoundation.prototype.getScrimClickAction = function () {
+    return this.scrimClickAction;
+  };
+
+  MDCDialogFoundation.prototype.setScrimClickAction = function (action) {
+    this.scrimClickAction = action;
+  };
+
+  MDCDialogFoundation.prototype.getAutoStackButtons = function () {
+    return this.autoStackButtons;
+  };
+
+  MDCDialogFoundation.prototype.setAutoStackButtons = function (autoStack) {
+    this.autoStackButtons = autoStack;
+  };
+
+  MDCDialogFoundation.prototype.getSuppressDefaultPressSelector = function () {
+    return this.suppressDefaultPressSelector;
+  };
+
+  MDCDialogFoundation.prototype.setSuppressDefaultPressSelector = function (selector) {
+    this.suppressDefaultPressSelector = selector;
+  };
+
+  MDCDialogFoundation.prototype.layout = function () {
+    var _this = this;
+
+    if (this.layoutFrame) {
+      cancelAnimationFrame(this.layoutFrame);
+    }
+
+    this.layoutFrame = requestAnimationFrame(function () {
+      _this.layoutInternal();
+
+      _this.layoutFrame = 0;
+    });
+  };
+  /** Handles click on the dialog root element. */
+
+
+  MDCDialogFoundation.prototype.handleClick = function (evt) {
+    var isScrim = this.adapter.eventTargetMatches(evt.target, _constants.strings.SCRIM_SELECTOR); // Check for scrim click first since it doesn't require querying ancestors.
+
+    if (isScrim && this.scrimClickAction !== '') {
+      this.close(this.scrimClickAction);
+    } else {
+      var action = this.adapter.getActionFromEvent(evt);
+
+      if (action) {
+        this.close(action);
+      }
+    }
+  };
+  /** Handles keydown on the dialog root element. */
+
+
+  MDCDialogFoundation.prototype.handleKeydown = function (evt) {
+    var isEnter = evt.key === 'Enter' || evt.keyCode === 13;
+
+    if (!isEnter) {
+      return;
+    }
+
+    var action = this.adapter.getActionFromEvent(evt);
+
+    if (action) {
+      // Action button callback is handled in `handleClick`,
+      // since space/enter keydowns on buttons trigger click events.
+      return;
+    } // `composedPath` is used here, when available, to account for use cases
+    // where a target meant to suppress the default press behaviour
+    // may exist in a shadow root.
+    // For example, a textarea inside a web component:
+    // <mwc-dialog>
+    //   <horizontal-layout>
+    //     #shadow-root (open)
+    //       <mwc-textarea>
+    //         #shadow-root (open)
+    //           <textarea></textarea>
+    //       </mwc-textarea>
+    //   </horizontal-layout>
+    // </mwc-dialog>
+
+
+    var target = evt.composedPath ? evt.composedPath()[0] : evt.target;
+    var isDefault = this.suppressDefaultPressSelector ? !this.adapter.eventTargetMatches(target, this.suppressDefaultPressSelector) : true;
+
+    if (isEnter && isDefault) {
+      this.adapter.clickDefaultButton();
+    }
+  };
+  /** Handles keydown on the document. */
+
+
+  MDCDialogFoundation.prototype.handleDocumentKeydown = function (evt) {
+    var isEscape = evt.key === 'Escape' || evt.keyCode === 27;
+
+    if (isEscape && this.escapeKeyAction !== '') {
+      this.close(this.escapeKeyAction);
+    }
+  };
+  /**
+   * Handles scroll event on the dialog's content element -- showing a scroll
+   * divider on the header or footer based on the scroll position. This handler
+   * should only be registered on full-screen dialogs with scrollable content.
+   */
+
+
+  MDCDialogFoundation.prototype.handleScrollEvent = function () {
+    var _this = this; // Since scroll events can fire at a high rate, we throttle these events by
+    // using requestAnimationFrame.
+
+
+    this.animFrame.request(AnimationKeys.POLL_SCROLL_POS, function () {
+      _this.toggleScrollDividerHeader();
+
+      _this.toggleScrollDividerFooter();
+    });
+  };
+
+  MDCDialogFoundation.prototype.layoutInternal = function () {
+    if (this.autoStackButtons) {
+      this.detectStackedButtons();
+    }
+
+    this.toggleScrollableClasses();
+  };
+
+  MDCDialogFoundation.prototype.handleAnimationTimerEnd = function () {
+    this.animationTimer = 0;
+    this.adapter.removeClass(_constants.cssClasses.OPENING);
+    this.adapter.removeClass(_constants.cssClasses.CLOSING);
+  };
+  /**
+   * Runs the given logic on the next animation frame, using setTimeout to
+   * factor in Firefox reflow behavior.
+   */
+
+
+  MDCDialogFoundation.prototype.runNextAnimationFrame = function (callback) {
+    var _this = this;
+
+    cancelAnimationFrame(this.animationFrame);
+    this.animationFrame = requestAnimationFrame(function () {
+      _this.animationFrame = 0;
+      clearTimeout(_this.animationTimer);
+      _this.animationTimer = setTimeout(callback, 0);
+    });
+  };
+
+  MDCDialogFoundation.prototype.detectStackedButtons = function () {
+    // Remove the class first to let us measure the buttons' natural positions.
+    this.adapter.removeClass(_constants.cssClasses.STACKED);
+    var areButtonsStacked = this.adapter.areButtonsStacked();
+
+    if (areButtonsStacked) {
+      this.adapter.addClass(_constants.cssClasses.STACKED);
+    }
+
+    if (areButtonsStacked !== this.areButtonsStacked) {
+      this.adapter.reverseButtons();
+      this.areButtonsStacked = areButtonsStacked;
+    }
+  };
+
+  MDCDialogFoundation.prototype.toggleScrollableClasses = function () {
+    // Remove the class first to let us measure the natural height of the
+    // content.
+    this.adapter.removeClass(_constants.cssClasses.SCROLLABLE);
+
+    if (this.adapter.isContentScrollable()) {
+      this.adapter.addClass(_constants.cssClasses.SCROLLABLE);
+
+      if (this.isFullscreen) {
+        // If dialog is full-screen and scrollable, check if a scroll divider
+        // should be shown.
+        this.toggleScrollDividerHeader();
+        this.toggleScrollDividerFooter();
+      }
+    }
+  };
+
+  MDCDialogFoundation.prototype.toggleScrollDividerHeader = function () {
+    if (!this.adapter.isScrollableContentAtTop()) {
+      this.adapter.addClass(_constants.cssClasses.SCROLL_DIVIDER_HEADER);
+    } else if (this.adapter.hasClass(_constants.cssClasses.SCROLL_DIVIDER_HEADER)) {
+      this.adapter.removeClass(_constants.cssClasses.SCROLL_DIVIDER_HEADER);
+    }
+  };
+
+  MDCDialogFoundation.prototype.toggleScrollDividerFooter = function () {
+    if (!this.adapter.isScrollableContentAtBottom()) {
+      this.adapter.addClass(_constants.cssClasses.SCROLL_DIVIDER_FOOTER);
+    } else if (this.adapter.hasClass(_constants.cssClasses.SCROLL_DIVIDER_FOOTER)) {
+      this.adapter.removeClass(_constants.cssClasses.SCROLL_DIVIDER_FOOTER);
+    }
+  };
+
+  return MDCDialogFoundation;
+}(_foundation.MDCFoundation);
+
+exports.MDCDialogFoundation = MDCDialogFoundation;
+// tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
+var _default = MDCDialogFoundation;
+exports.default = _default;
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/animation/animationframe":"../../../node_modules/@material/animation/animationframe.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/dialog/constants.js"}],"../../../node_modules/@material/dialog/util.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.areTopsMisaligned = areTopsMisaligned;
+exports.createFocusTrapInstance = createFocusTrapInstance;
+exports.isScrollAtBottom = isScrollAtBottom;
+exports.isScrollAtTop = isScrollAtTop;
+exports.isScrollable = isScrollable;
+
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+function createFocusTrapInstance(surfaceEl, focusTrapFactory, initialFocusEl) {
+  return focusTrapFactory(surfaceEl, {
+    initialFocusEl: initialFocusEl
+  });
+}
+
+function isScrollable(el) {
+  return el ? el.scrollHeight > el.offsetHeight : false;
+}
+/**
+ * For scrollable content, returns true if the content has not been scrolled
+ * (that is, the scroll content is as the "top"). This is used in full-screen
+ * dialogs, where the scroll divider is expected only to appear once the
+ * content has been scrolled "underneath" the header bar.
+ */
+
+
+function isScrollAtTop(el) {
+  return el ? el.scrollTop === 0 : false;
+}
+/**
+ * For scrollable content, returns true if the content has been scrolled all the
+ * way to the bottom. This is used in full-screen dialogs, where the footer
+ * scroll divider is expected only to appear when the content is "cut-off" by
+ * the footer bar.
+ */
+
+
+function isScrollAtBottom(el) {
+  return el ? Math.ceil(el.scrollHeight - el.scrollTop) === el.clientHeight : false;
+}
+
+function areTopsMisaligned(els) {
+  var tops = new Set();
+  [].forEach.call(els, function (el) {
+    return tops.add(el.offsetTop);
+  });
+  return tops.size > 1;
+}
+},{}],"../../../node_modules/@material/dialog/component.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MDCDialog = void 0;
+
+var _tslib = require("tslib");
+
+var _component = require("@material/base/component");
+
+var _focusTrap = require("@material/dom/focus-trap");
+
+var _ponyfill = require("@material/dom/ponyfill");
+
+var _component2 = require("@material/ripple/component");
+
+var _foundation = require("./foundation");
+
+var util = _interopRequireWildcard(require("./util"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+/**
+ * @license
+ * Copyright 2017 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var strings = _foundation.MDCDialogFoundation.strings;
+
+var MDCDialog =
+/** @class */
+function (_super) {
+  (0, _tslib.__extends)(MDCDialog, _super);
+
+  function MDCDialog() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  Object.defineProperty(MDCDialog.prototype, "isOpen", {
+    get: function () {
+      return this.foundation.isOpen();
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCDialog.prototype, "escapeKeyAction", {
+    get: function () {
+      return this.foundation.getEscapeKeyAction();
+    },
+    set: function (action) {
+      this.foundation.setEscapeKeyAction(action);
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCDialog.prototype, "scrimClickAction", {
+    get: function () {
+      return this.foundation.getScrimClickAction();
+    },
+    set: function (action) {
+      this.foundation.setScrimClickAction(action);
+    },
+    enumerable: true,
+    configurable: true
+  });
+  Object.defineProperty(MDCDialog.prototype, "autoStackButtons", {
+    get: function () {
+      return this.foundation.getAutoStackButtons();
+    },
+    set: function (autoStack) {
+      this.foundation.setAutoStackButtons(autoStack);
+    },
+    enumerable: true,
+    configurable: true
+  });
+
+  MDCDialog.attachTo = function (root) {
+    return new MDCDialog(root);
+  };
+
+  MDCDialog.prototype.initialize = function (focusTrapFactory) {
+    var e_1, _a;
+
+    if (focusTrapFactory === void 0) {
+      focusTrapFactory = function (el, focusOptions) {
+        return new _focusTrap.FocusTrap(el, focusOptions);
+      };
+    }
+
+    var container = this.root.querySelector(strings.CONTAINER_SELECTOR);
+
+    if (!container) {
+      throw new Error("Dialog component requires a " + strings.CONTAINER_SELECTOR + " container element");
+    }
+
+    this.container = container;
+    this.content = this.root.querySelector(strings.CONTENT_SELECTOR);
+    this.buttons = [].slice.call(this.root.querySelectorAll(strings.BUTTON_SELECTOR));
+    this.defaultButton = this.root.querySelector("[" + strings.BUTTON_DEFAULT_ATTRIBUTE + "]");
+    this.focusTrapFactory = focusTrapFactory;
+    this.buttonRipples = [];
+
+    try {
+      for (var _b = (0, _tslib.__values)(this.buttons), _c = _b.next(); !_c.done; _c = _b.next()) {
+        var buttonEl = _c.value;
+        this.buttonRipples.push(new _component2.MDCRipple(buttonEl));
+      }
+    } catch (e_1_1) {
+      e_1 = {
+        error: e_1_1
+      };
+    } finally {
+      try {
+        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+      } finally {
+        if (e_1) throw e_1.error;
+      }
+    }
+  };
+
+  MDCDialog.prototype.initialSyncWithDOM = function () {
+    var _this = this;
+
+    this.focusTrap = util.createFocusTrapInstance(this.container, this.focusTrapFactory, this.getInitialFocusEl() || undefined);
+    this.handleClick = this.foundation.handleClick.bind(this.foundation);
+    this.handleKeydown = this.foundation.handleKeydown.bind(this.foundation);
+    this.handleDocumentKeydown = this.foundation.handleDocumentKeydown.bind(this.foundation);
+    this.handleLayout = this.layout.bind(this);
+    var LAYOUT_EVENTS = ['resize', 'orientationchange'];
+
+    this.handleOpening = function () {
+      LAYOUT_EVENTS.forEach(function (evtType) {
+        window.addEventListener(evtType, _this.handleLayout);
+      });
+      document.addEventListener('keydown', _this.handleDocumentKeydown);
+    };
+
+    this.handleClosing = function () {
+      LAYOUT_EVENTS.forEach(function (evtType) {
+        window.removeEventListener(evtType, _this.handleLayout);
+      });
+      document.removeEventListener('keydown', _this.handleDocumentKeydown);
+    };
+
+    this.listen('click', this.handleClick);
+    this.listen('keydown', this.handleKeydown);
+    this.listen(strings.OPENING_EVENT, this.handleOpening);
+    this.listen(strings.CLOSING_EVENT, this.handleClosing);
+  };
+
+  MDCDialog.prototype.destroy = function () {
+    this.unlisten('click', this.handleClick);
+    this.unlisten('keydown', this.handleKeydown);
+    this.unlisten(strings.OPENING_EVENT, this.handleOpening);
+    this.unlisten(strings.CLOSING_EVENT, this.handleClosing);
+    this.handleClosing();
+    this.buttonRipples.forEach(function (ripple) {
+      ripple.destroy();
+    });
+
+    _super.prototype.destroy.call(this);
+  };
+
+  MDCDialog.prototype.layout = function () {
+    this.foundation.layout();
+  };
+
+  MDCDialog.prototype.open = function () {
+    this.foundation.open();
+  };
+
+  MDCDialog.prototype.close = function (action) {
+    if (action === void 0) {
+      action = '';
+    }
+
+    this.foundation.close(action);
+  };
+
+  MDCDialog.prototype.getDefaultFoundation = function () {
+    var _this = this; // DO NOT INLINE this variable. For backward compatibility, foundations take a Partial<MDCFooAdapter>.
+    // To ensure we don't accidentally omit any methods, we need a separate, strongly typed adapter variable.
+
+
+    var adapter = {
+      addBodyClass: function (className) {
+        return document.body.classList.add(className);
+      },
+      addClass: function (className) {
+        return _this.root.classList.add(className);
+      },
+      areButtonsStacked: function () {
+        return util.areTopsMisaligned(_this.buttons);
+      },
+      clickDefaultButton: function () {
+        if (_this.defaultButton) {
+          _this.defaultButton.click();
+        }
+      },
+      eventTargetMatches: function (target, selector) {
+        return target ? (0, _ponyfill.matches)(target, selector) : false;
+      },
+      getActionFromEvent: function (evt) {
+        if (!evt.target) {
+          return '';
+        }
+
+        var element = (0, _ponyfill.closest)(evt.target, "[" + strings.ACTION_ATTRIBUTE + "]");
+        return element && element.getAttribute(strings.ACTION_ATTRIBUTE);
+      },
+      getInitialFocusEl: function () {
+        return _this.getInitialFocusEl();
+      },
+      hasClass: function (className) {
+        return _this.root.classList.contains(className);
+      },
+      isContentScrollable: function () {
+        return util.isScrollable(_this.content);
+      },
+      notifyClosed: function (action) {
+        return _this.emit(strings.CLOSED_EVENT, action ? {
+          action: action
+        } : {});
+      },
+      notifyClosing: function (action) {
+        return _this.emit(strings.CLOSING_EVENT, action ? {
+          action: action
+        } : {});
+      },
+      notifyOpened: function () {
+        return _this.emit(strings.OPENED_EVENT, {});
+      },
+      notifyOpening: function () {
+        return _this.emit(strings.OPENING_EVENT, {});
+      },
+      releaseFocus: function () {
+        _this.focusTrap.releaseFocus();
+      },
+      removeBodyClass: function (className) {
+        return document.body.classList.remove(className);
+      },
+      removeClass: function (className) {
+        return _this.root.classList.remove(className);
+      },
+      reverseButtons: function () {
+        _this.buttons.reverse();
+
+        _this.buttons.forEach(function (button) {
+          button.parentElement.appendChild(button);
+        });
+      },
+      trapFocus: function () {
+        _this.focusTrap.trapFocus();
+      },
+      registerContentEventHandler: function (evt, handler) {
+        if (_this.content instanceof HTMLElement) {
+          _this.content.addEventListener(evt, handler);
+        }
+      },
+      deregisterContentEventHandler: function (evt, handler) {
+        if (_this.content instanceof HTMLElement) {
+          _this.content.removeEventListener(evt, handler);
+        }
+      },
+      isScrollableContentAtTop: function () {
+        return util.isScrollAtTop(_this.content);
+      },
+      isScrollableContentAtBottom: function () {
+        return util.isScrollAtBottom(_this.content);
+      }
+    };
+    return new _foundation.MDCDialogFoundation(adapter);
+  };
+
+  MDCDialog.prototype.getInitialFocusEl = function () {
+    return this.root.querySelector("[" + strings.INITIAL_FOCUS_ATTRIBUTE + "]");
+  };
+
+  return MDCDialog;
+}(_component.MDCComponent);
+
+exports.MDCDialog = MDCDialog;
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/dom/focus-trap":"../../../node_modules/@material/dom/focus-trap.js","@material/dom/ponyfill":"../../../node_modules/@material/dom/ponyfill.js","@material/ripple/component":"../../../node_modules/@material/ripple/component.js","./foundation":"../../../node_modules/@material/dialog/foundation.js","./util":"../../../node_modules/@material/dialog/util.js"}],"scripts/OverviewPage.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2000,6 +4325,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var menu_surface_1 = require("@material/menu-surface");
+
+var component_1 = require("@material/dialog/component");
 
 var OverviewPage =
 /** @class */
@@ -2064,6 +4391,21 @@ function () {
           menu.open();
         }
       });
+      var dialog = new component_1.MDCDialog(document.querySelector('.mdc-dialog'));
+      var dialogContents = document.querySelectorAll('.mdc-dialog__content div');
+      var dialog_title = document.querySelector('.mdc-dialog__title');
+      document.querySelectorAll('.mdc-menu li').forEach(function (el, i) {
+        var index = i;
+        var text = el.querySelector('.mdc-list-item__text').innerHTML;
+        el.addEventListener('click', function () {
+          dialog_title.innerHTML = text;
+          dialogContents.forEach(function (dc, n) {
+            dc.style.display = n === index ? 'block' : 'none';
+          });
+          dialog.open();
+          menu.close();
+        });
+      });
     });
   }
 
@@ -2100,5 +4442,5 @@ function () {
 }();
 
 new OverviewPage();
-},{"@material/menu-surface":"../../../node_modules/@material/menu-surface/index.js"}]},{},["scripts/OverviewPage.ts"], null)
+},{"@material/menu-surface":"../../../node_modules/@material/menu-surface/index.js","@material/dialog/component":"../../../node_modules/@material/dialog/component.js"}]},{},["scripts/OverviewPage.ts"], null)
 //# sourceMappingURL=/OverviewPage.778f9b09.js.map
