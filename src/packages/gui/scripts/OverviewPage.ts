@@ -1,6 +1,5 @@
-
-
-
+import {MDCMenu} from '@material/menu';
+import {MDCMenuSurface} from '@material/menu-surface';
 
 class OverviewPage {
 
@@ -57,6 +56,25 @@ class OverviewPage {
                     //this.setMain('/projects/'+project);
                 })
             });
+
+            const menu = new MDCMenuSurface(document.querySelector('.mdc-menu'));
+            //menu.setAnchorElement(document.querySelector('.mdc-top-app-bar__section--align-end button'));
+            menu.setAnchorCorner(1);
+
+            let open = false;
+
+            menu.listen('MDCMenuSurface:opened', () => {
+                open = true;
+            });
+            menu.listen('MDCMenuSurface:closed', () => {
+                open = false;
+            });
+
+            document.querySelector('.mdc-top-app-bar__section--align-end button').addEventListener('click', ()=>{
+                if(!open) {
+                    menu.open();
+                }
+            })
         });
     }
 
