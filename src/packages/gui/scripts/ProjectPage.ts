@@ -59,6 +59,26 @@ class ProjectPage {
                     }
                 })
             });
+        });
+
+        this.setupDragAndDrop();
+    }
+
+    private setupDragAndDrop() {
+
+        let area = document.querySelector('#drop_zone');
+        area.addEventListener('dragover', (e)=>{
+            e.preventDefault();
+        })
+        area.addEventListener('drop', (e: DragEvent)=>{
+            e.preventDefault()
+            const dT = new DataTransfer();
+            dT.items.add(e.dataTransfer.files[0]);
+            let reader = new FileReader();
+            reader.readAsText(dT.files[0], "UTF-8");
+            reader.onload = function (evt) {
+                console.log(evt.target.result);
+            }
         })
     }
 }

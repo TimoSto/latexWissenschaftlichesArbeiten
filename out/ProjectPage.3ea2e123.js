@@ -233,6 +233,25 @@ function () {
         });
       });
     });
+    this.setupDragAndDrop();
+  };
+
+  ProjectPage.prototype.setupDragAndDrop = function () {
+    var area = document.querySelector('#drop_zone');
+    area.addEventListener('dragover', function (e) {
+      e.preventDefault();
+    });
+    area.addEventListener('drop', function (e) {
+      e.preventDefault();
+      var dT = new DataTransfer();
+      dT.items.add(e.dataTransfer.files[0]);
+      var reader = new FileReader();
+      reader.readAsText(dT.files[0], "UTF-8");
+
+      reader.onload = function (evt) {
+        console.log(evt.target.result);
+      };
+    });
   };
 
   return ProjectPage;
