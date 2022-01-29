@@ -32,6 +32,13 @@ func HandleEditType(w http.ResponseWriter,r *http.Request) {
 
 	if ok && len(typekeys[0]) > 0 {
 		//FILL FIELDS
+		typeToEdit, err := domain.GetType(project, typekeys[0])
+		if err != nil {
+			fmt.Println( err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		data.Type = typeToEdit
 	}
 
 	tmpl, err := template.ParseFiles("./out/editType.html")

@@ -10771,9 +10771,11 @@ Object.defineProperty(exports, "__esModule", {
 function SaveType(project, name, initialName, bibFields, citeFields) {
   console.log(citeFields);
   var obj = {
-    Name: name,
-    Fields: bibFields,
-    CiteFields: citeFields,
+    Type: {
+      Name: name,
+      Fields: bibFields,
+      CiteFields: citeFields
+    },
     InitialName: initialName,
     Project: project
   };

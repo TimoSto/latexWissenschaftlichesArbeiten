@@ -3,9 +3,11 @@ import Field from "./Field";
 export default function SaveType(project: string, name: string, initialName: string, bibFields: Field[], citeFields: Field[]) {
     console.log(citeFields)
     let obj = {
-        Name: name,
-        Fields: bibFields,
-        CiteFields: citeFields,
+        Type: {
+            Name: name,
+            Fields: bibFields,
+            CiteFields: citeFields,
+        },
         InitialName: initialName,
         Project: project
     }

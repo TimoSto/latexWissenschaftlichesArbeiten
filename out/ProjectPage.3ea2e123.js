@@ -196,6 +196,12 @@ function () {
     document.querySelector('#new-type').addEventListener('click', function () {
       window.parent.setEdit('/editType?project=' + pname);
     });
+    document.querySelectorAll('[data-edit-type]').forEach(function (el) {
+      var typeKey = el.getAttribute('data-edit-type');
+      el.addEventListener('click', function () {
+        window.parent.setEdit('/editType?project=' + pname + '&type=' + typeKey);
+      });
+    });
     document.querySelector('#new-entry').addEventListener('click', function () {
       window.parent.setEdit('/editEntry?project=' + pname);
     });

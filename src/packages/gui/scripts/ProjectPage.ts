@@ -17,6 +17,13 @@ class ProjectPage {
             (<any>window.parent).setEdit('/editType?project='+pname)
         });
 
+        document.querySelectorAll('[data-edit-type]').forEach(el => {
+            const typeKey = el.getAttribute('data-edit-type');
+            el.addEventListener('click', ()=>{
+                (<any>window.parent).setEdit('/editType?project='+pname+'&type='+typeKey)
+            });
+        })
+
         document.querySelector('#new-entry').addEventListener('click', ()=>{
             (<any>window.parent).setEdit('/editEntry?project='+pname)
         });
