@@ -164,6 +164,21 @@ function InitExpandableAreas() {
 }
 
 exports.default = InitExpandableAreas;
+},{}],"scripts/AnalyseAndSaveDroppedFile.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function AnalyseAndSaveDroppdFile(file) {
+  console.log(file);
+  var texType = file.match('(@.*?\{)')[0];
+  texType = texType.substr(1, texType.length - 2);
+  console.log(texType);
+}
+
+exports.default = AnalyseAndSaveDroppdFile;
 },{}],"scripts/ProjectPage.ts":[function(require,module,exports) {
 "use strict";
 
@@ -178,6 +193,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var InitExpandableAreas_1 = __importDefault(require("./InitExpandableAreas"));
+
+var AnalyseAndSaveDroppedFile_1 = __importDefault(require("./AnalyseAndSaveDroppedFile"));
 
 var ProjectPage =
 /** @class */
@@ -249,7 +266,7 @@ function () {
       reader.readAsText(dT.files[0], "UTF-8");
 
       reader.onload = function (evt) {
-        console.log(evt.target.result); //Dialog mit Textfeld öffnen => gewünscht Zitierweise eingeben
+        (0, AnalyseAndSaveDroppedFile_1.default)(reader.result); //Dialog mit Textfeld öffnen => gewünscht Zitierweise eingeben
       };
     });
   };
@@ -258,5 +275,5 @@ function () {
 }();
 
 new ProjectPage();
-},{"./InitExpandableAreas":"scripts/InitExpandableAreas.ts"}]},{},["scripts/ProjectPage.ts"], null)
+},{"./InitExpandableAreas":"scripts/InitExpandableAreas.ts","./AnalyseAndSaveDroppedFile":"scripts/AnalyseAndSaveDroppedFile.ts"}]},{},["scripts/ProjectPage.ts"], null)
 //# sourceMappingURL=/ProjectPage.3ea2e123.js.map

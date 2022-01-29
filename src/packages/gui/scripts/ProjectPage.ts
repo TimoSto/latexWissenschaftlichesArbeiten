@@ -1,4 +1,5 @@
 import InitExpandableAreas from "./InitExpandableAreas";
+import AnalyseAndSaveDroppdFile from "./AnalyseAndSaveDroppedFile";
 
 class ProjectPage {
 
@@ -77,7 +78,8 @@ class ProjectPage {
             let reader = new FileReader();
             reader.readAsText(dT.files[0], "UTF-8");
             reader.onload = function (evt) {
-                console.log(evt.target.result);
+
+                AnalyseAndSaveDroppdFile(<string>reader.result)
                 //Dialog mit Textfeld öffnen => gewünscht Zitierweise eingeben
             }
         })
