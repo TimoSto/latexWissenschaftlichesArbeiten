@@ -22,6 +22,8 @@ func main() {
 
 	http.HandleFunc("/typeFields/", handlers.HandleTypeFields)
 
+	http.HandleFunc("/saveEntry", handlers.HandleSaveEntry)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )

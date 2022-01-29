@@ -1,0 +1,80 @@
+package handlers
+
+import (
+	"WA_LaTeX/domain"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+	"strings"
+)
+
+type ValuePair struct {
+	Value string
+	Attr string
+}
+
+type SaveEntryObj struct {
+	InitialKey string
+	ValuePairs []ValuePair
+	Typ string
+	Key string
+	Project string
+}
+
+func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
+	var saveObj SaveEntryObj
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&saveObj)
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	entry := domain.BibEntry{
+		Key:             saveObj.Key,
+		Typ:             saveObj.Typ,
+		Fields: []string{},
+	}
+
+	for i:=0 ; i<len(saveObj.ValuePairs) ; i++ {
+		entry.Fields = append(entry.Fields, saveObj.ValuePairs[i].Value)
+	}
+
+	fmt.Println(entry.Fields)
+
+	entries := domain.ReadBibEntries(saveObj.Project)
+	fmt.Println(entry)
+	//if len(saveObj.InitialKey)  == 0 {
+	//	entries = append(entries, entry)
+	//} else {
+	found := false;
+	for i:= 0 ; i<len(entries) ; i++ {
+		if strings.Compare(entries[i].Key, saveObj.InitialKey) == 0 || strings.Compare(entries[i].Key, saveObj.Key) == 0 {
+			entries[i] =  entry
+			found = true
+			break
+		}
+	}
+	//}
+
+	if !found {
+		entries = append(entries, entry)
+	}
+
+	jsonStr, err := json.MarshalIndent(entries, "", "\t")
+	fmt.Println(string(jsonStr))
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	err = ioutil.WriteFile("./projects/" + saveObj.Project +"/literatur.json", jsonStr, 0644)
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	domain.ConvertBibToCSV(saveObj.Project)
+}

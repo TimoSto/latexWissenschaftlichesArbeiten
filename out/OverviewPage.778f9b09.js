@@ -142,6 +142,10 @@ function () {
         _this.setEdit(uri);
       };
 
+      window.reloadMain = function () {
+        _this._mainFrame.contentWindow.location.reload();
+      };
+
       document.querySelector('#close_edit').addEventListener('click', function () {
         _this._editArea.classList.remove('editArea--open');
       });

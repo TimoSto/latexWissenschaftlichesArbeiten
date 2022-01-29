@@ -10897,8 +10897,8 @@ function () {
     (0, SaveEntry_1.default)(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(function (valid) {
       if (valid) {
         console.log('valid');
-        window.lapi.ReloadOverview();
-        window.location.href = '/entry/' + _this._keyField.value + '?project=' + _this.project;
+        window.parent.reloadMain();
+        window.location.href = '/editEntry?entry=' + _this._keyField.value + '&project=' + _this.project;
       }
     });
   };

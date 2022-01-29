@@ -28,6 +28,10 @@ class OverviewPage {
                 this.setEdit(uri);
             }
 
+            (<any>window).reloadMain = () => {
+                this._mainFrame.contentWindow.location.reload();
+            }
+
             document.querySelector('#close_edit').addEventListener('click', ()=>{
                 this._editArea.classList.remove('editArea--open');
             })

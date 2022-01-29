@@ -104,8 +104,8 @@ class EntryPage {
         SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(valid => {
             if( valid ) {
                 console.log('valid');
-                (<any>window).lapi.ReloadOverview();
-                window.location.href= '/entry/' + this._keyField.value+'?project='+this.project;
+                (<any>window.parent).reloadMain();
+                window.location.href= '/editEntry?entry=' + this._keyField.value+'&project='+this.project;
             }
         });
     }
