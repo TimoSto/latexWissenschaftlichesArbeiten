@@ -20,6 +20,13 @@ class ProjectPage {
         document.querySelector('#new-entry').addEventListener('click', ()=>{
             (<any>window.parent).setEdit('/editEntry?project='+pname)
         });
+
+        document.querySelectorAll('[data-edit-entry]').forEach(el => {
+            const entryKey = el.getAttribute('data-edit-entry');
+            el.addEventListener('click', ()=>{
+                (<any>window.parent).setEdit('/editEntry?project='+pname+'&entry='+entryKey)
+            });
+        })
     }
 }
 

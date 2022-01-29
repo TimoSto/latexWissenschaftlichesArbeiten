@@ -3692,7 +3692,7 @@ main {
   transition: width 200ms;
 }
 .sidebar .mdc-list-item__text {
-  max-width: 210px;
+  max-width: calc(100% - 100px);
 }
 
 .sidebar:not(.sidebar--open) .mdc-top-app-bar {

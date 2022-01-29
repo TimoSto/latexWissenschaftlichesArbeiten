@@ -199,6 +199,12 @@ function () {
     document.querySelector('#new-entry').addEventListener('click', function () {
       window.parent.setEdit('/editEntry?project=' + pname);
     });
+    document.querySelectorAll('[data-edit-entry]').forEach(function (el) {
+      var entryKey = el.getAttribute('data-edit-entry');
+      el.addEventListener('click', function () {
+        window.parent.setEdit('/editEntry?project=' + pname + '&entry=' + entryKey);
+      });
+    });
   };
 
   return ProjectPage;
