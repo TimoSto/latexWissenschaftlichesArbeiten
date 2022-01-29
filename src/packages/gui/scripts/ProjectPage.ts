@@ -78,6 +78,7 @@ class ProjectPage {
             reader.readAsText(dT.files[0], "UTF-8");
             reader.onload = function (evt) {
                 console.log(evt.target.result);
+                //Dialog mit Textfeld öffnen => gewünscht Zitierweise eingeben
             }
         })
     }

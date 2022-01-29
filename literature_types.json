@@ -740,6 +740,69 @@
 				}
 			],
 			"Example": "Autor (Hg.) (Jahr), Titel, Verlag (Sammelband, Auflage)"
+		},
+		{
+			"Name": "citaviAufsatzDoi",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Zeitschrift",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Ausgabe",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "). "
+				},
+				{
+					"Field": "doi",
+					"Style": "normal",
+					"Prefix": "https://doi.org/",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": ""
 		}
 	]
 }
