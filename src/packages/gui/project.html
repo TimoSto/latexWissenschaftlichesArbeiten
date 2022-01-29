@@ -8,41 +8,67 @@
 </head>
 <body>
     <h1 class="mdc-typography--headline4">{{ .ProjectName }}</h1>
-    <div class="expandable-area--trigger-line">
-        <span class="trigger-icon">
-            <button class="mdc-icon-button material-icons">expand_less</button>
-        </span>
-        <span class="mdc-typography--headline6">Literatur-Typen</span>
-        <button class="mdc-button mdc-button--raised" id="new-type">
-            <span class="mdc-button__label">Neu</span>
-        </button>
-    </div>
-    <div class="expandable-area expandable-area--closed">
-        <ul class="mdc-list mdc-list--two-line" id="typelist">
-            {{ range $key, $value := .LiteratureTypes.Types}}
-            <li class="mdc-list-item" tabindex="0">
-                <span class="mdc-list-item__ripple"></span>
-                <span class="mdc-list-item__text">
+
+    <ul class="mdc-list">
+        <li class="mdc-list-item">
+            <span class="mdc-list-item__graphic">
+                <button class="mdc-icon-button material-icons trigger-icon">expand_less</button>
+            </span>
+            <span class="mdc-list-item__text">Literaturtypen</span>
+            <span class="mdc-list-item__meta">
+                <button class="mdc-button mdc-button--raised" id="new-type">
+                    <span class="mdc-button__label">Neu</span>
+                </button>
+            </span>
+        </li>
+        <div class="expandable-area expandable-area--closed">
+            <ul class="mdc-list mdc-list--two-line" id="typelist">
+                {{ range $key, $value := .LiteratureTypes.Types}}
+                <li class="mdc-list-item" tabindex="0">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">
               <span class="mdc-list-item__primary-text">{{ $value.Name }}</span>
               <span class="mdc-list-item__secondary-text">{{ $value.Example }}</span>
             </span>
-                <span class="mdc-list-item__meta">
+                    <span class="mdc-list-item__meta">
                 <button class="mdc-icon-button material-icons" data-edit="{{ $value.Name }}">edit</button>
                 <button class="mdc-icon-button material-icons" data-delete="{{ $value.Name }}">delete</button>
             </span>
-            </li>
-            {{ end }}
-        </ul>
-    </div>
-    <div class="expandable-area--trigger-line">
-        <span class="trigger-icon">
-            <button class="mdc-icon-button material-icons">expand_less</button>
-        </span>
-        <span class="mdc-typography--headline6">Literatur-Einträge</span>
-        <button class="mdc-button mdc-button--raised" id="new-entry">
-            <span class="mdc-button__label">Neu</span>
-        </button>
-    </div>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        <li class="mdc-list-item">
+            <span class="mdc-list-item__graphic">
+                <button class="mdc-icon-button material-icons trigger-icon">expand_less</button>
+            </span>
+            <span class="mdc-list-item__text">Literaturtypen</span>
+            <span class="mdc-list-item__meta">
+                <button class="mdc-button mdc-button--raised" id="new-entry">
+                    <span class="mdc-button__label">Neu</span>
+                </button>
+            </span>
+        </li>
+        <div class="expandable-area expandable-area--closed">
+            <ul class="mdc-list mdc-list--two-line" id="entrylist">
+                {{ range $key, $value := .BibEntries}}
+                <li class="mdc-list-item" tabindex="0">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">
+              <span class="mdc-list-item__primary-text">{{ index $value.Fields 0 }} - {{ index $value.Fields 1 }}</span>
+              <span class="mdc-list-item__secondary-text">{{ $value.Typ }} - {{ $value.Key }}</span>
+            </span>
+                    <span class="mdc-list-item__meta">
+                <button class="mdc-icon-button material-icons" data-edit="{{ $value.Key }}">edit</button>
+                <button class="mdc-icon-button material-icons" data-delete="{{ $value.Key }}">delete</button>
+            </span>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </ul>
+
+
     <div class="expandable-area expandable-area--closed">
         <ul class="mdc-list mdc-list--two-line" id="entrylist">
             {{ range $key, $value := .BibEntries}}

@@ -878,12 +878,12 @@
   overflow: hidden;
 }
 
-.trigger-icon button {
+.trigger-icon {
   transform: rotate(0deg);
   transition: transform 200ms linear;
 }
 
-.trigger-icon--rotated button {
+.trigger-icon--rotated {
   transform: rotate(180deg);
   transition: transform 200ms linear;
 }

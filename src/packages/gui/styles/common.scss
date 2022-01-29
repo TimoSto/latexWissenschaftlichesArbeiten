@@ -57,17 +57,17 @@
 }
 
 .trigger-icon{
-  & button{
+
     transform: rotate(0deg);
     transition: transform 200ms linear;
-  }
+
 }
 
 .trigger-icon--rotated{
-  & button{
+
     transform: rotate(180deg);
     transition: transform 200ms linear;
-  }
+  
 }
 
 .expandable-area--trigger-line .mdc-button--raised{
