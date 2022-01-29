@@ -20,6 +20,8 @@ func main() {
 
 	http.HandleFunc("/editEntry", handlers.HandleEditEntry)
 
+	http.HandleFunc("/typeFields/", handlers.HandleTypeFields)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )

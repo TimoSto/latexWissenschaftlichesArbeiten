@@ -10805,7 +10805,7 @@ function () {
     this._typeSelect = new component_2.MDCSelect(document.querySelector('#typeSelect'));
 
     this._typeSelect.listen('MDCSelect:change', function () {
-      fetch('/typeFields/' + _this._typeSelect.value).then(function (response) {
+      fetch('/typeFields/' + _this._typeSelect.value + '?project=' + _this.project).then(function (response) {
         return response.json();
       }).then(function (data) {
         _this.SetupFieldsForType(data);

@@ -33,7 +33,7 @@ class EntryPage {
 
         this._typeSelect.listen('MDCSelect:change', ()=>{
 
-            fetch('/typeFields/' + this._typeSelect.value).then(response => response.json())
+            fetch('/typeFields/' + this._typeSelect.value + '?project=' + this.project).then(response => response.json())
                 .then(data => {this.SetupFieldsForType( data ); });
         });
 
