@@ -30,6 +30,9 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 	case "inbook":
 		bibEntry.Typ = "citaviInbookDoi"
 		break
+	case "inproceedings":
+		bibEntry.Typ = "citaviInProceedingsDoi"
+		break
 	default:
 		return bibEntry, fmt.Errorf("NO_MATCHING_TYPE")
 	}
@@ -122,6 +125,21 @@ func getAttributeIndexInType(bibType string, attr string) int{
 			return 5
 		case "doi":
 			return 6
+		}
+	} else if bibType == "citaviInProceedingsDoi" {
+		switch attr {
+		case "author":
+			return 0
+		case "year":
+			return 1
+		case "title":
+			return 2
+		case "booktitle":
+			return 3
+		case "pages":
+			return 4
+		case "doi":
+			return 5
 		}
 	}
 
