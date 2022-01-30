@@ -138,34 +138,7 @@ function () {
 }();
 
 exports.default = Field;
-},{}],"scripts/SaveType.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function SaveType(name, initialName, bibFields, citeFields) {
-  console.log(citeFields);
-  var obj = {
-    Name: name,
-    Fields: bibFields,
-    CiteFields: citeFields
-  };
-  return window.fetch('/save?initialName=' + initialName, {
-    method: 'POST',
-    body: JSON.stringify(obj)
-  }).then(function (response) {
-    console.log(response);
-
-    if (response.status === 200) {
-      return true;
-    }
-  });
-}
-
-exports.default = SaveType;
-},{}],"../node_modules/tslib/tslib.es6.js":[function(require,module,exports) {
+},{}],"../../../node_modules/tslib/tslib.es6.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -620,7 +593,7 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
   privateMap.set(receiver, value);
   return value;
 }
-},{}],"../node_modules/@material/base/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/base/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -712,7 +685,7 @@ exports.MDCFoundation = MDCFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCFoundation;
 exports.default = _default;
-},{}],"../node_modules/@material/base/component.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/base/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -843,7 +816,7 @@ exports.MDCComponent = MDCComponent;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCComponent;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","./foundation":"../node_modules/@material/base/foundation.js"}],"../node_modules/@material/dom/events.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","./foundation":"../../../node_modules/@material/base/foundation.js"}],"../../../node_modules/@material/dom/events.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -918,7 +891,7 @@ function supportsPassiveOption(globalObj) {
 
   return passiveSupported;
 }
-},{}],"../node_modules/@material/dom/ponyfill.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/dom/ponyfill.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1006,7 +979,7 @@ function estimateScrollWidth(element) {
   document.documentElement.removeChild(clone);
   return scrollWidth;
 }
-},{}],"../node_modules/@material/floating-label/constants.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/floating-label/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1043,7 +1016,7 @@ var cssClasses = {
   ROOT: 'mdc-floating-label'
 };
 exports.cssClasses = cssClasses;
-},{}],"../node_modules/@material/floating-label/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/floating-label/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1205,7 +1178,7 @@ exports.MDCFloatingLabelFoundation = MDCFloatingLabelFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCFloatingLabelFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/floating-label/constants.js"}],"../node_modules/@material/floating-label/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/floating-label/constants.js"}],"../../../node_modules/@material/floating-label/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1318,7 +1291,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCFloatingLabel = MDCFloatingLabel;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","@material/dom/ponyfill":"../node_modules/@material/dom/ponyfill.js","./foundation":"../node_modules/@material/floating-label/foundation.js"}],"../node_modules/@material/line-ripple/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/dom/ponyfill":"../../../node_modules/@material/dom/ponyfill.js","./foundation":"../../../node_modules/@material/floating-label/foundation.js"}],"../../../node_modules/@material/line-ripple/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1353,7 +1326,7 @@ var cssClasses = {
   LINE_RIPPLE_DEACTIVATING: 'mdc-line-ripple--deactivating'
 };
 exports.cssClasses = cssClasses;
-},{}],"../node_modules/@material/line-ripple/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/line-ripple/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1483,7 +1456,7 @@ exports.MDCLineRippleFoundation = MDCLineRippleFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCLineRippleFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/line-ripple/constants.js"}],"../node_modules/@material/line-ripple/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/line-ripple/constants.js"}],"../../../node_modules/@material/line-ripple/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1591,7 +1564,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCLineRipple = MDCLineRipple;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","./foundation":"../node_modules/@material/line-ripple/foundation.js"}],"../node_modules/@material/notched-outline/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","./foundation":"../../../node_modules/@material/line-ripple/foundation.js"}],"../../../node_modules/@material/notched-outline/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1636,7 +1609,7 @@ var cssClasses = {
   OUTLINE_UPGRADED: 'mdc-notched-outline--upgraded'
 };
 exports.cssClasses = cssClasses;
-},{}],"../node_modules/@material/notched-outline/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/notched-outline/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1758,7 +1731,7 @@ exports.MDCNotchedOutlineFoundation = MDCNotchedOutlineFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCNotchedOutlineFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/notched-outline/constants.js"}],"../node_modules/@material/notched-outline/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/notched-outline/constants.js"}],"../../../node_modules/@material/notched-outline/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1871,7 +1844,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCNotchedOutline = MDCNotchedOutline;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","@material/floating-label/foundation":"../node_modules/@material/floating-label/foundation.js","./constants":"../node_modules/@material/notched-outline/constants.js","./foundation":"../node_modules/@material/notched-outline/foundation.js"}],"../node_modules/@material/ripple/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/floating-label/foundation":"../../../node_modules/@material/floating-label/foundation.js","./constants":"../../../node_modules/@material/notched-outline/constants.js","./foundation":"../../../node_modules/@material/notched-outline/foundation.js"}],"../../../node_modules/@material/ripple/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1929,7 +1902,7 @@ var numbers = {
   TAP_DELAY_MS: 300
 };
 exports.numbers = numbers;
-},{}],"../node_modules/@material/ripple/util.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/ripple/util.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2005,7 +1978,7 @@ function getNormalizedEventCoords(evt, pageOffset, clientRect) {
     y: normalizedY
   };
 }
-},{}],"../node_modules/@material/ripple/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/ripple/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2664,7 +2637,7 @@ exports.MDCRippleFoundation = MDCRippleFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCRippleFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/ripple/constants.js","./util":"../node_modules/@material/ripple/util.js"}],"../node_modules/@material/ripple/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/ripple/constants.js","./util":"../../../node_modules/@material/ripple/util.js"}],"../../../node_modules/@material/ripple/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2842,7 +2815,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCRipple = MDCRipple;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","@material/dom/events":"../node_modules/@material/dom/events.js","@material/dom/ponyfill":"../node_modules/@material/dom/ponyfill.js","./foundation":"../node_modules/@material/ripple/foundation.js","./util":"../node_modules/@material/ripple/util.js"}],"../node_modules/@material/textfield/character-counter/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/dom/events":"../../../node_modules/@material/dom/events.js","@material/dom/ponyfill":"../../../node_modules/@material/dom/ponyfill.js","./foundation":"../../../node_modules/@material/ripple/foundation.js","./util":"../../../node_modules/@material/ripple/util.js"}],"../../../node_modules/@material/textfield/character-counter/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2880,7 +2853,7 @@ var strings = {
   ROOT_SELECTOR: "." + cssClasses.ROOT
 };
 exports.strings = strings;
-},{}],"../node_modules/@material/textfield/character-counter/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/textfield/character-counter/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2966,7 +2939,7 @@ exports.MDCTextFieldCharacterCounterFoundation = MDCTextFieldCharacterCounterFou
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCTextFieldCharacterCounterFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/textfield/character-counter/constants.js"}],"../node_modules/@material/textfield/character-counter/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/textfield/character-counter/constants.js"}],"../../../node_modules/@material/textfield/character-counter/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3041,7 +3014,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCTextFieldCharacterCounter = MDCTextFieldCharacterCounter;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","./foundation":"../node_modules/@material/textfield/character-counter/foundation.js"}],"../node_modules/@material/textfield/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","./foundation":"../../../node_modules/@material/textfield/character-counter/foundation.js"}],"../../../node_modules/@material/textfield/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3115,7 +3088,7 @@ var VALIDATION_ATTR_WHITELIST = ['pattern', 'min', 'max', 'required', 'step', 'm
 exports.VALIDATION_ATTR_WHITELIST = VALIDATION_ATTR_WHITELIST;
 var ALWAYS_FLOAT_TYPES = ['color', 'date', 'datetime-local', 'month', 'range', 'time', 'week'];
 exports.ALWAYS_FLOAT_TYPES = ALWAYS_FLOAT_TYPES;
-},{}],"../node_modules/@material/textfield/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/textfield/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3822,7 +3795,7 @@ exports.MDCTextFieldFoundation = MDCTextFieldFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCTextFieldFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/textfield/constants.js"}],"../node_modules/@material/textfield/helper-text/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/textfield/constants.js"}],"../../../node_modules/@material/textfield/helper-text/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3864,7 +3837,7 @@ var strings = {
   ROOT_SELECTOR: "." + cssClasses.ROOT
 };
 exports.strings = strings;
-},{}],"../node_modules/@material/textfield/helper-text/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/textfield/helper-text/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4053,7 +4026,7 @@ exports.MDCTextFieldHelperTextFoundation = MDCTextFieldHelperTextFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCTextFieldHelperTextFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/textfield/helper-text/constants.js"}],"../node_modules/@material/textfield/helper-text/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/textfield/helper-text/constants.js"}],"../../../node_modules/@material/textfield/helper-text/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4148,7 +4121,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCTextFieldHelperText = MDCTextFieldHelperText;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","./foundation":"../node_modules/@material/textfield/helper-text/foundation.js"}],"../node_modules/@material/textfield/icon/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","./foundation":"../../../node_modules/@material/textfield/helper-text/foundation.js"}],"../../../node_modules/@material/textfield/icon/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4187,7 +4160,7 @@ var cssClasses = {
   ROOT: 'mdc-text-field__icon'
 };
 exports.cssClasses = cssClasses;
-},{}],"../node_modules/@material/textfield/icon/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/textfield/icon/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4347,7 +4320,7 @@ exports.MDCTextFieldIconFoundation = MDCTextFieldIconFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCTextFieldIconFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/textfield/icon/constants.js"}],"../node_modules/@material/textfield/icon/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/textfield/icon/constants.js"}],"../../../node_modules/@material/textfield/icon/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4446,7 +4419,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCTextFieldIcon = MDCTextFieldIcon;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","./foundation":"../node_modules/@material/textfield/icon/foundation.js"}],"../node_modules/@material/textfield/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","./foundation":"../../../node_modules/@material/textfield/icon/foundation.js"}],"../../../node_modules/@material/textfield/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5092,7 +5065,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCTextField = MDCTextField;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","@material/dom/events":"../node_modules/@material/dom/events.js","@material/dom/ponyfill":"../node_modules/@material/dom/ponyfill.js","@material/floating-label/component":"../node_modules/@material/floating-label/component.js","@material/line-ripple/component":"../node_modules/@material/line-ripple/component.js","@material/notched-outline/component":"../node_modules/@material/notched-outline/component.js","@material/ripple/component":"../node_modules/@material/ripple/component.js","@material/ripple/foundation":"../node_modules/@material/ripple/foundation.js","./character-counter/component":"../node_modules/@material/textfield/character-counter/component.js","./character-counter/foundation":"../node_modules/@material/textfield/character-counter/foundation.js","./constants":"../node_modules/@material/textfield/constants.js","./foundation":"../node_modules/@material/textfield/foundation.js","./helper-text/component":"../node_modules/@material/textfield/helper-text/component.js","./helper-text/foundation":"../node_modules/@material/textfield/helper-text/foundation.js","./icon/component":"../node_modules/@material/textfield/icon/component.js"}],"../node_modules/@material/menu-surface/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/dom/events":"../../../node_modules/@material/dom/events.js","@material/dom/ponyfill":"../../../node_modules/@material/dom/ponyfill.js","@material/floating-label/component":"../../../node_modules/@material/floating-label/component.js","@material/line-ripple/component":"../../../node_modules/@material/line-ripple/component.js","@material/notched-outline/component":"../../../node_modules/@material/notched-outline/component.js","@material/ripple/component":"../../../node_modules/@material/ripple/component.js","@material/ripple/foundation":"../../../node_modules/@material/ripple/foundation.js","./character-counter/component":"../../../node_modules/@material/textfield/character-counter/component.js","./character-counter/foundation":"../../../node_modules/@material/textfield/character-counter/foundation.js","./constants":"../../../node_modules/@material/textfield/constants.js","./foundation":"../../../node_modules/@material/textfield/foundation.js","./helper-text/component":"../../../node_modules/@material/textfield/helper-text/component.js","./helper-text/foundation":"../../../node_modules/@material/textfield/helper-text/foundation.js","./icon/component":"../../../node_modules/@material/textfield/icon/component.js"}],"../../../node_modules/@material/menu-surface/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5190,7 +5163,7 @@ exports.Corner = Corner;
   Corner[Corner["BOTTOM_START"] = 9] = "BOTTOM_START";
   Corner[Corner["BOTTOM_END"] = 13] = "BOTTOM_END";
 })(Corner || (exports.Corner = Corner = {}));
-},{}],"../node_modules/@material/list/constants.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/list/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5262,7 +5235,7 @@ var evolutionClassNameMap = (_a = {}, _a["" + cssClasses.LIST_ITEM_ACTIVATED_CLA
 exports.evolutionClassNameMap = evolutionClassNameMap;
 var evolutionAttribute = 'evolution';
 exports.evolutionAttribute = evolutionAttribute;
-},{}],"../node_modules/@material/dom/keyboard.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/dom/keyboard.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5401,7 +5374,7 @@ function normalizeKey(evt) {
 function isNavigationEvent(evt) {
   return navigationKeys.has(normalizeKey(evt));
 }
-},{}],"../node_modules/@material/list/events.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/list/events.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5454,7 +5427,7 @@ var preventDefaultEvent = function (evt) {
 };
 
 exports.preventDefaultEvent = preventDefaultEvent;
-},{}],"../node_modules/@material/list/typeahead.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/list/typeahead.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5806,7 +5779,7 @@ function handleKeydown(opts, state) {
 
   return -1;
 }
-},{"@material/dom/keyboard":"../node_modules/@material/dom/keyboard.js","./constants":"../node_modules/@material/list/constants.js","./events":"../node_modules/@material/list/events.js"}],"../node_modules/@material/list/foundation.js":[function(require,module,exports) {
+},{"@material/dom/keyboard":"../../../node_modules/@material/dom/keyboard.js","./constants":"../../../node_modules/@material/list/constants.js","./events":"../../../node_modules/@material/list/events.js"}],"../../../node_modules/@material/list/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6644,7 +6617,7 @@ exports.MDCListFoundation = MDCListFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCListFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","@material/dom/keyboard":"../node_modules/@material/dom/keyboard.js","./constants":"../node_modules/@material/list/constants.js","./events":"../node_modules/@material/list/events.js","./typeahead":"../node_modules/@material/list/typeahead.js"}],"../node_modules/@material/list/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","@material/dom/keyboard":"../../../node_modules/@material/dom/keyboard.js","./constants":"../../../node_modules/@material/list/constants.js","./events":"../../../node_modules/@material/list/events.js","./typeahead":"../../../node_modules/@material/list/typeahead.js"}],"../../../node_modules/@material/list/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7080,7 +7053,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCList = MDCList;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","@material/dom/ponyfill":"../node_modules/@material/dom/ponyfill.js","./constants":"../node_modules/@material/list/constants.js","./foundation":"../node_modules/@material/list/foundation.js"}],"../node_modules/@material/menu-surface/foundation.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/dom/ponyfill":"../../../node_modules/@material/dom/ponyfill.js","./constants":"../../../node_modules/@material/list/constants.js","./foundation":"../../../node_modules/@material/list/foundation.js"}],"../../../node_modules/@material/menu-surface/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7774,7 +7747,7 @@ exports.MDCMenuSurfaceFoundation = MDCMenuSurfaceFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCMenuSurfaceFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/menu-surface/constants.js"}],"../node_modules/@material/animation/util.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/menu-surface/constants.js"}],"../../../node_modules/@material/animation/util.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7872,7 +7845,7 @@ function getCorrectEventName(windowObj, eventType) {
 
   return eventType;
 }
-},{}],"../node_modules/@material/menu-surface/component.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/menu-surface/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8134,7 +8107,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCMenuSurface = MDCMenuSurface;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","./constants":"../node_modules/@material/menu-surface/constants.js","./foundation":"../node_modules/@material/menu-surface/foundation.js","@material/animation/util":"../node_modules/@material/animation/util.js"}],"../node_modules/@material/menu/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","./constants":"../../../node_modules/@material/menu-surface/constants.js","./foundation":"../../../node_modules/@material/menu-surface/foundation.js","@material/animation/util":"../../../node_modules/@material/animation/util.js"}],"../../../node_modules/@material/menu/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8191,7 +8164,7 @@ exports.DefaultFocusState = DefaultFocusState;
   DefaultFocusState[DefaultFocusState["FIRST_ITEM"] = 2] = "FIRST_ITEM";
   DefaultFocusState[DefaultFocusState["LAST_ITEM"] = 3] = "LAST_ITEM";
 })(DefaultFocusState || (exports.DefaultFocusState = DefaultFocusState = {}));
-},{}],"../node_modules/@material/menu/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/menu/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8448,7 +8421,7 @@ exports.MDCMenuFoundation = MDCMenuFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCMenuFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","@material/list/constants":"../node_modules/@material/list/constants.js","@material/menu-surface/foundation":"../node_modules/@material/menu-surface/foundation.js","./constants":"../node_modules/@material/menu/constants.js"}],"../node_modules/@material/menu/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","@material/list/constants":"../../../node_modules/@material/list/constants.js","@material/menu-surface/foundation":"../../../node_modules/@material/menu-surface/foundation.js","./constants":"../../../node_modules/@material/menu/constants.js"}],"../../../node_modules/@material/menu/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8867,7 +8840,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCMenu = MDCMenu;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","@material/dom/ponyfill":"../node_modules/@material/dom/ponyfill.js","@material/list/component":"../node_modules/@material/list/component.js","@material/list/constants":"../node_modules/@material/list/constants.js","@material/list/foundation":"../node_modules/@material/list/foundation.js","@material/menu-surface/component":"../node_modules/@material/menu-surface/component.js","@material/menu-surface/foundation":"../node_modules/@material/menu-surface/foundation.js","./constants":"../node_modules/@material/menu/constants.js","./foundation":"../node_modules/@material/menu/foundation.js"}],"../node_modules/@material/select/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/dom/ponyfill":"../../../node_modules/@material/dom/ponyfill.js","@material/list/component":"../../../node_modules/@material/list/component.js","@material/list/constants":"../../../node_modules/@material/list/constants.js","@material/list/foundation":"../../../node_modules/@material/list/foundation.js","@material/menu-surface/component":"../../../node_modules/@material/menu-surface/component.js","@material/menu-surface/foundation":"../../../node_modules/@material/menu-surface/foundation.js","./constants":"../../../node_modules/@material/menu/constants.js","./foundation":"../../../node_modules/@material/menu/foundation.js"}],"../../../node_modules/@material/select/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8931,7 +8904,7 @@ var numbers = {
   CLICK_DEBOUNCE_TIMEOUT_MS: 330
 };
 exports.numbers = numbers;
-},{}],"../node_modules/@material/select/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/select/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9560,7 +9533,7 @@ exports.MDCSelectFoundation = MDCSelectFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCSelectFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","@material/dom/keyboard":"../node_modules/@material/dom/keyboard.js","@material/menu-surface/constants":"../node_modules/@material/menu-surface/constants.js","./constants":"../node_modules/@material/select/constants.js"}],"../node_modules/@material/select/helper-text/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","@material/dom/keyboard":"../../../node_modules/@material/dom/keyboard.js","@material/menu-surface/constants":"../../../node_modules/@material/menu-surface/constants.js","./constants":"../../../node_modules/@material/select/constants.js"}],"../../../node_modules/@material/select/helper-text/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9600,7 +9573,7 @@ var cssClasses = {
   HELPER_TEXT_VALIDATION_MSG_PERSISTENT: 'mdc-select-helper-text--validation-msg-persistent'
 };
 exports.cssClasses = cssClasses;
-},{}],"../node_modules/@material/select/helper-text/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/select/helper-text/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9807,7 +9780,7 @@ exports.MDCSelectHelperTextFoundation = MDCSelectHelperTextFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCSelectHelperTextFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/select/helper-text/constants.js"}],"../node_modules/@material/select/helper-text/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/select/helper-text/constants.js"}],"../../../node_modules/@material/select/helper-text/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9902,7 +9875,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCSelectHelperText = MDCSelectHelperText;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","./foundation":"../node_modules/@material/select/helper-text/foundation.js"}],"../node_modules/@material/select/icon/constants.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","./foundation":"../../../node_modules/@material/select/helper-text/foundation.js"}],"../../../node_modules/@material/select/icon/constants.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9937,7 +9910,7 @@ var strings = {
   ICON_ROLE: 'button'
 };
 exports.strings = strings;
-},{}],"../node_modules/@material/select/icon/foundation.js":[function(require,module,exports) {
+},{}],"../../../node_modules/@material/select/icon/foundation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10087,7 +10060,7 @@ exports.MDCSelectIconFoundation = MDCSelectIconFoundation;
 // tslint:disable-next-line:no-default-export Needed for backward compatibility with MDC Web v0.44.0 and earlier.
 var _default = MDCSelectIconFoundation;
 exports.default = _default;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../node_modules/@material/base/foundation.js","./constants":"../node_modules/@material/select/icon/constants.js"}],"../node_modules/@material/select/icon/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/foundation":"../../../node_modules/@material/base/foundation.js","./constants":"../../../node_modules/@material/select/icon/constants.js"}],"../../../node_modules/@material/select/icon/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10186,7 +10159,7 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCSelectIcon = MDCSelectIcon;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","./foundation":"../node_modules/@material/select/icon/foundation.js"}],"../node_modules/@material/select/component.js":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","./foundation":"../../../node_modules/@material/select/icon/foundation.js"}],"../../../node_modules/@material/select/component.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10788,7 +10761,35 @@ function (_super) {
 }(_component.MDCComponent);
 
 exports.MDCSelect = MDCSelect;
-},{"tslib":"../node_modules/tslib/tslib.es6.js","@material/base/component":"../node_modules/@material/base/component.js","@material/floating-label/component":"../node_modules/@material/floating-label/component.js","@material/line-ripple/component":"../node_modules/@material/line-ripple/component.js","@material/menu-surface/constants":"../node_modules/@material/menu-surface/constants.js","@material/menu/component":"../node_modules/@material/menu/component.js","@material/menu/constants":"../node_modules/@material/menu/constants.js","@material/notched-outline/component":"../node_modules/@material/notched-outline/component.js","@material/ripple/component":"../node_modules/@material/ripple/component.js","@material/ripple/foundation":"../node_modules/@material/ripple/foundation.js","./constants":"../node_modules/@material/select/constants.js","./foundation":"../node_modules/@material/select/foundation.js","./helper-text/component":"../node_modules/@material/select/helper-text/component.js","./icon/component":"../node_modules/@material/select/icon/component.js"}],"scripts/TypePage.ts":[function(require,module,exports) {
+},{"tslib":"../../../node_modules/tslib/tslib.es6.js","@material/base/component":"../../../node_modules/@material/base/component.js","@material/floating-label/component":"../../../node_modules/@material/floating-label/component.js","@material/line-ripple/component":"../../../node_modules/@material/line-ripple/component.js","@material/menu-surface/constants":"../../../node_modules/@material/menu-surface/constants.js","@material/menu/component":"../../../node_modules/@material/menu/component.js","@material/menu/constants":"../../../node_modules/@material/menu/constants.js","@material/notched-outline/component":"../../../node_modules/@material/notched-outline/component.js","@material/ripple/component":"../../../node_modules/@material/ripple/component.js","@material/ripple/foundation":"../../../node_modules/@material/ripple/foundation.js","./constants":"../../../node_modules/@material/select/constants.js","./foundation":"../../../node_modules/@material/select/foundation.js","./helper-text/component":"../../../node_modules/@material/select/helper-text/component.js","./icon/component":"../../../node_modules/@material/select/icon/component.js"}],"scripts/SaveType.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function SaveType(project, name, initialName, bibFields, citeFields) {
+  var obj = {
+    Type: {
+      Name: name,
+      Fields: bibFields,
+      CiteFields: citeFields
+    },
+    InitialName: initialName,
+    Project: project
+  };
+  return window.fetch('/saveType', {
+    method: 'POST',
+    body: JSON.stringify(obj)
+  }).then(function (response) {
+    if (response.status === 200) {
+      return true;
+    }
+  });
+}
+
+exports.default = SaveType;
+},{}],"scripts/TypePage.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -10803,15 +10804,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var Field_1 = __importDefault(require("./Field"));
 
-var SaveType_1 = __importDefault(require("./SaveType"));
-
 var component_1 = require("@material/textfield/component");
 
 var component_2 = require("@material/select/component");
 
-var TypePage =
-/** @class */
-function () {
+var SaveType_1 = __importDefault(require("./SaveType"));
+
+var TypePage = function () {
   function TypePage() {
     var _this = this;
 
@@ -10826,6 +10825,8 @@ function () {
     this.bibFields = [];
     this.citeFields = [];
     document.addEventListener('DOMContentLoaded', function () {
+      var search = new URLSearchParams(window.location.search);
+      _this._project = search.get('project');
       _this._nameField = new component_1.MDCTextField(document.querySelector('.headline .mdc-text-field'));
       _this._initialName = _this._nameField.value;
       var elements = document.querySelectorAll('#bibtable .my-table--row .my-table-cell:nth-child(2) .mdc-text-field');
@@ -10836,8 +10837,6 @@ function () {
           if (index > _this.bibFields.length - 1) {
             _this.bibFields.push(new Field_1.default("", "normal", "", ""));
           }
-
-          console.log(attrTextField.value == "", index === _this.bibFields.length - 1);
 
           if (index === _this.bibFields.length - 1 && attrTextField.value == "") {
             _this.bibFields.pop();
@@ -10913,14 +10912,9 @@ function () {
             _this.citeFields.push(new Field_1.default("", "normal", "", ""));
           }
 
-          console.log(attrTextField.value == "", index === _this.citeFields.length - 1, attrTextField.value);
-
           if (index === _this.citeFields.length - 1 && attrTextField.value == "") {
-            console.log(_this.citeFields);
-
             _this.citeFields.pop();
 
-            console.log(_this.citeFields);
             return;
           }
 
@@ -10998,10 +10992,12 @@ function () {
 
       _this.syncExample();
 
-      document.querySelector('.headline button').addEventListener('click', function () {
-        (0, SaveType_1.default)(_this._nameField.value, _this._initialName, _this.bibFields, _this.citeFields).then(function (valid) {
-          window.lapi.ReloadOverview();
-          window.location.replace('/type/' + _this._nameField.value);
+      document.querySelector('.mdc-button--raised').addEventListener('click', function () {
+        (0, SaveType_1.default)(_this._project, _this._nameField.value, _this._initialName, _this.bibFields, _this.citeFields).then(function (valid) {
+          if (valid) {
+            window.parent.reloadMain();
+            window.location.replace('/editType?type=' + _this._nameField.value + '&project=' + _this._project);
+          }
         });
       });
     });
@@ -11045,7 +11041,6 @@ function () {
     document.getElementById('bibExample').innerHTML = bibExample;
     var citeExample = '';
     this.citeFields.forEach(function (field, n) {
-      console.log(n, field.Field);
       _this.cite_attrTextFields[n].value = field.Field;
       _this.cite_styleSelects[n].value = field.Style;
       _this.cite_prefixTfs[n].value = field.Prefix;
@@ -11083,5 +11078,5 @@ function () {
 }();
 
 new TypePage();
-},{"./Field":"scripts/Field.ts","./SaveType":"scripts/SaveType.ts","@material/textfield/component":"../node_modules/@material/textfield/component.js","@material/select/component":"../node_modules/@material/select/component.js"}]},{},["scripts/TypePage.ts"], null)
-//# sourceMappingURL=/shell/TypePage.1b661814.js.map
+},{"./Field":"scripts/Field.ts","@material/textfield/component":"../../../node_modules/@material/textfield/component.js","@material/select/component":"../../../node_modules/@material/select/component.js","./SaveType":"scripts/SaveType.ts"}]},{},["scripts/TypePage.ts"], null)
+//# sourceMappingURL=/TypePage.1b661814.js.map

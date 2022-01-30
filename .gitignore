@@ -4,3 +4,8 @@ node_modules
 projects/*
 !projects/example
 !projects/documentation
+*.aux
+*.lof
+*.lot
+*.mcf
+*.toc

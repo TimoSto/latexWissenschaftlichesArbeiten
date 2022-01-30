@@ -1,0 +1,8 @@
+@use '@material/list';
+@use 'common';
+
+@include list.core-styles;
+
+body{
+  padding: 8px;
+}

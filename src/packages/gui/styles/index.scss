@@ -1,0 +1,87 @@
+@use '@material/top-app-bar/mdc-top-app-bar';
+@use '@material/icon-button/mdc-icon-button';
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+@use '@material/list';
+@use 'common';
+@use "@material/dialog";
+
+@include dialog.core-styles;
+
+@include list.core-styles;
+
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+main{
+  height: calc(100% - 64px);
+}
+
+.mdc-top-app-bar--fixed-adjust{
+  display: flex;
+}
+
+.sidebar{
+  width: 72px;
+  border-right: 1px solid rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  height: 100%;
+  transition: width 200ms;
+
+  &.sidebar--open .mdc-list-item__text{
+    max-width: calc(100% - 50px);
+  }
+
+}
+
+.sidebar:not(.sidebar--open) {
+  & .mdc-top-app-bar {
+    display: none;
+  }
+
+  & .mdc-list-item__meta {
+    display: none;
+  }
+}
+
+.sidebar--open{
+  width: 300px;
+  //max-width: 300px;
+  //transition: width 200ms;
+}
+
+#main{
+  flex-grow: 1;
+
+  & iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+.editArea{
+  height: 100%;
+  width: 0;
+  border-left: 1px solid rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  transition: width 200ms;
+  overflow: hidden;
+
+  & .mdc-top-app-bar{
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+  }
+
+  & iframe {
+    width: 100%;
+    height: calc(100% - 56px);
+    border: none;
+  }
+}
+
+.editArea--open{
+  width: 750px;
+}

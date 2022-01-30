@@ -2,49 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="/shell/Lapi_bootstrap.112b2f70.js"></script>
-    <link rel="stylesheet" href="/shell/project.744b3d12.css">
+    <link rel="stylesheet" href="/project.744b3d12.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="/shell/ProjectPage.3ea2e123.js"></script>
+    <script src="/ProjectPage.3ea2e123.js"></script>
 </head>
 <body>
-
-<div id="content">
     <div class="headline">
-        <label class="mdc-text-field mdc-text-field--filled">
-            <span class="mdc-text-field__ripple"></span>
-            <span class="mdc-floating-label" id="my-label-id">Projektname</span>
-            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="{{ .ProjectName }}">
-            <span class="mdc-line-ripple"></span>
-        </label>
-
-        <button class="mdc-button mdc-button--raised">
-            <span class="mdc-button__label">Speichern</span>
-        </button>
-        <button class="mdc-button" id="new">
-            <span class="mdc-button__label">Neuer Eintrag</span>
-        </button>
-        <button class="mdc-button" id="clean">
-            <span class="mdc-button__label">Cleanup Zitate</span>
-        </button>
+        <h1 class="mdc-typography--headline4">{{ .ProjectName }}</h1>
     </div>
 
-    <ul class="mdc-list mdc-list--two-line" id="entrylist">
-        {{ range $key, $value := .Entries}}
-        <li class="mdc-list-item" tabindex="0">
-            <span class="mdc-list-item__ripple"></span>
-            <span class="mdc-list-item__text">
-              <span class="mdc-list-item__primary-text">{{ index $value.Fields 0 }} - {{ index $value.Fields 1 }}</span>
-              <span class="mdc-list-item__secondary-text">{{ $value.Typ }} - {{ $value.Key }}</span>
+    <div id="drop_zone">
+        <span class="mdc-typography--body1">Ziehe eine aus Citavi exportierte Bib-Datei hier hinein</span>
+    </div>
+    <input type="file" id="fileInput" style="display:none">
+
+    <ul class="mdc-list">
+        <li class="mdc-list-item">
+            <span class="mdc-list-item__graphic">
+                <button class="mdc-icon-button material-icons trigger-icon">expand_less</button>
             </span>
+            <span class="mdc-list-item__text">Literaturtypen</span>
             <span class="mdc-list-item__meta">
-                <button class="mdc-icon-button material-icons" data-edit="{{ $value.Key }}">edit</button>
-                <button class="mdc-icon-button material-icons" data-delete="{{ $value.Key }}">delete</button>
+                <button class="mdc-button mdc-button--raised" id="new-type">
+                    <span class="mdc-button__label">Neu</span>
+                </button>
             </span>
         </li>
-        {{ end }}
+        <div class="expandable-area expandable-area--open">
+            <ul class="mdc-list mdc-list--two-line" id="typelist">
+                {{ range $key, $value := .LiteratureTypes.Types}}
+                <li class="mdc-list-item" tabindex="0" data-edit-type="{{ $value.Name }}">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">
+                      <span class="mdc-list-item__primary-text">{{ $value.Name }}</span>
+                      <span class="mdc-list-item__secondary-text">{{ $value.Example }}</span>
+                    </span>
+                    <span class="mdc-list-item__meta">
+                        <button class="mdc-icon-button material-icons" data-delete-type="{{ $value.Name }}">delete</button>
+                    </span>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        <li class="mdc-list-item">
+            <span class="mdc-list-item__graphic">
+                <button class="mdc-icon-button material-icons trigger-icon">expand_less</button>
+            </span>
+            <span class="mdc-list-item__text">Literaturenträge</span>
+            <span class="mdc-list-item__meta">
+                <button class="mdc-button mdc-button--raised" id="new-entry">
+                    <span class="mdc-button__label">Neu</span>
+                </button>
+            </span>
+        </li>
+        <div class="expandable-area expandable-area--open">
+            <ul class="mdc-list mdc-list--two-line" id="entrylist">
+                {{ range $key, $value := .BibEntries}}
+                <li class="mdc-list-item" tabindex="0" data-edit-entry="{{ $value.Key }}">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">
+                      <span class="mdc-list-item__primary-text">{{ index $value.Fields 0 }} - {{ index $value.Fields 1 }}</span>
+                      <span class="mdc-list-item__secondary-text">{{ $value.Typ }} - {{ $value.Key }}</span>
+                    </span>
+                    <span class="mdc-list-item__meta">
+                        <button class="mdc-icon-button material-icons" data-delete-entry="{{ $value.Key }}">delete</button>
+                    </span>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
     </ul>
-</div>
+
 
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/shell/Lapi_bootstrap.112b2f70.js"></script>
+    <link rel="stylesheet" href="/shell/overview.956bdcb5.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="/shell/Overview.b661a4b8.js"></script>
+</head>
+<body>
+
+    <div id="content">
+        <div class="headline">
+
+            <span class="mdc-typography--headline6">Literaturtypen</span>
+
+            <button class="mdc-button mdc-button--raised" id="newType">
+                <span class="mdc-button__label">Neuer Typ</span>
+            </button>
+        </div>
+
+        <ul class="mdc-list mdc-list--two-line" id="typelist">
+            {{ range $key, $value := .Types}}
+            <li class="mdc-list-item" tabindex="0">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">
+              <span class="mdc-list-item__primary-text">{{ $value.Name }}</span>
+              <span class="mdc-list-item__secondary-text">{{ $value.Example }}</span>
+            </span>
+            <span class="mdc-list-item__meta">
+                <button class="mdc-icon-button material-icons" data-edit="{{ $value.Name }}">edit</button>
+                <button class="mdc-icon-button material-icons" data-delete="{{ $value.Name }}">delete</button>
+            </span>
+            </li>
+            {{ end }}
+        </ul>
+        <hr class="divider">
+        <div class="headline">
+
+            <span class="mdc-typography--headline6">Projekte</span>
+
+            <button class="mdc-button mdc-button--raised" id="newProject">
+                <span class="mdc-button__label">Neues Projekt</span>
+            </button>
+        </div>
+
+        <ul class="mdc-list">
+            {{ range $key, $value := .Projects}}
+            <li class="mdc-list-item" tabindex="0" id="projectlist">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">{{ $value }}</span>
+
+                <span class="mdc-list-item__meta">
+                    <button class="mdc-icon-button material-icons" data-edit="{{ $value }}">edit</button>
+                    <button class="mdc-icon-button material-icons" data-delete="{{ $value }}">delete</button>
+                </span>
+            </li>
+            {{ end }}
+        </ul>
+
+
+    </div>
+</body>
+</html>
