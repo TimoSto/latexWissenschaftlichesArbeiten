@@ -803,6 +803,126 @@
 				}
 			],
 			"Example": ""
+		},
+		{
+			"Name": "citaviInbookDoi",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ") "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "BuchTitel",
+					"Style": "normal",
+					"Prefix": "In: ",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Herausgeber",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Doi",
+					"Style": "normal",
+					"Prefix": "https://doi.org/",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Autor. (Jahr) Titel. In: BuchTitel. Herausgeber, Ort. https://doi.org/Doi"
+		},
+		{
+			"Name": "citaviInProceedingsDoi",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ") "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Buch",
+					"Style": "normal",
+					"Prefix": "In: ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Doi",
+					"Style": "normal",
+					"Prefix": "https://doi.org/",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": ""
 		}
 	]
 }
