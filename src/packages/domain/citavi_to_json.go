@@ -52,6 +52,8 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 					addKey = addKey[:5]
 				}
 				bibEntry.Key += "." + addKey
+			} else if parts[0] == "author" {
+				value = strings.ReplaceAll(value, " and ", "; ")
 			}
 
 			index := getAttributeIndexInType(bibEntry.Typ, parts[0])
