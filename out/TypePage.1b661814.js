@@ -10810,9 +10810,7 @@ var component_2 = require("@material/select/component");
 
 var SaveType_1 = __importDefault(require("./SaveType"));
 
-var TypePage =
-/** @class */
-function () {
+var TypePage = function () {
   function TypePage() {
     var _this = this;
 
@@ -10838,8 +10836,7 @@ function () {
         attrTextField.root.querySelector('input').addEventListener('change', function () {
           if (index > _this.bibFields.length - 1) {
             _this.bibFields.push(new Field_1.default("", "normal", "", ""));
-          } //console.log(attrTextField.value == "", index === this.bibFields.length - 1)
-
+          }
 
           if (index === _this.bibFields.length - 1 && attrTextField.value == "") {
             _this.bibFields.pop();
@@ -10913,8 +10910,7 @@ function () {
         attrTextField.root.querySelector('input').addEventListener('change', function () {
           if (index > _this.citeFields.length - 1) {
             _this.citeFields.push(new Field_1.default("", "normal", "", ""));
-          } //console.log(attrTextField.value == "", index === this.citeFields.length -1, attrTextField.value)
-
+          }
 
           if (index === _this.citeFields.length - 1 && attrTextField.value == "") {
             _this.citeFields.pop();

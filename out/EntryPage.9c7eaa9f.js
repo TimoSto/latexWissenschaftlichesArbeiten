@@ -10790,9 +10790,7 @@ document.addEventListener('DOMContentLoaded', function () {
   new EntryPage();
 });
 
-var EntryPage =
-/** @class */
-function () {
+var EntryPage = function () {
   function EntryPage() {
     var _this = this;
 
@@ -10832,12 +10830,14 @@ function () {
   EntryPage.prototype.SetupFieldsForType = function (obj) {
     var _this = this;
 
+    this._typeObj = obj;
+    console.log(obj);
+
     this._fieldsArea.querySelectorAll('*').forEach(function (el) {
       return el.remove();
     });
 
-    this._valueFields = []; //TODO: Migrate values on typechange
-
+    this._valueFields = [];
     this._fieldNames = [];
     obj.Fields.forEach(function (field) {
       var element = _this._templateTF.cloneNode(true);
@@ -10846,6 +10846,10 @@ function () {
       var newTF = new component_1.MDCTextField(element);
 
       _this._fieldsArea.append(element);
+
+      element.querySelector('input').addEventListener('change', function () {
+        _this.syncExample();
+      });
 
       _this._valueFields.push(newTF);
 
@@ -10867,6 +10871,10 @@ function () {
 
         _this._fieldsArea.append(element);
 
+        element.querySelector('input').addEventListener('change', function () {
+          _this.syncExample();
+        });
+
         _this._valueFields.push(newTF);
 
         _this._fieldNames.push(field.Field);
@@ -10878,6 +10886,8 @@ function () {
         this._valueFields[i].value = this._prevValuesElement.children[i].innerHTML;
       }
     }
+
+    this.syncExample();
   };
 
   EntryPage.prototype.Save = function () {
@@ -10898,6 +10908,81 @@ function () {
         window.location.href = '/editEntry?entry=' + _this._keyField.value + '&project=' + _this.project;
       }
     });
+  };
+
+  EntryPage.prototype.syncExample = function () {
+    var _this = this;
+
+    var bibExample = '';
+
+    this._typeObj.Fields.forEach(function (field, n) {
+      bibExample += field.Prefix;
+
+      switch (field.Style) {
+        case 'italic':
+          bibExample += '<i>';
+          break;
+
+        case 'fett':
+          bibExample += '<b>';
+          break;
+      }
+
+      bibExample += _this._valueFields[n].value;
+
+      switch (field.Style) {
+        case 'italic':
+          bibExample += '</i>';
+          break;
+
+        case 'fett':
+          bibExample += '</b>';
+          break;
+      }
+
+      bibExample += field.Suffix;
+    });
+
+    document.getElementById('bibExample').innerHTML = bibExample;
+    var citeExample = '';
+
+    this._typeObj.CiteFields.forEach(function (field, n) {
+      citeExample += field.Prefix;
+
+      switch (field.Style) {
+        case 'italic':
+          citeExample += '<i>';
+          break;
+
+        case 'bold':
+          citeExample += '<b>';
+          break;
+      }
+
+      _this._fieldNames.forEach(function (name, i) {
+        if (name == field.Field) {
+          citeExample += _this._valueFields[i].value;
+        }
+      });
+
+      switch (field.Style) {
+        case 'italic':
+          citeExample += '</i>';
+          break;
+
+        case 'bold':
+          citeExample += '</b>';
+          break;
+      }
+
+      citeExample += field.Suffix;
+    });
+
+    if (citeExample.charAt(citeExample.length - 1) == " ") {
+      citeExample += "S. xxx";
+    }
+
+    document.getElementById('citeExample').innerHTML = citeExample + '.';
   };
 
   return EntryPage;

@@ -6362,12 +6362,18 @@ a.mdc-evolution-list-item {
   margin: 16px;
 }
 
-#fieldsArea {
-  padding-top: 16px;
-}
-
 #values {
   display: none;
+}
+
+#examples {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+#examples p {
+  margin: 0;
 }
 
 /*# sourceMappingURL=/editEntry.cf668018.css.map */

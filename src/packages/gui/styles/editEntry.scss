@@ -24,9 +24,19 @@
 }
 
 #fieldsArea{
-  padding-top: 16px;
+  //padding-top: 16px;
 }
 
 #values{
   display: none;
+}
+
+#examples{
+  background-color: rgba(0,0,0,0.2);
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 8px;
+  & p{
+    margin: 0;
+  }
 }

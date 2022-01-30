@@ -175,11 +175,11 @@ class TypePage {
             let name = valuesElement.getAttribute('data-name');
 
             let bibFields = [];
-            Array.prototype.slice.call(bibvaluesElement).forEach(el => {
+            Array.prototype.slice.call(bibvaluesElement).forEach((el: { getAttribute: (arg0: string) => string; }) => {
                 this.bibFields.push(new Field(el.getAttribute('data-field'), el.getAttribute('data-style'), el.getAttribute('data-prefix'), el.getAttribute('data-suffix'), ))
             });
             let citeFields = [];
-            Array.prototype.slice.call(citevaluesElement).forEach(el => {
+            Array.prototype.slice.call(citevaluesElement).forEach((el: { getAttribute: (arg0: string) => string; }) => {
                 this.citeFields.push(new Field(el.getAttribute('data-field'), el.getAttribute('data-style'), el.getAttribute('data-prefix'), el.getAttribute('data-suffix'), ))
             });
 
