@@ -4328,9 +4328,7 @@ var menu_surface_1 = require("@material/menu-surface");
 
 var component_1 = require("@material/dialog/component");
 
-var OverviewPage =
-/** @class */
-function () {
+var OverviewPage = function () {
   function OverviewPage() {
     var _this = this;
 
@@ -4363,7 +4361,7 @@ function () {
         var project = el.getAttribute('data-edit-value');
         el.addEventListener('click', function (e) {
           if (e.target.getAttribute('data-delete-value')) return;
-          window.location.replace('/overview?project=' + project); //this.setMain('/projects/'+project);
+          window.location.replace('/overview?project=' + project);
         });
       });
       document.querySelectorAll('[data-delete-value]').forEach(function (el) {
@@ -4373,11 +4371,10 @@ function () {
             if (resp.status === 200) {
               window.location.reload();
             }
-          }); //this.setMain('/projects/'+project);
+          });
         });
       });
-      var menu = new menu_surface_1.MDCMenuSurface(document.querySelector('.mdc-menu')); //menu.setAnchorElement(document.querySelector('.mdc-top-app-bar__section--align-end button'));
-
+      var menu = new menu_surface_1.MDCMenuSurface(document.querySelector('.mdc-menu'));
       menu.setAnchorCorner(1);
       var open = false;
       menu.listen('MDCMenuSurface:opened', function () {

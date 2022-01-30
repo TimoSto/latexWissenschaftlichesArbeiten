@@ -124,9 +124,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var Field =
-/** @class */
-function () {
+var Field = function () {
   function Field(f, s, p, suf) {
     this.Field = f;
     this.Style = s;

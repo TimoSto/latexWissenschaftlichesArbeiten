@@ -5053,9 +5053,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var component_1 = require("@material/textfield/component");
 
-var NewProject =
-/** @class */
-function () {
+var NewProject = function () {
   function NewProject() {
     document.addEventListener('DOMContentLoaded', function () {
       var textField = new component_1.MDCTextField(document.querySelector('.mdc-text-field'));

@@ -12,21 +12,10 @@
 \newcommand{\printBibEntry}[9]{
 	\IfStrEqCase{#1}{%
 	%Area to add new bibifs via gui
-			{Buch}{\printBuch{#2}{#3}{#4}{#5}{#6}}%
-			{Kommentar}{\printKommentar{#2}{#3}{#4}{#5}{#6}}%
-			{Aufsatz}{\printAufsatz{#2}{#3}{#4}{#5}{#6}}%
-			{online}{\printonline{#2}{#3}{#4}{#5}{#6}}%
-			{workingpaper}{\printworkingpaper{#2}{#3}{#4}{#5}{#6}}%
-			{sammelwerk}{\printsammelwerk{#2}{#3}{#4}{#5}{#6}}%
-			{hrsgsammel}{\printhrsgsammel{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
-			{meintype}{\printmeintype{#2}{#3}{#4}}%
-			{Test}{\printTest{#2}{#3}{#4}}%
-			{AufsatzAusgabe}{\printAufsatzAusgabe{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{AufsatzURL}{\printAufsatzURL{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
-			{onlineArticle}{\printonlineArticle{#2}{#3}{#4}{#5}{#6}}%
 			{Norm}{\printNorm{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{TestM}{\printTestM{#2}{#3}}%
-			{Handbuch}{\printHandbuch{#2}{#3}{#4}{#5}{#6}{#7}}%
+			{citaviInbookDoi}{\printcitaviInbookDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+			{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
+			{citaviAufsatzDoi}{\printcitaviAufsatzDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 		%end area
 		{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type'.}\color{black}]%
@@ -66,114 +55,6 @@
 %!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
 \def\bibparindent{1.5em}
 %Area to add new bibprints via gui
-\newcommand{\printBuch}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2, #3. Auflage, #4 #5
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printKommentar}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2, #3. Auflage,#4#5
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printAufsatz}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2, in: #3 (#4), #5 
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printonline}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2, #3 (#4), abgerufen am #5
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printworkingpaper}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2, #3, abrufbar unter: #4, abgerufen am: #5
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printsammelwerk}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1} (Hrsg.), #2, in: #3  (#4), #5
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printhrsgsammel}[7]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2, in: #3 (#4), #5 (Hrsg.), #6, #7
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printmeintype}[3]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2 (#3)
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printTest}[3]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	#1#2#3
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printAufsatzAusgabe}[6]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2, in: #3 (#4, Ausgabe #5), S.#6
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printAufsatzURL}[7]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	#1, #2, \textit{#3} #4, S. #5 (#6), abrufbar unter: #7
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printonlineArticle}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1}, #2 (#3), abrufbar unter \textit{#4}: #5
-	\\
-	\vspace{-12pt}
-
-}
 \newcommand{\printNorm}[6]{
 	\hangindent=\bibparindent
 	\parindent 0pt
@@ -183,20 +64,29 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printTestM}[2]{
+\newcommand{\printcitaviInbookDoi}[7]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1}, #2
+	\textit{#1}. (#2) #3. In: #4. #5 (Hrsg.), #6. https://doi.org/#7
 	\\
 	\vspace{-12pt}
 
 }
-\newcommand{\printHandbuch}[6]{
+\newcommand{\printcitaviInProceedingsDoi}[6]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (Hg.) (#2), #3, #4 (#5, #6)
+	\textit{#1}. (#2) #3. In: #4, S. #5, https://doi.org/#6
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviAufsatzDoi}[7]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}. #2. In: \textit{#3} #4, S. #5 (#6). https://doi.org/#7
 	\\
 	\vspace{-12pt}
 
@@ -244,21 +134,10 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{Buch}{\footnote{#3\citeBuch{\a}{\b}{#2}.}}%
-			{Kommentar}{\footnote{#3\citeKommentar{\a}{\b}{\e}{#2}.}}%
-			{Aufsatz}{\footnote{#3\citeAufsatz{\a}{\c}{#2}.}}%
-			{online}{\footnote{#3\citeonline{\f}{#2}.}}%
-			{workingpaper}{\footnote{#3\citeworkingpaper{\f}{#2}.}}%
-			{sammelwerk}{\footnote{#3\citesammelwerk{\a}{\b}{#2}.}}%
-			{hrsgsammel}{\footnote{#3\citehrsgsammel{\a}{\b}{#2}.}}%
-			{meintype}{\footnote{#3\citemeintype{\a}{\c}{#2}.}}%
-			{Test}{\footnote{#3\citeTest{\a}{\c}{#2}.}}%
-			{AufsatzAusgabe}{\footnote{#3\citeAufsatzAusgabe{\g}{\d}{#2}.}}%
-			{AufsatzURL}{\footnote{#3\citeAufsatzURL{\c}{\f}{#2}.}}%
-			{onlineArticle}{\footnote{#3\citeonlineArticle{\a}{\c}{#2}.}}%
 			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
-			{TestM}{\footnote{#3\citeTestM{\c}{#2}.}}%
-			{Handbuch}{\footnote{#3\citeHandbuch{\g}{#2}.}}%
+			{citaviInbookDoi}{\footnote{#3\citecitaviInbookDoi{\h}{\b}{#2}.}}%
+			{citaviInProceedingsDoi}{\footnote{#3\citecitaviInProceedingsDoi{\g}{\b}{#2}.}}%
+			{citaviAufsatzDoi}{\footnote{#3\citecitaviAufsatzDoi{\h}{\f}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -277,21 +156,10 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 			%Area to add citeifs_inline via gui
-			{Buch}{ ({#3\citeBuch{\a}{\b}{#2})}}%
-			{Kommentar}{ ({#3\citeKommentar{\a}{\b}{\e}{#2})}}%
-			{Aufsatz}{ ({#3\citeAufsatz{\a}{\c}{#2})}}%
-			{online}{ ({#3\citeonline{\f}{#2})}}%
-			{workingpaper}{ ({#3\citeworkingpaper{\f}{#2})}}%
-			{sammelwerk}{ ({#3\citesammelwerk{\a}{\b}{#2})}}%
-			{hrsgsammel}{ ({#3\citehrsgsammel{\a}{\b}{#2})}}%
-			{meintype}{ ({#3\citemeintype{\a}{\c}{#2})}}%
-			{Test}{ ({#3\citeTest{\a}{\c}{#2})}}%
-			{AufsatzAusgabe}{ ({#3\citeAufsatzAusgabe{\g}{\d}{#2})}}%
-			{AufsatzURL}{ ({#3\citeAufsatzURL{\c}{\f}{#2})}}%
-			{onlineArticle}{ ({#3\citeonlineArticle{\a}{\c}{#2})}}%
 			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
-			{TestM}{ ({#3\citeTestM{\c}{#2})}}%
-			{Handbuch}{ ({#3\citeHandbuch{\g}{#2})}}%
+			{citaviInbookDoi}{ ({#3\citecitaviInbookDoi{\h}{\b}{#2})}}%
+			{citaviInProceedingsDoi}{ ({#3\citecitaviInProceedingsDoi{\g}{\b}{#2})}}%
+			{citaviAufsatzDoi}{ ({#3\citecitaviAufsatzDoi{\h}{\f}{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -303,50 +171,17 @@
 
 %Prints für verschiedene Fußnotenarten
 %Area to add citecommands via gui
-\newcommand{\citeBuch}[3]{%
-	\textit{#1}, #2, #3%
-}
-\newcommand{\citeKommentar}[4]{%
-	\textit{#1}, #2, #3#4%
-}
-\newcommand{\citeAufsatz}[3]{%
-	\textit{#1}, #2, #3%
-}
-\newcommand{\citeonline}[2]{%
-	\textit{#1}#2%
-}
-\newcommand{\citeworkingpaper}[2]{%
-	\textit{#1}, #2%
-}
-\newcommand{\citesammelwerk}[3]{%
-	\textit{#1}, #2, #3%
-}
-\newcommand{\citehrsgsammel}[3]{%
-	\textit{#1}, #2, #3%
-}
-\newcommand{\citemeintype}[3]{%
-	\textit{#1}, #2#3%
-}
-\newcommand{\citeTest}[3]{%
-	#1#2#3%
-}
-\newcommand{\citeAufsatzAusgabe}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citeAufsatzURL}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citeonlineArticle}[3]{%
-	\textit{#1} (#2), #3%
-}
 \newcommand{\citeNorm}[2]{%
 	\textit{#1}#2%
 }
-\newcommand{\citeTestM}[2]{%
-	\textit{#1}#2%
+\newcommand{\citecitaviInbookDoi}[3]{%
+	\textit{#1} (#2), #3%
 }
-\newcommand{\citeHandbuch}[2]{%
-	\textit{#1} (Hg.), #2%
+\newcommand{\citecitaviInProceedingsDoi}[3]{%
+	\textit{#1} (#2), #3%
+}
+\newcommand{\citecitaviAufsatzDoi}[3]{%
+	\textit{#1} (#2), #3%
 }
 %end area
 
