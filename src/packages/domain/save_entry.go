@@ -28,7 +28,7 @@ func SaveEntry(entry BibEntry, project string, initialKey string) error{
 	}
 
 	jsonStr, err := json.MarshalIndent(entries, "", "\t")
-	fmt.Println(string(jsonStr))
+	//fmt.Println(string(jsonStr))
 	if err != nil {
 		return err
 	}

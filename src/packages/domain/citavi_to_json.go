@@ -27,21 +27,28 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 	case "article":
 		bibEntry.Typ = "citaviAufsatzDoi"
 		break
-
+	case "Inbook":
+		bibEntry.Typ = "citaviInbookDoi"
+		break
 	default:
 		return bibEntry, fmt.Errorf("NO_MATCHING_TYPE")
 	}
 
 	lines := strings.Split(citaviFile, "\n")
 
-	lines = lines[3:]
+	//lines = lines[3:]
 
 	var fields = []string{"","","","","","","","","",""}
 
 	for i,line := range lines {
-		if len(line) > 2 {
-			line = line[1:]
+		if len(line) > 2 && string(line[0]) != "%" && string(line[0]) != "@" {
+			if string(line[0]) == " " {
+				line = line[1:]
+			}
 			parts := strings.Split(line, " = ")
+			if len(parts) == 1 {
+				parts = strings.Split(line, "=")
+			}
 			value := parts[1][1:len(parts[1]) - 2]
 			if i < len(lines) - 2 {
 				value = value[:len(value)-1]
@@ -53,10 +60,13 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 				}
 				bibEntry.Key += "." + addKey
 			} else if parts[0] == "author" {
-				value = strings.ReplaceAll(value, " and ", "; ")
+				value = strings.ReplaceAll(value, " and ", "{{;}} ")
+			} else if parts[0] == "doi" {
+				value = strings.ReplaceAll(value, "_", "{{\\_}}")
 			}
 
 			index := getAttributeIndexInType(bibEntry.Typ, parts[0])
+			fmt.Println(index)
 			if index >= 0 {
 				fields[index] = value
 			}
@@ -70,15 +80,40 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 }
 
 func getAttributeIndexInType(bibType string, attr string) int{
+	fmt.Println(bibType, attr)
 	if bibType == "citaviAufsatzDoi" {
 		switch attr {
-		case "author": return 0
-		case "title": return 1
-		case "journal": return 2
-		case "volume": return 3
-		case "pages": return 4
-		case "year": return 5
-		case "doi": return 6
+		case "author":
+			return 0
+		case "title":
+			return 1
+		case "journal":
+			return 2
+		case "volume":
+			return 3
+		case "pages":
+			return 4
+		case "year":
+			return 5
+		case "doi":
+			return 6
+		}
+	} else if bibType == "citaviInbookDoi" {
+		switch attr {
+		case "author":
+			return 0
+		case "year":
+			return 1
+		case "title":
+			return 2
+		case "bookTitle":
+			return 3
+		case "publisher":
+			return 4
+		case "address":
+			return 5
+		case "doi":
+			return 6
 		}
 	}
 
