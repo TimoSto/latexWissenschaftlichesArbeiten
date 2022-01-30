@@ -4226,7 +4226,7 @@ main {
   height: 100%;
   transition: width 200ms;
 }
-.sidebar .mdc-list-item__text {
+.sidebar.sidebar--open .mdc-list-item__text {
   max-width: calc(100% - 50px);
 }
 
