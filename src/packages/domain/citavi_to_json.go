@@ -23,11 +23,11 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 		Key: bibKey[0],
 	}
 
-	switch bibType[0] {
+	switch strings.ToLower(bibType[0]) {
 	case "article":
 		bibEntry.Typ = "citaviAufsatzDoi"
 		break
-	case "Inbook":
+	case "inbook":
 		bibEntry.Typ = "citaviInbookDoi"
 		break
 	default:
@@ -40,19 +40,27 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 
 	var fields = []string{"","","","","","","","","",""}
 
-	for i,line := range lines {
+	for _,line := range lines {
 		if len(line) > 2 && string(line[0]) != "%" && string(line[0]) != "@" {
-			if string(line[0]) == " " {
+			//if string(line[len(line)-1]) == "}" && string(line[len(line)-2]) == "}" {
+			//	line = line[:len(line)-1]
+			//}
+			//fmt.Println(string(line[len(line)-1]) + "f"+string(line[len(line)-2])+ "Line: "+line)
+			for string(line[0]) == " " {
 				line = line[1:]
 			}
 			parts := strings.Split(line, " = ")
 			if len(parts) == 1 {
 				parts = strings.Split(line, "=")
 			}
-			value := parts[1][1:len(parts[1]) - 2]
-			if i < len(lines) - 2 {
-				value = value[:len(value)-1]
+			indexStart := strings.Index(parts[1], "{")
+			indexEnd := strings.LastIndex(parts[1], "}")
+			if indexStart != 0 {
+				indexStart = strings.Index(parts[1], "\"")
+				indexEnd = strings.LastIndex(parts[1], "\"")
 			}
+			fmt.Println(indexStart, indexEnd)
+			value := parts[1][indexStart+1:indexEnd]
 			if parts[0] == "title" {
 				addKey := strings.Split(value, " ")[0]
 				if len(addKey) > 5 {
