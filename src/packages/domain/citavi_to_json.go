@@ -24,7 +24,9 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 	}
 
 	switch bibType[0] {
-	case "article": bibEntry.Typ = "citaviAufsatzDoi"; break;
+	case "article":
+		bibEntry.Typ = "citaviAufsatzDoi"
+		break
 
 	default:
 		return bibEntry, fmt.Errorf("NO_MATCHING_TYPE")
@@ -43,6 +45,13 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 			value := parts[1][1:len(parts[1]) - 2]
 			if i < len(lines) - 2 {
 				value = value[:len(value)-1]
+			}
+			if parts[0] == "title" {
+				addKey := strings.Split(value, " ")[0]
+				if len(addKey) > 5 {
+					addKey = addKey[:5]
+				}
+				bibEntry.Key += "." + addKey
 			}
 
 			index := getAttributeIndexInType(bibEntry.Typ, parts[0])
