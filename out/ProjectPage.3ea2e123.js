@@ -232,6 +232,9 @@ var ProjectPage = function () {
       });
     });
     this.setupDragAndDrop(pname);
+    document.querySelector('#cleanupCites').addEventListener('click', function () {
+      fetch('/citeCleanup?project=' + pname);
+    });
   };
 
   ProjectPage.prototype.setupDragAndDrop = function (project) {
@@ -254,7 +257,9 @@ var ProjectPage = function () {
             Project: project
           })
         }).then(function (resp) {
-          if (resp.status === 200) {}
+          if (resp.status === 200) {
+            window.location.reload();
+          }
         });
       };
     });

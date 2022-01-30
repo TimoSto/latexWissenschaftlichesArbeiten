@@ -46,6 +46,8 @@ func main() {
 
 	http.HandleFunc("/importCitavi", handlers.HandleImportCitavi)
 
+	http.HandleFunc("/citeCleanup", handlers.HandleCiteCleanup)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )

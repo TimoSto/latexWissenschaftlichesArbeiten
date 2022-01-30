@@ -63,6 +63,10 @@ class ProjectPage {
         });
 
         this.setupDragAndDrop(pname);
+
+        document.querySelector('#cleanupCites').addEventListener('click', ()=>{
+            fetch('/citeCleanup?project='+pname)
+        })
     }
 
     private setupDragAndDrop(project: string) {
@@ -84,7 +88,7 @@ class ProjectPage {
                     body: JSON.stringify({File: <string>reader.result, Project: project})
                 }).then(resp => {
                     if (resp.status === 200) {
-
+                        window.location.reload();
                     }
                 })
                 //Dialog mit Textfeld öffnen => gewünscht Zitierweise eingeben
