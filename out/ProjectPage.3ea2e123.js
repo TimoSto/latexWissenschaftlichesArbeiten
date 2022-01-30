@@ -164,73 +164,6 @@ function InitExpandableAreas() {
 }
 
 exports.default = InitExpandableAreas;
-},{}],"scripts/AnalyseAndSaveDroppedFile.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function AnalyseAndSaveDroppdFile(file) {
-  console.log(file);
-  var texType = file.match('(@.*?\{)')[0];
-  texType = texType.substr(1, texType.length - 2);
-  var key = file.match('({.*?,)')[0];
-  key = key.substr(1, key.length - 2);
-  console.log(key);
-  var lines = file.split('\n');
-  var jsonString = '{\n';
-
-  for (var i = 3; i < lines.length; i++) {
-    if (lines[i] === '}') break;
-    lines[i] = lines[i].substr(1);
-    var parts = lines[i].split(' = ');
-    console.log(parts);
-    var attr = '';
-
-    switch (parts[0]) {
-      case 'author':
-        attr = 'Autor';
-        break;
-
-      case 'year':
-        attr = 'Jahr';
-        break;
-
-      case 'title':
-        attr = 'Titel';
-        break;
-
-      case 'pages':
-        attr = 'Seiten';
-        break;
-
-      case 'volume':
-        attr = 'Ausgabe';
-        break;
-
-      case 'journal':
-        attr = 'Zeitschrift';
-        break;
-
-      case 'doi':
-        attr = 'Doi';
-        break;
-    }
-
-    if (attr.length > 0) {
-      var value = parts[1].substr(1, parts[1].length - 4);
-      jsonString += '"' + attr + '": "' + value + '",\n';
-    }
-  }
-
-  jsonString += '}';
-  jsonString.replaceAll('{\&}', '{{\&}}');
-  var obj = JSON.parse(jsonString);
-  console.log(obj);
-}
-
-exports.default = AnalyseAndSaveDroppdFile;
 },{}],"scripts/ProjectPage.ts":[function(require,module,exports) {
 "use strict";
 
@@ -246,11 +179,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var InitExpandableAreas_1 = __importDefault(require("./InitExpandableAreas"));
 
-var AnalyseAndSaveDroppedFile_1 = __importDefault(require("./AnalyseAndSaveDroppedFile"));
-
-var ProjectPage =
-/** @class */
-function () {
+var ProjectPage = function () {
   function ProjectPage() {
     var _this = this;
 
@@ -302,10 +231,10 @@ function () {
         });
       });
     });
-    this.setupDragAndDrop();
+    this.setupDragAndDrop(pname);
   };
 
-  ProjectPage.prototype.setupDragAndDrop = function () {
+  ProjectPage.prototype.setupDragAndDrop = function (project) {
     var area = document.querySelector('#drop_zone');
     area.addEventListener('dragover', function (e) {
       e.preventDefault();
@@ -318,7 +247,15 @@ function () {
       reader.readAsText(dT.files[0], "UTF-8");
 
       reader.onload = function (evt) {
-        (0, AnalyseAndSaveDroppedFile_1.default)(reader.result); //Dialog mit Textfeld öffnen => gewünscht Zitierweise eingeben
+        fetch('/importCitavi', {
+          method: 'POST',
+          body: JSON.stringify({
+            File: reader.result,
+            Project: project
+          })
+        }).then(function (resp) {
+          if (resp.status === 200) {}
+        });
       };
     });
   };
@@ -327,5 +264,5 @@ function () {
 }();
 
 new ProjectPage();
-},{"./InitExpandableAreas":"scripts/InitExpandableAreas.ts","./AnalyseAndSaveDroppedFile":"scripts/AnalyseAndSaveDroppedFile.ts"}]},{},["scripts/ProjectPage.ts"], null)
+},{"./InitExpandableAreas":"scripts/InitExpandableAreas.ts"}]},{},["scripts/ProjectPage.ts"], null)
 //# sourceMappingURL=/ProjectPage.3ea2e123.js.map

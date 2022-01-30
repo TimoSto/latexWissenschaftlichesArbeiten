@@ -62,10 +62,10 @@ class ProjectPage {
             });
         });
 
-        this.setupDragAndDrop();
+        this.setupDragAndDrop(pname);
     }
 
-    private setupDragAndDrop() {
+    private setupDragAndDrop(project: string) {
 
         let area = document.querySelector('#drop_zone');
         area.addEventListener('dragover', (e)=>{
@@ -79,7 +79,14 @@ class ProjectPage {
             reader.readAsText(dT.files[0], "UTF-8");
             reader.onload = function (evt) {
 
-                AnalyseAndSaveDroppdFile(<string>reader.result)
+                fetch('/importCitavi', {
+                    method: 'POST',
+                    body: JSON.stringify({File: <string>reader.result, Project: project})
+                }).then(resp => {
+                    if (resp.status === 200) {
+
+                    }
+                })
                 //Dialog mit Textfeld öffnen => gewünscht Zitierweise eingeben
             }
         })

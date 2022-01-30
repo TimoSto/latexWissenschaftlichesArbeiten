@@ -37,14 +37,13 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 	var fields = []string{"","","","","","","","","",""}
 
 	for i,line := range lines {
-		if i < len(lines) - 1 {
+		if len(line) > 2 {
 			line = line[1:]
 			parts := strings.Split(line, " = ")
-			value := parts[1][1:len(parts[1]) - 1]
+			value := parts[1][1:len(parts[1]) - 2]
 			if i < len(lines) - 2 {
 				value = value[:len(value)-1]
 			}
-			fmt.Println(value)
 
 			index := getAttributeIndexInType(bibEntry.Typ, parts[0])
 			if index >= 0 {

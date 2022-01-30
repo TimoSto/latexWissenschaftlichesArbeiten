@@ -44,6 +44,8 @@ func main() {
 
 	http.HandleFunc("/deleteProject", handlers.HandleDeleteProject)
 
+	http.HandleFunc("/importCitavi", handlers.HandleImportCitavi)
+
 	http.Handle("/", http.FileServer(http.Dir("./out")))
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
