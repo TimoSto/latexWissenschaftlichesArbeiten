@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"WA_LaTeX/domain"
+	"WA_LaTeX/src/packages/domain"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -32,7 +32,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 
 	entry := entrykeys[0]
 
-	entries := domain.ReadBibEntries(project)
+	entries, err := domain.ReadBibEntries(project)
 	for i:=0 ; i<len(entries);i++ {
 		if entries[i].Key == entry {
 			entries = append(entries[:i], entries[i+1:]...)
