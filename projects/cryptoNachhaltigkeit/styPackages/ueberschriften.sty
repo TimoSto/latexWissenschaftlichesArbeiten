@@ -1,0 +1,90 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{styPackages/ueberschriften}
+\usepackage[noindentafter]{titlesec}
+
+%Abstand vor und nach Überschriften
+
+\def\beforeheading{12pt}%Abstand vor allen Überschriften
+\def\afterheading{6pt}%Abstand nach allen Überschriften
+\titlespacing{\part}{0pt}{0pt}{\afterheading}
+\titlespacing{\section}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subsection}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subsubsection}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\paragraph}{0pt}{\beforeheading}{\afterheading}
+\titlespacing{\subparagraph}{0pt}{\beforeheading}{\afterheading}
+
+\newcommand{\useLatourHeadings}{
+	%Überschriftnummerierung
+	\renewcommand{\thepart}{\Alph{part}}
+	\renewcommand{\thesection}{\Roman{section}}
+	\renewcommand{\thesubsection}{\arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\alph{subsubsection})}
+	\renewcommand{\theparagraph}{\alph{subsubsection}\alph{paragraph})}
+	\renewcommand{\thesubparagraph}{(\arabic{subparagraph})}
+}
+
+\newcommand{\usenumericheadings}{
+	%Überschriftnummerierung
+	\renewcommand{\thepart}{\arabic{part}}
+	\renewcommand{\thesection}{\arabic{part}.\arabic{section}}
+	\renewcommand{\thesubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+	\renewcommand{\theparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
+	\renewcommand{\thesubparagraph}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}}
+}
+
+%Format der Überschriften
+\def\numbertitlespace{0.5em}%Abstand zwischen Nummerierung und Titel
+\titleformat{\part}{\Large\mdseries}{\thepart}{\numbertitlespace}{}
+\titleformat{\section}{\large\mdseries}{\thesection}{\numbertitlespace}{}
+\titleformat{\subsection}{\large\mdseries}{\thesubsection}{\numbertitlespace}{}
+\titleformat{\subsubsection}{\large\mdseries}{\thesubsubsection}{\numbertitlespace}{}
+\titleformat{\paragraph}{\large\mdseries}{\theparagraph}{\numbertitlespace}{}
+\titleformat{\subparagraph}{\large\mdseries}{\thesubparagraph}{\numbertitlespace}{}
+
+%Section-Zähler in jedem \part reseten
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother  
+
+%Tiefe der Nummerierungen
+\setcounter{secnumdepth}{6}
+
+%Neue Seite für Part und kein vspace vor Part
+\newcommand*\parttitle{}
+\let\origpart\part%alten pert-Befehl behalten
+\renewcommand*{\part}[2][]{%
+   \ifnum\value{part}=0\else\clearpage\fi%at first part no \clearpage
+   \vspace*{-9mm}%Remove vertical space before part-title
+   \origpart{#2}%
+   \renewcommand*\parttitle{#2}%
+}
+
+\newcommand{\partOnSamePage}[0]{
+	\renewcommand*{\part}[2][]{%
+		\ifnum\value{part}=0\vspace*{-12pt}\else\vspace*{12pt}\fi%at first part no \clearpage
+		%Remove vertical space before part-title
+		\origpart{##2}%
+		\renewcommand*\parttitle{##2}%
+	}
+}
+
+%Neue Überschriften-Ebene
+%\usepackage{titletoc}
+%\usepackage{chngcntr}
+%\newcounter{mysection}
+%\titleclass{\mysection}{straight}[\part]
+%\titleformat{\mysection}{\large\mdseries}{\themysection}{\numbertitlespace}{}
+%\titlespacing{\mysection}{0pt}{\beforeheading}{\afterheading}
+%\renewcommand{\themysection}{\arabic{mysection}}
+%%\counterwithin{subparagraph}{mysection}
+%\renewcommand{\themysection}{\arabic{part}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph}.\arabic{mysection}}
+%
+%\titlecontents*{mysection}[285pt]{}{\contentslabel{65pt}}{}
+%{\normalfont\cftdotfill{\cftpartdotsep}\contentspage}[]
+
+\DeclareOption{latour}{\useLatourHeadings}
+\DeclareOption{numeric}{\usenumericheadings}
+\ProcessOptions\relax
+\endinput

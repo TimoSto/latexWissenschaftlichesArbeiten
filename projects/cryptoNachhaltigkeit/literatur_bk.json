@@ -1,0 +1,338 @@
+[
+	{
+		"Key": "badea",
+		"Typ": "citaviAufsatzDoi",
+		"Fields": [
+			"Badea, Liana{{;}} Mungiu-Pupazan, Mariana Claudia",
+			"The Economic and Environmental Impact of Bitcoin",
+			"IEEE Access",
+			"9",
+			"48091-48104",
+			"2021",
+			"10.1109/{{\\\\}}ACCESS.2021.3068636",
+			"Badea, L. et.al"
+		]
+	},
+	{
+		"Key": "ethereum",
+		"Typ": "website",
+		"Fields": [
+			"Beekhuizen, Carl",
+			"18.05.2018",
+			"Ethereum's energy usage will soon decrease by 99.95{{\\%}}",
+			"https://blog.ethereum.org/2021/05/18/country-power-no-more/",
+			"10.12.2021",
+			"Beekhuizen, C.",
+			"2018"
+		]
+	},
+	{
+		"Key": "bendiksen",
+		"Typ": "onlineAufsatz",
+		"Fields": [
+			"Bendiksen, Christopher{{;}} Gibbons, Samuel",
+			"2019",
+			"The Bitcoin Mining Network - Trends, Composition, Average Creation Cost, Electricity Consumption and Sources",
+			"{{\\\\}}https://coinshares.com/assets/resources/Research/bitcoin-mining-network-june-2019-fidelity-foreword.pdf",
+			"17.01.2022",
+			"Bendiksen, Gibbons"
+		]
+	},
+	{
+		"Key": "blandin",
+		"Typ": "onlineAufsatz",
+		"Fields": [
+			"Blandin, Apolline{{;}}Pieters, Gina C. {{;}} Wu, Yue{{;}} Dek, Anton{{;}} Eisermann, Thomas{{;}} Njoki, Damaris{{;}} Taylor",
+			"2020",
+			"3rd Global Cryptoasset Benchmarking Study",
+			"{{\\\\}}http://dx.doi.org/10.2139/ssrn.3700822",
+			"17.01.2022",
+			"Blandin et al."
+		]
+	},
+	{
+		"Key": "bruijn",
+		"Typ": "Buch",
+		"Fields": [
+			"Bruijn, Hans de{{;}} Duin, Robbert van{{;}} Huijbregts, Mark A. J. et al",
+			"2002",
+			"Handbook on Life Cycle Assessment Operational Guide to the ISO Standards",
+			"7",
+			"Dordrecht: Springer Netherlands",
+			"Brujin et al"
+		]
+	},
+	{
+		"Key": "btcEl",
+		"Typ": "website",
+		"Fields": [
+			"Cambridge Centre for Alternative Finance",
+			"2022",
+			"Cambridge Bitcoin Electricity Consumption Index",
+			"https://ccaf.io/cbeci/index/methodology",
+			"17.01.2022",
+			"Cambridge Centre for Alternative Finance",
+			"2022"
+		]
+	},
+	{
+		"Key": "btcDistr",
+		"Typ": "website",
+		"Fields": [
+			"Cambridge Centre for Alternative Finance",
+			"2022",
+			"Distribution of Bitcoin mining hashrate from September 2019 to August 2021 by country",
+			"https://www.statista.com/statistics/ 1200477/bitcoinmining-by-country/",
+			"16.01.2022",
+			"Cambridge Centre for Alternative Finance",
+			"2022"
+		]
+	},
+	{
+		"Key": "coinBW",
+		"Typ": "website",
+		"Fields": [
+			"CoinMarketCap",
+			"17.01.2022",
+			"Top 100 Kryptowährungen nach Börsenwert",
+			"{{\\\\}}https://coinmarketcap.com/de/",
+			"17.01.2022",
+			"CoinMarketCap",
+			"2022"
+		]
+	},
+	{
+		"Key": "powMW",
+		"Typ": "website",
+		"Fields": [
+			"CoinMarketCap",
+			"17.01.2022",
+			"Top-PoW-Tokens nach Marktkapitalisierung",
+			"{{\\\\}}https://coinmarketcap.com/de/view/pow/",
+			"17.01.2022",
+			"CoinMarketCap",
+			"2022"
+		]
+	},
+	{
+		"Key": "iso2006",
+		"Typ": "Norm",
+		"Fields": [
+			"DIN e.V.",
+			"DIN EN ISO 14044:2006-10",
+			"Umweltmanagement – Ökobilanz – Anforderungen und Anleitungen",
+			"Beuth-Verlag",
+			"Berlin",
+			"2006"
+		]
+	},
+	{
+		"Key": "iso2009",
+		"Typ": "Norm",
+		"Fields": [
+			"DIN e.V.",
+			"DIN EN ISO 14040:2009-11",
+			"Umweltmanagement – Ökobilanz – Grundsätze und Rahmenbedingungen",
+			"Beuth-Verlag",
+			"Berlin",
+			"2009"
+		]
+	},
+	{
+		"Key": "joule",
+		"Typ": "aufsatz",
+		"Fields": [
+			"Gallersdörfer, Ulrich{{;}} Klaaßen, Lena{{;}} Stoll, Christian",
+			"2020",
+			"Energy Consumption of Cryptocurrencies Beyond Bitcoin",
+			"Joule",
+			"4(9)",
+			"1843-1846",
+			"https://www.sciencedirect.com/ science/article/pii/S2542435120303317",
+			"Gallersdörfer et al."
+		]
+	},
+	{
+		"Key": "goedkoop",
+		"Typ": "onlineAufsatz",
+		"Fields": [
+			"Goedkoop, Mark{{;}} Heijungs, Reinout{{;}} Huijbregts, Mark{{;}} Schryver, A.{{;}} Struijs, J.{{;}} Zelm, R. ",
+			"2018",
+			"A life cycle impact assessment method which comprises harmonised category indicators at the midpoint and the endpoint level",
+			"https://www.rivm.nl/documenten/a-lcia-method-which-comprises-harmonisedcategoryindicators- at-midpoint-and-endpoint",
+			"17.01.2022",
+			"Goedkoop et al."
+		]
+	},
+	{
+		"Key": "Guinee.2002.Handb",
+		"Typ": "citaviAufsatzDoi",
+		"Fields": [
+			"Guinee, Jeroen B.",
+			"Handbook on life cycle assessment operational guide to the ISO standards",
+			"The International Journal of Life Cycle Assessment",
+			"7",
+			"311",
+			"2002",
+			"10.1007/BF02978897",
+			"Guinee, J.B."
+		]
+	},
+	{
+		"Key": "hanegraaf",
+		"Typ": "onlineAufsatz",
+		"Fields": [
+			"Hanegraaf, Randall{{;}} Jonker, Nicole{{;}} Mandley, Steven{{;}} Miedema, Jelle",
+			"2018",
+			"Life Cycle Assessment of Cash Payments",
+			"http://dx.doi.org/10.2139/ssrn.3267868",
+			"17.01.2022",
+			"Hanefraaf et al."
+		]
+	},
+	{
+		"Key": "hazari",
+		"Typ": "citaviAufsatzDoi",
+		"Fields": [
+			"Hazari, Shihab S.{{;}} Mahmoud, Qusay H.",
+			"2019",
+			"Comparative evaluation of consensus mechanisms in cryptocurrencies",
+			"Internet Technology Letters",
+			"2 (3)",
+			"28-47",
+			"10.2139/ssrn.3267868",
+			"Hazari, Mahmoud"
+		]
+	},
+	{
+		"Key": "8442076.On",
+		"Typ": "citaviInProceedingsDoi",
+		"Fields": [
+			"He, Qingqiang{{;}} Guan, Nan{{;}} Lv, Mingsong{{;}} Yi, Wang",
+			"2018",
+			"On the Consensus Mechanisms of Blockchain/DLT for Internet of Things",
+			"2018 IEEE 13th International Symposium on Industrial Embedded Systems (SIES)",
+			"1-10",
+			"10.1109/{{\\\\}}SIES.2018.8442076",
+			"He, Q. et al"
+		]
+	},
+	{
+		"Key": "houy",
+		"Typ": "onlineAufsatz",
+		"Fields": [
+			"Houy, Nicolas",
+			"2014",
+			"It Will Cost You Nothing to 'Kill' a Proof-of-Stake Crypto-Currency",
+			"http://dx.doi.org/10.2139/ssrn.2393940",
+			"17.12.2021",
+			"Houy"
+		]
+	},
+	{
+		"Key": "hoenig",
+		"Typ": "onlineAufsatz",
+		"Fields": [
+			"Hönig, Prof. Dr. Michaela",
+			"2018",
+			"Studie zu Kryptowährungen und der Blockchain-Technologie",
+			"https://www.frankfurt-university.de/fileadmin/standard/Hochschule/Fachbereich{{\\\\_}}3/Kontakt/Professor{{\\\\_}}inn{{\\\\_}}en/Hoenig/20180502{{\\\\_}}Bitcoin{{\\\\_}}Studie{{\\\\_}}fra{{\\\\_}}uas{{\\\\_}}Hoenig{{\\\\_}}V1.0.pdf",
+			"17.01.2022",
+			"Hönig"
+		]
+	},
+	{
+		"Key": "ipcc",
+		"Typ": "website",
+		"Fields": [
+			"Intergovernmental Panel on Climate Change (IPCC)",
+			"05.10.2018",
+			"Global Warming of 1.5 C",
+			"https://www.ipcc.ch/sr15/",
+			"08.11.2021",
+			"IPCC",
+			"2018"
+		]
+	},
+	{
+		"Key": "irena",
+		"Typ": "website",
+		"Fields": [
+			"International Renewable Energy Agency (IRENA)",
+			"2020",
+			"Renewable Power Generation Costs in 2020",
+			"https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2021/Jun/IRENA{{\\\\_}}Power{{\\\\_}}Generation{{\\\\_}}Costs{{\\\\_}}2020.pdf",
+			"13.01.2022",
+			"IRENA",
+			"2020"
+		]
+	},
+	{
+		"Key": "9388487.Evalu",
+		"Typ": "citaviInProceedingsDoi",
+		"Fields": [
+			"Nair, P. Rajitha{{;}} Dorai, D. Ramya",
+			"2021",
+			"Evaluation of Performance and Security of Proof of Work and Proof of Stake using Blockchain",
+			"2021 Third International Conference on Intelligent Communication Technologies and Virtual Mobile Networks (ICICV)",
+			"279-283",
+			"10.1109/ICICV50876.2021.9388487",
+			"Nair, P.{{;}} Dorai, D.R."
+		]
+	},
+	{
+		"Key": "Schuster.2020.Finan",
+		"Typ": "citaviAufsatzDoi",
+		"Fields": [
+			"Schuster, Philipp{{;}} Theissen, Erik{{;}} Uhrig-Homburg, Marliese",
+			"Finanzwirtschaftliche Anwendungen der Blockchain-Technologie",
+			"Schmalenbachs Zeitschrift f{\\\"u}r betriebswirtschaftliche Forschung",
+			"72",
+			"125--147",
+			"2020",
+			"10.1007/s41471-020-00090-5",
+			"Schuster, P. et al"
+		]
+	},
+	{
+		"Key": "Sedlmeir.2020.The",
+		"Typ": "citaviAufsatzDoi",
+		"Fields": [
+			"Sedlmeir, Johannes{{;}} Buhl, Hans Ulrich{{;}} Fridgen, Gilbert{{;}} Keller, Robert",
+			"The Energy Consumption of Blockchain Technology: Beyond Myth",
+			"Business {{\\\u0026amp;amp;}} Information Systems Engineering",
+			"62",
+			"599--608",
+			"2020",
+			"10.1007/{{\\\\}}s12599-020-00656-x",
+			"Sedlmeir, J. et al"
+		]
+	},
+	{
+		"Key": "Sedlmeir.2020.Ein",
+		"Typ": "citaviAufsatzDoi",
+		"Fields": [
+			"Sedlmeir, Johannes{{;}} Buhl, Hans Ulrich{{;}} Fridgen, Gilbert{{;}} Keller, Robert",
+			"Ein Blick auf aktuelle Entwicklungen bei Blockchains und deren Auswirkungen auf den Energieverbrauch",
+			"Informatik Spektrum",
+			"43",
+			"391--404",
+			"2020",
+			"10.1007/{{\\\\}}s00287-020-01321-z",
+			"Sedlmeir, J. et al."
+		]
+	},
+	{
+		"Key": "9397089.Revie",
+		"Typ": "citaviInProceedingsDoi",
+		"Fields": [
+			"Verma, Neetu{{;}} Jain, Saurabh{{;}} Doriya, Rajesh",
+			"2021",
+			"Review on Consensus Protocols for Blockchain",
+			"2021 International Conference on Computing, Communication, and Intelligent Systems (ICCCIS)",
+			"281-286",
+			"10.1109/ICCCIS51004.{{\\\\}}2021.9397089",
+			"Verma, N. et al."
+		]
+	}
+]

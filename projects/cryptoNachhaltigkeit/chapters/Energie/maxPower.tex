@@ -1,0 +1,9 @@
+Für die Obergrenze, also die maximal in einem Netzwerk verbrauchte Energie, können nur grobe Abschätzungen getroffen werden. Hier wird angenommen, dass alle Miner immer in reiner Gewinnabsicht handeln. Das bedeutet, dass die Erlöse G einer Blockerstellung immer größer oder gleich den Kosten für eine Blockerstellung sein müssen\citebib{sedlmeir}{S.601}{vgl. }.
+\begin{align*}
+    G\left[\frac{\$}{a}\right]&\geq \frac{E_B\left[\frac{kWh}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}{t \left[\frac{h}{B}\right]\cdot 24\cdot 365,25}\\
+    &\geq \frac{E_H\left[\frac{kWh}{H}\right]\cdot D\left[\frac{H}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}{t \left[\frac{h}{B}\right]\cdot 24\cdot 365,25}]
+\end{align*}
+Eine simple Umformung liefert die Gleichung für die maximale Energie, die ein rationaler Miner im Netzwerk aufbringen würde:
+\begin{align*}
+    E_B\left[\frac{kWh}{a}\right]&\leq\frac{G\left[\frac{\$}{B}\right]}{t \left[\frac{a}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}
+\end{align*}

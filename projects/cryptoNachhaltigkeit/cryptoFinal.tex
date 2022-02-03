@@ -1,0 +1,234 @@
+\documentclass[12pt]{article}
+
+%Filter Warning messages, otherwise it would stuff like 
+\usepackage{silence}
+%Disable all warnings issued by latex starting with "You have..."
+\WarningFilter{latex}{You have requested package}
+
+%Allgemeine Einstellungen
+
+%Abstände
+\usepackage[a4paper,left=3cm,right=3cm,top=2.5cm,bottom=3.5cm,headsep=12pt]{geometry}%Bottom extra 0.5cm für Footer
+
+%Deutsches Sprachpacket
+\usepackage[german,ngerman]{babel}
+
+%Times New Roman
+\usepackage{mathptmx}
+
+%Titelseite einbinden
+\usepackage{pdfpages}
+
+%1.5-Zeilenabstand
+\usepackage[onehalfspacing]{setspace}
+
+%Stil der Überschriften, siehe ueberschriften.sty
+\usepackage[numeric]{../../ueberschriften}
+
+%Stil des Inhaltsverzeichnisses, siehe inhaltsverzeichnis.sty
+\usepackage[numeric]{../../inhaltsverzeichnis}
+
+%Abkürzungsverzeichnis, siehe abk_verzeichnis.sty
+\usepackage{../../abk_verzeichnis}
+
+%Stil der Fußzeilen, siehe fusszeilen.sty
+\usepackage{../../fusszeilen}
+
+%Literaturverzeichnis und Zitate, siehe literatur.sty
+\usepackage{../../literatur}
+
+%Stil für Header und Footer, siehe header_footer.sty
+%Wenn nicht erwünscht, müssen auch die Befehle \frontmatter, \mainmatter auskommentiert werden
+\usepackage{../../header_footer}
+
+%Stile für Code-Ausschnitte, siehe codes.sty
+\usepackage{../../codes}
+
+%Stile für Anhänge, Bilder, ...
+\usepackage{../../anhang}
+
+%Silbentrennung (manche Worte werden am Zeilenende nicht getrennt, diese müssen dann nachgetragen werden)
+\usepackage[T1]{fontenc}
+\hyphenation{öf-fent-lich-en}
+
+%DEBUGGING (Zeigt Boxen an)
+%\usepackage{showframe}
+\setlength{\skip\footins}{12pt}
+
+\usepackage{makecell}
+\usepackage{placeins}
+
+\fancypagestyle{main}{%
+  \fancyhf{}%
+  \fancyhead[L]{}%
+  \fancyhead[R]{\nouppercase\parttitle}%
+  \fancyfoot[L]{\myauthor}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[L]{}%
+  \fancyhead[R]{\nouppercase\plaintitle}%
+  \fancyfoot[L]{\myauthor}%
+  \fancyfoot[R]{\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+\useInlineCites
+
+%\setlength{\skip\footins}{6pt}
+
+\begin{document}
+
+\renewcommand{\mytitle}{Entwicklung und Bewertung eines Kennzahlen-\\systems für nachhaltige Kryptowährungen}%Titel für oben links
+\renewcommand{\myauthor}{Michael Eing, Vanessa Kriebel,\\Timo Stovermann, Bastian Wynk}%Name für unten links
+\renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
+
+\includepdf[pages={1-}]{titelseite.pdf}
+
+\frontmatter%Stil des Headers/Footers ändern
+
+\pagenumbering{Roman}
+
+\addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
+\printabbreviations%abk_verzeichnis.sty
+\clearpage
+\renewcommand{\plaintitle}{Abbildungsverzeichnis}
+\addcontentsline{toc}{part}{Abbildungsverzeichnis}
+{\def\makebox[#1][#2]#3{#3}%
+\listoffigures
+}
+\clearpage
+\renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
+%Defbox, damit gepunktete Linie bis zur Zahl geht
+{\def\makebox[#1][#2]#3{#3}%
+	\tableofcontents
+}
+
+\addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
+
+\clearpage
+\mainmatter%Stil des Headers/Footers ändern
+\pagenumbering{arabic}
+
+\part{Einleitung}
+\input{chapters/einleitung.tex}
+
+\part{Einführung in Kryptowährungen}
+\input{chapters/Einfuehrung/einleitung.tex}
+
+\section{Dezentralisierung}
+\input{chapters/Einfuehrung/dezentralisierung.tex}
+
+\section{Wallets und die digitale Signatur}
+\input{chapters/Einfuehrung/wallets.tex}
+
+\section{Die Blockchain und Hash-Funktionen}
+\input{chapters/Einfuehrung/blockchain.tex}
+
+\section{Der Konsensmechanismus}
+\input{chapters/Einfuehrung/konsens.tex}
+
+\subsection{Konsensfindung in Proof-of-Work-Netzwerken}
+\input{chapters/Einfuehrung/pow.tex}
+
+\subsection{Konsensfindung in Proof-of-Stake-Netzwerken}
+\input{chapters/Einfuehrung/pos.tex}
+
+\part{Methoden zum Vergleich des Stromverbrauchs verschiedener Kryptowährungen}
+
+\section{Vergleich zwischen Konsensmechanismen}
+Die vielen Kryptowährungen auf dem Markt können anhand ihres Konsensmechanismus kategorisiert werden, da sich diese in ihrem Energieaufwand deutlich unterscheiden. An dieser Stelle werden der Proof-of-Work- und der Proof-of-Stake-Mechanismus verglichen (vgl. Kapitel 2.4).
+\subsection{Einordnung des Stromverbrauchs von PoW-Tokens}
+\input{chapters/Energie/powpower.tex}
+\subsection{Bestimmung des minimalen Stromverbrauchs}
+\input{chapters/Energie/minPower.tex}
+
+\subsection{Bestimmung des maximalen Stromverbrauchs}
+\input{chapters/Energie/maxPower.tex}
+
+\subsection{Berücksichtigung des elektrischen Wirkungsgrades}
+\input{chapters/Energie/pue.tex}
+
+\subsection{Erwartete und tatsächliche Werte für 2020}
+\input{chapters/Energie/power2020.tex}
+
+\subsection{Die Bedeutung des Energieverbrauchs}
+\input{chapters/Energie/energyBedeutung.tex}
+
+\section{Einordnung des Stromverbrauchs von PoS-Tokens}
+\input{chapters/Energie/posStrom.tex}
+
+\section{Vergleich der Marktanteile von PoW und PoS}
+\input{chapters/Energie/mkp.tex}
+
+\section{Der gesamtheitliche Umwelteinfluss von Kryptowährungen}
+\input{chapters/Energie/fazit.tex}
+
+\part{Methoden zum Vergleich des Umwelteinfluss von Kryptowährungen und dem klassischen Bargeldsystem}
+
+\section{Life Cycle Assessment}
+\input{chapters/LCA/einfuehrung.tex}
+
+\subsection{Festlegung des Ziels und des Untersuchungsrahmens}
+\input{chapters/LCA/ziel.tex}
+
+\subsection{Sachbilanz}
+\input{chapters/LCA/sachbilanz.tex}
+
+\subsection{Wirkungsabschätzung}
+\input{chapters/LCA/wirkung.tex}
+
+\subsection{ReCiPe}
+\input{chapters/LCA/recipe.tex}
+
+\subsection{Auswertung}
+\input{chapters/LCA/auswertung.tex}
+
+\section{Beispielhafte Umsetzung eines Life Cycle Assessments}
+\input{chapters/LCA/bsp.tex}
+\subsection{Bargeldsystem}
+\input{chapters/LCA/bargeld.tex}
+\subsection{Kryptowährungen}
+\input{chapters/LCA/krypto.tex}
+
+\part{Verbesserung der Auswirkungen von Crypto-Mining auf die Umwelt}
+\section{Ursachen und Ansätze}
+\input{chapters/Verbesserungen/Ursachen.tex}
+
+\section{Grüner Strom}
+\input{chapters/Verbesserungen/green.tex}
+
+\section{Diskussion alternativer Konsensmechanismen}
+%\subsection{Konsensmechanismen}
+\input{chapters/Verbesserungen/konsens.tex}
+
+\subsection{Proof-of-Stake}
+\input{chapters/Verbesserungen/pos.tex}
+
+\subsection{Proof-of-Importance}
+\input{chapters/Verbesserungen/poi.tex}
+
+\subsection{Proof-of-Space}
+\input{chapters/Verbesserungen/pos2.tex}
+
+\subsection{Proof-of-Burn}
+\input{chapters/Verbesserungen/pob.tex}
+
+\part{Fazit}
+\input{chapters/fazit.tex}
+
+\clearpage
+\frontmatter%Stil des Headers/Footers ändern
+\renewcommand{\plaintitle}{Literaturverzeichnis}
+\pagenumbering{Roman}
+\setcounter{page}{5}
+\addtocontents{toc}{\vspace{24pt}}
+\addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
+\printMyBibliography
+
+\end{document}

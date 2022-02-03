@@ -4,6 +4,7 @@ node_modules
 projects/*
 !projects/example
 !projects/documentation
+!projects/cryptoNachhaltigkeit
 *.aux
 *.lof
 *.lot
