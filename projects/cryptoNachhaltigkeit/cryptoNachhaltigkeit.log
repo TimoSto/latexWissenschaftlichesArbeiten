@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  19 FEB 2022 11:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  19 FEB 2022 11:59
 entering extended mode
 **./cryptoNachhaltigkeit.tex
 (cryptoNachhaltigkeit.tex
@@ -969,13 +969,13 @@ idge Cen-tre for Al-ter-na-ti-ve Fi-nance \T1/ptm/m/n/12 (2022a))
 [9
 
 ]
-<quellen/pow_2020.png, id=76, 362.007pt x 217.467pt>
+<quellen/pow_2020.png, id=77, 362.007pt x 217.467pt>
 File: quellen/pow_2020.png Graphic file (type png)
 <use quellen/pow_2020.png>
 Package pdftex.def Info: quellen/pow_2020.png  used on input line 202.
 (pdftex.def)             Requested size: 320.0935pt x 192.2907pt.
  [10 <./quellen/pow_2020.png>]
-<quellen/pow_mkp_2020.png, id=81, 362.007pt x 217.467pt>
+<quellen/pow_mkp_2020.png, id=82, 362.007pt x 217.467pt>
 File: quellen/pow_mkp_2020.png Graphic file (type png)
 <use quellen/pow_mkp_2020.png>
 Package pdftex.def Info: quellen/pow_mkp_2020.png  used on input line 211.
@@ -983,13 +983,13 @@ Package pdftex.def Info: quellen/pow_mkp_2020.png  used on input line 211.
  [11
 
  <./quellen/pow_mkp_2020.png>]
-<quellen/mkp_pow_pos.png, id=86, 362.007pt x 217.467pt>
+<quellen/mkp_pow_pos.png, id=87, 362.007pt x 217.467pt>
 File: quellen/mkp_pow_pos.png Graphic file (type png)
 <use quellen/mkp_pow_pos.png>
 Package pdftex.def Info: quellen/mkp_pow_pos.png  used on input line 228.
 (pdftex.def)             Requested size: 320.0935pt x 192.2907pt.
  [12 <./quellen/mkp_pow_pos.png>] [13]
-<quellen/oekobilanz.png, id=95, 459.21562pt x 341.02406pt>
+<quellen/oekobilanz.png, id=96, 459.21562pt x 341.02406pt>
 File: quellen/oekobilanz.png Graphic file (type png)
 <use quellen/oekobilanz.png>
 Package pdftex.def Info: quellen/oekobilanz.png  used on input line 252.
@@ -997,7 +997,7 @@ Package pdftex.def Info: quellen/oekobilanz.png  used on input line 252.
  [14
 
 ] [15 <./quellen/oekobilanz.png>] [16]
-<quellen/recipe.png, id=105, 470.50781pt x 366.61969pt>
+<quellen/recipe.png, id=106, 470.50781pt x 366.61969pt>
 File: quellen/recipe.png Graphic file (type png)
 <use quellen/recipe.png>
 Package pdftex.def Info: quellen/recipe.png  used on input line 276.
@@ -1009,13 +1009,13 @@ ren der ReCiPe-Methode
  []
 
 [17 <./quellen/recipe.png>]
-<quellen/bgsys.png, id=111, 767.11594pt x 606.76688pt>
+<quellen/bgsys.png, id=112, 767.11594pt x 606.76688pt>
 File: quellen/bgsys.png Graphic file (type png)
 <use quellen/bgsys.png>
 Package pdftex.def Info: quellen/bgsys.png  used on input line 292.
 (pdftex.def)             Requested size: 426.79135pt x 337.5836pt.
  [18] [19 <./quellen/bgsys.png>]
-<quellen/btc_mining_numbers.png, id=121, 472.01344pt x 82.05656pt>
+<quellen/btc_mining_numbers.png, id=122, 472.01344pt x 82.05656pt>
 File: quellen/btc_mining_numbers.png Graphic file (type png)
 <use quellen/btc_mining_numbers.png>
 Package pdftex.def Info: quellen/btc_mining_numbers.png  used on input line 306
@@ -1094,9 +1094,9 @@ ers/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
 syr.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/
 utmr8a.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on cryptoNachhaltigkeit.pdf (38 pages, 774967 bytes).
+Output written on cryptoNachhaltigkeit.pdf (38 pages, 859780 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
+ 191 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
