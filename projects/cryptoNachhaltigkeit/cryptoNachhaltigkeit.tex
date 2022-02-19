@@ -163,7 +163,7 @@ Die vielen Kryptowährungen auf dem Markt können anhand ihres Konsensmechanismu
 \subsection{Einordnung des Stromverbrauchs von PoW-Tokens}
 PoW-Tokens zeichnen sich durch den hohen Rechenaufwand zur Erstellung eines neuen Blocks aus. Dies liegt nicht nur an der aufwändigen Berechnung einer passenden Nonce, sondern auch an der Redundanz im Netzwerk. Viele Teilnehmer arbeiten gleichzeitig an der Hash-Berechnung und Erstellung eines Blocks, aber nur einer wird den Block an die Blockchain anhängen dürfen\citebib{sedlmeir}{S.604f.}{vgl. }.\\
 Durch die unbestimmte Anzahl an aktiven Minern und deren Hardware wird die Bestimmung des tatsächlichen Stromverbrauchs eines Krypto-Netzwerkes unmöglich. Allerdings gibt es Ansätze, die minimal und maximal verbrauchte Energie anhand von technischen und ökonomischen Überlegungen abzuschätzen. Da der Rechenaufwand für die Validierung eines Blockes im Vergleich zu der Findung der Nonce vernachlässigbar ist, wird er in diesen Überlegungen nicht berücksichtigt\citebib{sedlmeir}{S.601}{vgl. }.
-\subsection{Bestimmung des minimalen Stromverbrauchs}
+\subsubsection{Bestimmung des minimalen Stromverbrauchs}
 Die Berechnung des minimalen Stromverbrauchs eines Krypto-Netzwerkes orientiert sich an der sogenannten Schwierigkeit \textit{D} der Block-Erstellung. Diese spiegelt wider, wie viele Hashes \textit{H} berechnet werden müssen, bis eine passende Nonce gefunden wurde. Multipliziert man diesen Wert mit der Anzahl der pro Sekunde entschlüsselten Blöcke \textit{n}, so erhält man die minimal benötigte Anzahl an Hash-Berechnungen \textit{R}, welche pro Stunde ausgeführt werden müssen.\citebib{sedlmeir}{S.601}{vgl. }
 \begin{align}
     R_{min}\left[\frac{H}{s}\right]&=D\left[\frac{H}{B}\right]\cdot n\left[\frac{B}{s}\right]
@@ -177,7 +177,7 @@ Die Berechnung des minimalen Stromverbrauchs eines Krypto-Netzwerkes orientiert 
 Um auf den minimalen Stromverbrauch in einem Jahr zu kommen muss diese Leistung auf ein Jahr hochgerechnet werden:
 \[ E_{min} [kWh] \geq P_{min}\cdot 24\cdot 365,25\]
 
-\subsection{Bestimmung des maximalen Stromverbrauchs}
+\subsubsection{Bestimmung des maximalen Stromverbrauchs}
 Für die Obergrenze, also die maximal in einem Netzwerk verbrauchte Energie, können nur grobe Abschätzungen getroffen werden. Hier wird angenommen, dass alle Miner immer in reiner Gewinnabsicht handeln. Das bedeutet, dass die Erlöse G einer Blockerstellung immer größer oder gleich den Kosten für eine Blockerstellung sein müssen\citebib{sedlmeir}{S.601}{vgl. }.
 \begin{align*}
     G\left[\frac{\$}{a}\right]&\geq \frac{E_B\left[\frac{kWh}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}{t \left[\frac{h}{B}\right]\cdot 24\cdot 365,25}\\
@@ -188,13 +188,13 @@ Eine simple Umformung liefert die Gleichung für die maximale Energie, die ein r
     E_B\left[\frac{kWh}{a}\right]&\leq\frac{G\left[\frac{\$}{B}\right]}{t \left[\frac{a}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}
 \end{align*}
 
-\subsection{Berücksichtigung des elektrischen Wirkungsgrades}
+\subsubsection{Berücksichtigung des elektrischen Wirkungsgrades}
 Der CBECI (Cambridge Centre for Alternative Finance) merkt an, dass Mining-Einrich-tungen nicht nur Stromverbrauch für die eigentliche Hash-Berechnung haben, sondern auch nebenläufige Energieverzehrung stattfindet. Die Mining-Hardware benötigt zum Beispiel Kühlsysteme. Um dies zu berücksichtigen, wird die Energie-Nutzungs-Effizienz (PUE) in die Formeln eingebunden.\citebib{cbeci}{}{vgl.} Dieser PUE stellt den Quotienten der tatsächlich verbrauchten Energie und dem Energieverbrauch der eigentlichen Mining-Hardware dar.
 \[E_{min}=\geq P_{min}\cdot PUE_{min}\cdot 24\cdot 365,25\]
 \[E_B\left[\frac{kWh}{a}\right]\leq\frac{G\left[\frac{\$}{B}\right]}{t \left[\frac{a}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]\cdot PUE_{max}}\]
 Der minimale PUE liegt bei 1,01, der maximale bei 1,8.\citebib{cbeci}{}{vgl. }.
 
-\subsection{Erwartete und tatsächliche Werte für 2020}
+\subsubsection{Erwartete und tatsächliche Werte für 2020}
 Johannes Sedlmeir und seine Kollegen haben die Berechnungen mit Werten aus dem Jahr 2020 durchgeführt\citebib{sedlmeir}{S.602}{vgl. }. Allerdings haben sie den PUE nicht berücksichtigt. Wenn wir die in ihrer Arbeit errechneten Werte für den minimalen und maximalen Stromverbrauch mit dem minimalen und maximalen PUE multiplizieren ergibt sich folgendes Diagramm:
 \FloatBarrier
 \begin{figure}[ht!]
@@ -213,11 +213,11 @@ Johannes Sedlmeir und seine Kollegen haben die Berechnungen mit Werten aus dem J
 \end{figure}
 \FloatBarrier
 
-\subsection{Die Bedeutung des Energieverbrauchs}
+\subsubsection{Die Bedeutung des Energieverbrauchs}
 Aus den von Johannes Sedlmeir und seinen Kollegen ermittelten Zahlen lässt sich schließen, dass die Verbreitung und der Preis eines Coins in Korellation zur verbrauchten Energie stehen\citebib{sedlmeir}{S.601f.}{vgl. }. Dieser Zusammenhang entspricht dem Grundprinzip des \textit{homo oeconomicus}. Bei der Untergrenze des Verbrauchs spiegelt dies sich in der Anzahl der pro Stunde gefundenen Blöcke wider, da die Teilnehmer im Netzwerk bei rentableren Coins mehr Rechenaufwand investieren und folglich mehr Blöcke gefunden werden. Bei der Obergrenze ist die Entlohnung des Miners direkt vom Preis der Coins abhängig.\\
 Wenn die Stromkosten für die Erstellung eines neuen Blockes also höher als die Belohnung sind, ist zu erwarten, dass Miner das Netzwerk verlassen\citebib{beincrypto}{}{vgl. }. Ein weiterer Grund könnte die mit dem Energieverbrauch verbundene CO\textsuperscript{2}-Belastung sein, da Nachhaltigkeit und Umweltschutz in der Öffentlichkeit immer mehr Aufmerksamkeit finden. Es gibt allerdings auch Argumentationen, dass der Energieverbrauch irrelevant sei, solange die Energie aus erneuerbaren Quellen stammt\citebib{joule}{S.1844}{vgl. }.
 
-\section{Einordnung des Stromverbrauchs von PoS-Tokens}
+\subsection{Einordnung des Stromverbrauchs von PoS-Tokens}
 Im Vergleich zu den PoW-Tokens ist der Stromverbrauch von PoS-Tokens aufgrund des reduzierten Rechenaufwandes und der wegfallenden Redundanz vernachlässigbar (vgl. Kapitel 1.x). Dadurch könnte ein höherer Marktanteil erhofft werden, da das Thema Nachhaltigkeit in der Gesellschaft immer mehr an Bedeutung gewinnt\citebib{joule}{S.1843}{vgl. } Aus diesem Grund steigen einige Krypto-Netzwerke auf PoS um, wie zum Beispiel Ethereum es aktuell tut. Laut deren Einschätzungen wird der Energieverbrauch des PoS-Ethereum-Netzwerkes lediglich im MWh- oder niedrigen GWh-Bereich liegen\citebib{ethere}{}{vgl. }. Diese globalen Energieverbräuche liegen zum Beispiel noch deutlich unter dem Energieverbrauch der Stadt Münster im Jahr 2015 und sind deshalb vernachlässigbar\citebib{muenster}{S.8}{vgl. }.
 
 \section{Vergleich der Marktanteile von PoW und PoS}
@@ -329,7 +329,7 @@ Die Kryptowährung Ether, die bisher ebenso wie Bitcoin den Proof-of-Work Mechan
 
 \subsection{Proof-of-Stake}
 Das Proof-of-Stake Verfahren ist einer der bekanntesten Konsensmechanismen neben dem Proof-of-Work und agiert über eine zufällige, aber gewichtete Auswahl des Validatoren. Das für die Gewichtung betrachtete Kriterium ist dabei der eingesetzte Stake, eine bestimmte Menge von Kryptowährung, die als Einsatz genutzt wird. Abhängig von der Höhe des Stakes wird so ein Validator bestimmt, der den nächsten Block schreiben darf und die dafür angesetzte Transaktionsgebühr bekommt\citebib{hazari}{S.29}{vgl. }.\\
-Durch den Wegfall der Konkurrenz ist der Energieverbrauch im Vergleich zum Proof-of-Work Verfahren um einiges geringer und auch die Notwendigkeit zu spezieller Ausrüstung, um an der Auswahl teilzunehmen, entfällt.\\
+Durch den Wegfall der Konkurrenz ist der Energieverbrauch hier im Vergleich zum Proof-of-Work Verfahren um einiges geringer und auch die Notwendigkeit zu spezieller Ausrüstung, um an der Auswahl teilzunehmen, entfällt.\\
 Allerdings verschafft das Proof-of-Stake Verfahren Personen, die bereits viele Einheiten der Kryptowährung besitzen einen Vorteil, sodass „reiche“ Personen eine höhere Chance haben ausgewählt zu werden. Um dem entgegenzuwirken können weitere Faktoren zur Auswahl mit einbezogen werden, beispielsweise die Dauer, über welche eine Person bereits im Besitz seiner Menge an Kryptowährung ist oder wie lange er seinen Stake bereits gesetzt hat\citebib{hazari}{S.29}{vgl. }.\\
 Ein weiterer zu berücksichtigender Faktor ist die Sicherheit, die das Proof-of-Stake Verfahren bietet. Validiert jemand einen manipulierten oder gefälschten Block und wird dabei erwischt, wird demjenigen ein Teil bzw. sein gesamter Stake entzogen, sodass Teilnehmer zur Aufrichtigkeit angehalten werden. Abgesehen von diesem Aspekt gibt es jedoch Bedenken bzgl. der konzeptionellen und technischen Sicherheit des Proof-of-Stake-Verfahrens. Im Vergleich zum Proof-of-Work-Verfahren ist dieses anfälliger für bestimmte Angriffe und bringt somit ein höheres Risiko mit sich\citebib{nair}{S.282}{vgl. }. Ausgenommen hiervon ist allerdings der sogenannte 51\%-Angriff. Durch einen solchen Angriff schafften es Hacker bei Bitcoin Gold Coins in einem Wert von bis zu 18 Millionen Dollar zu erbeuten, indem sie Kryptowährung doppelt ausgaben. Ein solcher Angriff würde in einem System mit dem Proof-of-Stake Verfahren erheblich erschwert, da zur Durchführung 51\% der Coins nötig wären und ein Angreifer Gefahr stünde, diese durch den Angriff zu verlieren\citebib{suhyeon}{S.1}{vgl. }. Jedoch gibt es auch hier bereits Theorien, laut denen ein solcher Angriff auf ein Proof-of-Stake System nicht nur durchführbar, sondern auch potenziell lohnend für den Angreifer sein und das gesamte Proof-of-Stake Kryptowährungssystem eventuell sogar zerstören könnte (vgl. ebd.)\citebib{houy}{S.1}{vgl. }.
 
@@ -346,7 +346,7 @@ Beim Proof-of-Burn verbrennen Miner auf diese Weise einen Teil ihrer Coins, meis
 Ein Vorteil dieses Konsensmechanismus ist, dass er sich nicht auf den Einsatz von Rechenleistung oder Hardware verlässt und somit abgesehen von den verbrannten Coins einen geringeren Aufwand verursacht\citebib{verma}{S.283}{vgl. }. Die Sicherheit wird durch den hohen Einsatz in Form von Coins gewährleistet. Indem die Miner eine hohe Anfangsinvestition leisten, sollen sie so langfristig ehrlich und am System interessiert bleiben, um diese stetig zurückzuerlangen\citebib{hazari}{S.30}{vgl. }.
 
 \part{Fazit}
-Es bestehen verschiedene Möglichkeiten den negativen Einfluss von Kryptowährungen zu verringern, sowohl auf Seiten der Regierungen, als auch durch Unternehmen und die Wahl der Kryptowährung seitens Anwendern. Zwar ist Bitcoin und das verwendete Proof-of-Work Verfahren aktuell noch am bekanntesten, doch es bieten sich viele Alternativen, die nicht nur im Bezug auf Energieeffizienz, sondern auch in den Bereichen Sicherheit und Fairness Chancen bieten den Status quo zu verbessern. Trotzdem existieren gerade bezüglich alternativer Konsensverfahren noch Diskussionen im Bezug auf die Sicherheit, vor allem da viele Verfahren noch nicht in dem Maß getestet und erprobt sind wie das Proof-of-Work Verfahren. Solange diese Alternativen zum Proof-of-Work-Verfahren noch nicht ausgereift sind, ist ein ein Wechsel vom Bargeldsystem zu einer Kryptowährung aus ökologischer Sicht nicht zu empfehlen. Während eine Senkung der verbrauchten Energie also dringend gefordert wird, müssen erste Schritte seitens der Länder, Unternehmen und Einzelpersonen ergriffen werden, um einen Wechsel zu ermöglichen und durch Forschungsdaten die Folgen von alternativen Verfahren zu beurteilen.
+Es bestehen verschiedene Möglichkeiten den negativen Einfluss von Kryptowährungen zu verringern, sowohl auf Seiten der Regierungen, als auch durch Unternehmen und die Wahl der Kryptowährung seitens Anwendern. Zwar ist Bitcoin und das verwendete Proof-of-Work Verfahren aktuell noch am bekanntesten, doch es bieten sich viele Alternativen, die nicht nur im Bezug auf Energieeffizienz, sondern auch in den Bereichen Sicherheit und Fairness Chancen bieten den Status quo zu verbessern. Trotzdem existieren gerade bezüglich alternativer Konsensverfahren noch Diskussionen im Bezug auf die Sicherheit, vor allem da viele Verfahren noch nicht in dem Maß getestet und erprobt sind wie das Proof-of-Work Verfahren. Solange diese Alternativen zum Proof-of-Work-Verfahren noch nicht ausgereift sind, ist ein Wechsel vom Bargeldsystem zu einer Kryptowährung aus ökologischer Sicht nicht zu empfehlen. Während eine Senkung der verbrauchten Energie also dringend gefordert wird, müssen erste Schritte seitens der Länder, Unternehmen und Einzelpersonen ergriffen werden, um einen Wechsel zu ermöglichen und durch Forschungsdaten die Folgen von alternativen Verfahren zu beurteilen.
 
 
     \clearpage
