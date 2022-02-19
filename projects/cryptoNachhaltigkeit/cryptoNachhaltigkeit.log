@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  3 FEB 2022 19:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  19 FEB 2022 11:08
 entering extended mode
 **./cryptoNachhaltigkeit.tex
 (cryptoNachhaltigkeit.tex
@@ -961,9 +961,9 @@ ining-Hardware be-nö-tigt zum Bei-
  []
 
 
-Overfull \hbox (5.77281pt too wide) in paragraph at lines 192--193
+Overfull \hbox (11.10074pt too wide) in paragraph at lines 192--193
 \T1/ptm/m/n/12 (PUE) in die For-meln ein-ge-bun-den. (vgl.\T1/ptm/m/it/12 Cambr
-idge Cen-tre for Al-ter-na-ti-ve Fi-nance \T1/ptm/m/n/12 (2022))
+idge Cen-tre for Al-ter-na-ti-ve Fi-nance \T1/ptm/m/n/12 (2022a))
  []
 
 [9
@@ -1038,6 +1038,12 @@ network-june-2019-
  []
 
 
+Overfull \hbox (1.64482pt too wide) in paragraph at lines 359--359
+[]\T1/ptm/m/it/12 Cambridge Cen-tre for Al-ter-na-ti-ve Fi-nance \T1/ptm/m/n/12
+ (2022b). Dis-tri-bu-ti-on of Bit-coin mi-ning hashra-
+ []
+
+
 Overfull \hbox (4.50044pt too wide) in paragraph at lines 359--359
 \T1/ptm/m/n/12 te from Sep-tem-ber 2019 to Au-gust 2021 by coun-try. htt-ps://w
 ww.statista.com/statistics/
@@ -1053,7 +1059,7 @@ ptm/m/n/12 ):Umweltmanagement  Öko-bi-lanz  Grund-
 
 ]
 Overfull \hbox (5.9905pt too wide) in paragraph at lines 359--359
-[]\T1/ptm/m/it/12 Houy, Ni-co-las\T1/ptm/m/n/12 . (2014) It Will Cost You Nothi
+[]\T1/ptm/m/it/12 Houy, Ni-co-las \T1/ptm/m/n/12 (2014). It Will Cost You Nothi
 ng to 'Kill' a Proof-of-Stake Crypto-Currency.
  []
 
@@ -1073,7 +1079,7 @@ hkeiten.pdf, zu-
 Here is how much of TeX's memory you used:
  11209 strings out of 492452
  160003 string characters out of 3120530
- 359968 words of memory out of 3000000
+ 359977 words of memory out of 3000000
  15255 multiletter control sequences out of 15000+200000
  35986 words of font info for 61 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -1088,7 +1094,7 @@ ers/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
 syr.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/
 utmr8a.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on cryptoNachhaltigkeit.pdf (38 pages, 775332 bytes).
+Output written on cryptoNachhaltigkeit.pdf (38 pages, 775134 bytes).
 PDF statistics:
  190 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

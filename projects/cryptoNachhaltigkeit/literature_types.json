@@ -59,13 +59,13 @@
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": " "
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": "). "
 				},
 				{
 					"Field": "Titel",
@@ -112,7 +112,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor. (Jahr) Titel. In: BuchTitel. Herausgeber (Hrsg.), Ort. https://doi.org/Doi"
+			"Example": ""
 		},
 		{
 			"Name": "citaviInProceedingsDoi",
@@ -122,13 +122,13 @@
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": " "
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": "). "
 				},
 				{
 					"Field": "Titel",
@@ -169,7 +169,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor. (Jahr) Titel. In: Buch, S. Seiten, https://doi.org/Doi"
+			"Example": "Autor (Jahr). Titel. In: Buch, S. Seiten, https://doi.org/Doi"
 		},
 		{
 			"Name": "citaviAufsatzDoi",
@@ -179,7 +179,7 @@
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": " "
 				},
 				{
 					"Field": "Jahr",
@@ -232,7 +232,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor. (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten, https://doi.org/doi"
+			"Example": "Autor (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten, https://doi.org/doi"
 		},
 		{
 			"Name": "aufsatz",
@@ -242,7 +242,7 @@
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": " "
 				},
 				{
 					"Field": "Jahr",
@@ -295,7 +295,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor. (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten, url"
+			"Example": "Autor (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten, url"
 		},
 		{
 			"Name": "website",
@@ -305,13 +305,13 @@
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": " "
 				},
 				{
 					"Field": "Datum",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": "). "
 				},
 				{
 					"Field": "Titel",
@@ -346,7 +346,7 @@
 					"Suffix": ")"
 				}
 			],
-			"Example": "Autor. (Datum) Titel. URL, zuletzt abgerufen am Stand"
+			"Example": "Autor (Datum). Titel. URL, zuletzt abgerufen am Stand"
 		},
 		{
 			"Name": "onlineAufsatz",
@@ -356,13 +356,13 @@
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": " "
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": "). "
 				},
 				{
 					"Field": "Titel",
@@ -397,7 +397,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor. (Jahr) Titel. URL, zuletzt abgerufen am Stand"
+			"Example": "Autor (Jahr). Titel. URL, zuletzt abgerufen am Stand"
 		},
 		{
 			"Name": "Buch",
@@ -407,13 +407,13 @@
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": " "
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": "). "
 				},
 				{
 					"Field": "Titel",
@@ -448,7 +448,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": ""
+			"Example": "Autor (Jahr). Titel. Ausgabe Ausgabe (Verlag)"
 		}
 	]
 }

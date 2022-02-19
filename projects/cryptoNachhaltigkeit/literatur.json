@@ -42,7 +42,7 @@
 		"Key": "blandin",
 		"Typ": "onlineAufsatz",
 		"Fields": [
-			"Blandin, Apolline{{;}}Pieters, Gina C. {{;}} Wu, Yue{{;}} Dek, Anton{{;}} Eisermann, Thomas{{;}} Njoki, Damaris{{;}} Taylor",
+			"Blandin, Apolline{{;}} Pieters, Gina C. {{;}} Wu, Yue{{;}} Dek, Anton{{;}} Eisermann, Thomas{{;}} Njoki, Damaris{{;}} Taylor",
 			"2020",
 			"3rd Global Cryptoasset Benchmarking Study",
 			"{{\\\\}}http://dx.doi.org/10.2139/ssrn.3700822",
@@ -67,12 +67,12 @@
 		"Typ": "website",
 		"Fields": [
 			"Cambridge Centre for Alternative Finance",
-			"2022",
+			"2022a",
 			"Cambridge Bitcoin Electricity Consumption Index",
 			"https://ccaf.io/cbeci/index/methodology",
 			"{{\\\\}}17.01.2022",
 			"Cambridge Centre for Alternative Finance",
-			"2022"
+			"2022a"
 		]
 	},
 	{
@@ -80,12 +80,12 @@
 		"Typ": "website",
 		"Fields": [
 			"Cambridge Centre for Alternative Finance",
-			"2022",
+			"2022b",
 			"Distribution of Bitcoin mining hashrate from September 2019 to August 2021 by country",
 			"https://www.statista.com/statistics/ 1200477/bitcoinmining-by-country/",
 			"16.01.2022",
 			"Cambridge Centre for Alternative Finance",
-			"2022"
+			"2022b"
 		]
 	},
 	{
@@ -93,12 +93,12 @@
 		"Typ": "website",
 		"Fields": [
 			"CoinMarketCap",
-			"17.01.2022",
+			"2022a",
 			"Top 100 Kryptowährungen nach Börsenwert",
 			"{{\\\\}}https://coinmarketcap.com/de/",
 			"17.01.2022",
 			"CoinMarketCap",
-			"2022"
+			"2022a"
 		]
 	},
 	{
@@ -106,12 +106,12 @@
 		"Typ": "website",
 		"Fields": [
 			"CoinMarketCap",
-			"17.01.2022",
+			"2022b",
 			"Top-PoW-Tokens nach Marktkapitalisierung",
 			"{{\\\\}}https://coinmarketcap.com/de/view/pow/",
 			"17.01.2022",
 			"CoinMarketCap",
-			"2022"
+			"2022b"
 		]
 	},
 	{
@@ -169,11 +169,11 @@
 		"Typ": "citaviAufsatzDoi",
 		"Fields": [
 			"Guinee, Jeroen B.",
+			"2002",
 			"Handbook on life cycle assessment operational guide to the ISO standards",
 			"The International Journal of Life Cycle Assessment",
 			"7",
 			"311",
-			"2002",
 			"10.1007/BF02978897",
 			"Guinee, J.B."
 		]
@@ -389,9 +389,9 @@
 		"Typ": "citaviAufsatzDoi",
 		"Fields": [
 			"Sedlmeir, Johannes{{;}} Buhl, Hans Ulrich{{;}} Fridgen, Gilbert{{;}} Keller, Robert",
-			"2020",
+			"2020a",
 			"The Energy Consumption of Blockchain Technology: Beyond Myth",
-			"Business {{\\\u0026}} Information Systems Engineering",
+			"Business {{\\\u0026amp;}} Information Systems Engineering",
 			"62",
 			"599--608",
 			"10.1007/{{\\\\}}s12599-020-00656-x",
@@ -403,7 +403,7 @@
 		"Typ": "citaviAufsatzDoi",
 		"Fields": [
 			"Sedlmeir, Johannes{{;}} Buhl, Hans Ulrich{{;}} Fridgen, Gilbert{{;}} Keller, Robert",
-			"2020",
+			"2020b",
 			"Ein Blick auf aktuelle Entwicklungen bei Blockchains und deren Auswirkungen auf den Energieverbrauch",
 			"Informatik Spektrum",
 			"43",
