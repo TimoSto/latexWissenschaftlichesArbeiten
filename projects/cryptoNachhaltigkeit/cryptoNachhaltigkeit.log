@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  23 FEB 2022 17:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  24 FEB 2022 16:36
 entering extended mode
 **./cryptoNachhaltigkeit.tex
 (cryptoNachhaltigkeit.tex
@@ -876,24 +876,7 @@ Package pdftex.def Info: titelseite.pdf , page1 used on input line 88.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 [1
 
- <./titelseite.pdf>]
-
-pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF 
-version <1.7>, but at most version <1.5> allowed
-<titelseite.pdf, id=24, page=2, 597.55246pt x 845.07718pt>
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 88.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 88.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-File: titelseite.pdf Graphic file (type pdf)
-<use titelseite.pdf, page 2>
-Package pdftex.def Info: titelseite.pdf , page2 used on input line 88.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[2 <./titelseite.pdf>] (cryptoNachhaltigkeit.toc
+ <./titelseite.pdf>] (cryptoNachhaltigkeit.toc
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
  2.
 
@@ -934,20 +917,20 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 \openout4 = `cryptoNachhaltigkeit.toc'.
 
 
-[2] [3
-
-] (cryptoNachhaltigkeit.lof)
+[2] (cryptoNachhaltigkeit.lof)
 \tf@lof=\write5
 \openout5 = `cryptoNachhaltigkeit.lof'.
 
- [4
+ [3
+
+] [4
 
 ] [1
 
 ] [2
 
 ] [3]
-Overfull \hbox (2.60121pt too wide) in paragraph at lines 137--142
+Overfull \hbox (2.60121pt too wide) in paragraph at lines 139--144
 \T1/ptm/m/n/12 gen da-für, dass ei-ne groÿe Da-ten-men-ge (wie zum Bei-spiel de
 r ge-sam-te In-halt ei-nes Blocks)
  []
@@ -955,13 +938,13 @@ r ge-sam-te In-halt ei-nes Blocks)
 [4] [5] [6] [7] [8
 
 ]
-Overfull \hbox (0.87724pt too wide) in paragraph at lines 192--193
+Overfull \hbox (0.87724pt too wide) in paragraph at lines 194--195
 \T1/ptm/m/n/12 auch ne-ben-läu-fi-ge Ener-gie-ver-zeh-rung statt-fin-det. Die M
 ining-Hardware be-nö-tigt zum Bei-
  []
 
 
-Overfull \hbox (11.10074pt too wide) in paragraph at lines 192--193
+Overfull \hbox (11.10074pt too wide) in paragraph at lines 194--195
 \T1/ptm/m/n/12 (PUE) in die For-meln ein-ge-bun-den. (vgl.\T1/ptm/m/it/12 Cambr
 idge Cen-tre for Al-ter-na-ti-ve Fi-nance \T1/ptm/m/n/12 (2022a))
  []
@@ -969,60 +952,60 @@ idge Cen-tre for Al-ter-na-ti-ve Fi-nance \T1/ptm/m/n/12 (2022a))
 [9
 
 ]
-<quellen/pow_2020.png, id=77, 362.007pt x 217.467pt>
+<quellen/pow_2020.png, id=71, 362.007pt x 217.467pt>
 File: quellen/pow_2020.png Graphic file (type png)
 <use quellen/pow_2020.png>
-Package pdftex.def Info: quellen/pow_2020.png  used on input line 202.
+Package pdftex.def Info: quellen/pow_2020.png  used on input line 204.
 (pdftex.def)             Requested size: 320.0935pt x 192.2907pt.
  [10 <./quellen/pow_2020.png>]
-<quellen/pow_mkp_2020.png, id=82, 362.007pt x 217.467pt>
+<quellen/pow_mkp_2020.png, id=76, 362.007pt x 217.467pt>
 File: quellen/pow_mkp_2020.png Graphic file (type png)
 <use quellen/pow_mkp_2020.png>
-Package pdftex.def Info: quellen/pow_mkp_2020.png  used on input line 211.
+Package pdftex.def Info: quellen/pow_mkp_2020.png  used on input line 213.
 (pdftex.def)             Requested size: 320.0935pt x 192.2907pt.
  [11
 
  <./quellen/pow_mkp_2020.png>]
-<quellen/mkp_pow_pos.png, id=87, 362.007pt x 217.467pt>
+<quellen/mkp_pow_pos.png, id=81, 362.007pt x 217.467pt>
 File: quellen/mkp_pow_pos.png Graphic file (type png)
 <use quellen/mkp_pow_pos.png>
-Package pdftex.def Info: quellen/mkp_pow_pos.png  used on input line 228.
+Package pdftex.def Info: quellen/mkp_pow_pos.png  used on input line 230.
 (pdftex.def)             Requested size: 320.0935pt x 192.2907pt.
  [12 <./quellen/mkp_pow_pos.png>] [13]
-<quellen/oekobilanz.png, id=96, 459.21562pt x 341.02406pt>
+<quellen/oekobilanz.png, id=89, 459.21562pt x 341.02406pt>
 File: quellen/oekobilanz.png Graphic file (type png)
 <use quellen/oekobilanz.png>
-Package pdftex.def Info: quellen/oekobilanz.png  used on input line 252.
+Package pdftex.def Info: quellen/oekobilanz.png  used on input line 254.
 (pdftex.def)             Requested size: 320.0935pt x 237.72131pt.
  [14
 
 ] [15 <./quellen/oekobilanz.png>] [16]
-<quellen/recipe.png, id=106, 470.50781pt x 366.61969pt>
+<quellen/recipe.png, id=100, 470.50781pt x 366.61969pt>
 File: quellen/recipe.png Graphic file (type png)
 <use quellen/recipe.png>
-Package pdftex.def Info: quellen/recipe.png  used on input line 276.
+Package pdftex.def Info: quellen/recipe.png  used on input line 278.
 (pdftex.def)             Requested size: 320.0935pt x 249.41556pt.
 
-Underfull \hbox (badness 1442) in paragraph at lines 277--277
+Underfull \hbox (badness 1442) in paragraph at lines 279--279
 []\T1/ptm/m/n/12 Abbildung 5: Zu-sam-men-hang der ver-schie-de-nen In-di-ka-to-
 ren der ReCiPe-Methode
  []
 
 [17 <./quellen/recipe.png>]
-<quellen/bgsys.png, id=112, 767.11594pt x 606.76688pt>
+<quellen/bgsys.png, id=106, 767.11594pt x 606.76688pt>
 File: quellen/bgsys.png Graphic file (type png)
 <use quellen/bgsys.png>
-Package pdftex.def Info: quellen/bgsys.png  used on input line 292.
+Package pdftex.def Info: quellen/bgsys.png  used on input line 294.
 (pdftex.def)             Requested size: 426.79135pt x 337.5836pt.
  [18] [19 <./quellen/bgsys.png>]
-<quellen/btc_mining_numbers.png, id=122, 472.01344pt x 82.05656pt>
+<quellen/btc_mining_numbers.png, id=115, 472.01344pt x 82.05656pt>
 File: quellen/btc_mining_numbers.png Graphic file (type png)
 <use quellen/btc_mining_numbers.png>
-Package pdftex.def Info: quellen/btc_mining_numbers.png  used on input line 306
+Package pdftex.def Info: quellen/btc_mining_numbers.png  used on input line 308
 .
 (pdftex.def)             Requested size: 320.0935pt x 55.64746pt.
  [20 <./quellen/btc_mining_numbers.png>] [21]
-Overfull \hbox (0.4882pt too wide) in paragraph at lines 313--313
+Overfull \hbox (0.4882pt too wide) in paragraph at lines 315--315
 |[]\T1/ptm/m/n/17.28 Verbesserung der Aus-wir-kun-gen von Crypto-Mining auf die
 
  []
@@ -1032,25 +1015,25 @@ Overfull \hbox (0.4882pt too wide) in paragraph at lines 313--313
 ] [23] [24] [25] [26] [27
 
 ]
-Overfull \hbox (0.69135pt too wide) in paragraph at lines 359--359
+Overfull \hbox (0.69135pt too wide) in paragraph at lines 361--361
 \T1/ptm/m/n/12 https://coinshares.com/assets/resources/Research/bitcoin-mining-
 network-june-2019-
  []
 
 
-Overfull \hbox (1.64482pt too wide) in paragraph at lines 359--359
+Overfull \hbox (1.64482pt too wide) in paragraph at lines 361--361
 []\T1/ptm/m/it/12 Cambridge Cen-tre for Al-ter-na-ti-ve Fi-nance \T1/ptm/m/n/12
  (2022b). Dis-tri-bu-ti-on of Bit-coin mi-ning hashra-
  []
 
 
-Overfull \hbox (4.50044pt too wide) in paragraph at lines 359--359
+Overfull \hbox (4.50044pt too wide) in paragraph at lines 361--361
 \T1/ptm/m/n/12 te from Sep-tem-ber 2019 to Au-gust 2021 by coun-try. htt-ps://w
 ww.statista.com/statistics/
  []
 
 
-Overfull \hbox (6.5875pt too wide) in paragraph at lines 359--359
+Overfull \hbox (6.5875pt too wide) in paragraph at lines 361--361
 []\T1/ptm/m/n/12 DIN e.V. (Hrsg.) (\T1/ptm/m/it/12 DIN EN ISO 14040:2009-11\T1/
 ptm/m/n/12 ):Umweltmanagement  Öko-bi-lanz  Grund-
  []
@@ -1058,32 +1041,32 @@ ptm/m/n/12 ):Umweltmanagement  Öko-bi-lanz  Grund-
 [5
 
 ]
-Overfull \hbox (5.9905pt too wide) in paragraph at lines 359--359
+Overfull \hbox (5.9905pt too wide) in paragraph at lines 361--361
 []\T1/ptm/m/it/12 Houy, Ni-co-las \T1/ptm/m/n/12 (2014). It Will Cost You Nothi
 ng to 'Kill' a Proof-of-Stake Crypto-Currency.
  []
 
 
-Overfull \hbox (0.79243pt too wide) in paragraph at lines 359--359
+Overfull \hbox (0.79243pt too wide) in paragraph at lines 361--361
 \T1/ptm/m/n/12 Costs in 2020. https://www.irena.org/-/media/Files/IRENA/Agency/
 Publication/2021/ 
  []
 
 
-Overfull \hbox (9.82532pt too wide) in paragraph at lines 359--359
+Overfull \hbox (9.82532pt too wide) in paragraph at lines 361--361
 \T1/ptm/m/n/12 Blockchain_Funktionsweise_Funktionsweise-und-Applikationsmoeglic
 hkeiten.pdf, zu-
  []
 
 [6] [7] [8] (cryptoNachhaltigkeit.aux) ) 
 Here is how much of TeX's memory you used:
- 11212 strings out of 492452
- 160065 string characters out of 3120530
- 358370 words of memory out of 3000000
- 15258 multiletter control sequences out of 15000+200000
+ 11209 strings out of 492452
+ 159971 string characters out of 3120530
+ 358340 words of memory out of 3000000
+ 15255 multiletter control sequences out of 15000+200000
  35986 words of font info for 61 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
- 58i,18n,53p,2087b,852s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,18n,53p,2088b,852s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/tsto/AppData/Local/Programs/M
 iKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/tsto/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/tsto/AppData/Local/
@@ -1094,9 +1077,9 @@ ers/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
 syr.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/
 utmr8a.pfb><C:/Users/tsto/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on cryptoNachhaltigkeit.pdf (37 pages, 858971 bytes).
+Output written on cryptoNachhaltigkeit.pdf (36 pages, 772939 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
+ 179 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
