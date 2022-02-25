@@ -167,9 +167,9 @@ PoW-Tokens zeichnen sich durch den hohen Rechenaufwand zur Erstellung eines neue
 Durch die unbestimmte Anzahl an aktiven Minern und deren Hardware wird die Bestimmung des tatsächlichen Stromverbrauchs eines Krypto-Netzwerkes unmöglich. Allerdings gibt es Ansätze, die minimal und maximal verbrauchte Energie anhand von technischen und ökonomischen Überlegungen abzuschätzen. Da der Rechenaufwand für die Validierung eines Blockes im Vergleich zu der Findung der Nonce vernachlässigbar ist, wird er in diesen Überlegungen nicht berücksichtigt\citebib{sedlmeir}{S.601}{vgl. }.
 \subsubsection{Bestimmung des minimalen Stromverbrauchs}
 Die Berechnung des minimalen Stromverbrauchs eines Krypto-Netzwerkes orientiert sich an der sogenannten Schwierigkeit \textit{D} der Block-Erstellung. Diese spiegelt wider, wie viele Hashes \textit{H} berechnet werden müssen, bis eine passende Nonce gefunden wurde. Multipliziert man diesen Wert mit der Anzahl \textit{n} der pro Sekunde \textit{s} entschlüsselten Blöcke \textit{B}, so erhält man die minimal benötigte Anzahl an Hash-Berechnungen \textit{R}, welche pro Stunde ausgeführt werden müssen\citebib{sedlmeir}{S.601}{vgl. }.
-\begin{align}
+\begin{align*}
     R_{min}\left[\frac{H}{s}\right]&=D\left[\frac{H}{B}\right]\cdot n\left[\frac{B}{s}\right]
-\end{align}
+\end{align*}
 \clearpage
 \noindent Unter der optimistischen Annahme, dass alle aktiven Miner im Netzwerk die effizienteste Hardware benutzen, kann man die minimale Leistung \textit{P} eines Krypronetzwerkes in Joule pro Sekunde \begin{math}\left[\frac{J}{s}\right]\end{math} bzw. Watt \begin{math}[W]\end{math} ermitteln\citebib{sedlmeir}{S.601}{vgl. }:
 \begin{align*}
@@ -182,8 +182,8 @@ Um auf den minimalen Stromverbrauch in Kilowattstunden \begin{math}[kWh]\end{mat
 \subsubsection{Bestimmung des maximalen Stromverbrauchs}
 Für die Obergrenze, also die maximal in einem Netzwerk verbrauchte Energie, können nur grobe Abschätzungen getroffen werden. Hier wird angenommen, dass alle Miner immer in reiner Gewinnabsicht handeln. Das bedeutet, dass die Erlöse G einer Blockerstellung immer größer oder gleich den Kosten für eine Blockerstellung sein müssen\citebib{sedlmeir}{S.601}{vgl. }.
 \begin{align*}
-    G\left[\frac{\$}{a}\right]&\geq \frac{E_B\left[\frac{kWh}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}{t \left[\frac{h}{B}\right]\cdot 24\cdot 365,25}\\
-    &\geq \frac{E_H\left[\frac{kWh}{H}\right]\cdot D\left[\frac{H}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}{t \left[\frac{h}{B}\right]\cdot 24\cdot 365,25}]
+    G\left[\frac{\$}{a}\right]&\geq \frac{E_B\left[\frac{kWh}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}{t \left[\frac{h}{B}\right]\cdot 24[h]\cdot 365,25}\\
+    &\geq \frac{E_H\left[\frac{kWh}{H}\right]\cdot D\left[\frac{H}{B}\right]\cdot P_E\left[\frac{\$}{kWh}\right]}{t \left[\frac{h}{B}\right]\cdot 24[h]\cdot 365,25}
 \end{align*}
 Eine simple Umformung liefert die Gleichung für die maximale Energie, die ein rationaler Miner im Netzwerk aufbringen würde:
 \begin{align*}
