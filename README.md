@@ -34,6 +34,6 @@
 Die Dokumentation zur Benutzung und des Programmcodes ist in 
 
 
-[documentation.pdf](projects/documentation/documentation.pdf)
+[documentation.pdf](projects/documentation_old/documentation.pdf)
 
 zu finden. Sie ist nach dem "How-To"-Schema aufgebaut.
