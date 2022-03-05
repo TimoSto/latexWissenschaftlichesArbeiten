@@ -2,7 +2,6 @@
 .cache
 node_modules
 projects/*
-!projects/example
 !projects/documentation
 *.aux
 *.lof
