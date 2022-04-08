@@ -41,7 +41,14 @@ func HandleEditType(w http.ResponseWriter,r *http.Request) {
 		data.Type = typeToEdit
 	}
 
-	tmpl, err := template.ParseFiles("./out/editType.html")
+	file, err := GetHTMLFile("editType")
+	if err != nil {
+		fmt.Println( err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	tmpl, err := template.New("editHTML").Parse(file)
 	if err != nil {
 		fmt.Println( err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)

@@ -16,7 +16,14 @@ type ProjectHTMLDto struct {
 
 func HandleGetProject(w http.ResponseWriter,r *http.Request) {
 
-	tmpl, err := template.ParseFiles("./out/project.html")
+	file, err := GetHTMLFile("project")
+	if err != nil {
+		fmt.Println( err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	tmpl, err := template.New("projectHTML").Parse(file)
 	if err != nil {
 		fmt.Println( err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)

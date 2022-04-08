@@ -14,7 +14,14 @@ type OverviewHTMLDto struct {
 
 func HandleOverview(w http.ResponseWriter, r *http.Request) {
 
-	tmpl, err := template.ParseFiles("./out/index.html")
+	file, err := GetHTMLFile("index")
+	if err != nil {
+		fmt.Println( err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	tmpl, err := template.New("indexHTML").Parse(file)
 	if err != nil {
 		fmt.Println( err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)

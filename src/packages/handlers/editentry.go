@@ -26,7 +26,14 @@ func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
 
 	project := keys[0]
 
-	tmpl, err := template.ParseFiles("./out/editEntry.html")
+	file, err := GetHTMLFile("editEntry")
+	if err != nil {
+		fmt.Println( err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	tmpl, err := template.New("editHTML").Parse(file)
 	if err != nil {
 		fmt.Println( err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
