@@ -110,6 +110,16 @@ class OverviewPage {
             this.setMain('/newProject.html');
         });
 
+        document.querySelector('#home').addEventListener('click', ()=>{
+            this.setMain('/welcome.html');
+            window.history.pushState('', 'LaTeX - Wissenschaftliches Arbeiten', '/overview');
+        });
+
+        document.querySelector('#documentation').addEventListener('click', ()=>{
+            this.setMain('/documentation');
+            window.history.pushState('', 'LaTeX - Wissenschaftliches Arbeiten', '/overview');
+        });
+
         this._editArea = document.querySelector('#editArea');
         this._editFrame = document.querySelector('#edit-frame');
     }
