@@ -4,6 +4,11 @@
   --mdc-theme-primary: #1976D2;
 }
 
+.mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) .mdc-floating-label--float-above:not(.mdc-floating-label--shake),
+.mdc-select--focused .mdc-floating-label--float-above{
+  color: var(--mdc-theme-primary)!important;
+}
+
 .plain-top-app-bar{
   background-color: transparent;
   color: black;
@@ -76,6 +81,14 @@
 
 .expandable-area .mdc-deprecated-list-item__text{
   max-width: calc(100% - 50px);
+}
+
+.prominent{
+  color: rgba(0,0,0,1)!important;
+
+  & .mdc-icon-button{
+    color: rgba(0,0,0,1)!important;
+  }
 }
 
 //@keyframes turner{

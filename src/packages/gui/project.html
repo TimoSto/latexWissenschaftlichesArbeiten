@@ -17,14 +17,15 @@
     <input type="file" id="fileInput" style="display:none"/>
 
     <ul class="mdc-deprecated-list">
-        <li class="mdc-deprecated-list-item">
+        <li class="mdc-deprecated-list-item prominent">
             <span class="mdc-deprecated-list-item__graphic">
                 <button class="mdc-icon-button material-icons trigger-icon">expand_less</button>
             </span>
             <span class="mdc-deprecated-list-item__text">Literaturtypen</span>
             <span class="mdc-deprecated-list-item__meta">
-                <button class="mdc-button mdc-button--raised" id="new-type">
-                    <span class="mdc-button__label">Neu</span>
+                <button class="mdc-icon-button material-icons" id="new-type" title="Neuen Literaturtypen erstellen">
+                    <div class="mdc-icon-button__ripple"></div>
+                    add
                 </button>
             </span>
         </li>
@@ -44,17 +45,19 @@
                 {{ end }}
             </ul>
         </div>
-        <li class="mdc-deprecated-list-item">
+        <li class="mdc-deprecated-list-item prominent">
             <span class="mdc-deprecated-list-item__graphic">
                 <button class="mdc-icon-button material-icons trigger-icon">expand_less</button>
             </span>
             <span class="mdc-deprecated-list-item__text">Literaturenträge</span>
             <span class="mdc-deprecated-list-item__meta">
-                <button class="mdc-button mdc-button--raised" id="cleanupCites">
-                    <span class="mdc-button__label">Aufräumen</span>
+                <button class="mdc-icon-button material-icons" id="cleanupCites" title="Zitate aufräumen">
+                    <div class="mdc-icon-button__ripple"></div>
+                    published_with_changes
                 </button>
-                <button class="mdc-button mdc-button--raised" id="new-entry">
-                    <span class="mdc-button__label">Neu</span>
+                <button class="mdc-icon-button material-icons" id="new-entry" title="Neuen Eintrag hinzufügen">
+                    <div class="mdc-icon-button__ripple"></div>
+                    add
                 </button>
             </span>
         </li>
