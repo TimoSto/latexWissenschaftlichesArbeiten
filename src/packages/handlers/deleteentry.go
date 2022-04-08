@@ -44,6 +44,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
 
 	str := string(jsonStr)
@@ -53,7 +54,14 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
 
-	domain.ConvertBibToCSV(project)
+	err = domain.ConvertBibToCSV(project)
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	fmt.Println(fmt.Sprintf("Successfully deleted entrye %s", entry))
 }

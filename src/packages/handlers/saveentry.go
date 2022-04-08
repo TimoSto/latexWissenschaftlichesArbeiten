@@ -40,4 +40,10 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = domain.SaveEntry(entry, saveObj.Project, saveObj.InitialKey)
+	if err != nil {
+		fmt.Println(err)
+		http.Error(w,err.Error(),500)
+		return
+	}
+	fmt.Println(fmt.Sprintf("Successfully saved entry %s", saveObj.Key))
 }

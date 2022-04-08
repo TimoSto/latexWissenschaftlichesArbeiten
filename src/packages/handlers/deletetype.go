@@ -60,4 +60,5 @@ func HandleDeleteType(w http.ResponseWriter,r *http.Request) {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 	}
+	fmt.Println(fmt.Sprintf("Successfully deleted type %s", typekeys[0]))
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"WA_LaTeX/src/packages/handlers"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -21,6 +22,8 @@ func main() {
 	//	fmt.Println(err)
 	//	return
 	//}
+
+	fmt.Println("Starting Application...")
 
 	http.HandleFunc("/overview", handlers.HandleOverview)
 
@@ -49,6 +52,8 @@ func main() {
 	http.HandleFunc("/citeCleanup", handlers.HandleCiteCleanup)
 
 	http.HandleFunc("/", handlers.HandleAssets)
+
+	fmt.Println("Open http://localhost:8081/overview to get started.")
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
 }

@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -21,5 +22,7 @@ func HandleDeleteProject(w http.ResponseWriter,r *http.Request) {
 	if err != nil {
 		log.Println(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
+	fmt.Println(fmt.Sprintf("Successfully deleted project %s", project))
 }

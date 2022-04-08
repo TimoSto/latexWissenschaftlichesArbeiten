@@ -17,9 +17,6 @@ type SaveTypeObj struct {
 
 func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 
-
-
-
 	var saveObj SaveTypeObj
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&saveObj)
@@ -27,9 +24,10 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 	}
-	fmt.Println(saveObj)
+	fmt.Println(fmt.Sprintf("Saving type %s", saveObj.Type.Name))
+	//fmt.Println(saveObj)
 	initialName := r.URL.Query().Get("initialName")
-	fmt.Println(initialName)
+	//fmt.Println(initialName)
 	literatureTypes, err := domain.ReadTypes(saveObj.Project)
 	if err != nil {
 		fmt.Println(err)
@@ -66,5 +64,7 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
+	fmt.Println(fmt.Sprintf("Successfully saved type %s", saveObj.Type.Name))
 }
