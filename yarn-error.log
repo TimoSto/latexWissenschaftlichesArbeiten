@@ -1,30 +1,21 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @material/text-field
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install
 
 PATH: 
-  C:\Users\tsto\Documents\LaTeX Dateien\templates\WA_LaTeX\node_modules\.bin;C:\Program Files\Go\bin;C:\Users\tsto\Documents\studyGo\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Perl64\site\bin;C:\Perl64\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Webex\Webex\Applications;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\d3\logviewer;C:\Users\tsto\AppData\Local\LyX 2.3\Perl\bin;C:\Program Files\TortoiseGit\bin;C:\chromedriver;C:\Program Files\Amazon\AWSSAMCLI\bin\;C:\Program Files\Amazon\AWSCLIV2\;C:\d3\setup\dpi;C:\Program Files (x86)\Yarn\bin\;C:\terraform;C:\Users\tsto\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.9;C:\Program Files\Amazon\AWSCLI\bin\;C:\Program Files\nodejs\;C:\Program Files\Go\bin;C:\Users\tsto\appdata\local\microsoft\windowsapps;C:\Program Files (x86)\d.velop\d3client;C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files\JetBrains\IntelliJ IDEA 2020.1.1\bin;C:\Users\tsto\go\bin;C:\Program Files\Java\jdk-17.0.1\bin;C:\Users\tsto\.dotnet\tools;C:\Users\tsto\AppData\Local\Yarn\bin;C:\terraform;C:\Users\tsto\AppData\Roaming\npm;C:\Users\tsto\go\bin
+  C:\Users\tsto\Documents\LaTeX Dateien\templates\WA_LaTeX\node_modules\.bin;C:\Program Files\Go\bin;C:\Users\tsto\Documents\studyGo\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Perl64\site\bin;C:\Perl64\bin;C:\Program Files\Docker\Docker\Resources\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Webex\Webex\Applications;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\d3\logviewer;C:\Users\tsto\AppData\Local\LyX 2.3\Perl\bin;C:\Program Files\TortoiseGit\bin;C:\chromedriver;C:\Program Files\Amazon\AWSSAMCLI\bin\;C:\Program Files\Amazon\AWSCLIV2\;C:\d3\setup\dpi;C:\Program Files (x86)\Yarn\bin\;C:\terraform;C:\Users\tsto\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.9;C:\Program Files\Amazon\AWSCLI\bin\;C:\Program Files\Go\bin;C:\Program Files\k6\;C:\Users\tsto\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\tsto\appdata\local\microsoft\windowsapps;C:\Program Files (x86)\d.velop\d3client;C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\miktex\bin\x64\;C:\Program Files\JetBrains\IntelliJ IDEA 2020.1.1\bin;C:\Users\tsto\go\bin;C:\Program Files\Java\jdk-17.0.1\bin;C:\Users\tsto\.dotnet\tools;C:\Users\tsto\AppData\Local\Yarn\bin;C:\terraform;C:\Users\tsto\go\bin;C:\Users\tsto\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\tsto\AppData\Local\Microsoft\WindowsApps;
 
 Yarn version: 
   1.22.5
 
 Node version: 
-  14.16.0
+  17.5.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: https://nuget.d-velop.de/npm/dvelop-npm/@material%2ftext-field: Package not found.
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66097:18)
-      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140749:22)
-      at Request.emit (events.js:315:20)
-      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141721:10)
-      at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141643:12)
-      at Object.onceWrapper (events.js:421:28)
-      at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (internal/streams/readable.js:1327:12)
-      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+  Error: getaddrinfo ENOTFOUND nuget.d-velop.de
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:72:26)
 
 npm manifest: 
   {
@@ -32,10 +23,10 @@ npm manifest:
     "version": "1.0.0",
     "main": "index.js",
     "repository": "https://github.com/TimoSto/latexWissenschaftlichesArbeiten.git",
-    "author": "Timo Stovermann <timo.stovermann@d-velop.de>",
-    "license": "MIT",
+    "author": "Timo Stovermann",
     "scripts": {
-      "parcel:watch": "parcel watch web/*.html --public-url /shell --no-hmr --out-dir ./out"
+      "parcel:watch:v1": "parcel watch web/*.html --public-url /shell --no-hmr --out-dir ./out_v1",
+      "parcel:watch": "parcel watch src/packages/gui/*.html --no-hmr --out-dir ./out"
     },
     "devDependencies": {
       "parcel-bundler": "^1.12.5",
@@ -43,7 +34,14 @@ npm manifest:
       "typescript": "^4.4.4"
     },
     "dependencies": {
-      "@material/top-app-bar": "^13.0.0"
+      "@material/button": "13.0.0",
+      "@material/dialog": "13.0.0",
+      "@material/icon-button": "13.0.0",
+      "@material/list": "13.0.0",
+      "@material/ripple": "13.0.0",
+      "@material/select": "13.0.0",
+      "@material/textfield": "13.0.0",
+      "@material/top-app-bar": "13.0.0"
     },
     "sass": {
       "includePaths": [
@@ -973,109 +971,289 @@ Lockfile:
     resolved "https://nuget.d-velop.de/npm/dvelop-npm/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
     integrity sha1-syNmyJtDxvjO+976x3i5yCjjuow=
   
-  "@material/animation@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/animation/-/animation-13.0.0.tgz#42ec7aee6548ba27edb49063c7a7ae431e4ef450"
-    integrity sha512-YR0/u4u56qXDjKYolQ7F+IvlPkaSBhMl/dZv8DK0FbD6PH4ckOPd3bEXNRndXtprsxwknQQP2pttjPImylkl0g==
+  "@material/animation@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/animation/-/animation-10.0.0.tgz#2833a1779426715b418b65eb4c9344bf647a84fa"
+    integrity sha1-KDOhd5QmcVtBi2XrTJNEv2R6hPo=
     dependencies:
-      tslib "^2.1.0"
+      tslib "^1.9.3"
   
-  "@material/base@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/base/-/base-13.0.0.tgz#18f7f5ac112bf67e66c1ade6ab543ea9df9d3836"
-    integrity sha512-vFx0JryRfcvUNX3cZ2u32wUMvxzd+c/YW0LFOXNgqCDWlubHcMm0Y6Wz371LhfQo80/NE69u+/4Joo99yKnVeg==
+  "@material/base@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/base/-/base-10.0.0.tgz#25cb35a4fa089c0a9852b153b086ccceb78695fc"
+    integrity sha1-Jcs1pPoInAqYUrFTsIbMzreGlfw=
     dependencies:
-      tslib "^2.1.0"
+      tslib "^1.9.3"
   
-  "@material/dom@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/dom/-/dom-13.0.0.tgz#3f3cc935f6e59fa99e3dafe118d3e48091118c0e"
-    integrity sha512-M9HLAYBZtkTUvf66FL+jAEvUOdhji1HkGA1mV6oyE+HY9gkCkmso+mngvzlLd5+uaAVE9I3WQFhSb9gp0cpXnw==
+  "@material/button@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/button/-/button-10.0.0.tgz#0641e4b758e35821dcb88b62e918ca2a2a90bcbf"
+    integrity sha1-BkHkt1jjWCHcuIti6RjKKiqQvL8=
     dependencies:
-      "@material/feature-targeting" "^13.0.0"
-      tslib "^2.1.0"
+      "@material/density" "^10.0.0"
+      "@material/dom" "^10.0.0"
+      "@material/elevation" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/ripple" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/shape" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      "@material/touch-target" "^10.0.0"
+      "@material/typography" "^10.0.0"
   
-  "@material/elevation@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/elevation/-/elevation-13.0.0.tgz#ae3eabc20e864240144fdf5c16b09a1e7a52852c"
-    integrity sha512-hzdblgamVRbC0UwKafcvUVDvKzMiOSveDiwGgFk+EAg/tZRdwMlQPyf/9I6Lr8Cw/pNGnEOPhmCDOYPOHimr0w==
-    dependencies:
-      "@material/animation" "^13.0.0"
-      "@material/base" "^13.0.0"
-      "@material/feature-targeting" "^13.0.0"
-      "@material/rtl" "^13.0.0"
-      "@material/theme" "^13.0.0"
-      tslib "^2.1.0"
+  "@material/density@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/density/-/density-10.0.0.tgz#24795406d092cf0e6422e1c9dc8bc2b978c46e7a"
+    integrity sha1-JHlUBtCSzw5kIuHJ3IvCuXjEbno=
   
-  "@material/feature-targeting@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/feature-targeting/-/feature-targeting-13.0.0.tgz#7bc7840b40930b6831101a22882acdd0329591c0"
-    integrity sha512-QJClfeaA4EMyAxKJy9WR0Nx+/VwSZCkhGLUVBG9NhxqYGfl/LtaeaidrNm32vYEoNZAofN92VD2RwQTRwp/dMQ==
+  "@material/dialog@10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/dialog/-/dialog-10.0.0.tgz#f0a9192081291767ec9517ff8cccd8320cb4cd53"
+    integrity sha1-8KkZIIEpF2fslRf/jMzYMgy0zVM=
     dependencies:
-      tslib "^2.1.0"
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/button" "^10.0.0"
+      "@material/dom" "^10.0.0"
+      "@material/elevation" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/icon-button" "^10.0.0"
+      "@material/ripple" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/shape" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      "@material/touch-target" "^10.0.0"
+      "@material/typography" "^10.0.0"
+      tslib "^1.9.3"
   
-  "@material/ripple@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/ripple/-/ripple-13.0.0.tgz#fc6a56ccd33c1edf3f049d9e79294f496c2d72df"
-    integrity sha512-hx4B40hB2rRfsGwf1jwo2GGlYDq0yUQjcMcMmXfQipPJNpQhy8ylmXKc1DBjmWf7EQ/MgbfCSYwPrYXrbGP31w==
+  "@material/dom@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/dom/-/dom-10.0.0.tgz#83bc5c4cdbcb6337c9687d962953919e1a624e30"
+    integrity sha1-g7xcTNvLYzfJaH2WKVORnhpiTjA=
     dependencies:
-      "@material/animation" "^13.0.0"
-      "@material/base" "^13.0.0"
-      "@material/dom" "^13.0.0"
-      "@material/feature-targeting" "^13.0.0"
-      "@material/rtl" "^13.0.0"
-      "@material/theme" "^13.0.0"
-      tslib "^2.1.0"
+      "@material/feature-targeting" "^10.0.0"
+      tslib "^1.9.3"
   
-  "@material/rtl@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/rtl/-/rtl-13.0.0.tgz#c8dbdc2b63d122450ff456572d08a9f5639704ab"
-    integrity sha512-nFGy3iQg7k+xLs67eb86mRFVLwa0yi7MusqRK4OM8DXcLO5yoVfUTPKpdSykcbRryp9imVHsxutox2tZawR4og==
+  "@material/elevation@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/elevation/-/elevation-10.0.0.tgz#466eaaee99b6e0d776cf5e6bfd357af880070c93"
+    integrity sha1-Rm6q7pm24Nd2z15r/TV6+IAHDJM=
     dependencies:
-      "@material/theme" "^13.0.0"
-      tslib "^2.1.0"
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/theme" "^10.0.0"
   
-  "@material/shape@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/shape/-/shape-13.0.0.tgz#42751ceb4c709c87026f14340aed1831106fdfda"
-    integrity sha512-exk96+iCjzCujk3aSrvIMhmW773s1Tc0h+MbQKbt6Iv3nHJCyLSiRbxclCHXWHrVwG/9KZRkrt/g2qk7P3VRBg==
-    dependencies:
-      "@material/feature-targeting" "^13.0.0"
-      "@material/rtl" "^13.0.0"
-      "@material/theme" "^13.0.0"
-      tslib "^2.1.0"
+  "@material/feature-targeting@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/feature-targeting/-/feature-targeting-10.0.0.tgz#6aeffed7c936af22c5b23d9b75431675469ce4ca"
+    integrity sha1-au/+18k2ryLFsj2bdUMWdUac5Mo=
   
-  "@material/theme@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/theme/-/theme-13.0.0.tgz#dad25ca7c3427d5d35f074343c7f7957cbc1eb8c"
-    integrity sha512-KAe1s0MvvfCGAwJliDVTvgAKuD3ESwhl7F7br4Iam4IPdqME2rWl8NPhKHFfaWqTG7PyCgMMngYEYuA8cLNTsA==
+  "@material/floating-label@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/floating-label/-/floating-label-10.0.0.tgz#d918b220ce28db5891bb02aefa4b5cedf9d3847b"
+    integrity sha1-2RiyIM4o21iRuwKu+ktc7fnThHs=
     dependencies:
-      "@material/feature-targeting" "^13.0.0"
-      tslib "^2.1.0"
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/dom" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      "@material/typography" "^10.0.0"
+      tslib "^1.9.3"
   
-  "@material/top-app-bar@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/top-app-bar/-/top-app-bar-13.0.0.tgz#c4f8af665ed25b5db35083bf5253bb6bd161cae5"
-    integrity sha512-NTbIbBmoo4wfbBwW+9XMmjYQJ3e7NJ9P/ahTszYuzYDyWNcc3m8G/A0zM+1LBmoze3rP/QTxcaJUH/A5/3ufXA==
+  "@material/icon-button@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/icon-button/-/icon-button-10.0.0.tgz#ab6a18e2e18245ff59eac1bffe4310a258f7da80"
+    integrity sha1-q2oY4uGCRf9Z6sG//kMQolj32oA=
     dependencies:
-      "@material/animation" "^13.0.0"
-      "@material/base" "^13.0.0"
-      "@material/elevation" "^13.0.0"
-      "@material/ripple" "^13.0.0"
-      "@material/rtl" "^13.0.0"
-      "@material/shape" "^13.0.0"
-      "@material/theme" "^13.0.0"
-      "@material/typography" "^13.0.0"
-      tslib "^2.1.0"
+      "@material/base" "^10.0.0"
+      "@material/density" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/ripple" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      tslib "^1.9.3"
   
-  "@material/typography@^13.0.0":
-    version "13.0.0"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/typography/-/typography-13.0.0.tgz#da40615bddea8c56496a89b3a6f8f71c1fccce96"
-    integrity sha512-UfaK4vT3LmGiiySf2RVIrf7fJZa6EJadFwo4YUMJx9bvUMRlBm1oI8Vo9fYpKdLfuSTeA+2BlgbwYVObj3laFw==
+  "@material/line-ripple@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/line-ripple/-/line-ripple-10.0.0.tgz#42a6a158d7a131b79f4b72da23e8136d723fe3de"
+    integrity sha1-QqahWNehMbefS3LaI+gTbXI/494=
     dependencies:
-      "@material/feature-targeting" "^13.0.0"
-      "@material/theme" "^13.0.0"
-      tslib "^2.1.0"
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/list@10.0.0", "@material/list@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/list/-/list-10.0.0.tgz#a2412b7b673a0c045b9aaa4ac563237b42d0ae1c"
+    integrity sha1-okEre2c6DARbmqpKxWMje0LQrhw=
+    dependencies:
+      "@material/base" "^10.0.0"
+      "@material/density" "^10.0.0"
+      "@material/dom" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/ripple" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/shape" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      "@material/typography" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/menu-surface@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/menu-surface/-/menu-surface-10.0.0.tgz#6d388f0a711ccc67b07d570b39bb5935f80fd7bb"
+    integrity sha1-bTiPCnEczGewfVcLObtZNfgP17s=
+    dependencies:
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/elevation" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/shape" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/menu@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/menu/-/menu-10.0.0.tgz#e0fc7553ddff0ceb18aad86ea51d4235192a5dbe"
+    integrity sha1-4Px1U93/DOsYqthupR1CNRkqXb4=
+    dependencies:
+      "@material/base" "^10.0.0"
+      "@material/dom" "^10.0.0"
+      "@material/elevation" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/list" "^10.0.0"
+      "@material/menu-surface" "^10.0.0"
+      "@material/ripple" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/notched-outline@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/notched-outline/-/notched-outline-10.0.0.tgz#7a38bf4860b93031c04a30820fed461134845524"
+    integrity sha1-eji/SGC5MDHASjCCD+1GETSEVSQ=
+    dependencies:
+      "@material/base" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/floating-label" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/shape" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/ripple@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/ripple/-/ripple-10.0.0.tgz#5c5e9da3720ad521e477d6b0ea2059e9351067ce"
+    integrity sha1-XF6do3IK1SHkd9aw6iBZ6TUQZ84=
+    dependencies:
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/dom" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/rtl@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/rtl/-/rtl-10.0.0.tgz#73e3d07190b322aa8b579af835e4595190a8a568"
+    integrity sha1-c+PQcZCzIqqLV5r4NeRZUZCopWg=
+    dependencies:
+      "@material/theme" "^10.0.0"
+  
+  "@material/select@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/select/-/select-10.0.0.tgz#4ec11e7e7d382160c798adc21627df731a510cf7"
+    integrity sha1-TsEefn04IWDHmK3CFiffcxpRDPc=
+    dependencies:
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/density" "^10.0.0"
+      "@material/dom" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/floating-label" "^10.0.0"
+      "@material/line-ripple" "^10.0.0"
+      "@material/list" "^10.0.0"
+      "@material/menu" "^10.0.0"
+      "@material/menu-surface" "^10.0.0"
+      "@material/notched-outline" "^10.0.0"
+      "@material/ripple" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/shape" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      "@material/typography" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/shape@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/shape/-/shape-10.0.0.tgz#af3272d22f3782a8dcfb8b9d67a28a1e3d4b6303"
+    integrity sha1-rzJy0i83gqjc+4udZ6KKHj1LYwM=
+    dependencies:
+      "@material/feature-targeting" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/theme" "^10.0.0"
+  
+  "@material/textfield@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/textfield/-/textfield-10.0.0.tgz#8a6df48cd9a1bb26ffb1256c4ba2f43886566bcd"
+    integrity sha1-im30jNmhuyb/sSVsS6L0OIZWa80=
+    dependencies:
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/density" "^10.0.0"
+      "@material/dom" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+      "@material/floating-label" "^10.0.0"
+      "@material/line-ripple" "^10.0.0"
+      "@material/notched-outline" "^10.0.0"
+      "@material/ripple" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/shape" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      "@material/typography" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/theme@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/theme/-/theme-10.0.0.tgz#f0207be9356e85e07b7d86ac48c7ca75a968d2dc"
+    integrity sha1-8CB76TVuheB7fYasSMfKdalo0tw=
+    dependencies:
+      "@material/feature-targeting" "^10.0.0"
+  
+  "@material/top-app-bar@10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/top-app-bar/-/top-app-bar-10.0.0.tgz#c9a1449453aa8d28d448e5eed46f788c882472b0"
+    integrity sha1-yaFElFOqjSjUSOXu1G94jIgkcrA=
+    dependencies:
+      "@material/animation" "^10.0.0"
+      "@material/base" "^10.0.0"
+      "@material/elevation" "^10.0.0"
+      "@material/ripple" "^10.0.0"
+      "@material/rtl" "^10.0.0"
+      "@material/shape" "^10.0.0"
+      "@material/theme" "^10.0.0"
+      "@material/typography" "^10.0.0"
+      tslib "^1.9.3"
+  
+  "@material/touch-target@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/touch-target/-/touch-target-10.0.0.tgz#8a7bcb00d54616b0e18544363f2cad9077fc4c12"
+    integrity sha1-invLANVGFrDhhUQ2PyytkHf8TBI=
+    dependencies:
+      "@material/base" "^10.0.0"
+      "@material/feature-targeting" "^10.0.0"
+  
+  "@material/typography@^10.0.0":
+    version "10.0.0"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/typography/-/typography-10.0.0.tgz#6bf955f2f4f3471b5dc1e767f131dbe92b34580f"
+    integrity sha1-a/lV8vTzRxtdwedn8THb6Ss0WA8=
+    dependencies:
+      "@material/feature-targeting" "^10.0.0"
+      "@material/theme" "^10.0.0"
   
   "@mrmlnc/readdir-enhanced@^2.2.1":
     version "2.2.1"
@@ -5320,10 +5498,10 @@ Lockfile:
     dependencies:
       punycode "^2.1.0"
   
-  tslib@^2.1.0:
-    version "2.3.1"
-    resolved "https://nuget.d-velop.de/npm/dvelop-npm/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
-    integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
+  tslib@^1.9.3:
+    version "1.14.1"
+    resolved "https://nuget.d-velop.de/npm/dvelop-npm/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+    integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
   
   tty-browserify@0.0.0:
     version "0.0.0"

@@ -83,7 +83,7 @@ class OverviewPage {
             let dialog_title = <HTMLElement>document.querySelector('.mdc-dialog__title');
             document.querySelectorAll('.mdc-menu li').forEach((el, i) =>{
                 const index = i;
-                const text = el.querySelector('.mdc-list-item__text').innerHTML;
+                const text = el.querySelector('.mdc-deprecated-list-item__text').innerHTML;
                 el.addEventListener('click', ()=>{
                     dialog_title.innerHTML = text;
                     dialogContents.forEach((dc, n) => {

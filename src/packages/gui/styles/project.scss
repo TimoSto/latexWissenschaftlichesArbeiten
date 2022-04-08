@@ -1,10 +1,10 @@
-@use '@material/list';
+@use "@material/list/_index" as list;
 @use 'common';
 @use '@material/textfield/mdc-text-field';
 @use '@material/button/mdc-button';
 @use '@material/icon-button/mdc-icon-button';
 
-@include list.core-styles;
+@include list.deprecated-core-styles;
 
 body{
   //padding: 8px;

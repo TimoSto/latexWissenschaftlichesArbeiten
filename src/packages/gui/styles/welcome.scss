@@ -1,7 +1,7 @@
-@use '@material/list';
+@use "@material/list/_index" as list;
 @use 'common';
 
-@include list.core-styles;
+@include list.deprecated-core-styles;
 
 body{
   padding: 8px;

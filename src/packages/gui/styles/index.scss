@@ -2,13 +2,11 @@
 @use '@material/icon-button/mdc-icon-button';
 @use "@material/menu-surface/mdc-menu-surface";
 @use "@material/menu/mdc-menu";
-@use '@material/list';
+@use "@material/list/_index" as list;
 @use 'common';
-@use "@material/dialog";
+@use "@material/dialog/mdc-dialog";
 
-@include dialog.core-styles;
-
-@include list.core-styles;
+@include list.deprecated-core-styles;
 
 html, body{
   margin: 0;
@@ -31,7 +29,7 @@ main{
   height: 100%;
   transition: width 200ms;
 
-  &.sidebar--open .mdc-list-item__text{
+  &.sidebar--open .mdc-deprecated-list-item__text{
     max-width: calc(100% - 50px);
   }
 
@@ -42,7 +40,7 @@ main{
     display: none;
   }
 
-  & .mdc-list-item__meta {
+  & .mdc-deprecated-list-item__meta {
     display: none;
   }
 }

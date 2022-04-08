@@ -5,11 +5,11 @@
     <title>LaTeX - Wissenschaftliches Arbeiten</title>
     <link rel="stylesheet" href="styles/index.scss">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="scripts/OverviewPage.ts"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <script type="module" src="scripts/OverviewPage.ts"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
 </head>
 <body>
     <header class="mdc-top-app-bar">
@@ -22,26 +22,26 @@
                 <div class="mdc-menu-surface--anchor">
                     <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">help_outline</button>
                     <div class="mdc-menu mdc-menu-surface">
-                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                            <li class="mdc-list-item" role="menuitem">
-                                <span class="mdc-list-item__ripple"></span>
-                                <span class="mdc-list-item__text">Wie kann ich eine Quelle zu meinem Projekt hinzufügen?</span>
+                        <ul class="mdc-deprecated-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                            <li class="mdc-deprecated-list-item" role="menuitem">
+                                <span class="mdc-deprecated-list-item__ripple"></span>
+                                <span class="mdc-deprecated-list-item__text">Wie kann ich eine Quelle zu meinem Projekt hinzufügen?</span>
                             </li>
-                            <li class="mdc-list-item" role="menuitem">
-                                <span class="mdc-list-item__ripple"></span>
-                                <span class="mdc-list-item__text">Wie kann ich nur die wirklich zitierten Quellen ins Literaturverzeichnis aufnehmen?</span>
+                            <li class="mdc-deprecated-list-item" role="menuitem">
+                                <span class="mdc-deprecated-list-item__ripple"></span>
+                                <span class="mdc-deprecated-list-item__text">Wie kann ich nur die wirklich zitierten Quellen ins Literaturverzeichnis aufnehmen?</span>
                             </li>
-                            <li class="mdc-list-item" role="menuitem">
-                                <span class="mdc-list-item__ripple"></span>
-                                <span class="mdc-list-item__text">Wie kann ich einen neuen Literaturtypen erstellen?</span>
+                            <li class="mdc-deprecated-list-item" role="menuitem">
+                                <span class="mdc-deprecated-list-item__ripple"></span>
+                                <span class="mdc-deprecated-list-item__text">Wie kann ich einen neuen Literaturtypen erstellen?</span>
                             </li>
-                            <li class="mdc-list-item" role="menuitem">
-                                <span class="mdc-list-item__ripple"></span>
-                                <span class="mdc-list-item__text">Wie kann ich einen Literaturtypen in ein anderes Projekt übernehmen?</span>
+                            <li class="mdc-deprecated-list-item" role="menuitem">
+                                <span class="mdc-deprecated-list-item__ripple"></span>
+                                <span class="mdc-deprecated-list-item__text">Wie kann ich einen Literaturtypen in ein anderes Projekt übernehmen?</span>
                             </li>
-                            <li class="mdc-list-item" role="menuitem">
-                                <span class="mdc-list-item__ripple"></span>
-                                <span class="mdc-list-item__text">Wie kann ich einen Literatureintrag über Citavi erstellen?</span>
+                            <li class="mdc-deprecated-list-item" role="menuitem">
+                                <span class="mdc-deprecated-list-item__ripple"></span>
+                                <span class="mdc-deprecated-list-item__text">Wie kann ich einen Literatureintrag über Citavi erstellen?</span>
                             </li>
                         </ul>
                     </div>
@@ -62,17 +62,17 @@
                     </section>
                 </div>
             </header>
-            <ul class="mdc-list no-space-list">
+            <ul class="mdc-deprecated-list no-space-list">
                 {{ range $key,$value := .Projects }}
-                <li class="mdc-list-divider"></li>
-                <li class="mdc-list-item" tabindex="0" data-edit-value="{{$value}}">
-                    <span class="mdc-list-item__text">{{$value}}</span>
-                    <span class="mdc-list-item__meta">
+                <li class="mdc-deprecated-list-divider"></li>
+                <li class="mdc-deprecated-list-item" tabindex="0" data-edit-value="{{$value}}">
+                    <span class="mdc-deprecated-list-item__text">{{$value}}</span>
+                    <span class="mdc-deprecated-list-item__meta">
                         <button class="mdc-icon-button material-icons" data-delete-value="{{$value}}">delete</button>
                     </span>
                 </li>
                 {{ end }}
-                <li class="mdc-list-divider"></li>
+                <li class="mdc-deprecated-list-divider"></li>
             </ul>
         </section>
         <section id="main">

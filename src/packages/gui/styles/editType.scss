@@ -1,13 +1,13 @@
 @use 'common';
 @use '@material/select/mdc-select';
 @use '@material/textfield/mdc-text-field';
-@use '@material/list';
+@use "@material/list/_index" as list;
 @use "~@material/menu-surface/mdc-menu-surface";
 @use "~@material/menu/mdc-menu";
 @use "~@material/select/styles";
 @use "@material/button/mdc-button";
 
-@include list.core-styles;
+@include list.deprecated-core-styles;
 
 body, html{
   margin: 0;

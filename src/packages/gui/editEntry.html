@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="styles/editEntry.scss">
-    <script src="scripts/EntryPage.ts"></script>
+    <script type="module" src="scripts/EntryPage.ts"></script>
 </head>
 <body>
     <div id="content">
@@ -39,11 +39,11 @@
             </div>
 
             <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-                <ul class="mdc-list" role="listbox">
+                <ul class="mdc-deprecated-list" role="listbox">
                     {{ range $key,$value := .Types }}
-                    <li class="mdc-list-item" aria-selected="false" data-value="{{$value.Name}}" role="option">
-                        <span class="mdc-list-item__ripple"></span>
-                        <span class="mdc-list-item__text">
+                    <li class="mdc-deprecated-list-item" aria-selected="false" data-value="{{$value.Name}}" role="option">
+                        <span class="mdc-deprecated-list-item__ripple"></span>
+                        <span class="mdc-deprecated-list-item__text">
                           {{$value.Name}}
                         </span>
                     </li>
