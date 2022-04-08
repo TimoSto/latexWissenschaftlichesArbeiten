@@ -54,6 +54,11 @@
         </li>
     </ul>
     <p class="mdc-typography--body1">Um Literatur-Einträge in einem Projekt zu erstellen, musst du das Projekt bearbeiten. Dann erscheint ein Bereich, in dem du Literatureinträge hinzufügen, löschen oder bearbeiten kannst.</p>
-<p class="mdc-typography--body1">Wenn du noch Fragen hast, schau doch unter dem <span class="material-icons">help_outline</span></p>
+    <p class="mdc-typography--body1">Wenn du noch Fragen hast, schau doch unter dem <span class="material-icons">help_outline</span> oder in der <a id="goToNavigation">Dokumentation</a></p>
+    <script>
+        document.getElementById('goToNavigation').addEventListener('click', ()=>{
+            window.parent.setMain('/documentation');
+        });
+    </script>
 </body>
 </html>

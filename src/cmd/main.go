@@ -56,6 +56,8 @@ func main() {
 
 	http.HandleFunc("/citeCleanup", handlers.HandleCiteCleanup)
 
+	http.HandleFunc("/documentation", handlers.HandleDocumentation)
+
 	http.HandleFunc("/", handlers.HandleAssets)
 
 	fmt.Println("Open http://localhost:8081/overview to get started.")

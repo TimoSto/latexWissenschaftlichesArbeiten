@@ -11,3 +11,4 @@ projects/*
 *.toc
 src/packages/handlers/out/
 out/
+src/packages/handlers/documentation/
