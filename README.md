@@ -1,3 +1,3 @@
 # LaTeX - Wissenschaftliches Arbeiten
 
-Dieses Projekt dient als Vorlage für das Erstellen wissenschaftlicher Arbeiten mit LaTeX. Für genauere Informationen siehe /projects/documentation/documentation.pdf.
+Dieses Tool dient als Vorlage für das Erstellen wissenschaftlicher Arbeiten mit LaTeX. Es bietet zum einen eine Vorlage, welche unter 
