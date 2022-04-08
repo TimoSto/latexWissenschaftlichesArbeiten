@@ -10,6 +10,7 @@ class OverviewPage {
     private _mainFrame: HTMLIFrameElement;
 
     private _editArea: HTMLElement;
+    private _editTitle: HTMLElement;
     private _editFrame: HTMLIFrameElement;
 
     constructor() {
@@ -20,6 +21,8 @@ class OverviewPage {
             if (name) {
                 this.setMain(`/projects/${name}`);
             }
+
+            this._editTitle = document.querySelector('#editTitle');
 
             (<any>window).setMain = (uri) => {
                 this.setMain(uri);
@@ -131,6 +134,7 @@ class OverviewPage {
     private setEdit(uri: string) {
         this._editArea.classList.add('editArea--open')
         this._editFrame.src = uri;
+        this._editTitle.innerText = uri.indexOf('/editType') >= 0 ? "Literaturtypen bearbeiten" : 'Literatureintrag bearbeiten';
     }
 }
 
