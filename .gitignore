@@ -8,3 +8,5 @@ projects/*
 *.lot
 *.mcf
 *.toc
+src/packages/handlers/out/
+out/

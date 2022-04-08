@@ -48,7 +48,7 @@ func main() {
 
 	http.HandleFunc("/citeCleanup", handlers.HandleCiteCleanup)
 
-	http.Handle("/", http.FileServer(http.Dir("./out")))
+	http.HandleFunc("/", handlers.HandleAssets)
 
 	log.Fatal( http.ListenAndServe(":8081", nil ) )
 }
