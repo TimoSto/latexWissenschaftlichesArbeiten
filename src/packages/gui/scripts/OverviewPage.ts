@@ -129,6 +129,9 @@ class OverviewPage {
 
     private setMain(uri: string) {
         this._mainFrame.src = uri;
+        if(uri === '/documentation') {
+            this._editArea.classList.remove('editArea--open');
+        }
     }
 
     private setEdit(uri: string) {

@@ -58,7 +58,7 @@ func CiteCleanup(project string) error{
 		}
 		return nil
 	})
-	fmt.Println(filecontent)
+	// fmt.Println(filecontent)
 	err = ioutil.WriteFile(fmt.Sprintf("./projects/%s/citedKeys.csv", project), []byte(filecontent), 0644)
 	return err
 }

@@ -2,14 +2,13 @@ package domain
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"strings"
 )
 
 func SaveEntry(entry BibEntry, project string, initialKey string) error{
 	entries, err := ReadBibEntries(project)
-	fmt.Println(entry)
+	// fmt.Println(entry)
 	//if len(saveObj.InitialKey)  == 0 {
 	//	entries = append(entries, entry)
 	//} else {

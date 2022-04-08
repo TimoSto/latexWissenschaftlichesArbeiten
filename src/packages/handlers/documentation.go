@@ -13,5 +13,7 @@ var documentationFile string
 
 func HandleDocumentation(w http.ResponseWriter,r *http.Request) {
 	_,err := w.Write([]byte(documentationFile))
-	fmt.Println(err)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
