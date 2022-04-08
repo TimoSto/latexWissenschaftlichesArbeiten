@@ -71,7 +71,7 @@ class OverviewPage {
                 open = false;
             });
 
-            document.querySelector('.mdc-top-app-bar__section--align-end button').addEventListener('click', ()=>{
+            document.querySelector('.mdc-top-app-bar__section--align-end .mdc-menu-surface--anchor button').addEventListener('click', ()=>{
                 if(!open) {
                     menu.open();
                 }
