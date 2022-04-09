@@ -4,5 +4,7 @@
 - GUI für Literatur-System
 - Dokumentation in documentation.tex
 
-## Version 1.0 - [20-12-2021]
+## Version 1.0 - [09-04-2022]
 - Mehrere Projekte gleichzeitig managen
+- Automatisches Parsen von Sonderzeichen in GUI
+- Update-Benachrichtigung
