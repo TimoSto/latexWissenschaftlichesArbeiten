@@ -8,6 +8,10 @@ function repalceAt(str, index, replacement) {
     return str.substring(0, index) + replacement + str.substring(index + 1);
 }
 
+function replaceRange(str, index, length, replacement) {
+    return str.substring(0, index) + replacement + str.substring(index + length);
+}
+
 export function ParseStringToTeX(value: string) {
 
     texValues.forEach(s => {
@@ -16,6 +20,20 @@ export function ParseStringToTeX(value: string) {
             console.log(index)
             value = repalceAt(value, index, s[1]);
             index = value.indexOf(s[0], index+5);
+        }
+    });
+
+    return value;
+}
+
+export function ParseTexToString(value: string) {
+
+    texValues.forEach(s => {
+        let index = value.indexOf(s[1], 0);
+        while(index > -1 && !IsSurroundedByBrackets(value, index)) {
+            console.log(index)
+            value = replaceRange(value, index,s[1].length, s[0]);
+            index = value.indexOf(s[1], index+s[0].length);
         }
     });
 

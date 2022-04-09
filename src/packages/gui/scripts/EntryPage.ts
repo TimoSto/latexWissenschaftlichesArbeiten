@@ -1,7 +1,7 @@
 import {MDCTextField} from "@material/textfield/component";
 import {MDCSelect} from "@material/select/component";
 import SaveEntry from "./SaveEntry";
-import {ParseStringToTeX} from "./TeXParser";
+import {ParseStringToTeX, ParseTexToString} from "./TeXParser";
 
 document.addEventListener('DOMContentLoaded', ()=>{
     new EntryPage();
@@ -98,7 +98,7 @@ class EntryPage {
 
         for( let i=0 ; i<this._valueFields.length ; i++ ) {
             if( this._prevValuesElement.children[i] ) {
-                this._valueFields[i].value = this._prevValuesElement.children[i].innerHTML;
+                this._valueFields[i].value = ParseTexToString(this._prevValuesElement.children[i].innerHTML);
             }
         }
 
