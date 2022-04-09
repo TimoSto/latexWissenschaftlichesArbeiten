@@ -105,13 +105,13 @@ class OverviewPage {
     }
 
     private _showUpdateDialogIfNecessary() {
-        fetch('https://raw.githubusercontent.com/TimoSto/latexWissenschaftlichesArbeiten/develop/src/packages/conf/VERSION').then(resp => {
+        fetch('https://raw.githubusercontent.com/TimoSto/latexWissenschaftlichesArbeiten/develop/src/packages/conf/VERSION', {cache: "no-store"}).then(resp => {
             //console.log(resp.status)
             if( resp.status === 200 ) {
                 return resp.text();
             }
         }).then(version => {
-            console.log(version, this._version)
+            console.debug(version, this._version)
             if(version != this._version) {
                 console.log("UPDATE AVAILABLE")
                 const versionmenu = new MDCMenuSurface(document.querySelector('#versionPopup'));
