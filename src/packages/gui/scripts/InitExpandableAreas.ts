@@ -1,3 +1,4 @@
+import {ParseTexToString} from "./TeXParser";
 
 export default function InitExpandableAreas() {
     let expandableAreas = document.querySelectorAll('.expandable-area');
@@ -40,5 +41,10 @@ export default function InitExpandableAreas() {
             }
             el.classList.toggle('trigger-icon--rotated');
         })
+    })
+
+    let primaryTexts = document.querySelectorAll('.mdc-deprecated-list-item__primary-text');
+    primaryTexts.forEach(el => {
+        el.innerHTML = ParseTexToString(el.innerHTML);
     })
 }
