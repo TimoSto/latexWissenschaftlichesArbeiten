@@ -7,6 +7,11 @@ body{
   padding: 8px;
 }
 
-#goToDocumentation{
+#goToDocumentation,
+#goToCVPDF{
   cursor: pointer;
+}
+
+a{
+  color: var(--mdc-theme-primary);
 }

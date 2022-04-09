@@ -55,9 +55,13 @@
     </ul>
     <p class="mdc-typography--body1">Um Literatur-Einträge in einem Projekt zu erstellen, musst du das Projekt bearbeiten. Dann erscheint ein Bereich, in dem du Literatureinträge hinzufügen, löschen oder bearbeiten kannst.</p>
     <p class="mdc-typography--body1">Wenn du noch Fragen hast, schau doch unter der Hilfe <span class="material-icons">help_outline</span> oder in der <a id="goToDocumentation">Dokumentation <span class="material-icons">menu_book</span></a> nach.</p>
+    <p class="mdc-typography--body1">Als Sahnehäubchen beinhaltet dieses Tool auch eine Vorlage, für einen schön <a id="goToCVPDF">gestylten Lebenslauf</a>. Um diese herunterzuladen, klicke <a href="/cv?type=tex" download="CVTemplate.tex">hier</a>.</p>
     <script>
         document.getElementById('goToDocumentation').addEventListener('click', ()=>{
             window.parent.setMain('/documentation');
+        });
+        document.getElementById('goToCVPDF').addEventListener('click', ()=>{
+            window.parent.setMain('/cv?type=pdf');
         });
     </script>
 </body>

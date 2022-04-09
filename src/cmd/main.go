@@ -61,6 +61,8 @@ func main() {
 
 	http.HandleFunc("/documentation", handlers.HandleDocumentation)
 
+	http.HandleFunc("/cv", handlers.HandleCV)
+
 	http.HandleFunc("/", handlers.HandleAssets)
 
 	fmt.Println("Open http://localhost:8081/overview to get started.")
