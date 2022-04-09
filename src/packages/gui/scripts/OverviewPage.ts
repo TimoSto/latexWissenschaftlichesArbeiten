@@ -111,6 +111,7 @@ class OverviewPage {
                 return resp.text();
             }
         }).then(version => {
+            console.log(version, this._version)
             if(version != this._version) {
                 console.log("UPDATE AVAILABLE")
                 const versionmenu = new MDCMenuSurface(document.querySelector('#versionPopup'));
