@@ -130,6 +130,7 @@ class EntryPage {
         this._typeObj.Fields.forEach( (field: { Prefix: string; Style: any; Field: string; Suffix: string; }, n: any) => {
 
 
+
             bibExample += field.Prefix;
             switch (field.Style){
                 case 'italic':
@@ -139,8 +140,9 @@ class EntryPage {
                     bibExample += '<b>'
                     break;
             }
+            let valueWithoutLinebreaks = this._valueFields[n].value.replaceAll('{{\\\\}}', ' ')
 
-            bibExample += this._valueFields[n].value;
+            bibExample += valueWithoutLinebreaks;
             switch (field.Style){
                 case 'italic':
                     bibExample += '</i>';
