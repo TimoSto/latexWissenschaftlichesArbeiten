@@ -14,3 +14,5 @@ out/
 src/packages/handlers/documentation/
 src/cmd/versioninfo.json
 src/cmd/resource.syso
+src/packages/domain/templates/CV/curriculumVitae.out
+src/packages/domain/templates/CV/curriculumVitae.log
