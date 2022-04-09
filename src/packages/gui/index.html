@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
     <link rel="manifest" href="./site.webmanifest">
 </head>
-<body>
+<body data-version="{{ .Version }}">
     <header class="mdc-top-app-bar">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
@@ -167,6 +167,22 @@
             </div>
         </div>
         <div class="mdc-dialog__scrim"></div>
+    </div>
+    <div class="bottom mdc-menu-surface--anchor">
+        <div id="versionPopup" class="mdc-menu mdc-menu-surface">
+            <div class="menu-headline">
+                <div class="heading mdc-typography--body1">
+                    Update <span id="newversion2"></span>
+                </div>
+                <div class="end">
+                    <button class="mdc-icon-button material-icons" id="closePopup">
+                        <span class="mdc-icon-button__ripple"></span>
+                        close
+                    </button>
+                </div>
+            </div>
+            <span class="mdc-typography--body1">Es ist eine neue Version dieses Tools verfügbar! Lade die Version <span id="newversion"></span> <a href="https://github.com/TimoSto/latexWissenschaftlichesArbeiten/blob/develop/WA_LaTeX.exe" target="_blank">hier</a> herunter</span>
+        </div>
     </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"WA_LaTeX/src/packages/conf"
 	"WA_LaTeX/src/packages/domain"
 	"fmt"
 	"html/template"
@@ -10,6 +11,7 @@ import (
 
 type OverviewHTMLDto struct {
 	Projects []string
+	Version  string
 }
 
 func HandleOverview(w http.ResponseWriter, r *http.Request) {
@@ -36,6 +38,7 @@ func HandleOverview(w http.ResponseWriter, r *http.Request) {
 
 	data := OverviewHTMLDto{
 		Projects: projects,
+		Version: conf.Version,
 	}
 
 	err = tmpl.Execute(w, data)

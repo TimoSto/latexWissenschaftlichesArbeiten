@@ -13,8 +13,11 @@ class OverviewPage {
     private _editTitle: HTMLElement;
     private _editFrame: HTMLIFrameElement;
 
+    private _version: string;
+
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
+            this._version = document.body.getAttribute('data-version');
             this.init();
             let params = new URLSearchParams(document.location.search);
             let name = params.get("project");
@@ -61,7 +64,7 @@ class OverviewPage {
                 })
             });
 
-            const menu = new MDCMenuSurface(document.querySelector('.mdc-menu'));
+            const menu = new MDCMenuSurface(document.querySelector('header .mdc-menu'));
             //menu.setAnchorElement(document.querySelector('.mdc-top-app-bar__section--align-end button'));
             menu.setAnchorCorner(1);
 
@@ -97,6 +100,30 @@ class OverviewPage {
                 })
             })
         });
+
+        this._showUpdateDialogIfNecessary()
+    }
+
+    private _showUpdateDialogIfNecessary() {
+        fetch('https://raw.githubusercontent.com/TimoSto/latexWissenschaftlichesArbeiten/develop/src/packages/conf/VERSION').then(resp => {
+            //console.log(resp.status)
+            if( resp.status === 200 ) {
+                return resp.text();
+            }
+        }).then(version => {
+            if(version != this._version) {
+                console.log("UPDATE AVAILABLE")
+                const versionmenu = new MDCMenuSurface(document.querySelector('#versionPopup'));
+
+                document.querySelector('#newversion').innerHTML = version;
+                document.querySelector('#newversion2').innerHTML = version;
+                document.querySelector('#closePopup').addEventListener('click', ()=>{
+                    versionmenu.close();
+                })
+
+                versionmenu.open();
+            }
+        })
     }
 
     private init() {
