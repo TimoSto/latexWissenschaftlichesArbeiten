@@ -31,7 +31,8 @@ func ConvertBibToCSV(project string) error{
 		filestring += entry.Key + ";" + entry.Typ + ";"
 		for i:=0 ; i<26; i++ {
 			if i < len(entry.Fields) {
-				filestring += entry.Fields[i];
+				strToAdd := strings.Replace(entry.Fields[i], "amp;", "", -1)
+				filestring += strToAdd
 			}
 			filestring += ";"
 		}

@@ -44,7 +44,7 @@ export default function InitExpandableAreas() {
     })
 
     let primaryTexts = document.querySelectorAll('.mdc-deprecated-list-item__primary-text');
-    primaryTexts.forEach(el => {
-        el.innerHTML = ParseTexToString(el.innerHTML);
+    primaryTexts.forEach((el: HTMLElement) => {
+        el.innerHTML = ParseTexToString(el.innerText);
     })
 }

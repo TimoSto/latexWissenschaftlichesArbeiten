@@ -61,7 +61,7 @@ class EntryPage {
 
     SetupFieldsForType(obj: any) {
         this._typeObj = obj;
-        console.log(obj)
+        //console.log(obj)
         this._fieldsArea.querySelectorAll('*').forEach(el => el.remove());
         this._valueFields = [];//TODO: Migrate values on typechange
         this._fieldNames = [];
@@ -98,7 +98,7 @@ class EntryPage {
 
         for( let i=0 ; i<this._valueFields.length ; i++ ) {
             if( this._prevValuesElement.children[i] ) {
-                this._valueFields[i].value = ParseTexToString(this._prevValuesElement.children[i].innerHTML);
+                this._valueFields[i].value = ParseTexToString((<HTMLElement>this._prevValuesElement.children[i]).innerText);
             }
         }
 
@@ -114,7 +114,7 @@ class EntryPage {
             })
         }
 
-        console.log(valuePairs)
+        //console.log(valuePairs)
 
         SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(valid => {
             if( valid ) {
