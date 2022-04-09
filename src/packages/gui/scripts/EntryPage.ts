@@ -1,6 +1,7 @@
 import {MDCTextField} from "@material/textfield/component";
 import {MDCSelect} from "@material/select/component";
 import SaveEntry from "./SaveEntry";
+import {ParseStringToTeX} from "./TeXParser";
 
 document.addEventListener('DOMContentLoaded', ()=>{
     new EntryPage();
@@ -109,9 +110,11 @@ class EntryPage {
         for( let i=0; i< this._valueFields.length; i++ ) {
             valuePairs.push({
                 Attr: this._fieldNames[i],
-                Value: this._valueFields[i].value
+                Value: ParseStringToTeX(this._valueFields[i].value)
             })
         }
+
+        console.log(valuePairs)
 
         SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(valid => {
             if( valid ) {

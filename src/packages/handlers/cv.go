@@ -15,7 +15,7 @@ var cvTex string
 
 func HandleCV(w http.ResponseWriter,r *http.Request) {
 	keys, ok := r.URL.Query()["type"]
-	
+
 	if ok && len(keys[0]) > 0 {
 		if keys[0] == "pdf" {
 			_,err := w.Write([]byte(cvPDF))
