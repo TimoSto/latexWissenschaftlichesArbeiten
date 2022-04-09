@@ -1,3 +1,6 @@
+//go:generate go run ../tools/winfileinfo -version 1.0.1
+//go:generate goversioninfo
+
 package main
 
 import (
