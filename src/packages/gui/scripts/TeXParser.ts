@@ -1,6 +1,6 @@
 
 const texValues = [
-    ["_", "{{\_}}"],
+    ["_", `{{\\_}}`],
     [";","{{;}}"]
 ];
 
@@ -26,5 +26,5 @@ function IsSurroundedByBrackets(str: string, i: number): boolean {
     if( i < 2 ) {
         return false;
     }
-    return str.substr(i-2, 2) == '{{' && str.substr(i+1, 2) == '}}'
+    return ( str.substr(i-2, 2) == '{{' || str.substr(i-3, 3) == '{{\\' ) && str.substr(i+1, 2) == '}}'
 }
