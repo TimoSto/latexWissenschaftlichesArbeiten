@@ -20,7 +20,7 @@ main{
 
 
 .mdc-top-app-bar{
-  z-index: 100;
+  z-index: 6;
 }
 
 .mdc-top-app-bar--fixed-adjust{
@@ -115,4 +115,8 @@ main{
       font-size: 18px;
     }
   }
+}
+
+a{
+  color: var(--mdc-theme-primary);
 }

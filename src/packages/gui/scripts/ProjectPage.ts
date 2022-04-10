@@ -83,6 +83,15 @@ class ProjectPage {
             reader.readAsText(dT.files[0], "UTF-8");
             reader.onload = function (evt) {
 
+                let extension = dT.files[0].name.substr(dT.files[0].name.lastIndexOf('.'))
+
+                console.log(extension)
+
+                if( extension !== '.bib' ) {
+                    (<any>window.parent).openErrorDialog('Du kannst nur .bib-Dateien hochladen.')
+                    return
+                }
+
                 AnalyseAndSaveDroppdFile(<string>reader.result, project);
 
                 // fetch('/importCitavi', {

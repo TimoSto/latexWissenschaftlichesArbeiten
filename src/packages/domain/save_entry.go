@@ -2,11 +2,15 @@ package domain
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"strings"
 )
 
 func SaveEntry(entry BibEntry, project string, initialKey string) error{
+	if len(entry.Fields) == 0 {
+		return fmt.Errorf("empty fields. You propably uploaded an invalid file.")
+	}
 	entries, err := ReadBibEntries(project)
 	// fmt.Println(entry)
 	//if len(saveObj.InitialKey)  == 0 {

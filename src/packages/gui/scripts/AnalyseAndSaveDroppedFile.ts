@@ -3,6 +3,10 @@ import SaveEntry from "./SaveEntry";
 
 export default function AnalyseAndSaveDroppdFile(file: String, project: string) {
 
+    if(file.indexOf('@') == -1) {
+        (<any>window.parent).openErrorDialog('Die Datei hat ein ungültiges Format.')
+        return
+    }
     //remove stuff before first '@'
     file = file.substr(file.indexOf('@'));
 
@@ -94,6 +98,8 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
 
             (<any>window.parent).reloadMain();
             (<any>window.parent).setEdit('/editEntry?project='+project+'&entry='+key);
+        } else {
+            (<any>window.parent).openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
         }
     });
 }

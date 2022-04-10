@@ -17,6 +17,9 @@ class OverviewPage {
 
     private _helpMenu: MDCMenuSurface;
 
+    private _errorDialog: MDCDialog;
+    private _errorText: HTMLElement;
+
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
             this._version = document.body.getAttribute('data-version');
@@ -34,6 +37,9 @@ class OverviewPage {
             }
             (<any>window).setEdit = (uri) => {
                 this.setEdit(uri);
+            }
+            (<any>window).openErrorDialog = (text) => {
+                this.openErrorDialog(text);
             }
 
             (<any>window).reloadMain = () => {
@@ -101,6 +107,9 @@ class OverviewPage {
                     this._helpMenu.close();
                 })
             })
+
+            this._errorDialog = new MDCDialog(document.querySelector('#error-dialog'));
+            this._errorText = document.querySelector('#error-text');
         });
 
         this._showUpdateDialogIfNecessary()
@@ -178,6 +187,11 @@ class OverviewPage {
         this._editArea.classList.add('editArea--open')
         this._editFrame.src = uri;
         this._editTitle.innerText = uri.indexOf('/editType') >= 0 ? "Literaturtypen bearbeiten" : 'Literatureintrag bearbeiten';
+    }
+
+    private openErrorDialog(text: string) {
+        this._errorText.innerText = text;
+        this._errorDialog.open();
     }
 }
 

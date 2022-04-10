@@ -168,6 +168,25 @@
         </div>
         <div class="mdc-dialog__scrim"></div>
     </div>
+    <div class="mdc-dialog" id="error-dialog">
+        <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface"
+                 role="alertdialog"
+                 aria-modal="true"
+                 aria-labelledby="my-dialog-title"
+                 aria-describedby="my-dialog-content">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title" id="error-dialog-title">
+                    Irgendwas ist schiefgelaufen
+                </h2>
+                <div class="mdc-dialog__content" id="error-dialog-content">
+                    <p class="mdc-typography--body1" id="error-text"></p>
+                    <p class="mdc-typography--body1">Wenn du denkst, dieser Fehler ist ein Bug, trag ihn doch gern im <a target="_blank" href="https://github.com/TimoSto/latexWissenschaftlichesArbeiten/issues">Github-Repo</a> ein.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+    </div>
     <div class="bottom mdc-menu-surface--anchor">
         <div id="versionPopup" class="mdc-menu mdc-menu-surface">
             <div class="menu-headline">
