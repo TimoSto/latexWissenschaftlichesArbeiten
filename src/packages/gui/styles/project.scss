@@ -29,3 +29,11 @@ body{
     font-weight: bold;
   }
 }
+
+@media only screen and (max-width: 320px) {
+  #parent-list{
+    .mdc-deprecated-list-item__graphic{
+      display: none;
+    }
+  }
+}

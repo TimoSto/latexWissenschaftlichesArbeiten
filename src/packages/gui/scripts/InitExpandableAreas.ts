@@ -3,10 +3,14 @@ import {ParseTexToString} from "./TeXParser";
 export default function InitExpandableAreas() {
     let expandableAreas = document.querySelectorAll('.expandable-area');
     let triggerIcons = document.querySelectorAll('.trigger-icon');
+    let lis = document.querySelectorAll('#parent-list>li');
 
-    triggerIcons.forEach((el, i) => {
+    lis.forEach((el, i) => {
         const ind = i;
-        el.addEventListener('click', ()=>{
+        el.addEventListener('click', (e)=>{
+            if((<HTMLElement>e.target).parentElement.classList.contains('mdc-deprecated-list-item__meta')) {
+                return;
+            }
             let container = <HTMLElement>expandableAreas[ind];
             let height = container.getBoundingClientRect().height;
             if (container.classList.contains('expandable-area--open')) {
@@ -39,7 +43,7 @@ export default function InitExpandableAreas() {
                     }, 350);
                 }, 0);
             }
-            el.classList.toggle('trigger-icon--rotated');
+            triggerIcons[ind].classList.toggle('trigger-icon--rotated');
         })
     })
 
