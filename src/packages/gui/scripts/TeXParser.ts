@@ -59,6 +59,24 @@ export function ParseTexToString(value: string) {
     return value;
 }
 
+export function ParseBibToString(value: string) {
+
+    texValues.forEach(s => {
+        if(s[0] === '_') {
+            value = value.replaceAll('{\\textunderscore }', '_');
+        } else {
+            let index = value.indexOf(s[1], 0);
+            while(index > -1 && !IsSurroundedBySingleBrackets(value, index)) {
+                value = replaceRange(value, index,s[1].length, s[0]);
+                index = value.indexOf(s[1], index+s[0].length);
+            }
+        }
+
+    });
+
+    return value;
+}
+
 function IsSurroundedByBrackets(str: string, i: number): boolean {
     if( i < 2 ) {
         return false;
@@ -68,4 +86,15 @@ function IsSurroundedByBrackets(str: string, i: number): boolean {
     }
 
     return ( str.substr(i-2, 2) == '{{' || str.substr(i-3, 3) == '{{\\' ) && str.substr(i+1, 2) == '}}'
+}
+
+function IsSurroundedBySingleBrackets(str: string, i: number): boolean {
+    if( i < 2 ) {
+        return false;
+    }
+    if( str.substring(i-3, i+5) == "{\\&amp;}") {
+        return true;
+    }
+
+    return ( str.substr(i-1, 1) == '{' || str.substr(i-2, 2) == '{\\' ) && str.substr(i+1, 1) == '}'
 }

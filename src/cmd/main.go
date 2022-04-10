@@ -55,7 +55,7 @@ func main() {
 
 	http.HandleFunc("/deleteProject", handlers.HandleDeleteProject)
 
-	http.HandleFunc("/importCitavi", handlers.HandleImportCitavi)
+	//http.HandleFunc("/importCitavi", handlers.HandleImportCitavi)
 
 	http.HandleFunc("/citeCleanup", handlers.HandleCiteCleanup)
 

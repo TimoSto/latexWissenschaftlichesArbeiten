@@ -83,14 +83,16 @@ class ProjectPage {
             reader.readAsText(dT.files[0], "UTF-8");
             reader.onload = function (evt) {
 
-                fetch('/importCitavi', {
-                    method: 'POST',
-                    body: JSON.stringify({File: <string>reader.result, Project: project})
-                }).then(resp => {
-                    if (resp.status === 200) {
-                        window.location.reload();
-                    }
-                })
+                AnalyseAndSaveDroppdFile(<string>reader.result, project);
+
+                // fetch('/importCitavi', {
+                //     method: 'POST',
+                //     body: JSON.stringify({File: <string>reader.result, Project: project})
+                // }).then(resp => {
+                //     if (resp.status === 200) {
+                //         window.location.reload();
+                //     }
+                // })
                 //Dialog mit Textfeld öffnen => gewünscht Zitierweise eingeben
             }
         })
