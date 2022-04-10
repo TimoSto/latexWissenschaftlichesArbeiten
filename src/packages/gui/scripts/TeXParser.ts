@@ -27,11 +27,11 @@ export function ParseStringToTeX(value: string) {
     texValues.forEach(s => {
         if(s[0] === '&') {
             value = value.replaceAll('&', '{{\\&amp;}}');
-            console.log(value)
+            //console.log(value)
         } else {
             let index = value.indexOf(s[0], 0);
             while (index > -1 && !IsSurroundedByBrackets(value, index)) {
-                console.log(index)
+                //console.log(index)
                 value = repalceAt(value, index, s[1]);
                 index = value.indexOf(s[0], index + 5);
             }
@@ -42,7 +42,6 @@ export function ParseStringToTeX(value: string) {
 }
 
 export function ParseTexToString(value: string) {
-    console.log(value)
 
     texValues.forEach(s => {
         if(s[0] === '&') {
