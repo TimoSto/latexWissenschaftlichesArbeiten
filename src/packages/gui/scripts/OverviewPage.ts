@@ -15,6 +15,8 @@ class OverviewPage {
 
     private _version: string;
 
+    private _helpMenu: MDCMenuSurface;
+
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
             this._version = document.body.getAttribute('data-version');
@@ -64,22 +66,22 @@ class OverviewPage {
                 })
             });
 
-            const menu = new MDCMenuSurface(document.querySelector('header .mdc-menu'));
+            this._helpMenu = new MDCMenuSurface(document.querySelector('header .mdc-menu'));
             //menu.setAnchorElement(document.querySelector('.mdc-top-app-bar__section--align-end button'));
-            menu.setAnchorCorner(1);
+            this._helpMenu.setAnchorCorner(1);
 
             let open = false;
 
-            menu.listen('MDCMenuSurface:opened', () => {
+            this._helpMenu.listen('MDCMenuSurface:opened', () => {
                 open = true;
             });
-            menu.listen('MDCMenuSurface:closed', () => {
+            this._helpMenu.listen('MDCMenuSurface:closed', () => {
                 open = false;
             });
 
             document.querySelector('.mdc-top-app-bar__section--align-end .mdc-menu-surface--anchor button').addEventListener('click', ()=>{
                 if(!open) {
-                    menu.open();
+                    this._helpMenu.open();
                 }
             });
 
@@ -96,7 +98,7 @@ class OverviewPage {
                         (<HTMLElement>dc).style.display = n === index ? 'block' : 'none';
                     });
                     dialog.open()
-                    menu.close();
+                    this._helpMenu.close();
                 })
             })
         });
@@ -135,6 +137,11 @@ class OverviewPage {
         });
 
         this._mainFrame = document.querySelector('#main-frame');
+        this._mainFrame.addEventListener('load', ()=>{
+            this._mainFrame.contentWindow.document.addEventListener('click', ()=>{
+                this._helpMenu.close();
+            });
+        });
         this._mainFrame.src = '/welcome.html';
 
         document.querySelector('#new_project').addEventListener('click', ()=>{
@@ -153,6 +160,11 @@ class OverviewPage {
 
         this._editArea = document.querySelector('#editArea');
         this._editFrame = document.querySelector('#edit-frame');
+        this._editFrame.addEventListener('load', ()=>{
+            this._editFrame.contentWindow.document.addEventListener('click', ()=>{
+                this._helpMenu.close();
+            });
+        });
     }
 
     private setMain(uri: string) {

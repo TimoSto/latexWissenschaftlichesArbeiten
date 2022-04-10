@@ -18,6 +18,11 @@ main{
   height: calc(100% - 64px);
 }
 
+
+.mdc-top-app-bar{
+  z-index: 100;
+}
+
 .mdc-top-app-bar--fixed-adjust{
   display: flex;
 }
@@ -71,6 +76,7 @@ main{
 
   & .mdc-top-app-bar{
     border-bottom: 1px solid rgba(0,0,0,0.4);
+    z-index: 5;
   }
 
   & iframe {
