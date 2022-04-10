@@ -78,8 +78,6 @@ func main() {
 
 	fmt.Println("waiting for exit...")
 
-
-
 	sig := <-sigs
 	fmt.Println(fmt.Sprintf("Received exit-signal: %v", sig))
 }
