@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strings"
 )
 
 type ValuePair struct {
@@ -42,7 +43,11 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	err = domain.SaveEntry(entry, saveObj.Project, saveObj.InitialKey)
 	if err != nil {
 		fmt.Println(err)
-		http.Error(w,err.Error(),500)
+		if strings.Contains(err.Error(), "already exists") {
+			http.Error(w,err.Error(),400)
+		} else {
+			http.Error(w,err.Error(),500)
+		}
 		return
 	}
 	fmt.Println(fmt.Sprintf("Successfully saved entry %s", saveObj.Key))

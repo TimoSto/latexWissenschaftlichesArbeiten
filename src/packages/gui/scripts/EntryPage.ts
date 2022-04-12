@@ -121,6 +121,8 @@ class EntryPage {
 
                 (<any>window.parent).reloadMain();
                 window.location.href= '/editEntry?entry=' + this._keyField.value+'&project='+this.project;
+            } else {
+                (<any>window.parent).openErrorDialog('Beim Versuch, die Quelle zu speichern, ist ein Fehler aufgetreten.')
             }
         });
     }
