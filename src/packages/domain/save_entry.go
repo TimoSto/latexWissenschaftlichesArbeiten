@@ -18,10 +18,13 @@ func SaveEntry(entry BibEntry, project string, initialKey string) error{
 	//} else {
 	found := false;
 	for i:= 0 ; i<len(entries) ; i++ {
-		if strings.Compare(entries[i].Key, initialKey) == 0 || strings.Compare(entries[i].Key, entry.Key) == 0 {
+		if strings.Compare(entries[i].Key, initialKey) == 0 {
 			entries[i] =  entry
 			found = true
 			break
+		} else if strings.Compare(entries[i].Key, entry.Key) == 0 {
+			fmt.Println(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
+			return fmt.Errorf("Entry with key %s already exists.", entry.Key)
 		}
 	}
 	//}
