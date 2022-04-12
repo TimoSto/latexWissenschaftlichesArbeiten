@@ -7,8 +7,13 @@
     <script type="module" src="scripts/ProjectPage.ts"></script>
 </head>
 <body>
-    <div class="headline">
-        <h1 class="mdc-typography--headline4">{{ .ProjectName }}</h1>
+    <div class="headline left-right">
+        <span class="mdc-typography--headline4">{{ .ProjectName }}</span>
+        <span class="action">
+            <button class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Styles bearbeiten</span>
+            </button>
+        </span>
     </div>
 
     <div id="drop_zone">

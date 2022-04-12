@@ -91,6 +91,12 @@
   }
 }
 
+.left-right{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
 //@keyframes turner{
 //  from{  transform: rotate(0deg)   }
 //  to  {  transform: rotate(180deg) }

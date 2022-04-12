@@ -44,3 +44,9 @@
   height: 80px;
   margin: 0 8px;
 }
+
+@media only screen and (max-width: 580px) {
+  #keyField, #typeSelect {
+    width: 150px;
+  }
+}
