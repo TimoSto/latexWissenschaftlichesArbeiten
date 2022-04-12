@@ -18,6 +18,8 @@ class EntryPage {
     private _valueFields: MDCTextField[] = [];
     private _fieldNames: string[];
 
+    private _commentField: MDCTextField;
+
     private _prevValuesElement: HTMLElement;
 
     private _initialKey: string = "";
@@ -45,11 +47,14 @@ class EntryPage {
 
         this._fieldsArea = document.querySelector('#fieldsArea');
 
+        this._commentField = new MDCTextField(document.querySelector('#commentArea'));
+
         document.querySelector('#saveEntry').addEventListener( 'click', ()=>{
             this.Save()
         });
 
         this._prevValuesElement = document.querySelector('#values');
+        this._commentField.value = this._prevValuesElement.getAttribute('data-comment');
         let key = this._prevValuesElement.getAttribute('data-key');
         if( key ) {
             this._keyField.value = key;
@@ -116,7 +121,7 @@ class EntryPage {
 
         //console.log(valuePairs)
 
-        SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(valid => {
+        SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value, this._commentField.value).then(valid => {
             if( valid ) {
 
                 (<any>window.parent).reloadMain();

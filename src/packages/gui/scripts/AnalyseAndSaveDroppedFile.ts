@@ -93,7 +93,7 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
 
     let sortedvaluepairs = SortValues(valuepairs, type);
 
-    SaveEntry('', project, sortedvaluepairs, type, key).then(valid => {
+    SaveEntry('', project, sortedvaluepairs, type, key, '').then(valid => {
         if (valid) {
 
             (<any>window.parent).reloadMain();

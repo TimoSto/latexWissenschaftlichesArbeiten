@@ -19,6 +19,7 @@ type SaveEntryObj struct {
 	Typ string
 	Key string
 	Project string
+	Comment string
 }
 
 func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
@@ -34,6 +35,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		Key:             saveObj.Key,
 		Typ:             saveObj.Typ,
 		Fields: []string{},
+		Comment: saveObj.Comment,
 	}
 
 	for i:=0 ; i<len(saveObj.ValuePairs) ; i++ {

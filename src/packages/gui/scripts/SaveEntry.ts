@@ -1,11 +1,12 @@
 
-export default function SaveEntry(initialKey: string, project: string, valuePairs: {Value: string, Attr: string}[], typ: string, key: string) {
+export default function SaveEntry(initialKey: string, project: string, valuePairs: {Value: string, Attr: string}[], typ: string, key: string, comment: string) {
     let obj = {
         InitialKey: initialKey,
         ValuePairs: valuePairs,
         Typ: typ,
         Key: key,
-        Project: project
+        Project: project,
+        Comment: comment
     }
     return window.fetch('/saveEntry', {
         method: 'POST',

@@ -16,7 +16,7 @@ func SaveEntry(entry BibEntry, project string, initialKey string) error{
 	//if len(saveObj.InitialKey)  == 0 {
 	//	entries = append(entries, entry)
 	//} else {
-	found := false;
+	found := false
 	for i:= 0 ; i<len(entries) ; i++ {
 		if strings.Compare(entries[i].Key, initialKey) == 0 {
 			entries[i] =  entry

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="content">
-        <div id="values" data-key="{{ .Entry.Key }}" data-typ="{{ .Entry.Typ }}">
+        <div id="values" data-key="{{ .Entry.Key }}" data-typ="{{ .Entry.Typ }}" data-comment="{{ .Entry.Comment }}">
             {{ range $key,$value := .Entry.Fields }}
             <span>{{$value}}</span>
             {{end}}
@@ -70,6 +70,15 @@
         </label>
 
         <div id="fieldsArea"></div>
+
+        <label class="mdc-text-field mdc-text-field--filled mdc-text-field--textarea" id="commentArea">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label">Beschreibung der Quelle (optional)</span>
+            <span class="mdc-text-field__resizer">
+                <textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
+              </span>
+            <span class="mdc-line-ripple"></span>
+        </label>
     </div>
 </body>
 </html>

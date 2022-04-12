@@ -38,3 +38,9 @@
     margin: 0;
   }
 }
+
+#commentArea{
+  width: calc(100% - 16px);
+  height: 80px;
+  margin: 0 8px;
+}
