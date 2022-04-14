@@ -8,7 +8,29 @@
 <body>
     <span id="beta-label">beta</span>
     {{ range $key, $value := .Styles }}
-        {{ $value.Options }}
+
+        <div class="mdc-card style-card" data-option="{{ $value.Options }}">
+            <div class="mdc-typography--headline6 card-header"> {{ $value.Package.Name }}</div>
+            <div class="mdc-card__primary-action" tabindex="0">
+
+                {{ range $key1, $value1 := $value.Package.AvailableOptions }}
+                <!--TODO: Checkboxen besser -->
+                    <div class="mdc-form-field">
+                        <div class="mdc-radio">
+                            <input class="mdc-radio__native-control" type="radio" id="radio-1" name="{{ $value.Package.Name }}">
+                            <div class="mdc-radio__background">
+                                <div class="mdc-radio__outer-circle"></div>
+                                <div class="mdc-radio__inner-circle"></div>
+                            </div>
+                            <div class="mdc-radio__ripple"></div>
+                        </div>
+                        <label class="mdc-typography--body1 radio-label">{{ $value1 }}</label>
+                    </div>
+                {{ end }}
+
+            </div>
+            <!-- ... content ... -->
+        </div>
     {{ end }}
 </body>
 </html>

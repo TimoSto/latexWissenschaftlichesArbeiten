@@ -17,9 +17,11 @@
   },
   "dependencies": {
     "@material/button": "13.0.0",
+    "@material/card": "^13.0.0",
     "@material/dialog": "13.0.0",
     "@material/icon-button": "13.0.0",
     "@material/list": "13.0.0",
+    "@material/radio": "^13.0.0",
     "@material/ripple": "13.0.0",
     "@material/select": "13.0.0",
     "@material/textfield": "13.0.0",

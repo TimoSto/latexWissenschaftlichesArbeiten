@@ -1,4 +1,8 @@
 @use 'common';
+@use "@material/card";
+@use "@material/radio/styles";
+
+@include card.core-styles;
 
 #beta-label{
   position: fixed;
@@ -15,4 +19,20 @@
   color: #fff;
   line-height: 27px;
   transform:rotate(-45deg);
+}
+
+.style-card {
+  width: 400px;
+  height: 200px;
+  float: left;
+  margin: 8px;
+  & .card-header {
+    padding: 8px;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+  & .mdc-form-field {
+    display: flex;
+    align-items: center;
+  }
 }

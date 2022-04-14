@@ -7,14 +7,25 @@ import (
 )
 
 type StyleSetting struct {
-	PackageName string
+	Package Package
 	Included bool
 	Options string
 }
 
-var relevantPackages = []string{
-	"styPackages/ueberschriften",
-	"styPackages/inhaltsverzeichnis",
+type Package struct {
+	Name string
+	AvailableOptions []string
+}
+
+var relevantPackages = []Package{
+	{
+		Name: "styPackages/ueberschriften",
+		AvailableOptions: []string{"numeric", "latour"},
+	},
+	{
+		Name: "styPackages/inhaltsverzeichnis",
+		AvailableOptions: []string{"numeric", "latour"},
+	},
 }
 
 func AnalyseStyles(project string) ([]StyleSetting, error){
@@ -30,10 +41,10 @@ func AnalyseStyles(project string) ([]StyleSetting, error){
 	for _,p := range relevantPackages {
 
 		styleSetting := StyleSetting{
-			PackageName: p,
+			Package: p,
 		}
 
-		regex := regexp.MustCompile(fmt.Sprintf(`(?m)^(\\usepackage).*({%s})$`, p))
+		regex := regexp.MustCompile(fmt.Sprintf(`(?m)^(\\usepackage).*({%s})$`, p.Name))
 		result := regex.FindAllString(string(file), -1)
 		//TODO: Wenn mehr als 1 => fehler
 

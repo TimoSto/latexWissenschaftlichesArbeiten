@@ -55,6 +55,20 @@
     "@material/typography" "^13.0.0"
     tslib "^2.1.0"
 
+"@material/card@^13.0.0":
+  version "13.0.0"
+  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/card/-/card-13.0.0.tgz#875d60b398898b6f3a6ff115717f0c144b681bf3"
+  integrity sha512-ooJUOt1Viv99Dyz4rhz9ZZbfa996eHh3RUuXkPRkT66Btd5TzpdqsQWKwOVc5bgbgWqzhDWQ6A/aQdYqH97ccg==
+  dependencies:
+    "@material/dom" "^13.0.0"
+    "@material/elevation" "^13.0.0"
+    "@material/feature-targeting" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/rtl" "^13.0.0"
+    "@material/shape" "^13.0.0"
+    "@material/theme" "^13.0.0"
+    tslib "^2.1.0"
+
 "@material/density@^13.0.0":
   version "13.0.0"
   resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/density/-/density-13.0.0.tgz#5ae2fdec0418775014fed24e7ccdd5ba5d005d54"
@@ -207,6 +221,21 @@
     "@material/rtl" "^13.0.0"
     "@material/shape" "^13.0.0"
     "@material/theme" "^13.0.0"
+    tslib "^2.1.0"
+
+"@material/radio@^13.0.0":
+  version "13.0.0"
+  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/radio/-/radio-13.0.0.tgz#4f3f4c3c56ed3686d7bf69b9a611249cfa6db71c"
+  integrity sha512-6jeZ+dKSzBB/j2IZ7RjFl5mrB+EWnpv/x+U9w6ENLCdueM4+LKUqBAc2fC2WMycsqgoFnlB0xsO/sG+kN0J6fw==
+  dependencies:
+    "@material/animation" "^13.0.0"
+    "@material/base" "^13.0.0"
+    "@material/density" "^13.0.0"
+    "@material/dom" "^13.0.0"
+    "@material/feature-targeting" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/theme" "^13.0.0"
+    "@material/touch-target" "^13.0.0"
     tslib "^2.1.0"
 
 "@material/ripple@13.0.0", "@material/ripple@^13.0.0":
