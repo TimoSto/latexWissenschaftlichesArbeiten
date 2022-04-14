@@ -4,6 +4,7 @@
 package main
 
 import (
+	"WA_LaTeX/src/packages/conf"
 	"WA_LaTeX/src/packages/handlers"
 	"fmt"
 	"log"
@@ -30,6 +31,7 @@ func main() {
 	//	fmt.Println(err)
 	//	return
 	//}
+	conf.ReadConfig()
 
 	fmt.Println("Starting Application...")
 
@@ -89,6 +91,13 @@ func startServer() {
 }
 
 func openbrowser(url string) {
+
+	if !conf.AutoOpenBrowser {
+		fmt.Println("Automatically opening browser is disabled")
+		return
+	}
+	fmt.Println("Automatically opening browser is enabled")
+
 	var err error
 
 	switch runtime.GOOS {
