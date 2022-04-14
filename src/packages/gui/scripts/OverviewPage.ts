@@ -214,7 +214,13 @@ class OverviewPage {
     private setEdit(uri: string) {
         this._editArea.classList.add('editArea--open')
         this._editFrame.src = uri;
-        this._editTitle.innerText = uri.indexOf('/editType') >= 0 ? "Literaturtypen bearbeiten" : 'Literatureintrag bearbeiten';
+        if( uri.indexOf('/editType') >= 0 ) {
+            this._editTitle.innerText = "Literaturtypen bearbeiten";
+        } else if( uri.indexOf('editEntry') >= 0 ) {
+            this._editTitle.innerText = 'Literatureintrag bearbeiten';
+        } else {
+            this._editTitle.innerText = 'Styles bearbeiten';
+        }
     }
 
     private openErrorDialog(text: string) {
