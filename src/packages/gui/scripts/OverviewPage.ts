@@ -71,11 +71,9 @@ class OverviewPage {
             document.querySelectorAll('[data-delete-value]').forEach(el => {
                 const project = el.getAttribute('data-delete-value');
                 el.addEventListener('click', (e)=>{
-                    fetch('/deleteProject?project='+project).then(resp => {
-                        if ( resp.status === 200 ) {
-                            window.location.reload();
-                        }
-                    })
+                    (<any>window).openConfirmDialog('Willst du das Projekt ' + project + ' wirklich löschen?', ()=>{
+                        this.DeleteProject(project);
+                    });
                     //this.setMain('/projects/'+project);
                 })
             });
@@ -129,6 +127,20 @@ class OverviewPage {
         });
 
         this._showUpdateDialogIfNecessary()
+    }
+
+    private DeleteProject(project: string) {
+        fetch('/deleteProject?project='+project).then(resp => {
+            if ( resp.status === 200 ) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const loadedProject = urlParams.get('project');
+                if( loadedProject === project ) {
+                    window.location.replace('/overview')
+                } else {
+                    window.location.reload();
+                }
+            }
+        });
     }
 
     private _showUpdateDialogIfNecessary() {
