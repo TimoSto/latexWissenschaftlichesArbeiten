@@ -54,10 +54,8 @@ class ProjectPage {
         document.querySelectorAll('[data-delete-entry]').forEach(el => {
             const entryKey = el.getAttribute('data-delete-entry');
             el.addEventListener('click', ()=>{
-                fetch('/deleteEntry?project='+pname+'&entry='+entryKey).then(resp =>{
-                    if( resp.status === 200 ) {
-                        window.location.reload();
-                    }
+                (<any>window.parent).openConfirmDialog('Willst du den Eintrag ' + entryKey + ' wirklich löschen?', ()=>{
+                    this.DeleteEntry(pname, entryKey);
                 })
             });
         });
@@ -70,6 +68,14 @@ class ProjectPage {
 
         document.querySelector('#editStyles').addEventListener('click', ()=>{
             (<any>window.parent).setEdit('/editStyles?project=' + pname)
+        })
+    }
+
+    private DeleteEntry(project: string, entry: string) {
+        fetch('/deleteEntry?project='+project+'&entry='+entry).then(resp =>{
+            if( resp.status === 200 ) {
+                window.location.reload();
+            }
         })
     }
 

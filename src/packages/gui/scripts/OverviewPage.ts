@@ -20,6 +20,10 @@ class OverviewPage {
     private _errorDialog: MDCDialog;
     private _errorText: HTMLElement;
 
+    private _sureDialog: MDCDialog;
+    private _sureText: HTMLElement;
+    private _confirmedCallback: ()=>void;
+
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
             this._version = document.body.getAttribute('data-version');
@@ -40,6 +44,10 @@ class OverviewPage {
             }
             (<any>window).openErrorDialog = (text) => {
                 this.openErrorDialog(text);
+            }
+
+            (<any>window).openConfirmDialog = (text, cb) => {
+                this.openSureDialog(text, cb);
             }
 
             (<any>window).reloadMain = () => {
@@ -110,6 +118,14 @@ class OverviewPage {
 
             this._errorDialog = new MDCDialog(document.querySelector('#error-dialog'));
             this._errorText = document.querySelector('#error-text');
+
+            this._sureDialog = new MDCDialog(document.querySelector('#sure-dialog'));
+            this._sureText = document.querySelector('#sure-dialog-title');
+
+            document.querySelector('#confirmSure').addEventListener('click', ()=>{
+                this._confirmedCallback();
+                this._sureDialog.close();
+            });
         });
 
         this._showUpdateDialogIfNecessary()
@@ -192,6 +208,12 @@ class OverviewPage {
     private openErrorDialog(text: string) {
         this._errorText.innerText = text;
         this._errorDialog.open();
+    }
+
+    private openSureDialog(text: string, cb: ()=>{}) {
+        this._sureText.innerText = text;
+        this._confirmedCallback = cb;
+        this._sureDialog.open();
     }
 }
 

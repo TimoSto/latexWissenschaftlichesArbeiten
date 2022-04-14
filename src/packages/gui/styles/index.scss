@@ -4,6 +4,7 @@
 @use "@material/menu/mdc-menu";
 @use "@material/list/_index" as list;
 @use 'common';
+@use '@material/button/mdc-button';
 @use "@material/dialog/mdc-dialog";
 
 @include list.deprecated-core-styles;
