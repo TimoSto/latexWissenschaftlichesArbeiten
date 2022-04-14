@@ -67,6 +67,10 @@ class ProjectPage {
         document.querySelector('#cleanupCites').addEventListener('click', ()=>{
             fetch('/citeCleanup?project='+pname)
         })
+
+        document.querySelector('#editStyles').addEventListener('click', ()=>{
+            (<any>window.parent).setEdit('/editStyles?project=' + pname)
+        })
     }
 
     private setupDragAndDrop(project: string) {
