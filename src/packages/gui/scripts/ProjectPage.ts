@@ -30,11 +30,9 @@ class ProjectPage {
         document.querySelectorAll('[data-delete-type]').forEach(el => {
             const typeKey = el.getAttribute('data-delete-type');
             el.addEventListener('click', ()=>{
-                fetch('/deleteType?project='+pname+'&type='+typeKey).then(resp =>{
-                    if( resp.status === 200 ) {
-                        window.location.reload();
-                    }
-                })
+                (<any>window.parent).openConfirmDialog('Willst du den Literaturtypen ' + typeKey + ' wirklich löschen?', ()=>{
+                    this.DeleteType(pname, typeKey);
+                });
             });
         });
 
@@ -56,7 +54,7 @@ class ProjectPage {
             el.addEventListener('click', ()=>{
                 (<any>window.parent).openConfirmDialog('Willst du den Eintrag ' + entryKey + ' wirklich löschen?', ()=>{
                     this.DeleteEntry(pname, entryKey);
-                })
+                });
             });
         });
 
@@ -73,6 +71,14 @@ class ProjectPage {
 
     private DeleteEntry(project: string, entry: string) {
         fetch('/deleteEntry?project='+project+'&entry='+entry).then(resp =>{
+            if( resp.status === 200 ) {
+                window.location.reload();
+            }
+        })
+    }
+
+    private DeleteType(project: string, type: string) {
+        fetch('/deleteType?project='+project+'&type='+type).then(resp =>{
             if( resp.status === 200 ) {
                 window.location.reload();
             }
