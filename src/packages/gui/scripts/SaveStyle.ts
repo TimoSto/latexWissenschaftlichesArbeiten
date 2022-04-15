@@ -7,14 +7,15 @@ export default function SaveStyles(project: string, packages: Package[]) {
     }
 
     packages.forEach(p => {
+        console.log(p.Included, p.ActiveOption)
         obj.Packages.push({
             Name: p.Name,
-            Included: p.Included,
+            Included: p.Included === 'true',
             ActiveOption: p.ActiveOption
         });
     });
 
-    return window.fetch('/saveStyle', {
+    return window.fetch('/saveStyles', {
         method: 'POST',
         body: JSON.stringify(obj)
     }).then(response => {
