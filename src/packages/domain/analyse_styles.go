@@ -19,12 +19,36 @@ type Package struct {
 
 var relevantPackages = []Package{
 	{
-		Name: "styPackages/ueberschriften",
+		Name: "ueberschriften",
 		AvailableOptions: []string{"numeric", "latour"},
 	},
 	{
-		Name: "styPackages/inhaltsverzeichnis",
+		Name: "inhaltsverzeichnis",
 		AvailableOptions: []string{"numeric", "latour"},
+	},
+	{
+		Name: "abk_verzeichnis",
+		AvailableOptions: []string{},
+	},
+	{
+		Name: "fusszeilen",
+		AvailableOptions: []string{},
+	},
+	{
+		Name: "literatur",
+		AvailableOptions: []string{},
+	},
+	{
+		Name: "header_footer",
+		AvailableOptions: []string{},
+	},
+	{
+		Name: "codes",
+		AvailableOptions: []string{},
+	},
+	{
+		Name: "anhang",
+		AvailableOptions: []string{},
 	},
 }
 
@@ -44,20 +68,20 @@ func AnalyseStyles(project string) ([]StyleSetting, error){
 			Package: p,
 		}
 
-		regex := regexp.MustCompile(fmt.Sprintf(`(?m)^(\\usepackage).*({%s})$`, p.Name))
+		regex := regexp.MustCompile(fmt.Sprintf(`(?m)^(\\usepackage).*({styPackages/%s})$`, p.Name))
 		result := regex.FindAllString(string(file), -1)
 		//TODO: Wenn mehr als 1 => fehler
 
 		fmt.Println(result)
 		if len(result) > 0 {
 			styleSetting.Included = true
-		}
 
-		optionsRegex := regexp.MustCompile("\\[(.*?)\\]")
-		optionsResult := optionsRegex.FindString(result[0])
+			optionsRegex := regexp.MustCompile("\\[(.*?)\\]")
+			optionsResult := optionsRegex.FindString(result[0])
 
-		if len(optionsResult) > 0 {
-			styleSetting.Options = optionsResult[1:len(optionsResult) - 1]
+			if len(optionsResult) > 0 {
+				styleSetting.Options = optionsResult[1:len(optionsResult) - 1]
+			}
 		}
 
 		styleSettings = append(styleSettings, styleSetting)

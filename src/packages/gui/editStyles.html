@@ -4,33 +4,35 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="styles/editStyles.scss">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
     <span id="beta-label">beta</span>
-    {{ range $key, $value := .Styles }}
-
-        <div class="mdc-card style-card" data-option="{{ $value.Options }}">
-            <div class="mdc-typography--headline6 card-header"> {{ $value.Package.Name }}</div>
-            <div class="mdc-card__primary-action" tabindex="0">
-
-                {{ range $key1, $value1 := $value.Package.AvailableOptions }}
-                <!--TODO: Checkboxen besser -->
-                    <div class="mdc-form-field">
-                        <div class="mdc-radio">
-                            <input class="mdc-radio__native-control" type="radio" id="radio-1" name="{{ $value.Package.Name }}">
-                            <div class="mdc-radio__background">
-                                <div class="mdc-radio__outer-circle"></div>
-                                <div class="mdc-radio__inner-circle"></div>
-                            </div>
-                            <div class="mdc-radio__ripple"></div>
-                        </div>
-                        <label class="mdc-typography--body1 radio-label">{{ $value1 }}</label>
-                    </div>
+    <ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="typelist">
+        {{ range $key, $value := .Styles }}
+        <li class="mdc-deprecated-list-item style-li" tabindex="0" data-package-name="{{ $value.Package.Name }}" data-included="{{ $value.Included }}" data-active-option="{{ $value.Options }}">
+            <span class="mdc-deprecated-list-item__text">
+                <span class="mdc-deprecated-list-item__primary-text">{{ $value.Package.Name }}</span>
+                <span class="mdc-deprecated-list-item__secondary-text">{{ if $value.Options }}{{ $value.Options }}{{ else }}/{{ end }}</span>
+            </span>
+            <span class="mdc-deprecated-list-item__meta">
+                <button class="mdc-icon-button material-icons include-icon" title="Package '{{ $value.Package.Name }}' einbinden">
+                    <span class="mdc-icon-button__ripple"></span>
+                    check_circle
+                </button>
+                <button class="mdc-icon-button material-icons remove-icon" title="Package '{{ $value.Package.Name }}' nicht einbinden">
+                    <span class="mdc-icon-button__ripple"></span>
+                    unpublished
+                </button>
+                {{ if not (eq (len $value.Package.AvailableOptions) 0) }}
+                <button class="mdc-icon-button material-icons" title="Option auswählen">
+                    <span class="mdc-icon-button__ripple"></span>
+                    more_vert
+                </button>
                 {{ end }}
-
-            </div>
-            <!-- ... content ... -->
-        </div>
-    {{ end }}
+            </span>
+        </li>
+        {{ end }}
+    </ul>
 </body>
 </html>
