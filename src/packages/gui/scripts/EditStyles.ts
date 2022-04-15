@@ -33,6 +33,10 @@ class EditStyles {
 
         this._optionTF = new MDCTextField(document.querySelector('.mdc-text-field'));
 
+        (<any>window.parent).setEditSave(()=>{
+            this.Save();
+        });
+
         // this._includeButtons = Array.from(document.querySelectorAll('.include-icon'));
         // this._disableButtons = Array.from(document.querySelectorAll('.remove-icon'));
         // this._editButtons = Array.from(document.querySelectorAll('.remove-icon'));
@@ -78,16 +82,6 @@ class EditStyles {
             }
         });
 
-        document.querySelector('.mdc-button#save').addEventListener('click', ()=>{
-            SaveStyles(this._project, this._packages).then(valid => {
-                if( valid ) {
-                    window.location.reload();
-                } else {
-                    (<any>window.parent).openErrorDialog('Beim Versuch, die Styles zu speichern, ist ein Fehler aufgetreten.')
-                }
-            })
-        })
-
         document.querySelector('.mdc-button#refreshOption').addEventListener('click', ()=>{
             let option = this._optionTF.value;
             document.querySelectorAll('.style-li')[this._activeIndex].querySelector('.mdc-deprecated-list-item__secondary-text').innerHTML = option == '' ? '/' : option;
@@ -104,5 +98,15 @@ class EditStyles {
         this._optionTF.value = selected;
 
         this._optionDialog.open();
+    }
+
+    private Save() {
+        SaveStyles(this._project, this._packages).then(valid => {
+            if( valid ) {
+                window.location.reload();
+            } else {
+                (<any>window.parent).openErrorDialog('Beim Versuch, die Styles zu speichern, ist ein Fehler aufgetreten.')
+            }
+        })
     }
 }

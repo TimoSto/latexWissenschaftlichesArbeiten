@@ -24,6 +24,8 @@ class OverviewPage {
     private _sureText: HTMLElement;
     private _confirmedCallback: ()=>void;
 
+    private _saveCallback: ()=>void;
+
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
             this._version = document.body.getAttribute('data-version');
@@ -53,6 +55,14 @@ class OverviewPage {
             (<any>window).reloadMain = () => {
                 this._mainFrame.contentWindow.location.reload();
             }
+
+            (<any>window).setEditSave = (cb: ()=>void) => {
+                this._saveCallback = cb;
+            }
+
+            document.querySelector('#save_edit').addEventListener('click', ()=>{
+                this._saveCallback();
+            });
 
             document.querySelector('#close_edit').addEventListener('click', ()=>{
                 this._editArea.classList.remove('editArea--open');
