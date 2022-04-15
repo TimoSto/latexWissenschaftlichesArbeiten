@@ -34,20 +34,26 @@ func SaveStyles(project string, styles []StyleObj) error {
 	for _,style := range currentStyles {
 		for _,nstyle := range styles {
 			if style.Package.Name == nstyle.Name {
+				option := style.Options
+				if len(option) > 0 {
+					option = "[" + option +"]"
+				}
+
+				noption := nstyle.ActiveOption
+				if len(noption) > 0 {
+					noption = "[" + noption +"]"
+				}
 				if style.Included != nstyle.Included {
 					if nstyle.Included {
-						option := style.Options
-						if len(option) > 0 {
-							option = "[" + option +"]"
-						}
 
-						noption := nstyle.ActiveOption
-						if len(noption) > 0 {
-							noption = "[" + noption +"]"
-						}
 						fileStr = strings.Replace(fileStr,
 							fmt.Sprintf("%s\\usepackage%s{%s}", "%", option, style.Package.Name),
 							fmt.Sprintf("\\usepackage%s{%s}", noption, style.Package.Name),
+							-1)
+					} else {
+						fileStr = strings.Replace(fileStr,
+							fmt.Sprintf("\\usepackage%s{%s}", option, style.Package.Name),
+							fmt.Sprintf("%s\\usepackage%s{%s}","%", noption, style.Package.Name),
 							-1)
 					}
 				}
