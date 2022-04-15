@@ -59,7 +59,6 @@ func AnalyseStyles(project string) ([]StyleSetting, error){
 	//TODO: nach Projekt umbenamung => ?
 	file, err := ioutil.ReadFile("./projects/" + project + "/" + project + ".tex")
 	if err != nil {
-		fmt.Println(err)
 		return []StyleSetting{}, err
 	}
 	for _,p := range relevantPackages {
@@ -72,7 +71,6 @@ func AnalyseStyles(project string) ([]StyleSetting, error){
 		result := regex.FindAllString(string(file), -1)
 		//TODO: Wenn mehr als 1 => fehler
 
-		fmt.Println(result)
 		if len(result) > 0 {
 			styleSetting.Included = true
 
