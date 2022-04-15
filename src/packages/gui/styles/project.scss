@@ -47,6 +47,15 @@ body{
   }
 }
 
+.mdc-top-app-bar {
+  background-color: white;
+  color: black;
+}
+
+.mdc-top-app-bar .mdc-top-app-bar__action-item, .mdc-top-app-bar .mdc-top-app-bar__navigation-icon {
+  color: black;
+}
+
 .mdc-top-app-bar__title{
   font-weight: bold;
   & #title_label {
