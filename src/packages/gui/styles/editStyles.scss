@@ -31,14 +31,14 @@
 
   &[data-included="true"] {
 
-    & .include-icon{
+    & .turn-on{
       display: none;
     }
   }
 
   &[data-included="false"] {
 
-    & .remove-icon{
+    & .turn-off{
       display: none;
     }
   }

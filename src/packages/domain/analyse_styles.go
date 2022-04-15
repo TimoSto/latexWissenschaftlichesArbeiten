@@ -1,7 +1,6 @@
 package domain
 
 import (
-	"fmt"
 	"io/ioutil"
 	"strings"
 )
@@ -74,6 +73,10 @@ func AnalyseStyles(project string) ([]StyleSetting, error){
 
 				pkg := StyleSetting{}
 
+				if strings.Index(line, "%") == 0 {
+					pkg.Included = false
+				}
+
 				nameIndex0 := strings.Index(line, "{")
 				nameIndex1 := strings.Index(line, "}")
 				if nameIndex1 > 0 && nameIndex0 > 0 {
@@ -85,8 +88,6 @@ func AnalyseStyles(project string) ([]StyleSetting, error){
 				if optionIndex1 > 0 && optionIndex0 > 0 {
 					pkg.Options = line[optionIndex0+1:optionIndex1]
 				}
-
-				fmt.Println(pkg.Package.Name, pkg.Options)
 
 				styleSettings = append(styleSettings, pkg)
 			}

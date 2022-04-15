@@ -18,13 +18,25 @@
                 <span class="mdc-deprecated-list-item__secondary-text">{{ if $value.Options }}{{ $value.Options }}{{ else }}/{{ end }}</span>
             </span>
             <span class="mdc-deprecated-list-item__meta">
-                <button class="mdc-icon-button material-icons" title="Package '{{ $value.Package.Name }}' nicht einbinden">
-                    <span class="mdc-icon-button__ripple"></span>
-                    delete
-                </button>
                 <button class="mdc-icon-button material-icons" title="Option von '{{ $value.Package.Name }}' bearbeiten">
                     <span class="mdc-icon-button__ripple"></span>
                     edit
+                </button>
+                <button class="mdc-icon-button material-icons turn-on" title="Package '{{ $value.Package.Name }}' nicht verwenden">
+                    <span class="mdc-icon-button__ripple"></span>
+                    <span class="material-icons-outlined">
+                        do_disturb_off
+                    </span>
+                </button>
+                <button class="mdc-icon-button material-icons turn-off" title="Package '{{ $value.Package.Name }}' wieder verwenden">
+                    <span class="mdc-icon-button__ripple"></span>
+                    <span class="material-icons-outlined">
+                        do_disturb_on
+                    </span>
+                </button>
+                <button class="mdc-icon-button material-icons" title="Package '{{ $value.Package.Name }}' entfernen">
+                    <span class="mdc-icon-button__ripple"></span>
+                    delete
                 </button>
             </span>
         </li>
