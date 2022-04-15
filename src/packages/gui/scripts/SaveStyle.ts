@@ -15,13 +15,15 @@ export default function SaveStyles(project: string, packages: Package[]) {
         });
     });
 
-    return window.fetch('/saveStyles', {
-        method: 'POST',
-        body: JSON.stringify(obj)
-    }).then(response => {
+    console.log(obj, packages)
 
-        if( response.status === 200 ){
-            return true
-        }
-    });
+    // return window.fetch('/saveStyles', {
+    //     method: 'POST',
+    //     body: JSON.stringify(obj)
+    // }).then(response => {
+    //
+    //     if( response.status === 200 ){
+    //         return true
+    //     }
+    // });
 }

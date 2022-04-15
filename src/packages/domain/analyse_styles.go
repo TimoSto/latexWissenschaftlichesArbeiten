@@ -75,6 +75,8 @@ func AnalyseStyles(project string) ([]StyleSetting, error){
 
 				if strings.Index(line, "%") == 0 {
 					pkg.Included = false
+				} else {
+					pkg.Included = true
 				}
 
 				nameIndex0 := strings.Index(line, "{")

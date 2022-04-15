@@ -6,6 +6,7 @@
 @use "@material/select/styles";
 @use "@material/menu-surface/mdc-menu-surface";
 @use '@material/button/mdc-button';
+@use '@material/textfield/mdc-text-field';
 
 @include list.deprecated-core-styles;
 
@@ -44,9 +45,18 @@
   }
 }
 
+.mdc-dialog__container {
+  width: calc(100% - 32px);
+  max-width: 550px;
+}
+
 .mdc-dialog__surface{
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 200px;
+
+  & .mdc-text-field {
+    width: calc(100% - 16px)
+  }
 }
 
 .mdc-select:focus-visible{

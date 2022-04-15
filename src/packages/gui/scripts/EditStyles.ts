@@ -1,6 +1,7 @@
 import {MDCDialog} from "@material/dialog/component";
 import {MDCSelect} from "@material/select/component";
 import SaveStyles from "./SaveStyle";
+import {MDCTextField} from "@material/textfield/component";
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -20,25 +21,17 @@ class EditStyles {
     private _packages: Package[] = [];
 
     private _optionDialog: MDCDialog;
-    private _optionSelect: MDCSelect;
-    private _optionsList: HTMLElement;
-    private _optionTmpl: HTMLElement;
 
     private _activeIndex: number;
+
+    private _optionTF: MDCTextField;
 
     constructor() {
         this._project = new URLSearchParams(window.location.search).get('project')
 
         this._optionDialog = new MDCDialog(document.querySelector('.mdc-dialog'));
 
-        this._optionSelect = new MDCSelect(document.querySelector('.mdc-select'));
-        this._optionSelect.listen('MDCSelect:change', ()=>{
-            this._packages[this._activeIndex].ActiveOption = this._optionSelect.value;
-            document.querySelectorAll('.mdc-deprecated-list-item__secondary-text')[this._activeIndex].innerHTML = this._optionSelect.value;
-        });
-        this._optionTmpl = document.querySelector('.mdc-select li');
-        this._optionTmpl.remove();
-        this._optionsList = document.querySelector('.mdc-select ul');
+        this._optionTF = new MDCTextField(document.querySelector('.mdc-text-field'));
 
         // this._includeButtons = Array.from(document.querySelectorAll('.include-icon'));
         // this._disableButtons = Array.from(document.querySelectorAll('.remove-icon'));
@@ -52,15 +45,13 @@ class EditStyles {
             newPackage.Name = pname;
             newPackage.Included = el.getAttribute('data-included');
             newPackage.ActiveOption = el.getAttribute('data-active-option');
-            if( newPackage.ActiveOption.length == 0 ) {
-                newPackage.ActiveOption = undefined;
-            }
+            // if( newPackage.ActiveOption.length == 0 ) {
+            //     newPackage.ActiveOption = '/';
+            // }
 
             this._packages.push(newPackage);
 
             const index = i;
-            const element = el;
-            const activeOption = newPackage.ActiveOption;
 
             const editBtn = el.querySelector('.edit-icon');
             if( editBtn ) {
@@ -71,27 +62,29 @@ class EditStyles {
             }
         });
 
-        document.querySelector('.mdc-button').addEventListener('click', ()=>{
+        document.querySelector('.mdc-button#save').addEventListener('click', ()=>{
             SaveStyles(this._project, this._packages).then(valid => {
                 if( valid ) {
                     window.location.reload();
                 }
             })
         })
+
+        document.querySelector('.mdc-button#refreshOption').addEventListener('click', ()=>{
+            let option = this._optionTF.value;
+            document.querySelectorAll('.style-li')[this._activeIndex].querySelector('.mdc-deprecated-list-item__secondary-text').innerHTML = option == '' ? '/' : option;
+
+            this._packages[this._activeIndex].Options = option;
+
+            this._optionDialog.close();
+        });
     }
 
     private openOptionDialog(pckg: string, selected: string) {
         document.querySelector('#packagename').innerHTML = pckg;
-        this._optionsList.innerHTML = '';
-        // options.forEach(option => {
-        //     let li = <HTMLElement>this._optionTmpl.cloneNode(true);
-        //     li.querySelector('.mdc-deprecated-list-item__text').innerHTML = option;
-        //     li.setAttribute('data-value', option);
-        //     this._optionsList.appendChild(li);
-        // });
-        this._optionSelect.layoutOptions();
-        this._optionSelect.layout();
-        this._optionSelect.setValue(selected);
+    console.log(selected)
+        this._optionTF.value = selected;
+
         this._optionDialog.open();
     }
 }

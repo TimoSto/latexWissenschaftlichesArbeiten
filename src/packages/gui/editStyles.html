@@ -18,17 +18,17 @@
                 <span class="mdc-deprecated-list-item__secondary-text">{{ if $value.Options }}{{ $value.Options }}{{ else }}/{{ end }}</span>
             </span>
             <span class="mdc-deprecated-list-item__meta">
-                <button class="mdc-icon-button material-icons" title="Option von '{{ $value.Package.Name }}' bearbeiten">
+                <button class="mdc-icon-button material-icons edit-icon" title="Option von '{{ $value.Package.Name }}' bearbeiten">
                     <span class="mdc-icon-button__ripple"></span>
                     edit
                 </button>
-                <button class="mdc-icon-button material-icons turn-on" title="Package '{{ $value.Package.Name }}' nicht verwenden">
-                    <span class="mdc-icon-button__ripple"></span>
-                    do_disturb_off
-                </button>
-                <button class="mdc-icon-button material-icons turn-off" title="Package '{{ $value.Package.Name }}' wieder verwenden">
+                <button class="mdc-icon-button material-icons turn-off" title="Package '{{ $value.Package.Name }}' nicht verwenden">
                     <span class="mdc-icon-button__ripple"></span>
                     do_disturb_on
+                </button>
+                <button class="mdc-icon-button material-icons turn-on" title="Package '{{ $value.Package.Name }}' wieder verwenden">
+                    <span class="mdc-icon-button__ripple"></span>
+                    do_disturb_off
                 </button>
                 <button class="mdc-icon-button material-icons" title="Package '{{ $value.Package.Name }}' entfernen">
                     <span class="mdc-icon-button__ripple"></span>
@@ -38,61 +38,33 @@
         </li>
         {{ end }}
     </ul>
-    <button class="mdc-button mdc-button--raised">
+    <button class="mdc-button mdc-button--raised" id="save">
         <span class="mdc-button__label">Speichern</span>
     </button>
     <div class="mdc-dialog" id="sure-dialog">
         <div class="mdc-dialog__container">
             <div class="mdc-dialog__surface">
                 <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
-                <h2 class="mdc-dialog__title">
+                <h2 class="mdc-dialog__title" tabindex="0">
                     Option für <span id="packagename"></span> wählen
                 </h2>
                 <div class="mdc-dialog__content">
-                    <div class="mdc-select mdc-select--filled demo-width-class" tabindex="0">
-                        <div class="mdc-select__anchor"
-                             role="button"
-                             aria-haspopup="listbox"
-                             aria-expanded="false"
-                             aria-labelledby="demo-label demo-selected-text">
-                            <span class="mdc-select__ripple"></span>
-                            <span id="demo-label" class="mdc-floating-label">Wähle eine Option</span>
-                            <span class="mdc-select__selected-text-container">
-                              <span id="demo-selected-text" class="mdc-select__selected-text"></span>
-                            </span>
-                            <span class="mdc-select__dropdown-icon">
-                                <svg
-                                  class="mdc-select__dropdown-icon-graphic"
-                                  viewBox="7 10 10 5" focusable="false">
-                                    <polygon
-                                        class="mdc-select__dropdown-icon-inactive"
-                                        stroke="none"
-                                        fill-rule="evenodd"
-                                        points="7 10 12 15 17 10">
-                                    </polygon>
-                                    <polygon
-                                        class="mdc-select__dropdown-icon-active"
-                                        stroke="none"
-                                        fill-rule="evenodd"
-                                        points="7 15 12 10 17 15">
-                                    </polygon>
-                                </svg>
-                            </span>
-                            <span class="mdc-line-ripple"></span>
-                        </div>
-
-                        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-                            <ul class="mdc-deprecated-list" role="listbox" aria-label="Food picker listbox">
-                                <li class="mdc-deprecated-list-item" aria-selected="false" data-value="" role="option">
-                                    <span class="mdc-deprecated-list-item__ripple"></span>
-                                    <span class="mdc-deprecated-list-item__text">
-
-                                    </span>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="my-label-id">Hint text</span>
+                        <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                        <span class="mdc-line-ripple"></span>
+                    </label>
+                </div>
+                <div class="mdc-dialog__actions">
+                    <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Verwerfen</span>
+                    </button>
+                    <button type="button" class="mdc-button mdc-dialog__button" id="refreshOption">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Übernehmen</span>
+                    </button>
                 </div>
             </div>
         </div>
