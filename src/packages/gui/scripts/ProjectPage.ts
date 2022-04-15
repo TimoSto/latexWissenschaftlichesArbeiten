@@ -66,6 +66,12 @@ class ProjectPage {
 
         document.querySelector('#editStyles').addEventListener('click', ()=>{
             (<any>window.parent).setEdit('/editStyles?project=' + pname)
+        });
+
+        document.querySelector('#backup').addEventListener('click', ()=>{
+            fetch('/backup?project='+pname).then(resp => {
+                console.log(resp.status)
+            })
         })
     }
 
