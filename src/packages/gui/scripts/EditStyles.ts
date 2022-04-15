@@ -24,12 +24,18 @@ class EditStyles {
     private _optionsList: HTMLElement;
     private _optionTmpl: HTMLElement;
 
+    private _activeIndex: number;
+
     constructor() {
         this._project = new URLSearchParams(window.location.search).get('project')
 
         this._optionDialog = new MDCDialog(document.querySelector('.mdc-dialog'));
 
         this._optionSelect = new MDCSelect(document.querySelector('.mdc-select'));
+        this._optionSelect.listen('MDCSelect:change', ()=>{
+            this._packages[this._activeIndex].ActiveOption = this._optionSelect.value;
+            document.querySelectorAll('.mdc-deprecated-list-item__secondary-text')[this._activeIndex].innerHTML = this._optionSelect.value;
+        });
         this._optionTmpl = document.querySelector('.mdc-select li');
         this._optionTmpl.remove();
         this._optionsList = document.querySelector('.mdc-select ul');
@@ -72,8 +78,8 @@ class EditStyles {
             const editBtn = el.querySelector('.edit-icon');
             if( editBtn ) {
                 editBtn.addEventListener('click', ()=>{
-
-                    this.openOptionDialog(pname, avoptions, activeOption);
+                    this._activeIndex = index;
+                    this.openOptionDialog(pname, avoptions, this._packages[index].ActiveOption);
                 });
             }
         });
@@ -90,6 +96,7 @@ class EditStyles {
         });
         this._optionSelect.layoutOptions();
         this._optionSelect.layout();
+        this._optionSelect.setValue(selected);
         this._optionDialog.open();
     }
 }
