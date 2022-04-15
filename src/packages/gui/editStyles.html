@@ -5,12 +5,13 @@
     <title>Title</title>
     <link rel="stylesheet" href="styles/editStyles.scss">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="scripts/EditStyles.ts"></script>
 </head>
 <body>
     <span id="beta-label">beta</span>
     <ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="typelist">
         {{ range $key, $value := .Styles }}
-        <li class="mdc-deprecated-list-item style-li" tabindex="0" data-package-name="{{ $value.Package.Name }}" data-included="{{ $value.Included }}" data-active-option="{{ $value.Options }}">
+        <li class="mdc-deprecated-list-item style-li" tabindex="0" data-package-name="{{ $value.Package.Name }}" data-included="{{ $value.Included }}" data-active-option="{{ $value.Options }}" data-available-options="{{ $value.Package.AvailableOptions }}">
             <span class="mdc-deprecated-list-item__text">
                 <span class="mdc-deprecated-list-item__primary-text">{{ $value.Package.Name }}</span>
                 <span class="mdc-deprecated-list-item__secondary-text">{{ if $value.Options }}{{ $value.Options }}{{ else }}/{{ end }}</span>
@@ -25,7 +26,7 @@
                     unpublished
                 </button>
                 {{ if not (eq (len $value.Package.AvailableOptions) 0) }}
-                <button class="mdc-icon-button material-icons" title="Option auswählen">
+                <button class="mdc-icon-button material-icons edit-icon" title="Option auswählen" data-index="{{ $key }}">
                     <span class="mdc-icon-button__ripple"></span>
                     edit
                 </button>
