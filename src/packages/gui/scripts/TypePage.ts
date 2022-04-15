@@ -191,20 +191,24 @@ class TypePage {
 
         this.syncExample();
 
-        document.querySelector('.mdc-button--raised').addEventListener('click', ()=>{
-            SaveType(this._project, this._nameField.value, this._initialName, this.bibFields, this.citeFields). then(valid => {
-
-                if (valid) {
-                    (<any>window.parent).reloadMain();
-
-                    window.location.replace('/editType?type='+this._nameField.value+'&project='+this._project);
-                } else {
-                    (<any>window.parent).openErrorDialog('Beim Versuch, den Literaturtypen zu speichern, ist ein Fehler aufgetreten.')
-                }
-
-
-            })
+        (<any>window.parent).setEditSave(()=>{
+            this.Save()
         });
+    }
+
+    private Save() {
+        SaveType(this._project, this._nameField.value, this._initialName, this.bibFields, this.citeFields). then(valid => {
+
+            if (valid) {
+                (<any>window.parent).reloadMain();
+
+                window.location.replace('/editType?type='+this._nameField.value+'&project='+this._project);
+            } else {
+                (<any>window.parent).openErrorDialog('Beim Versuch, den Literaturtypen zu speichern, ist ein Fehler aufgetreten.')
+            }
+
+
+        })
     }
 
     syncExample() {
