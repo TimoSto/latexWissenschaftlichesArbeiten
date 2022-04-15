@@ -1,8 +1,9 @@
 @use "@material/list/_index" as list;
-@use 'common';
 @use '@material/textfield/mdc-text-field';
 @use '@material/button/mdc-button';
 @use '@material/icon-button/mdc-icon-button';
+@use '@material/top-app-bar/mdc-top-app-bar';
+@use 'common';
 
 @include list.deprecated-core-styles;
 
@@ -43,5 +44,18 @@ body{
 
   #drop_zone {
     height: 110px;
+  }
+}
+
+.mdc-top-app-bar__title{
+  font-weight: bold;
+  & #title_label {
+    font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #title_label {
+    display: none;
   }
 }

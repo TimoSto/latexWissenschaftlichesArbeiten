@@ -7,14 +7,20 @@
     <script type="module" src="scripts/ProjectPage.ts"></script>
 </head>
 <body>
-    <div class="headline left-right">
-        <span class="mdc-typography--headline4">{{ .ProjectName }}</span>
-        <span class="action">
-            <button class="mdc-button mdc-button--raised" id="editStyles">
-                <span class="mdc-button__label">Styles konfigurieren</span>
-            </button>
-        </span>
-    </div>
+    <header class="mdc-top-app-bar mdc-top-app-bar--dense plain-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+
+                <span class="mdc-top-app-bar__title"> <span id="title_label">Projektansicht: </span>{{ .ProjectName }}</span>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="editStyles">
+                    <span class="mdc-icon-button__ripple"></span>
+                    edit_note
+                </button>
+            </section>
+        </div>
+    </header>
 
     <div id="drop_zone">
         <span class="mdc-typography--body1">Ziehe eine aus Citavi exportierte Bib-Datei hier hinein</span>
