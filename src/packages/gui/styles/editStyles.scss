@@ -5,6 +5,7 @@
 @use "@material/menu/mdc-menu";
 @use "@material/select/styles";
 @use "@material/menu-surface/mdc-menu-surface";
+@use '@material/button/mdc-button';
 
 @include list.deprecated-core-styles;
 

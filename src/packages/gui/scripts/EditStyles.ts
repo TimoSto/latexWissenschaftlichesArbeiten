@@ -1,12 +1,13 @@
 import {MDCDialog} from "@material/dialog/component";
 import {MDCSelect} from "@material/select/component";
+import SaveStyles from "./SaveStyle";
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
     new EditStyles();
 });
 
-class Package {
+export class Package {
     Name: string
     Options: string;
     Included: string;
@@ -83,6 +84,14 @@ class EditStyles {
                 });
             }
         });
+
+        document.querySelector('.mdc-button').addEventListener('click', ()=>{
+            SaveStyles(this._project, this._packages).then(valid => {
+                if( valid ) {
+                    window.location.reload();
+                }
+            })
+        })
     }
 
     private openOptionDialog(pckg: string, options: string[], selected: string) {
