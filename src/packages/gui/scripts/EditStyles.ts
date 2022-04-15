@@ -1,7 +1,7 @@
 import {MDCDialog} from "@material/dialog/component";
-import {MDCSelect} from "@material/select/component";
 import SaveStyles from "./SaveStyle";
 import {MDCTextField} from "@material/textfield/component";
+import {CloseReason, MDCBanner} from "@material/banner";
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -90,6 +90,24 @@ class EditStyles {
 
             this._optionDialog.close();
         });
+
+        setTimeout(()=>{
+            if( !document.cookie.match(/^(.*;)?\s*DontShowWALaTeXBanner\s*=\s*[^;]+(.*)?$/) ){
+                console.log('oban')
+                let banner = new MDCBanner(document.querySelector('.mdc-banner'));
+                banner.open();
+                document.querySelector('.mdc-banner .mdc-button').addEventListener('click', ()=>{
+                    banner.close(CloseReason.PRIMARY);
+                    document.body.classList.remove('hide-beta-label');
+                    let date = new Date();
+                    date.setTime(date.getTime() + (365*24*60*60*1000));
+                    let expires = "; expires=" + date.toUTCString();
+                    document.cookie = "DontShowWALaTeXBanner" + "=" + ("true" || "")  + expires + "; path=/";
+                })
+            } else {
+                document.body.classList.remove('hide-beta-label');
+            }
+        }, 200);
     }
 
     private openOptionDialog(pckg: string, selected: string) {

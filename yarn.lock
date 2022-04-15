@@ -30,6 +30,24 @@
   dependencies:
     tslib "^2.1.0"
 
+"@material/banner@^13.0.0":
+  version "13.0.0"
+  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/banner/-/banner-13.0.0.tgz#853e01977433ca7f0d991d198bc91e1b54adedac"
+  integrity sha512-59M85ezhwRaa+BqguYCCaRS57fV5KQe3Ff2cU6LcQNw0UPMFW1ap0dZ+iZBv/sj+7/QcqBBShL9uu8dWKtI4Gg==
+  dependencies:
+    "@material/base" "^13.0.0"
+    "@material/button" "^13.0.0"
+    "@material/dom" "^13.0.0"
+    "@material/elevation" "^13.0.0"
+    "@material/feature-targeting" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/rtl" "^13.0.0"
+    "@material/shape" "^13.0.0"
+    "@material/theme" "^13.0.0"
+    "@material/tokens" "^13.0.0"
+    "@material/typography" "^13.0.0"
+    tslib "^2.1.0"
+
 "@material/base@^13.0.0":
   version "13.0.0"
   resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/base/-/base-13.0.0.tgz#18f7f5ac112bf67e66c1ade6ab543ea9df9d3836"

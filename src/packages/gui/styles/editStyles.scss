@@ -7,8 +7,23 @@
 @use "@material/menu-surface/mdc-menu-surface";
 @use '@material/button/mdc-button';
 @use '@material/textfield/mdc-text-field';
+@use "@material/banner/styles" as banner;
 
 @include list.deprecated-core-styles;
+
+body{
+  margin: 0;
+
+  &.hide-beta-label {
+    & #beta-label {
+      display: none;
+    }
+  }
+}
+
+#content{
+  margin: 8px;
+}
 
 #beta-label{
   position: fixed;
@@ -61,4 +76,16 @@
 
 .mdc-select:focus-visible{
   outline: none;
+}
+
+.mdc-banner .mdc-button:not(:disabled){
+  color: var(--mdc-theme-primary);
+}
+
+.mdc-banner .mdc-button .mdc-button__ripple:before, .mdc-banner .mdc-button .mdc-button__ripple:after {
+  background-color: var(--mdc-theme-primary);;
+}
+
+.mdc-banner {
+  background-color: rgba(25,118,210,0.12);
 }
