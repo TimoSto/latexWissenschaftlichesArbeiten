@@ -2,6 +2,7 @@ package conf
 
 import (
 	_ "embed"
+	"fmt"
 	"gopkg.in/ini.v1"
 )
 
@@ -15,4 +16,15 @@ func ReadConfig() {
 	if err == nil {
 		AutoOpenBrowser, err = cfg.Section("").Key("autoOpenBrowser").Bool()
 	}
+}
+
+func WriteConfig(autoBrowserOpen string) error{
+	cfg, err := ini.Load("Config.ini")
+	if err != nil {
+		return err
+	}
+	fmt.Println(autoBrowserOpen)
+	cfg.Section("").Key("autoOpenBrowser").SetValue(autoBrowserOpen)
+	return cfg.SaveTo("Config.ini")
+
 }

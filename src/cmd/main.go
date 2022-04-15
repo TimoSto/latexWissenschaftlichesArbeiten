@@ -6,6 +6,7 @@ package main
 import (
 	"WA_LaTeX/src/packages/conf"
 	"WA_LaTeX/src/packages/handlers"
+	"bufio"
 	"fmt"
 	"log"
 	"net/http"
@@ -13,6 +14,7 @@ import (
 	"os/exec"
 	"os/signal"
 	"runtime"
+	"strings"
 	"syscall"
 )
 
@@ -20,18 +22,35 @@ import (
 
 func main() {
 
-	//entry, err := domain.CitaviToJSON(test)
-	//if err != nil {
-	//	fmt.Println(err)
-	//	return
-	//}
-	//
-	//err = domain.SaveEntry(entry, "neuesTestProjekt", "")
-	//if err != nil {
-	//	fmt.Println(err)
-	//	return
-	//}
 	conf.ReadConfig()
+
+	argsWithoutProg := os.Args[1:]
+
+	if len(argsWithoutProg) > 0 && argsWithoutProg[0] == "configure" {
+		fmt.Println("Konfigurationsassistent für WA_LaTeX")
+		fmt.Print("Soll beim Starten der Anwendung automatisch ein Browser geöffnet werden? [Y/N]")
+		reader := bufio.NewReader(os.Stdin)
+		// ReadString will block until the delimiter is entered
+		input, err := reader.ReadString('\n')
+		if err != nil {
+			fmt.Println("An error occured while reading input. Please try again", err)
+			return
+		}
+
+		// remove the delimeter from the string
+		input = strings.TrimSuffix(input, "\r\n")
+		fmt.Println(input)
+		fmt.Println(len(input))
+		autoOpen := "false"
+		if strings.ToLower(input) == "y" {
+			autoOpen = "true"
+		}
+		err = conf.WriteConfig(autoOpen)
+		if err != nil {
+			fmt.Println("Es ist ein Fehler aufgetreten: " + err.Error())
+		}
+		return
+	}
 
 	fmt.Println("Starting Application...")
 
