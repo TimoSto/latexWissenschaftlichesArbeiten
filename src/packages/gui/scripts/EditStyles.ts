@@ -11,7 +11,6 @@ export class Package {
     Name: string
     Options: string;
     Included: string;
-    AvailableOptions: string[];
     ActiveOption: string;
 }
 
@@ -56,31 +55,18 @@ class EditStyles {
             if( newPackage.ActiveOption.length == 0 ) {
                 newPackage.ActiveOption = undefined;
             }
-            let avopt = el.getAttribute('data-available-options');
-            const avoptions = avopt.substr(1, avopt.length-2).split(' ');
-            if( avoptions.length > 0 && avoptions[0].length > 0 ) {
-                newPackage.AvailableOptions = avoptions;
-            }
+
             this._packages.push(newPackage);
 
             const index = i;
             const element = el;
             const activeOption = newPackage.ActiveOption;
 
-            el.querySelector('.include-icon').addEventListener('click', ()=>{
-                this._packages[index].Included = 'true';
-                element.setAttribute('data-included', 'true');
-            });
-            el.querySelector('.remove-icon').addEventListener('click', ()=>{
-                this._packages[index].Included = 'false';
-                element.setAttribute('data-included', 'false');
-            });
-
             const editBtn = el.querySelector('.edit-icon');
             if( editBtn ) {
                 editBtn.addEventListener('click', ()=>{
                     this._activeIndex = index;
-                    this.openOptionDialog(pname, avoptions, this._packages[index].ActiveOption);
+                    this.openOptionDialog(pname, this._packages[index].ActiveOption);
                 });
             }
         });
@@ -94,15 +80,15 @@ class EditStyles {
         })
     }
 
-    private openOptionDialog(pckg: string, options: string[], selected: string) {
+    private openOptionDialog(pckg: string, selected: string) {
         document.querySelector('#packagename').innerHTML = pckg;
         this._optionsList.innerHTML = '';
-        options.forEach(option => {
-            let li = <HTMLElement>this._optionTmpl.cloneNode(true);
-            li.querySelector('.mdc-deprecated-list-item__text').innerHTML = option;
-            li.setAttribute('data-value', option);
-            this._optionsList.appendChild(li);
-        });
+        // options.forEach(option => {
+        //     let li = <HTMLElement>this._optionTmpl.cloneNode(true);
+        //     li.querySelector('.mdc-deprecated-list-item__text').innerHTML = option;
+        //     li.setAttribute('data-value', option);
+        //     this._optionsList.appendChild(li);
+        // });
         this._optionSelect.layoutOptions();
         this._optionSelect.layout();
         this._optionSelect.setValue(selected);

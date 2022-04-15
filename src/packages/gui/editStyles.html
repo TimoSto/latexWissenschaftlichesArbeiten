@@ -12,27 +12,20 @@
     <p class="mdc-typography--body1">Hier kannst du die Tex-Style-Packages für dieses Projekt einbinden und ggf. die Option auswählen oder es ignorieren. Das kannst du aber auch direkt in der TeX-Datei machen.</p>
     <ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="typelist">
         {{ range $key, $value := .Styles }}
-        <li class="mdc-deprecated-list-item style-li" tabindex="0" data-package-name="{{ $value.Package.Name }}" data-included="{{ $value.Included }}" data-active-option="{{ $value.Options }}" data-available-options="{{ $value.Package.AvailableOptions }}">
+        <li class="mdc-deprecated-list-item style-li" tabindex="0" data-package-name="{{ $value.Package.Name }}" data-included="{{ $value.Included }}" data-active-option="{{ $value.Options }}">
             <span class="mdc-deprecated-list-item__text">
                 <span class="mdc-deprecated-list-item__primary-text">{{ $value.Package.Name }}</span>
                 <span class="mdc-deprecated-list-item__secondary-text">{{ if $value.Options }}{{ $value.Options }}{{ else }}/{{ end }}</span>
             </span>
             <span class="mdc-deprecated-list-item__meta">
-                <button class="mdc-icon-button material-icons include-icon" title="Package '{{ $value.Package.Name }}' einbinden">
+                <button class="mdc-icon-button material-icons" title="Package '{{ $value.Package.Name }}' nicht einbinden">
                     <span class="mdc-icon-button__ripple"></span>
-                    unpublished
+                    delete
                 </button>
-                <button class="mdc-icon-button material-icons remove-icon" title="Package '{{ $value.Package.Name }}' nicht einbinden">
-                    <span class="mdc-icon-button__ripple"></span>
-                    check_circle
-                </button>
-                {{ if not (eq (len $value.Package.AvailableOptions) 0) }}
-                <button class="mdc-icon-button material-icons edit-icon" title="Option auswählen" data-index="{{ $key }}">
+                <button class="mdc-icon-button material-icons" title="Option von '{{ $value.Package.Name }}' bearbeiten">
                     <span class="mdc-icon-button__ripple"></span>
                     edit
                 </button>
-
-                {{ end }}
             </span>
         </li>
         {{ end }}
