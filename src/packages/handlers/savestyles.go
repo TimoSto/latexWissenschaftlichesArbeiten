@@ -21,8 +21,10 @@ func HandleSaveStyles(w http.ResponseWriter, r *http.Request) {
 
 	err = domain.SaveStyles(saveObj.Project, saveObj.Packages)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Während des speicherns der Style-Änderungen ist ein Fehler aufgetreten: " + err.Error())
 		http.Error(w, err.Error(), 500)
 		return
+	} else {
+		fmt.Println("Styles für Projekt '" + saveObj.Project +"' erfolgreich gespeichert.")
 	}
 }

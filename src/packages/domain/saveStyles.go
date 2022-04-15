@@ -71,12 +71,8 @@ func SaveStyles(project string, styles []StyleObj) error {
 		}
 	}
 
-	fmt.Println(currentStyles[0], styles[0])
 
-	fmt.Println(fileStr)
-
-
-	return nil
+	return ioutil.WriteFile("./projects/" + project + "/"+project+".tex", []byte(fileStr), 0644)
 
 	//file, err := ioutil.ReadFile("./projects/" + project + "/" + project + ".tex")
 	//if err != nil {
