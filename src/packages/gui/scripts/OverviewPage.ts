@@ -26,6 +26,8 @@ class OverviewPage {
 
     private _saveCallback: ()=>void;
 
+    private _alertDialog: MDCDialog;
+
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
             this._version = document.body.getAttribute('data-version');
@@ -58,6 +60,13 @@ class OverviewPage {
 
             (<any>window).setEditSave = (cb: ()=>void) => {
                 this._saveCallback = cb;
+            }
+
+            let alertText = document.querySelector('#alert-dialog-title');
+
+            (<any>window).openAlertDialog = (text) => {
+                alertText.innerHTML = text;
+                this._alertDialog.open();
             }
 
             document.querySelector('#save_edit').addEventListener('click', ()=>{
@@ -134,6 +143,8 @@ class OverviewPage {
                 this._confirmedCallback();
                 this._sureDialog.close();
             });
+
+            this._alertDialog = new MDCDialog(document.querySelector('#alert-dialog'));
         });
 
         this._showUpdateDialogIfNecessary()
