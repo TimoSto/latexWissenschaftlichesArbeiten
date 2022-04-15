@@ -60,6 +60,22 @@ class EditStyles {
                     this.openOptionDialog(pname, this._packages[index].ActiveOption);
                 });
             }
+
+            const enableBtn = el.querySelector('.turn-on');
+            if( enableBtn ) {
+                enableBtn.addEventListener('click', ()=>{
+                    this._packages[index].Included = 'true';
+                    lis[index].setAttribute('data-included', 'true');
+                });
+            }
+
+            const disableBtn = el.querySelector('.turn-off');
+            if( disableBtn ) {
+                disableBtn.addEventListener('click', ()=>{
+                    this._packages[index].Included = 'false';
+                    lis[index].setAttribute('data-included', 'false');
+                });
+            }
         });
 
         document.querySelector('.mdc-button#save').addEventListener('click', ()=>{
