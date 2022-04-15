@@ -90,7 +90,7 @@ class EditStyles {
             let option = this._optionTF.value;
             document.querySelectorAll('.style-li')[this._activeIndex].querySelector('.mdc-deprecated-list-item__secondary-text').innerHTML = option == '' ? '/' : option;
 
-            this._packages[this._activeIndex].Options = option;
+            this._packages[this._activeIndex].ActiveOption = option;
 
             this._optionDialog.close();
         });

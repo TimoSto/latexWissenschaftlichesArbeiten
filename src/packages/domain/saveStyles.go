@@ -56,6 +56,16 @@ func SaveStyles(project string, styles []StyleObj) error {
 							fmt.Sprintf("%s\\usepackage%s{%s}","%", noption, style.Package.Name),
 							-1)
 					}
+				} else if style.Included {
+					fileStr = strings.Replace(fileStr,
+						fmt.Sprintf("\\usepackage%s{%s}", option, style.Package.Name),
+						fmt.Sprintf("\\usepackage%s{%s}", noption, style.Package.Name),
+						-1)
+				} else {
+					fileStr = strings.Replace(fileStr,
+						fmt.Sprintf("%s\\usepackage%s{%s}", "%", option, style.Package.Name),
+						fmt.Sprintf("%s\\usepackage%s{%s}", "%", noption, style.Package.Name),
+						-1)
 				}
 			}
 		}
