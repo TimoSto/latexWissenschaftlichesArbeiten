@@ -259,7 +259,7 @@
     "@material/theme" "^13.0.0"
     tslib "^2.1.0"
 
-"@material/select@13.0.0":
+"@material/select@^13.0.0":
   version "13.0.0"
   resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/select/-/select-13.0.0.tgz#0bd1933c983ec86440bd5a5540e25aeba3918868"
   integrity sha512-wVprsSMicU/l+LAqXdOU+qdzzdHupLXpWWQo2Rsk8G6AxL1Zna+/+ETnRlDdr2wHHK/KNDXSBdmuCcoEIRshcA==

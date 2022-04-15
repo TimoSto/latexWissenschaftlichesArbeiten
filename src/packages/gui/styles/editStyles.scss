@@ -1,6 +1,10 @@
 @use 'common';
 @use "@material/list/_index" as list;
 @use '@material/icon-button/mdc-icon-button';
+@use "@material/dialog/mdc-dialog";
+@use "@material/menu/mdc-menu";
+@use "@material/select/styles";
+@use "@material/menu-surface/mdc-menu-surface";
 
 @include list.deprecated-core-styles;
 
@@ -37,4 +41,13 @@
       display: none;
     }
   }
+}
+
+.mdc-dialog__surface{
+  width: 300px;
+  height: 300px;
+}
+
+.mdc-select:focus-visible{
+  outline: none;
 }
