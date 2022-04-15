@@ -49,8 +49,8 @@ class EntryPage {
 
         this._commentField = new MDCTextField(document.querySelector('#commentArea'));
 
-        document.querySelector('#saveEntry').addEventListener( 'click', ()=>{
-            this.Save()
+        (<any>window.parent).setEditSave(()=>{
+            this.Save();
         });
 
         this._prevValuesElement = document.querySelector('#values');
