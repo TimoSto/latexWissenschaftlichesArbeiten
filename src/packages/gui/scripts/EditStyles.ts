@@ -17,18 +17,16 @@ class EditStyles {
     private _project: string;
     private _packages: Package[] = [];
 
-    private _includeButtons: HTMLElement[];
-    private _disableButtons: HTMLElement[];
-    private _editButtons: HTMLElement[];
-
     constructor() {
         this._project = new URLSearchParams(window.location.search).get('project')
 
-        this._includeButtons = Array.from(document.querySelectorAll('.include-icon'));
-        this._disableButtons = Array.from(document.querySelectorAll('.remove-icon'));
-        this._editButtons = Array.from(document.querySelectorAll('.remove-icon'));
+        // this._includeButtons = Array.from(document.querySelectorAll('.include-icon'));
+        // this._disableButtons = Array.from(document.querySelectorAll('.remove-icon'));
+        // this._editButtons = Array.from(document.querySelectorAll('.remove-icon'));
 
-        document.querySelectorAll('.style-li').forEach(el => {
+        let lis = document.querySelectorAll('.style-li');
+
+        lis.forEach((el, i) => {
             let newPackage = new Package();
             newPackage.Name = el.getAttribute('data-package-name');
             newPackage.Included = el.getAttribute('data-included');
@@ -42,7 +40,21 @@ class EditStyles {
                 newPackage.AvailableOptions = avoptions;
             }
             this._packages.push(newPackage);
+
+            const index = i;
+            const element = el;
+
+            el.querySelector('.include-icon').addEventListener('click', ()=>{
+                this._packages[index].Included = 'true';
+                element.setAttribute('data-included', 'true');
+            });
+            el.querySelector('.remove-icon').addEventListener('click', ()=>{
+                this._packages[index].Included = 'false';
+                element.setAttribute('data-included', 'false');
+            });
         });
+
+
 
         console.log(this._packages);
     }
