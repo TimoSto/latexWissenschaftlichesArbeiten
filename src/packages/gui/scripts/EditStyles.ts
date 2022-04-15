@@ -82,6 +82,8 @@ class EditStyles {
             SaveStyles(this._project, this._packages).then(valid => {
                 if( valid ) {
                     window.location.reload();
+                } else {
+                    (<any>window.parent).openErrorDialog('Beim Versuch, die Styles zu speichern, ist ein Fehler aufgetreten.')
                 }
             })
         })
