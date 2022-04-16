@@ -19,6 +19,7 @@ class TypePage {
 
     private _nameField: MDCTextField;
     private _initialName: string;
+    private _initialExamples: string[];
 
     private _project: string;
 
@@ -194,6 +195,11 @@ class TypePage {
         (<any>window.parent).setEditSave(()=>{
             this.Save()
         });
+
+        this._initialExamples = [
+            document.getElementById('bibExample').innerHTML,
+            document.getElementById('citeExample').innerHTML
+        ];
     }
 
     private Save() {
@@ -272,6 +278,12 @@ class TypePage {
         } );
 
         document.getElementById('citeExample').innerHTML = citeExample + '.';
+
+        if( this._initialExamples ) {
+            let citeNecessary = (document.getElementById('bibExample').innerHTML != this._initialExamples[0] || document.getElementById('citeExample').innerHTML !== this._initialExamples[1]);
+
+            (<any>window.parent).editSavePossible(citeNecessary);
+        }
     }
 }
 

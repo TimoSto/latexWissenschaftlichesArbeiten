@@ -69,7 +69,13 @@ class OverviewPage {
                 this._alertDialog.open();
             }
 
-            document.querySelector('#save_edit').addEventListener('click', ()=>{
+            let saveEditBtn = <HTMLButtonElement>document.querySelector('#save_edit');
+
+            (<any>window).editSavePossible = (possible) => {
+                saveEditBtn.disabled = !possible;
+            }
+
+            saveEditBtn.addEventListener('click', ()=>{
                 this._saveCallback();
             });
 
