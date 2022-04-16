@@ -81,13 +81,16 @@ class ProjectPage {
 
         document.querySelector('#use-as-default').addEventListener('click', ()=>{
             //erstelle CustomDefaultStyles und nutze von nun an diese für neue Projekte
-            fetch('/setDefault?project='+pname).then(resp => {
-                if(resp.status === 200) {
-                    (<any>window.parent).openAlertDialog('Jedes neue Projekt hat ab jetzt die aktuell hier verfügbaren Literaturtypen.')
-                } else {
-                    (<any>window.parent).openErrorDialog('Es ist was schief gelaufen.')
-                }
+            (<any>window.parent).openConfirmDialog("Die Styles und Literaturtypen dieses Projektes fü alle neuen Projekte verwenden? Das beinhaltet auch sämtliche Änderungen an den .sty-Dateien.", ()=>{
+                fetch('/setDefault?project='+pname).then(resp => {
+                    if(resp.status === 200) {
+                        (<any>window.parent).openAlertDialog('Jedes neue Projekt hat ab jetzt die aktuell hier verfügbaren Literaturtypen.')
+                    } else {
+                        (<any>window.parent).openErrorDialog('Es ist was schief gelaufen.')
+                    }
+                })
             })
+
         })
     }
 
