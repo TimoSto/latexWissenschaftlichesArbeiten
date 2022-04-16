@@ -52,6 +52,7 @@ class TypePage {
                 //console.log(attrTextField.value == "", index === this.bibFields.length - 1)
                 if(index === this.bibFields.length - 1 && attrTextField.value == "") {
                     this.bibFields.pop();
+                    this.syncExample();
                     return
                 }
                 if( this.bibFields[index].Field != attrTextField.value) {
@@ -118,8 +119,8 @@ class TypePage {
                 }
                 //console.log(attrTextField.value == "", index === this.citeFields.length -1, attrTextField.value)
                 if(index === this.citeFields.length -1 && attrTextField.value == "") {
-
                     this.citeFields.pop();
+                    this.syncExample();
                     return
                 }
                 if( this.citeFields[index].Field != attrTextField.value) {
