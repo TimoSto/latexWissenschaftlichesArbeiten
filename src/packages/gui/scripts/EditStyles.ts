@@ -26,6 +26,8 @@ class EditStyles {
 
     private _optionTF: MDCTextField;
 
+    private _initialPackages: string;
+
     constructor() {
         this._project = new URLSearchParams(window.location.search).get('project')
 
@@ -70,6 +72,7 @@ class EditStyles {
                 enableBtn.addEventListener('click', ()=>{
                     this._packages[index].Included = 'true';
                     lis[index].setAttribute('data-included', 'true');
+                    this.syncSaveNecessary();
                 });
             }
 
@@ -78,9 +81,12 @@ class EditStyles {
                 disableBtn.addEventListener('click', ()=>{
                     this._packages[index].Included = 'false';
                     lis[index].setAttribute('data-included', 'false');
+                    this.syncSaveNecessary();
                 });
             }
         });
+
+        this._initialPackages = JSON.stringify(this._packages);
 
         document.querySelector('.mdc-button#refreshOption').addEventListener('click', ()=>{
             let option = this._optionTF.value;
@@ -89,6 +95,8 @@ class EditStyles {
             this._packages[this._activeIndex].ActiveOption = option;
 
             this._optionDialog.close();
+
+            this.syncSaveNecessary();
         });
 
         setTimeout(()=>{
@@ -108,6 +116,8 @@ class EditStyles {
                 document.body.classList.remove('hide-beta-label');
             }
         }, 200);
+
+        this.syncSaveNecessary();
     }
 
     private openOptionDialog(pckg: string, selected: string) {
@@ -126,5 +136,11 @@ class EditStyles {
                 (<any>window.parent).openErrorDialog('Beim Versuch, die Styles zu speichern, ist ein Fehler aufgetreten.')
             }
         })
+    }
+
+    private syncSaveNecessary() {
+        let saveNecessary = (JSON.stringify(this._packages) != this._initialPackages);
+
+        (<any>window.parent).editSavePossible(saveNecessary);
     }
 }

@@ -216,7 +216,7 @@ class EntryPage {
     }
 
     private syncSave() {
-        
+
         if( this._initialExamples ) {
             let saveNecessary = (this._initialExamples[0] != document.getElementById('bibExample').innerHTML || this._initialExamples[1] != document.getElementById('citeExample').innerHTML || this._commentField.value != this._inititalDescribtion);
 
