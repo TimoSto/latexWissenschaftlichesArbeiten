@@ -59,58 +59,58 @@
 \usepackage{placeins}
 \begin{document}
 
-    \renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}%Titel für oben links
-    \renewcommand{\myauthor}{Timo Stovermann}%Name für unten links
-    \renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
+\renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}%Titel für oben links
+\renewcommand{\myauthor}{Timo Stovermann}%Name für unten links
+\renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
 
 %\includepdf[pages={1-}]{titelseite.pdf}
 
-    \frontmatter%Stil des Headers/Footers ändern
+\frontmatter%Stil des Headers/Footers ändern
 
-    \pagenumbering{Roman}
+\pagenumbering{Roman}
 
-    \addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
-    \printabbreviations%abk_verzeichnis.sty
-    \clearpage
-    \renewcommand{\plaintitle}{Abbildungsverzeichnis}
-    \addcontentsline{toc}{part}{Abbildungsverzeichnis}
-    {\def\makebox[#1][#2]#3{#3}%
-        \listoffigures
-    }
-    \clearpage
-    \renewcommand{\plaintitle}{Tabellenverzeichnis}
-    \addcontentsline{toc}{part}{Tabellenverzeichnis}
-    {\def\makebox[#1][#2]#3{#3}%
-        \listoftables
-    }
-    \clearpage
-    \renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
+\addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
+\printabbreviations%abk_verzeichnis.sty
+\clearpage
+\renewcommand{\plaintitle}{Abbildungsverzeichnis}
+\addcontentsline{toc}{part}{Abbildungsverzeichnis}
+{\def\makebox[#1][#2]#3{#3}%
+    \listoffigures
+}
+\clearpage
+\renewcommand{\plaintitle}{Tabellenverzeichnis}
+\addcontentsline{toc}{part}{Tabellenverzeichnis}
+{\def\makebox[#1][#2]#3{#3}%
+    \listoftables
+}
+\clearpage
+\renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
 %Defbox, damit gepunktete Linie bis zur Zahl geht
-    {\def\makebox[#1][#2]#3{#3}%
-        \tableofcontents
-    }
+{\def\makebox[#1][#2]#3{#3}%
+    \tableofcontents
+}
 
-    \addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
+\addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
 
-    \clearpage
-    \mainmatter%Stil des Headers/Footers ändern
-    \pagenumbering{arabic}
+\clearpage
+\mainmatter%Stil des Headers/Footers ändern
+\pagenumbering{arabic}
 
 
 
-    \clearpage
-    \frontmatter%Stil des Headers/Footers ändern
-    \renewcommand{\plaintitle}{Literaturverzeichnis}
-    \pagenumbering{Roman}
-    \setcounter{page}{5}
-    \addtocontents{toc}{\vspace{24pt}}
-    \addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
-    \printMyBibliography
-    \clearpage
-    \renewcommand{\plaintitle}{Anhang}
-    \addcontentsline{toc}{part}{Anhang}
-    {\def\makebox[#1][#2]#3{#3}%
-        \listofanhang
-    }
+\clearpage
+\frontmatter%Stil des Headers/Footers ändern
+\renewcommand{\plaintitle}{Literaturverzeichnis}
+\pagenumbering{Roman}
+\setcounter{page}{5}
+\addtocontents{toc}{\vspace{24pt}}
+\addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
+\printMyBibliography
+\clearpage
+\renewcommand{\plaintitle}{Anhang}
+\addcontentsline{toc}{part}{Anhang}
+{\def\makebox[#1][#2]#3{#3}%
+    \listofanhang
+}
 
 \end{document}
