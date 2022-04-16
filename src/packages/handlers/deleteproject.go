@@ -2,9 +2,11 @@ package handlers
 
 import (
 	"fmt"
+	cp "github.com/otiai10/copy"
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
 func HandleDeleteProject(w http.ResponseWriter,r *http.Request) {
@@ -18,7 +20,20 @@ func HandleDeleteProject(w http.ResponseWriter,r *http.Request) {
 
 	project := keys[0]
 
-	err := os.RemoveAll("./projects/"+project)
+	t := time.Now()
+	err := cp.Copy(
+		fmt.Sprintf("./projects/%s", project),
+		fmt.Sprintf("./backup/%s-%s", project, t.Format("2006-01-02_15_04_05")))
+
+	if err != nil {
+		log.Println(err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	fmt.Println("Created Backup at " + fmt.Sprintf("./backup/%s-%s", project, t.Format("2006-01-02_15_04_05")))
+
+	err = os.RemoveAll("./projects/"+project)
 	if err != nil {
 		log.Println(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)

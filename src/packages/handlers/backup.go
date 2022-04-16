@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"fmt"
-	"net/http"
 	cp "github.com/otiai10/copy"
+	"net/http"
 	"time"
 )
 
@@ -26,6 +26,9 @@ func HandleBackup(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		w.WriteHeader(500)
+		return
 	}
+
+	fmt.Println("Created Backup at " + fmt.Sprintf("./backup/%s-%s", project, t.Format("2006-01-02_15_04_05")))
 
 }
