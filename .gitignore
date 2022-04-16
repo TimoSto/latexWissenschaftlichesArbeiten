@@ -19,3 +19,4 @@ src/packages/domain/templates/CV/curriculumVitae.log
 src/packages/handlers/CV/curriculumVitae.out
 src/packages/handlers/CV/curriculumVitae.log
 backup/
+customStyles/

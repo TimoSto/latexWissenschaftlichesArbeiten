@@ -82,6 +82,8 @@ func main() {
 
 	http.HandleFunc("/backup", handlers.HandleBackup)
 
+	http.HandleFunc("/setDefault", handlers.HandleDefaultSetter)
+
 	//http.HandleFunc("/importCitavi", handlers.HandleImportCitavi)
 
 	http.HandleFunc("/citeCleanup", handlers.HandleCiteCleanup)

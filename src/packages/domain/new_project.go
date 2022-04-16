@@ -74,10 +74,6 @@ func CreateNewProject(name string) (bool, error) {
 	//if err != nil {
 	//	return false, err
 	//}
-	err = ioutil.WriteFile("./projects/"+name+"/literature_types.json", []byte(literaturTypesTemplate), 0644)
-	if err != nil {
-		return false, err
-	}
 	//inputtex, err := ioutil.ReadFile("example.tex")
 	//if err != nil {
 	//	return false, err
@@ -94,41 +90,97 @@ func CreateNewProject(name string) (bool, error) {
 	if err != nil {
 		return false, err
 	}
+	//TODO: use from customStyles if exists
+	var json = literaturTypesTemplate;
+	var abk = abkSty
+	var anhang = anhangSty
+	var codes = codesSty
+	var fusszeilen = fusszeileSty
+	var headerfooter = headerFooterSty
+	var toc = tocSty
+	var literatur = literaturSty
+	var ueberschriften = ueberschriftenSty
+
+	_, err = os.Stat("./customStyles")
+	if err == nil {
+		fmt.Println("Using customStyles")
+		jsonF, err := ioutil.ReadFile("./customStyles/literature_types.json")
+		if err == nil {
+			json = string(jsonF)
+		}
+		abkF, err := ioutil.ReadFile("./customStyles/styPackages/abk_verzeichnis.sty")
+		if err == nil {
+			abk = string(abkF)
+		}
+		anhangF, err := ioutil.ReadFile("./customStyles/styPackages/anhang.sty")
+		if err == nil {
+			anhang = string(anhangF)
+		}
+		codesF, err := ioutil.ReadFile("./customStyles/styPackages/codes.sty")
+		if err == nil {
+			codes = string(codesF)
+		}
+		fusszeilenF, err := ioutil.ReadFile("./customStyles/styPackages/fusszeilen.sty")
+		if err == nil {
+			fusszeilen = string(fusszeilenF)
+		}
+		headerfooterF, err := ioutil.ReadFile("./customStyles/styPackages/header_footer.sty")
+		if err == nil {
+			headerfooter = string(headerfooterF)
+		}
+		tocF, err := ioutil.ReadFile("./customStyles/styPackages/inhaltsverzeichnis.sty")
+		if err == nil {
+			toc = string(tocF)
+		}
+		literaturF, err := ioutil.ReadFile("./customStyles/styPackages/literatur.sty")
+		if err == nil {
+			literatur = string(literaturF)
+		}
+		ueberschriftenF, err := ioutil.ReadFile("./customStyles/styPackages/ueberschriften_verzeichnis.sty")
+		if err == nil {
+			ueberschriften = string(ueberschriftenF)
+		}
+	}
+
+	err = ioutil.WriteFile("./projects/"+name+"/literature_types.json", []byte(json), 0644)
+	if err != nil {
+		return false, err
+	}
 
 	err = os.Mkdir("./projects/"+name+"/styPackages", 0755)
 	if err != nil {
 		return false, err
 	}
 
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/abk_verzeichnis.sty", []byte(abkSty), 0644)
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/abk_verzeichnis.sty", []byte(abk), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/anhang.sty", []byte(anhangSty), 0644)
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/anhang.sty", []byte(anhang), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/codes.sty", []byte(codesSty), 0644)
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/codes.sty", []byte(codes), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/fusszeilen.sty", []byte(fusszeileSty), 0644)
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/fusszeilen.sty", []byte(fusszeilen), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/header_footer.sty", []byte(headerFooterSty), 0644)
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/header_footer.sty", []byte(headerfooter), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/inhaltsverzeichnis.sty", []byte(tocSty), 0644)
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/inhaltsverzeichnis.sty", []byte(toc), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/literatur.sty", []byte(literaturSty), 0644)
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/literatur.sty", []byte(literatur), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/ueberschriften.sty", []byte(ueberschriftenSty), 0644)
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/ueberschriften.sty", []byte(ueberschriften), 0644)
 	if err != nil {
 		return false, err
 	}
@@ -139,6 +191,13 @@ func CreateNewProject(name string) (bool, error) {
 	//err = CopyDir(oldDir, newDir)
 
 	return false, err
+}
+
+func useCustomStylesIfExist() {
+	_, err := os.Stat("./customStyles")
+	if err == nil {
+
+	}
 }
 
 func CopyFile(source string, dest string) (err error) {

@@ -77,6 +77,17 @@ class ProjectPage {
                     (<any>window.parent).openErrorDialog('Beim Erstellen des Backups ist was schief gelaufen.')
                 }
             })
+        });
+
+        document.querySelector('#use-as-default').addEventListener('click', ()=>{
+            //erstelle CustomDefaultStyles und nutze von nun an diese für neue Projekte
+            fetch('/setDefault?project='+pname).then(resp => {
+                if(resp.status === 200) {
+                    (<any>window.parent).openAlertDialog('Jedes neue Projekt hat ab jetzt die aktuell hier verfügbaren Literaturtypen.')
+                } else {
+                    (<any>window.parent).openErrorDialog('Es ist was schief gelaufen.')
+                }
+            })
         })
     }
 
