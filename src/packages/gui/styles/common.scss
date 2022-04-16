@@ -97,6 +97,12 @@
   align-items: center;
 }
 
+.mdc-deprecated-list-item__meta{
+  .mdc-icon-button {
+    color: rgba(0,0,0,0.65);
+  }
+}
+
 //@keyframes turner{
 //  from{  transform: rotate(0deg)   }
 //  to  {  transform: rotate(180deg) }
