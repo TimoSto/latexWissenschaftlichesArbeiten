@@ -28,6 +28,10 @@ class EntryPage {
 
     private _typeObj: any;
 
+    private _initialExamples: string[];
+
+    private _inititalDescribtion: string;
+
     constructor() {
 
         this.project = new URLSearchParams(window.location.search).get('project');
@@ -49,12 +53,18 @@ class EntryPage {
 
         this._commentField = new MDCTextField(document.querySelector('#commentArea'));
 
+        document.querySelector('#commentArea textarea').addEventListener('change', ()=>{
+            this.syncSave();
+        });
+
         (<any>window.parent).setEditSave(()=>{
             this.Save();
         });
 
         this._prevValuesElement = document.querySelector('#values');
         this._commentField.value = this._prevValuesElement.getAttribute('data-comment');
+        this._inititalDescribtion = this._commentField.value;
+        this.syncSave();
         let key = this._prevValuesElement.getAttribute('data-key');
         if( key ) {
             this._keyField.value = key;
@@ -108,6 +118,11 @@ class EntryPage {
         }
 
         this.syncExample();
+
+        this._initialExamples = [
+            document.getElementById('bibExample').innerHTML,
+            document.getElementById('citeExample').innerHTML
+        ]
     }
 
     Save() {
@@ -196,5 +211,16 @@ class EntryPage {
         }
 
         document.getElementById('citeExample').innerHTML = citeExample + '.';
+
+        this.syncSave();
+    }
+
+    private syncSave() {
+        
+        if( this._initialExamples ) {
+            let saveNecessary = (this._initialExamples[0] != document.getElementById('bibExample').innerHTML || this._initialExamples[1] != document.getElementById('citeExample').innerHTML || this._commentField.value != this._inititalDescribtion);
+
+            (<any>window.parent).editSavePossible(saveNecessary)
+        }
     }
 }

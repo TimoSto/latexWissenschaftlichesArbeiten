@@ -281,9 +281,9 @@ class TypePage {
         document.getElementById('citeExample').innerHTML = citeExample + '.';
 
         if( this._initialExamples ) {
-            let citeNecessary = (document.getElementById('bibExample').innerHTML != this._initialExamples[0] || document.getElementById('citeExample').innerHTML !== this._initialExamples[1]);
+            let saveNecessary = (document.getElementById('bibExample').innerHTML != this._initialExamples[0] || document.getElementById('citeExample').innerHTML !== this._initialExamples[1]);
 
-            (<any>window.parent).editSavePossible(citeNecessary);
+            (<any>window.parent).editSavePossible(saveNecessary);
         }
     }
 }
