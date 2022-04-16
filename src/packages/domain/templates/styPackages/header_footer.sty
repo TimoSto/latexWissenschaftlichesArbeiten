@@ -5,15 +5,20 @@
 \newcommand{\mytitle}{Titel der Arbeit}
 \newcommand{\myauthor}{Mein Name}
 
+\newcommand{\headerMainLeft}{}
+\newcommand{\headerMainRight}{\nouppercase\parttitle}
+\newcommand{\footerMainLeft}{\myauthor}
+\newcommand{\footerMainRight}{\thepage}
+
 \setlength{\headheight}{15pt}%Höhe des Headers muss je nach Inhalt ggf. angepasst werden
 \usepackage{fancyhdr}
 \usepackage{etoolbox}
 \fancypagestyle{main}{%
   \fancyhf{}%
-  \fancyhead[L]{\mytitle}%
-  \fancyhead[R]{\nouppercase\parttitle}%
-  \fancyfoot[L]{\myauthor}%
-  \fancyfoot[R]{\thepage}%
+  \fancyhead[L]{\headerMainLeft}%
+  \fancyhead[R]{\headerMainRight}%
+  \fancyfoot[L]{\footerMainLeft}%
+  \fancyfoot[R]{\footerMainRight}%
   \renewcommand{\headrulewidth}{0.4pt}%
   \renewcommand{\footrulewidth}{0.4pt}%
 }
@@ -29,12 +34,18 @@
 %}
 
 \newcommand{\plaintitle}{Abkürzungsverzeichnis}
+
+\newcommand{\headerPlainLeft}{}
+\newcommand{\headerPlainRight}{\nouppercase\plaintitle}
+\newcommand{\footerPlainLeft}{\myauthor}
+\newcommand{\footerPlainRight}{\thepage}
+
 \fancypagestyle{plain}{%
   \fancyhf{}%
-  \fancyhead[L]{\mytitle}%
-  \fancyhead[R]{\nouppercase\plaintitle}%
-  \fancyfoot[L]{\myauthor}%
-  \fancyfoot[R]{\thepage}%
+  \fancyhead[L]{\headerPlainLeft}%
+  \fancyhead[R]{\headerPlainRight}%
+  \fancyfoot[L]{\footerPlainLeft}%
+  \fancyfoot[R]{\footerPlainRight}%
   \renewcommand{\headrulewidth}{0.4pt}%
   \renewcommand{\footrulewidth}{0.4pt}%
 }
@@ -53,4 +64,9 @@
 \appto\frontmatter{\pagestyle{plain}}
 \appto\mainmatter{\pagestyle{main}}
 
+\DeclareOption{titleOnRight}{
+    \renewcommand{\headerMainLeft}{\mytitle}
+    \renewcommand{\headerPlainLeft}{\mytitle}
+}
+\ProcessOptions\relax
 \endinput

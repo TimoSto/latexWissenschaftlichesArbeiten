@@ -27,7 +27,7 @@
     </div>
     <div id="content">
         <span id="beta-label">beta</span>
-        <p class="mdc-typography--body1">Hier kannst du die Tex-Style-Packages für dieses Projekt einbinden und ggf. die Option auswählen oder es ignorieren. Das kannst du aber auch direkt in der TeX-Datei machen.</p>
+        <p class="mdc-typography--body1">Hier kannst du die Tex-Style-Packages für dieses Projekt einbinden und ggf. die Option auswählen oder es ignorieren. Das kannst du aber auch direkt in der TeX-Datei machen. (Wenn du parallel die TeX-Datei dieses Projektes geöffnet hast, kann das u.U. zu Problemen führen)</p>
         <ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="typelist">
             {{ range $key, $value := .Styles }}
             <li class="mdc-deprecated-list-item style-li" tabindex="0" data-package-name="{{ $value.Package.Name }}" data-included="{{ $value.Included }}" data-active-option="{{ $value.Options }}">
