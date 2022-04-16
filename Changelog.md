@@ -9,10 +9,14 @@
 - Automatisches Parsen von Sonderzeichen in GUI
 - Update-Benachrichtigung
 
-## Version 1.1.0 - [09-04-2022]
+## Version 1.1.0 - [16-04-2022]
 - Design-Verbesserungen
 - Styles über GUI bearbeitbar (Beta)
 - Abfrage: Willst du wirklich löschen?
 - Nutzer kann Kommentare zu Quellen angeben, um diese besser zuzuordnen
 - Citavi-Import
 - Sonderzeichen in Literatur werden automatisch geparsed
+- Eigene Literaturtypen können als Standard gesetzt werden
+- Backups
+- Konfiguration über Kommandozeile
+- Speichern-Button disabled wenn keine Änderungen
