@@ -246,7 +246,7 @@ class OverviewPage {
         } else if( uri.indexOf('editEntry') >= 0 ) {
             this._editTitle.innerText = 'Literatureintrag bearbeiten';
         } else {
-            this._editTitle.innerText = 'Styles bearbeiten';
+            this._editTitle.innerText = 'TeX-Packages konfigurieren';
         }
     }
 
