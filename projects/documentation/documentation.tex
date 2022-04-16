@@ -114,27 +114,28 @@ Die Vorlage beinhaltet insgesamt folgende Aspekte, die bei einer wissenschaftlic
 Mehr zu den einzelnen Aspekten findest du im HowTo (Kapitel 3).
 
 \part{Workflow/Tutorial}
-Bevor wir groß auf irgendwelche Details eingehen, möchte ich erstmal darstellen, wie das Arbeiten mit diesem Tool überhaupt aussieht. Als aller erstes lade dir die Datei \textit{WA\_ LaTeX.exe} aus dem Github-Repo herrunter. Dann kopiere die Datei an den Speicherort deiner Wahl und starte das Programm durch einen Doppelklick.
+Bevor wir groß auf irgendwelche Details eingehen, möchte ich erstmal darstellen, wie das Arbeiten mit diesem Tool überhaupt aussieht. Als aller erstes lade dir die Datei \textit{WA\_ LaTeX.exe} (bzw. \textit{WA\_ LaTeX}, wenn du auf Mac oder Linux unterwegs bist) aus dem Github-Repo herunter. Dann kopiere die Datei an den Speicherort deiner Wahl und starte das Programm durch einen Doppelklick.
 \section{Schritt 1: Weboberfläche aufrufen}
-Nachdem du das Programm gestartet hast, öffnet dieses deinen Browser mit der Adresse \textbf{http://localhost:8081/overview}. Du solltest dann dieses Bild sehen:
+Nachdem du das Programm gestartet hast, kannst du deinen Browser mit der Adresse \textbf{http://localhost:8081/overview} öffnen. Du solltest dann dieses Bild sehen:
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_1.png}
-\caption{Weboberfläche}
+\includegraphics[width=.9\textwidth]{images/welcome.png}
+\caption{Willkommen}
 \end{figure}
 \FloatBarrier
+\noindent Diese Willkommens-Seite bietet Absprünge zur Dokumentation und zu einer Vorlage für einen schön gestylten Lebenslauf. Über das Häuschen in der oberen Leiste kommst du immer zu diesem Bildschirm zurück. Über den Burger-Button links kannst du den linken Bereich minimieren/maximieren. Das Buch führt immer zur Dokumentation und unter dem ? werden die vielleicht die ein oder andere Frage beantwortet.
 \section{Schritt 2: Projekt erstellen}
 Klicke auf das \textbf{+} neben \textit{Projekte} und gib einen Namen ein und klicke auf den Button, um ein neues Projekt zu erstellen.
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_2.png}
+\includegraphics[width=.9\textwidth]{images/createProject.png}
 \caption{Projekt erstellen}
 \end{figure}
 \FloatBarrier
 \noindent Dieses wird dann auch direkt geöffnet und zeigt dir eine Übersicht, über die verfügbaren Literatur-Typen und die Einträge deines Projektes:
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_3.png}
+\includegraphics[width=.9\textwidth]{images/projectOverview.png}
 \caption{Projekt-Übersicht}
 \end{figure}
 \FloatBarrier
@@ -147,25 +148,31 @@ Das Programm hat eine Datei unter \textbf{projects/<DEIN Projektname>} angelegt.
 \end{figure}
 \FloatBarrier
 \section{Schritt 5: Literatureintrag erstellen}
-Jetzt will ich einen Aufsatz in mein Litaraturverzeichnis mit aufnehmen. Dazu gehe ich in der Weboberfläche auf \textbf{Neu} neben \textbf{Literatureinträge}. In dem sich öffnenden Bereich wähle ich dann einen Literaturtypen aus und gebe die jeweiligen Felder ein. Vergiss mich, einen Key zur Identifikation zu vergeben:
+Jetzt will ich einen Aufsatz in mein Litaraturverzeichnis mit aufnehmen. Dazu gehe ich in der Weboberfläche auf das \textbf{+} neben \textbf{Literatureinträge}. In dem sich öffnenden Bereich wähle ich dann einen Literaturtypen aus und gebe die jeweiligen Felder ein. Vergiss mich, einen Key zur Identifikation zu vergeben:
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_5.png}
+\includegraphics[width=.9\textwidth]{images/createEntry.png}
 \caption{Literatureintrag erstellen}
 \end{figure}
 \FloatBarrier
-\noindent Klicke ich nun auf \textbf{Speichern} und kompiliere meine TeX-Datei nochmal, erscheint im Literaturverzeichnis folgender Eintrag:
+\noindent Klicke ich nun auf den Speichern-Button in der oberen rechten Leiste und kompiliere meine TeX-Datei nochmal, erscheint im Literaturverzeichnis folgender Eintrag:
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_6.png}
+\includegraphics[width=.9\textwidth]{images/bibEntry.png}
 \caption{Literatureintrag}
 \end{figure}
 \FloatBarrier
 \section{Schitt 6: Zitieren dieses Eintrages}
-Mithilfe des eben vergebenen Keys kann ich die Quelle nun zitieren\citebib{meinEintrag}{S.235}{Vgl. }:
+Mithilfe des eben vergebenen Keys kann ich die Quelle nun zitieren:
 \begin{verbatim}
-\citebib{meinEintrag}{S.235}{Vgl. }
+\citebib{beliebigerKey}{S.235}{Vgl. }
 \end{verbatim}
+\FloatBarrier
+\begin{figure}[!ht]
+\includegraphics[width=.9\textwidth]{images/cited.png}
+\caption{Zitat}
+\end{figure}
+\FloatBarrier
 
 \part{Wie kann ich dieses Template benutzen?}
 
@@ -274,6 +281,12 @@ Dieses Template bietet die Möglichkeit, folgende Informationen in Kopf- und Fu�
 \item unten-rechts: Seite
 \end{itemize}
 
+\subsection{Wie kann ich den Titel meiner Arbeit oben-links anzeigen lassen?}
+Füge im Preämble der TeX-Datei die Option titleOnRight zum Package headerfooter.sty hinzu;
+\begin{verbatim}
+\usepackage[titleOnRight]{styPackages/header_footer}
+\end{verbatim}
+
 \subsection{Wie kann ich den Titel und den Autor in der Kopf-/Fußzeile ändern?}
 \begin{verbatim}
 \renewcommand{\mytitle}{Dokumentation/Tutorial}%Titel für oben links
@@ -283,6 +296,22 @@ Bei einem Titel, der besser in zwei Zeilen passt, muss die Höhe der Kopfzeile a
 \begin{verbatim}
 \renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}
 \renewcommand{\headheight}{27pt}
+\end{verbatim}
+
+\subsection{Wie kann ich ändern, was wo im Header/Footer steht?}
+Für Hauptteil:
+\begin{verbatim}
+\renewcommand{\headerMainLeft}{BEFEHL oder fester Wert}
+\renewcommand{\headerMainRight}{BEFEHL oder fester Wert}
+\renewcommand{\footerMainLeft}{BEFEHL oder fester Wert}
+\renewcommand{\footerMainRight}{BEFEHL oder fester Wert}
+\end{verbatim}
+Für Verzeichnisse, etc.
+\begin{verbatim}
+\renewcommand{\headerPlainLeft}{BEFEHL oder fester Wert}
+\renewcommand{\headerPlainRight}{BEFEHL oder fester Wert}
+\renewcommand{\footerPlainLeft}{BEFEHL oder fester Wert}
+\renewcommand{\footerPlainRight}{BEFEHL oder fester Wert}
 \end{verbatim}
 
 \subsection{Wie kann ich den oben-rechts angezeigten Abschnitts-Titel ändern?}
