@@ -20,8 +20,6 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
 
         let nextEntryIndex = file.substr(1).indexOf('@');
 
-        console.log(nextEntryIndex)
-
         let filepart = file
 
         if( nextEntryIndex >= 0) {
@@ -85,8 +83,6 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
 
             value = ParseStringToTeX(value);
 
-            console.log(attr, value)
-
             valuepairs.push([attr, value])
         }
 
@@ -97,6 +93,9 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
                     break
                 case "inbook":
                     type = "citaviInbookDoi"
+                    break
+                case "book":
+                    type = "citaviBookDoi"
                     break
                 case "inproceedings":
                     type = "citaviInProceedingsDoi"
@@ -121,13 +120,8 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
             continue;
         }
 
-        console.log(key, type)
-        console.log(sortedvaluepairs)
-
         entries.push(new Entry(sortedvaluepairs, key, type))
     }
-
-    console.log(entries)
 
     SaveEntries(project, entries).then(valid => {
         if (valid) {
@@ -229,6 +223,21 @@ function getIndex(attr: string, type: string) {
                 return 6
             case "doi":
                 return 7
+        }
+    } else if (type === 'citaviBookDoi') {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "isbn":
+                return 3
+            case "publisher":
+                return 4
+            case "doi":
+                return 5
         }
     }
     return -1

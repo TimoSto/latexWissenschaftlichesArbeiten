@@ -7,7 +7,7 @@ Um dieses Tool zu nutzen, [lade es herunter](/WA_LaTeX.exe), kopiere es an einen
 Als Sahnehäubchen gibt's auch noch eine Vorlage für einen schön gestylten Lebenslauf gratis dazu. Schau einfach mal in der Konfigurationsoberfläche ;)
 
 ## Konfiguration
-Du kannst einstellen, ob nach dem Start der Anwendung direkt ein Browserfenster mit der Anwendung geöffnet werden soll. Dazu gehe im Verzeichnis, in dem die WA_LaTeX.exe liegt, in die Kommandozeile und gibt folgenden Befehl ein:
+Du kannst einstellen, ob nach dem Start der Anwendung direkt ein Browserfenster mit der Anwendung geöffnet werden soll und ob ein ggf. bereits existierender Literatureintrag mit demselben Key wie der neue überschrieben werden soll. Dazu gehe im Verzeichnis, in dem die WA_LaTeX.exe liegt, in die Kommandozeile und gibt folgenden Befehl ein:
 ```cmd
 WA_LaTex.exe configure
 ```

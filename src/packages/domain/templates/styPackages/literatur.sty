@@ -21,6 +21,7 @@
 			{onlineAufsatz}{\printonlineAufsatz{#2}{#3}{#4}{#5}{#6}}%
 			{Buch}{\printBuch{#2}{#3}{#4}{#5}{#6}}%
 			{citaviInCollectionDoi}{\printcitaviInCollectionDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
+			{citaviBookDoi}{\printcitaviBookDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
 		%end area
 		{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type'.}\color{black}]%
@@ -28,7 +29,7 @@
 
 %Literaturverzeichnis printen
 \newcommand{\printMyBibliography}[0]{
-	
+
 	\begin{center}
 		\begin{LARGE}
 			Literaturverzeichnis
@@ -46,7 +47,7 @@
 		{
 			\IfStrEqCase{\ckey}{
 				{\key}{
-					\printBibEntry{\type}{\a}{\b}{\c}{\d}{\e}{\f}{\g}{\h}
+                    \printBibEntry{\type}{\a}{\b}{\c}{\d}{\e}{\f}{\g}{\h}
 				}
 				{*}{
 					\printBibEntry{\type}{\a}{\b}{\c}{\d}{\e}{\f}{\g}{\h}
@@ -141,6 +142,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printcitaviBookDoi}[6]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	#1 (#2). #3 (ISBN: #4). #5 (Hrsg.), https://doi.org/#6
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -193,6 +203,7 @@
 			{onlineAufsatz}{\footnote{#3\citeonlineAufsatz{\f}{\b}{#2}.}}%
 			{Buch}{\footnote{#3\citeBuch{\f}{\b}{#2}.}}%
 			{citaviInCollectionDoi}{\footnote{#3\citecitaviInCollectionDoi{\i}{\b}{#2}.}}%
+			{citaviBookDoi}{\footnote{#3\citecitaviBookDoi{\g}{\b}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -220,6 +231,7 @@
 			{onlineAufsatz}{ ({#3\citeonlineAufsatz{\f}{\b}{#2})}}%
 			{Buch}{ ({#3\citeBuch{\f}{\b}{#2})}}%
 			{citaviInCollectionDoi}{ ({#3\citecitaviInCollectionDoi{\i}{\b}{#2})}}%
+			{citaviBookDoi}{ ({#3\citecitaviBookDoi{\g}{\b}{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -257,6 +269,9 @@
 }
 \newcommand{\citecitaviInCollectionDoi}[3]{%
 	\textit{#1} (#2), #3%
+}
+\newcommand{\citecitaviBookDoi}[3]{%
+	#1 (#2)#3%
 }
 %end area
 
