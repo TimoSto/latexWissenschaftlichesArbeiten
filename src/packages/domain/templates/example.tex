@@ -39,7 +39,7 @@
 
 %Stil für Header und Footer, siehe header_footer.sty
 %Wenn nicht erwünscht, müssen auch die Befehle \frontmatter, \mainmatter auskommentiert werden
-\usepackage[titleOnLeft]{styPackages/header_footer}
+\usepackage{styPackages/header_footer}
 
 %Stile für Code-Ausschnitte, siehe codes.sty
 \usepackage{styPackages/codes}
@@ -62,6 +62,10 @@
 \renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}%Titel für oben links
 \renewcommand{\myauthor}{Timo Stovermann}%Name für unten links
 \renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
+
+\setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
+
+\setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}
 
 %\includepdf[pages={1-}]{titelseite.pdf}
 

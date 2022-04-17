@@ -64,9 +64,18 @@
 \appto\frontmatter{\pagestyle{plain}}
 \appto\mainmatter{\pagestyle{main}}
 
-\DeclareOption{titleOnLeft}{
-    \renewcommand{\headerMainLeft}{\mytitle}
-    \renewcommand{\headerPlainLeft}{\mytitle}
+\newcommand{\setMainPageStyle}[4]{
+    \renewcommand{\headerMainLeft}{#1}
+    \renewcommand{\headerMainRight}{#2}
+    \renewcommand{\footerMainLeft}{#3}
+    \renewcommand{\footerMainRight}{#4}
 }
-\ProcessOptions\relax
+
+\newcommand{\setPlainPageStyle}[4]{
+    \renewcommand{\headerPlainLeft}{#1}
+    \renewcommand{\headerPlainRight}{#2}
+    \renewcommand{\footerPlainLeft}{#3}
+    \renewcommand{\footerPlainRight}{#4}
+}
+
 \endinput
