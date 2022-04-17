@@ -1,6 +1,7 @@
 package domain
 
 import (
+	"WA_LaTeX/src/packages/conf"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -31,8 +32,15 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) error
 				found = true
 				break
 			} else if strings.Compare(existingEntries[i].Key, entry.Key) == 0 {
-				fmt.Println(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
-				return fmt.Errorf("Entry with key %s already exists.", entry.Key)
+				if !conf.OverrideExistingEntries {
+					fmt.Println(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
+					found = true
+				} else {
+					existingEntries[i] =  entry
+					found = true
+					break
+				}
+				//return fmt.Errorf("Entry with key %s already exists.", entry.Key)
 			}
 		}
 		//}

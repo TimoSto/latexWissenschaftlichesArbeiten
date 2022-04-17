@@ -45,7 +45,26 @@ func main() {
 		if strings.ToLower(input) == "y" {
 			autoOpen = "true"
 		}
-		err = conf.WriteConfig(autoOpen)
+
+		fmt.Print("Sollen ein ggf. existierender Literatureintrag mit demselben Key beim Speichern oder Hochladen überschrieben werden? [Y/N]")
+		reader = bufio.NewReader(os.Stdin)
+		// ReadString will block until the delimiter is entered
+		input, err = reader.ReadString('\n')
+		if err != nil {
+			fmt.Println("An error occured while reading input. Please try again", err)
+			return
+		}
+
+		// remove the delimeter from the string
+		input = strings.TrimSuffix(input, "\r\n")
+		fmt.Println(input)
+		fmt.Println(len(input))
+		override := "false"
+		if strings.ToLower(input) == "y" {
+			override = "true"
+		}
+
+		err = conf.WriteConfig(autoOpen, override)
 		if err != nil {
 			fmt.Println("Es ist ein Fehler aufgetreten: " + err.Error())
 		}
