@@ -55,7 +55,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		saveObj.Entry.InitialKey,
 	}
 
-	err = domain.SaveEntries(entries, saveObj.Project, initialKeys)
+	err, added, changed := domain.SaveEntries(entries, saveObj.Project, initialKeys)
 	if err != nil {
 		fmt.Println(err)
 		if strings.Contains(err.Error(), "already exists") {
@@ -66,6 +66,13 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Println(fmt.Sprintf("Successfully saved entry %s", saveObj.Entry.Key))
+
+	obj := struct{Added int; Changed int}{
+		Added: added,
+		Changed: changed,
+	}
+	str,_ := json.Marshal(obj)
+	w.Write(str)
 }
 
 type UploadEntriesObj struct {
@@ -102,7 +109,7 @@ func HandleUploadEntries(w http.ResponseWriter,r *http.Request) {
 		initialKeys = append(initialKeys, "")
 	}
 
-	err = domain.SaveEntries(entries, saveObj.Project, initialKeys)
+	err, added, changed := domain.SaveEntries(entries, saveObj.Project, initialKeys)
 	if err != nil {
 		fmt.Println(err)
 		if strings.Contains(err.Error(), "already exists") {
@@ -112,5 +119,11 @@ func HandleUploadEntries(w http.ResponseWriter,r *http.Request) {
 		}
 		return
 	}
-	fmt.Println(fmt.Sprintf("Successfully saved entries %i", len(saveObj.Entries)))
+	fmt.Println(fmt.Sprintf("Successfully added entries %v and changed %v entries", added, changed))
+	obj := struct{Added int; Changed int}{
+		Added: added,
+		Changed: changed,
+	}
+	str,_ := json.Marshal(obj)
+	w.Write(str)
 }

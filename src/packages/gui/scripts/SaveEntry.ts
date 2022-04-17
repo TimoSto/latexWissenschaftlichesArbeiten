@@ -18,7 +18,15 @@ export default function SaveEntry(initialKey: string, project: string, valuePair
 
         if( response.status === 200 ) {
             document.body.setAttribute('data-key', valuePairs[0].Value)
+
+            response.json().then(obj =>{
+                console.log(obj);
+
+                (<any>window.parent).openAlertDialog(`${obj.Added} Einträge hinzugefügt, ${obj.Changed} Einträge geändert.`)
+            });
+            (<any>window.parent).editSavePossible(false);
             return true
+
         }
     });
 }
@@ -48,6 +56,12 @@ export function SaveEntries(project: string, entries: Entry[] ) {
 
         if( response.status === 200 ) {
             //document.body.setAttribute('data-key', valuePairs[0].Value)
+             response.json().then(obj =>{
+                 console.log(obj);
+
+                 (<any>window.parent).openAlertDialog(`${obj.Added} Einträge hinzugefügt, ${obj.Changed} Einträge geändert.`)
+             });
+
             return true
         }
     });
