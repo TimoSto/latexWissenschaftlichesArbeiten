@@ -233,7 +233,7 @@ class OverviewPage {
 
     private setMain(uri: string) {
         this._mainFrame.src = uri;
-        if(uri === '/documentation') {
+        if(uri === '/documentation' || uri == '/welcome.html') {
             this._editArea.classList.remove('editArea--open');
         }
     }
