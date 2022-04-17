@@ -7,33 +7,42 @@ import (
 	"strings"
 )
 
-func SaveEntry(entry BibEntry, project string, initialKey string) error{
-	if len(entry.Fields) == 0 {
-		return fmt.Errorf("empty fields. You propably uploaded an invalid file.")
+func SaveEntries(entries []BibEntry, project string, initialKeys []string) error{
+
+	existingEntries, err := ReadBibEntries(project)
+	if err != nil {
+		return err
 	}
-	entries, err := ReadBibEntries(project)
 	// fmt.Println(entry)
 	//if len(saveObj.InitialKey)  == 0 {
 	//	entries = append(entries, entry)
 	//} else {
-	found := false
-	for i:= 0 ; i<len(entries) ; i++ {
-		if strings.Compare(entries[i].Key, initialKey) == 0 {
-			entries[i] =  entry
-			found = true
-			break
-		} else if strings.Compare(entries[i].Key, entry.Key) == 0 {
-			fmt.Println(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
-			return fmt.Errorf("Entry with key %s already exists.", entry.Key)
+
+	for n,entry := range entries {
+		fmt.Println(entry.Key, initialKeys[n])
+		if len(entry.Fields) == 0 {
+			return fmt.Errorf("empty fields. You propably uploaded an invalid file.")
+		}
+
+		found := false
+		for i:= 0 ; i<len(existingEntries) ; i++ {
+			if strings.Compare(existingEntries[i].Key, initialKeys[n]) == 0 {
+				existingEntries[i] =  entry
+				found = true
+				break
+			} else if strings.Compare(existingEntries[i].Key, entry.Key) == 0 {
+				fmt.Println(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
+				return fmt.Errorf("Entry with key %s already exists.", entry.Key)
+			}
+		}
+		//}
+
+		if !found {
+			existingEntries = append(existingEntries, entry)
 		}
 	}
-	//}
 
-	if !found {
-		entries = append(entries, entry)
-	}
-
-	jsonStr, err := json.MarshalIndent(entries, "", "\t")
+	jsonStr, err := json.MarshalIndent(existingEntries, "", "\t")
 	//fmt.Println(string(jsonStr))
 	if err != nil {
 		return err

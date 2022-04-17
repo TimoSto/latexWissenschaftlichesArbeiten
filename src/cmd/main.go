@@ -72,6 +72,8 @@ func main() {
 
 	http.HandleFunc("/saveEntry", handlers.HandleSaveEntry)
 
+	http.HandleFunc("/uploadEntries", handlers.HandleUploadEntries)
+
 	http.HandleFunc("/deleteEntry", handlers.HandleDeleteEntry)
 
 	http.HandleFunc("/deleteProject", handlers.HandleDeleteProject)
