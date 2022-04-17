@@ -1,5 +1,5 @@
 import {ParseBibToString, ParseStringToTeX} from "./TeXParser";
-import SaveEntry from "./SaveEntry";
+import SaveEntry, {Entry, SaveEntries} from "./SaveEntry";
 
 export default function AnalyseAndSaveDroppdFile(file: String, project: string) {
 
@@ -11,6 +11,8 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
     //remove all linebreaks to have consistent format over all exports (Springer vs. IEEE vs. ...)
     file = file.replaceAll('\n', '');
     file = file.replaceAll('\r', '');
+
+    let entries: Entry[] = [];
 
     while( file.indexOf('@') >= 0 ) {
         //remove stuff before first '@'
@@ -122,16 +124,20 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
         console.log(key, type)
         console.log(sortedvaluepairs)
 
-        SaveEntry('', project, sortedvaluepairs, type, key, '').then(valid => {
-            if (valid) {
-
-                (<any>window.parent).reloadMain();
-                (<any>window.parent).setEdit('/editEntry?project='+project+'&entry='+key);
-            } else {
-                (<any>window.parent).openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
-            }
-        });
+        entries.push(new Entry(sortedvaluepairs, key, type))
     }
+
+    console.log(entries)
+
+    SaveEntries(project, entries).then(valid => {
+        if (valid) {
+
+            (<any>window.parent).reloadMain();
+            (<any>window.parent).setEdit('/editEntry?project='+project+'&entry='+entries[0].Key);
+        } else {
+            (<any>window.parent).openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
+        }
+    });
 }
 
 function SortValues(valuepairs: string[][], type: string) {

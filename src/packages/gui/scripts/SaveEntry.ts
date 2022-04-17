@@ -24,10 +24,16 @@ export default function SaveEntry(initialKey: string, project: string, valuePair
 }
 
 export class Entry {
-    InitialKey: string;
     ValuePairs: {Value: string, Attr: string}[];
     Key: string
+    Typ: string
     Comment: string
+
+    constructor(vps: {Value: string, Attr: string}[], key: string, typ: string) {
+        this.ValuePairs = vps;
+        this.Key = key;
+        this.Typ = typ;
+    }
 }
 
 export function SaveEntries(project: string, entries: Entry[] ) {
