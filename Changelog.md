@@ -20,3 +20,4 @@
 - Backups
 - Konfiguration über Kommandozeile
 - Speichern-Button disabled wenn keine Änderungen
+- Citavi-Import der gesamten Bibliothek
