@@ -13,13 +13,17 @@ type ValuePair struct {
 	Attr string
 }
 
-type SaveEntryObj struct {
+type EntrySave struct {
 	InitialKey string
 	ValuePairs []ValuePair
 	Typ string
 	Key string
-	Project string
 	Comment string
+}
+
+type SaveEntryObj struct {
+	Entry EntrySave
+	Project string
 }
 
 func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
@@ -32,17 +36,17 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	entry := domain.BibEntry{
-		Key:             saveObj.Key,
-		Typ:             saveObj.Typ,
+		Key:             saveObj.Entry.Key,
+		Typ:             saveObj.Entry.Typ,
 		Fields: []string{},
-		Comment: saveObj.Comment,
+		Comment: saveObj.Entry.Comment,
 	}
 
-	for i:=0 ; i<len(saveObj.ValuePairs) ; i++ {
-		entry.Fields = append(entry.Fields, saveObj.ValuePairs[i].Value)
+	for i:=0 ; i<len(saveObj.Entry.ValuePairs) ; i++ {
+		entry.Fields = append(entry.Fields, saveObj.Entry.ValuePairs[i].Value)
 	}
 
-	err = domain.SaveEntry(entry, saveObj.Project, saveObj.InitialKey)
+	err = domain.SaveEntry(entry, saveObj.Project, saveObj.Entry.InitialKey)
 	if err != nil {
 		fmt.Println(err)
 		if strings.Contains(err.Error(), "already exists") {
@@ -52,5 +56,5 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
-	fmt.Println(fmt.Sprintf("Successfully saved entry %s", saveObj.Key))
+	fmt.Println(fmt.Sprintf("Successfully saved entry %s", saveObj.Entry.Key))
 }

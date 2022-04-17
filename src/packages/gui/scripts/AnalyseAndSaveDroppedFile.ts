@@ -16,8 +16,6 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
         //remove stuff before first '@'
         file = file.substr(file.indexOf('@'));
 
-        console.log(file)
-
         let nextEntryIndex = file.substr(1).indexOf('@');
 
         console.log(nextEntryIndex)
@@ -116,6 +114,12 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
             file = '';
         }
 
+        if( sortedvaluepairs.length === 0 ) {
+            console.log('Empty fields or unknown type (key: ' + key+ ' type: ' + type + ')');
+            continue;
+        }
+
+        console.log(key, type)
         console.log(sortedvaluepairs)
 
         SaveEntry('', project, sortedvaluepairs, type, key, '').then(valid => {

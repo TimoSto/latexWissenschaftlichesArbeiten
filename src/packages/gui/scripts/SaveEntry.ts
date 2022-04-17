@@ -1,12 +1,14 @@
 
 export default function SaveEntry(initialKey: string, project: string, valuePairs: {Value: string, Attr: string}[], typ: string, key: string, comment: string) {
     let obj = {
-        InitialKey: initialKey,
-        ValuePairs: valuePairs,
-        Typ: typ,
-        Key: key,
-        Project: project,
-        Comment: comment
+        Entry: {
+            InitialKey: initialKey,
+            ValuePairs: valuePairs,
+            Typ: typ,
+            Key: key,
+            Comment: comment
+        },
+        Project: project
     }
     return window.fetch('/saveEntry', {
         method: 'POST',
@@ -18,4 +20,15 @@ export default function SaveEntry(initialKey: string, project: string, valuePair
             return true
         }
     });
+}
+
+export class Entry {
+    InitialKey: string;
+    ValuePairs: {Value: string, Attr: string}[];
+    Key: string
+    Comment: string
+}
+
+export function SaveEntries(project: string, entries: Entry[] ) {
+
 }
