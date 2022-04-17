@@ -63,6 +63,10 @@
 \renewcommand{\myauthor}{Dr. Frank N. Further}%Name für unten links
 \renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
 
+\setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
+
+\setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}
+
 \includepdf[pages={1-}]{titelseite.pdf}
 
 \frontmatter%Stil des Headers/Footers ändern
@@ -281,10 +285,14 @@ Dieses Template bietet die Möglichkeit, folgende Informationen in Kopf- und Fu�
 \item unten-rechts: Seite
 \end{itemize}
 
-\subsection{Wie kann ich den Titel meiner Arbeit oben-links anzeigen lassen?}
-Füge im Preämble der TeX-Datei die Option titleOnRight zum Package headerfooter.sty hinzu;
+\subsection{Wie kann ich ändern, was wo im Header/Footer steht?}
+Für Hauptteil:
 \begin{verbatim}
-\usepackage[titleOnRight]{styPackages/header_footer}
+\setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}
+\end{verbatim}
+Für Verzeichnisse, etc.
+\begin{verbatim}
+\setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
 \end{verbatim}
 
 \subsection{Wie kann ich den Titel und den Autor in der Kopf-/Fußzeile ändern?}
@@ -296,22 +304,6 @@ Bei einem Titel, der besser in zwei Zeilen passt, muss die Höhe der Kopfzeile a
 \begin{verbatim}
 \renewcommand{\mytitle}{Titel meiner Arbeit\\mit zwei Zeilen}
 \renewcommand{\headheight}{27pt}
-\end{verbatim}
-
-\subsection{Wie kann ich ändern, was wo im Header/Footer steht?}
-Für Hauptteil:
-\begin{verbatim}
-\renewcommand{\headerMainLeft}{BEFEHL oder fester Wert}
-\renewcommand{\headerMainRight}{BEFEHL oder fester Wert}
-\renewcommand{\footerMainLeft}{BEFEHL oder fester Wert}
-\renewcommand{\footerMainRight}{BEFEHL oder fester Wert}
-\end{verbatim}
-Für Verzeichnisse, etc.
-\begin{verbatim}
-\renewcommand{\headerPlainLeft}{BEFEHL oder fester Wert}
-\renewcommand{\headerPlainRight}{BEFEHL oder fester Wert}
-\renewcommand{\footerPlainLeft}{BEFEHL oder fester Wert}
-\renewcommand{\footerPlainRight}{BEFEHL oder fester Wert}
 \end{verbatim}
 
 \subsection{Wie kann ich den oben-rechts angezeigten Abschnitts-Titel ändern?}
