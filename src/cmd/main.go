@@ -6,6 +6,7 @@ package main
 import (
 	"WA_LaTeX/src/packages/conf"
 	"WA_LaTeX/src/packages/handlers"
+	"WA_LaTeX/src/tools/logger"
 	"bufio"
 	"fmt"
 	"log"
@@ -72,6 +73,8 @@ func main() {
 	}
 
 	fmt.Println("Starting Application...")
+
+	logger.Init()
 
 	http.HandleFunc("/overview", handlers.HandleOverview)
 

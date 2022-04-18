@@ -20,3 +20,4 @@ src/packages/handlers/CV/curriculumVitae.out
 src/packages/handlers/CV/curriculumVitae.log
 backup/
 customStyles/
+errorLogs.txt
