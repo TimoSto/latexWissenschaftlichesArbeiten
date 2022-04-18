@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
+	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -31,7 +32,7 @@ func HandleDeleteType(w http.ResponseWriter,r *http.Request) {
 
 	literatureTypes, err := domain.ReadTypes(project)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Reading types for project "+ project, err.Error())
 		http.Error(w, err.Error(), 500)
 	}
 	for i,typ := range literatureTypes.Types {
@@ -43,7 +44,7 @@ func HandleDeleteType(w http.ResponseWriter,r *http.Request) {
 
 	jsonStr,err := json.MarshalIndent(literatureTypes, "", "\t")
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("JSON-formatting types for project "+ project, err.Error())
 		http.Error(w, err.Error(), 500)
 	}
 
@@ -52,13 +53,13 @@ func HandleDeleteType(w http.ResponseWriter,r *http.Request) {
 
 	err = ioutil.WriteFile("./projects/"+project+"/literature_types.json", []byte(str), 0644)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Writing types for project "+ project, err.Error())
 		http.Error(w, err.Error(), 500)
 	}
 	err = domain.SaveTypesToLaTeX(project, literatureTypes.Types)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Saving types for project "+ project + " in tex-code", err.Error())
 		http.Error(w, err.Error(), 500)
 	}
-	fmt.Println(fmt.Sprintf("Successfully deleted type %s", typekeys[0]))
+	logger.LogInfo(fmt.Sprintf("Successfully deleted type %s", typekeys[0]))
 }

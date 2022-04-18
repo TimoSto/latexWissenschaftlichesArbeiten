@@ -1,6 +1,7 @@
 package domain
 
 import (
+	"WA_LaTeX/src/tools/logger"
 	_ "embed"
 	"fmt"
 	"io"
@@ -103,7 +104,7 @@ func CreateNewProject(name string) (bool, error) {
 
 	_, err = os.Stat("./customStyles")
 	if err == nil {
-		fmt.Println("Using customStyles")
+		logger.LogInfo("Using customStyles")
 		jsonF, err := ioutil.ReadFile("./customStyles/literature_types.json")
 		if err == nil {
 			json = string(jsonF)

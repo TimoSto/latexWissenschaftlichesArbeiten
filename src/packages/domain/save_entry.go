@@ -2,6 +2,7 @@ package domain
 
 import (
 	"WA_LaTeX/src/packages/conf"
+	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -37,7 +38,7 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 				break
 			} else if strings.Compare(existingEntries[i].Key, entry.Key) == 0 {
 				if !conf.OverrideExistingEntries {
-					fmt.Println(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
+					logger.LogInfo(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
 					found = true
 				} else {
 					existingEntries[i] =  entry
@@ -69,7 +70,7 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 
 	err = ConvertBibToCSV(project)
 
-	fmt.Println(changed, added)
+	//fmt.Println(changed, added)
 
 	return err, added, changed
 }

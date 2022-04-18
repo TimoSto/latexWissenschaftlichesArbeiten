@@ -1,8 +1,8 @@
 package conf
 
 import (
+	"WA_LaTeX/src/tools/logger"
 	_ "embed"
-	"fmt"
 	"gopkg.in/ini.v1"
 	"os"
 )
@@ -21,7 +21,7 @@ func ReadConfig() {
 	} else {
 		err = WriteConfig("false", "true")
 		if err != nil {
-			fmt.Println(err)
+			logger.LogError("Reading Config.ini", err.Error())
 		}
 	}
 }

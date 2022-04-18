@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
-	"fmt"
+	"WA_LaTeX/src/tools/logger"
 	"html/template"
 	"log"
 	"net/http"
@@ -34,7 +34,7 @@ func HandleEditType(w http.ResponseWriter,r *http.Request) {
 		//FILL FIELDS
 		typeToEdit, err := domain.GetType(project, typekeys[0])
 		if err != nil {
-			fmt.Println( err)
+			logger.LogError("Reading type-info for "+typekeys[0], err.Error())
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -43,21 +43,21 @@ func HandleEditType(w http.ResponseWriter,r *http.Request) {
 
 	file, err := GetHTMLFile("editType")
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Reading editType.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	tmpl, err := template.New("editHTML").Parse(file)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Creating template for editEntry.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Executing template for editEntry.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}

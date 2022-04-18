@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
-	"fmt"
+	"WA_LaTeX/src/tools/logger"
 	"html/template"
 	"log"
 	"net/http"
@@ -26,21 +26,21 @@ func HandleEditStyles(w http.ResponseWriter, r *http.Request) {
 
 	styles, err := domain.AnalyseStyles(project)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Analysing tex-styles for project "+ project, err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	file, err := GetHTMLFile("editStyles")
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Reading editStyles.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	tmpl, err := template.New("editStyles").Parse(file)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Creating template from editStyles.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -51,7 +51,7 @@ func HandleEditStyles(w http.ResponseWriter, r *http.Request) {
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Executing template editStyles.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}

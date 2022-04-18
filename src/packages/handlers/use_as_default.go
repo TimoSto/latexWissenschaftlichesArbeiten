@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
-	"fmt"
+	"WA_LaTeX/src/tools/logger"
 	"log"
 	"net/http"
 )
@@ -21,7 +21,7 @@ func HandleDefaultSetter(w http.ResponseWriter,r *http.Request) {
 	err := domain.UseBibsOfProjectAsDefault(project)
 
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Changing default styles", err.Error())
 		w.WriteHeader(400)
 	}
 }

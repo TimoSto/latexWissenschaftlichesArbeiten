@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
+	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -31,7 +32,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&saveObj)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Decoding HTTP-POST for saveEntry", err.Error())
 		http.Error(w, err.Error(), 500)
 		return
 	}
@@ -57,7 +58,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 
 	err, added, changed := domain.SaveEntries(entries, saveObj.Project, initialKeys)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Saving entries", err.Error())
 		if strings.Contains(err.Error(), "already exists") {
 			http.Error(w,err.Error(),400)
 		} else {
@@ -65,7 +66,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
-	fmt.Println(fmt.Sprintf("Successfully saved entry %s", saveObj.Entry.Key))
+	logger.LogInfo(fmt.Sprintf("Successfully saved entry %s", saveObj.Entry.Key))
 
 	obj := struct{Added int; Changed int}{
 		Added: added,

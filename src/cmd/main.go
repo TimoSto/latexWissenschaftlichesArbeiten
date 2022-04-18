@@ -40,8 +40,8 @@ func main() {
 
 		// remove the delimeter from the string
 		input = strings.TrimSuffix(input, "\r\n")
-		fmt.Println(input)
-		fmt.Println(len(input))
+		//fmt.Println(input)
+		//fmt.Println(len(input))
 		autoOpen := "false"
 		if strings.ToLower(input) == "y" {
 			autoOpen = "true"
@@ -58,8 +58,8 @@ func main() {
 
 		// remove the delimeter from the string
 		input = strings.TrimSuffix(input, "\r\n")
-		fmt.Println(input)
-		fmt.Println(len(input))
+		//fmt.Println(input)
+		//fmt.Println(len(input))
 		override := "false"
 		if strings.ToLower(input) == "y" {
 			override = "true"
@@ -118,7 +118,7 @@ func main() {
 
 	http.HandleFunc("/", handlers.HandleAssets)
 
-	fmt.Println("Open http://localhost:8081/overview to get started.")
+	logger.LogInfo("Open http://localhost:8081/overview to get started.")
 
 	go startServer()
 
@@ -129,10 +129,10 @@ func main() {
 
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 
-	fmt.Println("waiting for exit...")
+	logger.LogInfo("waiting for exit...")
 
 	sig := <-sigs
-	fmt.Println(fmt.Sprintf("Received exit-signal: %v", sig))
+	logger.LogInfo(fmt.Sprintf("Received exit-signal: %v", sig))
 }
 
 func startServer() {
@@ -142,10 +142,10 @@ func startServer() {
 func openbrowser(url string) {
 
 	if !conf.AutoOpenBrowser {
-		fmt.Println("Automatically opening browser is disabled")
+		logger.LogInfo("Automatically opening browser is disabled")
 		return
 	}
-	fmt.Println("Automatically opening browser is enabled")
+	logger.LogInfo("Automatically opening browser is enabled")
 
 	var err error
 

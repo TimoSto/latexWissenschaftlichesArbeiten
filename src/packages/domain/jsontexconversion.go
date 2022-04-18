@@ -1,6 +1,7 @@
 package domain
 
 import (
+	"WA_LaTeX/src/tools/logger"
 	"fmt"
 	"io/ioutil"
 	"regexp"
@@ -19,7 +20,7 @@ func SaveTypesToLaTeX(project string, types []LiteratureType) error{
 	// fmt.Println(ifsForCiteCommands)
 	file, err := ioutil.ReadFile("./projects/" + project + "/styPackages/literatur.sty")
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError(fmt.Sprintf("Reading ./projects/%s/styPackages/literatur.sty", project), err.Error())
 		return err
 	}
 	m1 := regexp.MustCompile(`(?s)%Area to add new bibifs via gui(.*?)%end area`)

@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"WA_LaTeX/src/tools/logger"
 	"fmt"
 	cp "github.com/otiai10/copy"
 	"net/http"
@@ -24,11 +25,11 @@ func HandleBackup(w http.ResponseWriter, r *http.Request) {
 		fmt.Sprintf("./backup/%s-%s", project, t.Format("2006-01-02_15_04_05")))
 
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError(fmt.Sprintf("Creating backup for %s", project), err.Error())
 		w.WriteHeader(500)
 		return
 	}
 
-	fmt.Println("Created Backup at " + fmt.Sprintf("./backup/%s-%s", project, t.Format("2006-01-02_15_04_05")))
+	logger.LogInfo("Created Backup at " + fmt.Sprintf("./backup/%s-%s", project, t.Format("2006-01-02_15_04_05")))
 
 }

@@ -3,9 +3,8 @@ package handlers
 import (
 	"WA_LaTeX/src/packages/conf"
 	"WA_LaTeX/src/packages/domain"
-	"fmt"
+	"WA_LaTeX/src/tools/logger"
 	"html/template"
-	"log"
 	"net/http"
 )
 
@@ -18,21 +17,21 @@ func HandleOverview(w http.ResponseWriter, r *http.Request) {
 
 	file, err := GetHTMLFile("index")
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Reading index.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	tmpl, err := template.New("indexHTML").Parse(file)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Creating template index.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	projects, err := domain.GetProjects()
 	if err != nil {
-		log.Fatal(err)
+		logger.LogError("Reading projects", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 
@@ -43,7 +42,7 @@ func HandleOverview(w http.ResponseWriter, r *http.Request) {
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Executing template index.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}

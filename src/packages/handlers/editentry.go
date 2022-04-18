@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
-	"fmt"
+	"WA_LaTeX/src/tools/logger"
 	"html/template"
 	"log"
 	"net/http"
@@ -28,21 +28,21 @@ func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
 
 	file, err := GetHTMLFile("editEntry")
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Reading editEntry.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	tmpl, err := template.New("editHTML").Parse(file)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Creating template from editEntry.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	types, err := domain.ReadTypes(project)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Reading types of "+project, err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -55,7 +55,7 @@ func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
 		//Read entry
 		entries, err := domain.ReadBibEntries(project)
 		if err != nil {
-			fmt.Println( err)
+			logger.LogError("Reading entries of"+project, err.Error())
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -68,6 +68,11 @@ func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
 	}
 
 	thisType, err := domain.GetType(project, entry.Typ)
+	if err != nil {
+		logger.LogError("Reading type-info for "+ entry.Typ, err.Error())
+		http.Error(w, err.Error(), 500)
+		return
+	}
 
 	data := EntryHTMLDto{
 		Types: types.Types,
@@ -77,7 +82,7 @@ func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Executing template for editEntry.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
