@@ -14,6 +14,9 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
 
     let entries: Entry[] = [];
 
+    let unknown = [];
+    let empty = [];
+
     while( file.indexOf('@') >= 0 ) {
         //remove stuff before first '@'
         file = file.substr(file.indexOf('@'));
@@ -117,21 +120,27 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
 
         if( sortedvaluepairs.length === 0 ) {
             console.log('Empty fields or unknown type (key: ' + key+ ' type: ' + type + ')');
+            if( valuepairs.length === 0 ) {
+                empty.push(key)
+            } else {
+                unknown.push(type)
+            }
             continue;
         }
 
         entries.push(new Entry(sortedvaluepairs, key, type))
     }
 
-    SaveEntries(project, entries).then(valid => {
-        if (valid) {
-
-            (<any>window.parent).reloadMain();
-            (<any>window.parent).setEdit('/editEntry?project='+project+'&entry='+entries[0].Key);
-        } else {
-            (<any>window.parent).openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
-        }
-    });
+    (<any>window.parent).openConfirmDialog(`Es werden ${empty.length + unknown.length} Einträge ignoriert:\n\nLeere Einträge: ${empty}\nUnbekannte Typen: ${unknown}\n\n${entries.length} Einträge hochladen?`, ()=>{
+        SaveEntries(project, entries).then(valid => {
+            if (valid) {
+                (<any>window.parent).reloadMain();
+                (<any>window.parent).setEdit('/editEntry?project='+project+'&entry='+entries[0].Key);
+            } else {
+                (<any>window.parent).openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
+            }
+        });
+    })
 }
 
 function SortValues(valuepairs: string[][], type: string) {
@@ -238,6 +247,8 @@ function getIndex(attr: string, type: string) {
                 return 4
             case "doi":
                 return 5
+            case "editor":
+                return 0
         }
     }
     return -1
