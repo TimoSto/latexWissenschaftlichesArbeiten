@@ -22,3 +22,4 @@
 - Speichern-Button disabled wenn keine Änderungen
 - Citavi-Import der gesamten Bibliothek
 - Errors werden in errorlog.txt geloggt
+- Literaturtypen können aktualisiert werden
