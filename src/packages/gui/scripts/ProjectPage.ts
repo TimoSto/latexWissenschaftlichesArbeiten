@@ -81,7 +81,7 @@ class ProjectPage {
 
         document.querySelector('#use-as-default').addEventListener('click', ()=>{
             //erstelle CustomDefaultStyles und nutze von nun an diese für neue Projekte
-            (<any>window.parent).openConfirmDialog("Die Styles und Literaturtypen dieses Projektes fü alle neuen Projekte verwenden? Das beinhaltet auch sämtliche Änderungen an den .sty-Dateien.", ()=>{
+            (<any>window.parent).openConfirmDialog("Die Styles und Literaturtypen dieses Projektes für alle neuen Projekte verwenden? Das beinhaltet auch sämtliche Änderungen an den .sty-Dateien.", ()=>{
                 fetch('/setDefault?project='+pname).then(resp => {
                     if(resp.status === 200) {
                         (<any>window.parent).openAlertDialog('Jedes neue Projekt hat ab jetzt die aktuell hier verfügbaren Literaturtypen.')
@@ -94,11 +94,14 @@ class ProjectPage {
         });
 
         document.querySelector('#refresh').addEventListener('click', ()=>{
-            (<any>window.parent).openConfirmDialog("Die Styles und Literaturtypen dieses Projektes für alle neuen Projekte auf den aktuellen Stand bringen? Neu von dir erstellte Typen werden erhalten bleiben, aber Änderungen an den Standard-Typen werden überschrieben werden.", ()=>{
+
+            (<any>window.parent).openConfirmDialog("Die Literaturtypen dieses Projektes auf den aktuellen Stand bringen? Neu von dir erstellte Typen werden erhalten bleiben, aber Änderungen an den Standard-Typen werden überschrieben werden.", ()=>{
                 fetch('/refreshTypes?project='+pname).then(resp => {
                     if(resp.status === 200) {
-                        (<any>window.parent).openAlertDialog('Die Literaturtypen und Styles sind jetzt auf dem neuesten Stand.')
-                        window.location.reload();
+                        (<any>window.parent).openAlertDialog('Die Literaturtypen und Styles sind jetzt auf dem neuesten Stand.');
+                        setTimeout(()=>{
+                            (<any>window.parent).setMain('/projects/'+pname);
+                        }, 500)
                     } else {
                         (<any>window.parent).openErrorDialog('Es ist was schief gelaufen.')
                     }
