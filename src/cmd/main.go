@@ -108,6 +108,8 @@ func main() {
 
 	http.HandleFunc("/setDefault", handlers.HandleDefaultSetter)
 
+	http.HandleFunc("/refreshTypes", handlers.HandleRefreshTypes)
+
 	//http.HandleFunc("/importCitavi", handlers.HandleImportCitavi)
 
 	http.HandleFunc("/citeCleanup", handlers.HandleCiteCleanup)
