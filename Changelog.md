@@ -9,7 +9,7 @@
 - Automatisches Parsen von Sonderzeichen in GUI
 - Update-Benachrichtigung
 
-## Version 1.1.0 - [16-04-2022]
+## Version 1.1.0 - [18-04-2022]
 - Design-Verbesserungen
 - Styles über GUI bearbeitbar (Beta)
 - Abfrage: Willst du wirklich löschen?
@@ -21,3 +21,4 @@
 - Konfiguration über Kommandozeile
 - Speichern-Button disabled wenn keine Änderungen
 - Citavi-Import der gesamten Bibliothek
+- Errors werden in errorlog.txt geloggt
