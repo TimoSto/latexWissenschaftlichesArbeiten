@@ -70,6 +70,10 @@
 %Tiefe des Inhaltsverzeichnis
 \setcounter{tocdepth}{6}
 
+\newcommand{\partInBold}{
+    \renewcommand{\cftpartfont}{\bfseries}
+}
+
 \DeclareOption{latour}{\uselatourtoc}
 \DeclareOption{numeric}{\usenumerictoc}
 \ProcessOptions\relax
