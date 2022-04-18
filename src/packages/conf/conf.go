@@ -11,13 +11,18 @@ import (
 var Version string
 
 var AutoOpenBrowser = false
-var OverrideExistingEntries = false
+var OverrideExistingEntries = true
 
 func ReadConfig() {
 	cfg, err := ini.Load("Config.ini")
 	if err == nil {
 		AutoOpenBrowser, err = cfg.Section("").Key("autoOpenBrowser").Bool()
 		OverrideExistingEntries, err = cfg.Section("").Key("overrideExistingEntries").Bool()
+	} else {
+		err = WriteConfig("false", "true")
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
 }
 
@@ -33,7 +38,7 @@ func WriteConfig(autoBrowserOpen string, override string) error{
 			return err
 		}
 	}
-	fmt.Println(autoBrowserOpen)
+
 	cfg.Section("").Key("autoOpenBrowser").SetValue(autoBrowserOpen)
 	cfg.Section("").Key("overrideExistingEntries").SetValue(override)
 	return cfg.SaveTo("Config.ini")
