@@ -25,6 +25,8 @@ function replaceRange(str, index, length, replacement) {
 
 export function ParseStringToTeX(value: string) {
 
+    value = value.replaceAll('{\\ss}', 'ß');
+
     texValues.forEach(s => {
         if(s[0] === '&') {
             if(value.indexOf('{\\&}') >= 0) {
