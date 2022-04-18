@@ -91,7 +91,20 @@ class ProjectPage {
                 })
             })
 
-        })
+        });
+
+        document.querySelector('#refresh').addEventListener('click', ()=>{
+            (<any>window.parent).openConfirmDialog("Die Styles und Literaturtypen dieses Projektes für alle neuen Projekte auf den aktuellen Stand bringen? Neu von dir erstellte Typen werden erhalten bleiben, aber Änderungen an den Standard-Typen werden überschrieben werden.", ()=>{
+                fetch('/refreshTypes?project='+pname).then(resp => {
+                    if(resp.status === 200) {
+                        (<any>window.parent).openAlertDialog('Die Literaturtypen und Styles sind jetzt auf dem neuesten Stand.')
+                        window.location.reload();
+                    } else {
+                        (<any>window.parent).openErrorDialog('Es ist was schief gelaufen.')
+                    }
+                })
+            })
+        });
     }
 
     private DeleteEntry(project: string, entry: string) {
