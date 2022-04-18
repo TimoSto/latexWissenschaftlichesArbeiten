@@ -13,7 +13,7 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 	m2 := regexp.MustCompile(`({.*?,)`)
 	bibKey := m2.FindAllString(citaviFile, 1)
 	bibKey[0] = bibKey[0][1:len(bibKey[0])-1]
-	fmt.Println(bibType,bibKey)
+	// fmt.Println(bibType,bibKey)
 
 	citaviFile = strings.ReplaceAll(citaviFile, `{\&}`, "{{\\&}}")
 	citaviFile = strings.ReplaceAll(citaviFile, `{\_}`, "{{\\_}}")
@@ -62,7 +62,7 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 				indexStart = strings.Index(parts[1], "\"")
 				indexEnd = strings.LastIndex(parts[1], "\"")
 			}
-			fmt.Println(indexStart, indexEnd)
+			// fmt.Println(indexStart, indexEnd)
 			value := parts[1][indexStart+1:indexEnd]
 			if parts[0] == "title" {
 				addKey := strings.Split(value, " ")[0]
@@ -77,7 +77,7 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 			}
 
 			index := getAttributeIndexInType(bibEntry.Typ, parts[0])
-			fmt.Println(index)
+			// fmt.Println(index)
 			if index >= 0 {
 				fields[index] = value
 			}
@@ -91,7 +91,7 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 }
 
 func getAttributeIndexInType(bibType string, attr string) int{
-	fmt.Println(bibType, attr)
+	// fmt.Println(bibType, attr)
 	if bibType == "citaviAufsatzDoi" {
 		switch attr {
 		case "author":

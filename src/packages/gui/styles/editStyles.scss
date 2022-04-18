@@ -1,0 +1,91 @@
+@use 'common';
+@use "@material/list/_index" as list;
+@use '@material/icon-button/mdc-icon-button';
+@use "@material/dialog/mdc-dialog";
+@use "@material/menu/mdc-menu";
+@use "@material/select/styles";
+@use "@material/menu-surface/mdc-menu-surface";
+@use '@material/button/mdc-button';
+@use '@material/textfield/mdc-text-field';
+@use "@material/banner/styles" as banner;
+
+@include list.deprecated-core-styles;
+
+body{
+  margin: 0;
+
+  &.hide-beta-label {
+    & #beta-label {
+      display: none;
+    }
+  }
+}
+
+#content{
+  margin: 8px;
+}
+
+#beta-label{
+  position: fixed;
+  width: 80px;
+  height: 25px;
+  background: var(--mdc-theme-primary);
+  top: 7px;
+  right: -20px;
+  text-align: center;
+  font-size: 13px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  line-height: 27px;
+  transform:rotate(45deg);
+  z-index: 100;
+}
+
+.style-li{
+
+  &[data-included="true"] {
+
+    & .turn-on{
+      display: none;
+    }
+  }
+
+  &[data-included="false"] {
+
+    & .turn-off{
+      display: none;
+    }
+  }
+}
+
+.mdc-dialog__container {
+  width: calc(100% - 32px);
+  max-width: 550px;
+}
+
+.mdc-dialog__surface{
+  width: 100%;
+  height: 200px;
+
+  & .mdc-text-field {
+    width: calc(100% - 16px)
+  }
+}
+
+.mdc-select:focus-visible{
+  outline: none;
+}
+
+.mdc-banner .mdc-button:not(:disabled){
+  color: var(--mdc-theme-primary);
+}
+
+.mdc-banner .mdc-button .mdc-button__ripple:before, .mdc-banner .mdc-button .mdc-button__ripple:after {
+  background-color: var(--mdc-theme-primary);;
+}
+
+.mdc-banner {
+  background-color: rgba(25,118,210,0.12);
+}

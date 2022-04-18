@@ -11,3 +11,13 @@ projects/*
 *.toc
 src/packages/handlers/out/
 out/
+src/packages/handlers/documentation/
+src/cmd/versioninfo.json
+src/cmd/resource.syso
+src/packages/domain/templates/CV/curriculumVitae.out
+src/packages/domain/templates/CV/curriculumVitae.log
+src/packages/handlers/CV/curriculumVitae.out
+src/packages/handlers/CV/curriculumVitae.log
+backup/
+customStyles/
+errorLogs.txt

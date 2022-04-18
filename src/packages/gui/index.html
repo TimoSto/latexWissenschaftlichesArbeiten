@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
     <link rel="manifest" href="./site.webmanifest">
 </head>
-<body>
+<body data-version="{{ .Version }}">
     <header class="mdc-top-app-bar">
         <div class="mdc-top-app-bar__row">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
@@ -19,6 +19,14 @@
                 <span class="mdc-top-app-bar__title">LaTeX - Wissenschaftliches Arbeiten</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="home">
+                    <div class="mdc-icon-button__ripple"></div>
+                    home
+                </button>
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="documentation">
+                    <div class="mdc-icon-button__ripple"></div>
+                    menu_book
+                </button>
                 <div class="mdc-menu-surface--anchor">
                     <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">help_outline</button>
                     <div class="mdc-menu mdc-menu-surface">
@@ -46,7 +54,6 @@
                         </ul>
                     </div>
                 </div>
-
             </section>
         </div>
     </header>
@@ -58,7 +65,10 @@
                         <span class="mdc-top-app-bar__title">Projekte</span>
                     </section>
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-                        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="new_project">add</button>
+                        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="new_project">
+                            <div class="mdc-icon-button__ripple"></div>
+                            add
+                        </button>
                     </section>
                 </div>
             </header>
@@ -68,7 +78,9 @@
                 <li class="mdc-deprecated-list-item" tabindex="0" data-edit-value="{{$value}}">
                     <span class="mdc-deprecated-list-item__text">{{$value}}</span>
                     <span class="mdc-deprecated-list-item__meta">
-                        <button class="mdc-icon-button material-icons" data-delete-value="{{$value}}">delete</button>
+                        <button class="mdc-icon-button material-icons" data-delete-value="{{$value}}">
+                            <span class="mdc-icon-button__ripple"></span>
+                            delete</button>
                     </span>
                 </li>
                 {{ end }}
@@ -82,10 +94,17 @@
             <header class="mdc-top-app-bar mdc-top-app-bar--dense plain-top-app-bar">
                 <div class="mdc-top-app-bar__row">
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                        <span class="mdc-top-app-bar__title">Projekte</span>
+                        <span class="mdc-top-app-bar__title" id="editTitle"></span>
                     </section>
                     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-                        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="close_edit">close</button>
+                        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="save_edit" disabled>
+                            <span class="mdc-icon-button__ripple"></span>
+                            save
+                        </button>
+                        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="close_edit">
+                            <span class="mdc-icon-button__ripple"></span>
+                            close
+                        </button>
                     </section>
                 </div>
             </header>
@@ -141,19 +160,109 @@
                             <li>Öffne das Projekt über den linken Bereich</li>
                             <li>Exportiere die Quelle mit Citavi nach BibTex</li>
                             <li>Drap-and-Droppe die Datei in den Projektbereich</li>
-                            <li>Überprüfe, ob die Quelle korrekt angelegt wurde (bei IEEE-Exporten kann es passieren, dass am letzten Attribut noch ein } hängt). Berichtige Fehler, gib einen Autor_kurz für Zitate an und speichere.</li>
+                            <li>Überprüfe, ob die Quelle korrekt angelegt wurde. Berichtige Fehler, gib einen Autor_kurz für Zitate an und speichere.</li>
                         </ol>
                         <p class="mdc-typography--body1">Die bisher unterstützten Export-Typen sind</p>
                         <ul class="mdc-typography--body1">
                             <li>article</li>
                             <li>inBook</li>
                             <li>inProceedings</li>
+                            <li>inCollection</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="mdc-dialog__scrim"></div>
+    </div>
+    <div class="mdc-dialog" id="error-dialog">
+        <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface"
+                 role="alertdialog"
+                 aria-modal="true"
+                 aria-labelledby="my-dialog-title"
+                 aria-describedby="my-dialog-content">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title" id="error-dialog-title">
+                    Irgendwas ist schiefgelaufen
+                </h2>
+                <div class="mdc-dialog__content" id="error-dialog-content">
+                    <p class="mdc-typography--body1" id="error-text"></p>
+                    <p class="mdc-typography--body1">Wenn du denkst, dieser Fehler ist ein Bug, trag ihn doch gern im <a target="_blank" href="https://github.com/TimoSto/latexWissenschaftlichesArbeiten/issues">Github-Repo</a> ein.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+    </div>
+    <div class="mdc-dialog" id="sure-dialog">
+        <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface"
+                 role="alertdialog"
+                 aria-modal="true"
+                 aria-labelledby="my-dialog-title"
+                 aria-describedby="my-dialog-content">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title">
+                    Bist du sicher?
+                </h2>
+                <div class="mdc-dialog__content">
+                    <span class="mdc-typography--body1" id="sure-dialog-title"></span>
+                </div>
+                <div class="mdc-dialog__actions">
+                    <button type="button" class="mdc-button mdc-dialog__button" id="confirmSure">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Ja</span>
+                    </button>
+                    <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="discard">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Nein</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+    </div>
+
+    <div class="mdc-dialog" id="alert-dialog">
+        <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface"
+                 role="alertdialog"
+                 aria-modal="true"
+                 aria-labelledby="my-dialog-title"
+                 aria-describedby="my-dialog-content">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title">
+                    Info-Meldung
+                </h2>
+                <div class="mdc-dialog__content">
+                    <span class="mdc-typography--body1" id="alert-dialog-title"></span>
+                </div>
+                <div class="mdc-dialog__actions">
+                    <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="discard">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Ok</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+    </div>
+
+    <div class="bottom mdc-menu-surface--anchor">
+        <div id="versionPopup" class="mdc-menu mdc-menu-surface">
+            <div class="menu-headline">
+                <div class="heading mdc-typography--body1">
+                    Update <span id="newversion2"></span>
+                </div>
+                <div class="end">
+                    <button class="mdc-icon-button material-icons" id="closePopup">
+                        <span class="mdc-icon-button__ripple"></span>
+                        close
+                    </button>
+                </div>
+            </div>
+            <span class="mdc-typography--body1">Es ist eine neue Version dieses Tools verfügbar! Lade die Version <span id="newversion"></span> <a href="https://github.com/TimoSto/latexWissenschaftlichesArbeiten/blob/develop/WA_LaTeX.exe" target="_blank">hier</a> herunter</span>
+        </div>
     </div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
+	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -21,16 +22,16 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&saveObj)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Decoding HTTP-POST for saveType", err.Error())
 		http.Error(w, err.Error(), 500)
 	}
-	fmt.Println(fmt.Sprintf("Saving type %s", saveObj.Type.Name))
+	logger.LogInfo(fmt.Sprintf("Saving type %s", saveObj.Type.Name))
 	//fmt.Println(saveObj)
 	initialName := r.URL.Query().Get("initialName")
 	//fmt.Println(initialName)
 	literatureTypes, err := domain.ReadTypes(saveObj.Project)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Reading types for project "+saveObj.Project, err.Error())
 		http.Error(w, err.Error(), 500)
 	}
 	found := false
@@ -47,7 +48,7 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 
 	jsonStr,err := json.MarshalIndent(literatureTypes, "", "\t")
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("JSON-formatting types", err.Error())
 		http.Error(w, err.Error(), 500)
 	}
 
@@ -56,15 +57,15 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 
 	err = ioutil.WriteFile("./projects/"+saveObj.Project+"/literature_types.json", []byte(str), 0644)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Writing types to file "+"./projects/"+saveObj.Project+"/literature_types.json", err.Error())
 		http.Error(w, err.Error(), 500)
 	}
 
 	err = domain.SaveTypesToLaTeX(saveObj.Project, literatureTypes.Types)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Saving types to literatur.tex", err.Error())
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	fmt.Println(fmt.Sprintf("Successfully saved type %s", saveObj.Type.Name))
+	logger.LogInfo(fmt.Sprintf("Successfully saved type %s", saveObj.Type.Name))
 }

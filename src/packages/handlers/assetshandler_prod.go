@@ -4,6 +4,7 @@ package handlers
 
 import (
 	"embed"
+	"fmt"
 	"io/fs"
 	"net/http"
 )
@@ -18,4 +19,9 @@ var fSys, err = fs.Sub(assets, "out")
 func HandleAssets(w http.ResponseWriter, r *http.Request) {
 
 	http.FileServer(http.FS(fSys)).ServeHTTP(w, r)
+}
+
+func GetHTMLFile(name string) (string, error) {
+	file, err := assets.ReadFile(fmt.Sprintf("out/%s.html", name))
+	return string(file), err
 }

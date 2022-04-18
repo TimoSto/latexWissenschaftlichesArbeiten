@@ -12,6 +12,7 @@ type BibEntry struct {
 	Key string
 	Typ string
 	Fields []string
+	Comment string
 }
 
 func ReadBibEntries(project string) ([]BibEntry, error){

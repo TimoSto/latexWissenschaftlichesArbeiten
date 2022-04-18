@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
-	"fmt"
+	"WA_LaTeX/src/tools/logger"
 	"html/template"
 	"net/http"
 	"strings"
@@ -16,9 +16,16 @@ type ProjectHTMLDto struct {
 
 func HandleGetProject(w http.ResponseWriter,r *http.Request) {
 
-	tmpl, err := template.ParseFiles("./out/project.html")
+	file, err := GetHTMLFile("project")
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Reading project.html", err.Error())
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	tmpl, err := template.New("projectHTML").Parse(file)
+	if err != nil {
+		logger.LogError("Creating template project.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -27,12 +34,17 @@ func HandleGetProject(w http.ResponseWriter,r *http.Request) {
 
 	literatureTypes, err := domain.ReadTypes(name)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Reading bibTypes for "+name, err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	bib, err := domain.ReadBibEntries(name)
+	if err != nil {
+		logger.LogError("Reading bibEntries for "+name, err.Error())
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
 	data := ProjectHTMLDto{
 		ProjectName: name,
@@ -42,7 +54,7 @@ func HandleGetProject(w http.ResponseWriter,r *http.Request) {
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Executing template projects.html", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}

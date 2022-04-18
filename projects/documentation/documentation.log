@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  26 FEB 2022 18:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.13)  17 APR 2022 12:47
 entering extended mode
 **./documentation.tex
 (documentation.tex
@@ -821,7 +821,7 @@ version <1.7>, but at most version <1.5> allowed
 <titelseite.pdf, id=1, 597.55246pt x 845.07718pt>
 File: titelseite.pdf Graphic file (type pdf)
 <use titelseite.pdf>
-Package pdftex.def Info: titelseite.pdf  used on input line 66.
+Package pdftex.def Info: titelseite.pdf  used on input line 70.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -829,7 +829,7 @@ pdfTeX warning: pdflatex.exe (file ./titelseite.pdf): PDF inclusion: found PDF
 version <1.7>, but at most version <1.5> allowed
 File: titelseite.pdf Graphic file (type pdf)
 <use titelseite.pdf>
-Package pdftex.def Info: titelseite.pdf  used on input line 66.
+Package pdftex.def Info: titelseite.pdf  used on input line 70.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -842,23 +842,23 @@ version <1.7>, but at most version <1.5> allowed
 <titelseite.pdf, id=4, page=1, 597.55246pt x 845.07718pt>
 File: titelseite.pdf Graphic file (type pdf)
 <use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 66.
+Package pdftex.def Info: titelseite.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: titelseite.pdf Graphic file (type pdf)
 <use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 66.
+Package pdftex.def Info: titelseite.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: titelseite.pdf Graphic file (type pdf)
 <use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 66.
+Package pdftex.def Info: titelseite.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: titelseite.pdf Graphic file (type pdf)
 <use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 66.
+Package pdftex.def Info: titelseite.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: titelseite.pdf Graphic file (type pdf)
 <use titelseite.pdf, page 1>
-Package pdftex.def Info: titelseite.pdf , page1 used on input line 66.
+Package pdftex.def Info: titelseite.pdf , page1 used on input line 70.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 [1
 
@@ -919,89 +919,99 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 
  [5]
 LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 1
-07.
+11.
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 107.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
 
 [1
 
 ]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 119.
-<images/screenshot_1.png, id=50, 1443.14156pt x 703.87968pt>
-File: images/screenshot_1.png Graphic file (type png)
-<use images/screenshot_1.png>
-Package pdftex.def Info: images/screenshot_1.png  used on input line 122.
-(pdftex.def)             Requested size: 384.1096pt x 187.34349pt.
-<images/screenshot_2.png, id=52, 1443.89438pt x 705.38531pt>
-File: images/screenshot_2.png Graphic file (type png)
-<use images/screenshot_2.png>
-Package pdftex.def Info: images/screenshot_2.png  used on input line 130.
-(pdftex.def)             Requested size: 384.1096pt x 187.64735pt.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 123.
+<images/welcome.png, id=50, 1444.64719pt x 705.38531pt>
+File: images/welcome.png Graphic file (type png)
+<use images/welcome.png>
+Package pdftex.def Info: images/welcome.png  used on input line 126.
+(pdftex.def)             Requested size: 384.1096pt x 187.55049pt.
+<images/createProject.png, id=52, 1445.4pt x 705.38531pt>
+File: images/createProject.png Graphic file (type png)
+<use images/createProject.png>
+Package pdftex.def Info: images/createProject.png  used on input line 135.
+(pdftex.def)             Requested size: 384.1096pt x 187.45361pt.
  [2
 
- <./images/screenshot_1.png>]
-<images/screenshot_3.png, id=58, 1077.27469pt x 706.13812pt>
-File: images/screenshot_3.png Graphic file (type png)
-<use images/screenshot_3.png>
-Package pdftex.def Info: images/screenshot_3.png  used on input line 137.
-(pdftex.def)             Requested size: 384.1096pt x 251.77443pt.
+ <./images/welcome.png>]
+<images/projectOverview.png, id=58, 1444.64719pt x 705.38531pt>
+File: images/projectOverview.png Graphic file (type png)
+<use images/projectOverview.png>
+Package pdftex.def Info: images/projectOverview.png  used on input line 142.
+(pdftex.def)             Requested size: 384.1096pt x 187.55049pt.
 <images/screenshot_4.png, id=59, 1446.90562pt x 764.8575pt>
 File: images/screenshot_4.png Graphic file (type png)
 <use images/screenshot_4.png>
-Package pdftex.def Info: images/screenshot_4.png  used on input line 145.
+Package pdftex.def Info: images/screenshot_4.png  used on input line 150.
 (pdftex.def)             Requested size: 384.1096pt x 203.04807pt.
- [3 <./images/screenshot_2.png> <./images/screenshot_3.png>]
-<images/screenshot_5.png, id=65, 1078.0275pt x 706.89093pt>
-File: images/screenshot_5.png Graphic file (type png)
-<use images/screenshot_5.png>
-Package pdftex.def Info: images/screenshot_5.png  used on input line 153.
-(pdftex.def)             Requested size: 384.1096pt x 251.87025pt.
- [4 <./images/screenshot_4.png>]
-<images/screenshot_6.png, id=70, 496.85625pt x 161.10187pt>
-File: images/screenshot_6.png Graphic file (type png)
-<use images/screenshot_6.png>
-Package pdftex.def Info: images/screenshot_6.png  used on input line 160.
-(pdftex.def)             Requested size: 384.1096pt x 124.54538pt.
+ [3 <./images/createProject.png> <./images/projectOverview.png>]
+<images/createEntry.png, id=65, 1444.64719pt x 703.12688pt>
+File: images/createEntry.png Graphic file (type png)
+<use images/createEntry.png>
+Package pdftex.def Info: images/createEntry.png  used on input line 158.
+(pdftex.def)             Requested size: 384.1096pt x 186.95pt.
+<images/bibEntry.png, id=66, 551.81157pt x 239.39438pt>
+File: images/bibEntry.png Graphic file (type png)
+<use images/bibEntry.png>
+Package pdftex.def Info: images/bibEntry.png  used on input line 165.
+(pdftex.def)             Requested size: 384.1096pt x 166.64708pt.
+ [4 <./images/screenshot_4.png> <./images/createEntry.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-66.
+71.
 
 ("C:\Users\tsto\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-[5 <./images/screenshot_5.png> <./images/screenshot_6.png>]
-<dokuImages/toc_num.png, id=77, 434.37282pt x 269.50688pt>
+<images/cited.png, id=72, 1440.13031pt x 730.98094pt>
+File: images/cited.png Graphic file (type png)
+<use images/cited.png>
+Package pdftex.def Info: images/cited.png  used on input line 176.
+(pdftex.def)             Requested size: 384.1096pt x 194.95825pt.
+
+[5 <./images/bibEntry.png> <./images/cited.png>]
+<dokuImages/toc_num.png, id=79, 434.37282pt x 269.50688pt>
 File: dokuImages/toc_num.png Graphic file (type png)
 <use dokuImages/toc_num.png>
-Package pdftex.def Info: dokuImages/toc_num.png  used on input line 196.
+Package pdftex.def Info: dokuImages/toc_num.png  used on input line 207.
 (pdftex.def)             Requested size: 209.1301pt x 129.7566pt.
-<dokuImages/toc_alphanum.png, id=78, 432.86719pt x 268.75406pt>
+<dokuImages/toc_alphanum.png, id=80, 432.86719pt x 268.75406pt>
 File: dokuImages/toc_alphanum.png Graphic file (type png)
 <use dokuImages/toc_alphanum.png>
-Package pdftex.def Info: dokuImages/toc_alphanum.png  used on input line 202.
+Package pdftex.def Info: dokuImages/toc_alphanum.png  used on input line 213.
 (pdftex.def)             Requested size: 209.1301pt x 129.84116pt.
  [6
 
- <./dokuImages/toc_num.png> <./dokuImages/toc_alphanum.png>] [7] [8] [9] [10] [
-11
+ <./dokuImages/toc_num.png> <./dokuImages/toc_alphanum.png>] [7]
+Overfull \hbox (17.7001pt too wide) in paragraph at lines 292--292
+[]\T1/cmtt/m/n/12 \setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor
+}{\thepage}[] 
+ []
+
+
+Overfull \hbox (30.04709pt too wide) in paragraph at lines 296--296
+[]\T1/cmtt/m/n/12 \setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauth
+or}{\thepage}[] 
+ []
+
+[8] [9] [10] [11
 
 ] [12] [5
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 393.
-
-(documentation.mcf)
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 414.
+ (documentation.mcf)
 \tf@mcf=\write7
 \openout7 = `documentation.mcf'.
 
@@ -1009,11 +1019,11 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 
 ] (documentation.aux) ) 
 Here is how much of TeX's memory you used:
- 11231 strings out of 492452
- 160823 string characters out of 3120530
- 307459 words of memory out of 3000000
- 15273 multiletter control sequences out of 15000+200000
- 54699 words of font info for 79 fonts, out of 3000000 for 9000
+ 11222 strings out of 492452
+ 160720 string characters out of 3120530
+ 307364 words of memory out of 3000000
+ 15267 multiletter control sequences out of 15000+200000
+ 37199 words of font info for 54 fonts, out of 3000000 for 9000
  1142 hyphenation exceptions out of 8191
  58i,18n,49p,841b,546s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\tsto\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
@@ -1023,9 +1033,9 @@ fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/tsto/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/tsto/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/tsto/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on documentation.pdf (20 pages, 677429 bytes).
+Output written on documentation.pdf (20 pages, 757777 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
+ 201 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

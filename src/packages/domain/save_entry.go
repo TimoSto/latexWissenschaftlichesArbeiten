@@ -1,44 +1,76 @@
 package domain
 
 import (
+	"WA_LaTeX/src/packages/conf"
+	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"strings"
 )
 
-func SaveEntry(entry BibEntry, project string, initialKey string) error{
-	entries, err := ReadBibEntries(project)
-	fmt.Println(entry)
+func SaveEntries(entries []BibEntry, project string, initialKeys []string) (error, int, int){
+
+	existingEntries, err := ReadBibEntries(project)
+	if err != nil {
+		return err, 0, 0
+	}
+	// fmt.Println(entry)
 	//if len(saveObj.InitialKey)  == 0 {
 	//	entries = append(entries, entry)
 	//} else {
-	found := false;
-	for i:= 0 ; i<len(entries) ; i++ {
-		if strings.Compare(entries[i].Key, initialKey) == 0 || strings.Compare(entries[i].Key, entry.Key) == 0 {
-			entries[i] =  entry
-			found = true
-			break
+
+	added := 0
+	changed := 0
+
+	for n,entry := range entries {
+
+		if len(entry.Fields) == 0 {
+			return fmt.Errorf("empty fields. You propably uploaded an invalid file."), 0, 0
+		}
+
+		found := false
+		for i:= 0 ; i<len(existingEntries) ; i++ {
+			if strings.Compare(existingEntries[i].Key, initialKeys[n]) == 0 {
+				existingEntries[i] =  entry
+				found = true
+				changed++
+				break
+			} else if strings.Compare(existingEntries[i].Key, entry.Key) == 0 {
+				if !conf.OverrideExistingEntries {
+					logger.LogInfo(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
+					found = true
+				} else {
+					existingEntries[i] =  entry
+					found = true
+					changed++
+					break
+				}
+				//return fmt.Errorf("Entry with key %s already exists.", entry.Key)
+			}
+		}
+		//}
+
+		if !found {
+			existingEntries = append(existingEntries, entry)
+			added++
 		}
 	}
-	//}
 
-	if !found {
-		entries = append(entries, entry)
-	}
-
-	jsonStr, err := json.MarshalIndent(entries, "", "\t")
+	jsonStr, err := json.MarshalIndent(existingEntries, "", "\t")
 	//fmt.Println(string(jsonStr))
 	if err != nil {
-		return err
+		return err, 0, 0
 	}
 	err = ioutil.WriteFile("./projects/" + project +"/literatur.json", jsonStr, 0644)
 	if err != nil {
 
-		return err
+		return err, 0, 0
 	}
 
 	err = ConvertBibToCSV(project)
 
-	return err
+	//fmt.Println(changed, added)
+
+	return err, added, changed
 }

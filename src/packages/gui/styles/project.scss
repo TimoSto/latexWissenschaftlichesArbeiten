@@ -1,8 +1,9 @@
 @use "@material/list/_index" as list;
-@use 'common';
 @use '@material/textfield/mdc-text-field';
 @use '@material/button/mdc-button';
 @use '@material/icon-button/mdc-icon-button';
+@use '@material/top-app-bar/mdc-top-app-bar';
+@use 'common';
 
 @include list.deprecated-core-styles;
 
@@ -13,6 +14,10 @@ body{
 
 .headline{
   margin: 8px 0px 0px 8px;
+
+  & button {
+    margin-right: 8px;
+  }
 }
 
 #drop_zone{
@@ -27,5 +32,39 @@ body{
     padding-top: 20px;
     color: rgba(0,0,0,0.6);
     font-weight: bold;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #parent-list{
+    .mdc-deprecated-list-item__graphic{
+      display: none;
+    }
+  }
+
+  #drop_zone {
+    height: 110px;
+  }
+}
+
+.mdc-top-app-bar {
+  background-color: white;
+  color: black;
+}
+
+.mdc-top-app-bar .mdc-top-app-bar__action-item, .mdc-top-app-bar .mdc-top-app-bar__navigation-icon {
+  color: black;
+}
+
+.mdc-top-app-bar__title{
+  font-weight: bold;
+  & #title_label {
+    font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #title_label {
+    display: none;
   }
 }

@@ -59,82 +59,87 @@
 \usepackage{placeins}
 \begin{document}
 
-    \renewcommand{\mytitle}{Wissenschaftliches Arbeiten mit LaTeX\\Dokumentation}%Titel für oben links
-    \renewcommand{\myauthor}{Dr. Frank N. Further}%Name für unten links
-    \renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
+\renewcommand{\mytitle}{Wissenschaftliches Arbeiten mit LaTeX\\Dokumentation}%Titel für oben links
+\renewcommand{\myauthor}{Dr. Frank N. Further}%Name für unten links
+\renewcommand{\headheight}{27pt}%Bei Mehrzeiligem Titel muss Headerhöhe angepasst werden
+
+\setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
+
+\setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}
 
 \includepdf[pages={1-}]{titelseite.pdf}
 
-    \frontmatter%Stil des Headers/Footers ändern
+\frontmatter%Stil des Headers/Footers ändern
 
-    \pagenumbering{Roman}
+\pagenumbering{Roman}
 
-    \addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
-    \printabbreviations%abk_verzeichnis.sty
-    \clearpage
-    \renewcommand{\plaintitle}{Abbildungsverzeichnis}
-    \addcontentsline{toc}{part}{Abbildungsverzeichnis}
-    {\def\makebox[#1][#2]#3{#3}%
-        \listoffigures
-    }
-    \clearpage
-    \renewcommand{\plaintitle}{Tabellenverzeichnis}
-    \addcontentsline{toc}{part}{Tabellenverzeichnis}
-    {\def\makebox[#1][#2]#3{#3}%
-        \listoftables
-    }
-    \clearpage
-    \renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
+\addcontentsline{toc}{part}{Abkürzungsverzeichnis}%Abk-Verz. ins Inhaltsverzeichnis
+\printabbreviations%abk_verzeichnis.sty
+\clearpage
+\renewcommand{\plaintitle}{Abbildungsverzeichnis}
+\addcontentsline{toc}{part}{Abbildungsverzeichnis}
+{\def\makebox[#1][#2]#3{#3}%
+    \listoffigures
+}
+\clearpage
+\renewcommand{\plaintitle}{Tabellenverzeichnis}
+\addcontentsline{toc}{part}{Tabellenverzeichnis}
+{\def\makebox[#1][#2]#3{#3}%
+    \listoftables
+}
+\clearpage
+\renewcommand{\plaintitle}{Inhaltsverzeichnis}%Titel für oben Rechts
 %Defbox, damit gepunktete Linie bis zur Zahl geht
-    {\def\makebox[#1][#2]#3{#3}%
-        \tableofcontents
-    }
+{\def\makebox[#1][#2]#3{#3}%
+    \tableofcontents
+}
 
-    \addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
+\addtocontents{toc}{\vspace{24pt}}%Freiraum im ToC
 
-    \clearpage
-    \mainmatter%Stil des Headers/Footers ändern
-    \pagenumbering{arabic}
+\clearpage
+\mainmatter%Stil des Headers/Footers ändern
+\pagenumbering{arabic}
 
-	\part{Was ist das hier?}
-	In erster Linie ist dieses Projekt eine Vorlage für Dokumente mit wissenschaftlichem Anspruch, wie Hausarbeiten oder Abschlussarbeiten. Die Verwendung von \textit{Microsoft Word} kann bekanntermaßen zu unvorhersebaren Problemen in der Formatierung führen, deshalb setzt diese Vorlage auf die Textformatierung mit LaTeX.
-	\section{Was ist LaTeX?}
-	LaTeX ist eine Software, welche es ermöglicht, den Inhalt der Arbeit von der Formatierung zu trennen, indem die Formatierung über eine Art Programmier- oder Markup-Sprache definiert wird. Gewissermaßen kann man LaTeX mit HTML und CSS vergleichen. Dadurch kann man den Inhalt des Dokumentes beliebig verändern, die Formatierung der einzelnen Teile bleibt gleich und ist klar steuerbar, ohne 20 Mal irgendwo klicken zu müssen.
-	\section{Was leistet diese Vorlage/dieses Tool für mich?}
-	Dieses Tool nimmt dir die Arbeit des Formatierens ab. Die Vorlage ist quasi bereit, von dir mit Inhalt bestückt zu werden. Du kannst auch Anpassungen an den Formatierungen machen. Außerdem bietet dieses Tool eine Literaturverwaltung, in der du deine Quellen eintragen kannst und dann einstellen kannst, wie diese im Literaturverzeichnis und in den Zitaten aussehen sollen.\\
-	Die Vorlage beinhaltet insgesamt folgende Aspekte, die bei einer wissenschaftlichen Arbeit zu beachten sind:
-	\begin{itemize}
-	\item Formatierung der Überschriften
-	\item Seitenränder
-	\item Kopf- und Fußzeile
-	\item Inhaltsverzeichnis
-	\item Abbildungs-, Tabellen-, Abkürzungsverzeichnis
-	\item Literaturverzeichnis und Zitate
-	\end{itemize}
-	Mehr zu den einzelnen Aspekten findest du im HowTo (Kapitel 3).
-	
+\part{Was ist das hier?}
+In erster Linie ist dieses Projekt eine Vorlage für Dokumente mit wissenschaftlichem Anspruch, wie Hausarbeiten oder Abschlussarbeiten. Die Verwendung von \textit{Microsoft Word} kann bekanntermaßen zu unvorhersebaren Problemen in der Formatierung führen, deshalb setzt diese Vorlage auf die Textformatierung mit LaTeX.
+\section{Was ist LaTeX?}
+LaTeX ist eine Software, welche es ermöglicht, den Inhalt der Arbeit von der Formatierung zu trennen, indem die Formatierung über eine Art Programmier- oder Markup-Sprache definiert wird. Gewissermaßen kann man LaTeX mit HTML und CSS vergleichen. Dadurch kann man den Inhalt des Dokumentes beliebig verändern, die Formatierung der einzelnen Teile bleibt gleich und ist klar steuerbar, ohne 20 Mal irgendwo klicken zu müssen.
+\section{Was leistet diese Vorlage/dieses Tool für mich?}
+Dieses Tool nimmt dir die Arbeit des Formatierens ab. Die Vorlage ist quasi bereit, von dir mit Inhalt bestückt zu werden. Du kannst auch Anpassungen an den Formatierungen machen. Außerdem bietet dieses Tool eine Literaturverwaltung, in der du deine Quellen eintragen kannst und dann einstellen kannst, wie diese im Literaturverzeichnis und in den Zitaten aussehen sollen.\\
+Die Vorlage beinhaltet insgesamt folgende Aspekte, die bei einer wissenschaftlichen Arbeit zu beachten sind:
+\begin{itemize}
+\item Formatierung der Überschriften
+\item Seitenränder
+\item Kopf- und Fußzeile
+\item Inhaltsverzeichnis
+\item Abbildungs-, Tabellen-, Abkürzungsverzeichnis
+\item Literaturverzeichnis und Zitate
+\end{itemize}
+Mehr zu den einzelnen Aspekten findest du im HowTo (Kapitel 3).
+
 \part{Workflow/Tutorial}
-Bevor wir groß auf irgendwelche Details eingehen, möchte ich erstmal darstellen, wie das Arbeiten mit diesem Tool überhaupt aussieht. Als aller erstes lade dir den Inhalt dieses Github-Repos runter. Dann gehe in den heruntergeladenen Ordner\footnote{Kopiere ihn ggf. noch irgendwo anders hin} und starte die WA\_ LaTeX.exe(Doppelklick).
+Bevor wir groß auf irgendwelche Details eingehen, möchte ich erstmal darstellen, wie das Arbeiten mit diesem Tool überhaupt aussieht. Als aller erstes lade dir die Datei \textit{WA\_ LaTeX.exe} (bzw. \textit{WA\_ LaTeX}, wenn du auf Mac oder Linux unterwegs bist) aus dem Github-Repo herunter. Dann kopiere die Datei an den Speicherort deiner Wahl und starte das Programm durch einen Doppelklick.
 \section{Schritt 1: Weboberfläche aufrufen}
-Nachdem du das Programm gestartet hast, öffne deinen Browser und öffne folgende Adresse: \textbf{http://localhost:8081/overview}. Du solltest dann dieses Bild sehen:
+Nachdem du das Programm gestartet hast, kannst du deinen Browser mit der Adresse \textbf{http://localhost:8081/overview} öffnen. Du solltest dann dieses Bild sehen:
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_1.png}
-\caption{Weboberfläche}
+\includegraphics[width=.9\textwidth]{images/welcome.png}
+\caption{Willkommen}
 \end{figure}
 \FloatBarrier
+\noindent Diese Willkommens-Seite bietet Absprünge zur Dokumentation und zu einer Vorlage für einen schön gestylten Lebenslauf. Über das Häuschen in der oberen Leiste kommst du immer zu diesem Bildschirm zurück. Über den Burger-Button links kannst du den linken Bereich minimieren/maximieren. Das Buch führt immer zur Dokumentation und unter dem ? werden die vielleicht die ein oder andere Frage beantwortet.
 \section{Schritt 2: Projekt erstellen}
 Klicke auf das \textbf{+} neben \textit{Projekte} und gib einen Namen ein und klicke auf den Button, um ein neues Projekt zu erstellen.
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_2.png}
+\includegraphics[width=.9\textwidth]{images/createProject.png}
 \caption{Projekt erstellen}
 \end{figure}
 \FloatBarrier
 \noindent Dieses wird dann auch direkt geöffnet und zeigt dir eine Übersicht, über die verfügbaren Literatur-Typen und die Einträge deines Projektes:
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_3.png}
+\includegraphics[width=.9\textwidth]{images/projectOverview.png}
 \caption{Projekt-Übersicht}
 \end{figure}
 \FloatBarrier
@@ -147,25 +152,31 @@ Das Programm hat eine Datei unter \textbf{projects/<DEIN Projektname>} angelegt.
 \end{figure}
 \FloatBarrier
 \section{Schritt 5: Literatureintrag erstellen}
-Jetzt will ich einen Aufsatz in mein Litaraturverzeichnis mit aufnehmen. Dazu gehe ich in der Weboberfläche auf \textbf{Neu} neben \textbf{Literatureinträge}. In dem sich öffnenden Bereich wähle ich dann einen Literaturtypen aus und gebe die jeweiligen Felder ein. Vergiss mich, einen Key zur Identifikation zu vergeben:
+Jetzt will ich einen Aufsatz in mein Litaraturverzeichnis mit aufnehmen. Dazu gehe ich in der Weboberfläche auf das \textbf{+} neben \textbf{Literatureinträge}. In dem sich öffnenden Bereich wähle ich dann einen Literaturtypen aus und gebe die jeweiligen Felder ein. Vergiss mich, einen Key zur Identifikation zu vergeben:
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_5.png}
+\includegraphics[width=.9\textwidth]{images/createEntry.png}
 \caption{Literatureintrag erstellen}
 \end{figure}
 \FloatBarrier
-\noindent Klicke ich nun auf \textbf{Speichern} und kompiliere meine TeX-Datei nochmal, erscheint im Literaturverzeichnis folgender Eintrag:
+\noindent Klicke ich nun auf den Speichern-Button in der oberen rechten Leiste und kompiliere meine TeX-Datei nochmal, erscheint im Literaturverzeichnis folgender Eintrag:
 \FloatBarrier
 \begin{figure}[!ht]
-\includegraphics[width=.9\textwidth]{images/screenshot_6.png}
+\includegraphics[width=.9\textwidth]{images/bibEntry.png}
 \caption{Literatureintrag}
 \end{figure}
 \FloatBarrier
 \section{Schitt 6: Zitieren dieses Eintrages}
-Mithilfe des eben vergebenen Keys kann ich die Quelle nun zitieren\citebib{meinEintrag}{S.235}{Vgl. }:
+Mithilfe des eben vergebenen Keys kann ich die Quelle nun zitieren:
 \begin{verbatim}
-\citebib{meinEintrag}{S.235}{Vgl. }
+\citebib{beliebigerKey}{S.235}{Vgl. }
 \end{verbatim}
+\FloatBarrier
+\begin{figure}[!ht]
+\includegraphics[width=.9\textwidth]{images/cited.png}
+\caption{Zitat}
+\end{figure}
+\FloatBarrier
 
 \part{Wie kann ich dieses Template benutzen?}
 
@@ -190,18 +201,18 @@ Es können Überschriften auf 6 Ebenen erzeugt werden:
 \subsection{Wie kann ich die Nummerierung der Überschriften ändern?}
 Die Überschriften können entweder nach einer rein nummerischen oder einer alphanummerischen Form nummeriert werden:
 \begin{figure}[ht]
+\centering
+\begin{minipage}[t]{0.49\linewidth}
     \centering
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{dokuImages/toc_num.png}
-        \caption{numerisch}
-    \end{minipage}% <- sonst wird hier ein Leerzeichen eingefügt
-    \hfill
-    \begin{minipage}[t]{0.49\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{dokuImages/toc_alphanum.png}
-        \caption{alpha-numerisch}
-    \end{minipage}
+    \includegraphics[width=\linewidth]{dokuImages/toc_num.png}
+    \caption{numerisch}
+\end{minipage}% <- sonst wird hier ein Leerzeichen eingefügt
+\hfill
+\begin{minipage}[t]{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{dokuImages/toc_alphanum.png}
+    \caption{alpha-numerisch}
+\end{minipage}
 \end{figure}
 Der Wechsel erfolgt in der \textit{.tex}-Datei im Preämbel:\\[6pt]
 Für numerisch:
@@ -231,7 +242,7 @@ Die Parameter sind das Element, zu dem hinzugefügt werde soll, die Ebene und de
 Um die gepunkteten Linien wirklich ganz bis zur Seitenzahl durchzuziehen, muss der Standard-Befehl noch in eine Box gewrappt werden:
 \begin{verbatim}
 {\def\makebox[#1][#2]#3{#3}%
-	\tableofcontents
+\tableofcontents
 }
 \end{verbatim}
 
@@ -258,9 +269,9 @@ Die Einträge im Abkürzungsverzeichnis werden automatisch aus der Datei \textit
 Um ein Bild im Abbildungsverzeichnis anzuzeigen, muss es in eine \textit{figure} gewrappt und mit einer Caption versehen werden:
 \begin{verbatim}
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=\linewidth]{relativer/bildpfad.png}
-    \caption{Bild}
+\centering
+\includegraphics[width=\linewidth]{relativer/bildpfad.png}
+\caption{Bild}
 \end{figure}
 \end{verbatim}
 \noindent Die Option \textit{ht} gibt an, dass die Figure an diesem Ort stehen soll und nicht im Text fließen soll.
@@ -273,6 +284,16 @@ Dieses Template bietet die Möglichkeit, folgende Informationen in Kopf- und Fu�
 \item unten-links: Autor
 \item unten-rechts: Seite
 \end{itemize}
+
+\subsection{Wie kann ich ändern, was wo im Header/Footer steht?}
+Für Hauptteil:
+\begin{verbatim}
+\setMainPageStyle{\mytitle}{\nouppercase\parttitle}{\myauthor}{\thepage}
+\end{verbatim}
+Für Verzeichnisse, etc.
+\begin{verbatim}
+\setPlainPageStyle{\mytitle}{\nouppercase\plaintitle}{\myauthor}{\thepage}
+\end{verbatim}
 
 \subsection{Wie kann ich den Titel und den Autor in der Kopf-/Fußzeile ändern?}
 \begin{verbatim}
@@ -378,19 +399,19 @@ Text Text Text
 \end{verbatim}
 
 
-    \clearpage
-    \frontmatter%Stil des Headers/Footers ändern
-    \renewcommand{\plaintitle}{Literaturverzeichnis}
-    \pagenumbering{Roman}
-    \setcounter{page}{5}
-    \addtocontents{toc}{\vspace{24pt}}
-    \addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
-    \printMyBibliography
-    \clearpage
-    \renewcommand{\plaintitle}{Anhang}
-    \addcontentsline{toc}{part}{Anhang}
-    {\def\makebox[#1][#2]#3{#3}%
-        \listofanhang
-    }
+\clearpage
+\frontmatter%Stil des Headers/Footers ändern
+\renewcommand{\plaintitle}{Literaturverzeichnis}
+\pagenumbering{Roman}
+\setcounter{page}{5}
+\addtocontents{toc}{\vspace{24pt}}
+\addcontentsline{toc}{part}{Literaturverzeichnis}%Literatur-Verz. ins Inhaltsverzeichnis
+\printMyBibliography
+\clearpage
+\renewcommand{\plaintitle}{Anhang}
+\addcontentsline{toc}{part}{Anhang}
+{\def\makebox[#1][#2]#3{#3}%
+    \listofanhang
+}
 
 \end{document}

@@ -7,74 +7,104 @@
     <script type="module" src="scripts/ProjectPage.ts"></script>
 </head>
 <body>
-    <div class="headline">
-        <h1 class="mdc-typography--headline4">{{ .ProjectName }}</h1>
-    </div>
+    <header class="mdc-top-app-bar mdc-top-app-bar--dense">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
 
-    <div id="drop_zone">
-        <span class="mdc-typography--body1">Ziehe eine aus Citavi exportierte Bib-Datei hier hinein</span>
-    </div>
-    <input type="file" id="fileInput" style="display:none"/>
+                <span class="mdc-top-app-bar__title"> <span id="title_label">Projektansicht: </span>{{ .ProjectName }}</span>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="backup" title="Lokales Backup erstellen">
+                    <span class="mdc-icon-button__ripple"></span>
+                    backup
+                </button>
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="editStyles" title="Tex-Packages konfigurieren">
+                    <span class="mdc-icon-button__ripple"></span>
+                    edit_note
+                </button>
+            </section>
+        </div>
+    </header>
+    <main class="mdc-top-app-bar--dense-fixed-adjust">
+        <div id="drop_zone">
+            <span class="mdc-typography--body1">Ziehe eine aus Citavi exportierte Bib-Datei hier hinein</span>
+        </div>
+        <input type="file" id="fileInput" style="display:none"/>
 
-    <ul class="mdc-deprecated-list">
-        <li class="mdc-deprecated-list-item">
-            <span class="mdc-deprecated-list-item__graphic">
+        <ul class="mdc-deprecated-list" id="parent-list">
+            <li class="mdc-deprecated-list-item prominent">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <span class="mdc-deprecated-list-item__graphic">
                 <button class="mdc-icon-button material-icons trigger-icon">expand_less</button>
             </span>
-            <span class="mdc-deprecated-list-item__text">Literaturtypen</span>
-            <span class="mdc-deprecated-list-item__meta">
-                <button class="mdc-button mdc-button--raised" id="new-type">
-                    <span class="mdc-button__label">Neu</span>
-                </button>
+                <span class="mdc-deprecated-list-item__text">Literaturtypen</span>
+                <span class="mdc-deprecated-list-item__meta">
+                    <button class="mdc-icon-button material-icons" id="use-as-default" title="Die Literaturtypen und Styles dieses Projektes für alle neuen Projekte verwenden">
+                        <div class="mdc-icon-button__ripple"></div>
+                        settings_suggest
+                    </button>
+                    <button class="mdc-icon-button material-icons" id="refresh" title="Die Literaturtypen dieses Projektes auf den aktuellen Stand bringen">
+                        <div class="mdc-icon-button__ripple"></div>
+                        refresh
+                    </button>
+                    <button class="mdc-icon-button material-icons" id="new-type" title="Neuen Literaturtypen erstellen">
+                        <div class="mdc-icon-button__ripple"></div>
+                        add
+                    </button>
             </span>
-        </li>
-        <div class="expandable-area expandable-area--open">
-            <ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="typelist">
-                {{ range $key, $value := .LiteratureTypes.Types}}
-                <li class="mdc-deprecated-list-item" tabindex="0" data-edit-type="{{ $value.Name }}">
-                    <span class="mdc-deprecated-list-item__ripple"></span>
-                    <span class="mdc-deprecated-list-item__text">
+            </li>
+            <div class="expandable-area expandable-area--open">
+                <ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="typelist">
+                    {{ range $key, $value := .LiteratureTypes.Types}}
+                    <li class="mdc-deprecated-list-item" tabindex="0" data-edit-type="{{ $value.Name }}">
+                        <span class="mdc-deprecated-list-item__ripple"></span>
+                        <span class="mdc-deprecated-list-item__text">
                       <span class="mdc-deprecated-list-item__primary-text">{{ $value.Name }}</span>
                       <span class="mdc-deprecated-list-item__secondary-text">{{ $value.Example }}</span>
                     </span>
-                    <span class="mdc-deprecated-list-item__meta">
+                        <span class="mdc-deprecated-list-item__meta">
                         <button class="mdc-icon-button material-icons" data-delete-type="{{ $value.Name }}">delete</button>
                     </span>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-        <li class="mdc-deprecated-list-item">
-            <span class="mdc-deprecated-list-item__graphic">
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            <li class="mdc-deprecated-list-item prominent">
+                <span class="mdc-deprecated-list-item__ripple"></span>
+                <span class="mdc-deprecated-list-item__graphic">
                 <button class="mdc-icon-button material-icons trigger-icon">expand_less</button>
             </span>
-            <span class="mdc-deprecated-list-item__text">Literaturenträge</span>
-            <span class="mdc-deprecated-list-item__meta">
-                <button class="mdc-button mdc-button--raised" id="cleanupCites">
-                    <span class="mdc-button__label">Aufräumen</span>
+                <span class="mdc-deprecated-list-item__text">Literaturenträge</span>
+                <span class="mdc-deprecated-list-item__meta" style="min-width: 100px">
+                <button class="mdc-icon-button material-icons" id="cleanupCites" title="Zitate aufräumen">
+                    <div class="mdc-icon-button__ripple"></div>
+                    published_with_changes
                 </button>
-                <button class="mdc-button mdc-button--raised" id="new-entry">
-                    <span class="mdc-button__label">Neu</span>
+                <button class="mdc-icon-button material-icons" id="new-entry" title="Neuen Eintrag hinzufügen">
+                    <div class="mdc-icon-button__ripple"></div>
+                    add
                 </button>
             </span>
-        </li>
-        <div class="expandable-area expandable-area--open">
-            <ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="entrylist">
-                {{ range $key, $value := .BibEntries}}
-                <li class="mdc-deprecated-list-item" tabindex="0" data-edit-entry="{{ $value.Key }}">
-                    <span class="mdc-deprecated-list-item__ripple"></span>
-                    <span class="mdc-deprecated-list-item__text">
+            </li>
+            <div class="expandable-area expandable-area--open">
+                <ul class="mdc-deprecated-list mdc-deprecated-list--two-line" id="entrylist">
+                    {{ range $key, $value := .BibEntries}}
+                    <li class="mdc-deprecated-list-item" tabindex="0" data-edit-entry="{{ $value.Key }}">
+                        <span class="mdc-deprecated-list-item__ripple"></span>
+                        <span class="mdc-deprecated-list-item__text">
                       <span class="mdc-deprecated-list-item__primary-text">{{ index $value.Fields 0 }} - {{ index $value.Fields 1 }}</span>
                       <span class="mdc-deprecated-list-item__secondary-text">{{ $value.Typ }} - {{ $value.Key }}</span>
                     </span>
-                    <span class="mdc-deprecated-list-item__meta">
+                        <span class="mdc-deprecated-list-item__meta">
                         <button class="mdc-icon-button material-icons" data-delete-entry="{{ $value.Key }}">delete</button>
                     </span>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-    </ul>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </ul>
+    </main>
+
 
 
 </body>

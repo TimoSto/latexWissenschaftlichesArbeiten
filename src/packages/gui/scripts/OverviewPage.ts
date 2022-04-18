@@ -10,10 +10,27 @@ class OverviewPage {
     private _mainFrame: HTMLIFrameElement;
 
     private _editArea: HTMLElement;
+    private _editTitle: HTMLElement;
     private _editFrame: HTMLIFrameElement;
+
+    private _version: string;
+
+    private _helpMenu: MDCMenuSurface;
+
+    private _errorDialog: MDCDialog;
+    private _errorText: HTMLElement;
+
+    private _sureDialog: MDCDialog;
+    private _sureText: HTMLElement;
+    private _confirmedCallback: ()=>void;
+
+    private _saveCallback: ()=>void;
+
+    private _alertDialog: MDCDialog;
 
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
+            this._version = document.body.getAttribute('data-version');
             this.init();
             let params = new URLSearchParams(document.location.search);
             let name = params.get("project");
@@ -21,16 +38,46 @@ class OverviewPage {
                 this.setMain(`/projects/${name}`);
             }
 
+            this._editTitle = document.querySelector('#editTitle');
+
             (<any>window).setMain = (uri) => {
                 this.setMain(uri);
             }
             (<any>window).setEdit = (uri) => {
                 this.setEdit(uri);
             }
+            (<any>window).openErrorDialog = (text) => {
+                this.openErrorDialog(text);
+            }
+
+            (<any>window).openConfirmDialog = (text, cb) => {
+                this.openSureDialog(text, cb);
+            }
 
             (<any>window).reloadMain = () => {
                 this._mainFrame.contentWindow.location.reload();
             }
+
+            (<any>window).setEditSave = (cb: ()=>void) => {
+                this._saveCallback = cb;
+            }
+
+            let alertText = document.querySelector('#alert-dialog-title');
+
+            (<any>window).openAlertDialog = (text) => {
+                alertText.innerHTML = text;
+                this._alertDialog.open();
+            }
+
+            let saveEditBtn = <HTMLButtonElement>document.querySelector('#save_edit');
+
+            (<any>window).editSavePossible = (possible) => {
+                saveEditBtn.disabled = !possible;
+            }
+
+            saveEditBtn.addEventListener('click', ()=>{
+                this._saveCallback();
+            });
 
             document.querySelector('#close_edit').addEventListener('click', ()=>{
                 this._editArea.classList.remove('editArea--open');
@@ -49,31 +96,29 @@ class OverviewPage {
             document.querySelectorAll('[data-delete-value]').forEach(el => {
                 const project = el.getAttribute('data-delete-value');
                 el.addEventListener('click', (e)=>{
-                    fetch('/deleteProject?project='+project).then(resp => {
-                        if ( resp.status === 200 ) {
-                            window.location.reload();
-                        }
-                    })
+                    (<any>window).openConfirmDialog('Willst du das Projekt ' + project + ' wirklich löschen?', ()=>{
+                        this.DeleteProject(project);
+                    });
                     //this.setMain('/projects/'+project);
                 })
             });
 
-            const menu = new MDCMenuSurface(document.querySelector('.mdc-menu'));
+            this._helpMenu = new MDCMenuSurface(document.querySelector('header .mdc-menu'));
             //menu.setAnchorElement(document.querySelector('.mdc-top-app-bar__section--align-end button'));
-            menu.setAnchorCorner(1);
+            this._helpMenu.setAnchorCorner(1);
 
             let open = false;
 
-            menu.listen('MDCMenuSurface:opened', () => {
+            this._helpMenu.listen('MDCMenuSurface:opened', () => {
                 open = true;
             });
-            menu.listen('MDCMenuSurface:closed', () => {
+            this._helpMenu.listen('MDCMenuSurface:closed', () => {
                 open = false;
             });
 
-            document.querySelector('.mdc-top-app-bar__section--align-end button').addEventListener('click', ()=>{
+            document.querySelector('.mdc-top-app-bar__section--align-end .mdc-menu-surface--anchor button').addEventListener('click', ()=>{
                 if(!open) {
-                    menu.open();
+                    this._helpMenu.open();
                 }
             });
 
@@ -90,10 +135,62 @@ class OverviewPage {
                         (<HTMLElement>dc).style.display = n === index ? 'block' : 'none';
                     });
                     dialog.open()
-                    menu.close();
+                    this._helpMenu.close();
                 })
             })
+
+            this._errorDialog = new MDCDialog(document.querySelector('#error-dialog'));
+            this._errorText = document.querySelector('#error-text');
+
+            this._sureDialog = new MDCDialog(document.querySelector('#sure-dialog'));
+            this._sureText = document.querySelector('#sure-dialog-title');
+
+            document.querySelector('#confirmSure').addEventListener('click', ()=>{
+                this._confirmedCallback();
+                this._sureDialog.close();
+            });
+
+            this._alertDialog = new MDCDialog(document.querySelector('#alert-dialog'));
         });
+
+        this._showUpdateDialogIfNecessary()
+    }
+
+    private DeleteProject(project: string) {
+        fetch('/deleteProject?project='+project).then(resp => {
+            if ( resp.status === 200 ) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const loadedProject = urlParams.get('project');
+                if( loadedProject === project ) {
+                    window.location.replace('/overview')
+                } else {
+                    window.location.reload();
+                }
+            }
+        });
+    }
+
+    private _showUpdateDialogIfNecessary() {
+        fetch('https://raw.githubusercontent.com/TimoSto/latexWissenschaftlichesArbeiten/develop/src/packages/conf/VERSION', {cache: "no-store"}).then(resp => {
+            //console.log(resp.status)
+            if( resp.status === 200 ) {
+                return resp.text();
+            }
+        }).then(version => {
+            console.debug(version, this._version)
+            if(version != this._version) {
+                console.log("UPDATE AVAILABLE")
+                const versionmenu = new MDCMenuSurface(document.querySelector('#versionPopup'));
+
+                document.querySelector('#newversion').innerHTML = version;
+                document.querySelector('#newversion2').innerHTML = version;
+                document.querySelector('#closePopup').addEventListener('click', ()=>{
+                    versionmenu.close();
+                })
+
+                versionmenu.open();
+            }
+        })
     }
 
     private init() {
@@ -104,23 +201,65 @@ class OverviewPage {
         });
 
         this._mainFrame = document.querySelector('#main-frame');
+        this._mainFrame.addEventListener('load', ()=>{
+            this._mainFrame.contentWindow.document.addEventListener('click', ()=>{
+                this._helpMenu.close();
+            });
+        });
         this._mainFrame.src = '/welcome.html';
 
         document.querySelector('#new_project').addEventListener('click', ()=>{
             this.setMain('/newProject.html');
         });
 
+        document.querySelector('#home').addEventListener('click', ()=>{
+            this.setMain('/welcome.html');
+            window.history.pushState('', 'LaTeX - Wissenschaftliches Arbeiten', '/overview');
+        });
+
+        document.querySelector('#documentation').addEventListener('click', ()=>{
+            this.setMain('/documentation');
+            window.history.pushState('', 'LaTeX - Wissenschaftliches Arbeiten', '/overview');
+        });
+
         this._editArea = document.querySelector('#editArea');
         this._editFrame = document.querySelector('#edit-frame');
+        this._editFrame.addEventListener('load', ()=>{
+            this._editFrame.contentWindow.document.addEventListener('click', ()=>{
+                this._helpMenu.close();
+            });
+        });
     }
 
     private setMain(uri: string) {
         this._mainFrame.src = uri;
+        // if(uri === '/documentation' || uri == '/welcome.html') {
+        //     this._editArea.classList.remove('editArea--open');
+        // }
+        this._editArea.classList.remove('editArea--open');
     }
 
     private setEdit(uri: string) {
         this._editArea.classList.add('editArea--open')
         this._editFrame.src = uri;
+        if( uri.indexOf('/editType') >= 0 ) {
+            this._editTitle.innerText = "Literaturtypen bearbeiten";
+        } else if( uri.indexOf('editEntry') >= 0 ) {
+            this._editTitle.innerText = 'Literatureintrag bearbeiten';
+        } else {
+            this._editTitle.innerText = 'TeX-Packages konfigurieren';
+        }
+    }
+
+    private openErrorDialog(text: string) {
+        this._errorText.innerText = text;
+        this._errorDialog.open();
+    }
+
+    private openSureDialog(text: string, cb: ()=>{}) {
+        this._sureText.innerText = text;
+        this._confirmedCallback = cb;
+        this._sureDialog.open();
     }
 }
 

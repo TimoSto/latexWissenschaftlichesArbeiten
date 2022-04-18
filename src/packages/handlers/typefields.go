@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
+	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -24,14 +24,14 @@ func HandleTypeFields(w http.ResponseWriter,r *http.Request) {
 
 	typeObj, err := domain.GetType(project, lType)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("Reading type " + lType + "in project " + project, err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	jsonStr, err := json.Marshal(typeObj)
 	if err != nil {
-		fmt.Println( err)
+		logger.LogError("JSON-formatting typeObj", err.Error())
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}

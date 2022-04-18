@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"WA_LaTeX/src/packages/domain"
+	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -42,7 +43,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 
 	jsonStr,err := json.MarshalIndent(entries, "", "\t")
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("JSON-formatting new entries", err.Error())
 		http.Error(w, err.Error(), 500)
 		return
 	}
@@ -52,16 +53,16 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 
 	err = ioutil.WriteFile("./projects/" + project + "/literatur.json", []byte(str), 0644)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Writing new entries to literatur.json", err.Error())
 		http.Error(w, err.Error(), 500)
 		return
 	}
 
 	err = domain.ConvertBibToCSV(project)
 	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Converting entries to csv", err.Error())
 		http.Error(w, err.Error(), 500)
 		return
 	}
-	fmt.Println(fmt.Sprintf("Successfully deleted entrye %s", entry))
+	logger.LogInfo(fmt.Sprintf("Successfully deleted entrye %s", entry))
 }

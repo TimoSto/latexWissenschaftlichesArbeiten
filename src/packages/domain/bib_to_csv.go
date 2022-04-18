@@ -1,15 +1,15 @@
 package domain
 
 import (
+	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"sort"
 	"strings"
 )
 
 func ConvertBibToCSV(project string) error{
-	fmt.Println("Convertig ./projects/"+project+"/literatur.json to literatur.csv...")
+	logger.LogInfo("Convertig ./projects/"+project+"/literatur.json to literatur.csv...")
 
 	file, err := ioutil.ReadFile("./projects/"+project+"/literatur.json")
 	if err != nil {
@@ -31,7 +31,8 @@ func ConvertBibToCSV(project string) error{
 		filestring += entry.Key + ";" + entry.Typ + ";"
 		for i:=0 ; i<26; i++ {
 			if i < len(entry.Fields) {
-				filestring += entry.Fields[i];
+				strToAdd := strings.Replace(entry.Fields[i], "amp;", "", -1)
+				filestring += strToAdd
 			}
 			filestring += ";"
 		}

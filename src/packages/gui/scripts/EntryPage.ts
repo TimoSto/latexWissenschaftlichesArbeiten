@@ -1,6 +1,7 @@
 import {MDCTextField} from "@material/textfield/component";
 import {MDCSelect} from "@material/select/component";
 import SaveEntry from "./SaveEntry";
+import {ParseStringToTeX, ParseTexToString} from "./TeXParser";
 
 document.addEventListener('DOMContentLoaded', ()=>{
     new EntryPage();
@@ -17,6 +18,8 @@ class EntryPage {
     private _valueFields: MDCTextField[] = [];
     private _fieldNames: string[];
 
+    private _commentField: MDCTextField;
+
     private _prevValuesElement: HTMLElement;
 
     private _initialKey: string = "";
@@ -24,6 +27,10 @@ class EntryPage {
     private project: string;
 
     private _typeObj: any;
+
+    private _initialExamples: string[];
+
+    private _inititalDescribtion: string;
 
     constructor() {
 
@@ -44,11 +51,20 @@ class EntryPage {
 
         this._fieldsArea = document.querySelector('#fieldsArea');
 
-        document.querySelector('#saveEntry').addEventListener( 'click', ()=>{
-            this.Save()
+        this._commentField = new MDCTextField(document.querySelector('#commentArea'));
+
+        document.querySelector('#commentArea textarea').addEventListener('change', ()=>{
+            this.syncSave();
+        });
+
+        (<any>window.parent).setEditSave(()=>{
+            this.Save();
         });
 
         this._prevValuesElement = document.querySelector('#values');
+        this._commentField.value = this._prevValuesElement.getAttribute('data-comment');
+        this._inititalDescribtion = this._commentField.value;
+        this.syncSave();
         let key = this._prevValuesElement.getAttribute('data-key');
         if( key ) {
             this._keyField.value = key;
@@ -60,7 +76,7 @@ class EntryPage {
 
     SetupFieldsForType(obj: any) {
         this._typeObj = obj;
-        console.log(obj)
+        //console.log(obj)
         this._fieldsArea.querySelectorAll('*').forEach(el => el.remove());
         this._valueFields = [];//TODO: Migrate values on typechange
         this._fieldNames = [];
@@ -97,11 +113,16 @@ class EntryPage {
 
         for( let i=0 ; i<this._valueFields.length ; i++ ) {
             if( this._prevValuesElement.children[i] ) {
-                this._valueFields[i].value = this._prevValuesElement.children[i].innerHTML;
+                this._valueFields[i].value = ParseTexToString((<HTMLElement>this._prevValuesElement.children[i]).innerText);
             }
         }
 
         this.syncExample();
+
+        this._initialExamples = [
+            document.getElementById('bibExample').innerHTML,
+            document.getElementById('citeExample').innerHTML
+        ]
     }
 
     Save() {
@@ -109,15 +130,19 @@ class EntryPage {
         for( let i=0; i< this._valueFields.length; i++ ) {
             valuePairs.push({
                 Attr: this._fieldNames[i],
-                Value: this._valueFields[i].value
+                Value: ParseStringToTeX(this._valueFields[i].value)
             })
         }
 
-        SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value).then(valid => {
+        //console.log(valuePairs)
+
+        SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value, this._commentField.value).then(valid => {
             if( valid ) {
 
                 (<any>window.parent).reloadMain();
                 window.location.href= '/editEntry?entry=' + this._keyField.value+'&project='+this.project;
+            } else {
+                (<any>window.parent).openErrorDialog('Beim Versuch, die Quelle zu speichern, ist ein Fehler aufgetreten.')
             }
         });
     }
@@ -125,6 +150,7 @@ class EntryPage {
     syncExample() {
         let bibExample = '';
         this._typeObj.Fields.forEach( (field: { Prefix: string; Style: any; Field: string; Suffix: string; }, n: any) => {
+
 
 
             bibExample += field.Prefix;
@@ -136,8 +162,9 @@ class EntryPage {
                     bibExample += '<b>'
                     break;
             }
+            let valueWithoutLinebreaks = this._valueFields[n].value.replaceAll('{{\\\\}}', ' ')
 
-            bibExample += this._valueFields[n].value;
+            bibExample += valueWithoutLinebreaks;
             switch (field.Style){
                 case 'italic':
                     bibExample += '</i>';
@@ -184,5 +211,16 @@ class EntryPage {
         }
 
         document.getElementById('citeExample').innerHTML = citeExample + '.';
+
+        this.syncSave();
+    }
+
+    private syncSave() {
+
+        if( this._initialExamples ) {
+            let saveNecessary = (this._initialExamples[0] != document.getElementById('bibExample').innerHTML || this._initialExamples[1] != document.getElementById('citeExample').innerHTML || this._commentField.value != this._inititalDescribtion);
+
+            (<any>window.parent).editSavePossible(saveNecessary)
+        }
     }
 }
