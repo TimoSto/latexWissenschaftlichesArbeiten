@@ -25,7 +25,7 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
 
         let filepart = file
 
-        if( nextEntryIndex >= 0) {
+        if( nextEntryIndex >= 0) {//TODO: Warum hat das vorher funktioniert????
             filepart = file.substr(0, nextEntryIndex+1)
         }
 

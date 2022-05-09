@@ -12,7 +12,9 @@ const texValues = [
     ['å','{{\\r{a}}}'],
     ["é","{{\\'{e}}}"],
     ['è','{{\\`{e}}}'],
-    ['°','{{\\degree}}']
+    ['°','{{\\degree}}'],
+    ['<','{{\\textless}}'],
+    ['>','{{\\textgreater}}']
 ];
 
 function repalceAt(str, index, replacement) {
@@ -25,7 +27,12 @@ function replaceRange(str, index, length, replacement) {
 
 export function ParseStringToTeX(value: string) {
 
+    console.log(value.indexOf("'e"))
+
     value = value.replaceAll('{\\ss}', 'ß');
+    value = value.replaceAll('{\\\"u}', 'ü');
+    value = value.replaceAll('{\\\"o}', 'ö');
+    value = value.replaceAll('{\\\'e}', 'é');
 
     texValues.forEach(s => {
         if(s[0] === '&') {
