@@ -26,11 +26,12 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
         let filepart = file
 
         if( nextEntryIndex >= 0) {
-            filepart = file.substr(0, nextEntryIndex)
+            filepart = file.substr(0, nextEntryIndex+1)
         }
 
         //type = string between first '@' and first '{'
         let type = filepart.substring(1, filepart.indexOf('{')).toLowerCase();
+
         //remove type and surrounding '{}'
         filepart = filepart.substring(file.indexOf('{') + 1, filepart.lastIndexOf('}'))
 
@@ -73,11 +74,15 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
                 value = value.substring(0, value.length - 1);
             }
             //remove possible leading and trailing brackets
+            let removedAtBeginning = 0
+            let removedAtEnd = 0
             while( value.charAt(0) === '{' ) {
                 value = value.substring(1);
+                removedAtBeginning++;
             }
-            while( value.charAt(value.length-1) === '}' ) {
+            while( value.charAt(value.length-1) === '}' && removedAtBeginning > removedAtEnd ) {
                 value = value.substring(0, value.length - 1);
+                removedAtEnd++
             }
 
             filepart = filepart.substring(commaIndex + 1)
