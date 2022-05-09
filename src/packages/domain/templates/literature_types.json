@@ -1,47 +1,41 @@
 {
 	"Types": [
 		{
-			"Name": "aufsatz",
+			"Name": "Norm",
 			"HasCitePage": false,
 			"Fields": [
 				{
-					"Field": "Autor",
-					"Style": "italic",
+					"Field": "Hrsg",
+					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " (Hrsg.)"
 				},
 				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "). "
+					"Field": "ISO-Nr",
+					"Style": "italic",
+					"Prefix": " (",
+					"Suffix": "):"
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ", "
 				},
 				{
-					"Field": "Zeitschrift",
-					"Style": "italic",
-					"Prefix": "In: ",
-					"Suffix": " "
-				},
-				{
-					"Field": "Ausgabe",
+					"Field": "Verlag",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "Seiten",
+					"Field": "Ort",
 					"Style": "normal",
-					"Prefix": "S. ",
+					"Prefix": "",
 					"Suffix": ", "
 				},
 				{
-					"Field": "url",
+					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "",
 					"Suffix": ""
@@ -49,22 +43,16 @@
 			],
 			"CiteFields": [
 				{
-					"Field": "Autor_kurz",
+					"Field": "ISO-Nr",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": ""
 				}
 			],
-			"Example": "Autor (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten, url"
+			"Example": "Hrsg (Hrsg.) (ISO-Nr):Titel, Verlag, Ort, Jahr"
 		},
 		{
-			"Name": "Buch",
+			"Name": "citaviInbookDoi",
 			"HasCitePage": false,
 			"Fields": [
 				{
@@ -86,16 +74,28 @@
 					"Suffix": ". "
 				},
 				{
-					"Field": "Ausgabe",
+					"Field": "BuchTitel",
 					"Style": "normal",
-					"Prefix": "Ausgabe ",
-					"Suffix": " "
+					"Prefix": "In: ",
+					"Suffix": ". "
 				},
 				{
-					"Field": "Verlag",
+					"Field": "Herausgeber",
 					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": ")"
+					"Prefix": "",
+					"Suffix": " (Hrsg.), "
+				},
+				{
+					"Field": "Ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Doi",
+					"Style": "normal",
+					"Prefix": "https://doi.org/",
+					"Suffix": ""
 				}
 			],
 			"CiteFields": [
@@ -112,7 +112,64 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor (Jahr) Titel. Ausgabe Ausgabe (Verlag)"
+			"Example": "Autor (Jahr) Titel. In: BuchTitel. Herausgeber (Hrsg.), Ort. https://doi.org/Doi"
+		},
+		{
+			"Name": "citaviInProceedingsDoi",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ") "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Buch",
+					"Style": "normal",
+					"Prefix": "In: ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Doi",
+					"Style": "normal",
+					"Prefix": "https://doi.org/",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Autor (Jahr) Titel. In: Buch, S. Seiten, https://doi.org/Doi"
 		},
 		{
 			"Name": "citaviAufsatzDoi",
@@ -178,7 +235,121 @@
 			"Example": "Autor (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten, https://doi.org/doi"
 		},
 		{
-			"Name": "citaviInbookDoi",
+			"Name": "aufsatz",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "). "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Zeitschrift",
+					"Style": "italic",
+					"Prefix": "In: ",
+					"Suffix": " "
+				},
+				{
+					"Field": "Ausgabe",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "url",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": ""
+		},
+		{
+			"Name": "website",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Datum",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ") "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "URL",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Stand",
+					"Style": "normal",
+					"Prefix": "zuletzt abgerufen am ",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Datum_kurz",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ")"
+				}
+			],
+			"Example": "Autor (Datum) Titel. URL, zuletzt abgerufen am Stand"
+		},
+		{
+			"Name": "onlineAufsatz",
 			"HasCitePage": false,
 			"Fields": [
 				{
@@ -200,27 +371,15 @@
 					"Suffix": ". "
 				},
 				{
-					"Field": "BuchTitel",
-					"Style": "normal",
-					"Prefix": "In: ",
-					"Suffix": ". "
-				},
-				{
-					"Field": "Herausgeber",
+					"Field": "URL",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " (Hrsg.), "
+					"Suffix": ", "
 				},
 				{
-					"Field": "Ort",
+					"Field": "Stand",
 					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ". "
-				},
-				{
-					"Field": "Doi",
-					"Style": "normal",
-					"Prefix": "https://doi.org/",
+					"Prefix": "zuletzt abgerufen am ",
 					"Suffix": ""
 				}
 			],
@@ -238,7 +397,58 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor (Jahr) Titel. In: BuchTitel. Herausgeber (Hrsg.), Ort. https://doi.org/Doi"
+			"Example": "Autor (Jahr) Titel. URL, zuletzt abgerufen am Stand"
+		},
+		{
+			"Name": "Buch",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ") "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Ausgabe",
+					"Style": "normal",
+					"Prefix": "Ausgabe ",
+					"Suffix": " "
+				},
+				{
+					"Field": "Verlag",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ")"
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Autor (Jahr) Titel. Ausgabe Ausgabe (Verlag)"
 		},
 		{
 			"Name": "citaviInCollectionDoi",
@@ -310,222 +520,12 @@
 			"Example": "Autor (Jahr) Titel. Sammelwerk (S. Seiten). Herausgeber, Ort. https://doi.org/Doi"
 		},
 		{
-			"Name": "citaviInProceedingsDoi",
-			"HasCitePage": false,
-			"Fields": [
-				{
-					"Field": "Autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": ") "
-				},
-				{
-					"Field": "Titel",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ". "
-				},
-				{
-					"Field": "Buch",
-					"Style": "normal",
-					"Prefix": "In: ",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Seiten",
-					"Style": "normal",
-					"Prefix": "S. ",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Doi",
-					"Style": "normal",
-					"Prefix": "https://doi.org/",
-					"Suffix": ""
-				}
-			],
-			"CiteFields": [
-				{
-					"Field": "Autor_kurz",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "), "
-				}
-			],
-			"Example": "Autor (Jahr) Titel. In: Buch, S. Seiten, https://doi.org/Doi"
-		},
-		{
-			"Name": "Norm",
-			"HasCitePage": false,
-			"Fields": [
-				{
-					"Field": "Hrsg",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": " (Hrsg.)"
-				},
-				{
-					"Field": "ISO-Nr",
-					"Style": "italic",
-					"Prefix": " (",
-					"Suffix": "):"
-				},
-				{
-					"Field": "Titel",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Verlag",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Ort",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
-				}
-			],
-			"CiteFields": [
-				{
-					"Field": "ISO-Nr",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": ""
-				}
-			],
-			"Example": "Hrsg (Hrsg.) (ISO-Nr):Titel, Verlag, Ort, Jahr"
-		},
-		{
-			"Name": "onlineAufsatz",
-			"HasCitePage": false,
-			"Fields": [
-				{
-					"Field": "Autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": ") "
-				},
-				{
-					"Field": "Titel",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ". "
-				},
-				{
-					"Field": "URL",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Stand",
-					"Style": "normal",
-					"Prefix": "zuletzt abgerufen am ",
-					"Suffix": ""
-				}
-			],
-			"CiteFields": [
-				{
-					"Field": "Autor_kurz",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "), "
-				}
-			],
-			"Example": "Autor (Jahr) Titel. URL, zuletzt abgerufen am Stand"
-		},
-		{
-			"Name": "website",
-			"HasCitePage": false,
-			"Fields": [
-				{
-					"Field": "Autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Datum",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": ") "
-				},
-				{
-					"Field": "Titel",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ". "
-				},
-				{
-					"Field": "URL",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Stand",
-					"Style": "normal",
-					"Prefix": "zuletzt abgerufen am ",
-					"Suffix": ""
-				}
-			],
-			"CiteFields": [
-				{
-					"Field": "Autor_kurz",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Datum_kurz",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": ")"
-				}
-			],
-			"Example": "Autor (Datum) Titel. URL, zuletzt abgerufen am Stand"
-		},
-		{
 			"Name": "citaviBookDoi",
 			"HasCitePage": false,
 			"Fields": [
 				{
 					"Field": "Autor",
-					"Style": "italic",
+					"Style": "normal",
 					"Prefix": "",
 					"Suffix": " "
 				},
@@ -533,13 +533,19 @@
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": "). "
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": " "
+				},
+				{
+					"Field": "ISBN",
+					"Style": "normal",
+					"Prefix": "(ISBN: ",
+					"Suffix": "). "
 				},
 				{
 					"Field": "Herausgeber",
@@ -556,8 +562,8 @@
 			],
 			"CiteFields": [
 				{
-					"Field": "Autor",
-					"Style": "italic",
+					"Field": "Autor_kurz",
+					"Style": "normal",
 					"Prefix": "",
 					"Suffix": " "
 				},
@@ -565,7 +571,7 @@
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": ")"
 				}
 			],
 			"Example": ""
