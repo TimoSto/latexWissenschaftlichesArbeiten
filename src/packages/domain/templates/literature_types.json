@@ -544,6 +544,51 @@
 			"Example": "Autor (Jahr) Titel. In: Buch, S. Seiten, https://doi.org/Doi"
 		},
 		{
+			"Name": "citaviProceedings",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Herausgeber",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "). "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Hrsg_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Herausgeber (Jahr). Titel, Ort"
+		},
+		{
 			"Name": "Norm",
 			"HasCitePage": false,
 			"Fields": [
@@ -697,14 +742,14 @@
 			"Example": "Autor (Datum) Titel. URL, zuletzt abgerufen am Stand"
 		},
 		{
-			"Name": "citaviProceedings",
+			"Name": "citaviProceedingsDoi",
 			"HasCitePage": false,
 			"Fields": [
 				{
 					"Field": "Herausgeber",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": "  "
 				},
 				{
 					"Field": "Jahr",
@@ -719,9 +764,9 @@
 					"Suffix": ", "
 				},
 				{
-					"Field": "Ort",
+					"Field": "Doi",
 					"Style": "normal",
-					"Prefix": "",
+					"Prefix": "https://doi.org/",
 					"Suffix": ""
 				}
 			],

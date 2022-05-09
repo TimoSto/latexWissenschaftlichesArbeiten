@@ -108,6 +108,9 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
                 case "inproceedings":
                     type = "citaviInProceedingsDoi"
                     break
+                case "proceedings":
+                    type = "citaviProceedingsDoi"
+                    break
                 case "incollection":
                     type = "citaviInCollectionDoi"
                     break
@@ -319,6 +322,17 @@ function getIndex(attr: string, type: string) {
             case "title":
                 return 2
             case "address":
+                return 3
+        }
+    } else if (type === 'citaviProceedingsDoi') {
+        switch (attr) {
+            case "publisher":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "doi":
                 return 3
         }
     }

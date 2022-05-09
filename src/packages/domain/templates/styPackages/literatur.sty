@@ -21,10 +21,11 @@
 			{citaviInCollection}{\printcitaviInCollection{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{citaviInCollectionDoi}{\printcitaviInCollectionDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
 			{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
+			{citaviProceedings}{\printcitaviProceedings{#2}{#3}{#4}{#5}}%
 			{Norm}{\printNorm{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{onlineAufsatz}{\printonlineAufsatz{#2}{#3}{#4}{#5}{#6}}%
 			{website}{\printwebsite{#2}{#3}{#4}{#5}{#6}}%
-			{citaviProceedings}{\printcitaviProceedings{#2}{#3}{#4}{#5}}%
+			{citaviProceedingsDoi}{\printcitaviProceedingsDoi{#2}{#3}{#4}{#5}}%
 		%end area
 		{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type'.}\color{black}]%
@@ -145,6 +146,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printcitaviProceedings}[4]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2). #3, #4
+	\\
+	\vspace{-12pt}
+
+}
 \newcommand{\printNorm}[6]{
 	\hangindent=\bibparindent
 	\parindent 0pt
@@ -172,11 +182,11 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printcitaviProceedings}[4]{
+\newcommand{\printcitaviProceedingsDoi}[4]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2). #3, #4
+	\textit{#1}  (#2). #3, https://doi.org/#4
 	\\
 	\vspace{-12pt}
 
@@ -233,10 +243,11 @@
 			{citaviInCollection}{\footnote{#3\citecitaviInCollection{\h}{\b}{#2}.}}%
 			{citaviInCollectionDoi}{\footnote{#3\citecitaviInCollectionDoi{\i}{\b}{#2}.}}%
 			{citaviInProceedingsDoi}{\footnote{#3\citecitaviInProceedingsDoi{\g}{\b}{#2}.}}%
+			{citaviProceedings}{\footnote{#3\citecitaviProceedings{\e}{\b}{#2}.}}%
 			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
 			{onlineAufsatz}{\footnote{#3\citeonlineAufsatz{\f}{\b}{#2}.}}%
 			{website}{\footnote{#3\citewebsite{\f}{\g}{#2}.}}%
-			{citaviProceedings}{\footnote{#3\citecitaviProceedings{\e}{\b}{#2}.}}%
+			{citaviProceedingsDoi}{\footnote{#3\citecitaviProceedingsDoi{\e}{\b}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -264,10 +275,11 @@
 			{citaviInCollection}{ ({#3\citecitaviInCollection{\h}{\b}{#2})}}%
 			{citaviInCollectionDoi}{ ({#3\citecitaviInCollectionDoi{\i}{\b}{#2})}}%
 			{citaviInProceedingsDoi}{ ({#3\citecitaviInProceedingsDoi{\g}{\b}{#2})}}%
+			{citaviProceedings}{ ({#3\citecitaviProceedings{\e}{\b}{#2})}}%
 			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
 			{onlineAufsatz}{ ({#3\citeonlineAufsatz{\f}{\b}{#2})}}%
 			{website}{ ({#3\citewebsite{\f}{\g}{#2})}}%
-			{citaviProceedings}{ ({#3\citecitaviProceedings{\e}{\b}{#2})}}%
+			{citaviProceedingsDoi}{ ({#3\citecitaviProceedingsDoi{\e}{\b}{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -306,6 +318,9 @@
 \newcommand{\citecitaviInProceedingsDoi}[3]{%
 	\textit{#1} (#2), #3%
 }
+\newcommand{\citecitaviProceedings}[3]{%
+	\textit{#1} (#2), #3%
+}
 \newcommand{\citeNorm}[2]{%
 	\textit{#1}#2%
 }
@@ -315,7 +330,7 @@
 \newcommand{\citewebsite}[3]{%
 	\textit{#1} (#2)#3%
 }
-\newcommand{\citecitaviProceedings}[3]{%
+\newcommand{\citecitaviProceedingsDoi}[3]{%
 	\textit{#1} (#2), #3%
 }
 %end area
