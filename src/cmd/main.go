@@ -29,7 +29,11 @@ func main() {
 
 	if len(argsWithoutProg) > 0 && argsWithoutProg[0] == "configure" {
 		fmt.Println("Konfigurationsassistent für WA_LaTeX")
-		fmt.Print("Soll beim Starten der Anwendung automatisch ein Browser geöffnet werden? [Y/N]")
+		v := "Y"
+		if !conf.AutoOpenBrowser {
+			v = "N"
+		}
+		fmt.Print(fmt.Sprintf("Soll beim Starten der Anwendung automatisch ein Browser geöffnet werden? (aktuell: %v) [Y/N]", v))
 		reader := bufio.NewReader(os.Stdin)
 		// ReadString will block until the delimiter is entered
 		input, err := reader.ReadString('\n')
@@ -47,7 +51,11 @@ func main() {
 			autoOpen = "true"
 		}
 
-		fmt.Print("Sollen ein ggf. existierender Literatureintrag mit demselben Key beim Speichern oder Hochladen überschrieben werden? [Y/N]")
+		v = "Y"
+		if !conf.OverrideExistingEntries {
+			v = "N"
+		}
+		fmt.Print(fmt.Sprintf("Sollen ein ggf. existierender Literatureintrag mit demselben Key beim Speichern oder Hochladen überschrieben werden? (aktuell: %v) [Y/N]", v))
 		reader = bufio.NewReader(os.Stdin)
 		// ReadString will block until the delimiter is entered
 		input, err = reader.ReadString('\n')
@@ -138,7 +146,7 @@ func main() {
 }
 
 func startServer() {
-	log.Fatal( http.ListenAndServe(":8081", nil ) )
+	log.Fatal(http.ListenAndServe(":8081", nil))
 }
 
 func openbrowser(url string) {
