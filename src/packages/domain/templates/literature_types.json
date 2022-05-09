@@ -355,6 +355,69 @@
 			"Example": "Autor (Jahr) Titel. In: BuchTitel. Herausgeber (Hrsg.), Ort. https://doi.org/Doi"
 		},
 		{
+			"Name": "citaviInCollection",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "). "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Sammelwerk",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "(S. ",
+					"Suffix": "). "
+				},
+				{
+					"Field": "Herausgeber",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " (Hrsg.), "
+				},
+				{
+					"Field": "Ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ")"
+				}
+			],
+			"Example": "Autor (Jahr). Titel. Sammelwerk (S. Seiten). Herausgeber (Hrsg.), Ort"
+		},
+		{
 			"Name": "citaviInCollectionDoi",
 			"HasCitePage": false,
 			"Fields": [
@@ -634,11 +697,11 @@
 			"Example": "Autor (Datum) Titel. URL, zuletzt abgerufen am Stand"
 		},
 		{
-			"Name": "citaviInCollection",
+			"Name": "citaviProceedings",
 			"HasCitePage": false,
 			"Fields": [
 				{
-					"Field": "Autor",
+					"Field": "Herausgeber",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": " "
@@ -653,25 +716,7 @@
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
-				},
-				{
-					"Field": "Sammelwerk",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Seiten",
-					"Style": "normal",
-					"Prefix": "(S. ",
-					"Suffix": "). "
-				},
-				{
-					"Field": "Herausgeber",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": " (Hrsg.), "
+					"Suffix": ", "
 				},
 				{
 					"Field": "Ort",
@@ -682,7 +727,7 @@
 			],
 			"CiteFields": [
 				{
-					"Field": "Autor_kurz",
+					"Field": "Hrsg_kurz",
 					"Style": "italic",
 					"Prefix": "",
 					"Suffix": " "
@@ -691,7 +736,7 @@
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ")"
+					"Suffix": "), "
 				}
 			],
 			"Example": ""
