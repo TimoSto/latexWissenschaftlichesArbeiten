@@ -112,6 +112,24 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
                     type = "citaviInCollectionDoi"
                     break
             }
+        } else {
+            switch (type) {
+                case "article":
+
+                    break
+                case "inbook":
+
+                    break
+                case "book":
+                    type = "citaviBook"
+                    break
+                case "inproceedings":
+
+                    break
+                case "incollection":
+                    type = 'citaviInCollection'
+                    break
+            }
         }
 
         let sortedvaluepairs = SortValues(valuepairs, type);
@@ -238,6 +256,23 @@ function getIndex(attr: string, type: string) {
             case "doi":
                 return 7
         }
+    } else if (type == "citaviInCollection") {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "booktitle":
+                return 3
+            case "pages":
+                return 4
+            case "publisher":
+                return 5
+            case "address":
+                return 6
+        }
     } else if (type === 'citaviBookDoi') {
         switch (attr) {
             case "author":
@@ -251,6 +286,23 @@ function getIndex(attr: string, type: string) {
             case "publisher":
                 return 4
             case "doi":
+                return 5
+            case "editor":
+                return 0
+        }
+    } else if (type === 'citaviBook') {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "isbn":
+                return 3
+            case "publisher":
+                return 4
+            case "address":
                 return 5
             case "editor":
                 return 0

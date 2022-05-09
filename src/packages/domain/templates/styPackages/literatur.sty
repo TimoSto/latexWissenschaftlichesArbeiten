@@ -12,16 +12,18 @@
 \newcommand{\printBibEntry}[9]{
 	\IfStrEqCase{#1}{%
 	%Area to add new bibifs via gui
-			{Norm}{\printNorm{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{citaviInbookDoi}{\printcitaviInbookDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
-			{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{citaviAufsatzDoi}{\printcitaviAufsatzDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{aufsatz}{\printaufsatz{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
-			{website}{\printwebsite{#2}{#3}{#4}{#5}{#6}}%
-			{onlineAufsatz}{\printonlineAufsatz{#2}{#3}{#4}{#5}{#6}}%
 			{Buch}{\printBuch{#2}{#3}{#4}{#5}{#6}}%
-			{citaviInCollectionDoi}{\printcitaviInCollectionDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
+			{citaviAufsatzDoi}{\printcitaviAufsatzDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+			{citaviBook}{\printcitaviBook{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{citaviBookDoi}{\printcitaviBookDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
+			{citaviInbookDoi}{\printcitaviInbookDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+			{citaviInCollectionDoi}{\printcitaviInCollectionDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
+			{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
+			{Norm}{\printNorm{#2}{#3}{#4}{#5}{#6}{#7}}%
+			{onlineAufsatz}{\printonlineAufsatz{#2}{#3}{#4}{#5}{#6}}%
+			{website}{\printwebsite{#2}{#3}{#4}{#5}{#6}}%
+			{citaviInCollection}{\printcitaviInCollection{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 		%end area
 		{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type'.}\color{black}]%
@@ -61,65 +63,11 @@
 %!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
 \def\bibparindent{1.5em}
 %Area to add new bibprints via gui
-\newcommand{\printNorm}[6]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	#1 (Hrsg.) (\textit{#2}):#3, #4, #5, #6
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviInbookDoi}[7]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1} (#2) #3. In: #4. #5 (Hrsg.), #6. https://doi.org/#7
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviInProceedingsDoi}[6]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1} (#2) #3. In: #4, S. #5, https://doi.org/#6
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviAufsatzDoi}[7]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1} (#2). #3. In: \textit{#4} #5, S. #6, https://doi.org/#7
-	\\
-	\vspace{-12pt}
-
-}
 \newcommand{\printaufsatz}[7]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
 	\textit{#1} (#2). #3. In: \textit{#4} #5, S. #6, #7
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printwebsite}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1} (#2) #3. #4, zuletzt abgerufen am #5
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printonlineAufsatz}[5]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1} (#2) #3. #4, zuletzt abgerufen am #5
 	\\
 	\vspace{-12pt}
 
@@ -133,11 +81,20 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printcitaviInCollectionDoi}[8]{
+\newcommand{\printcitaviAufsatzDoi}[7]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. #4 (S. #5). #6, #7. https://doi.org/#8
+	\textit{#1} (#2). #3. In: \textit{#4} #5, S. #6, https://doi.org/#7
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviBook}[6]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2). #3 (ISBN: #4). #5 (Hrsg.), #6
 	\\
 	\vspace{-12pt}
 
@@ -147,6 +104,69 @@
 	\parindent 0pt
 	\hangafter=1
 	#1 (#2). #3 (ISBN: #4). #5 (Hrsg.), https://doi.org/#6
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviInbookDoi}[7]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2) #3. In: #4. #5 (Hrsg.), #6. https://doi.org/#7
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviInCollectionDoi}[8]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2) #3. #4 (S. #5). #6, #7. https://doi.org/#8
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviInProceedingsDoi}[6]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2) #3. In: #4, S. #5, https://doi.org/#6
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printNorm}[6]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	#1 (Hrsg.) (\textit{#2}):#3, #4, #5, #6
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printonlineAufsatz}[5]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2) #3. #4, zuletzt abgerufen am #5
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printwebsite}[5]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2) #3. #4, zuletzt abgerufen am #5
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviInCollection}[7]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2). #3. #4 (S. #5). #6 (Hrsg.), #7
 	\\
 	\vspace{-12pt}
 
@@ -194,16 +214,18 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
-			{citaviInbookDoi}{\footnote{#3\citecitaviInbookDoi{\h}{\b}{#2}.}}%
-			{citaviInProceedingsDoi}{\footnote{#3\citecitaviInProceedingsDoi{\g}{\b}{#2}.}}%
-			{citaviAufsatzDoi}{\footnote{#3\citecitaviAufsatzDoi{\h}{\b}{#2}.}}%
 			{aufsatz}{\footnote{#3\citeaufsatz{\h}{\b}{#2}.}}%
-			{website}{\footnote{#3\citewebsite{\f}{\g}{#2}.}}%
-			{onlineAufsatz}{\footnote{#3\citeonlineAufsatz{\f}{\b}{#2}.}}%
 			{Buch}{\footnote{#3\citeBuch{\f}{\b}{#2}.}}%
-			{citaviInCollectionDoi}{\footnote{#3\citecitaviInCollectionDoi{\i}{\b}{#2}.}}%
+			{citaviAufsatzDoi}{\footnote{#3\citecitaviAufsatzDoi{\h}{\b}{#2}.}}%
+			{citaviBook}{\footnote{#3\citecitaviBook{\g}{\b}{#2}.}}%
 			{citaviBookDoi}{\footnote{#3\citecitaviBookDoi{\g}{\b}{#2}.}}%
+			{citaviInbookDoi}{\footnote{#3\citecitaviInbookDoi{\h}{\b}{#2}.}}%
+			{citaviInCollectionDoi}{\footnote{#3\citecitaviInCollectionDoi{\i}{\b}{#2}.}}%
+			{citaviInProceedingsDoi}{\footnote{#3\citecitaviInProceedingsDoi{\g}{\b}{#2}.}}%
+			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
+			{onlineAufsatz}{\footnote{#3\citeonlineAufsatz{\f}{\b}{#2}.}}%
+			{website}{\footnote{#3\citewebsite{\f}{\g}{#2}.}}%
+			{citaviInCollection}{\footnote{#3\citecitaviInCollection{\h}{\b}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -222,16 +244,18 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 			%Area to add citeifs_inline via gui
-			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
-			{citaviInbookDoi}{ ({#3\citecitaviInbookDoi{\h}{\b}{#2})}}%
-			{citaviInProceedingsDoi}{ ({#3\citecitaviInProceedingsDoi{\g}{\b}{#2})}}%
-			{citaviAufsatzDoi}{ ({#3\citecitaviAufsatzDoi{\h}{\b}{#2})}}%
 			{aufsatz}{ ({#3\citeaufsatz{\h}{\b}{#2})}}%
-			{website}{ ({#3\citewebsite{\f}{\g}{#2})}}%
-			{onlineAufsatz}{ ({#3\citeonlineAufsatz{\f}{\b}{#2})}}%
 			{Buch}{ ({#3\citeBuch{\f}{\b}{#2})}}%
-			{citaviInCollectionDoi}{ ({#3\citecitaviInCollectionDoi{\i}{\b}{#2})}}%
+			{citaviAufsatzDoi}{ ({#3\citecitaviAufsatzDoi{\h}{\b}{#2})}}%
+			{citaviBook}{ ({#3\citecitaviBook{\g}{\b}{#2})}}%
 			{citaviBookDoi}{ ({#3\citecitaviBookDoi{\g}{\b}{#2})}}%
+			{citaviInbookDoi}{ ({#3\citecitaviInbookDoi{\h}{\b}{#2})}}%
+			{citaviInCollectionDoi}{ ({#3\citecitaviInCollectionDoi{\i}{\b}{#2})}}%
+			{citaviInProceedingsDoi}{ ({#3\citecitaviInProceedingsDoi{\g}{\b}{#2})}}%
+			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
+			{onlineAufsatz}{ ({#3\citeonlineAufsatz{\f}{\b}{#2})}}%
+			{website}{ ({#3\citewebsite{\f}{\g}{#2})}}%
+			{citaviInCollection}{ ({#3\citecitaviInCollection{\h}{\b}{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -243,35 +267,41 @@
 
 %Prints für verschiedene Fußnotenarten
 %Area to add citecommands via gui
-\newcommand{\citeNorm}[2]{%
-	\textit{#1}#2%
-}
-\newcommand{\citecitaviInbookDoi}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviInProceedingsDoi}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citecitaviAufsatzDoi}[3]{%
-	\textit{#1} (#2), #3%
-}
 \newcommand{\citeaufsatz}[3]{%
-	\textit{#1} (#2), #3%
-}
-\newcommand{\citewebsite}[3]{%
-	\textit{#1} (#2)#3%
-}
-\newcommand{\citeonlineAufsatz}[3]{%
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citeBuch}[3]{%
 	\textit{#1} (#2), #3%
 }
-\newcommand{\citecitaviInCollectionDoi}[3]{%
+\newcommand{\citecitaviAufsatzDoi}[3]{%
 	\textit{#1} (#2), #3%
+}
+\newcommand{\citecitaviBook}[3]{%
+	\textit{#1} (#2)#3%
 }
 \newcommand{\citecitaviBookDoi}[3]{%
 	#1 (#2)#3%
+}
+\newcommand{\citecitaviInbookDoi}[3]{%
+	\textit{#1} (#2), #3%
+}
+\newcommand{\citecitaviInCollectionDoi}[3]{%
+	\textit{#1} (#2), #3%
+}
+\newcommand{\citecitaviInProceedingsDoi}[3]{%
+	\textit{#1} (#2), #3%
+}
+\newcommand{\citeNorm}[2]{%
+	\textit{#1}#2%
+}
+\newcommand{\citeonlineAufsatz}[3]{%
+	\textit{#1} (#2), #3%
+}
+\newcommand{\citewebsite}[3]{%
+	\textit{#1} (#2)#3%
+}
+\newcommand{\citecitaviInCollection}[3]{%
+	\textit{#1} (#2)#3%
 }
 %end area
 
