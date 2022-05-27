@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="scripts/includeTheming.js"></script>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="styles/editor.scss">
 </head>
 <body>
+<!-- plain-text-inpu => automatisch um befehle herum => oninput => alles neu bestimmen -->
+<header class="mdc-top-app-bar mdc-top-app-bar--dense mdc-top-app-bar--fixed">
+    <div class="mdc-top-app-bar__row">
+        <div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="mdc-button">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Speichern</span>
+            </button>
+            <button class="mdc-button">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Kompilieren</span>
+            </button>
+            <button class="mdc-button">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Ansehen</span>
+            </button>
+        </div>
+        <div class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+            <button class="mdc-button">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Zitat</span>
+            </button>
+        </div>
+    </div>
+</header>
+<main class="mdc-top-app-bar--dense-fixed-adjust">
+    <div class="flex-container">
+        <div id="sidebar">
 
+        </div>
+        <div id="editArea"></div>
+        <div id="pdfArea"></div>
+    </div>
+</main>
 </body>
 </html>
