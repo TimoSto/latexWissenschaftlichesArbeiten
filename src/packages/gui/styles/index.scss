@@ -22,6 +22,10 @@ main{
 
 .mdc-top-app-bar{
   z-index: 6;
+  color: var(--mdc-theme-on-primary);
+  & .mdc-icon-button:not(:disabled):not(.mdc-snackbar__dismiss) {
+    color: var(--mdc-theme-on-primary)!important;
+  }
 }
 
 .mdc-top-app-bar--fixed-adjust{
@@ -30,13 +34,16 @@ main{
 
 .sidebar{
   width: 72px;
-  border-right: 1px solid rgba(0,0,0,0.3);
+  border-right: 1px solid var(--dmc-theme-on-background32);
   box-sizing: border-box;
   height: 100%;
   transition: width 200ms;
 
   &.sidebar--open .mdc-deprecated-list-item__text{
     max-width: calc(100% - 50px);
+  }
+  & .mdc-top-app-bar__title {
+    color: var(--dmc-theme-on-background87);
   }
 
 }
@@ -70,13 +77,17 @@ main{
 .editArea{
   height: 100%;
   width: 0;
-  border-left: 1px solid rgba(0,0,0,0.3);
+  border-left: 1px solid var(--dmc-theme-on-background32);
   box-sizing: border-box;
   transition: width 200ms;
   overflow: hidden;
 
+  & .mdc-top-app-bar__title {
+    color: var(--dmc-theme-on-background87);
+  }
+
   & .mdc-top-app-bar{
-    border-bottom: 1px solid rgba(0,0,0,0.4);
+    border-bottom: 1px solid var(--dmc-theme-on-background32);
     z-index: 5;
   }
 

@@ -30,6 +30,23 @@ class OverviewPage {
 
     constructor() {
         document.addEventListener('DOMContentLoaded', ()=>{
+
+            document.querySelector('#dark').addEventListener('click', ()=>{
+                let theme = localStorage.getItem('WALaTeXTheme');
+
+                if( theme == 'dark' ) {
+                    theme = 'light';
+                } else {
+                    theme = 'dark';
+                }
+
+                localStorage.removeItem('WALaTeXThemeContent');
+
+                localStorage.setItem('WALaTeXTheme', theme);
+
+                window.location.reload();
+            })
+
             this._version = document.body.getAttribute('data-version');
             this.init();
             let params = new URLSearchParams(document.location.search);
