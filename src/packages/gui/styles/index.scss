@@ -47,6 +47,11 @@ main{
   & .mdc-top-app-bar__title {
     color: var(--dmc-theme-on-background87);
   }
+  &.mdc-top-app-bar {
+    & .mdc-icon-button:not(:disabled):not(.mdc-snackbar__dismiss) {
+      color: var(--dmc-theme-on-background87)!important;
+    }
+  }
 
 }
 
@@ -91,6 +96,9 @@ main{
   & .mdc-top-app-bar{
     border-bottom: 1px solid var(--dmc-theme-on-background32);
     z-index: 5;
+    & .mdc-icon-button:not(:disabled):not(.mdc-snackbar__dismiss) {
+      color: var(--dmc-theme-on-background87)!important;
+    }
   }
 
   & iframe {
