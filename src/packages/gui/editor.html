@@ -4,6 +4,7 @@
     <script src="scripts/includeTheming.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/editor.scss">
+    <script type="module" src="scripts/Editor.ts"></script>
 </head>
 <body>
 <!-- plain-text-inpu => automatisch um befehle herum => oninput => alles neu bestimmen -->
@@ -34,10 +35,13 @@
 <main class="mdc-top-app-bar--dense-fixed-adjust">
     <div class="flex-container">
         <div id="sidebar">
-
+            hallooooo
         </div>
-        <div id="editArea"></div>
-        <div id="pdfArea"></div>
+        <div id="remaining">
+            <div id="editArea" contenteditable="true">
+            </div>
+            <div id="pdfArea"></div>
+        </div>
     </div>
 </main>
 </body>

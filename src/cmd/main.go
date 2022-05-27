@@ -130,6 +130,8 @@ func main() {
 
 	http.HandleFunc("/themes", themes.HandleTheme)
 
+	http.HandleFunc("/getFile", handlers.GetTeX)
+
 	http.HandleFunc("/", handlers.HandleAssets)
 
 	logger.LogInfo("Open http://localhost:8081/overview to get started.")
