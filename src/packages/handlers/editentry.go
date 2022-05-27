@@ -11,10 +11,10 @@ import (
 type EntryHTMLDto struct {
 	Types []domain.LiteratureType
 	Entry domain.BibEntry
-	Type domain.LiteratureType
+	Type  domain.LiteratureType
 }
 
-func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
+func HandleEditEntry(w http.ResponseWriter, r *http.Request) {
 
 	keys, ok := r.URL.Query()["project"]
 
@@ -59,7 +59,7 @@ func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		for i:=0 ; i<len(entries);i++ {
+		for i := 0; i < len(entries); i++ {
 			if entries[i].Key == entrykeys[0] {
 				entry = entries[i]
 				break
@@ -69,7 +69,7 @@ func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
 
 	thisType, err := domain.GetType(project, entry.Typ)
 	if err != nil {
-		logger.LogError("Reading type-info for "+ entry.Typ, err.Error())
+		logger.LogError("Reading type-info for "+entry.Typ, err.Error())
 		http.Error(w, err.Error(), 500)
 		return
 	}
@@ -77,7 +77,7 @@ func HandleEditEntry(w http.ResponseWriter,r *http.Request) {
 	data := EntryHTMLDto{
 		Types: types.Types,
 		Entry: entry,
-		Type: thisType,
+		Type:  thisType,
 	}
 
 	err = tmpl.Execute(w, data)

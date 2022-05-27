@@ -23,14 +23,14 @@ body{
 #drop_zone{
   width: calc(100% - 20px);
   height: 80px;
-  border: 2px dashed rgba(0,0,0,0.3);
+  border: 2px dashed var(--dmc-theme-on-background32);
   margin: 8px;
   & span{
     width: 100%;
     text-align: center;
     display: block;
     padding-top: 20px;
-    color: rgba(0,0,0,0.6);
+    color: var(--dmc-theme-on-background60);
     font-weight: bold;
   }
 }
@@ -48,12 +48,12 @@ body{
 }
 
 .mdc-top-app-bar {
-  background-color: white;
-  color: black;
+  background-color: var(--mdc-theme-background);
+  color: var(--mdc-theme-on-background);
 }
 
 .mdc-top-app-bar .mdc-top-app-bar__action-item, .mdc-top-app-bar .mdc-top-app-bar__navigation-icon {
-  color: black;
+  color: var(--mdc-theme-on-background);
 }
 
 .mdc-top-app-bar__title{

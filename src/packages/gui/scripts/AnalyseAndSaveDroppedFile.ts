@@ -25,12 +25,13 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
 
         let filepart = file
 
-        if( nextEntryIndex >= 0) {
-            filepart = file.substr(0, nextEntryIndex)
+        if( nextEntryIndex >= 0) {//TODO: Warum hat das vorher funktioniert????
+            filepart = file.substr(0, nextEntryIndex+1)
         }
 
         //type = string between first '@' and first '{'
         let type = filepart.substring(1, filepart.indexOf('{')).toLowerCase();
+
         //remove type and surrounding '{}'
         filepart = filepart.substring(file.indexOf('{') + 1, filepart.lastIndexOf('}'))
 
@@ -73,11 +74,15 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
                 value = value.substring(0, value.length - 1);
             }
             //remove possible leading and trailing brackets
+            let removedAtBeginning = 0
+            let removedAtEnd = 0
             while( value.charAt(0) === '{' ) {
                 value = value.substring(1);
+                removedAtBeginning++;
             }
-            while( value.charAt(value.length-1) === '}' ) {
+            while( value.charAt(value.length-1) === '}' && removedAtBeginning > removedAtEnd ) {
                 value = value.substring(0, value.length - 1);
+                removedAtEnd++
             }
 
             filepart = filepart.substring(commaIndex + 1)
@@ -103,8 +108,32 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
                 case "inproceedings":
                     type = "citaviInProceedingsDoi"
                     break
+                case "proceedings":
+                    type = "citaviProceedingsDoi"
+                    break
                 case "incollection":
                     type = "citaviInCollectionDoi"
+                    break
+            }
+        } else {
+            switch (type) {
+                case "article":
+
+                    break
+                case "inbook":
+
+                    break
+                case "book":
+                    type = "citaviBook"
+                    break
+                case "inproceedings":
+
+                    break
+                case "proceedings":
+                    type="citaviProceedings"
+                    break
+                case "incollection":
+                    type = 'citaviInCollection'
                     break
             }
         }
@@ -233,6 +262,23 @@ function getIndex(attr: string, type: string) {
             case "doi":
                 return 7
         }
+    } else if (type == "citaviInCollection") {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "booktitle":
+                return 3
+            case "pages":
+                return 4
+            case "publisher":
+                return 5
+            case "address":
+                return 6
+        }
     } else if (type === 'citaviBookDoi') {
         switch (attr) {
             case "author":
@@ -249,6 +295,45 @@ function getIndex(attr: string, type: string) {
                 return 5
             case "editor":
                 return 0
+        }
+    } else if (type === 'citaviBook') {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "isbn":
+                return 3
+            case "publisher":
+                return 4
+            case "address":
+                return 5
+            case "editor":
+                return 0
+        }
+    } else if (type === 'citaviProceedings') {
+        switch (attr) {
+            case "publisher":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "address":
+                return 3
+        }
+    } else if (type === 'citaviProceedingsDoi') {
+        switch (attr) {
+            case "publisher":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "doi":
+                return 3
         }
     }
     return -1

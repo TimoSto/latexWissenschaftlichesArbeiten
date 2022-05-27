@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="scripts/includeTheming.js"></script>
     <meta charset="UTF-8">
     <title>LaTeX - Wissenschaftliches Arbeiten</title>
     <link rel="stylesheet" href="styles/index.scss">
@@ -19,6 +20,10 @@
                 <span class="mdc-top-app-bar__title">LaTeX - Wissenschaftliches Arbeiten</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="dark">
+                    <div class="mdc-icon-button__ripple"></div>
+                    brightness_medium
+                </button>
                 <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite" id="home">
                     <div class="mdc-icon-button__ripple"></div>
                     home
@@ -167,6 +172,8 @@
                             <li>article</li>
                             <li>inBook</li>
                             <li>inProceedings</li>
+                            <li>Book</li>
+                            <li>Proceedings</li>
                             <li>inCollection</li>
                         </ul>
                     </div>

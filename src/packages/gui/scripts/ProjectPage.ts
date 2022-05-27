@@ -37,7 +37,7 @@ class ProjectPage {
         });
 
         document.querySelector('#new-entry').addEventListener('click', ()=>{
-            (<any>window.parent).setEdit('/editEntry?project='+pname)
+            (<any>window.parent).setEdit('/editEntry?project='+encodeURIComponent(pname))
         });
 
         document.querySelectorAll('[data-edit-entry]').forEach(el => {
@@ -45,7 +45,7 @@ class ProjectPage {
             el.addEventListener('click', (e)=>{
                 if ((<HTMLElement>e.target).getAttribute('data-delete-entry')) return
 
-                (<any>window.parent).setEdit('/editEntry?project='+pname+'&entry='+entryKey)
+                (<any>window.parent).setEdit('/editEntry?project='+encodeURIComponent(pname)+'&entry='+encodeURIComponent(entryKey))
             });
         })
 

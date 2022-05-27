@@ -11,9 +11,9 @@ import (
 )
 
 type SaveTypeObj struct {
-	Type domain.LiteratureType
+	Type        domain.LiteratureType
 	InitialName string
-	Project string
+	Project     string
 }
 
 func HandleSaveType(w http.ResponseWriter, r *http.Request) {
@@ -35,8 +35,14 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 	found := false
-	for i,typ := range literatureTypes.Types {
-		if strings.Compare(typ.Name, saveObj.Type.Name) == 0 || strings.Compare(typ.Name, initialName) == 0{
+	for i, typ := range literatureTypes.Types {
+		if len(initialName) == 0 && strings.Compare(typ.Name, saveObj.Type.Name) == 0 {
+			fmt.Println(fmt.Sprintf("Typ mit Namen %s existiert bereits", saveObj.Type.Name))
+			http.Error(w, fmt.Sprintf("Typ mit Namen %s existiert bereits", saveObj.Type.Name), http.StatusBadRequest)
+			return
+		}
+
+		if strings.Compare(typ.Name, saveObj.Type.Name) == 0 || strings.Compare(typ.Name, initialName) == 0 {
 			literatureTypes.Types[i] = saveObj.Type
 			found = true
 			break
@@ -46,7 +52,7 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 		literatureTypes.Types = append(literatureTypes.Types, saveObj.Type)
 	}
 
-	jsonStr,err := json.MarshalIndent(literatureTypes, "", "\t")
+	jsonStr, err := json.MarshalIndent(literatureTypes, "", "\t")
 	if err != nil {
 		logger.LogError("JSON-formatting types", err.Error())
 		http.Error(w, err.Error(), 500)

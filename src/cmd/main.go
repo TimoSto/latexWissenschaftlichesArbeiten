@@ -4,9 +4,6 @@
 package main
 
 import (
-	"WA_LaTeX/src/packages/conf"
-	"WA_LaTeX/src/packages/handlers"
-	"WA_LaTeX/src/tools/logger"
 	"bufio"
 	"fmt"
 	"log"
@@ -17,6 +14,11 @@ import (
 	"runtime"
 	"strings"
 	"syscall"
+
+	"WA_LaTeX/src/packages/conf"
+	"WA_LaTeX/src/packages/handlers"
+	"WA_LaTeX/src/packages/handlers/themes"
+	"WA_LaTeX/src/tools/logger"
 )
 
 //var test = "% This file was created with Citavi 6.11.0.0\n\n@article{Sedlmeir.2020,\n abstract = {When talking about blockchain technology in academia, business, and society, frequently generalizations are still heared about its -- supposedly inherent -- enormous energy consumption. This perception inevitably raises concerns about the further adoption of blockchain technology, a fact that inhibits rapid uptake of what is widely considered to be a groundbreaking and disruptive innovation. However, blockchain technology is far from homogeneous, meaning that blanket statements about its energy consumption should be reviewed with care. The article is meant to bring clarity to the topic in a holistic fashion, looking beyond claims regarding the energy consumption of Bitcoin, which have, so far, dominated the discussion.},\n author = {Sedlmeir, Johannes and Buhl, Hans Ulrich and Fridgen, Gilbert and Keller, Robert},\n year = {2020},\n title = {The Energy Consumption of Blockchain Technology: Beyond Myth},\n pages = {599--608},\n volume = {62},\n number = {6},\n issn = {1867-0202},\n journal = {Business {\\&} Information Systems Engineering},\n doi = {10.1007/s12599-020-00656-x}\n}"
@@ -29,7 +31,11 @@ func main() {
 
 	if len(argsWithoutProg) > 0 && argsWithoutProg[0] == "configure" {
 		fmt.Println("Konfigurationsassistent für WA_LaTeX")
-		fmt.Print("Soll beim Starten der Anwendung automatisch ein Browser geöffnet werden? [Y/N]")
+		v := "Y"
+		if !conf.AutoOpenBrowser {
+			v = "N"
+		}
+		fmt.Print(fmt.Sprintf("Soll beim Starten der Anwendung automatisch ein Browser geöffnet werden? (aktuell: %v) [Y/N]", v))
 		reader := bufio.NewReader(os.Stdin)
 		// ReadString will block until the delimiter is entered
 		input, err := reader.ReadString('\n')
@@ -47,7 +53,11 @@ func main() {
 			autoOpen = "true"
 		}
 
-		fmt.Print("Sollen ein ggf. existierender Literatureintrag mit demselben Key beim Speichern oder Hochladen überschrieben werden? [Y/N]")
+		v = "Y"
+		if !conf.OverrideExistingEntries {
+			v = "N"
+		}
+		fmt.Print(fmt.Sprintf("Sollen ein ggf. existierender Literatureintrag mit demselben Key beim Speichern oder Hochladen überschrieben werden? (aktuell: %v) [Y/N]", v))
 		reader = bufio.NewReader(os.Stdin)
 		// ReadString will block until the delimiter is entered
 		input, err = reader.ReadString('\n')
@@ -118,6 +128,8 @@ func main() {
 
 	http.HandleFunc("/cv", handlers.HandleCV)
 
+	http.HandleFunc("/themes", themes.HandleTheme)
+
 	http.HandleFunc("/", handlers.HandleAssets)
 
 	logger.LogInfo("Open http://localhost:8081/overview to get started.")
@@ -138,7 +150,7 @@ func main() {
 }
 
 func startServer() {
-	log.Fatal( http.ListenAndServe(":8081", nil ) )
+	log.Fatal(http.ListenAndServe(":8081", nil))
 }
 
 func openbrowser(url string) {
