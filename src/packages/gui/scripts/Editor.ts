@@ -19,6 +19,20 @@ class Editor {
 
         fetch('/getFile?project='+this.project).then(resp => resp.text()).then(file => {
             this.editArea.innerText = file;
+
+            this.parseContent();
         })
+    }
+
+    private parseContent() {
+        let file = this.editArea.innerText;
+
+        let commentResults = file.match(/^(?:%).*/gm)
+
+        commentResults.forEach(res => {
+            file = file.replace(res,'<span class="command">'+res+'</span>')
+        });
+
+        this.editArea.innerHTML = file;
     }
 }
