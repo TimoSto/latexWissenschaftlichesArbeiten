@@ -65,7 +65,7 @@ class ProjectPage {
         })
 
         document.querySelector('#editStyles').addEventListener('click', ()=>{
-            (<any>window.parent).setEdit('/editStyles?project=' + pname)
+            (<any>window.parent).setMain('/editor.html?project=' + pname)
         });
 
         document.querySelector('#backup').addEventListener('click', ()=>{

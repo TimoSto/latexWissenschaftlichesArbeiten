@@ -38,6 +38,8 @@ main{
   box-sizing: border-box;
   height: 100%;
   transition: width 200ms;
+  height: 100%;
+  overflow-y: scroll;
 
   &.sidebar--open .mdc-deprecated-list-item__text{
     max-width: calc(100% - 50px);
