@@ -68,5 +68,8 @@ main{
   color: orangered;
   &.comment {
     color: #13b413;
+    & .command {
+      color: inherit;
+    }
   }
 }

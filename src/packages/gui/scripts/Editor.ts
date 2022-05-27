@@ -51,6 +51,7 @@ class Editor {
         '\\def',
         '\\makebox',
         '\\listoftables',
+        '\\listoffigures',
         '\\plaintitle',
         '\\tableofcontents',
         '\\vspace',
@@ -59,7 +60,10 @@ class Editor {
         '\\\\',
         '\\hline',
         '\\listofanhang',
-        '\\WarningFilter'
+        '\\WarningFilter',
+        '\\setlength',
+        '\\skip',
+        '\\footins'
     ]
 
     private parseContent() {
@@ -68,7 +72,7 @@ class Editor {
 
         this.commandsToReplace.forEach(c => {
             file = file.replaceAll(c, '<span class="command">'+c+'</span>')
-        })
+        });
 
         // let lastCommentStart = -1;
         // let lastNewline = -1;
