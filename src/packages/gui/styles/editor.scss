@@ -2,6 +2,7 @@
 @use '@material/button/mdc-button';
 @use '@material/icon-button/mdc-icon-button';
 @use '@material/top-app-bar/mdc-top-app-bar';
+@use '@material/typography/mdc-typography';
 
 html, body {
   margin: 0;
@@ -57,4 +58,7 @@ main{
   min-width: 50%;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  @extend .mdc-typography--body1;
+  font-size: 15px;
+  padding-right: 16px;
 }
