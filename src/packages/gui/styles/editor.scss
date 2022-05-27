@@ -61,4 +61,11 @@ main{
   @extend .mdc-typography--body1;
   font-size: 15px;
   padding-right: 16px;
+  white-space: pre-wrap;
+}
+
+.command{
+  &.comment {
+    color: #13b413;
+  }
 }

@@ -30,7 +30,7 @@ class Editor {
         let commentResults = file.match(/^(?:%).*/gm)
 
         commentResults.forEach(res => {
-            file = file.replace(res,'<span class="command">'+res+'</span>')
+            file = file.replace(res,'<span class="command comment">'+res+'</span>')
         });
 
         this.editArea.innerHTML = file;
