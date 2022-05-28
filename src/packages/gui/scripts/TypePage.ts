@@ -213,6 +213,8 @@ class TypePage {
             if (valid) {
                 (<any>window.parent).reloadMain();
 
+                (<any>window.parent).editSavePossible(false);
+
                 window.location.replace('/editType?type='+this._nameField.value+'&project='+this._project);
             } else {
                 (<any>window.parent).openErrorDialog('Beim Versuch, den Literaturtypen zu speichern, ist ein Fehler aufgetreten.')
