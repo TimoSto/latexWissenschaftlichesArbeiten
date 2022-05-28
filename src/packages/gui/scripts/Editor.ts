@@ -187,6 +187,8 @@ class Editor {
     private compileFile() {
         let file = this.unparseFile(this.editArea.innerHTML);
 
+        this.log.innerText = 'Compiling...';
+
         fetch('saveAndCompile?project='+this.project, {
             method: 'POST',
             body: file
