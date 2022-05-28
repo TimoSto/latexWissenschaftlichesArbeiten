@@ -21,6 +21,27 @@ class Editor {
             this.editArea.innerText = file;
 
             this.parseContent();
+        }).then(resp => {
+
+        })
+
+        document.querySelector('#compile').addEventListener('click', ()=>{
+            this.compileFile();
+        })
+    }
+
+    private compileFile() {
+        let styled = this.editArea.innerHTML;
+
+        let file = styled.replaceAll('<span class="command">', '')
+
+        file = file.replaceAll('</span>', '');
+
+        fetch('saveAndCompile?project='+this.project, {
+            method: 'POST',
+            body: file
+        }).then(resp=>resp.json()).then(data => {
+            console.log(data.Success)
         })
     }
 
