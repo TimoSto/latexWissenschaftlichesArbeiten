@@ -69,6 +69,7 @@ class Editor {
 
         document.querySelector('#view').addEventListener('click', ()=>{
             this.pdfArea.classList.toggle('opened');
+            this.pdfArea.querySelector('iframe').src = '/getPDF?project='+ this.project;
         })
     }
 

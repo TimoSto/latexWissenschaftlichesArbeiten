@@ -136,6 +136,8 @@ func main() {
 
 	http.HandleFunc("/saveAndCompile", handlers.SaveAndCompile)
 
+	http.HandleFunc("/getPDF", handlers.GetPDF)
+
 	http.HandleFunc("/", handlers.HandleAssets)
 
 	logger.LogInfo("Open http://localhost:8081/overview to get started.")
