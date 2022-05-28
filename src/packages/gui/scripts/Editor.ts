@@ -39,6 +39,8 @@ class Editor {
 
         let file = styled.replaceAll('<span class="command">', '')
 
+        file = file.replaceAll('<span class="command comment">', '')
+
         file = file.replaceAll('</span>', '');
 
         fetch('saveAndCompile?project='+this.project, {
