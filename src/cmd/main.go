@@ -5,7 +5,9 @@ package main
 
 import (
 	"bufio"
+	_ "embed"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -23,7 +25,19 @@ import (
 
 //var test = "% This file was created with Citavi 6.11.0.0\n\n@article{Sedlmeir.2020,\n abstract = {When talking about blockchain technology in academia, business, and society, frequently generalizations are still heared about its -- supposedly inherent -- enormous energy consumption. This perception inevitably raises concerns about the further adoption of blockchain technology, a fact that inhibits rapid uptake of what is widely considered to be a groundbreaking and disruptive innovation. However, blockchain technology is far from homogeneous, meaning that blanket statements about its energy consumption should be reviewed with care. The article is meant to bring clarity to the topic in a holistic fashion, looking beyond claims regarding the energy consumption of Bitcoin, which have, so far, dominated the discussion.},\n author = {Sedlmeir, Johannes and Buhl, Hans Ulrich and Fridgen, Gilbert and Keller, Robert},\n year = {2020},\n title = {The Energy Consumption of Blockchain Technology: Beyond Myth},\n pages = {599--608},\n volume = {62},\n number = {6},\n issn = {1867-0202},\n journal = {Business {\\&} Information Systems Engineering},\n doi = {10.1007/s12599-020-00656-x}\n}"
 
+//go:embed compile.bat
+var CompileBat string
+
 func main() {
+
+	compFile, err := ioutil.ReadFile("compile.bat")
+
+	if err != nil || string(compFile) != CompileBat {
+		err = ioutil.WriteFile("compile.bat", []byte(CompileBat), 0644)
+		if err != nil {
+			fmt.Println(err)
+		}
+	}
 
 	conf.ReadConfig()
 

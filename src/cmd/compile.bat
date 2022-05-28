@@ -1,7 +1,5 @@
 @echo off
 
-
-
 set proj=%1
 
 set FilePath="./projects/%proj%/%proj%.tex"

@@ -21,3 +21,4 @@ src/packages/handlers/CV/curriculumVitae.log
 backup/
 customStyles/
 errorLogs.txt
+compile.bat
