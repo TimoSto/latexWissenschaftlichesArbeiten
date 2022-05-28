@@ -78,7 +78,7 @@ class Editor {
         })
     }
 
-    private liBlueprint = '<li class="mdc-deprecated-list-item CLASS"><span class="mdc-deprecated-list-item__ripple"></span><span class="mdc-deprecated-list-item__text">CONTENT</span></li>'
+    private liBlueprint = '<li class="mdc-deprecated-list-item CLASS" id="CONTENT"><span class="mdc-deprecated-list-item__ripple"></span><span class="mdc-deprecated-list-item__text">CONTENT</span></li>'
 
     private chaptersToSidebar(file: string) {
 
@@ -129,11 +129,22 @@ class Editor {
         chapters.forEach(c => {
             let copy = this.liBlueprint;
             copy = copy.replace('CLASS', classes[c.Level-1])
-            copy = copy.replace('CONTENT', c.Title);
+            copy = copy.replaceAll('CONTENT', c.Title);
             listContent += copy;
         });
 
         document.querySelector('#sidebar ul').innerHTML = listContent;
+
+        Array.from(document.querySelector('#sidebar ul').children).forEach(el => {
+            const c = el.id;
+            el.addEventListener('click', ()=>{
+                let cp = this.editArea.innerText.indexOf(c);
+
+                Cursor.setCurrentCursorPosition(cp, this.editArea)
+                this.editArea.focus();
+                Cursor.scrollSelectionIntoView();
+            })
+        })
     }
 
     private extractTitle(chapter: string): string {
