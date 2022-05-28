@@ -15,6 +15,7 @@ class ProjectPage {
         let mainElem = document.body;
 
         document.querySelector('#editStyles').addEventListener('click', ()=>{
+            (<any>window.parent).setEdit('');
             mainElem.classList.toggle('texView');
         });
 

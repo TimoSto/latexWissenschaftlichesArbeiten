@@ -257,6 +257,10 @@ class OverviewPage {
     }
 
     private setEdit(uri: string) {
+        if( uri.length == 0) {
+            this._editArea.classList.remove('editArea--open');
+            return
+        }
         this._editArea.classList.add('editArea--open')
         this._editFrame.src = uri;
         if( uri.indexOf('/editType') >= 0 ) {
