@@ -80,10 +80,10 @@
 }
 
 .prominent{
-  color: rgba(0,0,0,1)!important;
+  color: var(--mdc-theme-on-background)!important;
 
   & .mdc-icon-button{
-    color: rgba(0,0,0,1)!important;
+    color: var(--mdc-theme-on-background)!important;
   }
 }
 
