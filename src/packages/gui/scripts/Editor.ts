@@ -1,3 +1,4 @@
+import Cursor from "./Cursor";
 
 document.addEventListener('DOMContentLoaded', ()=>{
     new Editor();
@@ -19,12 +20,41 @@ class Editor {
         this.sidebar = document.querySelector('#sidebar');
         this.editArea = document.querySelector('#editArea_editable');
 
+        this.editArea.addEventListener('keypress', ()=>{
+            let file = this.unparseFile(this.editArea.innerHTML);
+            file = this.parseContent(file);
+
+            // let caretOffset = 0;
+            //
+            // if (window.getSelection) {
+            //     var range = window.getSelection().getRangeAt(0);
+            //     var preCaretRange = range.cloneRange();
+            //     preCaretRange.selectNodeContents(this.editArea);
+            //     preCaretRange.setEnd(range.endContainer, range.endOffset);
+            //     caretOffset = preCaretRange.toString().length;
+            // }
+
+            let offset = Cursor.getCurrentCursorPosition(this.editArea);
+
+            // else if (document.selection && document.selection.type != "Control") {
+            //     var textRange = document.selection.createRange();
+            //     var preCaretTextRange = document.body.createTextRange();
+            //     preCaretTextRange.moveToElementText(element);
+            //     preCaretTextRange.setEndPoint("EndToEnd", textRange);
+            //     caretOffset = preCaretTextRange.text.length;
+            // }
+
+            this.editArea.innerHTML = file;
+
+            Cursor.setCurrentCursorPosition(offset, this.editArea);
+            this.editArea.focus();
+        })
+
         this.log = (document.querySelector('#log') as HTMLElement)
 
         fetch('/getFile?project='+this.project).then(resp => resp.text()).then(file => {
-            this.editArea.innerText = file;
 
-            this.parseContent();
+            this.editArea.innerHTML = this.parseContent(file);
         }).then(resp => {
 
         })
@@ -34,14 +64,19 @@ class Editor {
         })
     }
 
-    private compileFile() {
-        let styled = this.editArea.innerHTML;
+    private unparseFile(styled: string): string {
 
         let file = styled.replaceAll('<span class="command">', '')
 
         file = file.replaceAll('<span class="command comment">', '')
 
         file = file.replaceAll('</span>', '');
+
+        return file;
+    }
+
+    private compileFile() {
+        let file = this.unparseFile(this.editArea.innerHTML);
 
         fetch('saveAndCompile?project='+this.project, {
             method: 'POST',
@@ -95,8 +130,7 @@ class Editor {
         '\\footins'
     ]
 
-    private parseContent() {
-        let file = this.editArea.innerText;
+    private parseContent(file: string):string {
 
         let cmdRegex1 = /\\[a-zA-Z%]+/gm;
 
@@ -172,6 +206,6 @@ class Editor {
         //     }
         // }
 
-        this.editArea.innerHTML = file;
+        return file;
     }
 }
