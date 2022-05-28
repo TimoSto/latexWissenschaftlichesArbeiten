@@ -108,6 +108,10 @@ class Editor {
 
         let commands = file.match(cmdRegex1);
 
+        if(commands == null || commands.length == 0) {
+            return;
+        }
+
         let chapters: Chapter[] = [];
 
         commands.forEach(c => {
