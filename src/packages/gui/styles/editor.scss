@@ -33,9 +33,10 @@ main{
   display: flex;
 }
 
-.remaining {
+#remaining {
   flex-grow: 1;
   height: 100%;
+  display: flex;
 }
 
 #sidebar {
@@ -44,20 +45,25 @@ main{
 
 #editArea, #pdfArea {
   box-sizing: border-box;
-  overflow-y: scroll;
   float: left;
   height: 100%;
 }
 
 #pdfArea {
-  width: 0;
+  min-width: 0;
   border: none;
+  transition: min-width 500ms ease-in-out;
+  &.opened {
+    min-width: 50%;
+    flex-grow: 1;
+  }
 }
 
 #editArea{
   min-width: 50%;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  flex-grow: 1;
   @extend .mdc-typography--body1;
   font-size: 15px;
   & #editArea_editable {

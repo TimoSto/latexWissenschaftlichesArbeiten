@@ -14,11 +14,15 @@ class Editor {
 
     private sidebar: HTMLElement;
 
+    private pdfArea: HTMLElement;
+
     constructor() {
         this.project = new URLSearchParams(window.location.search).get('project');
 
         this.sidebar = document.querySelector('#sidebar');
         this.editArea = document.querySelector('#editArea_editable');
+
+        this.pdfArea = document.querySelector('#pdfArea');
 
         this.editArea.addEventListener('keypress', ()=>{
             let file = this.unparseFile(this.editArea.innerHTML);
@@ -61,6 +65,10 @@ class Editor {
 
         document.querySelector('#compile').addEventListener('click', ()=>{
             this.compileFile();
+        })
+
+        document.querySelector('#view').addEventListener('click', ()=>{
+            this.pdfArea.classList.toggle('opened');
         })
     }
 
