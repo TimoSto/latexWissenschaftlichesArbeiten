@@ -76,6 +76,16 @@ class Editor {
             this.pdfArea.classList.toggle('opened');
             this.pdfArea.querySelector('iframe').src = '/getPDF?project='+ this.project;
         })
+
+        document.querySelector('#quote').addEventListener('click', ()=>{
+            let pos = Cursor.getCurrentCursorPosition(this.editArea);
+
+            if(pos > -1) {
+                let file = this.editArea.innerText.substring(0,pos) + '\\citebib{}{}{}' + this.editArea.innerText.substring(pos);
+
+                this.editArea.innerHTML = this.parseContent(file);
+            }
+        })
     }
 
     private liBlueprint = '<li class="mdc-deprecated-list-item CLASS" id="CONTENT"><span class="mdc-deprecated-list-item__ripple"></span><span class="mdc-deprecated-list-item__text">CONTENT</span></li>'
