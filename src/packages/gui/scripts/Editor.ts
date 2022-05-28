@@ -96,8 +96,11 @@ class Editor {
     private parseContent() {
         let file = this.editArea.innerText;
 
+        let cmdRegex1 = /\\[a-zA-Z]+/gm;
 
-        this.commandsToReplace.forEach(c => {
+        let commands = file.match(cmdRegex1);
+
+        commands.forEach(c => {
             file = file.replaceAll(c, '<span class="command">'+c+'</span>')
         });
 
