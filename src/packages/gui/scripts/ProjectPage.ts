@@ -12,8 +12,10 @@ class ProjectPage {
 
         let pname = window.location.href.split('/projects/')[1]
 
+        let mainElem = document.body;
+
         document.querySelector('#editStyles').addEventListener('click', ()=>{
-            (<any>window.parent).setMain('/editor.html?project=' + pname)
+            mainElem.classList.toggle('texView');
         });
 
         document.querySelector('#backup').addEventListener('click', ()=>{
@@ -29,6 +31,9 @@ class ProjectPage {
 
         let bibFrame = document.querySelector('#literature_view') as HTMLIFrameElement;
         bibFrame.src = '/literature?project='+pname;
+
+        let texFrame = document.querySelector('#tex_view') as HTMLIFrameElement;
+        texFrame.src = '/editor.html?project='+pname;
     }
 }
 

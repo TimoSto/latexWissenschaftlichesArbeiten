@@ -44,5 +44,33 @@ main {
     height: 100%;
     border: none;
     display: block;
+    transition: width 500ms ease-in-out;
+    float: left;
+
+    &#tex_view {
+      width: 0;
+    }
+  }
+}
+
+#toBib{
+  display: none;
+}
+
+.texView {
+  & main {
+    iframe {
+      width: 0;
+
+      &#tex_view {
+        width: 100%;
+      }
+    }
+  }
+  & #toBib{
+    display: unset;
+  }
+  & #toTex{
+    display: none;
   }
 }
