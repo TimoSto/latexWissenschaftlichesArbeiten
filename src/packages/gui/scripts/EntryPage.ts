@@ -38,6 +38,10 @@ class EntryPage {
 
         this._keyField = new MDCTextField( document.querySelector('#keyField'));
 
+        this._keyField.root.querySelector('input').addEventListener('change', ()=>{
+            this.syncSave();
+        });
+
         this._typeSelect = new MDCSelect( document.querySelector('#typeSelect') );
 
         this._typeSelect.listen('MDCSelect:change', ()=>{
@@ -218,7 +222,7 @@ class EntryPage {
     private syncSave() {
 
         if( this._initialExamples ) {
-            let saveNecessary = (this._initialExamples[0] != document.getElementById('bibExample').innerHTML || this._initialExamples[1] != document.getElementById('citeExample').innerHTML || this._commentField.value != this._inititalDescribtion);
+            let saveNecessary = (this._initialExamples[0] != document.getElementById('bibExample').innerHTML || this._initialExamples[1] != document.getElementById('citeExample').innerHTML || this._commentField.value != this._inititalDescribtion) || this._keyField.value !== this._initialKey;
 
             (<any>window.parent).editSavePossible(saveNecessary)
         }
