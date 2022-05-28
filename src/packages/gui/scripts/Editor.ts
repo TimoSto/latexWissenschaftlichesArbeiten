@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     new Editor();
 })
 
+type Chapter = {
+    Level: number
+    Title: string
+}
+
 class Editor {
 
     private project: string;
@@ -71,6 +76,68 @@ class Editor {
             this.pdfArea.classList.toggle('opened');
             this.pdfArea.querySelector('iframe').src = '/getPDF?project='+ this.project;
         })
+    }
+
+    private liBlueprint = '<li class="mdc-deprecated-list-item CLASS"><span class="mdc-deprecated-list-item__ripple"></span><span class="mdc-deprecated-list-item__text">CONTENT</span></li>'
+
+    private chaptersToSidebar(file: string) {
+
+        let cmdRegex1 = /\\(part|section|subsection|subsubsection|parargaph|subparagraph){.*}/g;
+
+        let commands = file.match(cmdRegex1);
+
+        let chapters: Chapter[] = [];
+
+        commands.forEach(c => {
+            if( c.indexOf('\\part') == 0 ) {
+                chapters.push({
+                    Level: 1,
+                    Title: this.extractTitle(c)
+                });
+            } else if( c.indexOf('\\section') == 0 ) {
+                chapters.push({
+                    Level: 2,
+                    Title: this.extractTitle(c)
+                });
+            }else if( c.indexOf('\\subsection') == 0 ) {
+                chapters.push({
+                    Level: 3,
+                    Title: this.extractTitle(c)
+                });
+            }else if( c.indexOf('\\subsubsection') == 0 ) {
+                chapters.push({
+                    Level: 4,
+                    Title: this.extractTitle(c)
+                });
+            }else if( c.indexOf('\\paragraph') == 0 ) {
+                chapters.push({
+                    Level: 5,
+                    Title: this.extractTitle(c)
+                });
+            }else if( c.indexOf('\\subparagraph') == 0 ) {
+                chapters.push({
+                    Level: 6,
+                    Title: this.extractTitle(c)
+                });
+            }
+        });
+
+        let listContent = '';
+
+        let classes = ['part', 'section', 'subsection', 'subsubsection', 'paragraph', 'subparagraph']
+
+        chapters.forEach(c => {
+            let copy = this.liBlueprint;
+            copy = copy.replace('CLASS', classes[c.Level-1])
+            copy = copy.replace('CONTENT', c.Title);
+            listContent += copy;
+        });
+
+        document.querySelector('#sidebar ul').innerHTML = listContent;
+    }
+
+    private extractTitle(chapter: string): string {
+        return chapter.substring(chapter.indexOf('{')+1, chapter.indexOf('}'))
     }
 
     private unparseFile(styled: string): string {
@@ -144,6 +211,8 @@ class Editor {
     ]
 
     private parseContent(file: string):string {
+
+        this.chaptersToSidebar(file);
 
         let cmdRegex1 = /\\[a-zA-Z%]+/gm;
 

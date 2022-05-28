@@ -3,6 +3,9 @@
 @use '@material/icon-button/mdc-icon-button';
 @use '@material/top-app-bar/mdc-top-app-bar';
 @use '@material/typography/mdc-typography';
+@use "@material/list/_index" as list;
+
+@include list.deprecated-core-styles;
 
 html, body {
   margin: 0;
@@ -41,6 +44,30 @@ main{
 
 #sidebar {
   min-width: 250px;
+  height: 100%;
+  overflow-y: scroll;
+  & .mdc-deprecated-list {
+    font-weight: bold;
+    font-size: 15px;
+    & li {
+      height: 32px;
+    }
+    & .section{
+      padding-left: 31px;
+    }
+    & .subsection{
+      padding-left: 46px;
+    }
+    & .subsubsection{
+      padding-left: 61px;
+    }
+    & .paragraph{
+      padding-left: 76px;
+    }
+    & .subparagraph{
+      padding-left: 91px;
+    }
+  }
 }
 
 #editArea, #pdfArea {
