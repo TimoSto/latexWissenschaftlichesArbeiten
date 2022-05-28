@@ -94,6 +94,10 @@ class Editor {
             console.log(data);
             this.log.innerText = data.Log;
             this.log.scrollTop = this.log.scrollHeight;
+
+            if( this.pdfArea.classList.contains('opened') ) {
+                this.pdfArea.querySelector('iframe').contentWindow.location.reload();
+            }
         })
     }
 
