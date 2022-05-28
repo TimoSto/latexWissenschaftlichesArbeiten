@@ -164,7 +164,7 @@ class Editor {
         Array.from(document.querySelector('#sidebar ul').children).forEach(el => {
             const c = el.id;
             el.addEventListener('click', ()=>{
-                let cp = this.editArea.innerText.indexOf(c);
+                let cp = this.editArea.innerText.indexOf('{'+c+'}');
 
                 Cursor.setCurrentCursorPosition(cp, this.editArea)
                 this.editArea.focus();
