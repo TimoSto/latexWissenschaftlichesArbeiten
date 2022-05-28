@@ -5,6 +5,24 @@
   color: var(--mdc-theme-primary)!important;
 }
 
+#beta-label{
+  position: fixed;
+  width: 80px;
+  height: 25px;
+  background: var(--mdc-theme-primary);
+  top: 7px;
+  right: -20px;
+  text-align: center;
+  font-size: 13px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  line-height: 27px;
+  transform:rotate(45deg);
+  z-index: 100;
+}
+
 .plain-top-app-bar{
   background-color: transparent;
   color: black;
