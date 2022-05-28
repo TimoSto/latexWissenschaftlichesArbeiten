@@ -253,7 +253,7 @@ class Editor {
 
         this.chaptersToSidebar(file);
 
-        let cmdRegex1 = /\\[a-zA-Z%]+/gm;
+        let cmdRegex1 = /\\[a-zA-Z%\\]+/gm;
 
         let commands = file.match(cmdRegex1).sort()
             .filter(function(element, index, array) {
