@@ -237,7 +237,10 @@ class Editor {
 
         let cmdRegex1 = /\\[a-zA-Z%]+/gm;
 
-        let commands = file.match(cmdRegex1);
+        let commands = file.match(cmdRegex1).sort()
+            .filter(function(element, index, array) {
+                return index == array.indexOf(element);
+            });
 
         commands.forEach(c => {
             if( file.charAt(file.indexOf(c) - 1) === `\\` ) {
@@ -250,7 +253,10 @@ class Editor {
 
         let commentRegex1 = /%.*\n/g;
 
-        let comments = file.match(commentRegex1);
+        let comments = file.match(commentRegex1).sort()
+            .filter(function(element, index, array) {
+                return index == array.indexOf(element);
+            });
 
         comments.forEach(c => {
             if( file.charAt(file.indexOf(c) - 1)  !== `\\` ) {
