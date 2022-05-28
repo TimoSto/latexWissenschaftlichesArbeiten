@@ -1,13 +1,14 @@
 package handlers
 
 import (
-	"WA_LaTeX/src/packages/domain"
-	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strings"
+
+	"WA_LaTeX/src/packages/domain"
+	"WA_LaTeX/src/tools/logger"
 )
 
 type SaveTypeObj struct {
@@ -27,8 +28,7 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 	}
 	logger.LogInfo(fmt.Sprintf("Saving type %s", saveObj.Type.Name))
 	//fmt.Println(saveObj)
-	initialName := r.URL.Query().Get("initialName")
-	//fmt.Println(initialName)
+	initialName := saveObj.InitialName
 	literatureTypes, err := domain.ReadTypes(saveObj.Project)
 	if err != nil {
 		logger.LogError("Reading types for project "+saveObj.Project, err.Error())
