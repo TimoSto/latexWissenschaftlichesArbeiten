@@ -111,14 +111,14 @@ class Editor {
 
         let commentRegex1 = /%.*\n/g;
 
-        // let comments = file.match(commentRegex1);
-        //
-        // comments.forEach(c => {
-        //     if( file.charAt(file.indexOf(c) - 1)  !== `\\` ) {
-        //         file = file.replaceAll(c, '<span class="command comment">'+c+'</span>')
-        //     }
-        //
-        // });
+        let comments = file.match(commentRegex1);
+
+        comments.forEach(c => {
+            if( file.charAt(file.indexOf(c) - 1)  !== `\\` ) {
+                file = file.replaceAll(c, '<span class="command comment">'+c+'</span>')
+            }
+
+        });
 
         // let lastCommentStart = -1;
         // let lastNewline = -1;
