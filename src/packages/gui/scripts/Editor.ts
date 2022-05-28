@@ -189,7 +189,7 @@ class Editor {
     }
 
     private compileFile() {
-        let file = this.unparseFile(this.editArea.innerHTML);
+        let file = this.unparseFile(this.editArea.innerText);
 
         this.log.innerText = 'Compiling...';
 
