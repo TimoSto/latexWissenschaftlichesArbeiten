@@ -96,13 +96,29 @@ class Editor {
     private parseContent() {
         let file = this.editArea.innerText;
 
-        let cmdRegex1 = /\\[a-zA-Z]+/gm;
+        let cmdRegex1 = /\\[a-zA-Z%]+/gm;
 
         let commands = file.match(cmdRegex1);
 
         commands.forEach(c => {
-            file = file.replaceAll(c, '<span class="command">'+c+'</span>')
+            if( file.charAt(file.indexOf(c) - 1) === `\\` ) {
+                file = file.substring(0, file.indexOf(c) - 1) + `<span class="command">\\\\</span>` + file.substr(file.indexOf(c)+1);
+            } else {
+                file = file.replaceAll(c, '<span class="command">'+c+'</span>')
+            }
+
         });
+
+        let commentRegex1 = /%.*\n/g;
+
+        // let comments = file.match(commentRegex1);
+        //
+        // comments.forEach(c => {
+        //     if( file.charAt(file.indexOf(c) - 1)  !== `\\` ) {
+        //         file = file.replaceAll(c, '<span class="command comment">'+c+'</span>')
+        //     }
+        //
+        // });
 
         // let lastCommentStart = -1;
         // let lastNewline = -1;
