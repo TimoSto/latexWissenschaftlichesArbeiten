@@ -29,7 +29,19 @@ class Editor {
 
         this.pdfArea = document.querySelector('#pdfArea');
 
-        this.editArea.addEventListener('keypress', ()=>{
+        this.editArea.addEventListener('keypress', (e)=>{
+            if( e.key === 'Enter' ) {
+                e.preventDefault();
+                let pos = Cursor.getCurrentCursorPosition(this.editArea);
+
+                if(pos > -1) {
+                    let file = this.editArea.innerText.substring(0,pos) + '\n' + this.editArea.innerText.substring(pos);
+
+                    this.editArea.innerHTML = this.parseContent(file);
+
+                    Cursor.setCurrentCursorPosition(pos+1, this.editArea)
+                }
+            }
             let file = this.unparseFile(this.editArea.innerHTML);
             file = this.parseContent(file);
 
