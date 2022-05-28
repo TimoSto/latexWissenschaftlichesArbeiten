@@ -136,7 +136,7 @@ class EntryPage {
 
         //console.log(valuePairs)
 
-        SaveEntry(this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value, this._commentField.value).then(valid => {
+        SaveEntry( window.parent as any, this._initialKey, this.project, valuePairs, this._typeSelect.value, this._keyField.value, this._commentField.value).then(valid => {
             if( valid ) {
 
                 (<any>window.parent).reloadMain();

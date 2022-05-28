@@ -92,6 +92,8 @@ func main() {
 
 	http.HandleFunc("/projects/", handlers.HandleGetProject)
 
+	http.HandleFunc("/literature", handlers.HandleLiteraturePage)
+
 	http.HandleFunc("/editType", handlers.HandleEditType)
 
 	http.HandleFunc("/saveType", handlers.HandleSaveType)

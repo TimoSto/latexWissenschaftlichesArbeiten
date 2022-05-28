@@ -1,5 +1,5 @@
 
-export default function SaveEntry(initialKey: string, project: string, valuePairs: {Value: string, Attr: string}[], typ: string, key: string, comment: string) {
+export default function SaveEntry(win: any, initialKey: string, project: string, valuePairs: {Value: string, Attr: string}[], typ: string, key: string, comment: string) {
     let obj = {
         Entry: {
             InitialKey: initialKey,
@@ -10,7 +10,6 @@ export default function SaveEntry(initialKey: string, project: string, valuePair
         },
         Project: project
     }
-    console.log(JSON.stringify(obj))
     return window.fetch('/saveEntry', {
         method: 'POST',
         body: JSON.stringify(obj)
@@ -22,9 +21,9 @@ export default function SaveEntry(initialKey: string, project: string, valuePair
             response.json().then(obj =>{
                 console.log(obj);
 
-                (<any>window.parent).openAlertDialog(`${obj.Added} Einträge hinzugefügt, ${obj.Changed} Einträge geändert.`)
+                win.openAlertDialog(`${obj.Added} Einträge hinzugefügt, ${obj.Changed} Einträge geändert.`)
             });
-            (<any>window.parent).editSavePossible(false);
+            win.editSavePossible(false);
             return true
 
         }
@@ -44,7 +43,7 @@ export class Entry {
     }
 }
 
-export function SaveEntries(project: string, entries: Entry[] ) {
+export function SaveEntries(project: string, entries: Entry[], win: any ) {
     let obj = {
         Entries: entries,
         Project: project
@@ -59,7 +58,7 @@ export function SaveEntries(project: string, entries: Entry[] ) {
              response.json().then(obj =>{
                  console.log(obj);
 
-                 (<any>window.parent).openAlertDialog(`${obj.Added} Einträge hinzugefügt, ${obj.Changed} Einträge geändert.`)
+                 win.openAlertDialog(`${obj.Added} Einträge hinzugefügt, ${obj.Changed} Einträge geändert.`)
              });
 
             return true

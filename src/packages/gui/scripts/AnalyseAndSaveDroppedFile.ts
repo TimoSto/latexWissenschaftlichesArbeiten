@@ -1,10 +1,10 @@
 import {ParseBibToString, ParseStringToTeX} from "./TeXParser";
 import SaveEntry, {Entry, SaveEntries} from "./SaveEntry";
 
-export default function AnalyseAndSaveDroppdFile(file: String, project: string) {
+export default function AnalyseAndSaveDroppdFile(file: String, project: string, win: any) {
 
     if(file.indexOf('@') == -1) {
-        (<any>window.parent).openErrorDialog('Die Datei hat ein ungültiges Format.')
+        win.openErrorDialog('Die Datei hat ein ungültiges Format.')
         return
     }
 
@@ -160,13 +160,13 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
         entries.push(new Entry(sortedvaluepairs, key, type))
     }
 
-    (<any>window.parent).openConfirmDialog(`Es werden ${empty.length + unknown.length} Einträge ignoriert:\n\nLeere Einträge: ${empty}\nUnbekannte Typen: ${unknown}\n\n${entries.length} Einträge hochladen?`, ()=>{
-        SaveEntries(project, entries).then(valid => {
+    win.openConfirmDialog(`Es werden ${empty.length + unknown.length} Einträge ignoriert:\n\nLeere Einträge: ${empty}\nUnbekannte Typen: ${unknown}\n\n${entries.length} Einträge hochladen?`, ()=>{
+        SaveEntries(project, entries, win).then(valid => {
             if (valid) {
-                (<any>window.parent).reloadMain();
-                (<any>window.parent).setEdit('/editEntry?project='+project+'&entry='+entries[0].Key);
+                win.reloadMain();
+                win.setEdit('/editEntry?project='+project+'&entry='+entries[0].Key);
             } else {
-                (<any>window.parent).openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
+                win.openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
             }
         });
     })
