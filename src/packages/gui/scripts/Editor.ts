@@ -255,33 +255,41 @@ class Editor {
 
         let cmdRegex1 = /\\[a-zA-Z%\\]+/gm;
 
-        let commands = file.match(cmdRegex1).sort()
-            .filter(function(element, index, array) {
-                return index == array.indexOf(element);
+        let commands = file.match(cmdRegex1);
+
+        if( commands ) {
+            commands = commands.sort()
+                .filter(function(element, index, array) {
+                    return index == array.indexOf(element);
+                });
+
+            commands.forEach(c => {
+                if( file.charAt(file.indexOf(c) - 1) === `\\` ) {
+                    file = file.substring(0, file.indexOf(c) - 1) + `<span class="command">\\\\</span>` + file.substr(file.indexOf(c)+1);
+                } else {
+                    file = file.replaceAll(c, '<span class="command">'+c+'</span>')
+                }
+
             });
-
-        commands.forEach(c => {
-            if( file.charAt(file.indexOf(c) - 1) === `\\` ) {
-                file = file.substring(0, file.indexOf(c) - 1) + `<span class="command">\\\\</span>` + file.substr(file.indexOf(c)+1);
-            } else {
-                file = file.replaceAll(c, '<span class="command">'+c+'</span>')
-            }
-
-        });
+        }
 
         let commentRegex1 = /%.*\n/g;
 
-        let comments = file.match(commentRegex1).sort()
-            .filter(function(element, index, array) {
-                return index == array.indexOf(element);
+        let comments = file.match(commentRegex1);
+
+        if( comments ) {
+            comments = comments.sort()
+                .filter(function(element, index, array) {
+                    return index == array.indexOf(element);
+                });
+
+            comments.forEach(c => {
+                if( file.charAt(file.indexOf(c) - 1)  !== `\\` ) {
+                    file = file.replaceAll(c, '<span class="command comment">'+c+'</span>')
+                }
+
             });
-
-        comments.forEach(c => {
-            if( file.charAt(file.indexOf(c) - 1)  !== `\\` ) {
-                file = file.replaceAll(c, '<span class="command comment">'+c+'</span>')
-            }
-
-        });
+        }
 
         // let lastCommentStart = -1;
         // let lastNewline = -1;
