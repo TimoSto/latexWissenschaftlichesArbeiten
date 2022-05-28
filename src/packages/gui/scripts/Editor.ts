@@ -9,13 +9,17 @@ class Editor {
 
     private editArea: HTMLElement;
 
+    private log: HTMLElement;
+
     private sidebar: HTMLElement;
 
     constructor() {
         this.project = new URLSearchParams(window.location.search).get('project');
 
         this.sidebar = document.querySelector('#sidebar');
-        this.editArea = document.querySelector('#editArea');
+        this.editArea = document.querySelector('#editArea_editable');
+
+        this.log = (document.querySelector('#log') as HTMLElement)
 
         fetch('/getFile?project='+this.project).then(resp => resp.text()).then(file => {
             this.editArea.innerText = file;
@@ -41,7 +45,9 @@ class Editor {
             method: 'POST',
             body: file
         }).then(resp=>resp.json()).then(data => {
-            console.log(data.Success)
+            console.log(data);
+            this.log.innerText = data.Log;
+            this.log.scrollTop = this.log.scrollHeight;
         })
     }
 

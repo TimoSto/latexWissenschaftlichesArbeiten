@@ -60,8 +60,20 @@ main{
   border-right: 1px solid black;
   @extend .mdc-typography--body1;
   font-size: 15px;
-  padding-right: 16px;
-  white-space: pre-wrap;
+  & #editArea_editable {
+    white-space: pre-wrap;
+    max-height: calc(100% - 150px);
+    overflow-y: scroll;
+    padding-right: 16px;
+  }
+  & #log {
+    height: 150px;
+    border-top: 1px solid var(--mdc-theme-on-background);
+    box-sizing: border-box;
+    overflow-y: scroll;
+    padding-right: 16px;
+    color: blue;
+  }
 }
 
 .command{
