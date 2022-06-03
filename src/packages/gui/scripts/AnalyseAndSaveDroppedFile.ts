@@ -135,6 +135,9 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string, 
                 case "incollection":
                     type = 'citaviInCollection'
                     break
+                case "phdthesis":
+                    type = 'citaviThesis'
+                    break
             }
         }
 
@@ -333,6 +336,17 @@ function getIndex(attr: string, type: string) {
             case "title":
                 return 2
             case "doi":
+                return 3
+        }
+    } else if (type === 'citaviThesis') {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "school":
                 return 3
         }
     }

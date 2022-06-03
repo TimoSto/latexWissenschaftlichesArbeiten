@@ -32,6 +32,7 @@ export function ParseStringToTeX(value: string) {
     value = value.replaceAll('{\\ss}', 'ß');
     value = value.replaceAll('{\\\"u}', 'ü');
     value = value.replaceAll('{\\\"o}', 'ö');
+    value = value.replaceAll('{\\\"a}', 'ä');
     value = value.replaceAll('{\\\'e}', 'é');
 
     texValues.forEach(s => {

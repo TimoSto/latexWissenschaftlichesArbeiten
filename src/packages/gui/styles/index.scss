@@ -69,6 +69,9 @@ main{
   width: 300px;
   //max-width: 300px;
   //transition: width 200ms;
+  & .mdc-icon-button:not(:disabled):not(.mdc-snackbar__dismiss) {
+    color: var(--mdc-theme-on-background)!important;
+  }
 }
 
 #main{
