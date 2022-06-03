@@ -93,6 +93,8 @@ export function ParseBibToString(value: string) {
 
     });
 
+    value = removeIntermediateBrackets(value)
+
     return value;
 }
 
@@ -116,4 +118,29 @@ function IsSurroundedBySingleBrackets(str: string, i: number): boolean {
     }
 
     return ( str.substr(i-1, 1) == '{' || str.substr(i-2, 2) == '{\\' ) && str.substr(i+1, 1) == '}'
+}
+
+function removeIntermediateBrackets(value: string): string {
+    let bsOened = 0;
+    let sinds = [];
+
+    for( let i = 0; i < value.length ; i++ ) {
+        if( value.charAt(i) === '{' ) {
+            bsOened ++;
+            sinds.push(i)
+        } else if (value.charAt(i) === '}' ) {
+            if(bsOened>0) {
+                bsOened--;
+                sinds.pop()
+            } else {
+                value=value.substring(0,i) + value.substring(i+1);
+            }
+        }
+    }
+
+    if (bsOened > 0) {
+        value = value.substring(0, sinds[0])
+    }
+
+    return value;
 }
