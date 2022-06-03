@@ -14,7 +14,9 @@ const texValues = [
     ['è','{{\\`{e}}}'],
     ['°','{{\\degree}}'],
     ['<','{{\\textless}}'],
-    ['>','{{\\textgreater}}']
+    ['>','{{\\textgreater}}'],
+    ['š','{{\\v{s}}}'],
+    ['č','{{\\v{c}}}']
 ];
 
 function repalceAt(str, index, replacement) {
@@ -34,6 +36,8 @@ export function ParseStringToTeX(value: string) {
     value = value.replaceAll('{\\\"o}', 'ö');
     value = value.replaceAll('{\\\"a}', 'ä');
     value = value.replaceAll('{\\\'e}', 'é');
+    value = value.replaceAll('{\\v{s}}', 'š');
+    value = value.replaceAll('{\\v{c}}', 'č');
 
     texValues.forEach(s => {
         if(s[0] === '&') {
