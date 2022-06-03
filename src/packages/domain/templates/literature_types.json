@@ -115,6 +115,63 @@
 			"Example": "Autor (Jahr) Titel. Ausgabe Ausgabe (Verlag)"
 		},
 		{
+			"Name": "citaviAufsatz",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "). "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Zeitschrift",
+					"Style": "italic",
+					"Prefix": "In: ",
+					"Suffix": " "
+				},
+				{
+					"Field": "Ausgabe",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": ""
+		},
+		{
 			"Name": "citaviAufsatzDoi",
 			"HasCitePage": false,
 			"Fields": [
@@ -589,6 +646,96 @@
 			"Example": "Herausgeber (Jahr). Titel, Ort"
 		},
 		{
+			"Name": "citaviProceedingsDoi",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Herausgeber",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": "  "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "). "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Doi",
+					"Style": "normal",
+					"Prefix": "https://doi.org/",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Hrsg_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Herausgeber  (Jahr). Titel, https://doi.org/Doi"
+		},
+		{
+			"Name": "citaviThesis",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": "  "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "). "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Schule",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Autor  (Jahr). Titel, Schule"
+		},
+		{
 			"Name": "Norm",
 			"HasCitePage": false,
 			"Fields": [
@@ -740,96 +887,6 @@
 				}
 			],
 			"Example": "Autor (Datum) Titel. URL, zuletzt abgerufen am Stand"
-		},
-		{
-			"Name": "citaviProceedingsDoi",
-			"HasCitePage": false,
-			"Fields": [
-				{
-					"Field": "Herausgeber",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": "  "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "). "
-				},
-				{
-					"Field": "Titel",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Doi",
-					"Style": "normal",
-					"Prefix": "https://doi.org/",
-					"Suffix": ""
-				}
-			],
-			"CiteFields": [
-				{
-					"Field": "Hrsg_kurz",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "), "
-				}
-			],
-			"Example": ""
-		},
-		{
-			"Name": "citaviThesis",
-			"HasCitePage": false,
-			"Fields": [
-				{
-					"Field": "Autor",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": "  "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "). "
-				},
-				{
-					"Field": "Titel",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ", "
-				},
-				{
-					"Field": "Schule",
-					"Style": "normal",
-					"Prefix": "",
-					"Suffix": ""
-				}
-			],
-			"CiteFields": [
-				{
-					"Field": "Autor_kurz",
-					"Style": "italic",
-					"Prefix": "",
-					"Suffix": " "
-				},
-				{
-					"Field": "Jahr",
-					"Style": "normal",
-					"Prefix": "(",
-					"Suffix": "), "
-				}
-			],
-			"Example": ""
 		}
 	]
 }

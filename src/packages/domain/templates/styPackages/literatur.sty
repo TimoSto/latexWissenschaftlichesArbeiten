@@ -14,6 +14,7 @@
 	%Area to add new bibifs via gui
 			{aufsatz}{\printaufsatz{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{Buch}{\printBuch{#2}{#3}{#4}{#5}{#6}}%
+			{citaviAufsatz}{\printcitaviAufsatz{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{citaviAufsatzDoi}{\printcitaviAufsatzDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{citaviBook}{\printcitaviBook{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{citaviBookDoi}{\printcitaviBookDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
@@ -23,10 +24,10 @@
 			{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{citaviProceedings}{\printcitaviProceedings{#2}{#3}{#4}{#5}}%
 			{citaviProceedingsDoi}{\printcitaviProceedingsDoi{#2}{#3}{#4}{#5}}%
+			{citaviThesis}{\printcitaviThesis{#2}{#3}{#4}{#5}}%
 			{Norm}{\printNorm{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{onlineAufsatz}{\printonlineAufsatz{#2}{#3}{#4}{#5}{#6}}%
 			{website}{\printwebsite{#2}{#3}{#4}{#5}{#6}}%
-			{citaviThesis}{\printcitaviThesis{#2}{#3}{#4}{#5}}%
 		%end area
 		{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type'.}\color{black}]%
@@ -80,6 +81,15 @@
 	\parindent 0pt
 	\hangafter=1
 	\textit{#1} (#2) #3. Ausgabe #4 (#5)
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviAufsatz}[6]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2). #3. In: \textit{#4} #5, S. #6
 	\\
 	\vspace{-12pt}
 
@@ -165,6 +175,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printcitaviThesis}[4]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1}  (#2). #3, #4
+	\\
+	\vspace{-12pt}
+
+}
 \newcommand{\printNorm}[6]{
 	\hangindent=\bibparindent
 	\parindent 0pt
@@ -188,15 +207,6 @@
 	\parindent 0pt
 	\hangafter=1
 	\textit{#1} (#2) #3. #4, zuletzt abgerufen am #5
-	\\
-	\vspace{-12pt}
-
-}
-\newcommand{\printcitaviThesis}[4]{
-	\hangindent=\bibparindent
-	\parindent 0pt
-	\hangafter=1
-	\textit{#1} (#2), #3, #4
 	\\
 	\vspace{-12pt}
 
@@ -246,6 +256,7 @@
 				%Area to add citeifs via gui
 			{aufsatz}{\footnote{#3\citeaufsatz{\h}{\b}{#2}.}}%
 			{Buch}{\footnote{#3\citeBuch{\f}{\b}{#2}.}}%
+			{citaviAufsatz}{\footnote{#3\citecitaviAufsatz{\g}{\b}{#2}.}}%
 			{citaviAufsatzDoi}{\footnote{#3\citecitaviAufsatzDoi{\h}{\b}{#2}.}}%
 			{citaviBook}{\footnote{#3\citecitaviBook{\g}{\b}{#2}.}}%
 			{citaviBookDoi}{\footnote{#3\citecitaviBookDoi{\g}{\b}{#2}.}}%
@@ -255,10 +266,10 @@
 			{citaviInProceedingsDoi}{\footnote{#3\citecitaviInProceedingsDoi{\g}{\b}{#2}.}}%
 			{citaviProceedings}{\footnote{#3\citecitaviProceedings{\e}{\b}{#2}.}}%
 			{citaviProceedingsDoi}{\footnote{#3\citecitaviProceedingsDoi{\e}{\b}{#2}.}}%
+			{citaviThesis}{\footnote{#3\citecitaviThesis{\e}{\b}{#2}.}}%
 			{Norm}{\footnote{#3\citeNorm{\b}{#2}.}}%
 			{onlineAufsatz}{\footnote{#3\citeonlineAufsatz{\f}{\b}{#2}.}}%
 			{website}{\footnote{#3\citewebsite{\f}{\g}{#2}.}}%
-			{citaviThesis}{\footnote{#3\citecitaviThesis{\a}{\b}{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -279,6 +290,7 @@
 			%Area to add citeifs_inline via gui
 			{aufsatz}{ ({#3\citeaufsatz{\h}{\b}{#2})}}%
 			{Buch}{ ({#3\citeBuch{\f}{\b}{#2})}}%
+			{citaviAufsatz}{ ({#3\citecitaviAufsatz{\g}{\b}{#2})}}%
 			{citaviAufsatzDoi}{ ({#3\citecitaviAufsatzDoi{\h}{\b}{#2})}}%
 			{citaviBook}{ ({#3\citecitaviBook{\g}{\b}{#2})}}%
 			{citaviBookDoi}{ ({#3\citecitaviBookDoi{\g}{\b}{#2})}}%
@@ -288,10 +300,10 @@
 			{citaviInProceedingsDoi}{ ({#3\citecitaviInProceedingsDoi{\g}{\b}{#2})}}%
 			{citaviProceedings}{ ({#3\citecitaviProceedings{\e}{\b}{#2})}}%
 			{citaviProceedingsDoi}{ ({#3\citecitaviProceedingsDoi{\e}{\b}{#2})}}%
+			{citaviThesis}{ ({#3\citecitaviThesis{\e}{\b}{#2})}}%
 			{Norm}{ ({#3\citeNorm{\b}{#2})}}%
 			{onlineAufsatz}{ ({#3\citeonlineAufsatz{\f}{\b}{#2})}}%
 			{website}{ ({#3\citewebsite{\f}{\g}{#2})}}%
-			{citaviThesis}{ ({#3\citecitaviThesis{\a}{\b}{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -307,6 +319,9 @@
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citeBuch}[3]{%
+	\textit{#1} (#2), #3%
+}
+\newcommand{\citecitaviAufsatz}[3]{%
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citecitaviAufsatzDoi}[3]{%
@@ -336,6 +351,9 @@
 \newcommand{\citecitaviProceedingsDoi}[3]{%
 	\textit{#1} (#2), #3%
 }
+\newcommand{\citecitaviThesis}[3]{%
+	\textit{#1} (#2), #3%
+}
 \newcommand{\citeNorm}[2]{%
 	\textit{#1}#2%
 }
@@ -344,9 +362,6 @@
 }
 \newcommand{\citewebsite}[3]{%
 	\textit{#1} (#2)#3%
-}
-\newcommand{\citecitaviThesis}[3]{%
-	\textit{#1} (#2), #3%
 }
 %end area
 
