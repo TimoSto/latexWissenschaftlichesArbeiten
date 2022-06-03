@@ -118,7 +118,7 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string, 
         } else {
             switch (type) {
                 case "article":
-
+                    type = 'citaviAufsatz';
                     break
                 case "inbook":
 
@@ -213,6 +213,21 @@ function getIndex(attr: string, type: string) {
                 return 5
             case "doi":
                 return 6
+        }
+    } else if (type == "citaviAufsatz") {
+        switch (attr) {
+            case "author":
+                return 0
+            case "title":
+                return 1
+            case "journal":
+                return 2
+            case "volume":
+                return 3
+            case "pages":
+                return 4
+            case "year":
+                return 5
         }
     } else if (type == "citaviInbookDoi") {
         switch (attr) {
