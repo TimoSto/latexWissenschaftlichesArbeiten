@@ -218,15 +218,15 @@ function getIndex(attr: string, type: string) {
         switch (attr) {
             case "author":
                 return 0
-            case "title":
-                return 1
-            case "journal":
-                return 2
-            case "volume":
-                return 3
-            case "pages":
-                return 4
             case "year":
+                return 1
+            case "title":
+                return 2
+            case "journal":
+                return 3
+            case "volume":
+                return 4
+            case "pages":
                 return 5
         }
     } else if (type == "citaviInbookDoi") {
