@@ -18,9 +18,11 @@
 			{citaviAufsatzDoi}{\printcitaviAufsatzDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{citaviBook}{\printcitaviBook{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{citaviBookDoi}{\printcitaviBookDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
-			{citaviInbookDoi}{\printcitaviInbookDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+			{citaviInbook}{\printcitaviInbook{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+			{citaviInbookDoi}{\printcitaviInbookDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
 			{citaviInCollection}{\printcitaviInCollection{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{citaviInCollectionDoi}{\printcitaviInCollectionDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
+			{citaviInProceedings}{\printcitaviInProceedings{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{citaviProceedings}{\printcitaviProceedings{#2}{#3}{#4}{#5}}%
 			{citaviProceedingsDoi}{\printcitaviProceedingsDoi{#2}{#3}{#4}{#5}}%
@@ -121,11 +123,20 @@
 	\vspace{-12pt}
 
 }
-\newcommand{\printcitaviInbookDoi}[7]{
+\newcommand{\printcitaviInbook}[7]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. In: #4. #5 (Hrsg.), #6. https://doi.org/#7
+	\textit{#1} (#2) #3. In: #4, S. #5. #6 (Hrsg.), #7.
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviInbookDoi}[8]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2) #3. In: #4, S. #5. #6 (Hrsg.), #7. https://doi.org/#8
 	\\
 	\vspace{-12pt}
 
@@ -134,7 +145,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2). #3. #4 (S. #5). #6 (Hrsg.), #7
+	\textit{#1} (#2). #3. In: #4 (S. #5). #6 (Hrsg.), #7
 	\\
 	\vspace{-12pt}
 
@@ -144,6 +155,15 @@
 	\parindent 0pt
 	\hangafter=1
 	\textit{#1} (#2) #3. #4 (S. #5). #6, #7. https://doi.org/#8
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printcitaviInProceedings}[6]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2) #3. In: #4, S. #5, abrufbar unter: #6
 	\\
 	\vspace{-12pt}
 
@@ -197,7 +217,7 @@
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
-	\textit{#1} (#2) #3. #4, zuletzt abgerufen am #5
+	\textit{#1} (#2) #3. abrufbar unter: #4, zuletzt abgerufen am #5
 	\\
 	\vspace{-12pt}
 
@@ -260,9 +280,11 @@
 			{citaviAufsatzDoi}{\footnote{#3\citecitaviAufsatzDoi{\h}{\b}{#2}.}}%
 			{citaviBook}{\footnote{#3\citecitaviBook{\g}{\b}{#2}.}}%
 			{citaviBookDoi}{\footnote{#3\citecitaviBookDoi{\g}{\b}{#2}.}}%
-			{citaviInbookDoi}{\footnote{#3\citecitaviInbookDoi{\h}{\b}{#2}.}}%
+			{citaviInbook}{\footnote{#3\citecitaviInbook{\h}{\b}{#2}.}}%
+			{citaviInbookDoi}{\footnote{#3\citecitaviInbookDoi{\i}{\b}{#2}.}}%
 			{citaviInCollection}{\footnote{#3\citecitaviInCollection{\h}{\b}{#2}.}}%
 			{citaviInCollectionDoi}{\footnote{#3\citecitaviInCollectionDoi{\i}{\b}{#2}.}}%
+			{citaviInProceedings}{\footnote{#3\citecitaviInProceedings{\g}{\b}{#2}.}}%
 			{citaviInProceedingsDoi}{\footnote{#3\citecitaviInProceedingsDoi{\g}{\b}{#2}.}}%
 			{citaviProceedings}{\footnote{#3\citecitaviProceedings{\e}{\b}{#2}.}}%
 			{citaviProceedingsDoi}{\footnote{#3\citecitaviProceedingsDoi{\e}{\b}{#2}.}}%
@@ -294,9 +316,11 @@
 			{citaviAufsatzDoi}{ ({#3\citecitaviAufsatzDoi{\h}{\b}{#2})}}%
 			{citaviBook}{ ({#3\citecitaviBook{\g}{\b}{#2})}}%
 			{citaviBookDoi}{ ({#3\citecitaviBookDoi{\g}{\b}{#2})}}%
-			{citaviInbookDoi}{ ({#3\citecitaviInbookDoi{\h}{\b}{#2})}}%
+			{citaviInbook}{ ({#3\citecitaviInbook{\h}{\b}{#2})}}%
+			{citaviInbookDoi}{ ({#3\citecitaviInbookDoi{\i}{\b}{#2})}}%
 			{citaviInCollection}{ ({#3\citecitaviInCollection{\h}{\b}{#2})}}%
 			{citaviInCollectionDoi}{ ({#3\citecitaviInCollectionDoi{\i}{\b}{#2})}}%
+			{citaviInProceedings}{ ({#3\citecitaviInProceedings{\g}{\b}{#2})}}%
 			{citaviInProceedingsDoi}{ ({#3\citecitaviInProceedingsDoi{\g}{\b}{#2})}}%
 			{citaviProceedings}{ ({#3\citecitaviProceedings{\e}{\b}{#2})}}%
 			{citaviProceedingsDoi}{ ({#3\citecitaviProceedingsDoi{\e}{\b}{#2})}}%
@@ -333,6 +357,9 @@
 \newcommand{\citecitaviBookDoi}[3]{%
 	#1 (#2)#3%
 }
+\newcommand{\citecitaviInbook}[3]{%
+	\textit{#1} (#2), #3%
+}
 \newcommand{\citecitaviInbookDoi}[3]{%
 	\textit{#1} (#2), #3%
 }
@@ -340,6 +367,9 @@
 	\textit{#1} (#2)#3%
 }
 \newcommand{\citecitaviInCollectionDoi}[3]{%
+	\textit{#1} (#2), #3%
+}
+\newcommand{\citecitaviInProceedings}[3]{%
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citecitaviInProceedingsDoi}[3]{%

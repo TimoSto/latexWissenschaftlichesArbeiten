@@ -169,7 +169,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": ""
+			"Example": "Autor (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten"
 		},
 		{
 			"Name": "citaviAufsatzDoi",
@@ -349,6 +349,69 @@
 			"Example": "Autor (Jahr). Titel (ISBN: ISBN). Herausgeber (Hrsg.), https://doi.org/Doi"
 		},
 		{
+			"Name": "citaviInbook",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ") "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "BuchTitel",
+					"Style": "normal",
+					"Prefix": "In: ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Herausgeber",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": " (Hrsg.), "
+				},
+				{
+					"Field": "Ort",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": "."
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Autor (Jahr) Titel. In: BuchTitel, S. Seiten. Herausgeber (Hrsg.), Ort."
+		},
+		{
 			"Name": "citaviInbookDoi",
 			"HasCitePage": false,
 			"Fields": [
@@ -374,6 +437,12 @@
 					"Field": "BuchTitel",
 					"Style": "normal",
 					"Prefix": "In: ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
 					"Suffix": ". "
 				},
 				{
@@ -409,7 +478,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor (Jahr) Titel. In: BuchTitel. Herausgeber (Hrsg.), Ort. https://doi.org/Doi"
+			"Example": ""
 		},
 		{
 			"Name": "citaviInCollection",
@@ -436,7 +505,7 @@
 				{
 					"Field": "Sammelwerk",
 					"Style": "normal",
-					"Prefix": "",
+					"Prefix": "In: ",
 					"Suffix": " "
 				},
 				{
@@ -472,7 +541,7 @@
 					"Suffix": ")"
 				}
 			],
-			"Example": "Autor (Jahr). Titel. Sammelwerk (S. Seiten). Herausgeber (Hrsg.), Ort"
+			"Example": "Autor (Jahr). Titel. In: Sammelwerk (S. Seiten). Herausgeber (Hrsg.), Ort"
 		},
 		{
 			"Name": "citaviInCollectionDoi",
@@ -542,6 +611,63 @@
 				}
 			],
 			"Example": "Autor (Jahr) Titel. Sammelwerk (S. Seiten). Herausgeber, Ort. https://doi.org/Doi"
+		},
+		{
+			"Name": "citaviInProceedings",
+			"HasCitePage": false,
+			"Fields": [
+				{
+					"Field": "Autor",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": ") "
+				},
+				{
+					"Field": "Titel",
+					"Style": "normal",
+					"Prefix": "",
+					"Suffix": ". "
+				},
+				{
+					"Field": "Buch",
+					"Style": "normal",
+					"Prefix": "In: ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "Seiten",
+					"Style": "normal",
+					"Prefix": "S. ",
+					"Suffix": ", "
+				},
+				{
+					"Field": "URL",
+					"Style": "normal",
+					"Prefix": "abrufbar unter: ",
+					"Suffix": ""
+				}
+			],
+			"CiteFields": [
+				{
+					"Field": "Autor_kurz",
+					"Style": "italic",
+					"Prefix": "",
+					"Suffix": " "
+				},
+				{
+					"Field": "Jahr",
+					"Style": "normal",
+					"Prefix": "(",
+					"Suffix": "), "
+				}
+			],
+			"Example": "Autor (Jahr) Titel. In: Buch, S. Seiten, abrufbar unter: URL"
 		},
 		{
 			"Name": "citaviInProceedingsDoi",
@@ -811,7 +937,7 @@
 				{
 					"Field": "URL",
 					"Style": "normal",
-					"Prefix": "",
+					"Prefix": "abrufbar unter: ",
 					"Suffix": ", "
 				},
 				{
@@ -835,7 +961,7 @@
 					"Suffix": "), "
 				}
 			],
-			"Example": "Autor (Jahr) Titel. URL, zuletzt abgerufen am Stand"
+			"Example": "Autor (Jahr) Titel. abrufbar unter: URL, zuletzt abgerufen am Stand"
 		},
 		{
 			"Name": "website",
