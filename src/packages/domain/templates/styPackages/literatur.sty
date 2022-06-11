@@ -248,7 +248,7 @@
 \newcommand{\citebibFootnote}[3]{{%
 	\renewcommand{\entryfound}{false}%
 	\DTLforeach*{literatur}%
-	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h}%
+	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i}%
 	{%
 		\IfStrEqCase{\key}{{#1}{%
 			\renewcommand{\entryfound}{true}%
@@ -282,7 +282,7 @@
 \newcommand{\citebibInline}[3]{{%
 	\renewcommand{\entryfound}{false}%
 	\DTLforeach*{literatur}%
-	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h}%
+	{\key=key,\type=type,\a=a,\b=b,\c=c,\d=d,\e=e,\f=f,\g=g,\h=h,\i=i}%
 	{%
 		\IfStrEqCase{\key}{{#1}{%
 			\renewcommand{\entryfound}{true}%
