@@ -33,3 +33,18 @@
     display: none;
   }
 }
+
+.mdc-deprecated-list-item__graphic{
+  width: 48px;
+}
+
+.num-display{
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: var(--dmc-theme-on-background12);
+  display: inline-flex;
+  align-items: center;
+  font-size: 20px;
+  justify-content: center;
+}

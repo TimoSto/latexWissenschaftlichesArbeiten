@@ -9,13 +9,14 @@ import (
 )
 
 type BibEntry struct {
-	Key string
-	Typ string
-	Fields []string
-	Comment string
+	Key        string
+	Typ        string
+	Fields     []string
+	Comment    string
+	CiteNumber int
 }
 
-func ReadBibEntries(project string) ([]BibEntry, error){
+func ReadBibEntries(project string) ([]BibEntry, error) {
 	if len(project) == 0 {
 		return nil, fmt.Errorf("No Project Name provided")
 	}
@@ -30,9 +31,14 @@ func ReadBibEntries(project string) ([]BibEntry, error){
 		return nil, err
 	}
 
-	sort.Slice(bibEntries,func(i, j int) bool {
+	sort.Slice(bibEntries, func(i, j int) bool {
 		return strings.ToLower(bibEntries[i].Fields[0]) < strings.ToLower(bibEntries[j].Fields[0])
 	})
+
+	bibEntries, err = CountCites(project, bibEntries)
+	if err != nil {
+		return nil, err
+	}
 
 	return bibEntries, nil
 }
