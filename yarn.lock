@@ -30,9 +30,9 @@
   dependencies:
     tslib "^2.1.0"
 
-"@material/banner@^13.0.0":
+"@material/banner@13.0.0":
   version "13.0.0"
-  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/banner/-/banner-13.0.0.tgz#853e01977433ca7f0d991d198bc91e1b54adedac"
+  resolved "https://registry.yarnpkg.com/@material/banner/-/banner-13.0.0.tgz#853e01977433ca7f0d991d198bc91e1b54adedac"
   integrity sha512-59M85ezhwRaa+BqguYCCaRS57fV5KQe3Ff2cU6LcQNw0UPMFW1ap0dZ+iZBv/sj+7/QcqBBShL9uu8dWKtI4Gg==
   dependencies:
     "@material/base" "^13.0.0"
@@ -73,9 +73,9 @@
     "@material/typography" "^13.0.0"
     tslib "^2.1.0"
 
-"@material/card@^13.0.0":
+"@material/card@13.0.0":
   version "13.0.0"
-  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/card/-/card-13.0.0.tgz#875d60b398898b6f3a6ff115717f0c144b681bf3"
+  resolved "https://registry.yarnpkg.com/@material/card/-/card-13.0.0.tgz#875d60b398898b6f3a6ff115717f0c144b681bf3"
   integrity sha512-ooJUOt1Viv99Dyz4rhz9ZZbfa996eHh3RUuXkPRkT66Btd5TzpdqsQWKwOVc5bgbgWqzhDWQ6A/aQdYqH97ccg==
   dependencies:
     "@material/dom" "^13.0.0"
@@ -198,7 +198,7 @@
     "@material/typography" "^13.0.0"
     tslib "^2.1.0"
 
-"@material/menu-surface@^13.0.0":
+"@material/menu-surface@13.0.0", "@material/menu-surface@^13.0.0":
   version "13.0.0"
   resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/menu-surface/-/menu-surface-13.0.0.tgz#b4c6c799e714cba6465513dbf1020ba2fcaee588"
   integrity sha512-Irfnk0l8AO7z8ucilbBzZI8izbFV/aK1GbiPpT1SmZuKkL1z+04rB2HpB+OqwaBixdLTDq70AyawcnQ0MACeXQ==
@@ -212,9 +212,9 @@
     "@material/theme" "^13.0.0"
     tslib "^2.1.0"
 
-"@material/menu@^13.0.0":
+"@material/menu@13.0.0", "@material/menu@^13.0.0":
   version "13.0.0"
-  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/menu/-/menu-13.0.0.tgz#60fdca3f3a8457dfee83938adaf6288789ad0ac1"
+  resolved "https://registry.yarnpkg.com/@material/menu/-/menu-13.0.0.tgz#60fdca3f3a8457dfee83938adaf6288789ad0ac1"
   integrity sha512-RY9R2ubYU6a7WRJW3nWr/AoSzdrxwUGqkfJSx0U9M/wK1vbXYYcJ7eCXFzSpa5VrstE7of7PbyYtQ8V61tILEQ==
   dependencies:
     "@material/base" "^13.0.0"
@@ -241,9 +241,9 @@
     "@material/theme" "^13.0.0"
     tslib "^2.1.0"
 
-"@material/radio@^13.0.0":
+"@material/radio@13.0.0":
   version "13.0.0"
-  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/radio/-/radio-13.0.0.tgz#4f3f4c3c56ed3686d7bf69b9a611249cfa6db71c"
+  resolved "https://registry.yarnpkg.com/@material/radio/-/radio-13.0.0.tgz#4f3f4c3c56ed3686d7bf69b9a611249cfa6db71c"
   integrity sha512-6jeZ+dKSzBB/j2IZ7RjFl5mrB+EWnpv/x+U9w6ENLCdueM4+LKUqBAc2fC2WMycsqgoFnlB0xsO/sG+kN0J6fw==
   dependencies:
     "@material/animation" "^13.0.0"
@@ -277,9 +277,9 @@
     "@material/theme" "^13.0.0"
     tslib "^2.1.0"
 
-"@material/select@^13.0.0":
+"@material/select@13.0.0":
   version "13.0.0"
-  resolved "https://nuget.d-velop.de/npm/dvelop-npm/@material/select/-/select-13.0.0.tgz#0bd1933c983ec86440bd5a5540e25aeba3918868"
+  resolved "https://registry.yarnpkg.com/@material/select/-/select-13.0.0.tgz#0bd1933c983ec86440bd5a5540e25aeba3918868"
   integrity sha512-wVprsSMicU/l+LAqXdOU+qdzzdHupLXpWWQo2Rsk8G6AxL1Zna+/+ETnRlDdr2wHHK/KNDXSBdmuCcoEIRshcA==
   dependencies:
     "@material/animation" "^13.0.0"
