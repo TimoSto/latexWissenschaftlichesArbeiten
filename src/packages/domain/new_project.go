@@ -42,13 +42,16 @@ var literaturCSVTemplate string
 //go:embed templates/literature_types.json
 var literaturTypesTemplate string
 
+//go:embed templates/styPackages/html.sty
+var htmlSty string
+
 func CreateNewProject(name string) (bool, error) {
 	projects, err := GetProjects()
 	if err != nil {
 		return false, err
 	}
-	
-	for _,p := range projects {
+
+	for _, p := range projects {
 		if p == name {
 			return true, nil
 		}
@@ -92,7 +95,7 @@ func CreateNewProject(name string) (bool, error) {
 		return false, err
 	}
 	//TODO: use from customStyles if exists
-	var json = literaturTypesTemplate;
+	var json = literaturTypesTemplate
 	var abk = abkSty
 	var anhang = anhangSty
 	var codes = codesSty
@@ -101,6 +104,7 @@ func CreateNewProject(name string) (bool, error) {
 	var toc = tocSty
 	var literatur = literaturSty
 	var ueberschriften = ueberschriftenSty
+	var html = htmlSty
 
 	_, err = os.Stat("./customStyles")
 	if err == nil {
@@ -137,9 +141,13 @@ func CreateNewProject(name string) (bool, error) {
 		if err == nil {
 			literatur = string(literaturF)
 		}
-		ueberschriftenF, err := ioutil.ReadFile("./customStyles/styPackages/ueberschriften_verzeichnis.sty")
+		ueberschriftenF, err := ioutil.ReadFile("./customStyles/styPackages/ueberschriften.sty")
 		if err == nil {
 			ueberschriften = string(ueberschriftenF)
+		}
+		htmlF, err := ioutil.ReadFile("./customStyles/styPackages/html.sty")
+		if err == nil {
+			html = string(htmlF)
 		}
 	}
 
@@ -182,6 +190,10 @@ func CreateNewProject(name string) (bool, error) {
 		return false, err
 	}
 	err = ioutil.WriteFile("./projects/"+name+"/styPackages/ueberschriften.sty", []byte(ueberschriften), 0644)
+	if err != nil {
+		return false, err
+	}
+	err = ioutil.WriteFile("./projects/"+name+"/styPackages/html.sty", []byte(html), 0644)
 	if err != nil {
 		return false, err
 	}
@@ -252,7 +264,6 @@ func CopyDir(source string, dest string) (err error) {
 		sourcefilepointer := source + "/" + obj.Name()
 
 		destinationfilepointer := dest + "/" + obj.Name()
-
 
 		if obj.IsDir() {
 			// create sub-directories - recursively

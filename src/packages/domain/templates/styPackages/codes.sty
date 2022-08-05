@@ -31,20 +31,18 @@
 	breaklines=true
 }
 
-\lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{green}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
+\newcommand{\listcodes}{\hspace*{\fill}\normalfont\LARGE{Quellcodeverzeichnis}\hspace*{\fill}}
+\newlistof{codes}{tolc}{\listcodes}
+
+\newcounter{codecounter}
+
+\newcommand{\codeToList}[1]{
+\refstepcounter{codes}
+    \addcontentsline{tolc}{codes}
+    {\numberline{\thecodes}\hspace*{3pt}#1}\par
 }
+
+\renewcommand{\lstlistingname}{Quellcode}
 
 
 \endinput
