@@ -74,13 +74,15 @@
                 {{ range $key, $value := .BibEntries}}
                 <li class="mdc-deprecated-list-item" tabindex="0" data-edit-entry="{{ $value.Key }}">
                     <span class="mdc-deprecated-list-item__ripple"></span>
+                    <span class="mdc-deprecated-list-item__graphic">
+                        <span class="num-display">{{ $value.CiteNumber }}</span>
+                    </span>
                     <span class="mdc-deprecated-list-item__text">
                       <span class="mdc-deprecated-list-item__primary-text">{{ index $value.Fields 0 }} - {{ index $value.Fields 1 }}</span>
                       <span class="mdc-deprecated-list-item__secondary-text">{{ $value.Typ }} - {{ $value.Key }}</span>
                     </span>
                     <span class="mdc-deprecated-list-item__meta">
                         <button class="mdc-icon-button material-icons" data-delete-entry="{{ $value.Key }}">delete</button>
-                    <span class="num-display">1</span>
                     </span>
                 </li>
                 {{ end }}
