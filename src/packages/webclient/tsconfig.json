@@ -11,7 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "../../../webclient",
     "types": [
       "webpack-env"
     ],
@@ -28,13 +28,13 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "../src/packages/webclient/src/**/*.ts",
+    "../src/packages/webclient/src/**/*.tsx",
+    "../src/packages/webclient/src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "../../../webclient/node_modules"
   ]
 }
