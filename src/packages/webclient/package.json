@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "../../../webclient/node_modules/.bin/vue-cli-service serve",
-    "build": "../../../webclient/node_modules/.bin/vue-cli-service build",
-    "lint": "../../../webclient/node_modules/.bin/vue-cli-service lint"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.8.3",
