@@ -4,6 +4,14 @@ module.exports = defineConfig({
     'vuetify'
   ],
   devServer: {
-    proxy: 'http://localhost:8081'
-  }
+    proxy: {
+      '/getPDF': {
+        target: 'http://localhost:8081/getPDF'
+      },
+      '/': {
+        target: 'http://localhost:8081/',
+        ws: false
+      }
+    }
+  },
 })

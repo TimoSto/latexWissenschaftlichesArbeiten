@@ -21,7 +21,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      Hallo
+      <router-view />
     </v-main>
   </v-app>
 </template>
