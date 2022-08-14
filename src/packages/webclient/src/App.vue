@@ -7,9 +7,9 @@
       <v-btn icon @click="toggleDark"><v-icon>mdi-brightness-6</v-icon></v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer app v-model="drawer" permanent :mini-variant.sync="drawer" clipped>
+    <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
       <v-list>
-        <v-list-item v-for="proj in projects" :key="proj" @click="switchProject(proj, $event)">
+        <v-list-item v-for="proj in projects" :key="proj" :to="'/project/'+proj">
           <v-list-item-title v-text="proj"></v-list-item-title>
           <v-list-item-action>
             <v-btn icon @click="deleteProject(proj)">
