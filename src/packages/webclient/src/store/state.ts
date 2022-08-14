@@ -1,6 +1,7 @@
 
 export const state = {
-    project: ''
+    project: '',
+    projects: ['']
 };
 
 export type State = typeof state;

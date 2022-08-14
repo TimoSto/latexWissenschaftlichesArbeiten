@@ -154,6 +154,8 @@ func main() {
 
 	http.HandleFunc("/", handlers.HandleAssets)
 
+	http.HandleFunc("/getProjects", handlers.GetProjectsHandler)
+
 	logger.LogInfo("Open http://localhost:8081/overview to get started.")
 
 	go startServer()
