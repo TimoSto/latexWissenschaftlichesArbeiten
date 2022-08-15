@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark clipped-left>
+    <v-app-bar app color="primary" dark clipped-left elevation="0">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>ThesorTeX</v-toolbar-title>
       <v-spacer></v-spacer>
