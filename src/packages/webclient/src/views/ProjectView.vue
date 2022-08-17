@@ -1,10 +1,14 @@
 <template>
   <div style="height: 100%; display: flex; flex-flow: column">
     <v-app-bar elevation="0">
-      <v-app-bar-title>Test</v-app-bar-title>
+      <v-app-bar-title>Projektansicht: <span class="font-weight-bold">{{ projName }}</span></v-app-bar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-cloud-upload</v-icon>
+      </v-btn>
     </v-app-bar>
-    <v-main style="flex: 1; background-color: firebrick; overflow-y: auto; max-height: calc(100vh - 120px)">
-      <div style="height: 1230px; width: 30px; border: 1px solid black"></div>
+    <v-main style="flex: 1; overflow-y: auto; max-height: calc(100vh - 120px)">
+      <DragNDropZone />
     </v-main>
 <!--    <v-toolbar fixed dense>-->
 <!--      <v-toolbar-title>Teeeeessstt</v-toolbar-title>-->
@@ -21,16 +25,24 @@
 
 <script lang="ts">
   import Vue from 'vue'
+  import DragNDropZone from "@/components/DragNDropZone.vue";
 
   export default Vue.extend({
     name: 'Project-View',
 
     components: {
+      DragNDropZone
 
     },
 
     mounted() {
       let elem = document.querySelector('#scroll')
+    },
+
+    computed: {
+      projName(): string {
+        return 'fake'
+      }
     }
   })
 </script>
