@@ -69,11 +69,11 @@ html {
 }
 main.v-content {
   width: 100vw;
-  height: calc(100vh - 64px);
+  max-height: calc(100vh - 64px);
   flex-direction: column;
   overflow-y: auto;
   margin-top: 64px;
-  padding-top: 0 !important;
+  padding: 0 !important;
   margin: 0;
 }
 </style>
