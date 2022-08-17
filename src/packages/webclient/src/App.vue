@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark clipped-left elevation="0">
+    <v-app-bar app color="primary" dark clipped-left elevation="0" fixed scroll-target="main">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>ThesorTeX</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -20,8 +20,10 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main fill-height>
-      <router-view />
+    <v-main fill-height id="main">
+      <v-content>
+        <router-view />
+      </v-content>
     </v-main>
   </v-app>
 </template>
@@ -63,6 +65,15 @@ export default Vue.extend({
 </script>
 <style lang="scss">
 html {
+  overflow: hidden;
+}
+main.v-content {
+  width: 100vw;
+  height: calc(100vh - 64px);
+  flex-direction: column;
   overflow-y: auto;
+  margin-top: 64px;
+  padding-top: 0 !important;
+  margin: 0;
 }
 </style>
