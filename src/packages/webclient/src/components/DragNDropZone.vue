@@ -17,17 +17,18 @@
 </script>
 
 <style lang="scss" scoped>
+@import '~vuetify/src/styles/styles.sass';
 #drop_zone{
   width: calc(100% - 20px);
+  border: 3px dotted map-get($grey, base);
   height: 80px;
-  border: 2px dashed var(--v-on-background);
   margin: 8px;
   & span{
     width: 100%;
     text-align: center;
     display: block;
     padding-top: 20px;
-    color: var(--v-on-background);
+    color: map-get($grey, base);;
     font-weight: bold;
   }
 }

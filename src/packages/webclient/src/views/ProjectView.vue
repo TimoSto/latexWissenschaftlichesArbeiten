@@ -7,7 +7,7 @@
         <v-icon>mdi-cloud-upload</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main style="flex: 1; overflow-y: auto; max-height: calc(100vh - 120px)">
+    <v-main style="flex: 1; overflow-y: auto; max-height: calc(100vh - 120px); padding: 0">
       <DragNDropZone />
     </v-main>
 <!--    <v-toolbar fixed dense>-->
