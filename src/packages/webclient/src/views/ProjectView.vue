@@ -9,6 +9,24 @@
     </v-app-bar>
     <v-main style="flex: 1; overflow-y: auto; max-height: calc(100vh - 120px); padding: 0">
       <DragNDropZone />
+      <v-expansion-panels  v-model="panel" multiple accordion flat>
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            Literaturtypen
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            Hey
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            Literatureinträge
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            Ho
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
     </v-main>
 <!--    <v-toolbar fixed dense>-->
 <!--      <v-toolbar-title>Teeeeessstt</v-toolbar-title>-->
@@ -33,6 +51,12 @@
     components: {
       DragNDropZone
 
+    },
+
+    data() {
+      return {
+        panel: [1]
+      }
     },
 
     mounted() {
