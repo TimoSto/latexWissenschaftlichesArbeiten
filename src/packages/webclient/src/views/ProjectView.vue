@@ -11,19 +11,26 @@
       <DragNDropZone />
       <v-expansion-panels  v-model="panel" multiple accordion flat>
         <v-expansion-panel>
-          <v-expansion-panel-header>
+          <v-expansion-panel-header ripple>
             Literaturtypen
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-            Hey
+            <v-list two-line>
+              <v-list-item v-for="bType in bibTypes" :key="bType" ripple two-line style="cursor: pointer">
+                <v-list-item-content>
+                  <v-list-item-title>{{ bType.Name }}</v-list-item-title>
+                  <v-list-item-subtitle v-html="bType.Model"></v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
           </v-expansion-panel-content>
         </v-expansion-panel>
         <v-expansion-panel>
-          <v-expansion-panel-header>
+          <v-expansion-panel-header ripple>
             Literatureinträge
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-            Ho
+
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -44,6 +51,7 @@
 <script lang="ts">
   import Vue from 'vue'
   import DragNDropZone from "@/components/DragNDropZone.vue";
+  import BibType from './domain/BibType';
 
   export default Vue.extend({
     name: 'Project-View',
@@ -66,6 +74,12 @@
     computed: {
       projName(): string {
         return 'fake'
+      },
+      bibTypes(): BibType[] {
+        return [
+          new BibType('aufsatz'),
+            new BibType('test'),
+        ]
       }
     }
   })
