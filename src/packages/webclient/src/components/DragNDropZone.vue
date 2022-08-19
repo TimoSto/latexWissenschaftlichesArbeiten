@@ -20,7 +20,7 @@
 @import '~vuetify/src/styles/styles.sass';
 #drop_zone{
   width: calc(100% - 20px);
-  border: 3px dotted map-get($grey, base);
+  border: 3px dotted var(--v-accent-lighten4);
   height: 80px;
   margin: 8px;
   & span{
@@ -28,7 +28,7 @@
     text-align: center;
     display: block;
     padding-top: 20px;
-    color: map-get($grey, base);;
+    color: var(--v-accent-lighten4);
     font-weight: bold;
   }
 }
