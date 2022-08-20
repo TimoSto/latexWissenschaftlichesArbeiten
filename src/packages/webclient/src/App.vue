@@ -8,6 +8,13 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
+      <v-app-bar elevation="0" color="background">
+        <v-toolbar-title>Projekte</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn icon :class="{hidden: drawer}">
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+      </v-app-bar>
       <v-list>
         <v-list-item v-for="proj in projects" :key="proj" :to="'/project/'+proj">
           <v-list-item-title v-text="proj"></v-list-item-title>
@@ -75,5 +82,9 @@ main.v-content {
   margin-top: 64px;
   padding: 0 !important;
   margin: 0;
+}
+
+.hidden{
+  display: none;
 }
 </style>

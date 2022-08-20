@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%; display: flex; flex-flow: column">
-    <v-app-bar elevation="0">
+    <v-app-bar elevation="0" color="background">
       <v-app-bar-title>Projektansicht: <span class="font-weight-bold">{{ projName }}</span></v-app-bar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
