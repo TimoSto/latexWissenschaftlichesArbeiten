@@ -1,7 +1,7 @@
 <template>
   <div style="height: 100%; display: flex; flex-flow: column">
     <v-app-bar elevation="0" color="background">
-      <v-app-bar-title>Projektansicht: <span class="font-weight-bold">{{ projName }}</span></v-app-bar-title>
+      <v-toolbar-title>Projektansicht: <span class="font-weight-bold">{{ projectName }}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>mdi-cloud-upload</v-icon>
@@ -16,7 +16,7 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-list two-line>
-              <v-list-item v-for="bType in bibTypes" :key="bType" ripple two-line style="cursor: pointer">
+              <v-list-item v-for="(bType,i) in bibTypes" :key="i" ripple two-line style="cursor: pointer">
                 <v-list-item-content>
                   <v-list-item-title>{{ bType.Name }}</v-list-item-title>
                   <v-list-item-subtitle v-html="bType.Model"></v-list-item-subtitle>
@@ -63,12 +63,15 @@
 
     data() {
       return {
-        panel: [1]
+        panel: [1],
+        projectName: ''
       }
     },
 
     mounted() {
-      let elem = document.querySelector('#scroll')
+      this.projectName = window.location.href.split('/').pop() as string;
+      this.$store.commit('SET_PROJECT', this.projectName);
+      this.$store.dispatch('GET_BIBTYPES');
     },
 
     computed: {

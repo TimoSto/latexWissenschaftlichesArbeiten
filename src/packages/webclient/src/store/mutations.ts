@@ -13,6 +13,8 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.SET_PROJECTS](state, payload: string[]) {
         state.projects = payload
-        console.log(state.projects)
+    },
+    [MutationTypes.SET_BIBTYPES](state, payload: string[]) {
+        state.projects = payload
     },
 };
