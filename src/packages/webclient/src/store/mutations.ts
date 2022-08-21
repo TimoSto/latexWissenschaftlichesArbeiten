@@ -18,4 +18,8 @@ export const mutations: MutationTree<State> & Mutations = {
         console.log(payload)
         state.bibTypes = payload
     },
+    [MutationTypes.SET_BIBENTRIES](state, payload: BibType[]) {
+        console.log(payload)
+        state.bibTypes = payload
+    },
 };

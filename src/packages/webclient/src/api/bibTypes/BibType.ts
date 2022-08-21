@@ -8,7 +8,7 @@ export type BibType = {
     Model: string
 }
 
-type Field = {
+export type Field = {
     Field: string
     Style: string
     Prefix: string
