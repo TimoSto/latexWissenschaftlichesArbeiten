@@ -3,7 +3,9 @@
     <div class="area" :class="[editorOpen ? 'halfWidth' : 'fullWidth']">
       <ProjectOverView v-on:editType="openEditor($event)"/>
     </div>
-    <div class="area" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']"></div>
+    <div class="area" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']">
+
+    </div>
   </div>
 </template>
 
