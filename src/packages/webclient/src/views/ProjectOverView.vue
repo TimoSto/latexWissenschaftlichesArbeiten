@@ -33,7 +33,7 @@
     </v-app-bar>
     <v-main style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0">
       <DragNDropZone />
-      <v-expansion-panels  v-model="panel" multiple accordion flat>
+      <v-expansion-panels  v-model="panel" multiple accordion flat hover tile>
         <v-expansion-panel>
           <v-expansion-panel-header ripple>
             Literaturtypen

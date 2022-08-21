@@ -11,7 +11,7 @@
       </v-btn>
     </v-app-bar>
     <v-main style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0">
-      <v-container>
+      <v-container style="padding-bottom: 0">
         <v-row>
           <v-col
               cols="16"
@@ -22,6 +22,24 @@
           </v-col>
         </v-row>
       </v-container>
+
+      <v-expansion-panels v-model="panel" multiple accordion flat hover tile>
+        <v-expansion-panel>
+          <v-expansion-panel-header ripple>
+            Literaturverzeichnis
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header ripple>
+            Zitate
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
     </v-main>
   </div>
 </template>
@@ -35,6 +53,12 @@ export default Vue.extend({
   props: [
       'name'
   ],
+
+  data() {
+    return {
+      panel: [0,1]
+    }
+  },
 
   computed: {
     changesToSave(): boolean {
