@@ -37,6 +37,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {ActionTypes} from "@/store/action-types";
 
 export default Vue.extend({
   name: 'App',
@@ -54,7 +55,8 @@ export default Vue.extend({
       }
     },
     deleteProject(proj: string) {
-      console.log('del', proj)
+      console.log('del', proj);
+      this.$store.dispatch(ActionTypes.DELETE_PROJECT, proj);
     }
   },
   created() {

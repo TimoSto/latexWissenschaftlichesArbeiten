@@ -6,7 +6,7 @@
         Du kannst den Bereich über den Button oben links öffnen oder schließen. In einem solchen Projekt wird eine TeX-Datei generiert, inklusive von Style-Definitionen. Diese Style-Integrationen umfassen folgende Bereiche:</p>
     </div>
     <v-list two-line>
-      <v-list-item v-for="stypackage in packages" :key="stypackage">
+      <v-list-item v-for="(stypackage, i) in packages" :key="i">
         <v-list-item-content>
           <v-list-item-title>
             {{stypackage[0]}}

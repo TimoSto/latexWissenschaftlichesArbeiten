@@ -8,6 +8,7 @@ import GetBibTypes from "@/api/bibTypes/GetBibTypes";
 import GetBibEntries from "@/api/bibEntries/GetBibEntries";
 import CreateProject from "@/api/projects/CreateProject";
 import router from "@/router";
+import DeleteProject from "@/api/projects/DeleteProject";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -58,6 +59,21 @@ export const actions: ActionTree<State, State> & Actions = {
             dispatch(ActionTypes.GET_PROJECTS);
             commit(MutationTypes.SET_PROJECT, payload)
             await router.push('/project/' + payload)
+        } else {
+            //TODO: Errorhandling
+        }
+
+    },
+
+    async [ActionTypes.DELETE_PROJECT]({ commit, dispatch }, payload) {
+        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
+        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
+
+        const success = await DeleteProject(payload)
+
+        if( success ) {
+            dispatch(ActionTypes.GET_PROJECTS);
+            await router.push('/')
         }
 
     },
