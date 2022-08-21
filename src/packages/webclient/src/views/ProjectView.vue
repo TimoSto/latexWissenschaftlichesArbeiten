@@ -30,7 +30,14 @@
             Literatureinträge
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-
+            <v-list two-line>
+              <v-list-item v-for="bEntry in bibEntries" :key="bEntry.Key" ripple two-line style="cursor: pointer">
+                <v-list-item-content>
+                  <v-list-item-title>{{ bEntry.Fields[0] }} - {{ bEntry.Fields[1] }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ bEntry.Typ }} - {{ bEntry.Key }}</v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -52,6 +59,7 @@
   import Vue from 'vue'
   import DragNDropZone from "@/components/DragNDropZone.vue";
   import { BibType } from '@/api/bibTypes/BibType';
+  import {BibEntry} from "@/api/bibEntries/BibEntry";
 
   export default Vue.extend({
     name: 'Project-View',
@@ -77,9 +85,10 @@
 
     computed: {
       bibTypes(): BibType[] {
-        console.log(this.$vStore.state.bibTypes)
-        return this.$store.state.bibTypes
-
+        return this.$store.state.bibTypes;
+      },
+      bibEntries(): BibEntry[] {
+        return this.$store.state.bibEntries;
       }
     }
   })

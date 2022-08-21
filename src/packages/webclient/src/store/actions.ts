@@ -36,8 +36,6 @@ export const actions: ActionTree<State, State> & Actions = {
 
         const obj = await GetBibTypes(this.state.project);
 
-        console.log(obj)
-
         commit(MutationTypes.SET_BIBTYPES, obj)
     },
     async [ActionTypes.GET_BIBENTRIES]({ commit }, payload) {
@@ -45,8 +43,6 @@ export const actions: ActionTree<State, State> & Actions = {
         // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
 
         const obj = await GetBibEntries(this.state.project);
-
-        console.log(obj)
 
         commit(MutationTypes.SET_BIBENTRIES, obj)
     },
