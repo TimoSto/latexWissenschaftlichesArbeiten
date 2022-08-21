@@ -76,9 +76,6 @@
     },
 
     computed: {
-      projName(): string {
-        return 'fake'
-      },
       bibTypes(): BibType[] {
         console.log(this.$vStore.state.bibTypes)
         return this.$store.state.bibTypes
