@@ -36,5 +36,7 @@ export const actions: ActionTree<State, State> & Actions = {
         const obj = await GetBibTypes(this.state.project);
 
         console.log(obj)
+
+        commit(MutationTypes.SET_BIBTYPES, obj)
     },
 };

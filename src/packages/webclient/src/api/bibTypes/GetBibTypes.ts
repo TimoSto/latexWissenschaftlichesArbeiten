@@ -2,7 +2,7 @@
 * Read the literature-types for a project from server
 * */
 
-import BibType from "@/views/domain/BibType";
+import { BibType } from "@/api/bibTypes/BibType";
 
 export default async function GetBibTypes(proj: string): Promise<BibType[]> {
     const resp = await fetch('/getBibTypes?project=' + proj)
@@ -13,5 +13,9 @@ export default async function GetBibTypes(proj: string): Promise<BibType[]> {
 
     const obj = await resp.json()
 
-    return obj
+    obj.Types.forEach( (bibType: BibType) => {
+        bibType.Model = ''
+    } )
+
+    return obj.Types
 }

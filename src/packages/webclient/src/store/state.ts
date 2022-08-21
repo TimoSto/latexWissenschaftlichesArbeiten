@@ -1,9 +1,10 @@
-import BibType from "@/views/domain/BibType";
+import {BibType} from "@/api/bibTypes/BibType";
+
 
 export const state = {
-    project: '',
-    projects: [''],
-    bibTypes: []
+    project: <string>'',
+    projects: <string[]>[],
+    bibTypes: <BibType[]>[]
 };
 
 export type State = typeof state;

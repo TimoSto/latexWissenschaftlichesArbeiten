@@ -16,7 +16,7 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-list two-line>
-              <v-list-item v-for="(bType,i) in bibTypes" :key="i" ripple two-line style="cursor: pointer">
+              <v-list-item v-for="bType in bibTypes" :key="bType.Name" ripple two-line style="cursor: pointer">
                 <v-list-item-content>
                   <v-list-item-title>{{ bType.Name }}</v-list-item-title>
                   <v-list-item-subtitle v-html="bType.Model"></v-list-item-subtitle>
@@ -51,7 +51,7 @@
 <script lang="ts">
   import Vue from 'vue'
   import DragNDropZone from "@/components/DragNDropZone.vue";
-  import BibType from './domain/BibType';
+  import { BibType } from '@/api/bibTypes/BibType';
 
   export default Vue.extend({
     name: 'Project-View',
@@ -79,10 +79,9 @@
         return 'fake'
       },
       bibTypes(): BibType[] {
-        return [
-          new BibType('aufsatz'),
-            new BibType('test'),
-        ]
+        console.log(this.$vStore.state.bibTypes)
+        return this.$store.state.bibTypes
+
       }
     }
   })
