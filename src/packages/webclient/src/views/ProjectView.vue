@@ -9,10 +9,6 @@
 
 <script lang="ts">
   import Vue from 'vue'
-  import DragNDropZone from "@/components/DragNDropZone.vue";
-  import { BibType } from '@/api/bibTypes/BibType';
-  import {BibEntry} from "@/api/bibEntries/BibEntry";
-  import {ActionTypes} from "@/store/action-types";
   import ProjectOverView from "@/views/ProjectOverView.vue";
 
   export default Vue.extend({
