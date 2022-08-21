@@ -4,7 +4,7 @@
       <ProjectOverView v-on:editType="openEditor($event)"/>
     </div>
     <div class="area" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']">
-      <TypeEditorView v-if="TypeEditor.length > 0" :name="TypeEditor" />
+      <TypeEditorView v-if="TypeEditor.length > 0" :name="TypeEditor" v-on:closeEditor="closeEditor"/>
     </div>
   </div>
 </template>
@@ -38,6 +38,9 @@
     methods: {
       openEditor(evt: string) {
         this.TypeEditor = evt
+      },
+      closeEditor() {
+        this.TypeEditor = '';
       }
     }
   })

@@ -6,7 +6,7 @@
       <v-btn icon :disabled="!changesToSave">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon @click="$emit('closeEditor')">
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-app-bar>
