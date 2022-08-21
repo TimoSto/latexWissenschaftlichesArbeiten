@@ -4,7 +4,7 @@
       <ProjectOverView v-on:editType="openEditor($event)"/>
     </div>
     <div class="area" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']">
-
+      <TypeEditorView v-if="TypeEditor.length > 0" :name="TypeEditor" />
     </div>
   </div>
 </template>
@@ -12,11 +12,13 @@
 <script lang="ts">
   import Vue from 'vue'
   import ProjectOverView from "@/views/ProjectOverView.vue";
+  import TypeEditorView from "@/views/TypeEditorView.vue";
 
   export default Vue.extend({
     name: 'Project-View',
 
     components: {
+      TypeEditorView,
       ProjectOverView
 
     },
