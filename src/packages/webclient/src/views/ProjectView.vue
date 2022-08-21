@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex">
     <div class="area" :class="[editorOpen ? 'halfWidth' : 'fullWidth']">
-      <ProjectOverView v-on:editType="openEditor"/>
+      <ProjectOverView v-on:editType="openEditor($event)"/>
     </div>
     <div v-if="TypeEditor.length > 0" wi></div>
   </div>
@@ -36,8 +36,8 @@
     },
 
     methods: {
-      openEditor() {
-        this.TypeEditor = 'test'
+      openEditor(evt: string) {
+        this.TypeEditor = evt
       }
     }
   })

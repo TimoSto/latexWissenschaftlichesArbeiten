@@ -40,7 +40,7 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-list two-line>
-              <v-list-item v-for="bType in bibTypes" :key="bType.Name" ripple two-line style="cursor: pointer" @click="editType">
+              <v-list-item v-for="bType in bibTypes" :key="bType.Name" ripple two-line style="cursor: pointer" @click="editType(bType.Name)">
                 <v-list-item-content>
                   <v-list-item-title>{{ bType.Name }}</v-list-item-title>
                   <v-list-item-subtitle v-html="bType.Model"></v-list-item-subtitle>
@@ -111,7 +111,7 @@
       },
 
       editType(name: string) {
-        this.$emit('editType', 'bye')
+        this.$emit('editType', name)
       }
     },
 
