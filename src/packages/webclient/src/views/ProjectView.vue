@@ -77,10 +77,17 @@
     },
 
     mounted() {
-      this.projectName = window.location.href.split('/').pop() as string;
-      this.$store.commit('SET_PROJECT', this.projectName);
-      this.$store.dispatch('GET_BIBTYPES');
-      this.$store.dispatch('GET_BIBENTRIES');
+      this.initProject();
+    },
+
+    methods: {
+
+      initProject() {
+        this.projectName = window.location.href.split('/').pop() as string;
+        this.$store.commit('SET_PROJECT', this.projectName);
+        this.$store.dispatch('GET_BIBTYPES');
+        this.$store.dispatch('GET_BIBENTRIES');
+      }
     },
 
     computed: {
@@ -89,6 +96,12 @@
       },
       bibEntries(): BibEntry[] {
         return this.$store.state.bibEntries;
+      }
+    },
+
+    watch:{
+      $route (to, from){
+        this.initProject();
       }
     }
   })
