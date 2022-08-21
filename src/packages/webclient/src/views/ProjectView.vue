@@ -7,7 +7,7 @@
         <v-icon>mdi-cloud-upload</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main style="flex: 1; overflow-y: auto; max-height: calc(100vh - 120px); padding: 0">
+    <v-main style="flex: 1; overflow-y: auto; max-height: calc(100vh - 130px); padding: 0">
       <DragNDropZone />
       <v-expansion-panels  v-model="panel" multiple accordion flat>
         <v-expansion-panel>
