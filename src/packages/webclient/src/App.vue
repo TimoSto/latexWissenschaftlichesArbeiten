@@ -18,11 +18,11 @@
       <v-list>
         <v-list-item v-for="proj in projects" :key="proj" :to="'/project/'+proj">
           <v-list-item-title v-text="proj"></v-list-item-title>
-          <v-list-item-action>
-            <v-btn icon @click="deleteProject(proj)">
-              <v-icon color="grey lighten-1">mdi-delete</v-icon>
-            </v-btn>
-          </v-list-item-action>
+<!--          <v-list-item-action>-->
+<!--            <v-btn icon @click="deleteProject(proj)">-->
+<!--              <v-icon color="grey lighten-1">mdi-delete</v-icon>-->
+<!--            </v-btn>-->
+<!--          </v-list-item-action>-->
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -48,15 +48,6 @@ export default Vue.extend({
   methods: {
     toggleDark () {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    },
-    switchProject(proj: string, e: Event) {
-      if( (e.target as HTMLElement).tagName !== 'I' ) {
-        console.log('switchTo', proj)
-      }
-    },
-    deleteProject(proj: string) {
-      console.log('del', proj);
-      this.$store.dispatch(ActionTypes.DELETE_PROJECT, proj);
     }
   },
   created() {

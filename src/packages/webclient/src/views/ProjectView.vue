@@ -6,6 +6,30 @@
       <v-btn icon>
         <v-icon>mdi-cloud-upload</v-icon>
       </v-btn>
+      <v-dialog v-model="dialogOpened" width="450">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
+        </template>
+        <v-card>
+          <v-card-title>Projekt löschen</v-card-title>
+          <v-card-text>
+            Bist du sicher, dass du das Projekt <b>{{projectName}}</b> unwiderruflich löschen möchtest?
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn text color="primary" @click="dialogOpened = false">Abbrechen</v-btn>
+            <v-btn
+                color="primary"
+                @click="deleteProject"
+            >
+              Löschen
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-app-bar>
     <v-main style="flex: 1; overflow-y: auto; max-height: calc(100vh - 130px); padding: 0">
       <DragNDropZone />
@@ -60,6 +84,7 @@
   import DragNDropZone from "@/components/DragNDropZone.vue";
   import { BibType } from '@/api/bibTypes/BibType';
   import {BibEntry} from "@/api/bibEntries/BibEntry";
+  import {ActionTypes} from "@/store/action-types";
 
   export default Vue.extend({
     name: 'Project-View',
@@ -72,7 +97,8 @@
     data() {
       return {
         panel: [1],
-        projectName: ''
+        projectName: '',
+        dialogOpened: false
       }
     },
 
@@ -87,6 +113,11 @@
         this.$store.commit('SET_PROJECT', this.projectName);
         this.$store.dispatch('GET_BIBTYPES');
         this.$store.dispatch('GET_BIBENTRIES');
+      },
+
+      deleteProject() {
+        console.log('del', this.projectName);
+        this.$store.dispatch(ActionTypes.DELETE_PROJECT, this.projectName);
       }
     },
 
