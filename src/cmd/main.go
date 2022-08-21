@@ -158,6 +158,8 @@ func main() {
 
 	http.HandleFunc("/getBibTypes", handlers.GetBibTypesHandler)
 
+	http.HandleFunc("/getBibEntries", handlers.GetBibEntriesHandler)
+
 	logger.LogInfo("Open http://localhost:8081/overview to get started.")
 
 	go startServer()

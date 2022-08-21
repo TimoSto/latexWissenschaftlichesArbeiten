@@ -5,6 +5,7 @@ import { ActionTypes } from "@/store/action-types";
 import {MutationTypes} from "@/store/mutation-types";
 import GetProjects from "@/api/projects/GetProjects";
 import GetBibTypes from "@/api/bibTypes/GetBibTypes";
+import GetBibEntries from "@/api/bibEntries/GetBibEntries";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -43,10 +44,10 @@ export const actions: ActionTree<State, State> & Actions = {
         // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
         // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
 
-        const obj = await GetBibTypes(this.state.project);
+        const obj = await GetBibEntries(this.state.project);
 
         console.log(obj)
 
-        commit(MutationTypes.SET_BIBTYPES, obj)
+        commit(MutationTypes.SET_BIBENTRIES, obj)
     },
 };

@@ -72,6 +72,7 @@
       this.projectName = window.location.href.split('/').pop() as string;
       this.$store.commit('SET_PROJECT', this.projectName);
       this.$store.dispatch('GET_BIBTYPES');
+      this.$store.dispatch('GET_BIBENTRIES');
     },
 
     computed: {
