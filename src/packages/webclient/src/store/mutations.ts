@@ -3,6 +3,7 @@ import { MutationTypes } from './mutation-types';
 import { State } from './state';
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/BibEntry";
+import router from "@/router";
 export type Mutations<S = State> = {
     [MutationTypes.SET_PROJECT](state: S, payload: string): void;
     [MutationTypes.SET_PROJECTS](state: S, payload: string[]): void;

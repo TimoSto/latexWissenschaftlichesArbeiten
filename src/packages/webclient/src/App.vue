@@ -11,7 +11,7 @@
       <v-app-bar elevation="0" color="background">
         <v-toolbar-title>Projekte</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon :class="{hidden: drawer}">
+        <v-btn icon :class="{hidden: drawer}" :to="'/new'">
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>

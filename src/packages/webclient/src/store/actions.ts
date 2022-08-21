@@ -6,6 +6,8 @@ import {MutationTypes} from "@/store/mutation-types";
 import GetProjects from "@/api/projects/GetProjects";
 import GetBibTypes from "@/api/bibTypes/GetBibTypes";
 import GetBibEntries from "@/api/bibEntries/GetBibEntries";
+import CreateProject from "@/api/projects/CreateProject";
+import router from "@/router";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -45,5 +47,18 @@ export const actions: ActionTree<State, State> & Actions = {
         const obj = await GetBibEntries(this.state.project);
 
         commit(MutationTypes.SET_BIBENTRIES, obj)
+    },
+    async [ActionTypes.CREATE_PROJECT]({ commit, dispatch }, payload) {
+        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
+        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
+
+        const success = await CreateProject(payload)
+
+        if( success ) {
+            dispatch(ActionTypes.GET_PROJECTS);
+            commit(MutationTypes.SET_PROJECT, payload)
+            await router.push('/project/' + payload)
+        }
+
     },
 };
