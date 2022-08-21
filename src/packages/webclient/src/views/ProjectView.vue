@@ -3,7 +3,7 @@
     <div class="area" :class="[editorOpen ? 'halfWidth' : 'fullWidth']">
       <ProjectOverView v-on:editType="openEditor($event)"/>
     </div>
-    <div v-if="TypeEditor.length > 0" wi></div>
+    <div class="area" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']"></div>
   </div>
 </template>
 
@@ -46,11 +46,15 @@
 <style lang="scss" scoped>
 .area {
   transition: width 1s linear;
+  min-width: 0;
   &.fullWidth{
     width: 100%;
   }
   &.halfWidth{
     width: 50%;
+  }
+  &.zeroWidth {
+    width: 0;
   }
 }
 </style>
