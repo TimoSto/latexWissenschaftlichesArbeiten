@@ -4,28 +4,22 @@
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>ThesorTeX</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on,attrs }">
-          <v-btn
-              icon
-              :to="'/'"
-              v-bind="attrs"
-              v-on="on">
-            <v-icon>mdi-home</v-icon></v-btn>
-        </template>
-        <span>Startseite</span>
-      </v-tooltip>
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on,attrs }">
-          <v-btn
-              icon
-              v-bind="attrs"
-              v-on="on"
-              @click="toggleDark">
-            <v-icon>mdi-brightness-6</v-icon></v-btn>
-        </template>
-        <span>Startseite</span>
-      </v-tooltip>
+      <v-btn
+          icon
+          :to="'/'"
+          v-bind="attrs"
+          v-on="on"
+          title="Startseite">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+      <v-btn
+          icon
+          v-bind="attrs"
+          v-on="on"
+          @click="toggleDark"
+          title="Design wechseln">
+        <v-icon>mdi-brightness-6</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
