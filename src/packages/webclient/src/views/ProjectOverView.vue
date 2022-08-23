@@ -36,9 +36,22 @@
       <v-expansion-panels  v-model="panel" multiple accordion flat hover tile>
         <v-expansion-panel>
           <v-expansion-panel-header ripple>
-            Literaturtypen
+            Literaturtypen konfigurieren
           </v-expansion-panel-header>
           <v-expansion-panel-content>
+            <v-toolbar elevation="0" dense>
+              <v-toolbar-title>Literaturtypen</v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+              <v-btn icon>
+                <v-icon>mdi-reload</v-icon>
+              </v-btn>
+              <v-btn icon>
+                <v-icon>mdi-cog-refresh</v-icon>
+              </v-btn>
+            </v-toolbar>
             <v-list two-line>
               <v-list-item v-for="bType in bibTypes" :key="bType.Name" ripple two-line style="cursor: pointer" @click="editType(bType.Name)">
                 <v-list-item-content>
@@ -144,4 +157,8 @@ main.v-content {
   padding: 0 !important;
   margin: 0;
 }
+
+//.v-expansion-panel-content::v-deep .v-expansion-panel-content__wrap {
+//  padding: 0 !important;
+//}
 </style>
