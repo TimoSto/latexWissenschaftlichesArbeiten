@@ -29,7 +29,28 @@
             Literaturverzeichnis
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-            {{BibType}}
+            <template>
+              <v-data-table
+                  :headers="headers"
+                  :items="BibType.Fields"
+                  hide-default-footer
+              >
+                <template v-slot:item="props">
+                  <v-text-field
+                      v-model="props.item.Name"
+                      name="quantity"
+                      @input="getdata"
+                      type="string"
+                  ></v-text-field>
+                  <v-text-field
+                      v-model="props.item.Prefix"
+                      name="quantity"
+                      @input="getdata"
+                      type="string"
+                  ></v-text-field>
+                </template>
+              </v-data-table>
+            </template>
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -38,6 +59,14 @@
             Zitate
           </v-expansion-panel-header>
           <v-expansion-panel-content>
+<!--            <v-expansion-panels v-model="citepanel" multiple accordion flat hover tile>-->
+<!--              <v-expansion-panel v-for="(field, i) in BibType.CiteFields" :key="'citeFields' + i">-->
+<!--                <v-expansion-panel-header ripple>-->
+<!--                  {{ field.Field }}-->
+<!--                </v-expansion-panel-header>-->
+<!--                <v-expansion-panel-content></v-expansion-panel-content>-->
+<!--              </v-expansion-panel>-->
+<!--            </v-expansion-panels>-->
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -58,7 +87,8 @@ export default Vue.extend({
 
   data() {
     return {
-      panel: [0,1]
+      panel: [0,1],
+      headers: [{text: 'Attribut', value: 'Field', width: '40%'}, {text: 'Prefix', value: 'Prefix', width: '50%'}]
     }
   },
 
@@ -70,9 +100,9 @@ export default Vue.extend({
       return this.name
     },
     BibType(): BibType {
+      console.log('readTypes')
       let ttR: BibType = {} as BibType;
       this.$vStore.state.bibTypes.forEach(bType => {
-        console.log(bType.Name , this.TypeName)
         if( bType.Name == this.TypeName ) {
           ttR = bType;
         }
