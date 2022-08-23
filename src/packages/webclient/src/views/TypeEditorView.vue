@@ -29,6 +29,7 @@
             Literaturverzeichnis
           </v-expansion-panel-header>
           <v-expansion-panel-content>
+            {{BibType}}
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -46,6 +47,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import {BibType} from "@/api/bibTypes/BibType";
 
 export default Vue.extend({
   name: "TypeEditor-View",
@@ -66,6 +68,16 @@ export default Vue.extend({
     },
     TypeName(): string {
       return this.name
+    },
+    BibType(): BibType {
+      let ttR: BibType = {} as BibType;
+      this.$vStore.state.bibTypes.forEach(bType => {
+        console.log(bType.Name , this.TypeName)
+        if( bType.Name == this.TypeName ) {
+          ttR = bType;
+        }
+      });
+      return ttR;
     }
   }
 });
