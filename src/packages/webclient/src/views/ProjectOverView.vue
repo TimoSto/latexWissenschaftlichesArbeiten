@@ -48,7 +48,7 @@
               <v-btn icon title="Literaturtypen aktualisieren">
                 <v-icon>mdi-reload</v-icon>
               </v-btn>
-              <v-btn icon title="Literaturtyp hinzufügen">
+              <v-btn icon title="Literaturtyp hinzufügen" @click="newType">
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
             </v-toolbar>
@@ -125,6 +125,10 @@
 
       editType(name: string) {
         this.$emit('editType', name)
+      },
+
+      newType() {
+        this.$emit('newType', '/new');
       }
     },
 

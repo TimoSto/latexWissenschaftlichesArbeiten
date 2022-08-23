@@ -7,15 +7,11 @@
       <v-btn
           icon
           :to="'/'"
-          v-bind="attrs"
-          v-on="on"
           title="Startseite">
         <v-icon>mdi-home</v-icon>
       </v-btn>
       <v-btn
           icon
-          v-bind="attrs"
-          v-on="on"
           @click="toggleDark"
           title="Design wechseln">
         <v-icon>mdi-brightness-6</v-icon>

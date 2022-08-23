@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex">
     <div class="area" :class="[editorOpen ? 'halfWidth' : 'fullWidth']">
-      <ProjectOverView v-on:editType="openEditor($event)"/>
+      <ProjectOverView v-on:editType="openEditor($event)" v-on:newType="openEditor($event)"/>
     </div>
     <div class="area" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']">
       <TypeEditorView v-if="TypeEditor.length > 0" :name="TypeEditor" v-on:closeEditor="closeEditor"/>
