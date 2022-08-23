@@ -24,9 +24,9 @@
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
       <v-app-bar elevation="0" color="background">
-        <v-toolbar-title>Projekte</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-btn icon :class="{hidden: drawer}" :to="'/new'">
+        <v-toolbar-title v-if="!drawer">Projekte</v-toolbar-title>
+        <v-spacer v-if="!drawer"></v-spacer>
+        <v-btn icon :to="'/new'" title="Neues Projekt erstellen">
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
