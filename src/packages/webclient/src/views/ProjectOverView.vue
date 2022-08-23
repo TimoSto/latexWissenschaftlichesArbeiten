@@ -3,12 +3,12 @@
     <v-app-bar elevation="0" color="background">
       <v-toolbar-title>Projektansicht: <span class="font-weight-bold">{{ projectName }}</span></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-btn icon title="Lokales Backup erstellen">
         <v-icon>mdi-cloud-upload</v-icon>
       </v-btn>
       <v-dialog v-model="dialogOpened" width="450">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
+          <v-btn icon v-bind="attrs" v-on="on" title="Projekt löschen">
             <v-icon>mdi-delete</v-icon>
           </v-btn>
         </template>
@@ -42,14 +42,14 @@
             <v-toolbar elevation="0" dense>
               <v-toolbar-title>Literaturtypen</v-toolbar-title>
               <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon>mdi-plus</v-icon>
+              <v-btn icon title="Diese Literaturtypen als Standard festlegen">
+                <v-icon>mdi-cog-refresh</v-icon>
               </v-btn>
-              <v-btn icon>
+              <v-btn icon title="Literaturtypen aktualisieren">
                 <v-icon>mdi-reload</v-icon>
               </v-btn>
-              <v-btn icon>
-                <v-icon>mdi-cog-refresh</v-icon>
+              <v-btn icon title="Literaturtyp hinzufügen">
+                <v-icon>mdi-plus</v-icon>
               </v-btn>
             </v-toolbar>
             <v-list two-line>

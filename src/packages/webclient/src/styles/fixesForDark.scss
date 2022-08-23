@@ -1,6 +1,11 @@
+$dark-bg: #121212;
+
 .theme--dark.v-expansion-panels .v-expansion-panel{
-  background-color: #121212;
+  background-color: $dark-bg;
 }
 .theme--dark.v-list {
-  background-color: #121212;
+  background-color: $dark-bg;
+}
+.theme--dark.v-toolbar.v-sheet {
+  background-color: $dark-bg;
 }
