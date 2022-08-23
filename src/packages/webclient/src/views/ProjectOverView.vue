@@ -133,7 +133,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/common';
+@import '../styles/fixesForDark';
 
 main.v-content {
   width: 100vw;

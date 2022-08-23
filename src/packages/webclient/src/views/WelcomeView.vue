@@ -55,7 +55,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/common";
+@import "../styles/fixesForDark";
 
 .text-container{
   padding: 8px 0px 0px 8px;

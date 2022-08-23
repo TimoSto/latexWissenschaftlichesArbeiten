@@ -72,5 +72,5 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
+@import '../styles/fixesForDark.scss';
 </style>
