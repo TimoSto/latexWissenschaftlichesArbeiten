@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="text-container" id="head">
-      <h1 class="text-h4">Startseite</h1>
       <p>Mit dieser Anwendung kannst du das Erstellen von wissenschaftlichen Arbeiten mit LaTeX vereinfachen und managen. Im linken Bereich sind alle deine Projekte aufgelistet. Dort kannst du sie zur Bearbeitung auswählen oder löschen.
         Du kannst den Bereich über den Button oben links öffnen oder schließen. In einem solchen Projekt wird eine TeX-Datei generiert, inklusive von Style-Definitionen. Diese Style-Integrationen umfassen folgende Bereiche:</p>
     </div>
@@ -56,6 +55,8 @@
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/common";
+
 .text-container{
   padding: 8px 0px 0px 8px;
 }

@@ -133,6 +133,8 @@
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/common';
+
 main.v-content {
   width: 100vw;
   height: calc(100vh - 64px);
