@@ -36,18 +36,18 @@
                   hide-default-footer
               >
                 <template v-slot:item="props">
-                  <v-text-field
+                  <tr>
+                  <td><v-text-field
                       v-model="props.item.Name"
-                      name="quantity"
-                      @input="getdata"
+                      name="Attribut"
                       type="string"
-                  ></v-text-field>
-                  <v-text-field
+                  ></v-text-field></td>
+                  <td><v-text-field
                       v-model="props.item.Prefix"
-                      name="quantity"
-                      @input="getdata"
+                      name="Prefix"
                       type="string"
-                  ></v-text-field>
+                  ></v-text-field></td>
+                  </tr>
                 </template>
               </v-data-table>
             </template>
