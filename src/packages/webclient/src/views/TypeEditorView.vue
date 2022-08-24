@@ -47,7 +47,8 @@
                       <v-select
                           v-model="props.item.Style"
                           :items="fontStyles"
-                          label="Standard"
+                          name="Style"
+                          :menu-props="{ bottom: true, offsetY: true }"
                       ></v-select>
                     </td>
                     <td>
