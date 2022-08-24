@@ -55,6 +55,13 @@
                           name="Suffix"
                           type="string" />
                     </td>
+                    <td>
+                      <v-select
+                          v-model="props.item.Style"
+                          :items="fontStyles"
+                          label="Standard"
+                      ></v-select>
+                    </td>
                   </tr>
                 </template>
               </v-data-table>
@@ -96,7 +103,8 @@ export default Vue.extend({
   data() {
     return {
       panel: [0,1],
-      headers: [{text: 'Attribut', value: 'Field', width: '33%'}, {text: 'Prefix', value: 'Prefix', width: '33%'}, {text: 'Suffix', value: 'Suffix', width: '33%'}]
+      headers: [{text: 'Attribut', value: 'Field', width: '33%'}, {text: 'Prefix', value: 'Prefix', width: '33%'}, {text: 'Suffix', value: 'Suffix', width: '33%'}, {text: 'Style', value: 'Style', width: '33%'}],
+      fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}]
     }
   },
 
@@ -116,6 +124,12 @@ export default Vue.extend({
         }
       });
       return ttR;
+    }
+  },
+
+  methods: {
+    translate(vl: string) {
+      return 'italic'
     }
   }
 });
