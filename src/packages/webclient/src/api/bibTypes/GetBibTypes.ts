@@ -3,6 +3,7 @@
 * */
 
 import { BibType, Field } from "@/api/bibTypes/BibType";
+import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
 
 export default async function GetBibTypes(proj: string): Promise<BibType[]> {
     const resp = await fetch('/getBibTypes?project=' + proj)
@@ -14,35 +15,8 @@ export default async function GetBibTypes(proj: string): Promise<BibType[]> {
     const obj = await resp.json()
 
     obj.Types.forEach( (bibType: BibType) => {
-        bibType.Model = '';
 
-        bibType.Fields.forEach( (field: Field) => {
-
-            bibType.Model += field.Prefix
-
-            switch (field.Style) {
-                case 'italic':
-                    bibType.Model += `<i>`;
-                    break;
-                case 'bold':
-                    bibType.Model += '<b>';
-                    break;
-            }
-
-            bibType.Model += field.Field
-
-            switch (field.Style) {
-                case 'italic':
-                    bibType.Model += `</i>`;
-                    break;
-                case 'bold':
-                    bibType.Model += '</b>';
-                    break;
-            }
-
-            bibType.Model += field.Suffix;
-
-        });
+        bibType.Model = GenerateModelForBibType(bibType)
     } )
 
     return obj.Types

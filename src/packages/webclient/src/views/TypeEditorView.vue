@@ -29,6 +29,7 @@
             Literaturverzeichnis
           </v-expansion-panel-header>
           <v-expansion-panel-content>
+            <p><b>Beispiel:</b> <span v-html="BibType.Model"></span></p>
             <template>
               <v-data-table
                   :headers="headers"
@@ -41,6 +42,7 @@
                       <v-text-field
                         v-model="props.item.Field"
                         name="Attribut"
+                        @change="HandleChangeInBibFields"
                         type="string" />
                     </td>
                     <td>
@@ -93,6 +95,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {BibType} from "@/api/bibTypes/BibType";
+import {MutationTypes} from "@/store/mutation-types";
 
 export default Vue.extend({
   name: "TypeEditor-View",
@@ -105,7 +108,7 @@ export default Vue.extend({
     return {
       panel: [0,1],
       headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}],
-      fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}]
+      fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}],
     }
   },
 
@@ -129,9 +132,12 @@ export default Vue.extend({
   },
 
   methods: {
-    translate(vl: string) {
-      return 'italic'
-    }
+    HandleChangeInBibFields() {
+      this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName)
+    },
+    // HandleChangeInCiteFields() {
+    //
+    // }
   }
 });
 </script>
