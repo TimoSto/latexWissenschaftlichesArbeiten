@@ -37,16 +37,24 @@
               >
                 <template v-slot:item="props">
                   <tr>
-                  <td><v-text-field
-                      v-model="props.item.Name"
-                      name="Attribut"
-                      type="string"
-                  ></v-text-field></td>
-                  <td><v-text-field
-                      v-model="props.item.Prefix"
-                      name="Prefix"
-                      type="string"
-                  ></v-text-field></td>
+                    <td>
+                      <v-text-field
+                        v-model="props.item.Field"
+                        name="Attribut"
+                        type="string" />
+                    </td>
+                    <td>
+                      <v-text-field
+                        v-model="props.item.Prefix"
+                        name="Prefix"
+                        type="string" />
+                    </td>
+                    <td>
+                      <v-text-field
+                          v-model="props.item.Suffix"
+                          name="Suffix"
+                          type="string" />
+                    </td>
                   </tr>
                 </template>
               </v-data-table>
@@ -88,7 +96,7 @@ export default Vue.extend({
   data() {
     return {
       panel: [0,1],
-      headers: [{text: 'Attribut', value: 'Field', width: '40%'}, {text: 'Prefix', value: 'Prefix', width: '50%'}]
+      headers: [{text: 'Attribut', value: 'Field', width: '33%'}, {text: 'Prefix', value: 'Prefix', width: '33%'}, {text: 'Suffix', value: 'Suffix', width: '33%'}]
     }
   },
 
@@ -100,10 +108,10 @@ export default Vue.extend({
       return this.name
     },
     BibType(): BibType {
-      console.log('readTypes')
       let ttR: BibType = {} as BibType;
       this.$vStore.state.bibTypes.forEach(bType => {
         if( bType.Name == this.TypeName ) {
+          console.log(bType.Fields)
           ttR = bType;
         }
       });
