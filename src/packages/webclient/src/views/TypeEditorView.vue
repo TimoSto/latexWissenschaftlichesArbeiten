@@ -50,6 +50,7 @@
                           v-model="props.item.Style"
                           :items="fontStyles"
                           name="Style"
+                          @change="HandleChangeInBibFields"
                           :menu-props="{ bottom: true, offsetY: true }"
                       ></v-select>
                     </td>
@@ -57,12 +58,14 @@
                       <v-text-field
                         v-model="props.item.Prefix"
                         name="Prefix"
+                        @change="HandleChangeInBibFields"
                         type="string" />
                     </td>
                     <td>
                       <v-text-field
                           v-model="props.item.Suffix"
                           name="Suffix"
+                          @change="HandleChangeInBibFields"
                           type="string" />
                     </td>
                   </tr>
