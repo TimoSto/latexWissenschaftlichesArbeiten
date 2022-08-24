@@ -68,7 +68,18 @@
                           @change="HandleChangeInBibFields"
                           type="string" />
                     </td>
+                    <td>
+                      <v-btn icon>
+                        <v-icon>mdi-minus</v-icon>
+                      </v-btn>
+                    </td>
                   </tr>
+                </template>
+                <template v-slot:footer>
+                  <v-spacer></v-spacer>
+                  <v-btn icon style="float: right; margin-right: 16px">
+                    <v-icon>mdi-plus</v-icon>
+                  </v-btn>
                 </template>
               </v-data-table>
             </template>
@@ -110,7 +121,7 @@ export default Vue.extend({
   data() {
     return {
       panel: [0,1],
-      headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}],
+      headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}, ``],
       fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}],
     }
   },
