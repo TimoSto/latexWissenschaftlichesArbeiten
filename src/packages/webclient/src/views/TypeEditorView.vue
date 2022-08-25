@@ -32,45 +32,44 @@
             <p><b>Beispiel:</b> <span v-html="BibType.Model"></span></p>
             <v-simple-table
             >
-              <template >
-                <tr v-for="(field,i) in BibType.Fields" :key="'typeEdit'+i" class="editableTableRow">
-                  <td>
-                    <v-text-field
-                        v-model="field.Field"
-                        name="Attribut"
-                        @change="HandleChangeInBibFields"
-                        type="string" />
-                  </td>
-                  <td>
-                    <v-select
-                        v-model="field.Style"
-                        :items="fontStyles"
-                        name="Style"
-                        @change="HandleChangeInBibFields"
-                        :menu-props="{ bottom: true, offsetY: true }"
-                    ></v-select>
-                  </td>
-                  <td>
-                    <v-text-field
-                        v-model="field.Prefix"
-                        name="Prefix"
-                        @change="HandleChangeInBibFields"
-                        type="string" />
-                  </td>
-                  <td>
-                    <v-text-field
-                        v-model="field.Suffix"
-                        name="Suffix"
-                        @change="HandleChangeInBibFields"
-                        type="string" />
-                  </td>
-                  <td>
-                    <v-btn icon>
-                      <v-icon>mdi-minus</v-icon>
-                    </v-btn>
-                  </td>
-                </tr>
-              </template>
+              <v-data-table-header :headers="headers" disable-sort/>
+              <tr v-for="(field,i) in BibType.Fields" :key="'typeEdit'+i" class="editableTableRow">
+                <td>
+                  <v-text-field
+                      v-model="field.Field"
+                      name="Attribut"
+                      @change="HandleChangeInBibFields"
+                      type="string" />
+                </td>
+                <td>
+                  <v-select
+                      v-model="field.Style"
+                      :items="fontStyles"
+                      name="Style"
+                      @change="HandleChangeInBibFields"
+                      :menu-props="{ bottom: true, offsetY: true }"
+                  ></v-select>
+                </td>
+                <td>
+                  <v-text-field
+                      v-model="field.Prefix"
+                      name="Prefix"
+                      @change="HandleChangeInBibFields"
+                      type="string" />
+                </td>
+                <td>
+                  <v-text-field
+                      v-model="field.Suffix"
+                      name="Suffix"
+                      @change="HandleChangeInBibFields"
+                      type="string" />
+                </td>
+                <td>
+                  <v-btn icon>
+                    <v-icon>mdi-minus</v-icon>
+                  </v-btn>
+                </td>
+              </tr>
             </v-simple-table>
           </v-expansion-panel-content>
         </v-expansion-panel>
