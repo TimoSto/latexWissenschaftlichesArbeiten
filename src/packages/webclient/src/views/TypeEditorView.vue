@@ -30,59 +30,49 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <p><b>Beispiel:</b> <span v-html="BibType.Model"></span></p>
-            <template>
-              <v-data-table
-                  :headers="headers"
-                  :items="BibType.Fields"
-                  hide-default-footer
-              >
-                <template v-slot:item="props">
-                  <tr>
-                    <td>
-                      <v-text-field
-                        v-model="props.item.Field"
+            <v-simple-table
+                hide-default-footer
+            >
+              <template >
+                <tr v-for="field in BibType.Fields" :key="field.Field">
+                  <td>
+                    <v-text-field
+                        v-model="field.Field"
                         name="Attribut"
                         @change="HandleChangeInBibFields"
                         type="string" />
-                    </td>
-                    <td>
-                      <v-select
-                          v-model="props.item.Style"
-                          :items="fontStyles"
-                          name="Style"
-                          @change="HandleChangeInBibFields"
-                          :menu-props="{ bottom: true, offsetY: true }"
-                      ></v-select>
-                    </td>
-                    <td>
-                      <v-text-field
-                        v-model="props.item.Prefix"
+                  </td>
+                  <td>
+                    <v-select
+                        v-model="field.Style"
+                        :items="fontStyles"
+                        name="Style"
+                        @change="HandleChangeInBibFields"
+                        :menu-props="{ bottom: true, offsetY: true }"
+                    ></v-select>
+                  </td>
+                  <td>
+                    <v-text-field
+                        v-model="field.Prefix"
                         name="Prefix"
                         @change="HandleChangeInBibFields"
                         type="string" />
-                    </td>
-                    <td>
-                      <v-text-field
-                          v-model="props.item.Suffix"
-                          name="Suffix"
-                          @change="HandleChangeInBibFields"
-                          type="string" />
-                    </td>
-                    <td>
-                      <v-btn icon>
-                        <v-icon>mdi-minus</v-icon>
-                      </v-btn>
-                    </td>
-                  </tr>
-                </template>
-                <template v-slot:footer>
-                  <v-spacer></v-spacer>
-                  <v-btn icon style="float: right; margin-right: 16px">
-                    <v-icon>mdi-plus</v-icon>
-                  </v-btn>
-                </template>
-              </v-data-table>
-            </template>
+                  </td>
+                  <td>
+                    <v-text-field
+                        v-model="field.Suffix"
+                        name="Suffix"
+                        @change="HandleChangeInBibFields"
+                        type="string" />
+                  </td>
+                  <td>
+                    <v-btn icon>
+                      <v-icon>mdi-minus</v-icon>
+                    </v-btn>
+                  </td>
+                </tr>
+              </template>
+            </v-simple-table>
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -133,15 +123,20 @@ export default Vue.extend({
     TypeName(): string {
       return this.name
     },
-    BibType(): BibType {
-      let ttR: BibType = {} as BibType;
-      this.$vStore.state.bibTypes.forEach(bType => {
-        if( bType.Name == this.TypeName ) {
-          console.log(bType.Fields)
-          ttR = bType;
-        }
-      });
-      return ttR;
+    BibType: {
+      get (): BibType {
+        let ttR: BibType = {} as BibType;
+        this.$vStore.state.bibTypes.forEach(bType => {
+          if (bType.Name == this.TypeName) {
+            console.log(bType.Fields)
+            ttR = bType;
+          }
+        });
+        return ttR;
+      },
+      set (value: BibType) {
+        this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName)
+      }
     }
   },
 
