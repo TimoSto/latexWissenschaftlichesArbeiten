@@ -13,6 +13,7 @@
   import Vue from 'vue'
   import ProjectOverView from "@/views/ProjectOverView.vue";
   import TypeEditorView from "@/views/TypeEditorView.vue";
+  import {MutationTypes} from "@/store/mutation-types";
 
   export default Vue.extend({
     name: 'Project-View',
@@ -37,6 +38,7 @@
 
     methods: {
       openEditor(evt: string) {
+        this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, evt);
         this.TypeEditor = evt
       },
       closeEditor() {

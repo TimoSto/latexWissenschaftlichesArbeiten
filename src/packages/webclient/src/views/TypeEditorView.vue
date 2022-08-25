@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar elevation="0" color="background">
-      <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{TypeName}}</span></v-toolbar-title>
+      <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{TypeName}}{{this.$store.state.initialType.Fields[0].Field}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon :disabled="!changesToSave">
         <v-icon>mdi-content-save</v-icon>
@@ -116,7 +116,7 @@ export default Vue.extend({
 
   computed: {
     changesToSave(): boolean {
-      return false
+      return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.BibType)
     },
     TypeName(): string {
       return this.name

@@ -6,7 +6,9 @@ export const state = {
     project: <string>'',
     projects: <string[]>[],
     bibTypes: <BibType[]>[],
-    bibEntries: <BibEntry[]>[]
+    bibEntries: <BibEntry[]>[],
+    typeToEdit: <string>'',
+    initialType: <BibType>{}
 };
 
 export type State = typeof state;
