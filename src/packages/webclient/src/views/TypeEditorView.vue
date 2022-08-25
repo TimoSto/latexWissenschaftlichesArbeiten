@@ -31,10 +31,9 @@
           <v-expansion-panel-content>
             <p><b>Beispiel:</b> <span v-html="BibType.Model"></span></p>
             <v-simple-table
-                hide-default-footer
             >
               <template >
-                <tr v-for="field in BibType.Fields" :key="field.Field">
+                <tr v-for="(field,i) in BibType.Fields" :key="'typeEdit'+i" class="editableTableRow">
                   <td>
                     <v-text-field
                         v-model="field.Field"
@@ -151,6 +150,12 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import '../styles/fixesForDark.scss';
+
+.editableTableRow {
+  & td {
+    padding: 0 8px;
+  }
+}
 </style>
