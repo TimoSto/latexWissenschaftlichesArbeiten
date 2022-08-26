@@ -38,7 +38,7 @@
                   <v-text-field
                       v-model="field.Field"
                       name="Attribut"
-                      @change="HandleChangeInBibFields"
+                      @input="HandleChangeInBibFields"
                       type="string" />
                 </td>
                 <td>
@@ -46,7 +46,7 @@
                       v-model="field.Style"
                       :items="fontStyles"
                       name="Style"
-                      @change="HandleChangeInBibFields"
+                      @input="HandleChangeInBibFields"
                       :menu-props="{ bottom: true, offsetY: true }"
                   ></v-select>
                 </td>
@@ -54,14 +54,14 @@
                   <v-text-field
                       v-model="field.Prefix"
                       name="Prefix"
-                      @change="HandleChangeInBibFields"
+                      @input="HandleChangeInBibFields"
                       type="string" />
                 </td>
                 <td>
                   <v-text-field
                       v-model="field.Suffix"
                       name="Suffix"
-                      @change="HandleChangeInBibFields"
+                      @input="HandleChangeInBibFields"
                       type="string" />
                 </td>
                 <td>
