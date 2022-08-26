@@ -70,6 +70,25 @@
                   </v-btn>
                 </td>
               </tr>
+              <tr class="editableTableRow" style="border-top: 1px solid var(--v-primary-base)">
+                <td>
+                  <v-text-field disabled placeholder="Attribut"></v-text-field>
+                </td>
+                <td>
+                  <v-select disabled placeholder="Style"></v-select>
+                </td>
+                <td>
+                  <v-text-field disabled placeholder="Prefix"></v-text-field>
+                </td>
+                <td>
+                  <v-text-field disabled placeholder="Suffix"></v-text-field>
+                </td>
+                <td>
+                  <v-btn icon>
+                    <v-icon>mdi-plus</v-icon>
+                  </v-btn>
+                </td>
+              </tr>
             </v-simple-table>
           </v-expansion-panel-content>
         </v-expansion-panel>

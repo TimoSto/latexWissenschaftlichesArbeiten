@@ -107,3 +107,9 @@ main.v-content {
   display: none;
 }
 </style>
+<style>
+.theme--light.v-text-field.v-input--is-disabled .v-input__slot::before,
+.theme--dark.v-text-field.v-input--is-disabled .v-input__slot::before{
+  border-image: none!important;
+}
+</style>
