@@ -43,7 +43,7 @@ export const actions: ActionTree<State, State> & Actions = {
         commit(MutationTypes.SET_BIBTYPES, obj)
 
         if( state.typeToEdit ) {
-            commit(MutationTypes.SET_TYPE_TO_EDIT, state.typeToEdit.Name)
+            commit(MutationTypes.SET_TYPE_TO_EDIT, state.typeToEdit.Name ? state.typeToEdit.Name : '')
         }
     },
     async [ActionTypes.GET_BIBENTRIES]({ commit }, payload) {

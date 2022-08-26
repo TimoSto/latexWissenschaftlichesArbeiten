@@ -15,6 +15,7 @@ export type Mutations<S = State> = {
 export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.SET_PROJECT](state, payload: string) {
         state.project = payload
+        state.typeToEdit = <BibType>{}
     },
     [MutationTypes.SET_PROJECTS](state, payload: string[]) {
         state.projects = payload
@@ -32,12 +33,17 @@ export const mutations: MutationTree<State> & Mutations = {
         state.typeToEdit.CiteModel = GenerateModelForBibType(state.typeToEdit.CiteFields);
     },
     [MutationTypes.SET_TYPE_TO_EDIT](state, payload: string) {
-        state.bibTypes.forEach(bType => {
-            if( bType.Name === payload ) {
-                state.typeToEdit = JSON.parse(JSON.stringify(bType));
-                state.initialType = JSON.parse(JSON.stringify(bType));
-            }
-        });
+        if(payload.length == 0) {
+            state.typeToEdit = <BibType>{}
+        } else {
+            state.bibTypes.forEach(bType => {
+                if( bType.Name === payload ) {
+                    state.typeToEdit = JSON.parse(JSON.stringify(bType));
+                    state.initialType = JSON.parse(JSON.stringify(bType));
+                }
+            });
+        }
+
     },
     [MutationTypes.RM_BIB_ATTR](state, payload: number) {
         state.typeToEdit.Fields.splice(payload, 1)

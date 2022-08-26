@@ -4,7 +4,7 @@
       <ProjectOverView v-on:editType="openEditor($event)" v-on:newType="openEditor($event)"/>
     </div>
     <div class="area" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']">
-      <TypeEditorView v-if="TypeEditor.length > 0" :name="TypeEditor" v-on:closeEditor="closeEditor"/>
+      <TypeEditorView v-if="editorOpen" :name="editorName" v-on:closeEditor="closeEditor"/>
     </div>
   </div>
 </template>
@@ -24,25 +24,21 @@
 
     },
 
-    data() {
-      return {
-        TypeEditor: ''
-      }
-    },
-
     computed: {
       editorOpen() {
-        return this.$data.TypeEditor.length > 0
+        return !!this.$store.state.typeToEdit.Name
+      },
+      editorName() {
+        return this.$store.state.typeToEdit.Name
       }
     },
 
     methods: {
       openEditor(evt: string) {
         this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, evt);
-        this.TypeEditor = evt
       },
       closeEditor() {
-        this.TypeEditor = '';
+        this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, '');
       }
     }
   })
