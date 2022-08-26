@@ -122,11 +122,17 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.ADD_CITE_ATTR);
     },
     SaveThisType() {
-      SaveType(this.$store.state.project, this.$store.state.initialType.Name, this.$store.state.typeToEdit.Name, this.$store.state.typeToEdit.Fields, this.$store.state.typeToEdit.CiteFields).then(success => {
-        if( success ) {
-          this.$store.dispatch(ActionTypes.GET_BIBTYPES);
+      const obj = JSON.stringify({
+        Project: this.$store.state.project,
+        InitialName: this.$store.state.initialType.Name,
+        Type: {
+          Name: this.$store.state.typeToEdit.Name,
+          Fields: this.$store.state.typeToEdit.Fields,
+          CiteFields: this.$store.state.typeToEdit.CiteFields
         }
-      })
+      });
+
+      this.$store.dispatch(ActionTypes.SAVE_TYPE, obj);
     }
   },
 });

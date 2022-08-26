@@ -9,6 +9,7 @@ import GetBibEntries from "@/api/bibEntries/GetBibEntries";
 import CreateProject from "@/api/projects/CreateProject";
 import router from "@/router";
 import DeleteProject from "@/api/projects/DeleteProject";
+import SaveType from "@/api/bibTypes/SaveBibType";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -40,7 +41,7 @@ export const actions: ActionTree<State, State> & Actions = {
         const obj = await GetBibTypes(this.state.project);
 
         commit(MutationTypes.SET_BIBTYPES, obj)
-        
+
         if( state.typeToEdit ) {
             commit(MutationTypes.SET_TYPE_TO_EDIT, state.typeToEdit.Name)
         }
@@ -78,6 +79,19 @@ export const actions: ActionTree<State, State> & Actions = {
         if( success ) {
             dispatch(ActionTypes.GET_PROJECTS);
             await router.push('/')
+        }
+
+    },
+
+    async [ActionTypes.SAVE_TYPE]({ commit, dispatch }, obj) {
+        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
+        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
+
+        const success = await SaveType(obj)
+
+        if( success ) {
+            dispatch(ActionTypes.GET_BIBTYPES);
+            state.initialType = JSON.parse(JSON.stringify(state.typeToEdit))
         }
 
     },

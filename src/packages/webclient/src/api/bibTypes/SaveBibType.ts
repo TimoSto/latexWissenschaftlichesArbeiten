@@ -1,15 +1,6 @@
 import {Field} from "@/api/bibTypes/BibType";
 
-export default async function SaveType(project: string, initialName: string, typeName: string, fields: Field[], citeFields: Field[]): Promise<boolean> {
-    const obj = JSON.stringify({
-        Project: project,
-        InitialName: initialName,
-        Type: {
-            Name: typeName,
-            Fields: fields,
-            CiteFields: citeFields
-        }
-    });
+export default async function SaveType(obj: string): Promise<boolean> {
 
     const resp = await fetch('/saveType', {
         method: 'POST',
