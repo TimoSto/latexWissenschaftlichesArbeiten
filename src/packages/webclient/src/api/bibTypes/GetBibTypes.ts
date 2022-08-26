@@ -16,7 +16,9 @@ export default async function GetBibTypes(proj: string): Promise<BibType[]> {
 
     obj.Types.forEach( (bibType: BibType) => {
 
-        bibType.Model = GenerateModelForBibType(bibType)
+        bibType.Model = GenerateModelForBibType(bibType.Fields);
+
+        bibType.CiteModel = GenerateModelForBibType(bibType.CiteFields);
     } )
 
     return obj.Types

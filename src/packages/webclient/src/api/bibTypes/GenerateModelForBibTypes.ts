@@ -1,8 +1,8 @@
 import {BibType, Field} from "@/api/bibTypes/BibType";
 
-export function GenerateModelForBibType(bibType: BibType): string{
+export function GenerateModelForBibType(fields: Field[]): string{
     let model = '';
-    bibType.Fields.forEach( (field: Field) => {
+    fields.forEach( (field: Field) => {
 
         model += field.Prefix
 

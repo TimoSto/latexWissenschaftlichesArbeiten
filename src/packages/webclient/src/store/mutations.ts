@@ -26,7 +26,10 @@ export const mutations: MutationTree<State> & Mutations = {
         state.bibEntries = payload
     },
     [MutationTypes.UPDATE_MODEL_FOR_TYPE](state) {
-        state.typeToEdit.Model = GenerateModelForBibType(state.typeToEdit);
+        state.typeToEdit.Model = GenerateModelForBibType(state.typeToEdit.Fields);
+    },
+    [MutationTypes.UPDATE_CITE_MODEL_FOR_TYPE](state) {
+        state.typeToEdit.CiteModel = GenerateModelForBibType(state.typeToEdit.CiteFields);
     },
     [MutationTypes.SET_TYPE_TO_EDIT](state, payload: string) {
         state.bibTypes.forEach(bType => {
@@ -39,8 +42,19 @@ export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.RM_BIB_ATTR](state, payload: number) {
         state.typeToEdit.Fields.splice(payload, 1)
     },
+    [MutationTypes.RM_CITE_ATTR](state, payload: number) {
+        state.typeToEdit.CiteFields.splice(payload, 1)
+    },
     [MutationTypes.ADD_BIB_ATTR](state) {
         state.typeToEdit.Fields.push(<Field>{
+            Field: '',
+            Style: 'normal',
+            Prefix: '',
+            Suffix: ''
+        });
+    },
+    [MutationTypes.ADD_CITE_ATTR](state) {
+        state.typeToEdit.CiteFields.push(<Field>{
             Field: '',
             Style: 'normal',
             Prefix: '',

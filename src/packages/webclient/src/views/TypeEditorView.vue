@@ -45,14 +45,14 @@
             Zitate konfigurieren
           </v-expansion-panel-header>
           <v-expansion-panel-content>
-<!--            <v-expansion-panels v-model="citepanel" multiple accordion flat hover tile>-->
-<!--              <v-expansion-panel v-for="(field, i) in BibType.CiteFields" :key="'citeFields' + i">-->
-<!--                <v-expansion-panel-header ripple>-->
-<!--                  {{ field.Field }}-->
-<!--                </v-expansion-panel-header>-->
-<!--                <v-expansion-panel-content></v-expansion-panel-content>-->
-<!--              </v-expansion-panel>-->
-<!--            </v-expansion-panels>-->
+            <p><b>Beispiel:</b> <span v-html="this.$store.state.typeToEdit.CiteModel"></span></p>
+            <MyDataTable
+                keyprefix="bib"
+                :fields="this.$store.state.typeToEdit.CiteFields"
+                v-on:changed="HandleChangeInCiteFields"
+                v-on:removed="RemoveCiteAttr($event)"
+                v-on:added="AddCiteAttr"
+            />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -108,7 +108,17 @@ export default Vue.extend({
     },
     AddBibAttr() {
       this.$store.commit(MutationTypes.ADD_BIB_ATTR);
-    }
+    },
+    HandleChangeInCiteFields() {
+      this.$store.commit(MutationTypes.UPDATE_CITE_MODEL_FOR_TYPE)
+    },
+    RemoveCiteAttr(n: number) {
+      this.$store.commit(MutationTypes.RM_CITE_ATTR, n);
+      this.$store.commit(MutationTypes.UPDATE_CITE_MODEL_FOR_TYPE);
+    },
+    AddCiteAttr() {
+      this.$store.commit(MutationTypes.ADD_CITE_ATTR);
+    },
   },
 });
 </script>

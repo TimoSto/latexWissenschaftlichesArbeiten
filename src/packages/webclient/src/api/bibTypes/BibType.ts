@@ -6,6 +6,7 @@ export type BibType = {
     CiteFields: Field[]
     Example: string//TODO: rm in backend
     Model: string
+    CiteModel: string
 }
 
 export type Field = {
