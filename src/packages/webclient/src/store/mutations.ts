@@ -24,7 +24,7 @@ export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.SET_BIBENTRIES](state, payload: BibEntry[]) {
         state.bibEntries = payload
     },
-    [MutationTypes.UPDATE_MODEL_FOR_TYPE](state, payload: string) {
+    [MutationTypes.UPDATE_MODEL_FOR_TYPE](state) {
         state.typeToEdit.Model = GenerateModelForBibType(state.typeToEdit);
     },
     [MutationTypes.SET_TYPE_TO_EDIT](state, payload: string) {

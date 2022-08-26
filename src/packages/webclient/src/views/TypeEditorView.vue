@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar color="background" elevate-on-scroll scroll-target="#scrolling-techniques-7" z-index="100">
-      <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{TypeName}}</span></v-toolbar-title>
+      <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{this.$store.state.initialType.Name}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon :disabled="!changesToSave">
         <v-icon>mdi-content-save</v-icon>
@@ -18,7 +18,7 @@
               sm="8"
               md="4"
           >
-            <v-text-field v-model="TypeName" label="Bezeichnung" filled></v-text-field>
+            <v-text-field v-model="$store.state.typeToEdit.Name" label="Bezeichnung" filled></v-text-field>
           </v-col>
         </v-row>
       </v-container>
@@ -29,11 +29,11 @@
             Literatureintrag konfigurieren
           </v-expansion-panel-header>
           <v-expansion-panel-content style="padding-top: 8px">
-            <p><b>Beispiel:</b> <span v-html="BibType.Model"></span></p>
+            <p><b>Beispiel:</b> <span v-html="this.$store.state.typeToEdit.Model"></span></p>
             <v-simple-table
             >
               <v-data-table-header :headers="headers" disable-sort/>
-              <tr v-for="(field,i) in BibType.Fields" :key="'typeEdit'+i" class="editableTableRow">
+              <tr v-for="(field,i) in this.$store.state.typeToEdit.Fields" :key="'typeEdit'+i" class="editableTableRow">
                 <td>
                   <v-text-field
                       v-model="field.Field"
@@ -135,28 +135,28 @@ export default Vue.extend({
 
   computed: {
     changesToSave(): boolean {
-      return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.BibType)
+      return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.$store.state.typeToEdit)
     },
-    TypeName(): string {
-      return this.name
-    },
-    BibType: {
-      get (): BibType {
-        return this.$store.state.typeToEdit;
-      },
-      set (value: BibType) {
-        this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName)
-      }
-    }
+    // TypeName(): string {
+    //   return this.$store.state.typeToEdit.Name
+    // },
+    // BibType: {
+    //   get (): BibType {
+    //     return this.$store.state.typeToEdit;
+    //   },
+    //   set (value: BibType) {
+    //     this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName)
+    //   }
+    // }
   },
 
   methods: {
     HandleChangeInBibFields() {
-      this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName)
+      this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE)
     },
     RemoveBibAttr(n: number) {
       this.$store.commit(MutationTypes.RM_BIB_ATTR, n);
-      this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName);
+      this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE);
     },
   },
 });
