@@ -142,14 +142,7 @@ export default Vue.extend({
     },
     BibType: {
       get (): BibType {
-        let ttR: BibType = {} as BibType;
-        this.$vStore.state.bibTypes.forEach(bType => {
-          if (bType.Name == this.TypeName) {
-            console.log(bType.Fields)
-            ttR = bType;
-          }
-        });
-        return ttR;
+        return this.$store.state.typeToEdit;
       },
       set (value: BibType) {
         this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName)
@@ -164,11 +157,8 @@ export default Vue.extend({
     RemoveBibAttr(n: number) {
       this.$store.commit(MutationTypes.RM_BIB_ATTR, n);
       this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName);
-    }
-    // HandleChangeInCiteFields() {
-    //
-    // }
-  }
+    },
+  },
 });
 </script>
 

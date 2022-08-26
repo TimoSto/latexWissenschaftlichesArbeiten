@@ -111,4 +111,8 @@ main.v-content {
 .theme--dark.v-text-field.v-input--is-disabled .v-input__slot::before{
   border-image: none!important;
 }
+.theme--light.v-text-field:not(.v-input--has-state):hover > .v-input__control > .v-input__slot:before,
+.theme--dark.v-text-field:not(.v-input--has-state):hover > .v-input__control > .v-input__slot:before {
+  border-color: inherit!important;
+}
 </style>

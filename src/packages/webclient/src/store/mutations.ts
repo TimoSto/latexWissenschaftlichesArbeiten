@@ -25,25 +25,17 @@ export const mutations: MutationTree<State> & Mutations = {
         state.bibEntries = payload
     },
     [MutationTypes.UPDATE_MODEL_FOR_TYPE](state, payload: string) {
-        state.bibTypes.forEach((bType, i) => {
-            if( bType.Name === payload ) {
-                state.bibTypes[i].Model = GenerateModelForBibType(bType);
-            }
-        })
+        state.typeToEdit.Model = GenerateModelForBibType(state.typeToEdit);
     },
     [MutationTypes.SET_TYPE_TO_EDIT](state, payload: string) {
-        state.typeToEdit = payload;
         state.bibTypes.forEach(bType => {
-            if( bType.Name === state.typeToEdit ) {
-                state.initialType = JSON.parse(JSON.stringify(bType))
+            if( bType.Name === payload ) {
+                state.typeToEdit = JSON.parse(JSON.stringify(bType));
+                state.initialType = JSON.parse(JSON.stringify(bType));
             }
         });
     },
     [MutationTypes.RM_BIB_ATTR](state, payload: number) {
-        state.bibTypes.forEach(bType => {
-            if( bType.Name === state.typeToEdit ) {
-                bType.Fields.splice(payload, 1)
-            }
-        });
+        state.typeToEdit.Fields.splice(payload, 1)
     }
 };

@@ -7,7 +7,7 @@ export const state = {
     projects: <string[]>[],
     bibTypes: <BibType[]>[],
     bibEntries: <BibEntry[]>[],
-    typeToEdit: <string>'',
+    typeToEdit: <BibType>{},
     initialType: <BibType>{}
 };
 
