@@ -11,7 +11,7 @@
       </v-btn>
     </v-app-bar>
     <v-sheet style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0" id="scrolling-techniques-7">
-      <v-container style="padding-bottom: 0">
+      <v-container style="height: 120px; padding-top: 30px;">
         <v-row>
           <v-col
               cols="16"
@@ -28,7 +28,7 @@
           <v-expansion-panel-header ripple>
             Literaturverzeichnis
           </v-expansion-panel-header>
-          <v-expansion-panel-content>
+          <v-expansion-panel-content style="padding-top: 8px">
             <p><b>Beispiel:</b> <span v-html="BibType.Model"></span></p>
             <v-simple-table
             >
