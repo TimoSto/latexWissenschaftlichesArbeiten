@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar elevation="0" color="background">
+    <v-app-bar color="background" elevate-on-scroll scroll-target="#scrolling-techniques-7" z-index="100">
       <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{TypeName}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon :disabled="!changesToSave">
@@ -10,7 +10,7 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0">
+    <v-sheet style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0" id="scrolling-techniques-7">
       <v-container style="padding-bottom: 0">
         <v-row>
           <v-col
@@ -70,7 +70,7 @@
                   </v-btn>
                 </td>
               </tr>
-              <tr class="editableTableRow" style="border-top: 1px solid var(--v-primary-base)">
+              <tr class="editableTableRow">
                 <td>
                   <v-text-field disabled placeholder="Attribut"></v-text-field>
                 </td>
@@ -109,7 +109,7 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
-    </v-main>
+    </v-sheet>
   </div>
 </template>
 

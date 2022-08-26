@@ -115,4 +115,11 @@ main.v-content {
 .theme--dark.v-text-field:not(.v-input--has-state):hover > .v-input__control > .v-input__slot:before {
   border-color: inherit!important;
 }
+
+.theme--light.v-sheet.v-app-bar.v-toolbar:not(.v-sheet--outlined) {
+  box-shadow: 0px 2px 0px 0px rgb(0 0 0 / 20%), 0px 4px 5px -5px rgb(0 0 0 / 14%), 0px 1px 10px -10px rgb(0 0 0 / 12%);
+}
+.theme--dark.v-sheet.v-app-bar.v-toolbar:not(.v-sheet--outlined) {
+  box-shadow: 0px 2px 4px -4px rgba(255, 255,255, 0.2), 0px 4px 5px -5px rgba(0255, 255, 255 , 0.14), 0px 1px 10px -10px rgba(255, 255, 255, 0.12);
+}
 </style>

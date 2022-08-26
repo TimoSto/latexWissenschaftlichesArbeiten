@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%; display: flex; flex-flow: column">
-    <v-app-bar elevation="0" color="background">
+    <v-app-bar elevate-on-scroll color="background" scroll-target="#scroll1" style="z-index: 100">
       <v-toolbar-title>Projektansicht: <span class="font-weight-bold">{{ projectName }}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon title="Lokales Backup erstellen">
@@ -31,7 +31,7 @@
         </v-card>
       </v-dialog>
     </v-app-bar>
-    <v-main style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0">
+    <v-sheet style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0" id="scroll1">
       <DragNDropZone />
       <v-expansion-panels  v-model="panel" multiple accordion flat hover tile>
         <v-expansion-panel>
@@ -78,7 +78,7 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
-    </v-main>
+    </v-sheet>
   </div>
 </template>
 
