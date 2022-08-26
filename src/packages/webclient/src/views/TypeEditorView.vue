@@ -84,7 +84,7 @@
                   <v-text-field disabled placeholder="Suffix"></v-text-field>
                 </td>
                 <td>
-                  <v-btn icon>
+                  <v-btn icon @click="AddBibAttr">
                     <v-icon>mdi-plus</v-icon>
                   </v-btn>
                 </td>
@@ -158,6 +158,9 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.RM_BIB_ATTR, n);
       this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE);
     },
+    AddBibAttr() {
+      this.$store.commit(MutationTypes.ADD_BIB_ATTR);
+    }
   },
 });
 </script>

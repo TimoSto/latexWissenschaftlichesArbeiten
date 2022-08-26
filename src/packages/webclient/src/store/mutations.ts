@@ -6,6 +6,7 @@ import {BibEntry} from "@/api/bibEntries/BibEntry";
 import router from "@/router";
 import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
 import {getters} from "@/store/getters";
+import Field from "../../../gui/scripts/Field";
 export type Mutations<S = State> = {
     [MutationTypes.SET_PROJECT](state: S, payload: string): void;
     [MutationTypes.SET_PROJECTS](state: S, payload: string[]): void;
@@ -37,5 +38,13 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.RM_BIB_ATTR](state, payload: number) {
         state.typeToEdit.Fields.splice(payload, 1)
+    },
+    [MutationTypes.ADD_BIB_ATTR](state) {
+        state.typeToEdit.Fields.push(<Field>{
+            Field: '',
+            Style: 'normal',
+            Prefix: '',
+            Suffix: ''
+        });
     }
 };
