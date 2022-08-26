@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar elevation="0" color="background">
-      <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{TypeName}}{{this.$store.state.initialType.Fields[0].Field}}</span></v-toolbar-title>
+      <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{TypeName}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon :disabled="!changesToSave">
         <v-icon>mdi-content-save</v-icon>
@@ -65,7 +65,7 @@
                       type="string" />
                 </td>
                 <td>
-                  <v-btn icon>
+                  <v-btn icon @click="RemoveBibAttr(i)">
                     <v-icon>mdi-minus</v-icon>
                   </v-btn>
                 </td>
@@ -161,6 +161,10 @@ export default Vue.extend({
     HandleChangeInBibFields() {
       this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName)
     },
+    RemoveBibAttr(n: number) {
+      this.$store.commit(MutationTypes.RM_BIB_ATTR, n);
+      this.$store.commit(MutationTypes.UPDATE_MODEL_FOR_TYPE, this.TypeName);
+    }
     // HandleChangeInCiteFields() {
     //
     // }

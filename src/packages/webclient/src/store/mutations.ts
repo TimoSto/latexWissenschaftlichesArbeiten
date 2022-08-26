@@ -39,4 +39,11 @@ export const mutations: MutationTree<State> & Mutations = {
             }
         });
     },
+    [MutationTypes.RM_BIB_ATTR](state, payload: number) {
+        state.bibTypes.forEach(bType => {
+            if( bType.Name === state.typeToEdit ) {
+                bType.Fields.splice(payload, 1)
+            }
+        });
+    }
 };

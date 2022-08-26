@@ -98,7 +98,6 @@ main.v-content {
   max-height: calc(100vh - 64px);
   flex-direction: column;
   overflow-y: auto;
-  margin-top: 64px;
   padding: 0 !important;
   margin: 0;
 }
