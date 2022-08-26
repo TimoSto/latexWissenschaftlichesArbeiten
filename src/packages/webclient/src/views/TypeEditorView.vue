@@ -6,7 +6,7 @@
       <v-btn icon :disabled="!changesToSave" @click="SaveThisType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
-      <v-btn icon @click="$emit('closeEditor')">
+      <v-btn icon @click="CloseEditor">
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-app-bar>
@@ -57,6 +57,35 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </v-sheet>
+    <v-dialog v-model="unsafeClose" width="500">
+      <v-card>
+        <v-card-title class="text-h5">
+          Es liegen ungespeicherte Änderungen vor.
+        </v-card-title>
+
+        <v-card-text>
+          Möchtest du den Editor wirklich verlassen?
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+              color="primary"
+              text
+              @click="unsafeClose = false"
+          >
+            Nein
+          </v-btn>
+          <v-btn
+              color="primary"
+              text
+              @click="$emit('closeEditor')"
+          >
+            Ja
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -80,6 +109,7 @@ export default Vue.extend({
       panel: [0,1],
       headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}, ``],
       fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}],
+      unsafeClose: false
     }
   },
 
@@ -133,6 +163,13 @@ export default Vue.extend({
       });
 
       this.$store.dispatch(ActionTypes.SAVE_TYPE, obj);
+    },
+    CloseEditor() {
+      if( this.changesToSave ) {
+        this.$data.unsafeClose = true;
+      } else {
+        this.$emit('closeEditor')
+      }
     }
   },
 });
