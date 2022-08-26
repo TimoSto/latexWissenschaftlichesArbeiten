@@ -68,8 +68,20 @@ export default Vue.extend({
     this.$store.dispatch('GET_PROJECTS');
   },
   computed: {
-    projects: function(): string[]{
+    projects: function (): string[] {
       return this.$vStore.state.projects;
+    },
+    dark(): boolean {
+      return this.$vuetify.theme.dark;
+    },
+  },
+  watch: {
+    dark(isDark) {
+      if( isDark ) {
+        document.head.insertAdjacentHTML('beforeend',`<style id="dark">:root{color-scheme: dark;}</style>`)
+      } else {
+        document.getElementById('dark')?.remove();
+      }
     }
   }
 });
