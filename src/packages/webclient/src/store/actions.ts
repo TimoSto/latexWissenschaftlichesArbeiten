@@ -27,16 +27,12 @@ export interface Actions {
 
 export const actions: ActionTree<State, State> & Actions = {
     async [ActionTypes.GET_PROJECTS]({ commit }, payload) {
-        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
-        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
 
         const obj = await GetProjects();
 
         commit(MutationTypes.SET_PROJECTS, obj)
     },
     async [ActionTypes.GET_BIBTYPES]({ commit }, payload) {
-        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
-        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
 
         const obj = await GetBibTypes(this.state.project);
 
@@ -47,16 +43,12 @@ export const actions: ActionTree<State, State> & Actions = {
         }
     },
     async [ActionTypes.GET_BIBENTRIES]({ commit }, payload) {
-        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
-        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
 
         const obj = await GetBibEntries(this.state.project);
 
         commit(MutationTypes.SET_BIBENTRIES, obj)
     },
     async [ActionTypes.CREATE_PROJECT]({ commit, dispatch }, payload) {
-        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
-        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
 
         const success = await CreateProject(payload)
 
@@ -71,8 +63,6 @@ export const actions: ActionTree<State, State> & Actions = {
     },
 
     async [ActionTypes.DELETE_PROJECT]({ commit, dispatch }, payload) {
-        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
-        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
 
         const success = await DeleteProject(payload)
 
@@ -84,8 +74,6 @@ export const actions: ActionTree<State, State> & Actions = {
     },
 
     async [ActionTypes.SAVE_TYPE]({ commit, dispatch }, obj) {
-        // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
-        // commit(MutationTypes.SET_SESSION, { id: sessionID, username: payload.username });
 
         const success = await SaveType(obj)
 
