@@ -26,7 +26,7 @@
       <v-expansion-panels v-model="panel" multiple accordion flat hover tile>
         <v-expansion-panel>
           <v-expansion-panel-header ripple>
-            Literaturverzeichnis
+            Literatureintrag konfigurieren
           </v-expansion-panel-header>
           <v-expansion-panel-content style="padding-top: 8px">
             <p><b>Beispiel:</b> <span v-html="BibType.Model"></span></p>
@@ -95,7 +95,7 @@
 
         <v-expansion-panel>
           <v-expansion-panel-header ripple>
-            Zitate
+            Zitate konfigurieren
           </v-expansion-panel-header>
           <v-expansion-panel-content>
 <!--            <v-expansion-panels v-model="citepanel" multiple accordion flat hover tile>-->
