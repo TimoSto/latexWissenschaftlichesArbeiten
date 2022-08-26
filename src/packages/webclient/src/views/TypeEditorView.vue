@@ -26,7 +26,7 @@
       <v-expansion-panels v-model="panel" multiple accordion flat hover tile>
         <v-expansion-panel>
           <v-expansion-panel-header ripple>
-            Literatureintrag konfigurieren
+            Literatureinträge konfigurieren
           </v-expansion-panel-header>
           <v-expansion-panel-content style="padding-top: 8px">
             <p><b>Beispiel:</b> <span v-html="this.$store.state.typeToEdit.Model"></span></p>
