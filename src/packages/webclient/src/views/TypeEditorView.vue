@@ -30,66 +30,13 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content style="padding-top: 8px">
             <p><b>Beispiel:</b> <span v-html="this.$store.state.typeToEdit.Model"></span></p>
-            <v-simple-table
-            >
-              <v-data-table-header :headers="headers" disable-sort/>
-              <tr v-for="(field,i) in this.$store.state.typeToEdit.Fields" :key="'typeEdit'+i" class="editableTableRow">
-                <td>
-                  <v-text-field
-                      v-model="field.Field"
-                      name="Attribut"
-                      @input="HandleChangeInBibFields"
-                      type="string" />
-                </td>
-                <td>
-                  <v-select
-                      v-model="field.Style"
-                      :items="fontStyles"
-                      name="Style"
-                      @input="HandleChangeInBibFields"
-                      :menu-props="{ bottom: true, offsetY: true }"
-                  ></v-select>
-                </td>
-                <td>
-                  <v-text-field
-                      v-model="field.Prefix"
-                      name="Prefix"
-                      @input="HandleChangeInBibFields"
-                      type="string" />
-                </td>
-                <td>
-                  <v-text-field
-                      v-model="field.Suffix"
-                      name="Suffix"
-                      @input="HandleChangeInBibFields"
-                      type="string" />
-                </td>
-                <td>
-                  <v-btn icon @click="RemoveBibAttr(i)">
-                    <v-icon>mdi-minus</v-icon>
-                  </v-btn>
-                </td>
-              </tr>
-              <tr class="editableTableRow">
-                <td>
-                  <v-text-field disabled placeholder="Attribut"></v-text-field>
-                </td>
-                <td>
-                  <v-select disabled placeholder="Style"></v-select>
-                </td>
-                <td>
-                  <v-text-field disabled placeholder="Prefix"></v-text-field>
-                </td>
-                <td>
-                  <v-text-field disabled placeholder="Suffix"></v-text-field>
-                </td>
-                <td>
-                  <v-btn icon @click="AddBibAttr">
-                    <v-icon>mdi-plus</v-icon>
-                  </v-btn>
-                </td>
-              </tr>
-            </v-simple-table>
+            <MyDataTable
+                keyprefix="bib"
+                :fields="this.$store.state.typeToEdit.Fields"
+                v-on:changed="HandleChangeInBibFields"
+                v-on:removed="RemoveBibAttr($event)"
+                v-on:added="AddBibAttr"
+            />
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -117,10 +64,11 @@
 import Vue from "vue";
 import {BibType} from "@/api/bibTypes/BibType";
 import {MutationTypes} from "@/store/mutation-types";
+import MyDataTable from "@/components/MyDataTable.vue";
 
 export default Vue.extend({
   name: "TypeEditor-View",
-
+  components: {MyDataTable},
   props: [
       'name'
   ],
