@@ -3,7 +3,7 @@
     <v-app-bar color="background" elevate-on-scroll scroll-target="#scrolling-techniques-7" z-index="100">
       <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{this.$store.state.initialType.Name}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon :disabled="!changesToSave">
+      <v-btn icon :disabled="!changesToSave" @click="SaveThisType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon @click="$emit('closeEditor')">
@@ -65,6 +65,8 @@ import Vue from "vue";
 import {BibType} from "@/api/bibTypes/BibType";
 import {MutationTypes} from "@/store/mutation-types";
 import MyDataTable from "@/components/MyDataTable.vue";
+import SaveType from "@/api/bibTypes/SaveBibType";
+import {ActionTypes} from "@/store/action-types";
 
 export default Vue.extend({
   name: "TypeEditor-View",
@@ -119,6 +121,13 @@ export default Vue.extend({
     AddCiteAttr() {
       this.$store.commit(MutationTypes.ADD_CITE_ATTR);
     },
+    SaveThisType() {
+      SaveType(this.$store.state.project, this.$store.state.initialType.Name, this.$store.state.typeToEdit.Name, this.$store.state.typeToEdit.Fields, this.$store.state.typeToEdit.CiteFields).then(success => {
+        if( success ) {
+          this.$store.dispatch(ActionTypes.GET_BIBTYPES);
+        }
+      })
+    }
   },
 });
 </script>

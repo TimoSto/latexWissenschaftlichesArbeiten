@@ -1,5 +1,5 @@
 import { ActionTree, ActionContext } from 'vuex';
-import { State } from './state';
+import {state, State} from './state';
 import { Mutations } from './mutations';
 import { ActionTypes } from "@/store/action-types";
 import {MutationTypes} from "@/store/mutation-types";
@@ -40,6 +40,10 @@ export const actions: ActionTree<State, State> & Actions = {
         const obj = await GetBibTypes(this.state.project);
 
         commit(MutationTypes.SET_BIBTYPES, obj)
+        
+        if( state.typeToEdit ) {
+            commit(MutationTypes.SET_TYPE_TO_EDIT, state.typeToEdit.Name)
+        }
     },
     async [ActionTypes.GET_BIBENTRIES]({ commit }, payload) {
         // const sessionID = await loginUser(payload.username, payload.password, payload.rememberMe);
