@@ -140,10 +140,4 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import '../styles/fixesForDark.scss';
-
-.editableTableRow {
-  & td {
-    padding: 0 8px;
-  }
-}
 </style>

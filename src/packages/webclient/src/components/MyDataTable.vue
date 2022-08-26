@@ -91,6 +91,10 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.editableTableRow {
+  & td {
+    padding: 0 8px;
+  }
+}
 </style>
