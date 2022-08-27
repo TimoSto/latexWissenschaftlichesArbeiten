@@ -26,7 +26,7 @@
 
     computed: {
       editorOpen() {
-        return !!this.$store.state.typeToEdit.Name
+        return !!this.$store.state.typeToEdit.Name || this.$store.state.typeToEdit.Name == ''
       },
       editorName() {
         return this.$store.state.typeToEdit.Name

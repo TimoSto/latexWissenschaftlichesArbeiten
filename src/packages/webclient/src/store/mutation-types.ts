@@ -10,4 +10,5 @@ export enum MutationTypes {
     RM_CITE_ATTR = 'RM_CITE_ATTR',
     ADD_BIB_ATTR = 'ADD_BIB_ATTR',
     ADD_CITE_ATTR = 'ADD_CITE_ATTR',
+    NEW_TYPE = 'NEW_TYPE'
 }

@@ -66,5 +66,12 @@ export const mutations: MutationTree<State> & Mutations = {
             Prefix: '',
             Suffix: ''
         });
+    },
+    [MutationTypes.NEW_TYPE](state){
+        state.typeToEdit = <BibType>{
+            Name: '',
+            Fields: <Field[]>[],
+            CiteFields: <Field[]>[],
+        }
     }
 };

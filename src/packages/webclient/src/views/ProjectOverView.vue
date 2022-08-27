@@ -88,6 +88,7 @@
   import { BibType } from '@/api/bibTypes/BibType';
   import {BibEntry} from "@/api/bibEntries/BibEntry";
   import {ActionTypes} from "@/store/action-types";
+  import {MutationTypes} from "@/store/mutation-types";
 
   export default Vue.extend({
     name: 'Project-OverView',
@@ -119,7 +120,6 @@
       },
 
       deleteProject() {
-        console.log('del', this.projectName);
         this.$store.dispatch(ActionTypes.DELETE_PROJECT, this.projectName);
       },
 
@@ -128,7 +128,7 @@
       },
 
       newType() {
-        this.$emit('newType', '/new');
+        this.$store.commit(MutationTypes.NEW_TYPE)
       }
     },
 
