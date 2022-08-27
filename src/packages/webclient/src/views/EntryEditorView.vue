@@ -115,7 +115,7 @@ export default Vue.extend({
       currentWithoutPreview.BibPreview = '';
       currentWithoutPreview.CitePreview = '';
 
-      return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
+      return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry) && !!this.$store.state.entryToEdit.Key && this.$store.state.entryToEdit.Key.length > 0 && !!this.$store.state.entryToEdit.Typ
     }
   },
 
