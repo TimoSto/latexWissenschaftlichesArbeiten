@@ -18,7 +18,7 @@
               sm="8"
               md="4"
           >
-            <v-text-field v-model="$store.state.typeToEdit.Name" label="Bezeichnung" filled></v-text-field>
+            <v-text-field v-model="$store.state.typeToEdit.Name" label="Bezeichnung" filled :rules="rules"></v-text-field>
           </v-col>
         </v-row>
       </v-container>
@@ -82,7 +82,10 @@ export default Vue.extend({
       panel: [0,1],
       headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}, ``],
       fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}],
-      unsafeClose: false
+      unsafeClose: false,
+      rules: [
+        (value: any) => !!value || 'Pflichtfeld',
+      ]
     }
   },
 
