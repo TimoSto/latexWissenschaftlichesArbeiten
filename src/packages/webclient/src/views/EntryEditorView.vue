@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar color="background" elevate-on-scroll scroll-target="#scroll3" z-index="100">
-      <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{this.$store.state.initialEntry.Key}}</span></v-toolbar-title>
+      <v-toolbar-title>Literatureintrag: <span class="font-weight-bold">{{this.$store.state.initialEntry.Key}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>mdi-content-save</v-icon>
@@ -20,7 +20,18 @@
           >
             <v-text-field v-model="$store.state.entryToEdit.Key" label="ID" filled></v-text-field>
           </v-col>
+          <v-col
+              cols="16"
+              sm="8"
+              md="4"
+          >
+            <v-text-field v-model="$store.state.entryToEdit.Typ" label="Literaturtyp" filled></v-text-field>
+          </v-col>
         </v-row>
+      </v-container>
+      <v-container class="display">
+        <p><span style="font-weight: bold">Literatureintrag: </span></p>
+        <p><span style="font-weight: bold">Zitat: </span></p>
       </v-container>
     </v-sheet>
 
@@ -52,4 +63,17 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import '../styles/fixesForDark.scss';
+
+.display{
+  width: 95%;
+  border-radius: 16px;
+  border: 3px solid;
+}
+
+.theme--light .display{
+  border-color: var(--v-accent-lighten4);
+}
+.theme--dark .display{
+  border-color: var(--v-accent-darken4);
+}
 </style>
