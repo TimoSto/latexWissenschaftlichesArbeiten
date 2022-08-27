@@ -1,5 +1,5 @@
 <template>
-  <v-simple-table
+  <v-simple-table style="max-width: 750px"
   >
     <v-data-table-header :headers="headers" disable-sort/>
     <tr v-for="(field,i) in fields" :key="keyprefix + 'edit' + i" class="editableTableRow">
