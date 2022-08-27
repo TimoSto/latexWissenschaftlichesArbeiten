@@ -9,9 +9,9 @@
           @click="toggleTwoThirds"
           :title="splitBtnContent[1]"
           v-if="editorOpen"
-          v-html="splitBtnContent[0]"
           style="font-size: 20px"
       >
+        <span v-html="splitBtnContent[0]"></span>
       </v-btn>
       <v-btn
           icon
