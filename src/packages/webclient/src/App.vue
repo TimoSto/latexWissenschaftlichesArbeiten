@@ -100,7 +100,7 @@ export default Vue.extend({
           'Wechsel zu 70:30-Layout'
       ]
     },
-    editorOpen() {
+    typeEditorOpen() {
       return !!this.$store.state.typeToEdit.Name || this.$store.state.typeToEdit.Name == ''
     }
   },

@@ -1,10 +1,10 @@
 <template>
   <div class="d-flex" :class="screenClass">
-    <div class="area area-left" :class="[editorOpen ? 'halfWidth' : 'fullWidth']">
-      <ProjectOverView v-on:editType="openEditor($event)" v-on:newType="openEditor($event)"/>
+    <div class="area area-left" :class="[typeEditorOpen ? 'halfWidth' : 'fullWidth']">
+      <ProjectOverView v-on:editType="openTypeEditor($event)" v-on:newType="openTypeEditor($event)"/>
     </div>
-    <div class="area area-right" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']">
-      <TypeEditorView v-if="editorOpen" :name="editorName" v-on:closeEditor="closeEditor"/>
+    <div class="area area-right" :class="[typeEditorOpen ? 'halfWidth' : 'zeroWidth']">
+      <TypeEditorView v-if="typeEditorOpen" :name="typeEditorName" v-on:closeEditor="closeTypeEditor"/>
     </div>
   </div>
 </template>
@@ -31,10 +31,10 @@
     },
 
     computed: {
-      editorOpen() {
+      typeEditorOpen() {
         return !!this.$store.state.typeToEdit.Name || this.$store.state.typeToEdit.Name == ''
       },
-      editorName() {
+      typeEditorName() {
         return this.$store.state.typeToEdit.Name
       },
       compScreenClass() {
@@ -43,10 +43,10 @@
     },
 
     methods: {
-      openEditor(evt: string) {
+      openTypeEditor(evt: string) {
         this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, evt);
       },
-      closeEditor() {
+      closeTypeEditor() {
         this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, '');
       }
     },

@@ -68,11 +68,14 @@
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-list two-line>
-              <v-list-item v-for="bEntry in bibEntries" :key="bEntry.Key" ripple two-line style="cursor: pointer">
+              <v-list-item v-for="bEntry in bibEntries" :key="bEntry.Key" ripple two-line style="cursor: pointer" @click="editEntry(bEntry.Key)">
                 <v-list-item-content>
                   <v-list-item-title>{{ bEntry.Fields[0] }} - {{ bEntry.Fields[1] }}</v-list-item-title>
                   <v-list-item-subtitle>{{ bEntry.Typ }} - {{ bEntry.Key }}</v-list-item-subtitle>
                 </v-list-item-content>
+                <v-list-item-avatar class="cite-count" :title="'Anzahl Zitate ' + bEntry.Key">
+                  {{bEntry.CiteNumber}}
+                </v-list-item-avatar>
               </v-list-item>
             </v-list>
           </v-expansion-panel-content>
@@ -129,6 +132,10 @@
 
       newType() {
         this.$store.commit(MutationTypes.NEW_TYPE)
+      },
+
+      editEntry(key: string) {
+        this.$emit('editEntry', key);
       }
     },
 
@@ -160,6 +167,23 @@ main.v-content {
   margin-top: 64px;
   padding: 0 !important;
   margin: 0;
+}
+
+.cite-count{
+  border-radius: 40px;
+  border-width: 3px;
+  border-style: solid;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.theme--light .cite-count{
+  border-color: var(--v-accent-lighten4);
+}
+
+.theme--dark .cite-count{
+  border-color: var(--v-accent-darken4);
 }
 
 //.v-expansion-panel-content::v-deep .v-expansion-panel-content__wrap {
