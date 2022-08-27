@@ -10,43 +10,48 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-sheet style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0" id="scroll3">
-      <v-container style="height: 120px; padding-top: 30px;">
-        <v-row>
-          <v-col
-              cols="16"
-              sm="8"
-              md="4"
-          >
-            <v-text-field v-model="$store.state.entryToEdit.Key" label="ID" filled></v-text-field>
-          </v-col>
-          <v-col
-              cols="16"
-              sm="8"
-              md="4"
-          >
-            <v-text-field v-model="$store.state.entryToEdit.Typ" label="Literaturtyp" filled></v-text-field>
-          </v-col>
-        </v-row>
-      </v-container>
-      <v-container class="display">
-        <p><span style="font-weight: bold">Literatureintrag: </span></p>
-        <p><span style="font-weight: bold">Zitat: </span></p>
-      </v-container>
-      <v-container>
-        <v-text-field
-            v-for="(field, i) in fields"
-            :key="'TF' + i" v-model="$store.state.entryToEdit.Fields[i]"
-            :label="field.Field"
-            filled
-        ></v-text-field>
-        <v-text-field
-            v-for="(field, i) in citeFields"
-            :key="'TF' + (i + fields.length)" v-model="$store.state.entryToEdit.Fields[i + fields.length]"
-            :label="field.Field"
-            filled
-        ></v-text-field>
-      </v-container>
+    <v-sheet style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0;" id="scroll3">
+      <div style="max-width: 800px">
+        <v-container style="height: 120px; padding-top: 30px;">
+          <v-row>
+            <v-col
+                cols="16"
+                sm="8"
+                md="4"
+            >
+              <v-text-field v-model="$store.state.entryToEdit.Key" label="ID" filled></v-text-field>
+            </v-col>
+            <v-col
+                cols="16"
+                sm="8"
+                md="4"
+            >
+              <v-text-field v-model="$store.state.entryToEdit.Typ" label="Literaturtyp" filled></v-text-field>
+            </v-col>
+          </v-row>
+        </v-container>
+        <v-container class="display">
+          <p><span style="font-weight: bold">Literatureintrag: </span></p>
+          <p><span style="font-weight: bold">Zitat: </span></p>
+        </v-container>
+        <v-container>
+          <v-text-field
+              class="three-in-a-row"
+              v-for="(field, i) in fields"
+              :key="'TF' + i" v-model="$store.state.entryToEdit.Fields[i]"
+              :label="field.Field"
+              filled
+          ></v-text-field>
+          <v-text-field
+              class="three-in-a-row"
+              v-for="(field, i) in citeFields"
+              :key="'TF' + (i + fields.length)" v-model="$store.state.entryToEdit.Fields[i + fields.length]"
+              :label="field.Field"
+              filled
+          ></v-text-field>
+        </v-container>
+      </div>
+
     </v-sheet>
 
   </div>
@@ -118,5 +123,11 @@ export default Vue.extend({
 }
 .theme--dark .display{
   border-color: var(--v-accent-darken4);
+}
+
+.three-in-a-row {
+  width: 33%;
+  float: left;
+  padding: 0 8px;
 }
 </style>
