@@ -3,7 +3,7 @@
     <v-app-bar color="background" elevate-on-scroll scroll-target="#scroll3" z-index="100">
       <v-toolbar-title>Literatureintrag: <span class="font-weight-bold">{{this.$store.state.initialEntry.Key}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-btn icon :disabled="!changesToSave">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon>
@@ -96,9 +96,7 @@ export default Vue.extend({
       let fields = [] as Field[];
       this.$store.state.bibTypes.forEach((bType: BibType) => {
         if( bType.Name === this.$store.state.entryToEdit.Typ ) {
-          console.log(bType.Fields)
           const fieldsInBib = bType.Fields.map(field => field.Field);
-          console.log(fieldsInBib);
           bType.CiteFields.forEach(field => {
             if ( fieldsInBib.indexOf(field.Field) === -1 ) {
               fields.push(field);
@@ -108,6 +106,13 @@ export default Vue.extend({
         }
       });
       return fields;
+    },
+    changesToSave() {
+      let currentWithoutPreview = JSON.parse(JSON.stringify(this.$store.state.entryToEdit));
+      currentWithoutPreview.BibPreview = undefined;
+      currentWithoutPreview.CitePreview = undefined;
+
+      return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
     }
   },
 
