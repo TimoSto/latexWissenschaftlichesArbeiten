@@ -19,7 +19,7 @@ export default async function GetBibTypes(proj: string): Promise<BibType[]> {
         bibType.Model = GenerateModelForBibType(bibType.Fields);
 
         bibType.CiteModel = GenerateModelForBibType(bibType.CiteFields);
-    } )
+    } );
 
     return obj.Types
 }

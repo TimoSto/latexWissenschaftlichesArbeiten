@@ -35,8 +35,15 @@
       </v-container>
       <v-container>
         <v-text-field
-            v-for="(field, i) in $store.state.entryToEdit.Fields"
-            :key="field" v-model="$store.state.entryToEdit.Fields[i]"
+            v-for="(field, i) in fields"
+            :key="'TF' + i" v-model="$store.state.entryToEdit.Fields[i]"
+            :label="field.Field"
+            filled
+        ></v-text-field>
+        <v-text-field
+            v-for="(field, i) in citeFields"
+            :key="'TF' + (i + fields.length)" v-model="$store.state.entryToEdit.Fields[i + fields.length]"
+            :label="field.Field"
             filled
         ></v-text-field>
       </v-container>
@@ -66,12 +73,23 @@ export default Vue.extend({
       this.$store.state.bibTypes.forEach((bType: BibType) => {
         if( bType.Name === this.$store.state.entryToEdit.Typ ) {
           fields = bType.Fields;
-          const fieldNames = fields.map((field: Field) => field.Field)
-          bType.CiteFields.forEach( (field: Field) => {
-            if( fieldNames.indexOf(field.Field) === -1 ) {
+        }
+      });
+      return fields;
+    },
+    citeFields(): Field[] {
+      let fields = [] as Field[];
+      this.$store.state.bibTypes.forEach((bType: BibType) => {
+        if( bType.Name === this.$store.state.entryToEdit.Typ ) {
+          console.log(bType.Fields)
+          const fieldsInBib = bType.Fields.map(field => field.Field);
+          console.log(fieldsInBib);
+          bType.CiteFields.forEach(field => {
+            if ( fieldsInBib.indexOf(field.Field) === -1 ) {
               fields.push(field);
+              console.log(field.Field, fields)
             }
-          });
+          })
         }
       });
       return fields;
