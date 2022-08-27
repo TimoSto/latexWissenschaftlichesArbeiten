@@ -135,5 +135,13 @@ export const mutations: MutationTree<State> & Mutations = {
             CitePreview: '',
             CiteNumber: 0
         }
+        state.initialEntry = <BibEntry>{
+            Key: '',
+            Typ: '',
+            Fields: <string[]>[],
+            BibPreview: '',
+            CitePreview: '',
+            CiteNumber: 0
+        }
     },
 };

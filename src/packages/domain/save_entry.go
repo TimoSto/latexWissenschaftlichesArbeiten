@@ -1,15 +1,16 @@
 package domain
 
 import (
-	"WA_LaTeX/src/packages/conf"
-	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"strings"
+
+	"WA_LaTeX/src/packages/conf"
+	"WA_LaTeX/src/tools/logger"
 )
 
-func SaveEntries(entries []BibEntry, project string, initialKeys []string) (error, int, int){
+func SaveEntries(entries []BibEntry, project string, initialKeys []string) (error, int, int) {
 
 	existingEntries, err := ReadBibEntries(project)
 	if err != nil {
@@ -23,16 +24,16 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 	added := 0
 	changed := 0
 
-	for n,entry := range entries {
+	for n, entry := range entries {
 
 		if len(entry.Fields) == 0 {
 			return fmt.Errorf("empty fields. You propably uploaded an invalid file."), 0, 0
 		}
 
 		found := false
-		for i:= 0 ; i<len(existingEntries) ; i++ {
+		for i := 0; i < len(existingEntries); i++ {
 			if strings.Compare(existingEntries[i].Key, initialKeys[n]) == 0 {
-				existingEntries[i] =  entry
+				existingEntries[i] = entry
 				found = true
 				changed++
 				break
@@ -41,7 +42,7 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 					logger.LogInfo(fmt.Sprintf("Entry with key %s already exists. Delete the old one or rename the new one.", entry.Key))
 					found = true
 				} else {
-					existingEntries[i] =  entry
+					existingEntries[i] = entry
 					found = true
 					changed++
 					break
@@ -62,7 +63,7 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 	if err != nil {
 		return err, 0, 0
 	}
-	err = ioutil.WriteFile("./projects/" + project +"/literatur.json", jsonStr, 0644)
+	err = ioutil.WriteFile("./projects/"+project+"/literatur.json", jsonStr, 0644)
 	if err != nil {
 
 		return err, 0, 0

@@ -115,7 +115,9 @@ export default Vue.extend({
       currentWithoutPreview.BibPreview = '';
       currentWithoutPreview.CitePreview = '';
 
-      return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry) && !!this.$store.state.entryToEdit.Key && this.$store.state.entryToEdit.Key.length > 0 && !!this.$store.state.entryToEdit.Typ
+      return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry) &&
+          !!this.$store.state.entryToEdit.Key && this.$store.state.entryToEdit.Key.length > 0 && !!this.$store.state.entryToEdit.Typ &&
+          this.$store.state.entryToEdit.Fields.length > 0 && this.$store.state.entryToEdit.Fields[0].length > 0
     }
   },
 
@@ -124,6 +126,7 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.UPDATE_PREVIEW);
     },
     saveEntry() {
+      console.log(this.$store.state.entryToEdit.Fields.length)
       const SaveObj = {
         InitialKey: this.$store.state.initialEntry.Key,
         Project: this.$store.state.project,
