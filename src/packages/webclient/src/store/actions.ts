@@ -10,6 +10,8 @@ import CreateProject from "@/api/projects/CreateProject";
 import router from "@/router";
 import DeleteProject from "@/api/projects/DeleteProject";
 import SaveType from "@/api/bibTypes/SaveBibType";
+import {BibEntry} from "@/api/bibEntries/BibEntry";
+import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -80,6 +82,19 @@ export const actions: ActionTree<State, State> & Actions = {
         if( success ) {
             dispatch(ActionTypes.GET_BIBTYPES);
             state.initialType = JSON.parse(JSON.stringify(state.typeToEdit))
+        }
+
+    },
+
+    async [ActionTypes.SAVE_ENTRY]({ commit, dispatch }, obj) {
+
+        const success = await SaveBibEntry(obj)
+
+        if( success ) {
+            dispatch(ActionTypes.GET_BIBENTRIES);
+            state.initialEntry = JSON.parse(JSON.stringify(state.entryToEdit))
+            state.initialEntry.BibPreview = '';
+            state.initialEntry.CitePreview = '';
         }
 
     },

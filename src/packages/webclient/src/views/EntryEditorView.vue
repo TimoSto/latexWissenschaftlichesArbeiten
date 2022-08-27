@@ -73,6 +73,7 @@ import {state} from "@/store/state";
 import { MutationTypes } from "@/store/mutation-types";
 import SaveEntry from "../../../gui/scripts/SaveEntry";
 import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
+import { ActionTypes } from "@/store/action-types";
 
 export default Vue.extend({
   name: "EntryEditor-View",
@@ -111,8 +112,8 @@ export default Vue.extend({
     },
     changesToSave() {
       let currentWithoutPreview = JSON.parse(JSON.stringify(this.$store.state.entryToEdit));
-      currentWithoutPreview.BibPreview = undefined;
-      currentWithoutPreview.CitePreview = undefined;
+      currentWithoutPreview.BibPreview = '';
+      currentWithoutPreview.CitePreview = '';
 
       return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
     }
@@ -123,9 +124,18 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.UPDATE_PREVIEW);
     },
     saveEntry() {
-      SaveBibEntry(this.$store.state.entryToEdit, this.$store.state.initialEntry.Key, this.$store.state.project).then(success => {
-        console.log(success);
-      })
+      const SaveObj = {
+        InitialKey: this.$store.state.initialEntry.Key,
+        Project: this.$store.state.project,
+        Entry: {
+          Key: this.$store.state.entryToEdit.Key,
+          Typ: this.$store.state.entryToEdit.Typ,
+          Fields: this.$store.state.entryToEdit.Fields,
+        }
+      }
+
+      const jsonObj = JSON.stringify(SaveObj);
+      this.$store.dispatch(ActionTypes.SAVE_ENTRY, jsonObj);
     }
   }
 });

@@ -109,6 +109,8 @@ export const mutations: MutationTree<State> & Mutations = {
                 if( bEntry.Key === payload ) {
                     state.entryToEdit = JSON.parse(JSON.stringify(bEntry));
                     state.initialEntry = JSON.parse(JSON.stringify(bEntry));
+                    state.initialEntry.BibPreview = '';
+                    state.initialEntry.CitePreview = '';
                 }
             });
         }
