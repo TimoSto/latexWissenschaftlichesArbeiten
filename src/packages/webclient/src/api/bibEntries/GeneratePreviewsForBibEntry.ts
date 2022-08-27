@@ -32,6 +32,7 @@ export default function GeneratePreviewsForBibEntry(bibFields: Field[], citeFiel
     let citePreview = '';
     const bib = bibFields.map(field=>field.Field);
 
+    let foundInBib = 0;
     citeFields.forEach((field, i) => {
         citePreview += field.Prefix
 
@@ -46,9 +47,10 @@ export default function GeneratePreviewsForBibEntry(bibFields: Field[], citeFiel
 
         const indInBib = bib.indexOf(field.Field);
         if( indInBib >= 0 ) {
-            citePreview += values[indInBib]
+            citePreview += values[indInBib];
+            foundInBib++;
         } else {
-            citePreview += values[bibFields.length  + i]
+            citePreview += values[bibFields.length  + i - foundInBib]
         }
 
         switch (field.Style) {
