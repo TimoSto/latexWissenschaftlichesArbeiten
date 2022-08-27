@@ -1,30 +1,32 @@
 package handlers
 
 import (
-	"WA_LaTeX/src/packages/domain"
-	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"strings"
+
+	"WA_LaTeX/src/packages/domain"
+	"WA_LaTeX/src/tools/logger"
 )
 
 type ValuePair struct {
 	Value string
-	Attr string
+	Attr  string
 }
 
 type EntrySave struct {
 	InitialKey string
 	ValuePairs []ValuePair
-	Typ string
-	Key string
-	Comment string
+	Typ        string
+	Key        string
+	Comment    string
 }
 
 type SaveEntryObj struct {
-	Entry EntrySave
-	Project string
+	Entry      domain.BibEntry
+	Project    string
+	InitialKey string
 }
 
 func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
@@ -37,15 +39,10 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	entry := domain.BibEntry{
-		Key:             saveObj.Entry.Key,
-		Typ:             saveObj.Entry.Typ,
-		Fields: []string{},
+		Key:     saveObj.Entry.Key,
+		Typ:     saveObj.Entry.Typ,
+		Fields:  saveObj.Entry.Fields,
 		Comment: saveObj.Entry.Comment,
-	}
-
-	for i:=0 ; i<len(saveObj.Entry.ValuePairs) ; i++ {
-
-		entry.Fields = append(entry.Fields, saveObj.Entry.ValuePairs[i].Value)
 	}
 
 	entries := []domain.BibEntry{
@@ -53,26 +50,29 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 	}
 
 	initialKeys := []string{
-		saveObj.Entry.InitialKey,
+		saveObj.InitialKey,
 	}
 
 	err, added, changed := domain.SaveEntries(entries, saveObj.Project, initialKeys)
 	if err != nil {
 		logger.LogError("Saving entries", err.Error())
 		if strings.Contains(err.Error(), "already exists") {
-			http.Error(w,err.Error(),400)
+			http.Error(w, err.Error(), 400)
 		} else {
-			http.Error(w,err.Error(),500)
+			http.Error(w, err.Error(), 500)
 		}
 		return
 	}
 	logger.LogInfo(fmt.Sprintf("Successfully saved entry %s", saveObj.Entry.Key))
 
-	obj := struct{Added int; Changed int}{
-		Added: added,
+	obj := struct {
+		Added   int
+		Changed int
+	}{
+		Added:   added,
 		Changed: changed,
 	}
-	str,_ := json.Marshal(obj)
+	str, _ := json.Marshal(obj)
 	w.Write(str)
 }
 
@@ -81,7 +81,7 @@ type UploadEntriesObj struct {
 	Project string
 }
 
-func HandleUploadEntries(w http.ResponseWriter,r *http.Request) {
+func HandleUploadEntries(w http.ResponseWriter, r *http.Request) {
 	var saveObj UploadEntriesObj
 	decoder := json.NewDecoder(r.Body)
 	err := decoder.Decode(&saveObj)
@@ -93,15 +93,15 @@ func HandleUploadEntries(w http.ResponseWriter,r *http.Request) {
 
 	var entries []domain.BibEntry
 	var initialKeys []string
-	for i,_ := range saveObj.Entries {
+	for i, _ := range saveObj.Entries {
 		entry := domain.BibEntry{
-			Key:             saveObj.Entries[i].Key,
-			Typ:             saveObj.Entries[i].Typ,
-			Fields: []string{},
+			Key:     saveObj.Entries[i].Key,
+			Typ:     saveObj.Entries[i].Typ,
+			Fields:  []string{},
 			Comment: saveObj.Entries[i].Comment,
 		}
 
-		for n:=0 ; n<len(saveObj.Entries[i].ValuePairs) ; n++ {
+		for n := 0; n < len(saveObj.Entries[i].ValuePairs); n++ {
 
 			entry.Fields = append(entry.Fields, saveObj.Entries[i].ValuePairs[n].Value)
 		}
@@ -114,17 +114,20 @@ func HandleUploadEntries(w http.ResponseWriter,r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 		if strings.Contains(err.Error(), "already exists") {
-			http.Error(w,err.Error(),400)
+			http.Error(w, err.Error(), 400)
 		} else {
-			http.Error(w,err.Error(),500)
+			http.Error(w, err.Error(), 500)
 		}
 		return
 	}
 	fmt.Println(fmt.Sprintf("Successfully added entries %v and changed %v entries", added, changed))
-	obj := struct{Added int; Changed int}{
-		Added: added,
+	obj := struct {
+		Added   int
+		Changed int
+	}{
+		Added:   added,
 		Changed: changed,
 	}
-	str,_ := json.Marshal(obj)
+	str, _ := json.Marshal(obj)
 	w.Write(str)
 }

@@ -3,7 +3,7 @@
     <v-app-bar color="background" elevate-on-scroll scroll-target="#scroll3" z-index="100">
       <v-toolbar-title>Literatureintrag: <span class="font-weight-bold">{{this.$store.state.initialEntry.Key}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon :disabled="!changesToSave">
+      <v-btn icon :disabled="!changesToSave" @click="saveEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon>
@@ -71,6 +71,8 @@ import {BibType, Field} from "@/api/bibTypes/BibType";
 import Vue from "vue";
 import {state} from "@/store/state";
 import { MutationTypes } from "@/store/mutation-types";
+import SaveEntry from "../../../gui/scripts/SaveEntry";
+import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 
 export default Vue.extend({
   name: "EntryEditor-View",
@@ -119,6 +121,11 @@ export default Vue.extend({
   methods: {
     updatePreviews() {
       this.$store.commit(MutationTypes.UPDATE_PREVIEW);
+    },
+    saveEntry() {
+      SaveBibEntry(this.$store.state.entryToEdit, this.$store.state.initialEntry.Key, this.$store.state.project).then(success => {
+        console.log(success);
+      })
     }
   }
 });
