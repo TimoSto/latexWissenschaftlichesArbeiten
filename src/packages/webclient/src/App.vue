@@ -47,7 +47,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main fill-height id="main" pt-0 :class="screenClass">
+    <v-main fill-height id="main" pt-0>
       <v-content>
         <router-view />
       </v-content>

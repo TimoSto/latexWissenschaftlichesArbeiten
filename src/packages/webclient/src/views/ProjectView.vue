@@ -24,6 +24,12 @@
 
     },
 
+    data() {
+      return {
+        screenClass: 'half'
+      }
+    },
+
     computed: {
       editorOpen() {
         return !!this.$store.state.typeToEdit.Name || this.$store.state.typeToEdit.Name == ''
@@ -31,7 +37,7 @@
       editorName() {
         return this.$store.state.typeToEdit.Name
       },
-      screenClass() {
+      compScreenClass() {
         return this.$store.state.twoThirdsActive ? 'two-thirds' : 'half';
       }
     },
@@ -42,6 +48,12 @@
       },
       closeEditor() {
         this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, '');
+      }
+    },
+
+    watch: {
+      compScreenClass (newValue) {
+        this.$data.screenClass = newValue;
       }
     }
   })
