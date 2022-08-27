@@ -31,7 +31,7 @@
       <v-app-bar elevation="0" color="background">
         <v-toolbar-title v-if="!drawer">Projekte</v-toolbar-title>
         <v-spacer v-if="!drawer"></v-spacer>
-        <v-btn icon :to="'/new'" title="Neues Projekt erstellen">
+        <v-btn icon :to="'/new'" title="Neues Projekt erstellen" @click="CloseEditors">
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
@@ -72,6 +72,10 @@ export default Vue.extend({
     },
     toggleTwoThirds() {
       this.$store.commit(MutationTypes.TOGGLE_TWO_THIRDS);
+    },
+    CloseEditors() {
+      this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, '');
+      this.$store.commit(MutationTypes.SET_ENTRY_TO_EDIT, '');
     }
   },
   created() {
