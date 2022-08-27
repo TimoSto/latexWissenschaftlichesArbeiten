@@ -115,7 +115,7 @@ export default Vue.extend({
 
   computed: {
     changesToSave(): boolean {
-      return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.$store.state.typeToEdit)
+      return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.$store.state.typeToEdit) && this.$store.state.typeToEdit.Name.length > 0
     },
     // TypeName(): string {
     //   return this.$store.state.typeToEdit.Name

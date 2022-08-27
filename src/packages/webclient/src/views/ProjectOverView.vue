@@ -45,7 +45,7 @@
               <v-btn icon title="Diese Literaturtypen als Standard festlegen">
                 <v-icon>mdi-cog-refresh</v-icon>
               </v-btn>
-              <v-btn icon title="Literaturtypen aktualisieren">
+              <v-btn icon title="Standard-Literaturtypen aktualisieren">
                 <v-icon>mdi-reload</v-icon>
               </v-btn>
               <v-btn icon title="Literaturtyp hinzufügen" @click="newType">
