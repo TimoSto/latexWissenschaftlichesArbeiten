@@ -57,35 +57,7 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </v-sheet>
-    <v-dialog v-model="unsafeClose" width="500">
-      <v-card>
-        <v-card-title class="text-h5">
-          Es liegen ungespeicherte Änderungen vor.
-        </v-card-title>
-
-        <v-card-text>
-          Möchtest du den Editor wirklich verlassen?
-        </v-card-text>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-              color="primary"
-              text
-              @click="unsafeClose = false"
-          >
-            Nein
-          </v-btn>
-          <v-btn
-              color="primary"
-              text
-              @click="$emit('closeEditor')"
-          >
-            Ja
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    <UnsafeCloseDialog :model="unsafeClose" v-on:no="unsafeClose = false" v-on:yes="$emit('closeEditor')"/>
   </div>
 </template>
 
@@ -96,10 +68,11 @@ import {MutationTypes} from "@/store/mutation-types";
 import MyDataTable from "@/components/MyDataTable.vue";
 import SaveType from "@/api/bibTypes/SaveBibType";
 import {ActionTypes} from "@/store/action-types";
+import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
 
 export default Vue.extend({
   name: "TypeEditor-View",
-  components: {MyDataTable},
+  components: {UnsafeCloseDialog, MyDataTable},
   props: [
       'name'
   ],
