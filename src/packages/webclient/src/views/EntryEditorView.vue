@@ -26,7 +26,13 @@
                 sm="8"
                 md="4"
             >
-              <v-text-field v-model="$store.state.entryToEdit.Typ" label="Literaturtyp" filled></v-text-field>
+              <v-select
+                  v-model="$store.state.entryToEdit.Typ"
+                  :items="$store.state.bibTypes.map(bType=>bType.Name)"
+                  label="Literaturtyp"
+                  filled
+                  :menu-props="{ bottom: true, offsetY: true }"
+              ></v-select>
             </v-col>
           </v-row>
         </v-container>
