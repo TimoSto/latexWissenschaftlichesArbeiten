@@ -19,7 +19,7 @@
                 sm="8"
                 md="4"
             >
-              <v-text-field v-model="$store.state.entryToEdit.Key" label="ID" filled></v-text-field>
+              <v-text-field v-model="$store.state.entryToEdit.Key" label="ID" filled :rules="rules"></v-text-field>
             </v-col>
             <v-col
                 cols="16"
@@ -33,6 +33,7 @@
                   filled
                   :menu-props="{ bottom: true, offsetY: true }"
                   @change="updatePreviews"
+                  :rules="rules"
               ></v-select>
             </v-col>
           </v-row>
@@ -47,6 +48,7 @@
               v-for="(field, i) in fields"
               :key="'TF' + i" v-model="$store.state.entryToEdit.Fields[i]"
               :label="field.Field"
+              :rules="getRule(i)"
               @input="updatePreviews"
               filled
           ></v-text-field>
@@ -82,7 +84,10 @@ export default Vue.extend({
 
   data() {
     return {
-      unsafeClose: false
+      unsafeClose: false,
+      rules: [
+        (value: any) => !!value || 'Pflichtfeld',
+      ]
     }
   },
 
@@ -146,6 +151,13 @@ export default Vue.extend({
         this.$data.unsafeClose = true;
       } else {
         this.$emit('closeEditor')
+      }
+    },
+    getRule(n:number) {
+      if( n==0 ){
+        return this.rules
+      } else {
+        return []
       }
     }
   }
