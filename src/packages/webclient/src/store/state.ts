@@ -9,6 +9,8 @@ export const state = {
     bibEntries: <BibEntry[]>[],
     typeToEdit: <BibType>{},
     initialType: <BibType>{},
+    entryToEdit: <BibEntry>{},
+    initialEntry: <BibEntry>{},
     twoThirdsActive: false
 };
 

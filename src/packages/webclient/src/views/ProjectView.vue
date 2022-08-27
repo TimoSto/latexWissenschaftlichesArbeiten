@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex" :class="screenClass">
     <div class="area area-left" :class="[typeEditorOpen ? 'halfWidth' : 'fullWidth']">
-      <ProjectOverView v-on:editType="openTypeEditor($event)" v-on:newType="openTypeEditor($event)"/>
+      <ProjectOverView v-on:editType="openTypeEditor($event)" v-on:newType="openTypeEditor($event)" v-on:editEntry="openEntryEditor($event)"/>
     </div>
     <div class="area area-right" :class="[typeEditorOpen ? 'halfWidth' : 'zeroWidth']">
       <TypeEditorView v-if="typeEditorOpen" :name="typeEditorName" v-on:closeEditor="closeTypeEditor"/>
@@ -48,6 +48,10 @@
       },
       closeTypeEditor() {
         this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, '');
+      },
+      openEntryEditor(evt: string) {
+        console.log(evt)
+        this.$store.commit(MutationTypes.SET_ENTRY_TO_EDIT, evt);
       }
     },
 

@@ -97,5 +97,18 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.TOGGLE_TWO_THIRDS](state){
         state.twoThirdsActive = !state.twoThirdsActive;
-    }
+    },
+    [MutationTypes.SET_ENTRY_TO_EDIT](state, payload: string) {
+        if(payload.length == 0) {
+            state.entryToEdit = <BibEntry>{}
+        } else {
+            state.bibEntries.forEach(bEntry => {
+                if( bEntry.Key === payload ) {
+                    state.entryToEdit = JSON.parse(JSON.stringify(bEntry));
+                    state.initialEntry = JSON.parse(JSON.stringify(bEntry));
+                }
+            });
+        }
+
+    },
 };
