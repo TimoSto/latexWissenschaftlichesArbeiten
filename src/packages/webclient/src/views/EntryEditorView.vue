@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="background" elevate-on-scroll scroll-target="#scroll3" z-index="100">
+    <v-app-bar color="background" elevate-on-scroll scroll-target="#scroll3" style="z-index: 100">
       <v-toolbar-title>Literatureintrag: <span class="font-weight-bold">{{this.$store.state.initialEntry.Key}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon :disabled="!changesToSave || !requiredFieldsFilled" @click="saveEntry">

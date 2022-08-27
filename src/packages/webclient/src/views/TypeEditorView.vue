@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="background" elevate-on-scroll scroll-target="#scrolling-techniques-7" z-index="100">
+    <v-app-bar color="background" elevate-on-scroll scroll-target="#scrolling-techniques-7" style="z-index:100">
       <v-toolbar-title>Literaturtyp: <span class="font-weight-bold">{{this.$store.state.initialType.Name}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon :disabled="!changesToSave" @click="SaveThisType">
