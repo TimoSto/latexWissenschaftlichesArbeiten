@@ -103,7 +103,6 @@ export default Vue.extend({
           bType.CiteFields.forEach(field => {
             if ( fieldsInBib.indexOf(field.Field) === -1 ) {
               fields.push(field);
-              console.log(field.Field, fields)
             }
           })
         }
@@ -126,7 +125,6 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.UPDATE_PREVIEW);
     },
     saveEntry() {
-      console.log(this.$store.state.entryToEdit.Fields.length)
       const SaveObj = {
         InitialKey: this.$store.state.initialEntry.Key,
         Project: this.$store.state.project,

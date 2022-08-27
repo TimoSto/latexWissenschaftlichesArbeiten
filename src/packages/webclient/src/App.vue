@@ -104,7 +104,6 @@ export default Vue.extend({
       return !!this.$store.state.typeToEdit.Name || this.$store.state.typeToEdit.Name == ''
     },
     entryEditorOpen() {
-      console.log(this.$store.state.entryToEdit)
       return !!this.$store.state.entryToEdit.Key || this.$store.state.entryToEdit.Key == ''
     },
   },

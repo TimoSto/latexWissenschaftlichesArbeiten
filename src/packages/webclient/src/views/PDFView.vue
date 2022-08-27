@@ -9,7 +9,6 @@ export default Vue.extend({
   name: 'PDF-Viewer',
 
   mounted() {
-    console.log('mounted')
     let parts = window.location.href.split('/');
     let name = parts[parts.length - 1]
     if(parts[parts.length - 2] === 'project') {

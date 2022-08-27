@@ -51,10 +51,6 @@
     methods: {
 
     },
-
-    created() {
-      console.log('h')
-    }
   })
 </script>
 
