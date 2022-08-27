@@ -33,13 +33,22 @@
         <p><span style="font-weight: bold">Literatureintrag: </span></p>
         <p><span style="font-weight: bold">Zitat: </span></p>
       </v-container>
+      <v-container>
+        <v-text-field
+            v-for="(field, i) in $store.state.entryToEdit.Fields"
+            :key="field" v-model="$store.state.entryToEdit.Fields[i]"
+            filled
+        ></v-text-field>
+      </v-container>
     </v-sheet>
 
   </div>
 </template>
 
 <script lang="ts">
+import {BibType, Field} from "@/api/bibTypes/BibType";
 import Vue from "vue";
+import {state} from "@/store/state";
 
 export default Vue.extend({
   name: "EntryEditor-View",
@@ -52,11 +61,27 @@ export default Vue.extend({
   },
 
   computed: {
-
+    fields(): Field[] {
+      let fields = [] as Field[];
+      this.$store.state.bibTypes.forEach((bType: BibType) => {
+        if( bType.Name === this.$store.state.entryToEdit.Typ ) {
+          fields = bType.Fields;
+          const fieldNames = fields.map((field: Field) => field.Field)
+          bType.CiteFields.forEach( (field: Field) => {
+            if( fieldNames.indexOf(field.Field) === -1 ) {
+              fields.push(field);
+            }
+          });
+        }
+      });
+      return fields;
+    }
   },
 
   methods: {
-
+    updateValueOfField(n: number) {
+      console.log(n)
+    }
   },
 });
 </script>
