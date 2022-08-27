@@ -94,5 +94,8 @@ export const mutations: MutationTree<State> & Mutations = {
         for( let i = 0 ; i < citeToRm.length ;  i++ ) {
             state.typeToEdit.CiteFields.splice(citeToRm[i]-i, 1);
         }
+    },
+    [MutationTypes.TOGGLE_TWO_THIRDS](state){
+        state.twoThirdsActive = !state.twoThirdsActive;
     }
 };

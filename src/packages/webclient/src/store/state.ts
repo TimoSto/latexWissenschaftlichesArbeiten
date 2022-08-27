@@ -8,7 +8,8 @@ export const state = {
     bibTypes: <BibType[]>[],
     bibEntries: <BibEntry[]>[],
     typeToEdit: <BibType>{},
-    initialType: <BibType>{}
+    initialType: <BibType>{},
+    twoThirdsActive: false
 };
 
 export type State = typeof state;

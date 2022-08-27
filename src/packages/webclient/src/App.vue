@@ -6,15 +6,24 @@
       <v-spacer></v-spacer>
       <v-btn
           icon
-          :to="'/'"
-          title="Startseite">
-        <v-icon>mdi-home</v-icon>
+          @click="toggleTwoThirds"
+          :title="splitBtnContent[1]"
+          v-if="editorOpen"
+          v-html="splitBtnContent[0]"
+          style="font-size: 20px"
+      >
       </v-btn>
       <v-btn
           icon
           @click="toggleDark"
           title="Design wechseln">
         <v-icon>mdi-brightness-6</v-icon>
+      </v-btn>
+      <v-btn
+          icon
+          :to="'/'"
+          title="Startseite">
+        <v-icon>mdi-home</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -38,7 +47,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main fill-height id="main" pt-0>
+    <v-main fill-height id="main" pt-0 :class="screenClass">
       <v-content>
         <router-view />
       </v-content>
@@ -49,6 +58,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {ActionTypes} from "@/store/action-types";
+import {MutationTypes} from "@/store/mutation-types";
 
 export default Vue.extend({
   name: 'App',
@@ -59,6 +69,9 @@ export default Vue.extend({
   methods: {
     toggleDark () {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
+    toggleTwoThirds() {
+      this.$store.commit(MutationTypes.TOGGLE_TWO_THIRDS);
     }
   },
   created() {
@@ -74,6 +87,22 @@ export default Vue.extend({
     dark(): boolean {
       return this.$vuetify.theme.dark;
     },
+    splitBtnContent() {
+
+      if( this.$store.state.twoThirdsActive ) {
+        return [
+          '&#189;',
+          'Wechsel zu 50:50-Layout'
+        ]
+      }
+      return [
+          '&#8532;',
+          'Wechsel zu 70:30-Layout'
+      ]
+    },
+    editorOpen() {
+      return !!this.$store.state.typeToEdit.Name || this.$store.state.typeToEdit.Name == ''
+    }
   },
   watch: {
     dark(isDark) {

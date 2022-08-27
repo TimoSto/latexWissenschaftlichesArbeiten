@@ -1,9 +1,9 @@
 <template>
-  <div class="d-flex">
-    <div class="area" :class="[editorOpen ? 'halfWidth' : 'fullWidth']">
+  <div class="d-flex" :class="screenClass">
+    <div class="area area-left" :class="[editorOpen ? 'halfWidth' : 'fullWidth']">
       <ProjectOverView v-on:editType="openEditor($event)" v-on:newType="openEditor($event)"/>
     </div>
-    <div class="area" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']">
+    <div class="area area-right" :class="[editorOpen ? 'halfWidth' : 'zeroWidth']">
       <TypeEditorView v-if="editorOpen" :name="editorName" v-on:closeEditor="closeEditor"/>
     </div>
   </div>
@@ -30,6 +30,9 @@
       },
       editorName() {
         return this.$store.state.typeToEdit.Name
+      },
+      screenClass() {
+        return this.$store.state.twoThirdsActive ? 'two-thirds' : 'half';
       }
     },
 
@@ -51,11 +54,23 @@
   &.fullWidth{
     width: 100%;
   }
-  &.halfWidth{
-    width: 50%;
-  }
   &.zeroWidth {
     width: 0;
+  }
+}
+</style>
+<style lang="scss">
+.two-thirds{
+  & .area-right.halfWidth{
+    width: 70%;
+  }
+  & .area-left.halfWidth{
+    width: 30%;
+  }
+}
+.half{
+  & .halfWidth{
+    width: 50%;
   }
 }
 </style>
