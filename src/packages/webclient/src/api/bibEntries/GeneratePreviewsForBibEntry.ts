@@ -63,7 +63,11 @@ export default function GeneratePreviewsForBibEntry(bibFields: Field[], citeFiel
         }
 
         citePreview += field.Suffix;
-    })
+    });
+
+    if ( citePreview.charAt(citePreview.length-1) === ' ' ) {
+        citePreview += 'S. x'
+    }
 
     return [bibPreview, citePreview];
 

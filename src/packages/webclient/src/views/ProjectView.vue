@@ -55,8 +55,8 @@
         this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, '');
       },
       openEntryEditor(evt: string) {
-        console.log(evt)
         this.$store.commit(MutationTypes.SET_ENTRY_TO_EDIT, evt);
+        this.$store.commit(MutationTypes.UPDATE_PREVIEW);
       }
     },
 

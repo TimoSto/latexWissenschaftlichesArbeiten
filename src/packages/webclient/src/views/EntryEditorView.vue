@@ -32,6 +32,7 @@
                   label="Literaturtyp"
                   filled
                   :menu-props="{ bottom: true, offsetY: true }"
+                  @change="updatePreviews"
               ></v-select>
             </v-col>
           </v-row>
@@ -46,6 +47,7 @@
               v-for="(field, i) in fields"
               :key="'TF' + i" v-model="$store.state.entryToEdit.Fields[i]"
               :label="field.Field"
+              @input="updatePreviews"
               filled
           ></v-text-field>
           <v-text-field
@@ -53,6 +55,7 @@
               v-for="(field, i) in citeFields"
               :key="'TF' + (i + fields.length)" v-model="$store.state.entryToEdit.Fields[i + fields.length]"
               :label="field.Field"
+              @input="updatePreviews"
               filled
           ></v-text-field>
         </v-container>
@@ -109,13 +112,9 @@ export default Vue.extend({
   },
 
   methods: {
-    updateValueOfField(n: number) {
-      console.log(n)
+    updatePreviews() {
+      this.$store.commit(MutationTypes.UPDATE_PREVIEW);
     }
-  },
-
-  created() {
-    this.$store.commit(MutationTypes.UPDATE_PREVIEW);
   }
 });
 </script>
