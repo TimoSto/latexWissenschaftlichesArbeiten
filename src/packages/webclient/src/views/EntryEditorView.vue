@@ -37,8 +37,8 @@
           </v-row>
         </v-container>
         <v-container class="display">
-          <p><span style="font-weight: bold">Literatureintrag: </span></p>
-          <p><span style="font-weight: bold">Zitat: </span></p>
+          <p><span style="font-weight: bold">Literatureintrag: </span><span v-html="$store.state.entryToEdit.BibPreview" /></p>
+          <p><span style="font-weight: bold">Zitat: </span><span v-html="$store.state.entryToEdit.CitePreview" /></p>
         </v-container>
         <v-container>
           <v-text-field
@@ -67,6 +67,7 @@
 import {BibType, Field} from "@/api/bibTypes/BibType";
 import Vue from "vue";
 import {state} from "@/store/state";
+import { MutationTypes } from "@/store/mutation-types";
 
 export default Vue.extend({
   name: "EntryEditor-View",
@@ -112,6 +113,10 @@ export default Vue.extend({
       console.log(n)
     }
   },
+
+  created() {
+    this.$store.commit(MutationTypes.UPDATE_PREVIEW);
+  }
 });
 </script>
 

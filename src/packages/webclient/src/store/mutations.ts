@@ -7,6 +7,7 @@ import router from "@/router";
 import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
 import {getters} from "@/store/getters";
 import Field from "../../../gui/scripts/Field";
+import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
 export type Mutations<S = State> = {
     [MutationTypes.SET_PROJECT](state: S, payload: string): void;
     [MutationTypes.SET_PROJECTS](state: S, payload: string[]): void;
@@ -111,6 +112,16 @@ export const mutations: MutationTree<State> & Mutations = {
                 }
             });
         }
+
+    },
+    [MutationTypes.UPDATE_PREVIEW](state, payload: string) {
+        state.bibTypes.forEach(bType => {
+            if( bType.Name === state.entryToEdit.Typ ) {
+                const arr = GeneratePreviewsForBibEntry(bType.Fields, bType.CiteFields, state.entryToEdit.Fields);
+                state.entryToEdit.BibPreview = arr [0];
+                state.entryToEdit.CitePreview = arr [1];
+            }
+        })
 
     },
 };
