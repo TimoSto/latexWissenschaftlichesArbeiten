@@ -132,7 +132,7 @@ export default Vue.extend({
 }
 
 .three-in-a-row {
-  width: 33%;
+  width: 50%;
   float: left;
   padding: 0 8px;
 }
