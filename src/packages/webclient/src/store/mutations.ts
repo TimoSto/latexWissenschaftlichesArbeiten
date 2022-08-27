@@ -36,6 +36,7 @@ export const mutations: MutationTree<State> & Mutations = {
         if(payload.length == 0) {
             state.typeToEdit = <BibType>{}
         } else {
+            state.entryToEdit = <BibEntry>{};
             state.bibTypes.forEach(bType => {
                 if( bType.Name === payload ) {
                     state.typeToEdit = JSON.parse(JSON.stringify(bType));
@@ -100,8 +101,9 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.SET_ENTRY_TO_EDIT](state, payload: string) {
         if(payload.length == 0) {
-            state.entryToEdit = <BibEntry>{}
+            state.entryToEdit = <BibEntry>{};
         } else {
+            state.typeToEdit = <BibType>{};
             state.bibEntries.forEach(bEntry => {
                 if( bEntry.Key === payload ) {
                     state.entryToEdit = JSON.parse(JSON.stringify(bEntry));

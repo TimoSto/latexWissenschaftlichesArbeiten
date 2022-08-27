@@ -1,10 +1,11 @@
 <template>
   <div class="d-flex" :class="screenClass">
-    <div class="area area-left" :class="[typeEditorOpen ? 'halfWidth' : 'fullWidth']">
+    <div class="area area-left" :class="[typeEditorOpen || entryEditorOpen ? 'halfWidth' : 'fullWidth']">
       <ProjectOverView v-on:editType="openTypeEditor($event)" v-on:newType="openTypeEditor($event)" v-on:editEntry="openEntryEditor($event)"/>
     </div>
-    <div class="area area-right" :class="[typeEditorOpen ? 'halfWidth' : 'zeroWidth']">
+    <div class="area area-right" :class="[typeEditorOpen || entryEditorOpen ? 'halfWidth' : 'zeroWidth']">
       <TypeEditorView v-if="typeEditorOpen" :name="typeEditorName" v-on:closeEditor="closeTypeEditor"/>
+      <EntryEditorView v-if="entryEditorOpen" v-on:closeEditor="closeTypeEditor"/>
     </div>
   </div>
 </template>
@@ -13,6 +14,7 @@
   import Vue from 'vue'
   import ProjectOverView from "@/views/ProjectOverView.vue";
   import TypeEditorView from "@/views/TypeEditorView.vue";
+  import EntryEditorView from "@/views/EntryEditorView.vue";
   import {MutationTypes} from "@/store/mutation-types";
 
   export default Vue.extend({
@@ -20,8 +22,8 @@
 
     components: {
       TypeEditorView,
-      ProjectOverView
-
+      ProjectOverView,
+      EntryEditorView
     },
 
     data() {
@@ -39,7 +41,10 @@
       },
       compScreenClass() {
         return this.$store.state.twoThirdsActive ? 'two-thirds' : 'half';
-      }
+      },
+      entryEditorOpen() {
+        return !!this.$store.state.entryToEdit.Key || this.$store.state.entryToEdit.Key == ''
+      },
     },
 
     methods: {
