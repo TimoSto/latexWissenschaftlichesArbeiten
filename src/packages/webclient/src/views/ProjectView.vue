@@ -70,7 +70,7 @@
 
 <style lang="scss" scoped>
 .area {
-  transition: width 0.4s ease-in-out;
+  transition: width 0.25s ease-in-out;
   min-width: 0;
   &.fullWidth{
     width: 100%;

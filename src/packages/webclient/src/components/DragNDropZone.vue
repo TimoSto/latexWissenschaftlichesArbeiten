@@ -23,11 +23,13 @@
   border: 3px dotted var(--v-accent-lighten4);
   height: 80px;
   margin: 8px;
+  padding: 0 8px;
+  display: table;
   & span{
     width: 100%;
     text-align: center;
-    display: block;
-    padding-top: 20px;
+    display: table-cell;
+    vertical-align: middle;
     color: var(--v-accent-lighten4);
     font-weight: bold;
   }
