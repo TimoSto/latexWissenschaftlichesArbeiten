@@ -73,5 +73,26 @@ export const mutations: MutationTree<State> & Mutations = {
             Fields: <Field[]>[],
             CiteFields: <Field[]>[],
         }
+    },
+    [MutationTypes.CLEANUP_FIELDS](state){
+        const bibToRm = <number[]>[]
+        state.typeToEdit.Fields.forEach((field, i) => {
+           if( field.Field.length === 0 ) {
+               bibToRm.push(i);
+           }
+        });
+        for( let i = 0 ; i < bibToRm.length ;  i++ ) {
+            state.typeToEdit.Fields.splice(bibToRm[i]-i, 1);
+        }
+
+        const citeToRm = <number[]>[]
+        state.typeToEdit.CiteFields.forEach((field, i) => {
+            if( field.Field.length === 0 ) {
+                citeToRm.push(i);
+            }
+        });
+        for( let i = 0 ; i < citeToRm.length ;  i++ ) {
+            state.typeToEdit.CiteFields.splice(citeToRm[i]-i, 1);
+        }
     }
 };

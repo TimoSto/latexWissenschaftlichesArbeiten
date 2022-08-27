@@ -152,6 +152,8 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.ADD_CITE_ATTR);
     },
     SaveThisType() {
+      this.$store.commit(MutationTypes.CLEANUP_FIELDS);
+
       const obj = JSON.stringify({
         Project: this.$store.state.project,
         InitialName: this.$store.state.initialType.Name,
