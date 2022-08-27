@@ -3,10 +3,10 @@
     <v-app-bar color="background" elevate-on-scroll scroll-target="#scroll3" z-index="100">
       <v-toolbar-title>Literatureintrag: <span class="font-weight-bold">{{this.$store.state.initialEntry.Key}}</span></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon :disabled="!changesToSave" @click="saveEntry">
+      <v-btn icon :disabled="!changesToSave || !requiredFieldsFilled" @click="saveEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon @click="CloseEditor">
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-app-bar>
@@ -62,7 +62,7 @@
       </div>
 
     </v-sheet>
-
+    <UnsafeCloseDialog :model="unsafeClose" v-on:no="unsafeClose = false" v-on:yes="$emit('closeEditor')"/>
   </div>
 </template>
 
@@ -74,10 +74,11 @@ import { MutationTypes } from "@/store/mutation-types";
 import SaveEntry from "../../../gui/scripts/SaveEntry";
 import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 import { ActionTypes } from "@/store/action-types";
+import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
 
 export default Vue.extend({
   name: "EntryEditor-View",
-  components: {},
+  components: {UnsafeCloseDialog},
 
   data() {
     return {
@@ -114,8 +115,10 @@ export default Vue.extend({
       currentWithoutPreview.BibPreview = '';
       currentWithoutPreview.CitePreview = '';
 
-      return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry) &&
-          !!this.$store.state.entryToEdit.Key && this.$store.state.entryToEdit.Key.length > 0 && !!this.$store.state.entryToEdit.Typ &&
+      return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
+    },
+    requiredFieldsFilled() {
+      return !!this.$store.state.entryToEdit.Key && this.$store.state.entryToEdit.Key.length > 0 && !!this.$store.state.entryToEdit.Typ &&
           this.$store.state.entryToEdit.Fields.length > 0 && this.$store.state.entryToEdit.Fields[0].length > 0
     }
   },
@@ -137,6 +140,13 @@ export default Vue.extend({
 
       const jsonObj = JSON.stringify(SaveObj);
       this.$store.dispatch(ActionTypes.SAVE_ENTRY, jsonObj);
+    },
+    CloseEditor() {
+      if( this.changesToSave ) {
+        this.$data.unsafeClose = true;
+      } else {
+        this.$emit('closeEditor')
+      }
     }
   }
 });

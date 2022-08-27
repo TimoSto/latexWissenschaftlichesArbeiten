@@ -5,7 +5,7 @@
     </div>
     <div class="area area-right" :class="[typeEditorOpen || entryEditorOpen ? 'halfWidth' : 'zeroWidth']">
       <TypeEditorView v-if="typeEditorOpen" :name="typeEditorName" v-on:closeEditor="closeTypeEditor"/>
-      <EntryEditorView v-if="entryEditorOpen" v-on:closeEditor="closeTypeEditor"/>
+      <EntryEditorView v-if="entryEditorOpen" v-on:closeEditor="closeEntryEditor"/>
     </div>
   </div>
 </template>
@@ -53,6 +53,9 @@
       },
       closeTypeEditor() {
         this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, '');
+      },
+      closeEntryEditor() {
+        this.$store.commit(MutationTypes.SET_ENTRY_TO_EDIT, '');
       },
       openEntryEditor(evt: string) {
         this.$store.commit(MutationTypes.SET_ENTRY_TO_EDIT, evt);
