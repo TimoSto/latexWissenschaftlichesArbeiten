@@ -124,4 +124,14 @@ export const mutations: MutationTree<State> & Mutations = {
         })
 
     },
+    [MutationTypes.NEW_ENTRY](state){
+        state.entryToEdit = <BibEntry>{
+            Key: '',
+            Typ: '',
+            Fields: <string[]>[],
+            BibPreview: '',
+            CitePreview: '',
+            CiteNumber: 0
+        }
+    },
 };

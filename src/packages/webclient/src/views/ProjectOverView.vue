@@ -67,6 +67,13 @@
             Literatureinträge
           </v-expansion-panel-header>
           <v-expansion-panel-content>
+            <v-toolbar elevation="0" dense>
+              <v-toolbar-title>Literatureinträge</v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-btn icon title="Literatureintrag hinzufügen" @click="newEntry">
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+            </v-toolbar>
             <v-list two-line>
               <v-list-item v-for="bEntry in bibEntries" :key="bEntry.Key" ripple two-line style="cursor: pointer" @click="editEntry(bEntry.Key)">
                 <v-list-item-content>
@@ -136,7 +143,11 @@
 
       editEntry(key: string) {
         this.$emit('editEntry', key);
-      }
+      },
+
+      newEntry() {
+        this.$store.commit(MutationTypes.NEW_ENTRY)
+      },
     },
 
     computed: {

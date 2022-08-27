@@ -15,7 +15,7 @@ export default function GeneratePreviewsForBibEntry(bibFields: Field[], citeFiel
                 break;
         }
 
-        bibPreview += values[i];
+        bibPreview += values[i] ? values[i] : '';
 
         switch (field.Style) {
             case 'italic':
@@ -47,10 +47,10 @@ export default function GeneratePreviewsForBibEntry(bibFields: Field[], citeFiel
 
         const indInBib = bib.indexOf(field.Field);
         if( indInBib >= 0 ) {
-            citePreview += values[indInBib];
+            citePreview += values[indInBib] ? values[indInBib] : '';
             foundInBib++;
         } else {
-            citePreview += values[bibFields.length  + i - foundInBib]
+            citePreview += values[bibFields.length  + i - foundInBib] ? values[bibFields.length  + i - foundInBib] : '';
         }
 
         switch (field.Style) {
