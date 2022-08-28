@@ -35,16 +35,13 @@
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
-      <v-list>
-        <v-list-item v-for="proj in projects" :key="proj" :to="'/project/'+proj">
-          <v-list-item-title v-text="proj"></v-list-item-title>
-<!--          <v-list-item-action>-->
-<!--            <v-btn icon @click="deleteProject(proj)">-->
-<!--              <v-icon color="grey lighten-1">mdi-delete</v-icon>-->
-<!--            </v-btn>-->
-<!--          </v-list-item-action>-->
-        </v-list-item>
-      </v-list>
+      <v-sheet style="overflow-y: auto; height: calc(100vh - 130px); padding: 0" id="scrollsidebar">
+        <v-list>
+          <v-list-item v-for="proj in projects" :key="proj" :to="'/project/'+proj">
+            <v-list-item-title v-text="proj"></v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-sheet>
     </v-navigation-drawer>
 
     <v-main fill-height id="main" pt-0>
