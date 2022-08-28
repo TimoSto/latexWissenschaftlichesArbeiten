@@ -42,7 +42,7 @@
             <v-toolbar elevation="0" dense>
               <v-toolbar-title>Literaturtypen</v-toolbar-title>
               <v-spacer></v-spacer>
-              <v-btn icon title="Diese Literaturtypen als Standard festlegen">
+              <v-btn icon title="Diese Literaturtypen als Standard festlegen" @click="TriggerSetStandardDialog">
                 <v-icon>mdi-star</v-icon>
               </v-btn>
               <v-btn icon title="Standard-Literaturtypen aktualisieren" @click="TriggerRefreshDialog">
@@ -108,7 +108,7 @@
         </template>
       </v-snackbar>
 
-      <ConfirmDialog :model="confirmMessage.length > 0" :dialog-content="confirmMessage" :dialog-title="confirmTitle" v-on:yes="ConfirmInDialog"/>
+      <ConfirmDialog :model="confirmMessage.length > 0" :dialog-content="confirmMessage" :dialog-title="confirmTitle" v-on:yes="ConfirmInDialog" v-on:no="CloseConfirm"/>
 
     </v-sheet>
   </div>
@@ -211,8 +211,20 @@
         this.confirmTitle = 'Literaturtypen zurücksetzen'
       },
 
+      TriggerSetStandardDialog() {
+        this.confirmMessage = 'Möchtest du die Literaturtypen dieses Projektes als neuen Standard festlegen?'
+        this.confirmAction = ActionTypes.SET_DEFAULT
+        this.confirmTitle = 'Literaturtypen zurücksetzen'
+      },
+
       ConfirmInDialog() {
         this.$store.dispatch(this.confirmAction);
+        this.confirmAction = '';
+        this.confirmTitle = '';
+        this.confirmMessage = '';
+      },
+
+      CloseConfirm() {
         this.confirmAction = '';
         this.confirmTitle = '';
         this.confirmMessage = '';
