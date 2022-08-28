@@ -42,7 +42,7 @@
             <v-toolbar elevation="0" dense>
               <v-toolbar-title>Literaturtypen</v-toolbar-title>
               <v-spacer></v-spacer>
-              <v-btn icon title="Diese Literaturtypen als Standard festlegen" @click="TriggerSetStandardDialog">
+              <v-btn icon title="Diese Literaturtypen als Standard festlegen" @click="TriggerSetDefaultDialog">
                 <v-icon>mdi-star</v-icon>
               </v-btn>
               <v-btn icon title="Standard-Literaturtypen aktualisieren" @click="TriggerRefreshDialog">
@@ -75,6 +75,9 @@
             <v-toolbar elevation="0" dense>
               <v-toolbar-title>Literatureinträge</v-toolbar-title>
               <v-spacer></v-spacer>
+              <v-btn icon title="Nicht-zitierte Literatureinträge ignorieren" @click="TriggerCleanupCitesDialog">
+                <v-icon>mdi-vacuum</v-icon>
+              </v-btn>
               <v-btn icon title="Literatureintrag hinzufügen" @click="newEntry">
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
@@ -211,10 +214,16 @@
         this.confirmTitle = 'Literaturtypen zurücksetzen'
       },
 
-      TriggerSetStandardDialog() {
+      TriggerSetDefaultDialog() {
         this.confirmMessage = 'Möchtest du die Literaturtypen dieses Projektes als neuen Standard festlegen?'
         this.confirmAction = ActionTypes.SET_DEFAULT
         this.confirmTitle = 'Literaturtypen zurücksetzen'
+      },
+
+      TriggerCleanupCitesDialog() {
+        this.confirmMessage = 'Möchtest du die nicht zitierten Literaturtypen aus dem Dokument entfernen? Sobald du neue Zitate oder Literatureinträge hinzufügst, muss diese Aktion erneut ausgeführt werden.'
+        this.confirmAction = ActionTypes.CLEANUP_CITES
+        this.confirmTitle = 'Literaturverzeichnis aufräumen'
       },
 
       ConfirmInDialog() {

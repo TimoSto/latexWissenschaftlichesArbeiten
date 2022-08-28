@@ -18,6 +18,7 @@ import Translate from "@/api/translator/Translator";
 import BackupProject from "@/api/projects/BackupProject";
 import RefreshTypes from "@/api/bibTypes/RefreshTypes";
 import SetDefault from "@/api/bibTypes/SetDefault";
+import CleanupCites from "@/api/projects/CleanupCites";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -158,6 +159,14 @@ export const actions: ActionTree<State, State> & Actions = {
 
         if( resp.ok ) {
             commit(MutationTypes.SET_SNACKBAR, `Der jetzige Stand der Literaturtypen im Projekt '${state.project}' wird von nun an als Standard verwendet.`);
+        }
+    },
+
+    async [ActionTypes.CLEANUP_CITES]({commit, dispatch}) {
+        const resp = await CleanupCites(state.project);
+
+        if( resp.ok ) {
+            commit(MutationTypes.SET_SNACKBAR, `Das Literaturverzeichnis des Projektes '${state.project}' enthält nun nurnoch die zum jetzigen Zeitpunkt zitierten Einträge.`);
         }
     }
 };
