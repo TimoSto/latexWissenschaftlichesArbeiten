@@ -144,4 +144,7 @@ export const mutations: MutationTree<State> & Mutations = {
             CiteNumber: 0
         }
     },
+    [MutationTypes.CLEAR_ERROR](state){
+        state.errorMessage = '';
+    }
 };

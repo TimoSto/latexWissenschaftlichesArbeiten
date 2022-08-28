@@ -1,12 +1,10 @@
 import {BibEntry} from "@/api/bibEntries/BibEntry";
 
-export default async function SaveBibEntry(jsonObj: string): Promise<boolean> {
+export default async function SaveBibEntry(jsonObj: string): Promise<Response> {
 
 
-    const resp = await fetch('/saveEntry', {
+    return await fetch('/saveEntry', {
         method: 'POST',
         body: jsonObj
     });
-
-    return resp.ok
 }

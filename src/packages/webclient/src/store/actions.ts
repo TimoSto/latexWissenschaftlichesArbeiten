@@ -90,13 +90,15 @@ export const actions: ActionTree<State, State> & Actions = {
 
     async [ActionTypes.SAVE_ENTRY]({ commit, dispatch }, obj) {
 
-        const success = await SaveBibEntry(obj)
+        const resp = await SaveBibEntry(obj)
 
-        if( success ) {
+        if( resp.ok ) {
             dispatch(ActionTypes.GET_BIBENTRIES);
             state.initialEntry = JSON.parse(JSON.stringify(state.entryToEdit))
             state.initialEntry.BibPreview = '';
             state.initialEntry.CitePreview = '';
+        } else {
+            state.errorMessage = await resp.text();
         }
 
     },

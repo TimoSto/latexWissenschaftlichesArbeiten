@@ -69,6 +69,7 @@
     </v-sheet>
     <UnsafeCloseDialog :model="unsafeClose" v-on:no="unsafeClose = false" v-on:yes="$emit('closeEditor')"/>
     <DeleteDialog :model="tryDelete" type="Literatureintrag" :typekey="this.$store.state.initialEntry.Key" v-on:no="tryDelete = false" v-on:yes="DeleteEntry"></DeleteDialog>
+    <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
   </div>
 </template>
 
@@ -79,10 +80,11 @@ import { MutationTypes } from "@/store/mutation-types";
 import { ActionTypes } from "@/store/action-types";
 import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
 import DeleteDialog from "@/components/DeleteDialog.vue";
+import ErrorDialog from "@/components/ErrorDialog.vue";
 
 export default Vue.extend({
   name: "EntryEditor-View",
-  components: {UnsafeCloseDialog, DeleteDialog},
+  components: {ErrorDialog, UnsafeCloseDialog, DeleteDialog},
 
   data() {
     return {
@@ -168,6 +170,9 @@ export default Vue.extend({
         project: this.$store.state.project,
         key: this.$store.state.initialEntry.Key
       });
+    },
+    ClearError() {
+      this.$store.commit(MutationTypes.CLEAR_ERROR);
     }
   }
 });
