@@ -58,6 +58,11 @@
                   <v-list-item-title>{{ bType.Name }}</v-list-item-title>
                   <v-list-item-subtitle v-html="bType.Model"></v-list-item-subtitle>
                 </v-list-item-content>
+<!--                <v-list-item-avatar class="avatar-less-margin">-->
+<!--                  <v-btn icon>-->
+<!--                    <v-icon>mdi-delete</v-icon>-->
+<!--                  </v-btn>-->
+<!--                </v-list-item-avatar>-->
               </v-list-item>
             </v-list>
           </v-expansion-panel-content>
@@ -176,9 +181,13 @@ main.v-content {
   height: calc(100vh - 64px);
   flex-direction: column;
   overflow-y: auto;
-  margin-top: 64px;
   padding: 0 !important;
   margin: 0;
+}
+
+.avatar-less-margin{
+  margin-bottom: 4px!important;
+  margin-top: 4px!important;
 }
 
 .cite-count{
@@ -188,8 +197,7 @@ main.v-content {
   justify-content: center;
   align-items: center;
   display: inline-flex;
-  margin-bottom: 4px!important;
-  margin-top: 4px!important;
+  @extend .avatar-less-margin;
 }
 
 .theme--light .cite-count{

@@ -6,6 +6,9 @@
       <v-btn icon :disabled="!changesToSave" @click="SaveThisType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
+      <v-btn icon @click="tryDelete = true">
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
       <v-btn icon @click="CloseEditor">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -58,6 +61,7 @@
       </v-expansion-panels>
     </v-sheet>
     <UnsafeCloseDialog :model="unsafeClose" v-on:no="unsafeClose = false" v-on:yes="$emit('closeEditor')"/>
+    <DeleteDialog :model="tryDelete" type="Literaturtyp" :typekey="this.$store.state.initialType.Name" v-on:no="tryDelete = false"></DeleteDialog>
   </div>
 </template>
 
@@ -69,10 +73,11 @@ import MyDataTable from "@/components/MyDataTable.vue";
 import SaveType from "@/api/bibTypes/SaveBibType";
 import {ActionTypes} from "@/store/action-types";
 import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
+import DeleteDialog from "@/components/DeleteDialog.vue";
 
 export default Vue.extend({
   name: "TypeEditor-View",
-  components: {UnsafeCloseDialog, MyDataTable},
+  components: {DeleteDialog, UnsafeCloseDialog, MyDataTable},
   props: [
       'name'
   ],
@@ -85,7 +90,8 @@ export default Vue.extend({
       unsafeClose: false,
       rules: [
         (value: any) => !!value || 'Pflichtfeld',
-      ]
+      ],
+      tryDelete: false
     }
   },
 
