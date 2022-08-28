@@ -76,13 +76,14 @@
             </v-toolbar>
             <v-list two-line>
               <v-list-item v-for="bEntry in bibEntries" :key="bEntry.Key" ripple two-line style="cursor: pointer" @click="editEntry(bEntry.Key)">
+                <v-list-item-avatar class="cite-count" :title="'Anzahl Zitate ' + bEntry.Key">
+                  {{bEntry.CiteNumber}}
+                </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-title>{{ bEntry.Fields[0] }} - {{ bEntry.Fields[1] }}</v-list-item-title>
                   <v-list-item-subtitle>{{ bEntry.Typ }} - {{ bEntry.Key }}</v-list-item-subtitle>
                 </v-list-item-content>
-                <v-list-item-avatar class="cite-count" :title="'Anzahl Zitate ' + bEntry.Key">
-                  {{bEntry.CiteNumber}}
-                </v-list-item-avatar>
+
               </v-list-item>
             </v-list>
           </v-expansion-panel-content>
@@ -181,8 +182,8 @@ main.v-content {
 }
 
 .cite-count{
-  border-radius: 40px;
-  border-width: 3px;
+  border-radius: 48px;
+  border-width: 2px;
   border-style: solid;
   justify-content: center;
   align-items: center;
