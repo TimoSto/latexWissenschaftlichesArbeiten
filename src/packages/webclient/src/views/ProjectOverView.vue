@@ -140,7 +140,11 @@
       },
 
       editType(name: string) {
-        this.$emit('editType', name)
+        if( !this.changesToSaveTypeEditor ) {
+          this.$emit('editType', name);
+        } else {
+          this.$parent?.$emit('tryClosingTypeWithChanges', name);
+        }
       },
 
       newType() {
@@ -162,7 +166,10 @@
       },
       bibEntries(): BibEntry[] {
         return this.$store.state.bibEntries;
-      }
+      },
+      changesToSaveTypeEditor(): boolean {
+        return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.$store.state.typeToEdit)
+      },
     },
 
     watch:{

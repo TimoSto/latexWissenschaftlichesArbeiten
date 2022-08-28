@@ -36,6 +36,7 @@ export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.SET_TYPE_TO_EDIT](state, payload: string) {
         if(payload.length == 0) {
             state.typeToEdit = <BibType>{}
+            state.initialType = <BibType>{}
         } else {
             state.entryToEdit = <BibEntry>{};
             state.bibTypes.forEach(bType => {
@@ -103,6 +104,7 @@ export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.SET_ENTRY_TO_EDIT](state, payload: string) {
         if(payload.length == 0) {
             state.entryToEdit = <BibEntry>{};
+            state.initialEntry = <BibEntry>{};
         } else {
             state.typeToEdit = <BibType>{};
             state.bibEntries.forEach(bEntry => {
