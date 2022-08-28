@@ -143,7 +143,7 @@
         if( this.$store.state.initialType.Name == name ) {
           return;
         }
-        
+
         if( !this.changesToSaveTypeEditor ) {
           this.$emit('editType', name);
         } else {
@@ -182,7 +182,11 @@
         return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.$store.state.typeToEdit)
       },
       changesToSaveEntryEditor(): boolean {
-        return JSON.stringify(this.$store.state.initialEntry) != JSON.stringify(this.$store.state.entryToEdit)
+        let currentWithoutPreview = JSON.parse(JSON.stringify(this.$store.state.entryToEdit));
+        currentWithoutPreview.BibPreview = '';
+        currentWithoutPreview.CitePreview = '';
+
+        return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
       },
     },
 
