@@ -10,7 +10,6 @@ import CreateProject from "@/api/projects/CreateProject";
 import router from "@/router";
 import DeleteProject from "@/api/projects/DeleteProject";
 import SaveType from "@/api/bibTypes/SaveBibType";
-import {BibEntry} from "@/api/bibEntries/BibEntry";
 import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 import DeleteType from "@/api/bibTypes/DeleteType";
 import DeleteEntry from "@/api/bibEntries/DeleteEntry";
@@ -35,13 +34,13 @@ export interface Actions {
 }
 
 export const actions: ActionTree<State, State> & Actions = {
-    async [ActionTypes.GET_PROJECTS]({ commit }, payload) {
+    async [ActionTypes.GET_PROJECTS]({ commit }) {
 
         const obj = await GetProjects();
 
         commit(MutationTypes.SET_PROJECTS, obj)
     },
-    async [ActionTypes.GET_BIBTYPES]({ commit }, payload) {
+    async [ActionTypes.GET_BIBTYPES]({ commit }) {
 
         const obj = await GetBibTypes(this.state.project);
 
@@ -51,7 +50,7 @@ export const actions: ActionTree<State, State> & Actions = {
             commit(MutationTypes.SET_TYPE_TO_EDIT, state.typeToEdit.Name ? state.typeToEdit.Name : '')
         }
     },
-    async [ActionTypes.GET_BIBENTRIES]({ commit }, payload) {
+    async [ActionTypes.GET_BIBENTRIES]({ commit }) {
 
         const obj = await GetBibEntries(this.state.project);
 
@@ -71,7 +70,7 @@ export const actions: ActionTree<State, State> & Actions = {
 
     },
 
-    async [ActionTypes.DELETE_PROJECT]({ commit, dispatch }, payload) {
+    async [ActionTypes.DELETE_PROJECT]({ dispatch }, payload) {
 
         const success = await DeleteProject(payload)
 
@@ -82,7 +81,7 @@ export const actions: ActionTree<State, State> & Actions = {
 
     },
 
-    async [ActionTypes.SAVE_TYPE]({ commit, dispatch }, obj) {
+    async [ActionTypes.SAVE_TYPE]({ dispatch }, obj) {
 
         const resp = await SaveType(obj)
 
@@ -96,7 +95,7 @@ export const actions: ActionTree<State, State> & Actions = {
 
     },
 
-    async [ActionTypes.SAVE_ENTRY]({ commit, dispatch }, obj) {
+    async [ActionTypes.SAVE_ENTRY]({ dispatch }, obj) {
 
         const resp = await SaveBibEntry(obj)
 
@@ -134,7 +133,7 @@ export const actions: ActionTree<State, State> & Actions = {
 
     },
 
-    async [ActionTypes.BACKUP_PROJECT]({ commit, dispatch }) {
+    async [ActionTypes.BACKUP_PROJECT]({ commit }) {
 
         const resp = await BackupProject(state.project)
 
@@ -154,7 +153,7 @@ export const actions: ActionTree<State, State> & Actions = {
         }
     },
 
-    async [ActionTypes.SET_DEFAULT]({commit, dispatch}) {
+    async [ActionTypes.SET_DEFAULT]({commit}) {
         const resp = await SetDefault(state.project);
 
         if( resp.ok ) {
@@ -162,7 +161,7 @@ export const actions: ActionTree<State, State> & Actions = {
         }
     },
 
-    async [ActionTypes.CLEANUP_CITES]({commit, dispatch}) {
+    async [ActionTypes.CLEANUP_CITES]({commit}) {
         const resp = await CleanupCites(state.project);
 
         if( resp.ok ) {

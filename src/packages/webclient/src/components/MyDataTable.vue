@@ -63,7 +63,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Field from "../../../gui/scripts/Field";
 
 export default Vue.extend({
   name: "My-DataTable",

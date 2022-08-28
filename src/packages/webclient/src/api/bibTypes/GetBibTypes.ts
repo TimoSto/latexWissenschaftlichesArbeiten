@@ -2,7 +2,7 @@
 * Read the literature-types for a project from server
 * */
 
-import { BibType, Field } from "@/api/bibTypes/BibType";
+import { BibType } from "@/api/bibTypes/BibType";
 import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
 
 export default async function GetBibTypes(proj: string): Promise<BibType[]> {

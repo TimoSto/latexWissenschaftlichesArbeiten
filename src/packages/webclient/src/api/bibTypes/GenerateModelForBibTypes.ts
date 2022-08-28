@@ -1,4 +1,4 @@
-import {BibType, Field} from "@/api/bibTypes/BibType";
+import {Field} from "@/api/bibTypes/BibType";
 
 export function GenerateModelForBibType(fields: Field[]): string{
     let model = '';

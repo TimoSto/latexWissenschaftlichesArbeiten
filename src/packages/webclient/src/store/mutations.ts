@@ -1,11 +1,9 @@
 import { MutationTree } from 'vuex';
 import { MutationTypes } from './mutation-types';
-import {state, State} from './state';
+import {State} from './state';
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/BibEntry";
-import router from "@/router";
 import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
-import {getters} from "@/store/getters";
 import Field from "../../../gui/scripts/Field";
 import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
 export type Mutations<S = State> = {
@@ -120,7 +118,7 @@ export const mutations: MutationTree<State> & Mutations = {
         }
 
     },
-    [MutationTypes.UPDATE_PREVIEW](state, payload: string) {
+    [MutationTypes.UPDATE_PREVIEW](state) {
         state.bibTypes.forEach(bType => {
             if( bType.Name === state.entryToEdit.Typ ) {
                 const arr = GeneratePreviewsForBibEntry(bType.Fields, bType.CiteFields, state.entryToEdit.Fields);
