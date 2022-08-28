@@ -15,6 +15,7 @@ import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 import DeleteType from "@/api/bibTypes/DeleteType";
 import DeleteEntry from "@/api/bibEntries/DeleteEntry";
 import Translate from "@/api/translator/Translator";
+import BackupProject from "@/api/projects/BackupProject";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -127,6 +128,12 @@ export const actions: ActionTree<State, State> & Actions = {
             dispatch(ActionTypes.GET_BIBENTRIES);
             commit(MutationTypes.SET_ENTRY_TO_EDIT, '');
         }
+
+    },
+
+    async [ActionTypes.BACKUP_PROJECT]({ commit, dispatch }) {
+
+        const resp = await BackupProject(state.project)
 
     },
 };

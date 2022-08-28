@@ -3,7 +3,7 @@
     <v-app-bar elevate-on-scroll color="background" scroll-target="#scroll1" style="z-index: 100">
       <v-toolbar-title>Projektansicht: <span class="font-weight-bold">{{ projectName }}</span></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon title="Lokales Backup erstellen">
+      <v-btn icon title="Lokales Backup erstellen" @click="CreateBackup">
         <v-icon>mdi-cloud-upload</v-icon>
       </v-btn>
       <v-dialog v-model="dialogOpened" width="450">
@@ -175,6 +175,10 @@
       newEntry() {
         this.$store.commit(MutationTypes.NEW_ENTRY)
       },
+
+      CreateBackup() {
+        this.$store.dispatch(ActionTypes.BACKUP_PROJECT);
+      }
     },
 
     computed: {
