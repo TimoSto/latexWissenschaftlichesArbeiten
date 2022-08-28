@@ -188,6 +188,8 @@ main.v-content {
   justify-content: center;
   align-items: center;
   display: inline-flex;
+  margin-bottom: 4px!important;
+  margin-top: 4px!important;
 }
 
 .theme--light .cite-count{
