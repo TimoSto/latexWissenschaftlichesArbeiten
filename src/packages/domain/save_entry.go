@@ -30,6 +30,15 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 			return fmt.Errorf("empty fields. You propably uploaded an invalid file."), 0, 0
 		}
 
+		if entry.Key != initialKeys[n] {
+			//if key is changed, make sure it does not already exist
+			for i := 0; i < len(existingEntries); i++ {
+				if strings.Compare(existingEntries[i].Key, entry.Key) == 0 {
+					return fmt.Errorf("Entry with key '%s' already exists. Delete the old one or rename the new one.", entry.Key), 0, 0
+				}
+			}
+		}
+
 		found := false
 		for i := 0; i < len(existingEntries); i++ {
 			if strings.Compare(existingEntries[i].Key, initialKeys[n]) == 0 {
