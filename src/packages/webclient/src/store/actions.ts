@@ -14,6 +14,7 @@ import {BibEntry} from "@/api/bibEntries/BibEntry";
 import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 import DeleteType from "@/api/bibTypes/DeleteType";
 import DeleteEntry from "@/api/bibEntries/DeleteEntry";
+import Translate from "@/api/translator/Translator";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -98,7 +99,8 @@ export const actions: ActionTree<State, State> & Actions = {
             state.initialEntry.BibPreview = '';
             state.initialEntry.CitePreview = '';
         } else {
-            state.errorMessage = await resp.text();
+            const errorMsg = await resp.text();
+            state.errorMessage = Translate(errorMsg);
         }
 
     },
