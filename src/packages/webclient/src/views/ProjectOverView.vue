@@ -159,6 +159,7 @@
         if( key == this.$store.state.initialEntry.Key ) {
           return
         }
+        console.log(!this.changesToSaveEntryEditor)
         if( !this.changesToSaveEntryEditor ) {
           this.$emit('editEntry', key);
         }else {
@@ -183,8 +184,10 @@
       },
       changesToSaveEntryEditor(): boolean {
         let currentWithoutPreview = JSON.parse(JSON.stringify(this.$store.state.entryToEdit));
-        currentWithoutPreview.BibPreview = '';
-        currentWithoutPreview.CitePreview = '';
+        if(currentWithoutPreview.BibPreview) {
+          currentWithoutPreview.BibPreview = '';
+          currentWithoutPreview.CitePreview = '';
+        }
 
         return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
       },
