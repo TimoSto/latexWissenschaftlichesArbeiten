@@ -135,5 +135,10 @@ export const actions: ActionTree<State, State> & Actions = {
 
         const resp = await BackupProject(state.project)
 
+        if( resp.ok ) {
+            const str = await resp.text();
+            commit(MutationTypes.SET_SNACKBAR, Translate(str));
+        }
+
     },
 };

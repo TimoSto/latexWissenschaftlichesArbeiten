@@ -12,7 +12,8 @@ export const state = {
     entryToEdit: <BibEntry>{},
     initialEntry: <BibEntry>{},
     twoThirdsActive: false,
-    errorMessage: ''
+    errorMessage: '',
+    snackbarMessage: ''
 };
 
 export type State = typeof state;

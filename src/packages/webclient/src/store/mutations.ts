@@ -150,5 +150,8 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.CLEAR_ERROR](state){
         state.errorMessage = '';
+    },
+    [MutationTypes.SET_SNACKBAR](state, payload: string){
+        state.snackbarMessage = payload;
     }
 };

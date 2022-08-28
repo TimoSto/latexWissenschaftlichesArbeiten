@@ -94,6 +94,22 @@
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
+      {{this.$store.state.snackbarMessage}}
+
+      <v-snackbar v-model="snackbarOpened" multi-line timeout="-1">
+        <span v-html="this.$store.state.snackbarMessage"></span>
+        <template v-slot:action="{ attrs }">
+          <v-btn
+              color="primary"
+              text
+              v-bind="attrs"
+              @click="CloseSnackbar"
+          >
+            Schließen
+          </v-btn>
+        </template>
+      </v-snackbar>
+
     </v-sheet>
   </div>
 </template>
@@ -118,7 +134,7 @@
       return {
         panel: [1],
         projectName: '',
-        dialogOpened: false
+        dialogOpened: false,
       }
     },
 
@@ -178,6 +194,10 @@
 
       CreateBackup() {
         this.$store.dispatch(ActionTypes.BACKUP_PROJECT);
+      },
+
+      CloseSnackbar(){
+        this.$store.commit(MutationTypes.SET_SNACKBAR, '');
       }
     },
 
@@ -200,6 +220,10 @@
 
         return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
       },
+
+      snackbarOpened(): boolean {
+        return this.$store.state.snackbarMessage.length > 0;
+      }
     },
 
     watch:{
