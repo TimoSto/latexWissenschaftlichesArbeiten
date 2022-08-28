@@ -98,7 +98,6 @@ export default Vue.extend({
 
   mounted() {
     this.$parent?.$on('tryClosingTypeWithChanges', (evt:string)=>{
-      console.log(evt)
       this.unsafeSwitch = evt;
     })
   },
@@ -173,7 +172,6 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.CLEAR_ERROR);
     },
     AcceptUnsafe() {
-      console.log(this.$data.unsafeSwitch)
       if( this.$data.unsafeSwitch.length > 0 ) {
         this.$emit('editType', this.unsafeSwitch)
         this.unsafeSwitch = '';

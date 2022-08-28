@@ -140,6 +140,10 @@
       },
 
       editType(name: string) {
+        if( this.$store.state.initialType.Name == name ) {
+          return;
+        }
+        
         if( !this.changesToSaveTypeEditor ) {
           this.$emit('editType', name);
         } else {
@@ -152,7 +156,14 @@
       },
 
       editEntry(key: string) {
-        this.$emit('editEntry', key);
+        if( key == this.$store.state.initialEntry.Key ) {
+          return
+        }
+        if( !this.changesToSaveEntryEditor ) {
+          this.$emit('editEntry', key);
+        }else {
+          this.$parent?.$emit('tryClosingEntryWithChanges', key);
+        }
       },
 
       newEntry() {
@@ -169,6 +180,9 @@
       },
       changesToSaveTypeEditor(): boolean {
         return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.$store.state.typeToEdit)
+      },
+      changesToSaveEntryEditor(): boolean {
+        return JSON.stringify(this.$store.state.initialEntry) != JSON.stringify(this.$store.state.entryToEdit)
       },
     },
 

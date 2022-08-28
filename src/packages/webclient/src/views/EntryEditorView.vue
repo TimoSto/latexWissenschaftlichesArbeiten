@@ -67,7 +67,7 @@
       </div>
 
     </v-sheet>
-    <UnsafeCloseDialog :model="unsafeClose" v-on:no="unsafeClose = false" v-on:yes="$emit('closeEditor')"/>
+    <UnsafeCloseDialog :model="unsafeClose || unsafeSwitch.length > 0" v-on:no="unsafeClose = false; unsafeSwitch = '';" v-on:yes="AcceptUnsafe"/>
     <DeleteDialog :model="tryDelete" type="Literatureintrag" :typekey="this.$store.state.initialEntry.Key" v-on:no="tryDelete = false" v-on:yes="DeleteEntry"></DeleteDialog>
     <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
   </div>
@@ -89,11 +89,19 @@ export default Vue.extend({
   data() {
     return {
       unsafeClose: false,
+      unsafeSwitch: '',
       rules: [
         (value: any) => !!value || 'Pflichtfeld',
       ],
       tryDelete: false
     }
+  },
+
+  mounted() {
+    this.$parent?.$on('tryClosingEntryWithChanges', (evt:string)=>{
+      console.log(evt)
+      this.unsafeSwitch = evt;
+    })
   },
 
   computed: {
@@ -173,6 +181,14 @@ export default Vue.extend({
     },
     ClearError() {
       this.$store.commit(MutationTypes.CLEAR_ERROR);
+    },
+    AcceptUnsafe() {
+      if( this.$data.unsafeSwitch.length > 0 ) {
+        this.$emit('editEntry', this.unsafeSwitch)
+        this.unsafeSwitch = '';
+      } else {
+        this.$emit('closeEditor')
+      }
     }
   }
 });
