@@ -16,6 +16,7 @@ import DeleteType from "@/api/bibTypes/DeleteType";
 import DeleteEntry from "@/api/bibEntries/DeleteEntry";
 import Translate from "@/api/translator/Translator";
 import BackupProject from "@/api/projects/BackupProject";
+import RefreshTypes from "@/api/bibTypes/RefreshTypes";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -141,4 +142,13 @@ export const actions: ActionTree<State, State> & Actions = {
         }
 
     },
+
+    async [ActionTypes.REFRESH_TYPES]({commit, dispatch}) {
+        const resp = await RefreshTypes(state.project);
+
+        if( resp.ok ) {
+            dispatch(ActionTypes.GET_BIBTYPES);
+            commit(MutationTypes.SET_SNACKBAR, `Die Standard-Literaturtypen für das Projekt '${state.project}' wurden auf den Standard zurückgesetzt.`);
+        }
+    }
 };

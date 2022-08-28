@@ -43,9 +43,9 @@
               <v-toolbar-title>Literaturtypen</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn icon title="Diese Literaturtypen als Standard festlegen">
-                <v-icon>mdi-cog-refresh</v-icon>
+                <v-icon>mdi-star</v-icon>
               </v-btn>
-              <v-btn icon title="Standard-Literaturtypen aktualisieren">
+              <v-btn icon title="Standard-Literaturtypen aktualisieren" @click="TriggerRefreshDialog">
                 <v-icon>mdi-reload</v-icon>
               </v-btn>
               <v-btn icon title="Literaturtyp hinzufügen" @click="newType">
@@ -88,13 +88,11 @@
                   <v-list-item-title>{{ bEntry.Fields[0] }} - {{ bEntry.Fields[1] }}</v-list-item-title>
                   <v-list-item-subtitle>{{ bEntry.Typ }} - {{ bEntry.Key }}</v-list-item-subtitle>
                 </v-list-item-content>
-
               </v-list-item>
             </v-list>
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
-      {{this.$store.state.snackbarMessage}}
 
       <v-snackbar v-model="snackbarOpened" multi-line timeout="-1">
         <span v-html="this.$store.state.snackbarMessage"></span>
@@ -110,6 +108,8 @@
         </template>
       </v-snackbar>
 
+      <ConfirmDialog :model="confirmMessage.length > 0" :dialog-content="confirmMessage" :dialog-title="confirmTitle" v-on:yes="ConfirmInDialog"/>
+
     </v-sheet>
   </div>
 </template>
@@ -121,11 +121,13 @@
   import {BibEntry} from "@/api/bibEntries/BibEntry";
   import {ActionTypes} from "@/store/action-types";
   import {MutationTypes} from "@/store/mutation-types";
+  import ConfirmDialog from "@/components/ConfirmDialog.vue";
 
   export default Vue.extend({
     name: 'Project-OverView',
 
     components: {
+      ConfirmDialog,
       DragNDropZone
 
     },
@@ -135,6 +137,9 @@
         panel: [1],
         projectName: '',
         dialogOpened: false,
+        confirmAction: '',
+        confirmMessage: '',
+        confirmTitle: ''
       }
     },
 
@@ -198,6 +203,19 @@
 
       CloseSnackbar(){
         this.$store.commit(MutationTypes.SET_SNACKBAR, '');
+      },
+
+      TriggerRefreshDialog() {
+        this.confirmMessage = 'Möchtest du die vordefinierten Literaturtypen auf den aktuellen Standard zurücksetzen? Änderungen an diesen Typen werden verloren gehen. Von dir selbst erstellte Literaturtypen werden erhalten bleiben.'
+        this.confirmAction = ActionTypes.REFRESH_TYPES
+        this.confirmTitle = 'Literaturtypen zurücksetzen'
+      },
+
+      ConfirmInDialog() {
+        this.$store.dispatch(this.confirmAction);
+        this.confirmAction = '';
+        this.confirmTitle = '';
+        this.confirmMessage = '';
       }
     },
 
