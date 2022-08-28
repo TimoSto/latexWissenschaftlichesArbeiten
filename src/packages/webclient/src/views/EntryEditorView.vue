@@ -6,7 +6,7 @@
       <v-btn icon :disabled="!changesToSave || !requiredFieldsFilled" @click="saveEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
-      <v-btn icon @click="tryDelete = true">
+      <v-btn icon @click="tryDelete = true" :disabled="!this.$store.state.initialEntry.Key">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
       <v-btn icon @click="CloseEditor">
