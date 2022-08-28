@@ -4,8 +4,8 @@
       <ProjectOverView v-on:editType="openTypeEditor($event)" v-on:newType="openTypeEditor($event)" v-on:editEntry="openEntryEditor($event)"/>
     </div>
     <div class="area area-right" :class="[typeEditorOpen || entryEditorOpen ? 'halfWidth' : 'zeroWidth']">
-      <TypeEditorView v-if="typeEditorOpen" :name="typeEditorName" v-on:closeEditor="closeTypeEditor" v-on:editType="openTypeEditor($event)"/>
-      <EntryEditorView v-if="entryEditorOpen" v-on:closeEditor="closeEntryEditor" v-on:editEntry="openEntryEditor($event)"/>
+      <TypeEditorView v-if="typeEditorOpen" :name="typeEditorName" v-on:closeEditor="closeTypeEditor" v-on:editType="openTypeEditor($event)" v-on:editEntry="openEntryEditor($event)"/>
+      <EntryEditorView v-if="entryEditorOpen" v-on:closeEditor="closeEntryEditor" v-on:editEntry="openEntryEditor($event)" v-on:editType="openTypeEditor($event)"/>
     </div>
   </div>
 </template>

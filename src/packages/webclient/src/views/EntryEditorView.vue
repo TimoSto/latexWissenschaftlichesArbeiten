@@ -67,7 +67,7 @@
       </div>
 
     </v-sheet>
-    <UnsafeCloseDialog :model="unsafeClose || unsafeSwitch.length > 0" v-on:no="unsafeClose = false; unsafeSwitch = '';" v-on:yes="AcceptUnsafe"/>
+    <UnsafeCloseDialog :model="unsafeClose || unsafeSwitch.length > 0 || unsafeSwitchToType.length > 0" v-on:no="unsafeClose = false; unsafeSwitch = ''; unsafeSwitchToType =''" v-on:yes="AcceptUnsafe"/>
     <DeleteDialog :model="tryDelete" type="Literatureintrag" :typekey="this.$store.state.initialEntry.Key" v-on:no="tryDelete = false" v-on:yes="DeleteEntry"></DeleteDialog>
     <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
   </div>
@@ -90,6 +90,7 @@ export default Vue.extend({
     return {
       unsafeClose: false,
       unsafeSwitch: '',
+      unsafeSwitchToType: '',
       rules: [
         (value: any) => !!value || 'Pflichtfeld',
       ],
@@ -101,6 +102,9 @@ export default Vue.extend({
     this.$parent?.$on('tryClosingEntryWithChanges', (evt:string)=>{
       console.log(evt)
       this.unsafeSwitch = evt;
+    })
+    this.$parent?.$on('tryClosingEntryWithChangesAndOpenType', (evt:string)=>{
+      this.unsafeSwitchToType = evt;
     })
   },
 
@@ -186,6 +190,9 @@ export default Vue.extend({
       if( this.$data.unsafeSwitch.length > 0 ) {
         this.$emit('editEntry', this.unsafeSwitch)
         this.unsafeSwitch = '';
+      } else if( this.$data.unsafeSwitchToType.length > 0 ) {
+        this.$emit('editType', this.unsafeSwitchToType)
+        this.unsafeSwitchToType = '';
       } else {
         this.$emit('closeEditor')
       }

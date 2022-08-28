@@ -60,7 +60,7 @@
         </v-expansion-panel>
       </v-expansion-panels>
     </v-sheet>
-    <UnsafeCloseDialog :model="unsafeClose || unsafeSwitch.length > 0" v-on:no="unsafeClose = false; unsafeSwitch = ''" v-on:yes="AcceptUnsafe"/>
+    <UnsafeCloseDialog :model="unsafeClose || unsafeSwitch.length > 0 || unsafeSwitchToEntry.length > 0" v-on:no="unsafeClose = false; unsafeSwitch = ''; unsafeSwitchToEntry = ''" v-on:yes="AcceptUnsafe"/>
     <DeleteDialog :model="tryDelete" type="Literaturtyp" :typekey="this.$store.state.initialType.Name" v-on:no="tryDelete = false" v-on:yes="DeleteType"></DeleteDialog>
     <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
   </div>
@@ -89,6 +89,7 @@ export default Vue.extend({
       fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}],
       unsafeClose: false,
       unsafeSwitch: '',
+      unsafeSwitchToEntry: '',
       rules: [
         (value: any) => !!value || 'Pflichtfeld',
       ],
@@ -99,6 +100,10 @@ export default Vue.extend({
   mounted() {
     this.$parent?.$on('tryClosingTypeWithChanges', (evt:string)=>{
       this.unsafeSwitch = evt;
+    })
+    this.$parent?.$on('tryClosingTypeWithChangesAndOpenEntry', (evt:string)=>{
+      console.log(evt)
+      this.unsafeSwitchToEntry = evt;
     })
   },
 
@@ -175,7 +180,10 @@ export default Vue.extend({
       if( this.$data.unsafeSwitch.length > 0 ) {
         this.$emit('editType', this.unsafeSwitch)
         this.unsafeSwitch = '';
-      } else {
+      } else if( this.$data.unsafeSwitchToEntry.length > 0 ) {
+        this.$emit('editEntry', this.unsafeSwitchToEntry)
+        this.unsafeSwitchToEntry = '';
+      }{
         this.$emit('closeEditor')
       }
     }

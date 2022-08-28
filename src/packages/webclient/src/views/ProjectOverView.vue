@@ -144,10 +144,13 @@
           return;
         }
 
-        if( !this.changesToSaveTypeEditor ) {
-          this.$emit('editType', name);
-        } else {
+        console.log(this.changesToSaveTypeEditor)
+        if( this.changesToSaveEntryEditor ) {
+          this.$parent?.$emit('tryClosingEntryWithChangesAndOpenType', name);
+        } else if( this.changesToSaveTypeEditor ) {
           this.$parent?.$emit('tryClosingTypeWithChanges', name);
+        }else {
+          this.$emit('editType', name);
         }
       },
 
@@ -160,10 +163,12 @@
           return
         }
         console.log(!this.changesToSaveEntryEditor)
-        if( !this.changesToSaveEntryEditor ) {
-          this.$emit('editEntry', key);
-        }else {
+        if( this.changesToSaveEntryEditor ) {
           this.$parent?.$emit('tryClosingEntryWithChanges', key);
+        } else if( this.changesToSaveTypeEditor ) {
+          this.$parent?.$emit('tryClosingTypeWithChangesAndOpenEntry', key);
+        }else {
+          this.$emit('editEntry', key);
         }
       },
 
