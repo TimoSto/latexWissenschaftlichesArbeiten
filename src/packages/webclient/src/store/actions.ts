@@ -13,6 +13,7 @@ import SaveType from "@/api/bibTypes/SaveBibType";
 import {BibEntry} from "@/api/bibEntries/BibEntry";
 import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 import DeleteType from "@/api/bibTypes/DeleteType";
+import DeleteEntry from "@/api/bibEntries/DeleteEntry";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -107,6 +108,17 @@ export const actions: ActionTree<State, State> & Actions = {
         if( success ) {
             dispatch(ActionTypes.GET_BIBTYPES);
             commit(MutationTypes.SET_TYPE_TO_EDIT, '');
+        }
+
+    },
+
+    async [ActionTypes.DELETE_ENTRY]({ commit, dispatch }, payload:{project: string, key: string}) {
+
+        const success = await DeleteEntry(payload.project, payload.key)
+
+        if( success ) {
+            dispatch(ActionTypes.GET_BIBENTRIES);
+            commit(MutationTypes.SET_ENTRY_TO_EDIT, '');
         }
 
     },

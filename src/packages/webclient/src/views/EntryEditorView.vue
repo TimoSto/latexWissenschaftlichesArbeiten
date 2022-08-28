@@ -6,6 +6,9 @@
       <v-btn icon :disabled="!changesToSave || !requiredFieldsFilled" @click="saveEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
+      <v-btn icon @click="tryDelete = true">
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
       <v-btn icon @click="CloseEditor">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -65,6 +68,7 @@
 
     </v-sheet>
     <UnsafeCloseDialog :model="unsafeClose" v-on:no="unsafeClose = false" v-on:yes="$emit('closeEditor')"/>
+    <DeleteDialog :model="tryDelete" type="Literatureintrag" :typekey="this.$store.state.initialEntry.Key" v-on:no="tryDelete = false" v-on:yes="DeleteEntry"></DeleteDialog>
   </div>
 </template>
 
@@ -77,17 +81,19 @@ import SaveEntry from "../../../gui/scripts/SaveEntry";
 import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 import { ActionTypes } from "@/store/action-types";
 import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
+import DeleteDialog from "@/components/DeleteDialog.vue";
 
 export default Vue.extend({
   name: "EntryEditor-View",
-  components: {UnsafeCloseDialog},
+  components: {UnsafeCloseDialog, DeleteDialog},
 
   data() {
     return {
       unsafeClose: false,
       rules: [
         (value: any) => !!value || 'Pflichtfeld',
-      ]
+      ],
+      tryDelete: false
     }
   },
 
@@ -159,6 +165,12 @@ export default Vue.extend({
       } else {
         return []
       }
+    },
+    DeleteEntry() {
+      this.$store.dispatch(ActionTypes.DELETE_ENTRY, {
+        project: this.$store.state.project,
+        key: this.$store.state.initialEntry.Key
+      });
     }
   }
 });
