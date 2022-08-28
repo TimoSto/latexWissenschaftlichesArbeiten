@@ -34,6 +34,19 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 		logger.LogError("Reading types for project "+saveObj.Project, err.Error())
 		http.Error(w, err.Error(), 500)
 	}
+
+	if saveObj.Type.Name != saveObj.InitialName {
+		//if name is changed make sure it does not already exist
+		for _, bType := range literatureTypes.Types {
+			if bType.Name == saveObj.Type.Name {
+				err = fmt.Errorf("Type with name '%s' already exists. Delete the old one or rename the new one.", saveObj.Type.Name)
+				logger.LogError("SAVING TYPE", err.Error())
+				http.Error(w, err.Error(), 400)
+				return
+			}
+		}
+	}
+
 	found := false
 	for i, typ := range literatureTypes.Types {
 		if len(initialName) == 0 && strings.Compare(typ.Name, saveObj.Type.Name) == 0 {

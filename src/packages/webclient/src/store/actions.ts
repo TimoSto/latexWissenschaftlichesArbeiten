@@ -80,11 +80,14 @@ export const actions: ActionTree<State, State> & Actions = {
 
     async [ActionTypes.SAVE_TYPE]({ commit, dispatch }, obj) {
 
-        const success = await SaveType(obj)
+        const resp = await SaveType(obj)
 
-        if( success ) {
+        if( resp.ok ) {
             dispatch(ActionTypes.GET_BIBTYPES);
             state.initialType = JSON.parse(JSON.stringify(state.typeToEdit))
+        } else {
+            const errorMsg = await resp.text();
+            state.errorMessage = Translate(errorMsg);
         }
 
     },

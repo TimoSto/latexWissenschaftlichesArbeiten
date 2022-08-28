@@ -62,6 +62,7 @@
     </v-sheet>
     <UnsafeCloseDialog :model="unsafeClose" v-on:no="unsafeClose = false" v-on:yes="$emit('closeEditor')"/>
     <DeleteDialog :model="tryDelete" type="Literaturtyp" :typekey="this.$store.state.initialType.Name" v-on:no="tryDelete = false" v-on:yes="DeleteType"></DeleteDialog>
+    <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
   </div>
 </template>
 
@@ -72,10 +73,11 @@ import MyDataTable from "@/components/MyDataTable.vue";
 import {ActionTypes} from "@/store/action-types";
 import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
 import DeleteDialog from "@/components/DeleteDialog.vue";
+import ErrorDialog from "@/components/ErrorDialog.vue";
 
 export default Vue.extend({
   name: "TypeEditor-View",
-  components: {DeleteDialog, UnsafeCloseDialog, MyDataTable},
+  components: {DeleteDialog, UnsafeCloseDialog, MyDataTable, ErrorDialog},
   props: [
       'name'
   ],
@@ -158,6 +160,9 @@ export default Vue.extend({
         project: this.$store.state.project,
         name: this.$store.state.initialType.Name
       });
+    },
+    ClearError() {
+      this.$store.commit(MutationTypes.CLEAR_ERROR);
     }
   },
 });
