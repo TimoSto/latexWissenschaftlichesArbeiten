@@ -67,10 +67,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import {BibType} from "@/api/bibTypes/BibType";
 import {MutationTypes} from "@/store/mutation-types";
 import MyDataTable from "@/components/MyDataTable.vue";
-import SaveType from "@/api/bibTypes/SaveBibType";
 import {ActionTypes} from "@/store/action-types";
 import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
 import DeleteDialog from "@/components/DeleteDialog.vue";

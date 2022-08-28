@@ -75,10 +75,7 @@
 <script lang="ts">
 import {BibType, Field} from "@/api/bibTypes/BibType";
 import Vue from "vue";
-import {state} from "@/store/state";
 import { MutationTypes } from "@/store/mutation-types";
-import SaveEntry from "../../../gui/scripts/SaveEntry";
-import SaveBibEntry from "@/api/bibEntries/SaveBibEntry";
 import { ActionTypes } from "@/store/action-types";
 import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
 import DeleteDialog from "@/components/DeleteDialog.vue";
