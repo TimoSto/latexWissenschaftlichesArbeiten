@@ -61,7 +61,7 @@
       </v-expansion-panels>
     </v-sheet>
     <UnsafeCloseDialog :model="unsafeClose" v-on:no="unsafeClose = false" v-on:yes="$emit('closeEditor')"/>
-    <DeleteDialog :model="tryDelete" type="Literaturtyp" :typekey="this.$store.state.initialType.Name" v-on:no="tryDelete = false"></DeleteDialog>
+    <DeleteDialog :model="tryDelete" type="Literaturtyp" :typekey="this.$store.state.initialType.Name" v-on:no="tryDelete = false" v-on:yes="DeleteType"></DeleteDialog>
   </div>
 </template>
 
@@ -154,6 +154,12 @@ export default Vue.extend({
       } else {
         this.$emit('closeEditor')
       }
+    },
+    DeleteType() {
+      this.$store.dispatch(ActionTypes.DELETE_TYPE, {
+        project: this.$store.state.project,
+        name: this.$store.state.initialType.Name
+      });
     }
   },
 });
