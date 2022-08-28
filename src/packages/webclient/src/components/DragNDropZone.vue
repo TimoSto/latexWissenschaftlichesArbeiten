@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div id="drop_zone">
+    <div id="drop_zone" @dragover.prevent @drop.prevent="readDroppedFile">
       <span class="mdc-typography--body1">Ziehe eine aus Citavi exportierte Bib-Datei hier hinein</span>
     </div>
     <input type="file" id="fileInput" style="display:none"/>
@@ -8,11 +8,35 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+import AnalyseDroppedFiles from '@/api/TeX-JSON-converter/AnalyseDroppedFiles';
+import Vue from 'vue'
+  import AnalyseAndSaveDroppdFile from "../../../gui/scripts/AnalyseAndSaveDroppedFile";
 
   export default Vue.extend({
     name: 'DragNDrop-Zone',
 
+    methods: {
+      readDroppedFile(e: DragEvent) {
+        const dT = new DataTransfer();
+        let file = e.dataTransfer?.files[0]
+        if(!file) {
+          return
+        }
+        dT.items.add(file);
+        let reader = new FileReader();
+        reader.readAsText(dT.files[0], "UTF-8");
+        reader.onload = ()=>{
+          let extension = dT.files[0].name.substr(dT.files[0].name.lastIndexOf('.'))
+
+          if( extension !== '.bib' ) {
+            this.$store.state.errorMessage = 'Die hochgeladene Datei muss eine .bib-Datei sein.'
+            return
+          }
+
+          AnalyseDroppedFiles(reader.result as string)
+        }
+      }
+    }
   })
 </script>
 
