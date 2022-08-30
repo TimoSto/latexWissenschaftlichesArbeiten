@@ -10,7 +10,6 @@
 <script lang="ts">
 import AnalyseDroppedFiles from '@/api/TeX-JSON-converter/AnalyseDroppedFiles';
 import Vue from 'vue'
-  import AnalyseAndSaveDroppdFile from "../../../gui/scripts/AnalyseAndSaveDroppedFile";
 import {MutationTypes} from "@/store/mutation-types";
 
   export default Vue.extend({

@@ -45,9 +45,7 @@
     </v-navigation-drawer>
 
     <v-main fill-height id="main" pt-0>
-      <v-content>
-        <router-view />
-      </v-content>
+      <router-view />
     </v-main>
   </v-app>
 </template>

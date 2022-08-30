@@ -1,5 +1,4 @@
-import {DragNDropResp, Entry} from "@/api/TeX-JSON-converter/AnalyseDroppedFiles";
-import {Value} from "sass";
+import {Entry} from "@/api/TeX-JSON-converter/AnalyseDroppedFiles";
 
 type UploadEntry = {
     ValuePairs: {Value: string, Attr: string}[];

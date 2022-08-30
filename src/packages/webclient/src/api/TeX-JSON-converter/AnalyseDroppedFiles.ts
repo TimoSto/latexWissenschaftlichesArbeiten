@@ -35,8 +35,6 @@ export default function AnalyseDroppedFiles(file: string): DragNDropResp {
     const unknown = [];
     const empty = [];
 
-    const regex = new RegExp(/(?!\B"[^"\\"]*),(?![^"\\"]*"\B)/g);
-
     while( file.indexOf('@') >= 0 ) {
         //remove stuff before first '@'
         file = file.substr(file.indexOf('@'));
