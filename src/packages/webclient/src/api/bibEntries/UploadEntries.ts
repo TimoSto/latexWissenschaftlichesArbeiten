@@ -13,8 +13,6 @@ export default async function UploadEntries(entries: Entry[], project: string) {
         Entries: <UploadEntry[]>[]
     }
 
-    console.log(entries)
-
     entries.forEach(entry => {
         const obj = <UploadEntry>{
             Key: entry.Key,

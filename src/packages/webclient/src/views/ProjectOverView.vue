@@ -175,7 +175,6 @@
           return;
         }
 
-        console.log(this.changesToSaveTypeEditor)
         if( this.changesToSaveEntryEditor ) {
           this.$parent?.$emit('tryClosingEntryWithChangesAndOpenType', name);
         } else if( this.changesToSaveTypeEditor ) {
@@ -193,7 +192,7 @@
         if( key == this.$store.state.initialEntry.Key ) {
           return
         }
-        console.log(!this.changesToSaveEntryEditor)
+        
         if( this.changesToSaveEntryEditor ) {
           this.$parent?.$emit('tryClosingEntryWithChanges', key);
         } else if( this.changesToSaveTypeEditor ) {

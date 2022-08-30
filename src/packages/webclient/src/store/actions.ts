@@ -170,11 +170,17 @@ export const actions: ActionTree<State, State> & Actions = {
         }
     },
 
-    async [ActionTypes.UPLOAD_DROPPED]({commit}) {
+    async [ActionTypes.UPLOAD_DROPPED]({commit, dispatch}) {
         const resp = await UploadEntries(state.dragNDropResp.Entries, state.project)
 
         if( resp.ok ) {
             commit(MutationTypes.SET_SNACKBAR, `Literatureinträge erfolgreich hinzugefügt.`);
+            commit(MutationTypes.SET_DRAG_N_DROP_RESULT, {
+                Valid: false,
+                Entries: [],
+                Message: '',
+            });
+            dispatch(ActionTypes.GET_BIBENTRIES);
         }
     }
 };
