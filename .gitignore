@@ -22,3 +22,4 @@ backup/
 customStyles/
 errorLogs.txt
 compile.bat
+src/packages/webclient/assets/dist/

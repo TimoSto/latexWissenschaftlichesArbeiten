@@ -14,4 +14,8 @@ module.exports = defineConfig({
       }
     }
   },
+  publicPath: process.env.NODE_ENV === 'production'
+      ? '/assets/'
+      : '/',
+  outputDir: './assets/dist'
 })
