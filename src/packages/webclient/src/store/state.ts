@@ -1,5 +1,6 @@
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/BibEntry";
+import {DragNDropResp} from "@/api/TeX-JSON-converter/AnalyseDroppedFiles";
 
 
 export const state = {
@@ -13,7 +14,8 @@ export const state = {
     initialEntry: <BibEntry>{},
     twoThirdsActive: false,
     errorMessage: '',
-    snackbarMessage: ''
+    snackbarMessage: '',
+    dragNDropResp: <DragNDropResp>{}
 };
 
 export type State = typeof state;

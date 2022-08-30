@@ -11,6 +11,7 @@
 import AnalyseDroppedFiles from '@/api/TeX-JSON-converter/AnalyseDroppedFiles';
 import Vue from 'vue'
   import AnalyseAndSaveDroppdFile from "../../../gui/scripts/AnalyseAndSaveDroppedFile";
+import {MutationTypes} from "@/store/mutation-types";
 
   export default Vue.extend({
     name: 'DragNDrop-Zone',
@@ -34,7 +35,7 @@ import Vue from 'vue'
           }
 
           const dragNDropRes = AnalyseDroppedFiles(reader.result as string)
-          console.log(dragNDropRes)
+          this.$store.commit(MutationTypes.SET_DRAG_N_DROP_RESULT, dragNDropRes);
         }
       }
     }

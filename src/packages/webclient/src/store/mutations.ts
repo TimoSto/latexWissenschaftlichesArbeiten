@@ -6,6 +6,7 @@ import {BibEntry} from "@/api/bibEntries/BibEntry";
 import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
 import Field from "../../../gui/scripts/Field";
 import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
+import {DragNDropResp} from "@/api/TeX-JSON-converter/AnalyseDroppedFiles";
 export type Mutations<S = State> = {
     [MutationTypes.SET_PROJECT](state: S, payload: string): void;
     [MutationTypes.SET_PROJECTS](state: S, payload: string[]): void;
@@ -151,5 +152,8 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.SET_SNACKBAR](state, payload: string){
         state.snackbarMessage = payload;
+    },
+    [MutationTypes.SET_DRAG_N_DROP_RESULT](state, payload: DragNDropResp){
+        state.dragNDropResp = payload;
     }
 };

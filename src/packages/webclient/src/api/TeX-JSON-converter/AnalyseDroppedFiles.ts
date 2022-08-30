@@ -6,7 +6,7 @@ type Entry = {
     Typ: string
 }
 
-type DragNDropResp = {
+export type DragNDropResp = {
     Valid: boolean
     Message: string,
     Unknown: string[],
