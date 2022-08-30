@@ -1,1 +1,16 @@
-[]
+[
+	{
+		"Key": "xcv",
+		"Typ": "Buch",
+		"Fields": [
+			"xcv",
+			"xcv",
+			"xcv",
+			"xcv",
+			"xcv",
+			"xcv"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	}
+]

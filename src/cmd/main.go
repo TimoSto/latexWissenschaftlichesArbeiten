@@ -100,6 +100,8 @@ func main() {
 
 	logger.Init()
 
+	http.HandleFunc("/", handlers.HandleAssetsNew)
+
 	http.HandleFunc("/overview", handlers.HandleOverview)
 
 	http.HandleFunc("/createProject", handlers.HandleNewProject)
@@ -151,8 +153,6 @@ func main() {
 	http.HandleFunc("/saveAndCompile", handlers.SaveAndCompile)
 
 	http.HandleFunc("/getPDF", handlers.GetPDF)
-
-	http.HandleFunc("/", handlers.HandleAssets)
 
 	http.HandleFunc("/getProjects", handlers.GetProjectsHandler)
 
