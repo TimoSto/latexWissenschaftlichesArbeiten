@@ -115,7 +115,10 @@
       <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
       <ConfirmDialog
           :model="this.$store.state.dragNDropResp.Message.length > 0"
-          :dialog-title="this.$store.state.dragNDropResp.Entries.length + (this.$store.state.dragNDropResp.Entries.length>1 ? ' Einträge' : ' Eintrag') + ' hochladen?'" :dialog-content="this.$store.state.dragNDropResp.Message" />
+          :dialog-title="this.$store.state.dragNDropResp.Entries.length + (this.$store.state.dragNDropResp.Entries.length>1 ? ' Einträge' : ' Eintrag') + ' hochladen?'"
+          :dialog-content="this.$store.state.dragNDropResp.Message"
+          v-on:yes="ConfirmUpload" v-on:no="CloseUpload"
+      />
     </v-sheet>
   </div>
 </template>
@@ -245,6 +248,17 @@
       ClearError() {
         this.$store.commit(MutationTypes.CLEAR_ERROR);
       },
+
+      ConfirmUpload() {
+        console.log('u')
+      },
+      CloseUpload() {
+        this.$store.commit(MutationTypes.SET_DRAG_N_DROP_RESULT, {
+          Valid: false,
+          Entries: [],
+          Message: '',
+        });
+      }
     },
 
     computed: {
