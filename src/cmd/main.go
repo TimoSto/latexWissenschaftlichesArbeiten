@@ -19,7 +19,6 @@ import (
 
 	"WA_LaTeX/src/packages/conf"
 	"WA_LaTeX/src/packages/handlers"
-	"WA_LaTeX/src/packages/handlers/themes"
 	"WA_LaTeX/src/tools/logger"
 )
 
@@ -102,23 +101,11 @@ func main() {
 
 	http.HandleFunc("/", handlers.HandleAssetsNew)
 
-	http.HandleFunc("/overview", handlers.HandleOverview)
-
 	http.HandleFunc("/createProject", handlers.HandleNewProject)
-
-	http.HandleFunc("/projects/", handlers.HandleGetProject)
-
-	http.HandleFunc("/literature", handlers.HandleLiteraturePage)
-
-	http.HandleFunc("/editType", handlers.HandleEditType)
 
 	http.HandleFunc("/saveType", handlers.HandleSaveType)
 
 	http.HandleFunc("/deleteType", handlers.HandleDeleteType)
-
-	http.HandleFunc("/editEntry", handlers.HandleEditEntry)
-
-	http.HandleFunc("/typeFields/", handlers.HandleTypeFields)
 
 	http.HandleFunc("/saveEntry", handlers.HandleSaveEntry)
 
@@ -127,10 +114,6 @@ func main() {
 	http.HandleFunc("/deleteEntry", handlers.HandleDeleteEntry)
 
 	http.HandleFunc("/deleteProject", handlers.HandleDeleteProject)
-
-	http.HandleFunc("/editStyles", handlers.HandleEditStyles)
-
-	http.HandleFunc("/saveStyles", handlers.HandleSaveStyles)
 
 	http.HandleFunc("/backup", handlers.HandleBackup)
 
@@ -145,8 +128,6 @@ func main() {
 	http.HandleFunc("/documentation", handlers.HandleDocumentation)
 
 	http.HandleFunc("/cv", handlers.HandleCV)
-
-	http.HandleFunc("/themes", themes.HandleTheme)
 
 	http.HandleFunc("/getFile", handlers.GetTeX)
 
