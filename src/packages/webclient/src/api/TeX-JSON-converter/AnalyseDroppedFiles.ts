@@ -152,12 +152,33 @@ export default function AnalyseDroppedFiles(file: string): DragNDropResp {
         });
     }
 
+    let msg = `Folgende Einträge werden hochgeladen werden:\n`;
+    entries.forEach(e => {
+        msg += '<b><i>' + e.Key + '\n' + '</i></b>';
+    })
+
+    if( empty.length > 0 ) {
+        msg += '\n';
+        msg += 'Folgende Einträge sind leer und werden deshalb ignoriert:\n';
+        empty.forEach(e => {
+            msg += '<b><i>' + e + '\n' + '</i></b>';
+        })
+    }
+
+    if( unknown.length > 0 ) {
+        msg += '\n';
+        msg += 'Folgende Typen sind unbekannt und werden deshalb ignoriert:\n';
+        unknown.forEach(e => {
+            msg += '<b><i>' + e + '\n' + '</i></b>';
+        });
+    }
+
     return {
         Empty: empty,
         Entries: entries,
         Unknown: unknown,
         Valid: true,
-        Message: `Es werden ${entries.length} Einträge hochgeladen.`
+        Message: msg
     }
 }
 

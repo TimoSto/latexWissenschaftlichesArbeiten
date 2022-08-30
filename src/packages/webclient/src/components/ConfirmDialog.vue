@@ -5,8 +5,7 @@
         {{dialogTitle}}
       </v-card-title>
 
-      <v-card-text>
-        {{dialogContent}}
+      <v-card-text style="white-space: pre" v-html="dialogContent">
       </v-card-text>
 
       <v-card-actions>

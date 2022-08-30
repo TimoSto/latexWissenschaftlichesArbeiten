@@ -15,7 +15,9 @@ export const state = {
     twoThirdsActive: false,
     errorMessage: '',
     snackbarMessage: '',
-    dragNDropResp: <DragNDropResp>{}
+    dragNDropResp: <DragNDropResp>{
+        Message: ''
+    }
 };
 
 export type State = typeof state;
