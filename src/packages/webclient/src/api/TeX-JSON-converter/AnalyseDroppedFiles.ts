@@ -43,7 +43,7 @@ export default function AnalyseDroppedFiles(file: string): DragNDropResp {
 
         const nextEntryIndex = file.substr(1).indexOf('@');
 
-        let entryFile = file.substr(0, nextEntryIndex >= 0 ? nextEntryIndex : file.length)
+        let entryFile = file.substr(0, nextEntryIndex >= 0 ? nextEntryIndex + 1 : file.length)
 
         //type = string between first '@' and first '{'
         let type = entryFile.substring(1, entryFile.indexOf('{')).toLowerCase();
