@@ -18,6 +18,7 @@ import BackupProject from "@/api/projects/BackupProject";
 import RefreshTypes from "@/api/bibTypes/RefreshTypes";
 import SetDefault from "@/api/bibTypes/SetDefault";
 import CleanupCites from "@/api/projects/CleanupCites";
+import UploadEntries from "@/api/bibEntries/UploadEntries";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -166,6 +167,14 @@ export const actions: ActionTree<State, State> & Actions = {
 
         if( resp.ok ) {
             commit(MutationTypes.SET_SNACKBAR, `Das Literaturverzeichnis des Projektes '${state.project}' enthält nun nurnoch die zum jetzigen Zeitpunkt zitierten Einträge.`);
+        }
+    },
+
+    async [ActionTypes.UPLOAD_DROPPED]({commit}) {
+        const resp = await UploadEntries(state.dragNDropResp.Entries, state.project)
+
+        if( resp.ok ) {
+            commit(MutationTypes.SET_SNACKBAR, `Literatureinträge erfolgreich hinzugefügt.`);
         }
     }
 };

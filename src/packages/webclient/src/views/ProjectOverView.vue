@@ -250,7 +250,7 @@
       },
 
       ConfirmUpload() {
-        console.log('u')
+        this.$store.dispatch(ActionTypes.UPLOAD_DROPPED);
       },
       CloseUpload() {
         this.$store.commit(MutationTypes.SET_DRAG_N_DROP_RESULT, {
