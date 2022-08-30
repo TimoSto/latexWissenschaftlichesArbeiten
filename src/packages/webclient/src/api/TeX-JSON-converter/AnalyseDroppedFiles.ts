@@ -45,6 +45,8 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
         // entryFile = entryFile.replaceAll(`\"`, '');
         // console.log(entryFile)
 
+        const valuePairs: string[][] = []
+
         const commasNotInsideQuotes = entryFile.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
         const arr = [...commasNotInsideQuotes]
         console.log(arr)
@@ -55,13 +57,21 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
             if ( firstIndexOfEqual > 0) {
                 p1 = vp.substring(0, firstIndexOfEqual)
                 p2 = vp.substring(firstIndexOfEqual + 1)
+                p1 = RemoveTrailingAndLeading(p1, '{');
+                p2 = RemoveTrailingAndLeading(p2, '}');
                 p1 = RemoveTrailingAndLeading(p1, ' ');
                 p2 = RemoveTrailingAndLeading(p2, ' ');
                 p1 = RemoveTrailingAndLeading(p1, '"');
                 p2 = RemoveTrailingAndLeading(p2, '"');
+
+                let value = ParseBibToString(p2);
+
+                value = ParseStringToTeX(value);
+
+                valuePairs.push([p1, value])
             }
-            console.log(p1,p2)
-        })
+        });
+        console.log(valuePairs)
 
         file = nextEntryIndex >= 0 ? file.substr(nextEntryIndex) : '';
     }
