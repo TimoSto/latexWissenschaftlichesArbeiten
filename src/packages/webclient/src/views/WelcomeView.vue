@@ -19,7 +19,7 @@
     <div class="text-container">
       <p>Um Literatur-Einträge in einem Projekt zu erstellen, musst du das Projekt bearbeiten. Dann erscheint ein Bereich, in dem du Literatureinträge hinzufügen, löschen oder bearbeiten kannst.</p>
       <p>Wenn du noch Fragen hast, schau doch unter der Hilfe <v-icon>mdi-help-circle-outline</v-icon> oder in der <router-link style="text-decoration: none" to="/pdf/documentation">Dokumentation <v-icon color="primary">mdi-book-open-blank-variant</v-icon></router-link> nach.</p>
-      <p>Als Sahnehäubchen beinhaltet dieses Tool auch eine Vorlage, für einen schön <router-link to="/pdf/cv">gestylten Lebenslauf</router-link>. Um diese herunterzuladen, klicke <a href="/cv?type=tex" download="CVTemplate.tex">hier</a>.</p>
+      <p>Wenn du mithilfe dieses Tools eine sexy Abschlussarbeit erstellt hast, kannst du auch gleich hinterher einen sexy Lebenslauf für deine nächste Bewerbung erstellen! Eine Vorlage in <router-link to="/pdf/cv">diesen Stil</router-link> ist <a href="/cv?type=tex" download="CVTemplate.tex">hier</a> abrufbar.</p>
     </div>
   </div>
 </template>

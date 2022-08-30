@@ -21,7 +21,7 @@
       </v-btn>
       <v-btn
           icon
-          :to="'/'"
+          @click="toHome"
           title="Startseite">
         <v-icon>mdi-home</v-icon>
       </v-btn>
@@ -37,7 +37,7 @@
       </v-app-bar>
       <v-sheet style="overflow-y: auto; height: calc(100vh - 130px); padding: 0" id="scrollsidebar">
         <v-list>
-          <v-list-item v-for="proj in projects" :key="proj" :to="'/project/'+proj">
+          <v-list-item v-for="proj in projects" :key="proj" @click="toProject(proj)">
             <v-list-item-title v-text="proj"></v-list-item-title>
           </v-list-item>
         </v-list>
@@ -70,6 +70,14 @@ export default Vue.extend({
     CloseEditors() {
       this.$store.commit(MutationTypes.SET_TYPE_TO_EDIT, '');
       this.$store.commit(MutationTypes.SET_ENTRY_TO_EDIT, '');
+    },
+    toHome() {
+      this.CloseEditors();
+      this.$router.push('/')
+    },
+    toProject(project: string) {
+      this.CloseEditors();
+      this.$router.push('/project/' + project)
     }
   },
   created() {
