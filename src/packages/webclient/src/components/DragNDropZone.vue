@@ -33,7 +33,8 @@ import Vue from 'vue'
             return
           }
 
-          AnalyseDroppedFiles(reader.result as string)
+          const dragNDropRes = AnalyseDroppedFiles(reader.result as string)
+          console.log(dragNDropRes)
         }
       }
     }

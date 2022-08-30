@@ -6,10 +6,24 @@ type Entry = {
     Typ: string
 }
 
-export default function AnalyseDroppedFiles(file: string): [boolean, string] {
+type DragNDropResp = {
+    Valid: boolean
+    Message: string,
+    Unknown: string[],
+    Empty: string[],
+    Entries: Entry[]
+}
+
+export default function AnalyseDroppedFiles(file: string): DragNDropResp {
 
     if(file.indexOf('@') == -1) {
-        return [false, 'Die hochgeladene Datei hat ein ungültiges Format. Bitte stelle sicher, dass die hochgeladene Datei einen korrekten .bib-Syntax hat.']
+        return {
+            Empty: [],
+            Entries: [],
+            Unknown: [],
+            Valid: false,
+            Message: 'Die hochgeladene Datei hat ein ungültiges Format. Bitte stelle sicher, dass die hochgeladene Datei einen korrekten .bib-Syntax hat.'
+        }
     }
 
     //remove all linebreaks to have consistent format over all exports (Springer vs. IEEE vs. ...)
@@ -117,6 +131,8 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
             }
         }
 
+        file = nextEntryIndex >= 0 ? file.substr(nextEntryIndex) : '';
+
         const sortedvaluepairs = SortValues(valuePairs, type);
 
         if( sortedvaluepairs.length === 0 ) {
@@ -134,13 +150,15 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
             Key: key,
             ValuePairs: sortedvaluepairs
         });
-
-        file = nextEntryIndex >= 0 ? file.substr(nextEntryIndex) : '';
     }
 
-    console.log(entries)
-
-    return [true, ' '];
+    return {
+        Empty: empty,
+        Entries: entries,
+        Unknown: unknown,
+        Valid: true,
+        Message: `Es werden ${entries.length} Einträge hochgeladen.`
+    }
 }
 
 function RemoveTrailingAndLeading(str: string, ch: string): string {
