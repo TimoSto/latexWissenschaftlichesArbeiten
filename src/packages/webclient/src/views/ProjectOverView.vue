@@ -113,7 +113,9 @@
 
       <ConfirmDialog :model="confirmMessage.length > 0" :dialog-content="confirmMessage" :dialog-title="confirmTitle" v-on:yes="ConfirmInDialog" v-on:no="CloseConfirm"/>
       <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
-      <ConfirmDialog :model="this.$store.state.dragNDropResp.Message.length > 0" :dialog-title="this.$store.state.dragNDropResp.Entries.length + (this.$store.state.dragNDropResp.Entries.length>1 ? ' Einträge' : ' Eintrag') + ' hochladen?'" :dialog-content="this.$store.state.dragNDropResp.Message" />
+      <ConfirmDialog
+          :model="this.$store.state.dragNDropResp.Message.length > 0"
+          :dialog-title="this.$store.state.dragNDropResp.Entries.length + (this.$store.state.dragNDropResp.Entries.length>1 ? ' Einträge' : ' Eintrag') + ' hochladen?'" :dialog-content="this.$store.state.dragNDropResp.Message" />
     </v-sheet>
   </div>
 </template>

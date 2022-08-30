@@ -1,6 +1,6 @@
 import {ParseBibToString, ParseStringToTeX} from "@/api/TeX-JSON-converter/TeXParser";
 
-type Entry = {
+export type Entry = {
     ValuePairs: {Value: string, Attr: string}[];
     Key: string
     Typ: string

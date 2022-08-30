@@ -1,6 +1,6 @@
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/BibEntry";
-import {DragNDropResp} from "@/api/TeX-JSON-converter/AnalyseDroppedFiles";
+import {DragNDropResp, Entry} from "@/api/TeX-JSON-converter/AnalyseDroppedFiles";
 
 
 export const state = {
@@ -16,7 +16,11 @@ export const state = {
     errorMessage: '',
     snackbarMessage: '',
     dragNDropResp: <DragNDropResp>{
-        Message: ''
+        Message: '',
+        Entries: <Entry[]>[],
+        Valid: false,
+        Unknown: [],
+        Empty: []
     }
 };
 
