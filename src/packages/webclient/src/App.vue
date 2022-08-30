@@ -25,6 +25,9 @@
           title="Startseite">
         <v-icon>mdi-home</v-icon>
       </v-btn>
+      <v-btn icon title="Dokumentation" @click="toDocumentation">
+        <v-icon>mdi-book-open-blank-variant</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
@@ -78,6 +81,14 @@ export default Vue.extend({
     toProject(project: string) {
       this.CloseEditors();
       this.$router.push('/project/' + project)
+    },
+    toDocumentation() {
+      this.CloseEditors();
+      this.$router.push('/pdf/documentation')
+    },
+    toCV() {
+      this.CloseEditors();
+      this.$router.push('/pdf/cv')
     }
   },
   created() {
