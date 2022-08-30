@@ -21,15 +21,33 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
     const unknown = [];
     const empty = [];
 
+    const regex = new RegExp(/(?!\B"[^"\\"]*),(?![^"\\"]*"\B)/g);
+
     while( file.indexOf('@') >= 0 ) {
         //remove stuff before first '@'
         file = file.substr(file.indexOf('@'));
 
         const nextEntryIndex = file.substr(1).indexOf('@');
 
-        const entryFile = file.substr(0, nextEntryIndex >= 0 ? nextEntryIndex : file.length)
+        let entryFile = file.substr(0, nextEntryIndex >= 0 ? nextEntryIndex : file.length)
 
-        console.log(entryFile)
+        //type = string between first '@' and first '{'
+        const type = entryFile.substring(1, entryFile.indexOf('{')).toLowerCase();
+        console.log(type)
+
+        entryFile = entryFile.substr(entryFile.indexOf('{') + 1, entryFile.lastIndexOf('}') - 1)
+
+        const key = entryFile.substr(0, entryFile.indexOf(','))
+        entryFile = entryFile.substr(entryFile.indexOf(',') + 1)
+
+        //TODO: kommas per regex
+
+        // entryFile = entryFile.replaceAll(`\"`, '');
+        // console.log(entryFile)
+
+        const commasNotInsideQuotes = entryFile.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+        const arr = [...commasNotInsideQuotes]
+        console.log(arr)
 
         file = nextEntryIndex >= 0 ? file.substr(nextEntryIndex) : '';
     }
