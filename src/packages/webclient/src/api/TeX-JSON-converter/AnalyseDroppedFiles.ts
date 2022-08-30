@@ -32,8 +32,7 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
         let entryFile = file.substr(0, nextEntryIndex >= 0 ? nextEntryIndex : file.length)
 
         //type = string between first '@' and first '{'
-        const type = entryFile.substring(1, entryFile.indexOf('{')).toLowerCase();
-        console.log(type)
+        let type = entryFile.substring(1, entryFile.indexOf('{')).toLowerCase();
 
         entryFile = entryFile.substr(entryFile.indexOf('{') + 1, entryFile.lastIndexOf('}') - 1)
 
@@ -49,7 +48,6 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
 
         const commasNotInsideQuotes = entryFile.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
         const arr = [...commasNotInsideQuotes]
-        console.log(arr)
 
         arr.forEach(vp => {
             const firstIndexOfEqual = vp.indexOf('=');
@@ -71,10 +69,76 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
                 valuePairs.push([p1, value])
             }
         });
-        console.log(valuePairs)
+
+        if( AttrExists(valuePairs, 'doi') ) {
+            switch (type) {
+                case "article":
+                    type = "citaviAufsatzDoi"
+                    break
+                case "inbook":
+                    type = "citaviInbookDoi"
+                    break
+                case "book":
+                    type = "citaviBookDoi"
+                    break
+                case "inproceedings":
+                    type = "citaviInProceedingsDoi"
+                    break
+                case "proceedings":
+                    type = "citaviProceedingsDoi"
+                    break
+                case "incollection":
+                    type = "citaviInCollectionDoi"
+                    break
+            }
+        } else {
+            switch (type) {
+                case "article":
+                    type = 'citaviAufsatz';
+                    break
+                case "inbook":
+                    type = 'citaviInbook'
+                    break
+                case "book":
+                    type = "citaviBook"
+                    break
+                case "inproceedings":
+                    type = 'citaviInProceedings'
+                    break
+                case "proceedings":
+                    type="citaviProceedings"
+                    break
+                case "incollection":
+                    type = 'citaviInCollection'
+                    break
+                case "phdthesis":
+                    type = 'citaviThesis'
+                    break
+            }
+        }
+
+        const sortedvaluepairs = SortValues(valuePairs, type);
+
+        if( sortedvaluepairs.length === 0 ) {
+            console.log('Empty fields or unknown type (key: ' + key+ ' type: ' + type + ')');
+            if( valuePairs.length === 0 ) {
+                empty.push(key)
+            } else {
+                unknown.push(type)
+            }
+            continue;
+        }
+
+        entries.push(<Entry>{
+            Typ: type,
+            Key: key,
+            ValuePairs: sortedvaluepairs
+        });
 
         file = nextEntryIndex >= 0 ? file.substr(nextEntryIndex) : '';
     }
+
+    console.log(entries)
 
     return [true, ' '];
 }
