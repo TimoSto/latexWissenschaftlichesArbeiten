@@ -49,10 +49,36 @@ export default function AnalyseDroppedFiles(file: string): [boolean, string] {
         const arr = [...commasNotInsideQuotes]
         console.log(arr)
 
+        arr.forEach(vp => {
+            const firstIndexOfEqual = vp.indexOf('=');
+            let p1, p2;
+            if ( firstIndexOfEqual > 0) {
+                p1 = vp.substring(0, firstIndexOfEqual)
+                p2 = vp.substring(firstIndexOfEqual + 1)
+                p1 = RemoveTrailingAndLeading(p1, ' ');
+                p2 = RemoveTrailingAndLeading(p2, ' ');
+                p1 = RemoveTrailingAndLeading(p1, '"');
+                p2 = RemoveTrailingAndLeading(p2, '"');
+            }
+            console.log(p1,p2)
+        })
+
         file = nextEntryIndex >= 0 ? file.substr(nextEntryIndex) : '';
     }
 
     return [true, ' '];
+}
+
+function RemoveTrailingAndLeading(str: string, ch: string): string {
+    while(str.charAt(0) === ch) {
+        str = str.substr(1);
+    }
+
+    while(str.charAt(str.length - 1) === ch) {
+        str = str.substr(0, str.length - 1);
+    }
+
+    return str
 }
 
 function AttrExists(valuepairs: string[][], attr: string): boolean {
