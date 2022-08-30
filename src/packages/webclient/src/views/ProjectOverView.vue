@@ -112,6 +112,7 @@
       </v-snackbar>
 
       <ConfirmDialog :model="confirmMessage.length > 0" :dialog-content="confirmMessage" :dialog-title="confirmTitle" v-on:yes="ConfirmInDialog" v-on:no="CloseConfirm"/>
+      <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
 
     </v-sheet>
   </div>
@@ -125,14 +126,15 @@
   import {ActionTypes} from "@/store/action-types";
   import {MutationTypes} from "@/store/mutation-types";
   import ConfirmDialog from "@/components/ConfirmDialog.vue";
+  import ErrorDialog from "@/components/ErrorDialog.vue";
 
   export default Vue.extend({
     name: 'Project-OverView',
 
     components: {
       ConfirmDialog,
-      DragNDropZone
-
+      DragNDropZone,
+      ErrorDialog
     },
 
     data() {
@@ -237,7 +239,10 @@
         this.confirmAction = '';
         this.confirmTitle = '';
         this.confirmMessage = '';
-      }
+      },
+      ClearError() {
+        this.$store.commit(MutationTypes.CLEAR_ERROR);
+      },
     },
 
     computed: {
