@@ -30,11 +30,15 @@ import {MutationTypes} from "@/store/mutation-types";
           let extension = dT.files[0].name.substr(dT.files[0].name.lastIndexOf('.'))
 
           if( extension !== '.bib' ) {
-            this.$store.state.errorMessage = 'Die hochgeladene Datei muss eine .bib-Datei sein.'
+            this.$store.commit(MutationTypes.SET_DRAG_N_DROP_RESULT, {
+              Valid: false,
+              Message: 'Die hochgeladene Datei muss eine .bib-Datei sein'
+            });
             return
           }
 
           const dragNDropRes = AnalyseDroppedFiles(reader.result as string)
+          console.log(dragNDropRes)
           this.$store.commit(MutationTypes.SET_DRAG_N_DROP_RESULT, dragNDropRes);
         }
       }

@@ -155,5 +155,6 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.SET_DRAG_N_DROP_RESULT](state, payload: DragNDropResp){
         state.dragNDropResp = payload;
+        state.errorMessage = payload.Valid ? '' : payload.Message;
     }
 };
