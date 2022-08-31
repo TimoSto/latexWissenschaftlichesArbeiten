@@ -13,6 +13,12 @@
       >
         <span v-html="splitBtnContent[0]"></span>
       </v-btn>
+      <v-btn icon title="Lebenslauf Vorlage" href="/cv?type=tex" download="CVTemplate.tex">
+        <v-icon>mdi-file-account</v-icon>
+      </v-btn>
+      <v-btn icon title="Dokumentation" @click="toDocumentation">
+        <v-icon>mdi-book-open-blank-variant</v-icon>
+      </v-btn>
       <v-btn
           icon
           @click="toggleDark"
@@ -24,9 +30,6 @@
           @click="toHome"
           title="Startseite">
         <v-icon>mdi-home</v-icon>
-      </v-btn>
-      <v-btn icon title="Dokumentation" @click="toDocumentation">
-        <v-icon>mdi-book-open-blank-variant</v-icon>
       </v-btn>
     </v-app-bar>
 
