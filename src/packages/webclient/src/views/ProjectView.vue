@@ -31,7 +31,11 @@
         screenClass: 'half'
       }
     },
-
+    mounted() {
+      if (String(this.$store.state.twoThirdsActive) !== localStorage.getItem('ThesorTeX_TwoThirdsActive')) {
+        this.$store.commit(MutationTypes.TOGGLE_TWO_THIRDS)
+      }
+    },
     computed: {
       typeEditorOpen() {
         return !!this.$store.state.typeToEdit.Name || this.$store.state.typeToEdit.Name == ''

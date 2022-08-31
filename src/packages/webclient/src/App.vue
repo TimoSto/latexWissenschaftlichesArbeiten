@@ -69,6 +69,7 @@ export default Vue.extend({
   methods: {
     toggleDark () {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      localStorage.setItem('ThesorTeX_DarkMode', String(this.$vuetify.theme.dark))
     },
     toggleTwoThirds() {
       this.$store.commit(MutationTypes.TOGGLE_TWO_THIRDS);
@@ -95,6 +96,7 @@ export default Vue.extend({
     }
   },
   created() {
+    this.$vuetify.theme.dark = localStorage.getItem('ThesorTeX_DarkMode') === 'true';
     // Setting Language in the HTML document
     document.documentElement.setAttribute('lang', 'de');
 

@@ -100,6 +100,7 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.TOGGLE_TWO_THIRDS](state){
         state.twoThirdsActive = !state.twoThirdsActive;
+        localStorage.setItem('ThesorTeX_TwoThirdsActive', String(state.twoThirdsActive))
     },
     [MutationTypes.SET_ENTRY_TO_EDIT](state, payload: string) {
         if(payload.length == 0) {
