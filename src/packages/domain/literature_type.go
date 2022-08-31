@@ -21,10 +21,11 @@ type LiteratureType struct {
 }
 
 type Field struct {
-	Field  string
-	Style  string
-	Prefix string
-	Suffix string
+	Field     string
+	Style     string
+	Prefix    string
+	Suffix    string
+	TexParsed bool
 }
 
 func ReadTypes(project string) (LiteratureTypes, error) {

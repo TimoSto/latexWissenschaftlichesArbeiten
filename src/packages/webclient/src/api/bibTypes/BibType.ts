@@ -4,7 +4,6 @@ export type BibType = {
     HasCitePage: boolean
     Fields: Field[]
     CiteFields: Field[]
-    Example: string//TODO: rm in backend
     Model: string
     CiteModel: string
 }
