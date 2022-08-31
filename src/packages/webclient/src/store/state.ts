@@ -13,6 +13,7 @@ export const state = {
     entryToEdit: <BibEntry>{},
     initialEntry: <BibEntry>{},
     twoThirdsActive: false,
+    initialInput: false,
     errorMessage: '',
     snackbarMessage: '',
     dragNDropResp: <DragNDropResp>{

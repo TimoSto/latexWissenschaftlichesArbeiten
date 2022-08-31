@@ -22,7 +22,9 @@
                 sm="8"
                 md="4"
             >
-              <v-text-field v-model="$store.state.entryToEdit.Key" label="ID" filled :rules="rules"></v-text-field>
+              <v-text-field v-model="$store.state.entryToEdit.Key"
+                            label="ID" filled
+                            :rules="rules" @input="InitialInput"></v-text-field>
             </v-col>
             <v-col
                 cols="16"
@@ -36,7 +38,6 @@
                   filled
                   :menu-props="{ bottom: true, offsetY: true }"
                   @change="updatePreviews"
-                  :rules="rules"
               ></v-select>
             </v-col>
           </v-row>
@@ -91,7 +92,7 @@ export default Vue.extend({
       unsafeSwitch: '',
       unsafeSwitchToType: '',
       rules: [
-        (value: any) => !!value || 'Pflichtfeld',
+        (value: any) => { return (!!value || this.$store.state.initialInput) || 'Pflichtfeld'},
       ],
       tryDelete: false
     }
@@ -187,6 +188,9 @@ export default Vue.extend({
       } else {
         this.$emit('closeEditor')
       }
+    },
+    InitialInput() {
+      this.$store.commit(MutationTypes.DO_INPUT_AFTER_INITIAL);
     }
   }
 });

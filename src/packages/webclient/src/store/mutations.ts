@@ -103,6 +103,8 @@ export const mutations: MutationTree<State> & Mutations = {
         localStorage.setItem('ThesorTeX_TwoThirdsActive', String(state.twoThirdsActive))
     },
     [MutationTypes.SET_ENTRY_TO_EDIT](state, payload: string) {
+        state.initialInput = false;
+
         if(payload.length == 0) {
             state.entryToEdit = <BibEntry>{};
             state.initialEntry = <BibEntry>{};
@@ -131,6 +133,7 @@ export const mutations: MutationTree<State> & Mutations = {
 
     },
     [MutationTypes.NEW_ENTRY](state){
+        state.initialInput = true;
         state.entryToEdit = <BibEntry>{
             Key: '',
             Typ: '',
@@ -157,5 +160,8 @@ export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.SET_DRAG_N_DROP_RESULT](state, payload: DragNDropResp){
         state.dragNDropResp = payload;
         state.errorMessage = payload.Valid ? '' : payload.Message;
+    },
+    [MutationTypes.DO_INPUT_AFTER_INITIAL](state) {
+        state.initialInput = false;
     }
 };
