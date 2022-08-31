@@ -13,11 +13,8 @@
       >
         <span v-html="splitBtnContent[0]"></span>
       </v-btn>
-      <v-btn icon title="Lebenslauf Vorlage" href="/cv?type=tex" download="CVTemplate.tex">
-        <v-icon>mdi-file-account</v-icon>
-      </v-btn>
-      <v-btn icon title="Dokumentation" @click="toDocumentation">
-        <v-icon>mdi-book-open-blank-variant</v-icon>
+      <v-btn icon title="Hilfe">
+        <v-icon>mdi-help-circle-outline</v-icon>
       </v-btn>
       <v-btn
           icon
@@ -31,6 +28,32 @@
           title="Startseite">
         <v-icon>mdi-home</v-icon>
       </v-btn>
+
+      <v-menu offset-y style="z-index: 100">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+              icon
+              v-bind="attrs"
+              v-on="on"
+          >
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list style="cursor: pointer">
+          <v-list-item ripple @click="toDocumentation">
+            <v-list-item-avatar>
+              <v-icon>mdi-book-open-blank-variant</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title>Dokumentation</v-list-item-title>
+          </v-list-item>
+          <v-list-item ripple href="/cv?type=tex" download="CVTemplate.tex">
+            <v-list-item-avatar>
+              <v-icon>mdi-download</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title>Vorlage Lebenslauf</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
