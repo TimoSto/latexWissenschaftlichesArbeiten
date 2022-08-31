@@ -51,7 +51,6 @@
               v-for="(field, i) in fields"
               :key="'TF' + i" v-model="$store.state.entryToEdit.Fields[i]"
               :label="field.Field"
-              :rules="getRule(i)"
               @input="updatePreviews"
               filled
           ></v-text-field>
@@ -140,8 +139,7 @@ export default Vue.extend({
       return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
     },
     requiredFieldsFilled() {
-      return !!this.$store.state.entryToEdit.Key && this.$store.state.entryToEdit.Key.length > 0 && !!this.$store.state.entryToEdit.Typ &&
-          this.$store.state.entryToEdit.Fields.length > 0 && this.$store.state.entryToEdit.Fields[0].length > 0
+      return !!this.$store.state.entryToEdit.Key && this.$store.state.entryToEdit.Key.length > 0 && !!this.$store.state.entryToEdit.Typ
     }
   },
 
@@ -168,13 +166,6 @@ export default Vue.extend({
         this.$data.unsafeClose = true;
       } else {
         this.$emit('closeEditor')
-      }
-    },
-    getRule(n:number) {
-      if( n==0 ){
-        return this.rules
-      } else {
-        return []
       }
     },
     DeleteEntry() {
