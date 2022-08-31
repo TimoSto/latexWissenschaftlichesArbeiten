@@ -59,7 +59,8 @@ export const mutations: MutationTree<State> & Mutations = {
             Field: '',
             Style: 'normal',
             Prefix: '',
-            Suffix: ''
+            Suffix: '',
+            TexParsed: false,
         });
     },
     [MutationTypes.ADD_CITE_ATTR](state) {
@@ -67,7 +68,8 @@ export const mutations: MutationTree<State> & Mutations = {
             Field: '',
             Style: 'normal',
             Prefix: '',
-            Suffix: ''
+            Suffix: '',
+            TexParsed: false
         });
     },
     [MutationTypes.NEW_TYPE](state){

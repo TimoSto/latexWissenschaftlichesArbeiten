@@ -14,4 +14,5 @@ export type Field = {
     Style: string
     Prefix: string
     Suffix: string
+    TexParsed: boolean
 }
