@@ -1,11 +1,11 @@
 $dark-bg: #1e1e1e;
 
-.theme--dark.v-expansion-panels .v-expansion-panel{
+.theme--dark.v-expansion-panels .v-expansion-panel:not(.keep){
   background-color: $dark-bg;
 }
-.theme--dark.v-list {
+.theme--dark.v-list:not(.keep) {
   background-color: $dark-bg;
 }
-.theme--dark.v-toolbar.v-sheet {
+.theme--dark.v-toolbar.v-sheet:not(.keep) {
   background-color: $dark-bg;
 }

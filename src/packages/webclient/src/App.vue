@@ -41,8 +41,8 @@
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
-      <v-sheet style="overflow-y: auto; height: calc(100vh - 130px); padding: 0" id="scrollsidebar">
-        <v-list>
+      <v-sheet style="overflow-y: auto; height: calc(100vh - 130px); padding: 0; background-color: var(--v-background-base)" id="scrollsidebar">
+        <v-list class="keep">
           <v-list-item v-for="proj in projects" :key="proj" @click="toProject(proj)">
             <v-list-item-title v-text="proj"></v-list-item-title>
           </v-list-item>
