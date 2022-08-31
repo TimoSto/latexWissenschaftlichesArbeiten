@@ -66,29 +66,31 @@ export const actions: ActionTree<State, State> & Actions = {
             commit(MutationTypes.SET_PROJECT, payload)
             await router.push('/project/' + payload)
         } else {
-            //TODO: Errorhandling
+            state.errorMessage = 'Projekt erfolgreich erstellt.';
         }
 
     },
 
-    async [ActionTypes.DELETE_PROJECT]({ dispatch }, payload) {
+    async [ActionTypes.DELETE_PROJECT]({ dispatch, commit }, payload) {
 
         const success = await DeleteProject(payload)
 
         if( success ) {
             dispatch(ActionTypes.GET_PROJECTS);
+            commit(MutationTypes.SET_SNACKBAR, `Projekt '${state.project}' wurde gelöscht.`);
             await router.push('/')
         }
 
     },
 
-    async [ActionTypes.SAVE_TYPE]({ dispatch }, obj) {
+    async [ActionTypes.SAVE_TYPE]({ dispatch, commit }, obj) {
 
         const resp = await SaveType(obj)
 
         if( resp.ok ) {
             dispatch(ActionTypes.GET_BIBTYPES);
             state.initialType = JSON.parse(JSON.stringify(state.typeToEdit))
+            commit(MutationTypes.SET_SNACKBAR, `Literaturtyp erfolgreich gespeichert.`);
         } else {
             const errorMsg = await resp.text();
             state.errorMessage = Translate(errorMsg);
@@ -96,7 +98,7 @@ export const actions: ActionTree<State, State> & Actions = {
 
     },
 
-    async [ActionTypes.SAVE_ENTRY]({ dispatch }, obj) {
+    async [ActionTypes.SAVE_ENTRY]({ dispatch, commit }, obj) {
 
         const resp = await SaveBibEntry(obj)
 
@@ -105,6 +107,7 @@ export const actions: ActionTree<State, State> & Actions = {
             state.initialEntry = JSON.parse(JSON.stringify(state.entryToEdit))
             state.initialEntry.BibPreview = '';
             state.initialEntry.CitePreview = '';
+            commit(MutationTypes.SET_SNACKBAR, `Literatureintrag erfolgreich gespeichert.`);
         } else {
             const errorMsg = await resp.text();
             state.errorMessage = Translate(errorMsg);
@@ -119,6 +122,7 @@ export const actions: ActionTree<State, State> & Actions = {
         if( success ) {
             dispatch(ActionTypes.GET_BIBTYPES);
             commit(MutationTypes.SET_TYPE_TO_EDIT, '');
+            commit(MutationTypes.SET_SNACKBAR, `Literaturtyp '${payload.name}' wurde aus Projekt '${state.project}' gelöscht.`);
         }
 
     },
@@ -130,6 +134,7 @@ export const actions: ActionTree<State, State> & Actions = {
         if( success ) {
             dispatch(ActionTypes.GET_BIBENTRIES);
             commit(MutationTypes.SET_ENTRY_TO_EDIT, '');
+            commit(MutationTypes.SET_SNACKBAR, `Literatureintrag '${payload.key}' wurde aus Projekt '${state.project}' gelöscht.`);
         }
 
     },
