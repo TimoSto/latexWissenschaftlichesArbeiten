@@ -97,7 +97,7 @@
         </v-expansion-panel>
       </v-expansion-panels>
 
-      <v-snackbar v-model="snackbarOpened" multi-line timeout="-1">
+      <MySnackbar :timeout="5 * 1000" v-model="snackbarOpened">
         <span v-html="this.$store.state.snackbarMessage"></span>
         <template v-slot:action="{ attrs }">
           <v-btn
@@ -109,7 +109,7 @@
             Schließen
           </v-btn>
         </template>
-      </v-snackbar>
+      </MySnackbar>
 
       <ConfirmDialog :model="confirmMessage.length > 0" :dialog-content="confirmMessage" :dialog-title="confirmTitle" v-on:yes="ConfirmInDialog" v-on:no="CloseConfirm"/>
       <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
@@ -132,11 +132,13 @@
   import {MutationTypes} from "@/store/mutation-types";
   import ConfirmDialog from "@/components/ConfirmDialog.vue";
   import ErrorDialog from "@/components/ErrorDialog.vue";
+  import MySnackbar from "@/components/MySnackbar.vue";
 
   export default Vue.extend({
     name: 'Project-OverView',
 
     components: {
+      MySnackbar,
       ConfirmDialog,
       DragNDropZone,
       ErrorDialog
@@ -280,8 +282,13 @@
         return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
       },
 
-      snackbarOpened(): boolean {
-        return this.$store.state.snackbarMessage.length > 0;
+      snackbarOpened: {
+        get(): boolean {
+          return this.$store.state.snackbarMessage.length > 0;
+        },
+        set(nV) {
+          return nV;
+        }
       }
     },
 

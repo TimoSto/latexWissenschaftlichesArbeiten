@@ -156,6 +156,9 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.SET_SNACKBAR](state, payload: string){
         state.snackbarMessage = payload;
+        setTimeout(()=>{
+            state.snackbarMessage = '';
+        }, 5000);
     },
     [MutationTypes.SET_DRAG_N_DROP_RESULT](state, payload: DragNDropResp){
         state.dragNDropResp = payload;
