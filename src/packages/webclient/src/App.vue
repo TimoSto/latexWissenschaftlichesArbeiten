@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app color="primary" dark clipped-left elevation="0" fixed scroll-target="main">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>ThesorTeX</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX{{helpOpen}}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
           icon
@@ -13,7 +13,7 @@
       >
         <span v-html="splitBtnContent[0]"></span>
       </v-btn>
-      <v-btn icon title="Hilfe">
+      <v-btn icon title="Hilfe" @click="helpOpen = !helpOpen">
         <v-icon>mdi-help-circle-outline</v-icon>
       </v-btn>
       <v-btn
@@ -76,18 +76,23 @@
     <v-main fill-height id="main" pt-0>
       <router-view />
     </v-main>
+    <v-dialog v-model="helpOpen" width="500">
+      <TeXHelpDialog />
+    </v-dialog>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import {MutationTypes} from "@/store/mutation-types";
+import TeXHelpDialog from "@/components/TeXHelpDialog.vue";
 
 export default Vue.extend({
   name: 'App',
-
+  components: {TeXHelpDialog},
   data: () => ({
-    drawer: false
+    drawer: false,
+    helpOpen: false
   }),
   methods: {
     toggleDark () {
