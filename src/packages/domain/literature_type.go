@@ -68,3 +68,26 @@ func GetType(project string, lType string) (LiteratureType, error) {
 
 	return LiteratureType{}, nil
 }
+
+func (t *LiteratureType) FieldUniqueInCite(field string) bool {
+	for _, f := range t.Fields {
+		if f.Field == field {
+			return false
+		}
+	}
+	return true
+}
+
+func (t *LiteratureType) IndexOfField(field string) (int, bool) {
+	for i, f := range t.Fields {
+		if f.Field == field {
+			return i, true
+		}
+	}
+	for i, f := range t.CiteFields {
+		if f.Field == field {
+			return i, false
+		}
+	}
+	return -1, false
+}

@@ -39,6 +39,20 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 			}
 		}
 
+		//bType, err := GetType(project, entry.Typ)
+		//if err != nil {
+		//
+		//	return err, 0, 0
+		//}
+		//
+		//for i, field := range entry.Fields {
+		//	if i < len(bType.Fields) {
+		//		if bType.Fields[i].TexParsed {
+		//			entry.Fields[i] =
+		//		}
+		//	}
+		//}
+
 		found := false
 		for i := 0; i < len(existingEntries); i++ {
 			if strings.Compare(existingEntries[i].Key, initialKeys[n]) == 0 {
