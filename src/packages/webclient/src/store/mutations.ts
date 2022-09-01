@@ -7,6 +7,7 @@ import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
 import Field from "../../../gui/scripts/Field";
 import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
 import {DragNDropResp} from "@/api/TeX-JSON-converter/AnalyseDroppedFiles";
+import {ParseTexToString} from "@/api/TeX-JSON-converter/TeXParser";
 export type Mutations<S = State> = {
     [MutationTypes.SET_PROJECT](state: S, payload: string): void;
     [MutationTypes.SET_PROJECTS](state: S, payload: string[]): void;
@@ -168,5 +169,24 @@ export const mutations: MutationTree<State> & Mutations = {
     },
     [MutationTypes.DO_INPUT_AFTER_INITIAL](state) {
         state.initialInput = false;
+    },
+    [MutationTypes.UPDATE_TEX_PARSING](state) {
+
+        // for( let i = 0; i < state.bibTypes.length ; i++ ) {
+        //     if ( state.bibTypes[i].Name === state.entryToEdit.Typ ) {
+        //         let bibType = state.bibTypes[i];
+        //         let fieldsToShow: string[] = [];
+        //         for( let i = 0; i < bibType.Fields.length ; i++ ) {
+        //             if( i < state.entryToEdit.Fields.length ) {
+        //                 if( bibType.Fields[i].TexParsed ) {
+        //                     fieldsToShow.push( ParseTexToString(state.entryToEdit.Fields[i]) )
+        //                 } else {
+        //                     fieldsToShow.push( ParseTexToString(state.entryToEdit.Fields[i]) )
+        //                 }
+        //             }
+        //         }
+        //         break;
+        //     }
+        // }
     }
 };
