@@ -38,12 +38,21 @@ const toReplaceWithTeX : Replacement[] = [
         String: '_',
         TeX: '{{\\_}}',
         RegexToTeX: /(?<!\{\{\\)(_)|(_)(?!\}\})/g
+    },
+    {
+        String: ';',
+        TeX: '{{;}}',
+        RegexToTeX: /(?<!\{\{)(;)|(;)(?!\}\})/g
     }
 ]
 
 export function ParseStringToTeX(value: string): string {
 
-    value = value.replaceAll(toReplaceWithTeX[0].RegexToTeX, toReplaceWithTeX[0].TeX)
+    toReplaceWithTeX.forEach(v => {
+        value = value.replaceAll(v.RegexToTeX, v.TeX)
+    })
+
+
 
     // value = value.replaceAll('{\\ss}', 'ß');
     // value = value.replaceAll('{\\\"u}', 'ü');
