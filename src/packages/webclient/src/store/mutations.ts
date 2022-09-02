@@ -177,13 +177,13 @@ export const mutations: MutationTree<State> & Mutations = {
                 const bibType = state.bibTypes[i];
                 for( let i = 0; i < bibType.Fields.length ; i++ ) {
                     if( i < state.entryToEdit.Fields.length ) {
-                        if( bibType.Fields[i].TexParsed ) {
+                        if( !bibType.Fields[i].TexParsed ) {
                             state.entryToEdit.Fields[i] = ParseTexToString(state.entryToEdit.Fields[i]);
                         }
                     }
                     if( payload ) {
                         if( i < state.initialEntry.Fields.length ) {
-                            if( bibType.Fields[i].TexParsed ) {
+                            if( !bibType.Fields[i].TexParsed ) {
                                 state.initialEntry.Fields[i] = ParseTexToString(state.initialEntry.Fields[i]);
                             }
                         }

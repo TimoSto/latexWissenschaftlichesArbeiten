@@ -105,8 +105,9 @@ export const actions: ActionTree<State, State> & Actions = {
             if( state.bibTypes[i].Name === state.entryToEdit.Typ) {
                 for( let i = 0; i < state.bibTypes[i].Fields.length ; i++ ) {
                     if (i < state.entryToEdit.Fields.length) {
-                        if (state.bibTypes[i].Fields[i].TexParsed) {
+                        if ( !state.bibTypes[i].Fields[i].TexParsed ) {
                             state.entryToEdit.Fields[i] = ParseStringToTeX(state.entryToEdit.Fields[i]);
+                            state.entryToEdit.Fields[i] = state.entryToEdit.Fields[i].replaceAll('{{\\&}}','{{\\&amp;}}')
                         }
                     }
                 }
