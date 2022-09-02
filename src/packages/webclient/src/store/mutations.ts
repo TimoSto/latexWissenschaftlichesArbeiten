@@ -179,16 +179,12 @@ export const mutations: MutationTree<State> & Mutations = {
                     if( i < state.entryToEdit.Fields.length ) {
                         if( bibType.Fields[i].TexParsed ) {
                             state.entryToEdit.Fields[i] = ParseTexToString(state.entryToEdit.Fields[i]);
-                        } else {
-                            state.entryToEdit.Fields[i] = ParseStringToTeX(state.entryToEdit.Fields[i]);
                         }
                     }
                     if( payload ) {
                         if( i < state.initialEntry.Fields.length ) {
                             if( bibType.Fields[i].TexParsed ) {
                                 state.initialEntry.Fields[i] = ParseTexToString(state.initialEntry.Fields[i]);
-                            } else {
-                                state.initialEntry.Fields[i] = ParseStringToTeX(state.initialEntry.Fields[i]);
                             }
                         }
                     }
