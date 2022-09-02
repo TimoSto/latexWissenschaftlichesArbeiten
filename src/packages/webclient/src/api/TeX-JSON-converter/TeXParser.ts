@@ -58,7 +58,62 @@ const toReplaceWithTeX : Replacement[] = [
         String: '#',
         TeX: '{{\\#}}',
         RegexToTeX: /(?<!\{\{\\)(#)|(#)(?!\}\})/g
-    }
+    },
+    {
+        String: '%',
+        TeX: '{{\\%}}',
+        RegexToTeX: /(?<!\{\{\\)(%)|(%)(?!\}\})/g
+    },
+    {
+        String: 'á',
+        TeX: "{{\\'{a}}}",
+        RegexToTeX: /á/g
+    },
+    {
+        String: 'â',
+        TeX: '{{\\u{a}}}',
+        RegexToTeX: /â/g
+    },
+    {
+        String: 'å',
+        TeX: '{{\\r{a}}}',
+        RegexToTeX: /å/g
+    },
+    {
+        String: 'é',
+        TeX: "{{\\'{e}}}",
+        RegexToTeX: /é/g
+    },
+    {
+        String: 'è',
+        TeX: '{{\\`{e}}}',
+        RegexToTeX: /è/g
+    },
+    {
+        String: '<',
+        TeX: '{{\\textless}}',
+        RegexToTeX: /</g
+    },
+    {
+        String: '>',
+        TeX: '{{\\textgreater}}',
+        RegexToTeX: />/g
+    },
+    {
+        String: '°',
+        TeX: '{{\\degree}}',
+        RegexToTeX: /°/g
+    },
+    {
+        String: 'š',
+        TeX: '{{\\v{s}}}',
+        RegexToTeX: /š/g
+    },
+    {
+        String: 'č',
+        TeX: '{{\\v{c}}}',
+        RegexToTeX: /č/g
+    },
 ]
 
 export function ParseStringToTeX(value: string): string {

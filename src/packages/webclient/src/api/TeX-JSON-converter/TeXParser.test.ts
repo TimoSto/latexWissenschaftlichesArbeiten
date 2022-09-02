@@ -25,4 +25,10 @@ describe('test', ()=>{
     it('should give {{;}}ha{{\\&}}l{{\\_}}lo{{;}}{{\\_}}', ()=>{
         expect(ParseStringToTeX(';ha&l_lo;_')).toEqual('{{;}}ha{{\\&}}l{{\\_}}lo{{;}}{{\\_}}')
     })
+    it('should give w{{\\\'{a}}}s', ()=>{
+        expect(ParseStringToTeX('wás')).toEqual("w{{\\'{a}}}s")
+    })
+    it('should give {{\\textless}}a{{\\textgreater}}', ()=>{
+        expect(ParseStringToTeX('<a>')).toEqual("{{\\textless}}a{{\\textgreater}}")
+    })
 })
