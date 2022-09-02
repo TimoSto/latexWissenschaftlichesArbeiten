@@ -126,13 +126,14 @@
 <script lang="ts">
   import Vue from 'vue'
   import DragNDropZone from "@/components/DragNDropZone.vue";
-  import { BibType } from '@/api/bibTypes/BibType';
+  import { BibType, Field } from '@/api/bibTypes/BibType';
   import {BibEntry} from "@/api/bibEntries/BibEntry";
   import {ActionTypes} from "@/store/action-types";
   import {MutationTypes} from "@/store/mutation-types";
   import ConfirmDialog from "@/components/ConfirmDialog.vue";
   import ErrorDialog from "@/components/ErrorDialog.vue";
   import MySnackbar from "@/components/MySnackbar.vue";
+  import {ParseTexToString} from "@/api/TeX-JSON-converter/TeXParser";
 
   export default Vue.extend({
     name: 'Project-OverView',
@@ -267,7 +268,21 @@
         return this.$store.state.bibTypes;
       },
       bibEntries(): BibEntry[] {
-        return this.$store.state.bibEntries;
+        let entries = JSON.parse(JSON.stringify(this.$store.state.bibEntries));
+
+        entries.forEach( (entry: BibEntry, i:number) => {
+          this.$store.state.bibTypes.forEach( (bt: BibType) => {
+            if ( bt.Name === entry.Typ ) {
+             entry.Fields.forEach( (field, j) => {
+               if( j < bt.Fields.length && !bt.Fields[j].TexParsed ) {
+                 entries[i].Fields[j] = ParseTexToString(entry.Fields[j])
+               }
+             })
+            }
+          });
+        });
+
+        return entries;
       },
       changesToSaveTypeEditor(): boolean {
         return JSON.stringify(this.$store.state.initialType) != JSON.stringify(this.$store.state.typeToEdit)
