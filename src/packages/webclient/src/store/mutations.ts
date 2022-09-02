@@ -170,7 +170,7 @@ export const mutations: MutationTree<State> & Mutations = {
     [MutationTypes.DO_INPUT_AFTER_INITIAL](state) {
         state.initialInput = false;
     },
-    [MutationTypes.UPDATE_TEX_PARSING_OF_ENTRY](state) {
+    [MutationTypes.UPDATE_TEX_PARSING_OF_ENTRY](state, payload: boolean) {
 
         for( let i = 0; i < state.bibTypes.length ; i++ ) {
             if ( state.bibTypes[i].Name === state.entryToEdit.Typ ) {
@@ -181,6 +181,15 @@ export const mutations: MutationTree<State> & Mutations = {
                             state.entryToEdit.Fields[i] = ParseTexToString(state.entryToEdit.Fields[i]);
                         } else {
                             state.entryToEdit.Fields[i] = ParseStringToTeX(state.entryToEdit.Fields[i]);
+                        }
+                    }
+                    if( payload ) {
+                        if( i < state.initialEntry.Fields.length ) {
+                            if( bibType.Fields[i].TexParsed ) {
+                                state.initialEntry.Fields[i] = ParseTexToString(state.initialEntry.Fields[i]);
+                            } else {
+                                state.initialEntry.Fields[i] = ParseStringToTeX(state.initialEntry.Fields[i]);
+                            }
                         }
                     }
                 }
