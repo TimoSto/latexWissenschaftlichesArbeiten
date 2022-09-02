@@ -13,11 +13,9 @@ type LiteratureTypes struct {
 }
 
 type LiteratureType struct {
-	Name        string
-	HasCitePage bool
-	Fields      []Field
-	CiteFields  []Field
-	Example     string
+	Name       string
+	Fields     []Field
+	CiteFields []Field
 }
 
 type Field struct {
@@ -38,14 +36,6 @@ func ReadTypes(project string) (LiteratureTypes, error) {
 	err = json.Unmarshal(file, &literatureTypes)
 	if err != nil {
 		return LiteratureTypes{}, err
-	}
-
-	for i, typ := range literatureTypes.Types {
-		str := ""
-		for _, field := range typ.Fields {
-			str += field.Prefix + field.Field + field.Suffix
-		}
-		literatureTypes.Types[i].Example = str
 	}
 
 	sort.Slice(literatureTypes.Types, func(i, j int) bool {
