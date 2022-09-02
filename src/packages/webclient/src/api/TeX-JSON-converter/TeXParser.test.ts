@@ -1,6 +1,6 @@
-import {ParseStringToTeX} from "@/api/TeX-JSON-converter/TeXParser";
+import {ParseStringToTeX, ParseTexToString} from "@/api/TeX-JSON-converter/TeXParser";
 
-describe('test', ()=>{
+describe('test string to tex', ()=>{
     it('should give hallo', ()=>{
         expect(ParseStringToTeX('hallo')).toEqual('hallo')
     })
@@ -30,5 +30,20 @@ describe('test', ()=>{
     })
     it('should give {{\\textless}}a{{\\textgreater}}', ()=>{
         expect(ParseStringToTeX('<a>')).toEqual("{{\\textless}}a{{\\textgreater}}")
+    })
+    it('should give {{\\textless}}ß{{\\textgreater}}', ()=>{
+        expect(ParseStringToTeX('<ß>')).toEqual("{{\\textless}}ß{{\\textgreater}}")
+    })
+    it('should give {{\\textless}}ß{{\\textgreater}}', ()=>{
+        expect(ParseStringToTeX('<{{\\ss}}>')).toEqual("{{\\textless}}ß{{\\textgreater}}")
+    })
+})
+
+describe('test tex to string', ()=>{
+    it('should give <ß>', ()=>{
+        expect(ParseTexToString('{{\\textless}}ß{{\\textgreater}}')).toEqual("<ß>")
+    })
+    it('should give ;ha&l_lo;_', ()=>{
+        expect(ParseTexToString('{{;}}ha{{\\&}}l{{\\_}}lo{{;}}{{\\_}}')).toEqual(';ha&l_lo;_')
     })
 })

@@ -114,59 +114,36 @@ const toReplaceWithTeX : Replacement[] = [
         TeX: '{{\\v{c}}}',
         RegexToTeX: /č/g
     },
+];
+
+const toReplaceWithString: Replacement[] = [
+    {
+        String: 'ß',
+        TeX: '{{\\ss}}',
+        RegexToTeX: /ß/,
+    }
 ]
 
 export function ParseStringToTeX(value: string): string {
 
-    toReplaceWithTeX.forEach(v => {
-        value = value.replaceAll(v.RegexToTeX, v.TeX)
+    toReplaceWithString.forEach(v => {
+        value = value.replaceAll(v.TeX, v.String);
     })
 
-
-
-    // value = value.replaceAll('{\\ss}', 'ß');
-    // value = value.replaceAll('{\\\"u}', 'ü');
-    // value = value.replaceAll('{\\\"o}', 'ö');
-    // value = value.replaceAll('{\\\"a}', 'ä');
-    // value = value.replaceAll('{\\\'e}', 'é');
-    // value = value.replaceAll('{\\v{s}}', 'š');
-    // value = value.replaceAll('{\\v{c}}', 'č');
-    //
-    // texValues.forEach(s => {
-    //     if(s[0] === '&') {
-    //         if(value.indexOf('{\\&}') >= 0) {
-    //             value = value.replaceAll('{\\&}', '{{\\&amp;}}');
-    //         } else {
-    //             value = value.replaceAll('&', '{{\\&amp;}}');
-    //         }
-    //         //console.log(value)
-    //     } else {
-    //         let index = value.indexOf(s[0], 0);
-    //         while (index > -1 && !IsSurroundedByBrackets(value, index)) {
-    //             //console.log(index)
-    //             value = repalceAt(value, index, s[1]);
-    //             index = value.indexOf(s[0], index + 5);
-    //         }
-    //     }
-    // });
+    toReplaceWithTeX.forEach(v => {
+        value = value.replaceAll(v.RegexToTeX, v.TeX);
+    })
 
     return value;
 }
 
+
+
 export function ParseTexToString(value: string) {
 
-    texValues.forEach(s => {
-        if(s[0] === '&') {
-            value = value.replaceAll('{{\\&amp;}}', '&');
-        } else {
-            let index = value.indexOf(s[1], 0);
-            while(index > -1 && !IsSurroundedByBrackets(value, index)) {
-                value = replaceRange(value, index,s[1].length, s[0]);
-                index = value.indexOf(s[1], index+s[0].length);
-            }
-        }
-
-    });
+    toReplaceWithTeX.forEach(v => {
+        value = value.replaceAll(v.TeX, v.String);
+    })
 
     return value;
 }
