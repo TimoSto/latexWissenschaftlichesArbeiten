@@ -133,7 +133,7 @@ export const actions: ActionTree<State, State> & Actions = {
             state.initialEntry = JSON.parse(JSON.stringify(state.entryToEdit))
             state.initialEntry.BibPreview = '';
             state.initialEntry.CitePreview = '';
-            commit(MutationTypes.UPDATE_TEX_PARSING_OF_ENTRY)
+            commit(MutationTypes.UPDATE_TEX_PARSING_OF_ENTRY, true)
             commit(MutationTypes.UPDATE_PREVIEW);
             commit(MutationTypes.SET_SNACKBAR, `Literatureintrag erfolgreich gespeichert.`);
         } else {
