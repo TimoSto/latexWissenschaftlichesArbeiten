@@ -274,7 +274,7 @@
           this.$store.state.bibTypes.forEach( (bt: BibType) => {
             if ( bt.Name === entry.Typ ) {
              entry.Fields.forEach( (field, j) => {
-               if( j < bt.Fields.length && !bt.Fields[j].TexParsed ) {
+               if( j < bt.Fields.length && !bt.Fields[j].TexValue ) {
                  entries[i].Fields[j] = ParseTexToString(entry.Fields[j])
                }
              })

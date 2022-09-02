@@ -47,7 +47,7 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 		//
 		//for i, field := range entry.Fields {
 		//	if i < len(bType.Fields) {
-		//		if bType.Fields[i].TexParsed {
+		//		if bType.Fields[i].TexValue {
 		//			entry.Fields[i] =
 		//		}
 		//	}

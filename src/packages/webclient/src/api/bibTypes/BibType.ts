@@ -1,7 +1,6 @@
 
 export type BibType = {
     Name: string
-    HasCitePage: boolean
     Fields: Field[]
     CiteFields: Field[]
     Model: string
@@ -13,5 +12,5 @@ export type Field = {
     Style: string
     Prefix: string
     Suffix: string
-    TexParsed: boolean
+    TexValue: boolean
 }

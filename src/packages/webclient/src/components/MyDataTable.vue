@@ -34,7 +34,7 @@
             type="string" />
       </td>
       <td>
-        <v-checkbox v-model="field.TexParsed" />
+        <v-checkbox v-model="field.TexValue" />
       </td>
       <td>
         <v-btn icon @click="emitRemove(i)">
@@ -78,7 +78,7 @@ export default Vue.extend({
   ],
   data() {
     return {
-      headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}, {text: 'TeX-Wert', value: 'TexParsed', width: '5%', align: 'center'},  ``],
+      headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}, {text: 'TeX-Wert', value: 'TexValue', width: '5%', align: 'center'},  ``],
       fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}],
     }
   },

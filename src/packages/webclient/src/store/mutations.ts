@@ -1,10 +1,9 @@
 import { MutationTree } from 'vuex';
 import { MutationTypes } from './mutation-types';
 import {State} from './state';
-import {BibType} from "@/api/bibTypes/BibType";
+import {BibType, Field} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/BibEntry";
 import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
-import Field from "../../../gui/scripts/Field";
 import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
 import {DragNDropResp} from "@/api/TeX-JSON-converter/AnalyseDroppedFiles";
 import {ParseStringToTeX, ParseTexToString} from "@/api/TeX-JSON-converter/TeXParser";
@@ -61,7 +60,7 @@ export const mutations: MutationTree<State> & Mutations = {
             Style: 'normal',
             Prefix: '',
             Suffix: '',
-            TexParsed: false,
+            TexValue: false,
         });
     },
     [MutationTypes.ADD_CITE_ATTR](state) {
@@ -70,7 +69,7 @@ export const mutations: MutationTree<State> & Mutations = {
             Style: 'normal',
             Prefix: '',
             Suffix: '',
-            TexParsed: false
+            TexValue: false
         });
     },
     [MutationTypes.NEW_TYPE](state){
@@ -177,13 +176,13 @@ export const mutations: MutationTree<State> & Mutations = {
                 const bibType = state.bibTypes[i];
                 for( let i = 0; i < bibType.Fields.length ; i++ ) {
                     if( i < state.entryToEdit.Fields.length ) {
-                        if( !bibType.Fields[i].TexParsed ) {
+                        if( !bibType.Fields[i].TexValue ) {
                             state.entryToEdit.Fields[i] = ParseTexToString(state.entryToEdit.Fields[i]);
                         }
                     }
                     if( payload ) {
                         if( i < state.initialEntry.Fields.length ) {
-                            if( !bibType.Fields[i].TexParsed ) {
+                            if( !bibType.Fields[i].TexValue ) {
                                 state.initialEntry.Fields[i] = ParseTexToString(state.initialEntry.Fields[i]);
                             }
                         }
