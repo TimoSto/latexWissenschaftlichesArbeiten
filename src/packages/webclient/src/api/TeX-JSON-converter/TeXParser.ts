@@ -43,6 +43,21 @@ const toReplaceWithTeX : Replacement[] = [
         String: ';',
         TeX: '{{;}}',
         RegexToTeX: /(?<!\{\{)(;)|(;)(?!\}\})/g
+    },
+    {//TODO: ggf vorher amp ersetzen
+        String: '&',
+        TeX: '{{\\&}}',
+        RegexToTeX: /(?<!\{\{\\)(&)|(&)(?!\}\})/g
+    },
+    {
+        String: '$',
+        TeX: '{{\\$}}',
+        RegexToTeX: /(?<!\{\{\\)(\$)|(\$)(?!\}\})/g
+    },
+    {
+        String: '#',
+        TeX: '{{\\#}}',
+        RegexToTeX: /(?<!\{\{\\)(#)|(#)(?!\}\})/g
     }
 ]
 

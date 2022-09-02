@@ -22,7 +22,7 @@ describe('test', ()=>{
     it('should give {{\\_}}hal{{\\_}}lo{{\\_}}{{\\_}}', ()=>{
         expect(ParseStringToTeX('_hal_lo__')).toEqual('{{\\_}}hal{{\\_}}lo{{\\_}}{{\\_}}')
     })
-    it('should give {{;}}hal{{\\_}}lo{{;}}{{\\_}}', ()=>{
-        expect(ParseStringToTeX(';hal_lo;_')).toEqual('{{;}}hal{{\\_}}lo{{;}}{{\\_}}')
+    it('should give {{;}}ha{{\\&}}l{{\\_}}lo{{;}}{{\\_}}', ()=>{
+        expect(ParseStringToTeX(';ha&l_lo;_')).toEqual('{{;}}ha{{\\&}}l{{\\_}}lo{{;}}{{\\_}}')
     })
 })
