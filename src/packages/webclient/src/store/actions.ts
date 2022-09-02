@@ -134,6 +134,7 @@ export const actions: ActionTree<State, State> & Actions = {
             state.initialEntry.BibPreview = '';
             state.initialEntry.CitePreview = '';
             commit(MutationTypes.UPDATE_TEX_PARSING_OF_ENTRY)
+            commit(MutationTypes.UPDATE_PREVIEW);
             commit(MutationTypes.SET_SNACKBAR, `Literatureintrag erfolgreich gespeichert.`);
         } else {
             const errorMsg = await resp.text();
