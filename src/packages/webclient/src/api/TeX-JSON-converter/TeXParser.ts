@@ -27,33 +27,49 @@ function replaceRange(str: string, index: number, length: number, replacement: s
     return str.substring(0, index) + replacement + str.substring(index + length);
 }
 
+type Replacement = {
+    String: string,
+    RegexToTeX: RegExp,
+    TeX: string
+}
+
+const toReplaceWithTeX : Replacement[] = [
+    {
+        String: '_',
+        TeX: '{{\\_}}',
+        RegexToTeX: /(?<!\{\{\\)(_)|(_)(?!\}\})/g
+    }
+]
+
 export function ParseStringToTeX(value: string): string {
 
-    value = value.replaceAll('{\\ss}', 'ß');
-    value = value.replaceAll('{\\\"u}', 'ü');
-    value = value.replaceAll('{\\\"o}', 'ö');
-    value = value.replaceAll('{\\\"a}', 'ä');
-    value = value.replaceAll('{\\\'e}', 'é');
-    value = value.replaceAll('{\\v{s}}', 'š');
-    value = value.replaceAll('{\\v{c}}', 'č');
+    value = value.replaceAll(toReplaceWithTeX[0].RegexToTeX, toReplaceWithTeX[0].TeX)
 
-    texValues.forEach(s => {
-        if(s[0] === '&') {
-            if(value.indexOf('{\\&}') >= 0) {
-                value = value.replaceAll('{\\&}', '{{\\&amp;}}');
-            } else {
-                value = value.replaceAll('&', '{{\\&amp;}}');
-            }
-            //console.log(value)
-        } else {
-            let index = value.indexOf(s[0], 0);
-            while (index > -1 && !IsSurroundedByBrackets(value, index)) {
-                //console.log(index)
-                value = repalceAt(value, index, s[1]);
-                index = value.indexOf(s[0], index + 5);
-            }
-        }
-    });
+    // value = value.replaceAll('{\\ss}', 'ß');
+    // value = value.replaceAll('{\\\"u}', 'ü');
+    // value = value.replaceAll('{\\\"o}', 'ö');
+    // value = value.replaceAll('{\\\"a}', 'ä');
+    // value = value.replaceAll('{\\\'e}', 'é');
+    // value = value.replaceAll('{\\v{s}}', 'š');
+    // value = value.replaceAll('{\\v{c}}', 'č');
+    //
+    // texValues.forEach(s => {
+    //     if(s[0] === '&') {
+    //         if(value.indexOf('{\\&}') >= 0) {
+    //             value = value.replaceAll('{\\&}', '{{\\&amp;}}');
+    //         } else {
+    //             value = value.replaceAll('&', '{{\\&amp;}}');
+    //         }
+    //         //console.log(value)
+    //     } else {
+    //         let index = value.indexOf(s[0], 0);
+    //         while (index > -1 && !IsSurroundedByBrackets(value, index)) {
+    //             //console.log(index)
+    //             value = repalceAt(value, index, s[1]);
+    //             index = value.indexOf(s[0], index + 5);
+    //         }
+    //     }
+    // });
 
     return value;
 }
