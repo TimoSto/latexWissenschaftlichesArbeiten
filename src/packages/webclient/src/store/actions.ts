@@ -19,6 +19,7 @@ import RefreshTypes from "@/api/bibTypes/RefreshTypes";
 import SetDefault from "@/api/bibTypes/SetDefault";
 import CleanupCites from "@/api/projects/CleanupCites";
 import UploadEntries from "@/api/bibEntries/UploadEntries";
+import {ParseStringToTeX, ParseTexToString} from "@/api/TeX-JSON-converter/TeXParser";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -98,15 +99,42 @@ export const actions: ActionTree<State, State> & Actions = {
 
     },
 
-    async [ActionTypes.SAVE_ENTRY]({ dispatch, commit }, obj) {
+    async [ActionTypes.SAVE_ENTRY]({ dispatch, commit }) {
 
-        const resp = await SaveBibEntry(obj)
+        for( let i = 0 ; i < state.bibTypes.length ; i++ ) {
+            if( state.bibTypes[i].Name === state.entryToEdit.Typ) {
+                for( let j = 0; j < state.bibTypes[i].Fields.length ; j++ ) {
+                    if (j < state.entryToEdit.Fields.length) {
+                        if ( !state.bibTypes[i].Fields[j].TexParsed ) {
+                            state.entryToEdit.Fields[j] = ParseStringToTeX(state.entryToEdit.Fields[j]);
+                            //state.entryToEdit.Fields[j] = state.entryToEdit.Fields[j].replaceAll('{{\\&}}','{{\\&amp;}}')
+                        }
+                    }
+                }
+            }
+        }
+
+        const SaveObj = {
+            InitialKey: state.initialEntry.Key,
+            Project: state.project,
+            Entry: {
+                Key: state.entryToEdit.Key,
+                Typ: state.entryToEdit.Typ,
+                Fields: state.entryToEdit.Fields,
+            }
+        }
+
+        const jsonObj = JSON.stringify(SaveObj)
+
+        const resp = await SaveBibEntry(jsonObj)
 
         if( resp.ok ) {
             dispatch(ActionTypes.GET_BIBENTRIES);
             state.initialEntry = JSON.parse(JSON.stringify(state.entryToEdit))
             state.initialEntry.BibPreview = '';
             state.initialEntry.CitePreview = '';
+            commit(MutationTypes.UPDATE_TEX_PARSING_OF_ENTRY, true)
+            commit(MutationTypes.UPDATE_PREVIEW);
             commit(MutationTypes.SET_SNACKBAR, `Literatureintrag erfolgreich gespeichert.`);
         } else {
             const errorMsg = await resp.text();

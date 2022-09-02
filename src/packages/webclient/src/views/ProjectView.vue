@@ -63,6 +63,7 @@
       },
       openEntryEditor(evt: string) {
         this.$store.commit(MutationTypes.SET_ENTRY_TO_EDIT, evt);
+        this.$store.commit(MutationTypes.UPDATE_TEX_PARSING_OF_ENTRY, true);
         this.$store.commit(MutationTypes.UPDATE_PREVIEW);
       }
     },

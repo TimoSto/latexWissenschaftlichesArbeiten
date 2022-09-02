@@ -149,18 +149,8 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.UPDATE_PREVIEW);
     },
     saveEntry() {
-      const SaveObj = {
-        InitialKey: this.$store.state.initialEntry.Key,
-        Project: this.$store.state.project,
-        Entry: {
-          Key: this.$store.state.entryToEdit.Key,
-          Typ: this.$store.state.entryToEdit.Typ,
-          Fields: this.$store.state.entryToEdit.Fields,
-        }
-      }
 
-      const jsonObj = JSON.stringify(SaveObj);
-      this.$store.dispatch(ActionTypes.SAVE_ENTRY, jsonObj);
+      this.$store.dispatch(ActionTypes.SAVE_ENTRY);
     },
     CloseEditor() {
       if( this.changesToSave ) {

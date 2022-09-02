@@ -29,7 +29,7 @@
         <v-icon>mdi-home</v-icon>
       </v-btn>
 
-      <v-menu offset-y style="z-index: 100">
+      <v-menu offset-y style="z-index: 100" content-class="elevation-3">
         <template v-slot:activator="{ on, attrs }">
           <v-btn
               icon
