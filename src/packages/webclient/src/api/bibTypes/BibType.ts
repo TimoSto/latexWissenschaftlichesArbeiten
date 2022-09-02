@@ -14,3 +14,13 @@ export type Field = {
     Suffix: string
     TexValue: boolean
 }
+
+export function CreateField(f: string, s: string, p:string, suf:string): Field {
+    return {
+        Field: f,
+        Style: s,
+        Prefix: p,
+        Suffix: suf,
+        TexValue: false
+    }
+}
