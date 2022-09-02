@@ -126,6 +126,10 @@ const toReplaceWithString: Replacement[] = [
 
 export function ParseStringToTeX(value: string): string {
 
+    if (!value) {
+        return '';
+    }
+
     toReplaceWithString.forEach(v => {
         value = value.replaceAll(v.TeX, v.String);
     })
@@ -141,6 +145,10 @@ export function ParseStringToTeX(value: string): string {
 
 export function ParseTexToString(value: string) {
 
+    if (!value) {
+        return '';
+    }
+    
     toReplaceWithTeX.forEach(v => {
         value = value.replaceAll(v.TeX, v.String);
     })
