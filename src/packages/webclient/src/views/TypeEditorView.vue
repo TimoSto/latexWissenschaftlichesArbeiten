@@ -44,9 +44,9 @@
               </v-col>
 
               <v-col
-                  cols="16"
-                  sm="8"
-                  md="4"
+                  cols="20"
+                  sm="10"
+                  md="6"
               >
                 <v-combobox v-model="$store.state.typeToEdit.CitaviNecessaryFields"
                             multiple
@@ -59,11 +59,11 @@
                     {{item}}
                   </template>
                   <template v-slot:selection="{ item, index }" v-if="!focusedCombo">
-                    <span v-if="index < 2">{{ item }} &nbsp;</span>
+                    <span v-if="index < 4">{{ item }} &nbsp;</span>
                     <span
-                        v-if="index === 2"
+                        v-if="index === 4"
                         class="grey--text caption"
-                    >(+{{ $store.state.typeToEdit.CitaviNecessaryFields.length - 2 }})</span>
+                    >(+{{ $store.state.typeToEdit.CitaviNecessaryFields.length - 4 }})</span>
                   </template>
                 </v-combobox>
               </v-col>
