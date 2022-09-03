@@ -39,6 +39,8 @@
                 v-on:changed="HandleChangeInBibFields"
                 v-on:removed="RemoveBibAttr($event)"
                 v-on:added="AddBibAttr"
+                show-citavi-attrs="true"
+                style="max-width: 950px"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -55,6 +57,8 @@
                 v-on:changed="HandleChangeInCiteFields"
                 v-on:removed="RemoveCiteAttr($event)"
                 v-on:added="AddCiteAttr"
+                showCitaviAttrs="false"
+                style="max-width: 750px"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>

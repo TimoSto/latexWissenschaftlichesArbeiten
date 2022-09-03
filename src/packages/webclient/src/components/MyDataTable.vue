@@ -1,24 +1,28 @@
 <template>
-  <v-simple-table style="max-width: 750px" disable-sort
+  <v-simple-table disable-sort
   >
     <template v-slot:default>
       <thead>
         <tr>
-          <th class="text-left" style="width: 22%">
+          <th class="text-left" style="width: 18%">
             {{headers[0].text}}
           </th>
-          <th class="text-left" style="width: 22%">
+          <th class="text-left" style="width: 18%">
             {{headers[1].text}}
           </th>
-          <th class="text-left" style="width: 22%">
+          <th class="text-left" style="width: 18%">
             {{headers[2].text}}
           </th>
-          <th class="text-left" style="width: 22%">
+          <th class="text-left" style="width: 18%">
             {{headers[3].text}}
           </th>
           <th class="text-left" style="width: 5%;">
             {{headers[4].text}}
             <v-icon style="cursor: pointer; scale: 0.6; margin-top: -5px" title="Sonderzeichen werden nicht ins TeX-Format überführt">mdi-help-circle-outline</v-icon>
+          </th>
+          <th class="text-left" style="width: 18%;" v-if="showCitaviAttrs === 'true'">
+            Citavi-Attribute
+            <v-icon style="cursor: pointer; scale: 0.6; margin-top: -5px" title="Citavi-Attribute, die diesem Feld zugeordnet werden sollen">mdi-help-circle-outline</v-icon>
           </th>
           <th style="width: 5%;"></th>
         </tr>
@@ -39,6 +43,7 @@
                 name="Style"
                 @input="emitChange"
                 :menu-props="{ bottom: true, offsetY: true }"
+                attach
             ></v-select>
           </td>
           <td>
@@ -57,6 +62,20 @@
           </td>
           <td>
             <v-checkbox v-model="field.TexValue" />
+          </td>
+          <td v-if="showCitaviAttrs === 'true'">
+            <v-combobox v-model="field.CitaviAttributes" multiple :items="citaviAttrs" @focus="focusedCombo = i" @blur="focusedCombo = -1" attach="">
+              <template v-slot:item="{ item }">
+                {{item}}
+              </template>
+              <template v-slot:selection="{ item, index }" v-if="focusedCombo !== i">
+                <span v-if="index < 2">{{ item }} &nbsp;</span>
+                <span
+                    v-if="index === 2"
+                    class="grey--text caption"
+                >(+{{ field.CitaviAttributes.length - 2 }})</span>
+              </template>
+            </v-combobox>
           </td>
           <td>
             <v-btn icon @click="emitRemove(i)">
@@ -98,12 +117,15 @@ export default Vue.extend({
   name: "My-DataTable",
   props: [
       "fields",
-      "keyprefix"
+      "keyprefix",
+      "showCitaviAttrs"
   ],
   data() {
     return {
       headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}, {text: 'TeX-Wert', value: 'TexValue', width: '5%', align: 'center'},  ``],
       fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}],
+      citaviAttrs: ['author', 'title', 'booktitle', 'publisher', 'year', 'address', 'editor', 'isbn', 'pages', 'url', 'doi'],
+      focusedCombo: -1
     }
   },
   methods: {

@@ -19,11 +19,12 @@ type LiteratureType struct {
 }
 
 type Field struct {
-	Field    string
-	Style    string
-	Prefix   string
-	Suffix   string
-	TexValue bool
+	Field            string
+	Style            string
+	Prefix           string
+	Suffix           string
+	TexValue         bool
+	CitaviAttributes []string
 }
 
 func ReadTypes(project string) (LiteratureTypes, error) {
