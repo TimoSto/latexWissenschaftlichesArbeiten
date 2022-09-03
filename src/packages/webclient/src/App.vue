@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app color="primary" dark clipped-left elevation="0" fixed scroll-target="main">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>ThesorTeX{{helpOpen}}</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
           icon
@@ -54,7 +54,7 @@
           </v-list-item>
           <v-list-item ripple @click="toChangelog">
             <v-list-item-avatar>
-              <v-icon>mdi-file-arrow-left-right-outline</v-icon>
+              <v-icon>mdi-file-arrow-left-right</v-icon>
             </v-list-item-avatar>
             <v-list-item-title>Changelog</v-list-item-title>
           </v-list-item>
