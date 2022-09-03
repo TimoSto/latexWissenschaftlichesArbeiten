@@ -5,6 +5,8 @@ export type BibType = {
     CiteFields: Field[]
     Model: string
     CiteModel: string
+    CitaviType: string
+    CitaviNecessaryFields: string[]
 }
 
 export type Field = {
@@ -13,6 +15,7 @@ export type Field = {
     Prefix: string
     Suffix: string
     TexValue: boolean
+    CitaviAttributes: string[]
 }
 
 export function CreateField(f: string, s: string, p:string, suf:string): Field {
@@ -21,6 +24,7 @@ export function CreateField(f: string, s: string, p:string, suf:string): Field {
         Style: s,
         Prefix: p,
         Suffix: suf,
-        TexValue: false
+        TexValue: false,
+        CitaviAttributes: []
     }
 }

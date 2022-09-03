@@ -36,7 +36,7 @@ import {MutationTypes} from "@/store/mutation-types";
             return
           }
 
-          const dragNDropRes = AnalyseDroppedFiles(reader.result as string);
+          const dragNDropRes = AnalyseDroppedFiles(reader.result as string, this.$store.state.bibTypes);
           this.$store.commit(MutationTypes.SET_DRAG_N_DROP_RESULT, dragNDropRes);
         }
       }

@@ -23,7 +23,7 @@ export default new Vuetify({
                 secondary: '#b9ccb4',
                 accent: colors.shades.white,
                 error: '#CF6679',
-                background: '#333333'
+                background: '#121212'
             }
         },
     },

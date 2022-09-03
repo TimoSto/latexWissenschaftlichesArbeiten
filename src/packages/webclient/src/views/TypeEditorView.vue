@@ -29,6 +29,51 @@
       <v-expansion-panels v-model="panel" multiple accordion flat hover tile>
         <v-expansion-panel>
           <v-expansion-panel-header ripple>
+            Citavi-Import konfigurieren
+          </v-expansion-panel-header>
+          <v-expansion-panel-content style="padding-top: 8px">
+            <p>Gib den Citavi-Literaturtypen an, der bei einem Import diesem Literaturtypen zugeordnet werden soll. Du kannst auch Attribute angeben, die bei einer Zuordnung vorhanden sein sollen.</p>
+            <v-row>
+              <v-col
+                  cols="16"
+                  sm="8"
+                  md="4"
+              >
+                <v-text-field :prefix="citaviPrefix" v-model="$store.state.typeToEdit.CitaviType" label="Citavi-Typ" filled
+                @focus="citaviPrefix = '@'" @blur="citaviPrefix = ($store.state.typeToEdit.CitaviType && $store.state.typeToEdit.CitaviType.length > 0) ? '@' : ''"></v-text-field>
+              </v-col>
+
+              <v-col
+                  cols="10"
+                  sm="8"
+                  md="5"
+              >
+                <v-combobox v-model="$store.state.typeToEdit.CitaviNecessaryFields"
+                            multiple
+                            :items="['doi', 'url']"
+                            @focus="focusedCombo = true"
+                            @blur="focusedCombo = false"
+                            attach
+                            filled label="Attribute">
+                  <template v-slot:item="{ item }">
+                    {{item}}
+                  </template>
+                  <template v-slot:selection="{ item, index }" v-if="!focusedCombo">
+                    <span v-if="index < 4">{{ item }} &nbsp;</span>
+                    <span
+                        v-if="index === 4"
+                        class="grey--text caption"
+                    >(+{{ $store.state.typeToEdit.CitaviNecessaryFields.length - 4 }})</span>
+                  </template>
+                </v-combobox>
+              </v-col>
+
+
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-header ripple>
             Literatureinträge konfigurieren
           </v-expansion-panel-header>
           <v-expansion-panel-content style="padding-top: 8px">
@@ -39,6 +84,8 @@
                 v-on:changed="HandleChangeInBibFields"
                 v-on:removed="RemoveBibAttr($event)"
                 v-on:added="AddBibAttr"
+                show-citavi-attrs="true"
+                style="max-width: 950px"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -47,7 +94,7 @@
           <v-expansion-panel-header ripple>
             Zitate konfigurieren
           </v-expansion-panel-header>
-          <v-expansion-panel-content>
+          <v-expansion-panel-content style="padding-top: 8px">
             <p><b>Beispiel:</b> <span v-html="this.$store.state.typeToEdit.CiteModel"></span></p>
             <MyDataTable
                 keyprefix="bib"
@@ -55,6 +102,8 @@
                 v-on:changed="HandleChangeInCiteFields"
                 v-on:removed="RemoveCiteAttr($event)"
                 v-on:added="AddCiteAttr"
+                showCitaviAttrs="false"
+                style="max-width: 800px"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -84,14 +133,16 @@ export default Vue.extend({
 
   data() {
     return {
-      panel: [0,1],
+      panel: [1,2],
       unsafeClose: false,
       unsafeSwitch: '',
       unsafeSwitchToEntry: '',
       rules: [
         (value: any) => !!value || 'Pflichtfeld',
       ],
-      tryDelete: false
+      tryDelete: false,
+      focusedCombo: false,
+      citaviPrefix: ''
     }
   },
 
@@ -103,6 +154,8 @@ export default Vue.extend({
       console.log(evt)
       this.unsafeSwitchToEntry = evt;
     })
+
+    this.$data.citaviPrefix = (this.$store.state.typeToEdit.CitaviType && this.$store.state.typeToEdit.CitaviType.length > 0) ? '@' : ''
   },
 
   computed: {
@@ -152,9 +205,13 @@ export default Vue.extend({
         Type: {
           Name: this.$store.state.typeToEdit.Name,
           Fields: this.$store.state.typeToEdit.Fields,
-          CiteFields: this.$store.state.typeToEdit.CiteFields
+          CiteFields: this.$store.state.typeToEdit.CiteFields,
+          CitaviType: this.$store.state.typeToEdit.CitaviType,
+          CitaviNecessaryFields: this.$store.state.typeToEdit.CitaviNecessaryFields,
         }
       });
+
+      console.log(obj)
 
       this.$store.dispatch(ActionTypes.SAVE_TYPE, obj);
     },
