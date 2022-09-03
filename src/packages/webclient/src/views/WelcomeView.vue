@@ -1,27 +1,30 @@
 <template>
-  <div>
-    <div class="text-container" id="head">
-      <p>Mit dieser Anwendung kannst du das Erstellen von wissenschaftlichen Arbeiten mit LaTeX vereinfachen und managen. Im linken Bereich sind alle deine Projekte aufgelistet. Dort kannst du sie zur Bearbeitung auswählen oder löschen.
-        Du kannst den Bereich über den Button oben links öffnen oder schließen. In einem solchen Projekt wird eine TeX-Datei generiert, inklusive von Style-Definitionen. Diese Style-Integrationen umfassen folgende Bereiche:</p>
+  <v-sheet style="overflow-y: scroll; height: calc(100vh - 80px); padding: 0;" id="scroll3">
+    <div style="padding: 8px">
+      <div class="text-container" id="head">
+        <p>Mit dieser Anwendung kannst du das Erstellen von wissenschaftlichen Arbeiten mit LaTeX vereinfachen und managen. Im linken Bereich sind alle deine Projekte aufgelistet. Dort kannst du sie zur Bearbeitung auswählen oder löschen.
+          Du kannst den Bereich über den Button oben links öffnen oder schließen. In einem solchen Projekt wird eine TeX-Datei generiert, inklusive von Style-Definitionen. Diese Style-Integrationen umfassen folgende Bereiche:</p>
+      </div>
+      <v-list two-line>
+        <v-list-item v-for="(stypackage, i) in packages" :key="i">
+          <v-list-item-content>
+            <v-list-item-title>
+              {{stypackage[0]}}
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              {{stypackage[1]}}
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <div class="text-container">
+        <p>Um Literatur-Einträge in einem Projekt zu erstellen, musst du das Projekt bearbeiten. Dann erscheint ein Bereich, in dem du Literatureinträge hinzufügen, löschen oder bearbeiten kannst.</p>
+        <p>Wenn du noch Fragen hast, schau doch unter der Hilfe <v-icon>mdi-help-circle-outline</v-icon> oder in der <router-link style="text-decoration: none" to="/pdf/documentation">Dokumentation <v-icon color="primary">mdi-book-open-blank-variant</v-icon></router-link> nach.</p>
+        <p>Wenn du mithilfe dieses Tools eine sexy Abschlussarbeit erstellt hast, kannst du auch gleich hinterher einen sexy Lebenslauf für deine nächste Bewerbung erstellen! Eine Vorlage in <router-link to="/pdf/cv">diesen Stil</router-link> ist <a href="/cv?type=tex" download="CVTemplate.tex">hier</a> abrufbar.</p>
+      </div>
     </div>
-    <v-list two-line>
-      <v-list-item v-for="(stypackage, i) in packages" :key="i">
-        <v-list-item-content>
-          <v-list-item-title>
-            {{stypackage[0]}}
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            {{stypackage[1]}}
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
-    <div class="text-container">
-      <p>Um Literatur-Einträge in einem Projekt zu erstellen, musst du das Projekt bearbeiten. Dann erscheint ein Bereich, in dem du Literatureinträge hinzufügen, löschen oder bearbeiten kannst.</p>
-      <p>Wenn du noch Fragen hast, schau doch unter der Hilfe <v-icon>mdi-help-circle-outline</v-icon> oder in der <router-link style="text-decoration: none" to="/pdf/documentation">Dokumentation <v-icon color="primary">mdi-book-open-blank-variant</v-icon></router-link> nach.</p>
-      <p>Wenn du mithilfe dieses Tools eine sexy Abschlussarbeit erstellt hast, kannst du auch gleich hinterher einen sexy Lebenslauf für deine nächste Bewerbung erstellen! Eine Vorlage in <router-link to="/pdf/cv">diesen Stil</router-link> ist <a href="/cv?type=tex" download="CVTemplate.tex">hier</a> abrufbar.</p>
-    </div>
-  </div>
+  </v-sheet>
+
 </template>
 
 <script lang="ts">

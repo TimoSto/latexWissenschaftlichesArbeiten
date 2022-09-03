@@ -52,6 +52,7 @@ export default Vue.extend({
             'Design-Update mit Umzug nach Vue/Vuetify',
             'Citavi-Import dynamisch steuerbar',
             'Parsen von Sonderzeichen pro Feld deaktivierbar',
+            'Changelog anzeigen',
           ]
         }
       ],
