@@ -1,69 +1,93 @@
 <template>
-  <v-simple-table style="max-width: 750px"
+  <v-simple-table style="max-width: 750px" disable-sort
   >
-    <v-data-table-header :headers="headers" disable-sort/>
-    <tr v-for="(field,i) in fields" :key="keyprefix + 'edit' + i" class="editableTableRow">
-      <td>
-        <v-text-field
-            v-model="field.Field"
-            name="Attribut"
-            @input="emitChange"
-            type="string" />
-      </td>
-      <td>
-        <v-select
-            v-model="field.Style"
-            :items="fontStyles"
-            name="Style"
-            @input="emitChange"
-            :menu-props="{ bottom: true, offsetY: true }"
-        ></v-select>
-      </td>
-      <td>
-        <v-text-field
-            v-model="field.Prefix"
-            name="Prefix"
-            @input="emitChange"
-            type="string" />
-      </td>
-      <td>
-        <v-text-field
-            v-model="field.Suffix"
-            name="Suffix"
-            @input="emitChange"
-            type="string" />
-      </td>
-      <td>
-        <v-checkbox v-model="field.TexValue" />
-      </td>
-      <td>
-        <v-btn icon @click="emitRemove(i)">
-          <v-icon>mdi-minus</v-icon>
-        </v-btn>
-      </td>
-    </tr>
-    <tr class="editableTableRow">
-      <td>
-        <v-text-field disabled placeholder="Attribut"></v-text-field>
-      </td>
-      <td>
-        <v-select disabled placeholder="Style"></v-select>
-      </td>
-      <td>
-        <v-text-field disabled placeholder="Prefix"></v-text-field>
-      </td>
-      <td>
-        <v-text-field disabled placeholder="Suffix"></v-text-field>
-      </td>
-      <td>
-        <v-checkbox disabled/>
-      </td>
-      <td>
-        <v-btn icon @click="emitAdded">
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      </td>
-    </tr>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-left" style="width: 22%">
+            {{headers[0].text}}
+          </th>
+          <th class="text-left" style="width: 22%">
+            {{headers[1].text}}
+          </th>
+          <th class="text-left" style="width: 22%">
+            {{headers[2].text}}
+          </th>
+          <th class="text-left" style="width: 22%">
+            {{headers[3].text}}
+          </th>
+          <th class="text-left" style="width: 5%;">
+            {{headers[4].text}}
+            <v-icon style="cursor: pointer; scale: 0.6; margin-top: -5px" title="Was ist ein Tex-Wert">mdi-help-circle-outline</v-icon>
+          </th>
+          <th style="width: 5%;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(field,i) in fields" :key="keyprefix + 'edit' + i" class="editableTableRow">
+          <td>
+            <v-text-field
+                v-model="field.Field"
+                name="Attribut"
+                @input="emitChange"
+                type="string" />
+          </td>
+          <td>
+            <v-select
+                v-model="field.Style"
+                :items="fontStyles"
+                name="Style"
+                @input="emitChange"
+                :menu-props="{ bottom: true, offsetY: true }"
+            ></v-select>
+          </td>
+          <td>
+            <v-text-field
+                v-model="field.Prefix"
+                name="Prefix"
+                @input="emitChange"
+                type="string" />
+          </td>
+          <td>
+            <v-text-field
+                v-model="field.Suffix"
+                name="Suffix"
+                @input="emitChange"
+                type="string" />
+          </td>
+          <td>
+            <v-checkbox v-model="field.TexValue" />
+          </td>
+          <td>
+            <v-btn icon @click="emitRemove(i)">
+              <v-icon>mdi-minus</v-icon>
+            </v-btn>
+          </td>
+        </tr>
+        <tr class="editableTableRow">
+          <td>
+            <v-text-field disabled placeholder="Attribut"></v-text-field>
+          </td>
+          <td>
+            <v-select disabled placeholder="Style"></v-select>
+          </td>
+          <td>
+            <v-text-field disabled placeholder="Prefix"></v-text-field>
+          </td>
+          <td>
+            <v-text-field disabled placeholder="Suffix"></v-text-field>
+          </td>
+          <td>
+            <v-checkbox disabled/>
+          </td>
+          <td>
+            <v-btn icon @click="emitAdded">
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+          </td>
+        </tr>
+      </tbody>
+    </template>
   </v-simple-table>
 </template>
 
