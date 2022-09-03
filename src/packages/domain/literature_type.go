@@ -13,9 +13,11 @@ type LiteratureTypes struct {
 }
 
 type LiteratureType struct {
-	Name       string
-	Fields     []Field
-	CiteFields []Field
+	Name                  string
+	CitaviType            string
+	CitaviNecessaryFields []string //z.B. nur dieser Typ wenn doi existiert
+	Fields                []Field
+	CiteFields            []Field
 }
 
 type Field struct {

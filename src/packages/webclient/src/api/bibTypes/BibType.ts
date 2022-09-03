@@ -5,6 +5,8 @@ export type BibType = {
     CiteFields: Field[]
     Model: string
     CiteModel: string
+    CitaviType: string
+    CitaviNecessaryFields: string[]
 }
 
 export type Field = {

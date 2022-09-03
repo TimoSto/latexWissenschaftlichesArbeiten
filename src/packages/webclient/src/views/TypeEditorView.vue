@@ -29,6 +29,51 @@
       <v-expansion-panels v-model="panel" multiple accordion flat hover tile>
         <v-expansion-panel>
           <v-expansion-panel-header ripple>
+            Citavi-Import konfigurieren
+          </v-expansion-panel-header>
+          <v-expansion-panel-content style="padding-top: 8px">
+            <p>Gib den Citavi-Literaturtypen an, der bei einem Import diesem Literaturtypen zugeordnet werden soll. Du kannst auch Attribute angeben, die bei einer Zuordnung vorhanden sein sollen.</p>
+            <v-row>
+              <v-col
+                  cols="16"
+                  sm="8"
+                  md="4"
+              >
+                <v-text-field :prefix="citaviPrefix" v-model="$store.state.typeToEdit.CitaviType" label="Citavi-Typ" filled
+                @focus="citaviPrefix = '@'" @blur="citaviPrefix = ($store.state.typeToEdit.CitaviType && $store.state.typeToEdit.CitaviType.length > 0) ? '@' : ''"></v-text-field>
+              </v-col>
+
+              <v-col
+                  cols="16"
+                  sm="8"
+                  md="4"
+              >
+                <v-combobox v-model="$store.state.typeToEdit.CitaviNecessaryFields"
+                            multiple
+                            :items="['doi', 'url']"
+                            @focus="focusedCombo = true"
+                            @blur="focusedCombo = false"
+                            attach
+                            filled label="Attribute">
+                  <template v-slot:item="{ item }">
+                    {{item}}
+                  </template>
+                  <template v-slot:selection="{ item, index }" v-if="!focusedCombo">
+                    <span v-if="index < 2">{{ item }} &nbsp;</span>
+                    <span
+                        v-if="index === 2"
+                        class="grey--text caption"
+                    >(+{{ $store.state.typeToEdit.CitaviNecessaryFields.length - 2 }})</span>
+                  </template>
+                </v-combobox>
+              </v-col>
+
+
+            </v-row>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+        <v-expansion-panel>
+          <v-expansion-panel-header ripple>
             Literatureinträge konfigurieren
           </v-expansion-panel-header>
           <v-expansion-panel-content style="padding-top: 8px">
@@ -95,7 +140,9 @@ export default Vue.extend({
       rules: [
         (value: any) => !!value || 'Pflichtfeld',
       ],
-      tryDelete: false
+      tryDelete: false,
+      focusedCombo: false,
+      citaviPrefix: ''
     }
   },
 
