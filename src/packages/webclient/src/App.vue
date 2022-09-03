@@ -111,12 +111,18 @@ export default Vue.extend({
       this.$router.push('/')
     },
     toProject(project: string) {
-      this.CloseEditors();
-      this.$router.push('/project/' + project)
+      const path = '/project/' + project;
+      if( this.$route.path !== path ) {
+        this.CloseEditors();
+        this.$router.push(path)
+      }
     },
     toDocumentation() {
-      this.CloseEditors();
-      this.$router.push('/pdf/documentation')
+      const path = '/pdf/documentation';
+      if( this.$route.path !== path ) {
+        this.CloseEditors();
+        this.$router.push(path)
+      }
     },
     toCV() {
       this.CloseEditors();
