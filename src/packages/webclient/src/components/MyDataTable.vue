@@ -18,7 +18,7 @@
           </th>
           <th class="text-left" style="width: 5%;">
             {{headers[4].text}}
-            <v-icon style="cursor: pointer; scale: 0.6; margin-top: -5px" title="Was ist ein Tex-Wert">mdi-help-circle-outline</v-icon>
+            <v-icon style="cursor: pointer; scale: 0.6; margin-top: -5px" title="Sonderzeichen werden nicht ins TeX-Format überführt">mdi-help-circle-outline</v-icon>
           </th>
           <th style="width: 5%;"></th>
         </tr>
