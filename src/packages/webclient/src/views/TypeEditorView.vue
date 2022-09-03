@@ -44,9 +44,9 @@
               </v-col>
 
               <v-col
-                  cols="20"
-                  sm="10"
-                  md="6"
+                  cols="10"
+                  sm="8"
+                  md="5"
               >
                 <v-combobox v-model="$store.state.typeToEdit.CitaviNecessaryFields"
                             multiple
@@ -94,7 +94,7 @@
           <v-expansion-panel-header ripple>
             Zitate konfigurieren
           </v-expansion-panel-header>
-          <v-expansion-panel-content>
+          <v-expansion-panel-content style="padding-top: 8px">
             <p><b>Beispiel:</b> <span v-html="this.$store.state.typeToEdit.CiteModel"></span></p>
             <MyDataTable
                 keyprefix="bib"
@@ -103,7 +103,7 @@
                 v-on:removed="RemoveCiteAttr($event)"
                 v-on:added="AddCiteAttr"
                 showCitaviAttrs="false"
-                style="max-width: 750px"
+                style="max-width: 800px"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -133,7 +133,7 @@ export default Vue.extend({
 
   data() {
     return {
-      panel: [0,1],
+      panel: [1,2],
       unsafeClose: false,
       unsafeSwitch: '',
       unsafeSwitchToEntry: '',

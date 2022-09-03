@@ -99,6 +99,9 @@
           <td>
             <v-checkbox disabled/>
           </td>
+          <td v-if="showCitaviAttrs === 'true'">
+            <v-combobox disabled />
+          </td>
           <td>
             <v-btn icon @click="emitAdded">
               <v-icon>mdi-plus</v-icon>
