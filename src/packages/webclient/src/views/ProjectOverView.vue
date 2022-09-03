@@ -6,6 +6,9 @@
       <v-btn icon title="Lokales Backup erstellen" @click="CreateBackup">
         <v-icon>mdi-cloud-upload</v-icon>
       </v-btn>
+      <v-btn icon title="Editor öffnen" @click="$emit('openRichEditor')">
+        <v-icon>mdi-file-edit</v-icon>
+      </v-btn>
       <v-dialog v-model="dialogOpened" width="450">
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on" title="Projekt löschen">
