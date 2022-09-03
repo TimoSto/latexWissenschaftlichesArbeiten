@@ -1,7 +1,7 @@
 import { MutationTree } from 'vuex';
 import { MutationTypes } from './mutation-types';
 import {State} from './state';
-import {BibType, Field} from "@/api/bibTypes/BibType";
+import {BibType, CreateField, Field} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/BibEntry";
 import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
 import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
@@ -55,22 +55,20 @@ export const mutations: MutationTree<State> & Mutations = {
         state.typeToEdit.CiteFields.splice(payload, 1)
     },
     [MutationTypes.ADD_BIB_ATTR](state) {
-        state.typeToEdit.Fields.push(<Field>{
-            Field: '',
-            Style: 'normal',
-            Prefix: '',
-            Suffix: '',
-            TexValue: false,
-        });
+        state.typeToEdit.Fields.push(CreateField(
+            '',
+            'normal',
+            '',
+            '',
+        ));
     },
     [MutationTypes.ADD_CITE_ATTR](state) {
-        state.typeToEdit.CiteFields.push(<Field>{
-            Field: '',
-            Style: 'normal',
-            Prefix: '',
-            Suffix: '',
-            TexValue: false
-        });
+        state.typeToEdit.CiteFields.push(CreateField(
+            '',
+            'normal',
+            '',
+            '',
+        ));
     },
     [MutationTypes.NEW_TYPE](state){
         state.typeToEdit = <BibType>{

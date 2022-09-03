@@ -19,6 +19,16 @@ export default async function GetBibTypes(proj: string): Promise<BibType[]> {
         bibType.Model = GenerateModelForBibType(bibType.Fields);
 
         bibType.CiteModel = GenerateModelForBibType(bibType.CiteFields);
+
+        if( !bibType.CitaviNecessaryFields ) {
+            bibType.CitaviNecessaryFields = [];
+        }
+
+        bibType.Fields.forEach(f => {
+            if (!f.CitaviAttributes) {
+                f.CitaviAttributes = [];
+            }
+        })
     } );
 
     return obj.Types
