@@ -69,11 +69,11 @@
                 {{item}}
               </template>
               <template v-slot:selection="{ item, index }" v-if="focusedCombo !== i">
-                <span v-if="index < 2">{{ item }} &nbsp;</span>
+                <span v-if="index < 1">{{ item }} &nbsp;</span>
                 <span
-                    v-if="index === 2"
+                    v-if="index === 1"
                     class="grey--text caption"
-                >(+{{ field.CitaviAttributes.length - 2 }})</span>
+                >(+{{ field.CitaviAttributes.length - 1 }})</span>
               </template>
             </v-combobox>
           </td>
