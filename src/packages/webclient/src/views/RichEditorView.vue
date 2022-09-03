@@ -19,16 +19,68 @@
           </v-btn>
         </template>
       </v-banner>
-      hallo
+
+      <editor-content :editor="editor" />
+
     </v-sheet>
   </div>
 </template>
 
 <script>
+import { Editor, EditorContent } from '@tiptap/vue-2'
+import StarterKit from '@tiptap/starter-kit'
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "RichEditor-View"
+  name: "RichEditor-View",
+  components: {
+    EditorContent,
+  },
+  data() {
+    return {
+      editor: null,
+      value: {
+        type: String,
+        default: ''
+      }
+    }
+  },
+
+  mounted() {
+    this.editor = new Editor({
+      content: '<p>I’m running Tiptap with Vue.js. 🎉</p>',
+      extensions: [
+        StarterKit,
+      ],
+      onUpdate: () => {
+        // HTML
+        this.$emit('input', this.editor.getHTML())
+
+        // JSON
+        // this.$emit('input', this.editor.getJSON())
+      },
+    })
+  },
+
+  watch: {
+    value(value) {
+      // HTML
+      const isSame = this.editor.getHTML() === value
+
+      // JSON
+      // const isSame = JSON.stringify(this.editor.getJSON()) === JSON.stringify(value)
+
+      if (isSame) {
+        return
+      }
+
+      this.editor.commands.setContent(value, false)
+    },
+  },
+
+  beforeDestroy() {
+    this.editor.destroy()
+  },
 })
 </script>
 
