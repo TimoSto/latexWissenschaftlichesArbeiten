@@ -52,6 +52,12 @@
             </v-list-item-avatar>
             <v-list-item-title>Vorlage Lebenslauf</v-list-item-title>
           </v-list-item>
+          <v-list-item ripple @click="toChangelog">
+            <v-list-item-avatar>
+              <v-icon>mdi-file-arrow-left-right-outline</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title>Changelog</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-menu>
     </v-app-bar>
@@ -119,6 +125,13 @@ export default Vue.extend({
     },
     toDocumentation() {
       const path = '/pdf/documentation';
+      if( this.$route.path !== path ) {//TODO: verallgemeinern
+        this.CloseEditors();
+        this.$router.push(path)
+      }
+    },
+    toChangelog() {
+      const path = '/changelog';
       if( this.$route.path !== path ) {
         this.CloseEditors();
         this.$router.push(path)
