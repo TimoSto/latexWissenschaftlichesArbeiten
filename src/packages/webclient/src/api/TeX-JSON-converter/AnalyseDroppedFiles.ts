@@ -1,4 +1,5 @@
 import {ParseBibToString, ParseStringToTeX} from "@/api/TeX-JSON-converter/TeXParser";
+import {BibType} from "@/api/bibTypes/BibType";
 
 export type Entry = {
     ValuePairs: {Value: string, Attr: string}[];
@@ -14,7 +15,7 @@ export type DragNDropResp = {
     Entries: Entry[]
 }
 
-export default function AnalyseDroppedFiles(file: string): DragNDropResp {
+export default function AnalyseDroppedFiles(file: string, types: BibType[]): DragNDropResp {
 
     if(file.indexOf('@') == -1) {
         return {
@@ -43,8 +44,10 @@ export default function AnalyseDroppedFiles(file: string): DragNDropResp {
 
         let entryFile = file.substr(0, nextEntryIndex >= 0 ? nextEntryIndex + 1 : file.length)
 
+        file = nextEntryIndex >= 0 ? file.substr(nextEntryIndex) : '';
+
         //type = string between first '@' and first '{'
-        let type = entryFile.substring(1, entryFile.indexOf('{')).toLowerCase();
+        const type = entryFile.substring(1, entryFile.indexOf('{')).toLowerCase();
 
         entryFile = entryFile.substr(entryFile.indexOf('{') + 1, entryFile.lastIndexOf('}') - 1)
 
@@ -82,59 +85,38 @@ export default function AnalyseDroppedFiles(file: string): DragNDropResp {
             }
         });
 
-        if( AttrExists(valuePairs, 'doi') ) {
-            switch (type) {
-                case "article":
-                    type = "citaviAufsatzDoi"
-                    break
-                case "inbook":
-                    type = "citaviInbookDoi"
-                    break
-                case "book":
-                    type = "citaviBookDoi"
-                    break
-                case "inproceedings":
-                    type = "citaviInProceedingsDoi"
-                    break
-                case "proceedings":
-                    type = "citaviProceedingsDoi"
-                    break
-                case "incollection":
-                    type = "citaviInCollectionDoi"
-                    break
-            }
-        } else {
-            switch (type) {
-                case "article":
-                    type = 'citaviAufsatz';
-                    break
-                case "inbook":
-                    type = 'citaviInbook'
-                    break
-                case "book":
-                    type = "citaviBook"
-                    break
-                case "inproceedings":
-                    type = 'citaviInProceedings'
-                    break
-                case "proceedings":
-                    type="citaviProceedings"
-                    break
-                case "incollection":
-                    type = 'citaviInCollection'
-                    break
-                case "phdthesis":
-                    type = 'citaviThesis'
-                    break
+        const FoundFields = valuePairs.map(v => v[0])
+        console.log(FoundFields)
+
+        let typeToApply: BibType | undefined;
+
+        for( let i = 0; i < types.length ; i++ ) {
+            if( types[i].CitaviType === type ) {
+                let fieldsFound = true;
+                if( !types[i].CitaviNecessaryFields ) {
+                    typeToApply = types[i];
+                    break;
+                }
+                types[i].CitaviNecessaryFields.forEach(f => {
+                    if( FoundFields.indexOf(f) === -1 ) {
+                        fieldsFound = false;
+                    }
+                });
+                if( fieldsFound ) {
+                    typeToApply = types[i];
+                    break;
+                }
             }
         }
 
-        file = nextEntryIndex >= 0 ? file.substr(nextEntryIndex) : '';
+        if( !typeToApply ) {
+            unknown.push(key);
+            continue;
+        }
 
-        const sortedvaluepairs = SortValues(valuePairs, type);
+        const sortedvaluepairs = SortValues(valuePairs, typeToApply);
 
         if( sortedvaluepairs.length === 0 ) {
-            console.log('Empty fields or unknown type (key: ' + key+ ' type: ' + type + ')');
             if( valuePairs.length === 0 ) {
                 empty.push(key)
             } else {
@@ -144,7 +126,7 @@ export default function AnalyseDroppedFiles(file: string): DragNDropResp {
         }
 
         entries.push(<Entry>{
-            Typ: type,
+            Typ: typeToApply.Name,
             Key: key,
             ValuePairs: sortedvaluepairs
         });
@@ -201,7 +183,7 @@ function AttrExists(valuepairs: string[][], attr: string): boolean {
     });
     return found
 }
-function SortValues(valuepairs: string[][], type: string):{Attr: string, Value: string}[] {
+function SortValues(valuepairs: string[][], type: BibType):{Attr: string, Value: string}[] {
     const sortedPairs: {Attr: string, Value:string}[] = [];
     valuepairs.forEach(pair => {
         const index = getIndex(pair[0], type)
@@ -212,190 +194,12 @@ function SortValues(valuepairs: string[][], type: string):{Attr: string, Value: 
     return sortedPairs;
 }
 
-function getIndex(attr: string, type: string) {
-    if (type == "citaviAufsatzDoi") {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "journal":
-                return 3
-            case "volume":
-                return 4
-            case "pages":
-                return 5
-            case "doi":
-                return 6
-        }
-    } else if (type == "citaviAufsatz") {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "journal":
-                return 3
-            case "volume":
-                return 4
-            case "pages":
-                return 5
-        }
-    } else if (type == "citaviInbookDoi") {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "bookTitle":
-                return 3
-            case 'pages':
-                return 4
-            case "publisher":
-                return 5
-            case "address":
-                return 6
-            case "doi":
-                return 7
-        }
-    } else if (type == "citaviInProceedingsDoi") {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "booktitle":
-                return 3
-            case "pages":
-                return 4
-            case "doi":
-                return 5
-        }
-    } else if (type == "citaviInProceedings") {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "booktitle":
-                return 3
-            case "pages":
-                return 4
-            case "url":
-                return 5
-        }
-    } else if (type == "citaviInCollectionDoi") {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "booktitle":
-                return 3
-            case "pages":
-                return 4
-            case "publisher":
-                return 5
-            case "address":
-                return 6
-            case "doi":
-                return 7
-        }
-    } else if (type == "citaviInCollection") {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "booktitle":
-                return 3
-            case "pages":
-                return 4
-            case "publisher":
-                return 5
-            case "address":
-                return 6
-        }
-    } else if (type === 'citaviInbook') {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "bookTitle":
-                return 3
-            case "pages":
-                return 4
-            case "publisher":
-                return 5
-            case "address":
-                return 0
-        }
-    } else if (type === 'citaviBook') {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "isbn":
-                return 3
-            case "publisher":
-                return 4
-            case "address":
-                return 5
-            case "editor":
-                return 0
-        }
-    } else if (type === 'citaviProceedings') {
-        switch (attr) {
-            case "publisher":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "address":
-                return 3
-        }
-    } else if (type === 'citaviProceedingsDoi') {
-        switch (attr) {
-            case "publisher":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "doi":
-                return 3
-        }
-    } else if (type === 'citaviThesis') {
-        switch (attr) {
-            case "author":
-                return 0
-            case "year":
-                return 1
-            case "title":
-                return 2
-            case "school":
-                return 3
+function getIndex(attr: string, type: BibType) {
+    for( let i = 0 ; i < type.Fields.length ; i++ ) {
+        if( type.Fields[i].CitaviAttributes ) {
+            if( type.Fields[i].CitaviAttributes.indexOf(attr) >= 0 ) {
+                return i
+            }
         }
     }
     return -1
