@@ -27,7 +27,7 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 	}
 	logger.LogInfo(fmt.Sprintf("Saving type %s", saveObj.Type.Name))
-	//fmt.Println(saveObj)
+	fmt.Println(saveObj.Type.CitaviType)
 	initialName := saveObj.InitialName
 	literatureTypes, err := domain.ReadTypes(saveObj.Project)
 	if err != nil {

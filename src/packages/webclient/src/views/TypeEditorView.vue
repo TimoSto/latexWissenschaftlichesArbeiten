@@ -154,6 +154,8 @@ export default Vue.extend({
       console.log(evt)
       this.unsafeSwitchToEntry = evt;
     })
+
+    this.$data.citaviPrefix = (this.$store.state.typeToEdit.CitaviType && this.$store.state.typeToEdit.CitaviType.length > 0) ? '@' : ''
   },
 
   computed: {
@@ -203,9 +205,13 @@ export default Vue.extend({
         Type: {
           Name: this.$store.state.typeToEdit.Name,
           Fields: this.$store.state.typeToEdit.Fields,
-          CiteFields: this.$store.state.typeToEdit.CiteFields
+          CiteFields: this.$store.state.typeToEdit.CiteFields,
+          CitaviType: this.$store.state.typeToEdit.CitaviType,
+          CitaviNecessaryFields: this.$store.state.typeToEdit.CitaviNecessaryFields,
         }
       });
+
+      console.log(obj)
 
       this.$store.dispatch(ActionTypes.SAVE_TYPE, obj);
     },
