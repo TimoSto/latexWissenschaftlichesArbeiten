@@ -21,12 +21,27 @@
         </template>
       </v-banner>
 
-      <div v-if="editor" class="editorBtns">
-        <v-btn
-            icon
-            @click="editor.chain().focus().toggleBold().run()" :class="{ 'is-active': editor.isActive('bold') }">
-          <v-icon>mdi-format-bold</v-icon>
-        </v-btn>
+      <div v-if="editor" class="editorBtns" style="border: 1px solid black">
+          <tr>
+            <td class="btn-container">
+              <v-btn
+                  icon
+                  @click="editor.chain().focus().toggleBold().run()" :class="{ 'is-active': editor.isActive('bold') }">
+                <v-icon>mdi-format-bold</v-icon>
+              </v-btn>
+            </td>
+            <td class="btn-container">
+              <v-btn
+                  icon
+                  @click="editor.chain().focus().toggleItalic().run()" :class="{ 'is-active': editor.isActive('italic') }">
+                <v-icon>mdi-format-italic</v-icon>
+              </v-btn>
+            </td>
+            <td>
+              <v-select :items="textLevels" style="width: 120px" :menu-props="{offsetY: true}" height="36" dense placeholder="Level"/>
+            </td>
+          </tr>
+
       </div>
       <editor-content :editor="editor" />
 
@@ -50,7 +65,16 @@ export default Vue.extend({
       value: {
         type: String,
         default: ''
-      }
+      },
+      textLevels: [
+          'Text',
+          'part',
+          'section',
+          'subsection',
+          'subsubsection',
+          'paragraph',
+          'subparagraph'
+      ],
     }
   },
 
@@ -110,12 +134,27 @@ export default Vue.extend({
 @import "../styles/betaLabel.scss";
 
 .editorBtns{
+  display: table;
+  width: 100%;
+  & .btn-container{
+    width: 36px;
+  }
   & .v-btn.v-btn--icon{
     border-radius: 4px;
+    //width: 44px;
+    //height: 44px;
+    line-height: 44px;
     &.is-active::before{
       content: '';
       background-color: var(--v-accent-lighten4);
       opacity: 0.3;
+    }
+  }
+  & .v-input{
+    margin: 0;
+    padding: 0;
+    & .v-text-field__details {
+      display: none;
     }
   }
 }
