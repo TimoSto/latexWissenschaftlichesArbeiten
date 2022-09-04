@@ -6,14 +6,15 @@
 
     </v-app-bar>
     <v-sheet style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0" id="scrollr">
-      <v-banner sticky>
+      <span class="beta-label">BETA</span>
+      <v-banner sticky v-if="bannerAccepted">
         <v-icon :style="[ this.$vuetify.theme.dark ? {'color': 'rgba(255,221,0,1)'} : {'color': 'rgba(255,202,10,1)'} ]" slot="icon" size="36">mdi-alert</v-icon>
         Die Editoren befinden sich noch in der Beta-Phase. Eine saubere Funktionalität ist nicht garantiert!
         <template v-slot:actions="{ dismiss }">
           <v-btn
               text
               color="primary"
-              @click="dismiss"
+              @click="acceptBanner(dismiss)"
           >
             Verstanden
           </v-btn>
@@ -26,7 +27,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Editor, EditorContent } from '@tiptap/vue-2'
 import StarterKit from '@tiptap/starter-kit'
 import Vue from "vue";
@@ -38,7 +39,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      editor: null,
+      editor: undefined as unknown as Editor,
       value: {
         type: String,
         default: ''
@@ -78,6 +79,19 @@ export default Vue.extend({
     },
   },
 
+  computed: {
+    bannerAccepted(): boolean {
+      return window.localStorage.getItem('texThesorEditorAccepted') !== 'true'
+    }
+  },
+
+  methods: {
+    acceptBanner(dismiss: ()=>void) {
+      dismiss()
+      window.localStorage.setItem('texThesorEditorAccepted', 'true');
+    }
+  },
+
   beforeDestroy() {
     this.editor.destroy()
   },
@@ -86,4 +100,5 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @import "../styles/fixesForDark.scss";
+@import "../styles/betaLabel.scss";
 </style>
