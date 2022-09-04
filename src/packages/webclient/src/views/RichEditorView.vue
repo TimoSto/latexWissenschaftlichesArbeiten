@@ -21,6 +21,13 @@
         </template>
       </v-banner>
 
+      <div v-if="editor" class="editorBtns">
+        <v-btn
+            icon
+            @click="editor.chain().focus().toggleBold().run()" :class="{ 'is-active': editor.isActive('bold') }">
+          <v-icon>mdi-format-bold</v-icon>
+        </v-btn>
+      </div>
       <editor-content :editor="editor" />
 
     </v-sheet>
@@ -101,4 +108,15 @@ export default Vue.extend({
 <style scoped lang="scss">
 @import "../styles/fixesForDark.scss";
 @import "../styles/betaLabel.scss";
+
+.editorBtns{
+  & .v-btn.v-btn--icon{
+    border-radius: 4px;
+    &.is-active::before{
+      content: '';
+      background-color: var(--v-accent-lighten4);
+      opacity: 0.3;
+    }
+  }
+}
 </style>
