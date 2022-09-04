@@ -38,7 +38,7 @@
               </v-btn>
             </td>
             <td>
-              <v-select :items="textLevels" style="width: 120px" :menu-props="{offsetY: true}" height="36" dense placeholder="Level"/>
+              <v-select v-model="level" :items="textLevels" style="width: 120px" :menu-props="{offsetY: true}" height="36" dense placeholder="Level" @change="handleLevelChange"/>
             </td>
           </tr>
 
@@ -75,6 +75,7 @@ export default Vue.extend({
           'paragraph',
           'subparagraph'
       ],
+      level: 'Text'
     }
   },
 
@@ -120,6 +121,32 @@ export default Vue.extend({
     acceptBanner(dismiss: ()=>void) {
       dismiss()
       window.localStorage.setItem('texThesorEditorAccepted', 'true');
+    },
+    handleLevelChange() {
+      console.log(this.level)
+      switch (this.level) {
+        case 'Text':
+          this.editor.chain().focus().setParagraph().run()
+          break;
+        case 'part':
+          this.editor.chain().focus().toggleHeading({ level: 1 }).run();
+          break;
+        case 'section':
+          this.editor.chain().focus().toggleHeading({ level: 2 }).run();
+          break;
+        case 'subsection':
+          this.editor.chain().focus().toggleHeading({ level: 3 }).run();
+          break;
+        case 'subsubsection':
+          this.editor.chain().focus().toggleHeading({ level: 4 }).run();
+          break;
+        case 'paragraph':
+          this.editor.chain().focus().toggleHeading({ level: 5 }).run();
+          break;
+        case 'subparagraph':
+          this.editor.chain().focus().toggleHeading({ level: 6 }).run();
+          break;
+      }
     }
   },
 
