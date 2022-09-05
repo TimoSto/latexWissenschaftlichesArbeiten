@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar elevate-on-scroll color="background" scroll-target="#scrollr" style="z-index: 100">
-      <v-toolbar-title>Editor</v-toolbar-title>
+      <v-toolbar-title>Editor{{currentHeadingLevel}}</v-toolbar-title>
       <v-spacer></v-spacer>
 
     </v-app-bar>
@@ -43,7 +43,7 @@
           </tr>
 
       </div>
-      <editor-content :editor="editor" />
+      <editor-content :editor="editor"/>
 
     </v-sheet>
   </div>
@@ -87,11 +87,11 @@ export default Vue.extend({
       ],
       onUpdate: () => {
         // HTML
-        this.$emit('input', this.editor.getHTML())
+        console.log('u');
 
         // JSON
         // this.$emit('input', this.editor.getJSON())
-      },
+      }
     })
   },
 
@@ -109,11 +109,21 @@ export default Vue.extend({
 
       this.editor.commands.setContent(value, false)
     },
+    currentHeadingLevel(lv) {
+      console.log(lv)
+      this.$data.level = 'Text';
+    }
   },
 
   computed: {
     bannerAccepted(): boolean {
       return window.localStorage.getItem('texThesorEditorAccepted') !== 'true'
+    },
+    currentHeadingLevel() {
+      if( this.$data.editor) {
+        return this.$data.editor.getAttributes('heading')
+      }
+      return ''
     }
   },
 
