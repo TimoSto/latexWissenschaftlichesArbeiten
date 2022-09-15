@@ -22,7 +22,8 @@ export const state = {
         Valid: false,
         Unknown: [],
         Empty: []
-    }
+    },
+    richEditorOpened: false
 };
 
 export type State = typeof state;

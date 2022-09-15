@@ -8,7 +8,7 @@
           icon
           @click="toggleTwoThirds"
           :title="splitBtnContent[1]"
-          v-if="typeEditorOpen || entryEditorOpen"
+          v-if="typeEditorOpen || entryEditorOpen || richEditorOpen"
           style="font-size: 20px"
       >
         <span v-html="splitBtnContent[0]"></span>
@@ -175,6 +175,9 @@ export default Vue.extend({
     entryEditorOpen() {
       return !!this.$store.state.entryToEdit.Key || this.$store.state.entryToEdit.Key == ''
     },
+    richEditorOpen() {
+        return this.$store.state.richEditorOpened;
+      }
   },
   watch: {
     dark(isDark) {
