@@ -17,8 +17,8 @@ import (
 	"strings"
 	"syscall"
 
+	"WA_LaTeX/internal/conf"
 	"WA_LaTeX/pkg/logger"
-	"WA_LaTeX/src/packages/conf"
 	"WA_LaTeX/src/packages/handlers"
 )
 

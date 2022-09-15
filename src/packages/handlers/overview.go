@@ -1,7 +1,7 @@
 package handlers
 
 //import (
-//	"WA_LaTeX/src/packages/conf"
+//	"WA_LaTeX/internal/conf"
 //	"WA_LaTeX/src/packages/domain"
 //	"WA_LaTeX/pkg/logger"
 //	"html/template"
