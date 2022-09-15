@@ -18,8 +18,8 @@ import (
 	"syscall"
 
 	"WA_LaTeX/internal/conf"
+	"WA_LaTeX/internal/server"
 	"WA_LaTeX/pkg/logger"
-	"WA_LaTeX/src/packages/handlers"
 )
 
 //var test = "% This file was created with Citavi 6.11.0.0\n\n@article{Sedlmeir.2020,\n abstract = {When talking about blockchain technology in academia, business, and society, frequently generalizations are still heared about its -- supposedly inherent -- enormous energy consumption. This perception inevitably raises concerns about the further adoption of blockchain technology, a fact that inhibits rapid uptake of what is widely considered to be a groundbreaking and disruptive innovation. However, blockchain technology is far from homogeneous, meaning that blanket statements about its energy consumption should be reviewed with care. The article is meant to bring clarity to the topic in a holistic fashion, looking beyond claims regarding the energy consumption of Bitcoin, which have, so far, dominated the discussion.},\n author = {Sedlmeir, Johannes and Buhl, Hans Ulrich and Fridgen, Gilbert and Keller, Robert},\n year = {2020},\n title = {The Energy Consumption of Blockchain Technology: Beyond Myth},\n pages = {599--608},\n volume = {62},\n number = {6},\n issn = {1867-0202},\n journal = {Business {\\&} Information Systems Engineering},\n doi = {10.1007/s12599-020-00656-x}\n}"
@@ -99,47 +99,47 @@ func main() {
 
 	logger.Init()
 
-	http.HandleFunc("/", handlers.HandleAssetsNew)
+	http.HandleFunc("/", server.HandleAssetsNew)
 
-	http.HandleFunc("/createProject", handlers.HandleNewProject)
+	http.HandleFunc("/createProject", server.HandleNewProject)
 
-	http.HandleFunc("/saveType", handlers.HandleSaveType)
+	http.HandleFunc("/saveType", server.HandleSaveType)
 
-	http.HandleFunc("/deleteType", handlers.HandleDeleteType)
+	http.HandleFunc("/deleteType", server.HandleDeleteType)
 
-	http.HandleFunc("/saveEntry", handlers.HandleSaveEntry)
+	http.HandleFunc("/saveEntry", server.HandleSaveEntry)
 
-	http.HandleFunc("/uploadEntries", handlers.HandleUploadEntries)
+	http.HandleFunc("/uploadEntries", server.HandleUploadEntries)
 
-	http.HandleFunc("/deleteEntry", handlers.HandleDeleteEntry)
+	http.HandleFunc("/deleteEntry", server.HandleDeleteEntry)
 
-	http.HandleFunc("/deleteProject", handlers.HandleDeleteProject)
+	http.HandleFunc("/deleteProject", server.HandleDeleteProject)
 
-	http.HandleFunc("/backup", handlers.HandleBackup)
+	http.HandleFunc("/backup", server.HandleBackup)
 
-	http.HandleFunc("/setDefault", handlers.HandleDefaultSetter)
+	http.HandleFunc("/setDefault", server.HandleDefaultSetter)
 
-	http.HandleFunc("/refreshTypes", handlers.HandleRefreshTypes)
+	http.HandleFunc("/refreshTypes", server.HandleRefreshTypes)
 
-	//http.HandleFunc("/importCitavi", handlers.HandleImportCitavi)
+	//http.HandleFunc("/importCitavi", server.HandleImportCitavi)
 
-	http.HandleFunc("/citeCleanup", handlers.HandleCiteCleanup)
+	http.HandleFunc("/citeCleanup", server.HandleCiteCleanup)
 
-	http.HandleFunc("/documentation", handlers.HandleDocumentation)
+	http.HandleFunc("/documentation", server.HandleDocumentation)
 
-	http.HandleFunc("/cv", handlers.HandleCV)
+	http.HandleFunc("/cv", server.HandleCV)
 
-	http.HandleFunc("/getFile", handlers.GetTeX)
+	http.HandleFunc("/getFile", server.GetTeX)
 
-	http.HandleFunc("/saveAndCompile", handlers.SaveAndCompile)
+	http.HandleFunc("/saveAndCompile", server.SaveAndCompile)
 
-	http.HandleFunc("/getPDF", handlers.GetPDF)
+	http.HandleFunc("/getPDF", server.GetPDF)
 
-	http.HandleFunc("/getProjects", handlers.GetProjectsHandler)
+	http.HandleFunc("/getProjects", server.GetProjectsHandler)
 
-	http.HandleFunc("/getBibTypes", handlers.GetBibTypesHandler)
+	http.HandleFunc("/getBibTypes", server.GetBibTypesHandler)
 
-	http.HandleFunc("/getBibEntries", handlers.GetBibEntriesHandler)
+	http.HandleFunc("/getBibEntries", server.GetBibEntriesHandler)
 
 	logger.LogInfo("Open http://localhost:8081/overview to get started.")
 
