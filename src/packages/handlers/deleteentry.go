@@ -1,14 +1,15 @@
 package handlers
 
 import (
-	"WA_LaTeX/src/packages/domain"
-	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"strings"
+
+	"WA_LaTeX/pkg/logger"
+	"WA_LaTeX/src/packages/domain"
 )
 
 func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
@@ -34,14 +35,14 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 	entry := entrykeys[0]
 
 	entries, err := domain.ReadBibEntries(project)
-	for i:=0 ; i<len(entries);i++ {
+	for i := 0; i < len(entries); i++ {
 		if entries[i].Key == entry {
 			entries = append(entries[:i], entries[i+1:]...)
 			break
 		}
 	}
 
-	jsonStr,err := json.MarshalIndent(entries, "", "\t")
+	jsonStr, err := json.MarshalIndent(entries, "", "\t")
 	if err != nil {
 		logger.LogError("JSON-formatting new entries", err.Error())
 		http.Error(w, err.Error(), 500)
@@ -51,7 +52,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 	str := string(jsonStr)
 	strings.Replace(str, "[", "[\n", -1)
 
-	err = ioutil.WriteFile("./projects/" + project + "/literatur.json", []byte(str), 0644)
+	err = ioutil.WriteFile("./projects/"+project+"/literatur.json", []byte(str), 0644)
 	if err != nil {
 		logger.LogError("Writing new entries to literatur.json", err.Error())
 		http.Error(w, err.Error(), 500)

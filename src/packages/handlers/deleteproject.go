@@ -1,16 +1,18 @@
 package handlers
 
 import (
-	"WA_LaTeX/src/tools/logger"
 	"fmt"
-	cp "github.com/otiai10/copy"
 	"log"
 	"net/http"
 	"os"
 	"time"
+
+	cp "github.com/otiai10/copy"
+
+	"WA_LaTeX/pkg/logger"
 )
 
-func HandleDeleteProject(w http.ResponseWriter,r *http.Request) {
+func HandleDeleteProject(w http.ResponseWriter, r *http.Request) {
 	keys, ok := r.URL.Query()["project"]
 
 	if !ok || len(keys[0]) < 1 {
@@ -34,7 +36,7 @@ func HandleDeleteProject(w http.ResponseWriter,r *http.Request) {
 
 	logger.LogInfo("Created Backup at " + fmt.Sprintf("./backup/%s-%s", project, t.Format("2006-01-02_15_04_05")))
 
-	err = os.RemoveAll("./projects/"+project)
+	err = os.RemoveAll("./projects/" + project)
 	if err != nil {
 		log.Println(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)

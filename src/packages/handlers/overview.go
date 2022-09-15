@@ -3,7 +3,7 @@ package handlers
 //import (
 //	"WA_LaTeX/src/packages/conf"
 //	"WA_LaTeX/src/packages/domain"
-//	"WA_LaTeX/src/tools/logger"
+//	"WA_LaTeX/pkg/logger"
 //	"html/template"
 //	"net/http"
 //)

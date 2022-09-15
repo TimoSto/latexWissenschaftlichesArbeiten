@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
+	"WA_LaTeX/pkg/logger"
 	"WA_LaTeX/src/packages/domain"
-	"WA_LaTeX/src/tools/logger"
 )
 
 func GetBibTypesHandler(w http.ResponseWriter, r *http.Request) {

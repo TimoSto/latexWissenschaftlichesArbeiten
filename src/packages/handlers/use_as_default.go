@@ -1,13 +1,14 @@
 package handlers
 
 import (
-	"WA_LaTeX/src/packages/domain"
-	"WA_LaTeX/src/tools/logger"
 	"log"
 	"net/http"
+
+	"WA_LaTeX/pkg/logger"
+	"WA_LaTeX/src/packages/domain"
 )
 
-func HandleDefaultSetter(w http.ResponseWriter,r *http.Request) {
+func HandleDefaultSetter(w http.ResponseWriter, r *http.Request) {
 	keys, ok := r.URL.Query()["project"]
 
 	if !ok || len(keys[0]) < 1 {

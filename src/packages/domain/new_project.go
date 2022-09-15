@@ -1,12 +1,13 @@
 package domain
 
 import (
-	"WA_LaTeX/src/tools/logger"
 	_ "embed"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
+
+	"WA_LaTeX/pkg/logger"
 )
 
 //go:embed templates/example.tex

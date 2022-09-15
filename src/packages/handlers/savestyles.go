@@ -2,7 +2,7 @@ package handlers
 
 //import (
 //	"WA_LaTeX/src/packages/domain"
-//	"WA_LaTeX/src/tools/logger"
+//	"WA_LaTeX/pkg/logger"
 //	"encoding/json"
 //	"net/http"
 //)

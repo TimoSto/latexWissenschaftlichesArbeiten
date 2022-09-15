@@ -1,11 +1,12 @@
 package handlers
 
 import (
-	"WA_LaTeX/src/packages/domain"
-	"WA_LaTeX/src/tools/logger"
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	"WA_LaTeX/pkg/logger"
+	"WA_LaTeX/src/packages/domain"
 )
 
 type ProjectName struct {

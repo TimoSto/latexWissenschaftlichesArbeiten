@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"strings"
 
+	"WA_LaTeX/pkg/logger"
 	"WA_LaTeX/src/packages/conf"
-	"WA_LaTeX/src/tools/logger"
 )
 
 func SaveEntries(entries []BibEntry, project string, initialKeys []string) (error, int, int) {

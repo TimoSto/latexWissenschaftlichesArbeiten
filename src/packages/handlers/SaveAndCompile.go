@@ -11,7 +11,7 @@ import (
 	"os/exec"
 	"syscall"
 
-	"WA_LaTeX/src/tools/logger"
+	"WA_LaTeX/pkg/logger"
 )
 
 type resObj struct {

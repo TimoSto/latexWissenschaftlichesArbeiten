@@ -6,7 +6,7 @@ package handlers
 //	"net/http"
 //	"strings"
 //
-//	"WA_LaTeX/src/tools/logger"
+//	"WA_LaTeX/pkg/logger"
 //)
 //
 //type ProjectHTMLDto struct {

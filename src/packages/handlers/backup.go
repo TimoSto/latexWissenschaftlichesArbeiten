@@ -8,7 +8,7 @@ import (
 
 	cp "github.com/otiai10/copy"
 
-	"WA_LaTeX/src/tools/logger"
+	"WA_LaTeX/pkg/logger"
 )
 
 func HandleBackup(w http.ResponseWriter, r *http.Request) {

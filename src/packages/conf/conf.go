@@ -1,10 +1,12 @@
 package conf
 
 import (
-	"WA_LaTeX/src/tools/logger"
 	_ "embed"
-	"gopkg.in/ini.v1"
 	"os"
+
+	"gopkg.in/ini.v1"
+
+	"WA_LaTeX/pkg/logger"
 )
 
 //go:embed VERSION
@@ -26,7 +28,7 @@ func ReadConfig() {
 	}
 }
 
-func WriteConfig(autoBrowserOpen string, override string) error{
+func WriteConfig(autoBrowserOpen string, override string) error {
 	cfg, err := ini.Load("Config.ini")
 	if err != nil {
 		_, err = os.Create("Config.ini")

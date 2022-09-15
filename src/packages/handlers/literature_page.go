@@ -6,7 +6,7 @@ package handlers
 //	"net/http"
 //
 //	"WA_LaTeX/src/packages/domain"
-//	"WA_LaTeX/src/tools/logger"
+//	"WA_LaTeX/pkg/logger"
 //)
 //
 //type BibHTMLDto struct {
