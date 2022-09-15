@@ -1,6 +1,7 @@
 import Vue, { PluginObject } from "vue";
 import { Store } from "../store";
 
+
 declare module "vue/types/vue" {
     interface Vue {
         $vStore: Store;
