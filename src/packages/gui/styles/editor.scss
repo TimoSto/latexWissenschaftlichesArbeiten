@@ -1,0 +1,131 @@
+@use 'common';
+@use '@material/button/mdc-button';
+@use '@material/icon-button/mdc-icon-button';
+@use '@material/top-app-bar/mdc-top-app-bar';
+@use '@material/typography/mdc-typography';
+@use "@material/list/_index" as list;
+
+@include list.deprecated-core-styles;
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.mdc-top-app-bar {
+  background-color: var(--dmc-theme-on-background12);
+  border-bottom: 1px solid var(--dmc-theme-on-background87);
+  color: var(--dmc-theme-on-background87);
+  & .mdc-button__label {
+    color: var(--dmc-theme-on-background87);
+  }
+  & .mdc-button{
+    margin: 6px;
+    border: 1px solid var(--dmc-theme-on-background32);
+  }
+}
+
+main{
+  width: 100%;
+  height: calc(100% - 48px);
+}
+
+.flex-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+#remaining {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+}
+
+#sidebar {
+  min-width: 250px;
+  height: 100%;
+  overflow-y: scroll;
+  & .mdc-deprecated-list {
+    font-weight: bold;
+    font-size: 15px;
+    & li {
+      height: 32px;
+    }
+    & .section{
+      padding-left: 31px;
+    }
+    & .subsection{
+      padding-left: 46px;
+    }
+    & .subsubsection{
+      padding-left: 61px;
+    }
+    & .paragraph{
+      padding-left: 76px;
+    }
+    & .subparagraph{
+      padding-left: 91px;
+    }
+  }
+}
+
+#editArea, #pdfArea {
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+}
+
+#pdfArea {
+  min-width: 0;
+  width: 0;
+  border: none;
+  transition: min-width 500ms ease-in-out;
+  &.opened {
+    min-width: 50%;
+    flex-grow: 1;
+  }
+  & iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+}
+
+#editArea{
+  min-width: 50%;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  flex-grow: 1;
+  @extend .mdc-typography--body1;
+  font-size: 15px;
+  & #editArea_editable {
+    white-space: pre-wrap;
+    max-height: calc(100% - 150px);
+    overflow-y: scroll;
+    padding-right: 16px;
+  }
+  & #log {
+    height: 150px;
+    border-top: 1px solid var(--mdc-theme-on-background);
+    box-sizing: border-box;
+    overflow-y: scroll;
+    padding-right: 16px;
+    color: blue;
+  }
+}
+
+.command{
+  color: orangered;
+  &.comment {
+    color: #13b413;
+    & .command {
+      color: inherit;
+    }
+  }
+}
+
+.mdc-top-app-bar__section--align-end{
+  padding-right: 50px!important;
+}

@@ -38,6 +38,10 @@ class TypePage {
 
         this._nameField = new MDCTextField(document.querySelector('.headline .mdc-text-field'));
 
+        this._nameField.root.querySelector('input').addEventListener('change', ()=>{
+            this.syncExample();
+        });
+
         this._initialName = this._nameField.value;
 
         let elements = document.querySelectorAll('#bibtable .my-table--row .my-table-cell:nth-child(2) .mdc-text-field')
@@ -209,6 +213,8 @@ class TypePage {
             if (valid) {
                 (<any>window.parent).reloadMain();
 
+                (<any>window.parent).editSavePossible(false);
+
                 window.location.replace('/editType?type='+this._nameField.value+'&project='+this._project);
             } else {
                 (<any>window.parent).openErrorDialog('Beim Versuch, den Literaturtypen zu speichern, ist ein Fehler aufgetreten.')
@@ -281,7 +287,7 @@ class TypePage {
         document.getElementById('citeExample').innerHTML = citeExample + '.';
 
         if( this._initialExamples ) {
-            let saveNecessary = (document.getElementById('bibExample').innerHTML != this._initialExamples[0] || document.getElementById('citeExample').innerHTML !== this._initialExamples[1]);
+            let saveNecessary = (document.getElementById('bibExample').innerHTML != this._initialExamples[0] || document.getElementById('citeExample').innerHTML !== this._initialExamples[1]) || this._nameField.value !== this._initialName;
 
             (<any>window.parent).editSavePossible(saveNecessary);
         }

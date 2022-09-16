@@ -4,15 +4,18 @@ import (
 	"fmt"
 	"regexp"
 	"strings"
+
+	. "WA_LaTeX/internal/bib_entries"
 )
 
-func CitaviToJSON(citaviFile string) (BibEntry, error){
+//TODO: Löschbar?
+func CitaviToJSON(citaviFile string) (BibEntry, error) {
 	m1 := regexp.MustCompile(`(@).*?({)`)
 	bibType := m1.FindAllString(citaviFile, 1)
-	bibType[0] = bibType[0][1:len(bibType[0])-1]
+	bibType[0] = bibType[0][1 : len(bibType[0])-1]
 	m2 := regexp.MustCompile(`({.*?,)`)
 	bibKey := m2.FindAllString(citaviFile, 1)
-	bibKey[0] = bibKey[0][1:len(bibKey[0])-1]
+	bibKey[0] = bibKey[0][1 : len(bibKey[0])-1]
 	// fmt.Println(bibType,bibKey)
 
 	citaviFile = strings.ReplaceAll(citaviFile, `{\&}`, "{{\\&}}")
@@ -41,9 +44,9 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 
 	//lines = lines[3:]
 
-	var fields = []string{"","","","","","","","","",""}
+	var fields = []string{"", "", "", "", "", "", "", "", "", ""}
 
-	for _,line := range lines {
+	for _, line := range lines {
 		if len(line) > 2 && string(line[0]) != "%" && string(line[0]) != "@" {
 			//if string(line[len(line)-1]) == "}" && string(line[len(line)-2]) == "}" {
 			//	line = line[:len(line)-1]
@@ -63,7 +66,7 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 				indexEnd = strings.LastIndex(parts[1], "\"")
 			}
 			// fmt.Println(indexStart, indexEnd)
-			value := parts[1][indexStart+1:indexEnd]
+			value := parts[1][indexStart+1 : indexEnd]
 			if parts[0] == "title" {
 				addKey := strings.Split(value, " ")[0]
 				if len(addKey) > 5 {
@@ -90,7 +93,7 @@ func CitaviToJSON(citaviFile string) (BibEntry, error){
 	return bibEntry, nil
 }
 
-func getAttributeIndexInType(bibType string, attr string) int{
+func getAttributeIndexInType(bibType string, attr string) int {
 	// fmt.Println(bibType, attr)
 	if bibType == "citaviAufsatzDoi" {
 		switch attr {

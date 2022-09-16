@@ -1,3 +1,8 @@
+# VERSION 2.0.0 - [03.06.2022]
+- Integrierter Tex-Editoar (Beta)
+- phdthesis-types
+- s and c with penis on top
+
 ## Version 0.1.0 - [03-12-2021]
 - TeX-Template für wissenschaftliches Arbeiten
 - Eigenes Literatur-System entwickelt

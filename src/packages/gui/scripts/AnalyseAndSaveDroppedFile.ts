@@ -1,10 +1,10 @@
 import {ParseBibToString, ParseStringToTeX} from "./TeXParser";
 import SaveEntry, {Entry, SaveEntries} from "./SaveEntry";
 
-export default function AnalyseAndSaveDroppdFile(file: String, project: string) {
+export default function AnalyseAndSaveDroppdFile(file: String, project: string, win: any) {
 
     if(file.indexOf('@') == -1) {
-        (<any>window.parent).openErrorDialog('Die Datei hat ein ungültiges Format.')
+        win.openErrorDialog('Die Datei hat ein ungültiges Format.')
         return
     }
 
@@ -118,22 +118,25 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
         } else {
             switch (type) {
                 case "article":
-
+                    type = 'citaviAufsatz';
                     break
                 case "inbook":
-
+                    type = 'citaviInbook'
                     break
                 case "book":
                     type = "citaviBook"
                     break
                 case "inproceedings":
-
+                    type = 'citaviInProceedings'
                     break
                 case "proceedings":
                     type="citaviProceedings"
                     break
                 case "incollection":
                     type = 'citaviInCollection'
+                    break
+                case "phdthesis":
+                    type = 'citaviThesis'
                     break
             }
         }
@@ -160,13 +163,13 @@ export default function AnalyseAndSaveDroppdFile(file: String, project: string) 
         entries.push(new Entry(sortedvaluepairs, key, type))
     }
 
-    (<any>window.parent).openConfirmDialog(`Es werden ${empty.length + unknown.length} Einträge ignoriert:\n\nLeere Einträge: ${empty}\nUnbekannte Typen: ${unknown}\n\n${entries.length} Einträge hochladen?`, ()=>{
-        SaveEntries(project, entries).then(valid => {
+    win.openConfirmDialog(`Es werden ${empty.length + unknown.length} Einträge ignoriert:\n\nLeere Einträge: ${empty}\nUnbekannte Typen: ${unknown}\n\n${entries.length} Einträge hochladen?`, ()=>{
+        SaveEntries(project, entries, win).then(valid => {
             if (valid) {
-                (<any>window.parent).reloadMain();
-                (<any>window.parent).setEdit('/editEntry?project='+project+'&entry='+entries[0].Key);
+                win.reloadMain();
+                win.setEdit('/editEntry?project='+project+'&entry='+entries[0].Key);
             } else {
-                (<any>window.parent).openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
+                win.openErrorDialog('Beim Versuch, die Citavi-Quelle hochzuladen, ist ein Fehler aufgetreten.')
             }
         });
     })
@@ -211,6 +214,21 @@ function getIndex(attr: string, type: string) {
             case "doi":
                 return 6
         }
+    } else if (type == "citaviAufsatz") {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "journal":
+                return 3
+            case "volume":
+                return 4
+            case "pages":
+                return 5
+        }
     } else if (type == "citaviInbookDoi") {
         switch (attr) {
             case "author":
@@ -241,6 +259,21 @@ function getIndex(attr: string, type: string) {
             case "pages":
                 return 4
             case "doi":
+                return 5
+        }
+    } else if (type == "citaviInProceedings") {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "booktitle":
+                return 3
+            case "pages":
+                return 4
+            case "url":
                 return 5
         }
     } else if (type == "citaviInCollectionDoi") {
@@ -279,7 +312,7 @@ function getIndex(attr: string, type: string) {
             case "address":
                 return 6
         }
-    } else if (type === 'citaviBookDoi') {
+    } else if (type === 'citaviInbook') {
         switch (attr) {
             case "author":
                 return 0
@@ -293,6 +326,21 @@ function getIndex(attr: string, type: string) {
                 return 4
             case "doi":
                 return 5
+            case "editor":
+                return 0
+        }
+    }else if (type === 'citaviInbookDoi') {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "isbn":
+                return 3
+            case "publisher":
+                return 4
             case "editor":
                 return 0
         }
@@ -333,6 +381,17 @@ function getIndex(attr: string, type: string) {
             case "title":
                 return 2
             case "doi":
+                return 3
+        }
+    } else if (type === 'citaviThesis') {
+        switch (attr) {
+            case "author":
+                return 0
+            case "year":
+                return 1
+            case "title":
+                return 2
+            case "school":
                 return 3
         }
     }

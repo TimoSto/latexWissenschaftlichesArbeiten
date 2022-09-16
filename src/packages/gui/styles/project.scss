@@ -7,9 +7,10 @@
 
 @include list.deprecated-core-styles;
 
-body{
+body, html{
   //padding: 8px;
   margin: 0;
+  height: 100%;
 }
 
 .headline{
@@ -17,33 +18,6 @@ body{
 
   & button {
     margin-right: 8px;
-  }
-}
-
-#drop_zone{
-  width: calc(100% - 20px);
-  height: 80px;
-  border: 2px dashed var(--dmc-theme-on-background32);
-  margin: 8px;
-  & span{
-    width: 100%;
-    text-align: center;
-    display: block;
-    padding-top: 20px;
-    color: var(--dmc-theme-on-background60);
-    font-weight: bold;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  #parent-list{
-    .mdc-deprecated-list-item__graphic{
-      display: none;
-    }
-  }
-
-  #drop_zone {
-    height: 110px;
   }
 }
 
@@ -63,8 +37,40 @@ body{
   }
 }
 
-@media only screen and (max-width: 600px) {
-  #title_label {
+main {
+  height: calc(100% - 48px);
+  & iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    transition: width 500ms ease-in-out;
+    float: left;
+
+    &#tex_view {
+      width: 0;
+    }
+  }
+}
+
+#toBib{
+  display: none;
+}
+
+.texView {
+  & main {
+    iframe {
+      width: 0;
+
+      &#tex_view {
+        width: 100%;
+      }
+    }
+  }
+  & #toBib{
+    display: unset;
+  }
+  & #toTex{
     display: none;
   }
 }

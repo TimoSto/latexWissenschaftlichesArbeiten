@@ -1,0 +1,210 @@
+<template>
+  <div>
+    <v-app-bar color="background" elevate-on-scroll scroll-target="#scroll3" style="z-index: 100">
+      <v-toolbar-title>Literatureintrag: <span class="font-weight-bold">{{this.$store.state.initialEntry.Key}}</span></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon :disabled="!changesToSave || !requiredFieldsFilled" @click="saveEntry">
+        <v-icon>mdi-content-save</v-icon>
+      </v-btn>
+      <v-btn icon @click="tryDelete = true" :disabled="!this.$store.state.initialEntry.Key">
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
+      <v-btn icon @click="CloseEditor">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
+    </v-app-bar>
+    <v-sheet style="overflow-y: scroll; height: calc(100vh - 130px); padding: 0;" id="scroll3">
+      <div style="max-width: 800px">
+        <v-container style="height: 120px; padding-top: 30px;">
+          <v-row>
+            <v-col
+                cols="16"
+                sm="8"
+                md="4"
+            >
+              <v-text-field v-model="$store.state.entryToEdit.Key"
+                            label="ID" filled
+                            :rules="rules" @input="InitialInput"></v-text-field>
+            </v-col>
+            <v-col
+                cols="16"
+                sm="8"
+                md="4"
+            >
+              <v-select
+                  v-model="$store.state.entryToEdit.Typ"
+                  :items="$store.state.bibTypes.map(bType=>bType.Name)"
+                  label="Literaturtyp"
+                  filled
+                  :menu-props="{ bottom: true, offsetY: true }"
+                  @change="updatePreviews"
+              ></v-select>
+            </v-col>
+          </v-row>
+        </v-container>
+        <v-container class="display">
+          <p><span style="font-weight: bold">Literatureintrag: </span><span v-html="$store.state.entryToEdit.BibPreview" /></p>
+          <p><span style="font-weight: bold">Zitat: </span><span v-html="$store.state.entryToEdit.CitePreview" /></p>
+        </v-container>
+        <v-container>
+          <v-text-field
+              class="three-in-a-row"
+              v-for="(field, i) in fields"
+              :key="'TF' + i" v-model="$store.state.entryToEdit.Fields[i]"
+              :label="field.Field"
+              @input="updatePreviews"
+              filled
+          ></v-text-field>
+          <v-text-field
+              class="three-in-a-row"
+              v-for="(field, i) in citeFields"
+              :key="'TF' + (i + fields.length)" v-model="$store.state.entryToEdit.Fields[i + fields.length]"
+              :label="field.Field"
+              @input="updatePreviews"
+              filled
+          ></v-text-field>
+        </v-container>
+      </div>
+
+    </v-sheet>
+    <UnsafeCloseDialog :model="unsafeClose || unsafeSwitch.length > 0 || unsafeSwitchToType.length > 0" v-on:no="unsafeClose = false; unsafeSwitch = ''; unsafeSwitchToType =''" v-on:yes="AcceptUnsafe"/>
+    <DeleteDialog :model="tryDelete" type="Literatureintrag" :typekey="this.$store.state.initialEntry.Key" v-on:no="tryDelete = false" v-on:yes="DeleteEntry"></DeleteDialog>
+    <ErrorDialog :message="this.$store.state.errorMessage" v-on:close="ClearError"/>
+  </div>
+</template>
+
+<script lang="ts">
+import {BibType, Field} from "@/api/bibTypes/BibType";
+import Vue from "vue";
+import { MutationTypes } from "@/store/mutation-types";
+import { ActionTypes } from "@/store/action-types";
+import UnsafeCloseDialog from "@/components/UnsafeCloseDialog.vue";
+import DeleteDialog from "@/components/DeleteDialog.vue";
+import ErrorDialog from "@/components/ErrorDialog.vue";
+
+export default Vue.extend({
+  name: "EntryEditor-View",
+  components: {ErrorDialog, UnsafeCloseDialog, DeleteDialog},
+
+  data() {
+    return {
+      unsafeClose: false,
+      unsafeSwitch: '',
+      unsafeSwitchToType: '',
+      rules: [
+        (value: any) => { return (!!value || this.$store.state.initialInput) || 'Pflichtfeld'},
+      ],
+      tryDelete: false
+    }
+  },
+
+  mounted() {
+    this.$parent?.$on('tryClosingEntryWithChanges', (evt:string)=>{
+      console.log(evt)
+      this.unsafeSwitch = evt;
+    })
+    this.$parent?.$on('tryClosingEntryWithChangesAndOpenType', (evt:string)=>{
+      this.unsafeSwitchToType = evt;
+    })
+  },
+
+  computed: {
+    fields(): Field[] {
+      let fields = [] as Field[];
+      this.$store.state.bibTypes.forEach((bType: BibType) => {
+        if( bType.Name === this.$store.state.entryToEdit.Typ ) {
+          fields = bType.Fields;
+        }
+      });
+      return fields;
+    },
+    citeFields(): Field[] {
+      let fields = [] as Field[];
+      this.$store.state.bibTypes.forEach((bType: BibType) => {
+        if( bType.Name === this.$store.state.entryToEdit.Typ ) {
+          const fieldsInBib = bType.Fields.map(field => field.Field);
+          bType.CiteFields.forEach(field => {
+            if ( fieldsInBib.indexOf(field.Field) === -1 ) {
+              fields.push(field);
+            }
+          })
+        }
+      });
+      return fields;
+    },
+    changesToSave() {
+      let currentWithoutPreview = JSON.parse(JSON.stringify(this.$store.state.entryToEdit));
+      currentWithoutPreview.BibPreview = '';
+      currentWithoutPreview.CitePreview = '';
+
+      return JSON.stringify(currentWithoutPreview) !== JSON.stringify(this.$store.state.initialEntry)
+    },
+    requiredFieldsFilled() {
+      return !!this.$store.state.entryToEdit.Key && this.$store.state.entryToEdit.Key.length > 0 && !!this.$store.state.entryToEdit.Typ
+    }
+  },
+
+  methods: {
+    updatePreviews() {
+      this.$store.commit(MutationTypes.UPDATE_PREVIEW);
+    },
+    saveEntry() {
+
+      this.$store.dispatch(ActionTypes.SAVE_ENTRY);
+    },
+    CloseEditor() {
+      if( this.changesToSave ) {
+        this.$data.unsafeClose = true;
+      } else {
+        this.$emit('closeEditor')
+      }
+    },
+    DeleteEntry() {
+      this.$store.dispatch(ActionTypes.DELETE_ENTRY, {
+        project: this.$store.state.project,
+        key: this.$store.state.initialEntry.Key
+      });
+    },
+    ClearError() {
+      this.$store.commit(MutationTypes.CLEAR_ERROR);
+    },
+    AcceptUnsafe() {
+      if( this.$data.unsafeSwitch.length > 0 ) {
+        this.$emit('editEntry', this.unsafeSwitch)
+        this.unsafeSwitch = '';
+      } else if( this.$data.unsafeSwitchToType.length > 0 ) {
+        this.$emit('editType', this.unsafeSwitchToType)
+        this.unsafeSwitchToType = '';
+      } else {
+        this.$emit('closeEditor')
+      }
+    },
+    InitialInput() {
+      this.$store.commit(MutationTypes.DO_INPUT_AFTER_INITIAL);
+    }
+  }
+});
+</script>
+
+<style lang="scss" scoped>
+@import '../styles/fixesForDark.scss';
+
+.display{
+  width: 95%;
+  border-radius: 16px;
+  border: 3px solid;
+}
+
+.theme--light .display{
+  border-color: var(--v-accent-lighten4);
+}
+.theme--dark .display{
+  border-color: var(--v-accent-darken4);
+}
+
+.three-in-a-row {
+  width: 50%;
+  float: left;
+  padding: 0 8px;
+}
+</style>

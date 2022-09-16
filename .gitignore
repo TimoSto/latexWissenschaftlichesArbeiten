@@ -21,3 +21,7 @@ src/packages/handlers/CV/curriculumVitae.log
 backup/
 customStyles/
 errorLogs.txt
+src/packages/webclient/assets/dist/
+cmd/app/resource.syso
+cmd/app/versioninfo.json
+webclient/assets/dist/
