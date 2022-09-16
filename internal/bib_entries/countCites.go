@@ -6,7 +6,7 @@ import (
 )
 
 func CountCites(project string, entries []BibEntry, readFile func(string) ([]byte, error)) ([]BibEntry, error) {
-	file, err := readFile("projects/" + project + "/" + project + ".tex")
+	file, err := readFile("./projects/" + project + "/" + project + ".tex")
 	if err != nil {
 		return nil, err
 	}
