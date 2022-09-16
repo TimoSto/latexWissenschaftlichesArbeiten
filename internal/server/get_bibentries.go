@@ -2,6 +2,7 @@ package server
 
 import (
 	"encoding/json"
+	"io/ioutil"
 	"log"
 	"net/http"
 
@@ -19,7 +20,7 @@ func GetBibEntriesHandler(w http.ResponseWriter, r *http.Request) {
 
 	project := keys[0]
 
-	entries, err := ReadBibEntries(project)
+	entries, err := ReadBibEntries(project, ioutil.ReadFile)
 	if err != nil {
 		log.Println(err)
 		http.Error(w, err.Error(), 500)

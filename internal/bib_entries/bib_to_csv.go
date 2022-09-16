@@ -2,23 +2,23 @@ package bib_entries
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io/fs"
 	"sort"
 	"strings"
 
 	"WA_LaTeX/pkg/logger"
 )
 
-func ConvertBibToCSV(project string) error {
+func ConvertBibToCSV(project string, readFile func(string) ([]byte, error), writeFile func(string, []byte, fs.FileMode) error) error {
 	logger.LogInfo("Convertig ./projects/" + project + "/literatur.json to literatur.csv...")
 
-	file, err := ioutil.ReadFile("./projects/" + project + "/literatur.json")
+	file, err := readFile("./projects/" + project + "/literatur.json")
 	if err != nil {
 		return err
 	}
 	//fmt.Println(string(file))
 	var bibEntries []BibEntry
-	err = json.Unmarshal([]byte(file), &bibEntries)
+	err = json.Unmarshal(file, &bibEntries)
 	if err != nil {
 		return err
 	}
@@ -40,9 +40,6 @@ func ConvertBibToCSV(project string) error {
 		filestring += "\n"
 	}
 	filestring += "empty;empty;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;\n"
-	err = ioutil.WriteFile("./projects/"+project+"/literatur.csv", []byte(filestring), 0644)
-	if err != nil {
-		return err
-	}
-	return nil
+
+	return writeFile("./projects/"+project+"/literatur.csv", []byte(filestring), 0644)
 }

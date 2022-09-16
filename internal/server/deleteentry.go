@@ -34,7 +34,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 
 	entry := entrykeys[0]
 
-	entries, err := ReadBibEntries(project)
+	entries, err := ReadBibEntries(project, ioutil.ReadFile)
 	for i := 0; i < len(entries); i++ {
 		if entries[i].Key == entry {
 			entries = append(entries[:i], entries[i+1:]...)
@@ -59,7 +59,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = ConvertBibToCSV(project)
+	err = ConvertBibToCSV(project, ioutil.ReadFile, ioutil.WriteFile)
 	if err != nil {
 		logger.LogError("Converting entries to csv", err.Error())
 		http.Error(w, err.Error(), 500)

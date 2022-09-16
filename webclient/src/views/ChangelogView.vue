@@ -1,5 +1,5 @@
 <template>
-  <v-sheet style="overflow-y: scroll; height: calc(100vh - 80px); padding: 0;" id="scroll3">
+  <v-sheet style="overflow-y: auto; max-height: calc(100vh - 80px); padding: 0;" id="scroll3">
     <div style="padding: 8px">
       <h2>Changelog</h2>
       <div v-for="(v, n) in versions" :key="'v'+n" style="margin: 8px 0">

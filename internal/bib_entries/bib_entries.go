@@ -3,7 +3,6 @@ package bib_entries
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"sort"
 	"strings"
 )
@@ -16,11 +15,11 @@ type BibEntry struct {
 	CiteNumber int
 }
 
-func ReadBibEntries(project string) ([]BibEntry, error) {
+func ReadBibEntries(project string, readFile func(string) ([]byte, error)) ([]BibEntry, error) {
 	if len(project) == 0 {
 		return nil, fmt.Errorf("No Project Name provided")
 	}
-	file, err := ioutil.ReadFile("projects/" + project + "/literatur.json")
+	file, err := readFile("./projects/" + project + "/literatur.json")
 	if err != nil {
 		return nil, err
 	}
@@ -35,7 +34,7 @@ func ReadBibEntries(project string) ([]BibEntry, error) {
 		return strings.ToLower(bibEntries[i].Fields[0]) < strings.ToLower(bibEntries[j].Fields[0])
 	})
 
-	bibEntries, err = CountCites(project, bibEntries)
+	bibEntries, err = CountCites(project, bibEntries, readFile)
 	if err != nil {
 		return nil, err
 	}

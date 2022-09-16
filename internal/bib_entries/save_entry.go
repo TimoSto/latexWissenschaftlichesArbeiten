@@ -12,7 +12,7 @@ import (
 
 func SaveEntries(entries []BibEntry, project string, initialKeys []string) (error, int, int) {
 
-	existingEntries, err := ReadBibEntries(project)
+	existingEntries, err := ReadBibEntries(project, ioutil.ReadFile)
 	if err != nil {
 		return err, 0, 0
 	}
@@ -92,7 +92,7 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 		return err, 0, 0
 	}
 
-	err = ConvertBibToCSV(project)
+	err = ConvertBibToCSV(project, ioutil.ReadFile, ioutil.WriteFile)
 
 	//fmt.Println(changed, added)
 

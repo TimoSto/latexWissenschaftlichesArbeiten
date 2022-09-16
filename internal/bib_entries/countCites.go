@@ -2,12 +2,11 @@ package bib_entries
 
 import (
 	"fmt"
-	"io/ioutil"
 	"strings"
 )
 
-func CountCites(project string, entries []BibEntry) ([]BibEntry, error) {
-	file, err := ioutil.ReadFile("projects/" + project + "/" + project + ".tex")
+func CountCites(project string, entries []BibEntry, readFile func(string) ([]byte, error)) ([]BibEntry, error) {
+	file, err := readFile("./projects/" + project + "/" + project + ".tex")
 	if err != nil {
 		return nil, err
 	}
