@@ -5,8 +5,9 @@
 
     </v-app-bar>
 
-    <v-main fill-height id="main" pt-0>
-      <v-expansion-panels>
+    <v-main fill-height id="main" pt-0 style="padding: 72px 8px 8px 8px">
+      <p><b>Aktuell installierte Version: </b></p>
+      <v-expansion-panels flat hover>
         <v-expansion-panel>
           <v-expansion-panel-header>
             Changelog
@@ -29,8 +30,7 @@ export default Vue.extend({
   name: 'App',
   components: {ChangelogView},
   data: () => ({
-    drawer: false,
-    helpOpen: false
+    installedVersion: undefined
   }),
   methods: {
     toggleDark () {

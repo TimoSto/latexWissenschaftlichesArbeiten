@@ -21,6 +21,8 @@ module.exports = defineConfig({
       entry: 'src/index/main.ts',
       // the source template
       template: 'public/index.html',
+      // output as dist/index.html
+      filename: 'index.html',
       // when using title option,
       // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
       title: 'Index Page',
@@ -33,6 +35,8 @@ module.exports = defineConfig({
       entry: 'src/install/main.ts',
       // the source template
       template: 'public/index.html',
+      // output as dist/index.html
+      filename: 'install/index.html',
       // when using title option,
       // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
       title: 'Install Page',
