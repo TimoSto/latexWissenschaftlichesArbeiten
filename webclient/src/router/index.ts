@@ -32,6 +32,11 @@ const routes: Array<RouteConfig> = [
     path: '/changelog',
     name: 'changelog',
     component: () => import(/* webpackChunkName: "about" */ '../views/ChangelogView.vue')
+  },
+  {
+    path: '/config',
+    name: 'config',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ConfigView.vue')
   }
 ]
 
