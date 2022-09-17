@@ -64,7 +64,7 @@ func GeneratePrintBibCommands(types []LiteratureType) string {
 }
 
 func toChar(i int) string {
-	return strings.ToLower(string('A' - 1 + i))
+	return strings.ToLower(fmt.Sprint('A' - 1 + i))
 }
 
 func GenerateIfsForBibCommands(types []LiteratureType) string {
