@@ -3,6 +3,7 @@ package server
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"strings"
 
@@ -53,7 +54,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		saveObj.InitialKey,
 	}
 
-	err, added, changed := SaveEntries(entries, saveObj.Project, initialKeys)
+	err, added, changed := SaveEntries(entries, saveObj.Project, initialKeys, ioutil.ReadFile, ioutil.WriteFile)
 	if err != nil {
 		logger.LogError("Saving entries", err.Error())
 		if strings.Contains(err.Error(), "already exists") {
@@ -110,7 +111,7 @@ func HandleUploadEntries(w http.ResponseWriter, r *http.Request) {
 		initialKeys = append(initialKeys, "")
 	}
 
-	err, added, changed := SaveEntries(entries, saveObj.Project, initialKeys)
+	err, added, changed := SaveEntries(entries, saveObj.Project, initialKeys, ioutil.ReadFile, ioutil.WriteFile)
 	if err != nil {
 		fmt.Println(err)
 		if strings.Contains(err.Error(), "already exists") {

@@ -3,16 +3,16 @@ package bib_entries
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io/fs"
 	"strings"
 
 	"WA_LaTeX/internal/conf"
 	"WA_LaTeX/pkg/logger"
 )
 
-func SaveEntries(entries []BibEntry, project string, initialKeys []string) (error, int, int) {
+func SaveEntries(entries []BibEntry, project string, initialKeys []string, readFile func(string) ([]byte, error), writeFile func(string, []byte, fs.FileMode) error) (error, int, int) {
 
-	existingEntries, err := ReadBibEntries(project, ioutil.ReadFile)
+	existingEntries, err := ReadBibEntries(project, readFile)
 	if err != nil {
 		return err, 0, 0
 	}
@@ -86,13 +86,13 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string) (erro
 	if err != nil {
 		return err, 0, 0
 	}
-	err = ioutil.WriteFile("./projects/"+project+"/literatur.json", jsonStr, 0644)
+	err = writeFile("./projects/"+project+"/literatur.json", jsonStr, 0644)
 	if err != nil {
 
 		return err, 0, 0
 	}
 
-	err = ConvertBibToCSV(project, ioutil.ReadFile, ioutil.WriteFile)
+	err = ConvertBibToCSV(project, readFile, writeFile)
 
 	//fmt.Println(changed, added)
 

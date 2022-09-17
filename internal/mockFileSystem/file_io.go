@@ -24,3 +24,7 @@ func WriteFile(name string, content []byte, perm fs.FileMode) error {
 
 	return ioutil.WriteFile(fmt.Sprintf("./mockLiterature/%s", path), content, perm)
 }
+
+func ClearLiterature(name string) error {
+	return ioutil.WriteFile("./mockLiterature/"+name+"/literatur.json", []byte("[]"), 0644)
+}
