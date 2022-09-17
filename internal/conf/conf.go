@@ -14,6 +14,7 @@ var Version string
 
 var AutoOpenBrowser = false
 var OverrideExistingEntries = true
+var Protocol = "HTTP"
 
 func ReadConfig() {
 	cfg, err := ini.Load("Config.ini")

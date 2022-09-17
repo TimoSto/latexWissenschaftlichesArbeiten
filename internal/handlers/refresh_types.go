@@ -1,13 +1,14 @@
-package server
+package handlers
 
 import (
-	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
+
+	. "WA_LaTeX/internal/bib_types"
+	"WA_LaTeX/pkg/logger"
 )
 
-func GetPDF(w http.ResponseWriter, r *http.Request) {
+func HandleRefreshTypes(w http.ResponseWriter, r *http.Request) {
 	keys, ok := r.URL.Query()["project"]
 
 	if !ok || len(keys[0]) < 1 {
@@ -18,13 +19,9 @@ func GetPDF(w http.ResponseWriter, r *http.Request) {
 
 	project := keys[0]
 
-	file, err := ioutil.ReadFile("./projects/" + project + "/" + project + ".pdf")
+	err := RefreshTypes(project)
 	if err != nil {
-		fmt.Println(err)
-	}
-
-	_, err = w.Write([]byte(file))
-	if err != nil {
-		fmt.Println(err)
+		logger.LogError("Refreshing types for "+project, err.Error())
+		http.Error(w, err.Error(), 500)
 	}
 }

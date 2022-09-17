@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"context"
 	_ "embed"
 	"fmt"
 	"io/ioutil"
@@ -15,8 +16,9 @@ import (
 	"syscall"
 
 	"WA_LaTeX/internal/conf"
-	"WA_LaTeX/internal/server"
+	"WA_LaTeX/internal/handlers"
 	"WA_LaTeX/pkg/logger"
+	"WA_LaTeX/pkg/server"
 )
 
 //var test = "% This file was created with Citavi 6.11.0.0\n\n@article{Sedlmeir.2020,\n abstract = {When talking about blockchain technology in academia, business, and society, frequently generalizations are still heared about its -- supposedly inherent -- enormous energy consumption. This perception inevitably raises concerns about the further adoption of blockchain technology, a fact that inhibits rapid uptake of what is widely considered to be a groundbreaking and disruptive innovation. However, blockchain technology is far from homogeneous, meaning that blanket statements about its energy consumption should be reviewed with care. The article is meant to bring clarity to the topic in a holistic fashion, looking beyond claims regarding the energy consumption of Bitcoin, which have, so far, dominated the discussion.},\n author = {Sedlmeir, Johannes and Buhl, Hans Ulrich and Fridgen, Gilbert and Keller, Robert},\n year = {2020},\n title = {The Energy Consumption of Blockchain Technology: Beyond Myth},\n pages = {599--608},\n volume = {62},\n number = {6},\n issn = {1867-0202},\n journal = {Business {\\&} Information Systems Engineering},\n doi = {10.1007/s12599-020-00656-x}\n}"
@@ -96,51 +98,53 @@ func main() {
 
 	logger.Init()
 
-	http.HandleFunc("/", server.HandleAssetsNew)
+	mux := http.NewServeMux()
 
-	http.HandleFunc("/createProject", server.HandleNewProject)
+	mux.Handle("/", http.HandlerFunc(handlers.HandleAssetsNew))
 
-	http.HandleFunc("/saveType", server.HandleSaveType)
+	mux.Handle("/createProject", http.HandlerFunc(handlers.HandleNewProject))
 
-	http.HandleFunc("/deleteType", server.HandleDeleteType)
+	mux.Handle("/saveType", http.HandlerFunc(handlers.HandleSaveType))
 
-	http.HandleFunc("/saveEntry", server.HandleSaveEntry)
+	mux.Handle("/deleteType", http.HandlerFunc(handlers.HandleDeleteType))
 
-	http.HandleFunc("/uploadEntries", server.HandleUploadEntries)
+	mux.Handle("/saveEntry", http.HandlerFunc(handlers.HandleSaveEntry))
 
-	http.HandleFunc("/deleteEntry", server.HandleDeleteEntry)
+	mux.Handle("/uploadEntries", http.HandlerFunc(handlers.HandleUploadEntries))
 
-	http.HandleFunc("/deleteProject", server.HandleDeleteProject)
+	mux.Handle("/deleteEntry", http.HandlerFunc(handlers.HandleDeleteEntry))
 
-	http.HandleFunc("/backup", server.HandleBackup)
+	mux.Handle("/deleteProject", http.HandlerFunc(handlers.HandleDeleteProject))
 
-	http.HandleFunc("/setDefault", server.HandleDefaultSetter)
+	mux.Handle("/backup", http.HandlerFunc(handlers.HandleBackup))
 
-	http.HandleFunc("/refreshTypes", server.HandleRefreshTypes)
+	mux.Handle("/setDefault", http.HandlerFunc(handlers.HandleDefaultSetter))
 
-	//http.HandleFunc("/importCitavi", server.HandleImportCitavi)
+	mux.Handle("/refreshTypes", http.HandlerFunc(handlers.HandleRefreshTypes))
 
-	http.HandleFunc("/citeCleanup", server.HandleCiteCleanup)
+	//mux.Handle("/importCitavi", server.HandleImportCitavi)
 
-	http.HandleFunc("/documentation", server.HandleDocumentation)
+	mux.Handle("/citeCleanup", http.HandlerFunc(handlers.HandleCiteCleanup))
 
-	http.HandleFunc("/cv", server.HandleCV)
+	mux.Handle("/documentation", http.HandlerFunc(handlers.HandleDocumentation))
 
-	http.HandleFunc("/getFile", server.GetTeX)
+	mux.Handle("/cv", http.HandlerFunc(handlers.HandleCV))
 
-	http.HandleFunc("/saveAndCompile", server.SaveAndCompile)
+	mux.Handle("/getFile", http.HandlerFunc(handlers.GetTeX))
 
-	http.HandleFunc("/getPDF", server.GetPDF)
+	mux.Handle("/saveAndCompile", http.HandlerFunc(handlers.SaveAndCompile))
 
-	http.HandleFunc("/getProjects", server.GetProjectsHandler)
+	mux.Handle("/getPDF", http.HandlerFunc(handlers.GetPDF))
 
-	http.HandleFunc("/getBibTypes", server.GetBibTypesHandler)
+	mux.Handle("/getProjects", http.HandlerFunc(handlers.GetProjectsHandler))
 
-	http.HandleFunc("/getBibEntries", server.GetBibEntriesHandler)
+	mux.Handle("/getBibTypes", http.HandlerFunc(handlers.GetBibTypesHandler))
+
+	mux.Handle("/getBibEntries", http.HandlerFunc(handlers.GetBibEntriesHandler))
 
 	logger.LogInfo("Open http://localhost:8081/overview to get started.")
 
-	go startServer()
+	go startServer(mux)
 
 	openbrowser("http://localhost:8081/overview")
 
@@ -153,10 +157,6 @@ func main() {
 
 	sig := <-sigs
 	logger.LogInfo(fmt.Sprintf("Received exit-signal: %v", sig))
-}
-
-func startServer() {
-	log.Fatal(http.ListenAndServe(":8081", nil))
 }
 
 func openbrowser(url string) {
@@ -183,4 +183,21 @@ func openbrowser(url string) {
 		log.Fatal(err)
 	}
 
+}
+
+func startServer(mux http.Handler) {
+	isSecure := strings.ToUpper(conf.Protocol) == "HTTPS"
+	port := 8081
+	srvConfig := server.Config{
+		Handler:  mux,
+		IsSecure: isSecure,
+		Port:     int(port),
+	}
+	srv, err := server.New(&srvConfig)
+	if err != nil {
+		logger.LogError("could not start webserver: ", err.Error())
+		os.Exit(1)
+	}
+	finished := make(chan bool, 1)
+	srv.Start(context.Background(), finished)
 }

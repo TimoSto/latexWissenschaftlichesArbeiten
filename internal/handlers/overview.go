@@ -1,4 +1,4 @@
-package server
+package handlers
 
 //import (
 //	"WA_LaTeX/internal/conf"

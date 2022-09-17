@@ -1,6 +1,7 @@
 import {Field} from "@/api/bibTypes/BibType";
 
 //TODO: mit Model generate vereinheitlichen
+//TODO: unittests
 export default function GeneratePreviewsForBibEntry(bibFields: Field[], citeFields: Field[], values: string[]): [string, string] {
     let bibPreview = '';
     bibFields.forEach((field, i) => {
