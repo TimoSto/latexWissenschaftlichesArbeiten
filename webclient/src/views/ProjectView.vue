@@ -6,7 +6,7 @@
     <div class="area area-right" :class="[typeEditorOpen || entryEditorOpen || richEditorOpen ? 'halfWidth' : 'zeroWidth']">
       <TypeEditorView v-if="typeEditorOpen" :name="typeEditorName" v-on:closeEditor="closeTypeEditor" v-on:editType="openTypeEditor($event)" v-on:editEntry="openEntryEditor($event)"/>
       <EntryEditorView v-if="entryEditorOpen" v-on:closeEditor="closeEntryEditor" v-on:editEntry="openEntryEditor($event)" v-on:editType="openTypeEditor($event)"/>
-      <RichEditorView v-if="richEditorOpen"/>
+      <TexEditorView v-if="richEditorOpen" />
     </div>
   </div>
 </template>
@@ -18,12 +18,13 @@
   import EntryEditorView from "@/views/EntryEditorView.vue";
   import {MutationTypes} from "@/store/mutation-types";
   import RichEditorView from "@/views/RichEditorView.vue";
+  import TexEditorView from "@/views/TexEditorView.vue";
 
   export default Vue.extend({
     name: 'Project-View',
 
     components: {
-      RichEditorView,
+      TexEditorView,
       TypeEditorView,
       ProjectOverView,
       EntryEditorView
