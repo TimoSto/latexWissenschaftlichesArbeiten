@@ -1,6 +1,6 @@
 <template>
   <div id="editArea">
-    <div class="line" v-for="(line, i) in lines" :key="'line-'+ i" :data-idx="i" contenteditable="true" @keydown.enter="handleEnter" @input="handleInput($event)">{{line}}</div>
+    <div class="line" v-for="(line, i) in lines" :key="'line-'+ i" :data-idx="i" :ref="'line-' + i" contenteditable="true" @keydown.enter="handleEnter" @input="handleInput($event)">{{line}}</div>
   </div>
 </template>
 
@@ -13,7 +13,15 @@ export default Vue.extend({
     return {
       lines: [
           "test"
-      ]
+      ],
+      activeLine: 0,
+      caretPosition: 0
+    }
+  },
+  updated() {
+    let elem = this.$refs['line-' + this.activeLine] as HTMLElement[];
+    if ( elem && elem[0] ) {
+      elem[0].focus();
     }
   },
   methods: {
@@ -31,7 +39,10 @@ export default Vue.extend({
         }
         const idx = element.getAttribute('data-idx')
         if ( idx ) {
-          this.lines.splice(parseInt(idx) + 1, 0, "")
+          const ni = parseInt(idx) + 1
+          this.activeLine = ni;
+          this.caretPosition = 0;
+          this.lines.splice(ni, 0, "");
         }
       }
     }
