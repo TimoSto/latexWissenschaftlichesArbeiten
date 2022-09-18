@@ -1,6 +1,6 @@
 <template>
-  <div id="editArea" contenteditable="true" @input="handleKeyDown($event)">
-    <div class="line"></div>
+  <div id="editArea">
+    <div class="line" v-for="(line, i) in lines" :key="'line-'+ i" :data-idx="i" contenteditable="true" @keydown.enter="handleEnter" @input="handleInput($event)">{{line}}</div>
   </div>
 </template>
 
@@ -9,20 +9,31 @@ import Vue from "vue";
 
 export default Vue.extend({
   name: "Edit-Area",
+  data() {
+    return {
+      lines: [
+          "test"
+      ]
+    }
+  },
   methods: {
-    handleKeyDown(e: KeyboardEvent) {
-      if( e.key === 'Enter' ) {
-        let sel = window.getSelection();
-        let range;
-        if (sel && sel.focusNode && sel.focusNode.parentNode) {
-          sel.focusNode.parentNode.insertBefore(this.createLine(), sel.focusNode.nextSibling)
+    handleInput(e: InputEvent) {
+      console.log(e.data)
+    },
+    handleEnter(e: KeyboardEvent) {
+      e.preventDefault();
+      e.stopPropagation();
+      const sel = window.getSelection();
+      if ( sel && sel.focusNode ) {
+        let element = sel.focusNode as HTMLElement;
+        if ( !element.getAttribute && sel.focusNode.parentElement ) {
+          element = sel.focusNode.parentElement
+        }
+        const idx = element.getAttribute('data-idx')
+        if ( idx ) {
+          this.lines.splice(parseInt(idx) + 1, 0, "")
         }
       }
-    },
-    createLine() {
-      let line = document.createElement('div');
-      line.classList.add('line');
-      return line;
     }
   }
 });
@@ -52,6 +63,7 @@ export default Vue.extend({
     outline: none;
     position: relative;
     padding-left: 45px;
+    min-height: 25px;
 
     &:before {
       display: inline-block;
