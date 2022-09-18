@@ -39,10 +39,14 @@ export default Vue.extend({
         }
         const idx = element.getAttribute('data-idx')
         if ( idx ) {
-          const ni = parseInt(idx) + 1
-          this.activeLine = ni;
+          const i = parseInt(idx)
+          this.activeLine = i + 1;
           this.caretPosition = 0;
-          this.lines.splice(ni, 0, "");
+          let range = sel.getRangeAt(0);
+          console.log(range.endOffset)
+          const movedValue = this.lines[i].substring(range.endOffset)
+          this.lines[i] = this.lines[i].substring(0, range.endOffset)
+          this.lines.splice(i + 1, 0, movedValue);
         }
       }
     }
