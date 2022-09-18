@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts">
+import Cursor from "@/api/editor/GetCaretPosition";
 import GetCaretCharacterOffsetWithin from "@/api/editor/GetCaretPosition";
 import Vue from "vue";
 
@@ -36,16 +37,9 @@ export default Vue.extend({
     let elem = this.$refs['line-' + this.activeLine] as HTMLElement[];
     if ( elem && elem[0] ) {
       elem[0].focus();
-
-      let sel = window.getSelection();
-      let range = document.createRange();
-      if(sel && range) {
-        range.setStart(elem[0].childNodes[0], this.caretPosition);
-        range.collapse(true);
-        sel.removeAllRanges();
-        sel.addRange(range);
-      }
+      Cursor.setCurrentCursorPosition(this.caretPosition, elem[0])
     }
+    console.log(this.lines)
 
   },
   methods: {
@@ -59,9 +53,13 @@ export default Vue.extend({
         const idx = element.getAttribute('data-idx')
         if ( idx ) {
           const i = parseInt(idx)
-          this.caretPosition = GetCaretCharacterOffsetWithin(element);
+          this.caretPosition = Cursor.getCurrentCursorPosition(element)
 
-          this.$set(this.lines, i,  element.innerText);
+          console.log(element.innerText)
+
+          this.lines[i] =  element.innerText;
+
+          console.log(this.lines)
 
           // let newRange = document.createRange()
           // newRange.setStart(element, range.endOffset)
@@ -88,6 +86,7 @@ export default Vue.extend({
           this.caretPosition = 0;
           let range = sel.getRangeAt(0);
           const movedValue = this.lines[i].substring(range.endOffset)
+          console.log(movedValue)
           this.lines[i] = this.lines[i].substring(0, range.endOffset)
           this.lines.splice(i + 1, 0, movedValue);
         }
