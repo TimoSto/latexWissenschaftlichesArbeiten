@@ -34,14 +34,15 @@ export default Vue.extend({
   border: 1px black solid;
   font-family: "Consolas", "Monaco", "Courier New", monospace;
   counter-reset: line;
-  width: 90%;
-  height: 350px;
-  overflow: scroll;
+  width: 100%;
+  height: 100%;
   padding-left: 0;
   margin-left: 0;
   z-index: 1;
   color: var(--v-accent-base);
   background-color: var(--v-background-base);
+  overflow-y: auto;
+  
   & .line{
     display: block;
     counter-increment: line;
