@@ -35,6 +35,16 @@ export default Vue.extend({
     height: 30px;
     font-size: 20px;
     width: 100%;
+    counter-increment: line;
+
+    &:before {
+      content: counter(line);
+      display: inline-block;
+      border-right: 1px solid #ddd;
+      padding: 0 .5em;
+      margin-right: .5em;
+      color: #888
+    }
   }
 }
 </style>
