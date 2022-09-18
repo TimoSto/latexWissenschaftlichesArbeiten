@@ -30,20 +30,42 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 #editArea{
-  width: 100%;
+  display: inline-block;
+  border: 1px black solid;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+  counter-reset: line;
+  width: 90%;
+  height: 350px;
+  overflow: scroll;
+  padding-left: 0;
+  margin-left: 0;
+  z-index: 1;
+  color: var(--v-accent-base);
+  background-color: var(--v-background-base);
   & .line{
-    height: 30px;
-    font-size: 20px;
-    width: 100%;
+    display: block;
     counter-increment: line;
+    text-align: left;
+    margin: 0px;
+    z-index: 2;
+    outline: none;
+    position: relative;
+    padding-left: 45px;
 
     &:before {
-      content: counter(line);
       display: inline-block;
-      border-right: 1px solid #ddd;
-      padding: 0 .5em;
-      margin-right: .5em;
-      color: #888
+      width: 40px;
+      height: 100%;
+      border-right: 1px black solid;
+      padding-right: 5px;
+      content: counter(line);
+      color: var(--v-accent-lighten3);
+      background-color: var(--v-background-base);
+      text-align: left;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
     }
   }
 }
