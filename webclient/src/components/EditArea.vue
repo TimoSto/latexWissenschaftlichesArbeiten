@@ -20,6 +20,7 @@
 import Cursor from "@/api/editor/GetCaretPosition";
 import GetCaretCharacterOffsetWithin from "@/api/editor/GetCaretPosition";
 import Vue from "vue";
+import Highlighter from "@/api/editor/Highlighter";
 
 export default Vue.extend({
   name: "Edit-Area",
@@ -39,7 +40,6 @@ export default Vue.extend({
       elem[0].focus();
       Cursor.setCurrentCursorPosition(this.caretPosition, elem[0])
     }
-    console.log(this.lines)
 
   },
   methods: {
@@ -55,11 +55,11 @@ export default Vue.extend({
           const i = parseInt(idx)
           this.caretPosition = Cursor.getCurrentCursorPosition(element)
 
-          console.log(element.innerText)
+          element.innerText = Highlighter.ParseLine(element.innerText)
 
           this.lines[i] =  element.innerText;
 
-          console.log(this.lines)
+          Cursor.setCurrentCursorPosition(this.caretPosition, element);
 
           // let newRange = document.createRange()
           // newRange.setStart(element, range.endOffset)
@@ -86,7 +86,6 @@ export default Vue.extend({
           this.caretPosition = 0;
           let range = sel.getRangeAt(0);
           const movedValue = this.lines[i].substring(range.endOffset)
-          console.log(movedValue)
           this.lines[i] = this.lines[i].substring(0, range.endOffset)
           this.lines.splice(i + 1, 0, movedValue);
         }
