@@ -3,8 +3,20 @@
     <v-app-bar
       app
       color="primary"
-      dark
+      clipped-left
+      elevation="0"
+      fixed
     >
+
+      <v-app-bar-nav-icon />
+
+      <v-toolbar-title>ThesorTeX</v-toolbar-title>
+
+      <v-spacer />
+
+      <v-btn icon @click="toggleDark">
+        <v-icon>mdi-brightness-6</v-icon>
+      </v-btn>
 
     </v-app-bar>
 
@@ -23,5 +35,20 @@ export default Vue.extend({
   data: () => ({
     //
   }),
+
+  methods: {
+
+    toggleDark() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    }
+  }
 });
 </script>
+
+<style lang="scss" scoped>
+.v-app-bar{
+  &.primary * {
+    color: var(--v-primaryText-base)!important;
+  }
+}
+</style>
