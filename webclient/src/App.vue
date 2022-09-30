@@ -45,6 +45,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {MutationTypes} from "./store/mutation-types";
 
 export default Vue.extend({
   name: 'App',
@@ -52,6 +53,10 @@ export default Vue.extend({
   data: () => ({
     drawer: false
   }),
+
+  mounted() {
+    this.$store.commit(MutationTypes.APP_SET_PROJECTNAMES, ['zo','to'])
+  },
 
   methods: {
     toggleDark() {

@@ -1,6 +1,7 @@
 import Vue, {PluginObject} from 'vue'
 import Vuex from 'vuex'
 import {myState} from "@/store/state";
+import {mutations} from "@/store/mutations";
 
 Vue.use(Vuex)
 
@@ -8,9 +9,7 @@ export default new Vuex.Store({
   state: myState,
   getters: {
   },
-  mutations: {
-
-  },
+  mutations: mutations,
   actions: {
   },
   modules: {
