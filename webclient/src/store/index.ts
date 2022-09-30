@@ -1,6 +1,6 @@
 import Vue, {PluginObject} from 'vue'
 import Vuex from 'vuex'
-import {myState} from "@/store/myState";
+import {myState} from "@/store/state";
 
 Vue.use(Vuex)
 

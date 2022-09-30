@@ -10,7 +10,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer" />
 
-      <v-toolbar-title>ThesorTeX{{$store.state.test.t1}}</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX{{$store.state.app.t}}</v-toolbar-title>
 
       <v-spacer />
 
@@ -62,7 +62,7 @@ export default Vue.extend({
 
   computed: {
     projectNames(): string[] {
-      return []
+      return this.$store.state.app.projectNames
     }
   }
 
