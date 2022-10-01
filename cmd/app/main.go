@@ -104,6 +104,12 @@ func main() {
 
 	mux.Handle("/createProject", http.HandlerFunc(handlers.HandleNewProject))
 
+	mux.Handle("/deleteProject", http.HandlerFunc(handlers.HandleDeleteProject))
+
+	mux.Handle("/backup", http.HandlerFunc(handlers.HandleBackup))
+
+	mux.Handle("/getBackups", http.HandlerFunc(handlers.GetBackupsHandler))
+
 	mux.Handle("/saveType", http.HandlerFunc(handlers.HandleSaveType))
 
 	mux.Handle("/deleteType", http.HandlerFunc(handlers.HandleDeleteType))
@@ -113,10 +119,6 @@ func main() {
 	mux.Handle("/uploadEntries", http.HandlerFunc(handlers.HandleUploadEntries))
 
 	mux.Handle("/deleteEntry", http.HandlerFunc(handlers.HandleDeleteEntry))
-
-	mux.Handle("/deleteProject", http.HandlerFunc(handlers.HandleDeleteProject))
-
-	mux.Handle("/backup", http.HandlerFunc(handlers.HandleBackup))
 
 	mux.Handle("/setDefault", http.HandlerFunc(handlers.HandleDefaultSetter))
 

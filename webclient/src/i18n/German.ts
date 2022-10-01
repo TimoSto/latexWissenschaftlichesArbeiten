@@ -8,6 +8,7 @@ export const GermanTranslations: TranslationKeys = {
     SUCCESS_PROJECT_CREATED: 'Project %s erfolgreich erstellt',
     DELETE_PROJECT_TT: 'Projekt löschen',
     BACKUP_LOCAL_TT: 'Lokales Backup erstellen',
+    RESET_TO_BACKUP: 'Backup wiederherstellen',
     DELETE_PROJECT_SURE_TITLE: 'Projekt löschen',
     DELETE_PROJECT_SURE_CONTENT: 'Möchtest du das Projekt <i>%s</i> wirklich unwiderruflich löschen? Falls du Backups erstellt hast, bleiben diese erhalten.',
     ABORT: 'Abbrechen',

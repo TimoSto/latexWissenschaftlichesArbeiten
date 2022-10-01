@@ -22,4 +22,7 @@ export const mutations: MutationTree<MyState> & Mutations = {
             state.app.deletedProject = state.app.currentProjectName
         }
     },
+    [MutationTypes.PROJECT_SET_BACKUP_PATHS](state, payload: string[]) {
+        state.project.backupPaths = payload
+    },
 };

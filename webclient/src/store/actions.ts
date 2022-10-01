@@ -8,6 +8,7 @@ import CreateProject from "@/api/app/CreateProject";
 import router from "@/router";
 import DeleteProject from "@/api/project/DeleteProject";
 import BackupProject from "@/api/project/BackupProject";
+import GetBackupPaths from "@/api/project/GetBackupPaths";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -66,6 +67,19 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
             commit(MutationTypes.APP_SET_SUCCESS, "SUCCESS_PROJECT_BACKUP%"+ msg)
         } else {
             commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_PROJECT_BACKUP'})
+        }
+    },
+
+    async [ActionTypes.PROJECT_GET_BACKUP_PATHS]({ commit, dispatch }, payload: string) {
+
+        const resp = await GetBackupPaths(payload);
+
+        console.log(resp)
+
+        if( resp.success ) {
+            commit(MutationTypes.PROJECT_SET_BACKUP_PATHS, resp.paths)
+        } else {
+            commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_GET_PROJECT_BACKUPS'})
         }
     },
 };

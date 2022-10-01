@@ -7,7 +7,11 @@
       <v-spacer />
 
       <v-btn icon :title="$t(i18nDictionary.BACKUP_LOCAL_TT)" @click="backupProject">
-        <v-icon>mdi-content-save-all</v-icon>
+        <v-icon>mdi-cloud-upload</v-icon>
+      </v-btn>
+
+      <v-btn icon :title="$t(i18nDictionary.RESET_TO_BACKUP)" @click="openBackupDialog">
+        <v-icon>mdi-cloud-download</v-icon>
       </v-btn>
 
       <v-btn icon :title="$t(i18nDictionary.DELETE_PROJECT_TT)" @click="deleteTriggered = true">
@@ -29,13 +33,35 @@
         @confirmed="deleteProject"
     />
 
+    <v-dialog v-model="backupResetTriggered" max-width="650">
+      <v-card>
+        <v-card-title>Backup laden</v-card-title>
+        <v-card-text v-if="backupPaths != null">
+          Beim Zurücksetzen auf ein Backup werden alle Änderungen seitdem verworfen. Erstelle ggf. zuerst noch ein Backup vom jetzigen Stand.
+          <v-list>
+            <v-list-item-group v-model="selectedBackupPathIndex" color="accent">
+              <v-list-item v-for="path in backupPaths" :key="path">
+                <v-list-item-title>{{path}}</v-list-item-title>
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-card-text>
+        <v-card-text v-if="backupPaths == null">Für dieses Projekt existieren noch keine Backups</v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn text color="primary" @click="closeBackupDialog">Schließen</v-btn>
+          <v-btn text color="primary" :disabled="selectedBackupPathIndex == -1" v-if="backupPaths != null">Laden</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "@/i18n/Keys";
-import ConfirmDialog from "@/components/ConfirmDialog";
+import ConfirmDialog from "@/components/ConfirmDialog.vue";
 import {ActionTypes} from "@/store/action-types";
 
 export default Vue.extend({
@@ -47,7 +73,9 @@ export default Vue.extend({
   data() {
     return {
       i18nDictionary: i18nDictionary,
-      deleteTriggered: false
+      deleteTriggered: false,
+      backupResetTriggered: false,
+      selectedBackupPathIndex: -1
     }
   },
 
@@ -57,6 +85,19 @@ export default Vue.extend({
     },
     backupProject() {
       this.$store.dispatch(ActionTypes.PROJECT_BACKUP_PROJECT, this.$store.state.app.currentProjectName)
+    },
+    openBackupDialog() {
+      this.$store.dispatch(ActionTypes.PROJECT_GET_BACKUP_PATHS, this.$store.state.app.currentProjectName)
+      this.backupResetTriggered = true;
+    },
+    closeBackupDialog() {
+      this.backupResetTriggered = false;
+    }
+  },
+
+  computed: {
+    backupPaths(): string[] {
+      return this.$store.state.project.backupPaths
     },
   }
 });

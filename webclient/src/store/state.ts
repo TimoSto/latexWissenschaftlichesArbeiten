@@ -9,6 +9,9 @@ export type MyState = {
         },
         successMessage: string
         deletedProject: string
+    },
+    project: {
+        backupPaths: string[]
     }
 }
 
@@ -23,5 +26,8 @@ export const myState: MyState = {
         },
         successMessage: '',
         deletedProject: ''
+    },
+    project: {
+        backupPaths: []
     }
 }
