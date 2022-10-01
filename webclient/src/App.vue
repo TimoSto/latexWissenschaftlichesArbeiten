@@ -160,8 +160,12 @@ export default Vue.extend({
       let translation = this.$t(this.$store.state.app.successMessage) as string
 
       switch (this.$store.state.app.successMessage) {
-        case "PROJECT_CREATED":
+        case "SUCCESS_PROJECT_CREATED":
           translation = translation.replace("%s", this.newProjectName);
+          break;
+        case 'SUCCESS_PROJECT_DELETED':
+          translation = translation.replace("%s", this.$store.state.app.deletedProject);
+          break;
       }
 
       return translation
@@ -174,12 +178,12 @@ export default Vue.extend({
         return this.$store.state.app.projectNames.indexOf(this.$store.state.app.currentProjectName)
       },
       set(value: number) {
+        console.log(value, this.$store.state.app.projectNames)
         if( value >=0 && value < this.$store.state.app.projectNames.length ) {
           const projectBefore = this.$store.state.app.currentProjectName;
           this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, this.$store.state.app.projectNames[value]);
           if( projectBefore !== this.$store.state.app.projectNames[value] ) {
-            // this.$store.dispatch(ActionTypes.GET_PROJECT_DATA, this.$store.state.project);
-            // window.location.hash = '#/project/' + this.$store.state.project;
+            this.$router.push(`/project/${this.$store.state.app.projectNames[value]}`)
           }
         }
       }

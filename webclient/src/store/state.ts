@@ -8,6 +8,7 @@ export type MyState = {
             message: string//Stadnard-Text hinterher
         },
         successMessage: string
+        deletedProject: string
     }
 }
 
@@ -20,6 +21,7 @@ export const myState: MyState = {
             type: '',
             message: ''
         },
-        successMessage: ''
+        successMessage: '',
+        deletedProject: ''
     }
 }

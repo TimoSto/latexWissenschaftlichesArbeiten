@@ -18,5 +18,8 @@ export const mutations: MutationTree<MyState> & Mutations = {
     },
     [MutationTypes.APP_SET_SUCCESS](state, payload: string) {
         state.app.successMessage = payload
+        if( payload === 'SUCCESS_PROJECT_DELETED' ) {
+            state.app.deletedProject = state.app.currentProjectName
+        }
     },
 };
