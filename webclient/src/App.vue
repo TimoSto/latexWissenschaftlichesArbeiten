@@ -11,7 +11,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer" />
 
-      <v-toolbar-title>ThesorTeX{{this.newProjectName}}</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX</v-toolbar-title>
 
       <v-spacer />
 
@@ -141,7 +141,7 @@ export default Vue.extend({
         return ''
       }
 
-      let translation = GermanTranslations[this.$store.state.app.successMessage as keyof typeof GermanTranslations]
+      let translation = this.$t(this.$store.state.app.successMessage) as string
 
       switch (this.$store.state.app.successMessage) {
         case "PROJECT_CREATED":

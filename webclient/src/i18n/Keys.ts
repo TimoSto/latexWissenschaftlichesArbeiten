@@ -1,4 +1,4 @@
 
-export enum TranslationKeys {
-    ProjectCreated = 'PROJECT_CREATED'
+export type TranslationKeys = {
+    PROJECT_CREATED: string
 }
