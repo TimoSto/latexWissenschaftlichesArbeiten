@@ -157,14 +157,25 @@ export default Vue.extend({
         return ''
       }
 
-      let translation = this.$t(this.$store.state.app.successMessage) as string
+      let translationKey = this.$store.state.app.successMessage
+      let appendix = '';
+      if( translationKey.indexOf('%') > 0 ) {
+        let parts = translationKey.split('%')
+        translationKey = parts[0]
+        appendix = parts[1]
+      }
 
-      switch (this.$store.state.app.successMessage) {
+      let translation = this.$t(translationKey) as string
+
+      switch (translationKey) {
         case "SUCCESS_PROJECT_CREATED":
           translation = translation.replace("%s", this.newProjectName);
           break;
         case 'SUCCESS_PROJECT_DELETED':
           translation = translation.replace("%s", this.$store.state.app.deletedProject);
+          break;
+        case "SUCCESS_PROJECT_BACKUP":
+          translation = translation.replace('%v', appendix)
           break;
       }
 

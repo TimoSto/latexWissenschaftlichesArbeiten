@@ -12,5 +12,6 @@ export const GermanTranslations: TranslationKeys = {
     DELETE_PROJECT_SURE_CONTENT: 'Möchtest du das Projekt <i>%s</i> wirklich unwiderruflich löschen? Falls du Backups erstellt hast, bleiben diese erhalten.',
     ABORT: 'Abbrechen',
     DELETE: 'Löschen',
-    SUCCESS_PROJECT_DELETED: 'Projekt %s erfolgreich gelöscht'
+    SUCCESS_PROJECT_DELETED: 'Projekt %s erfolgreich gelöscht',
+    SUCCESS_PROJECT_BACKUP: 'Backup erstellt: %v'
 }

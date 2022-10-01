@@ -12,6 +12,7 @@ export type TranslationKeys = {
     ABORT: string
     DELETE: string
     SUCCESS_PROJECT_DELETED: string
+    SUCCESS_PROJECT_BACKUP: string
 }
 
 export const i18nDictionary: TranslationKeys = {
@@ -26,5 +27,6 @@ export const i18nDictionary: TranslationKeys = {
     DELETE_PROJECT_SURE_CONTENT: 'DELETE_PROJECT_SURE_CONTENT',
     ABORT: 'ABORT',
     DELETE: 'DELETE',
-    SUCCESS_PROJECT_DELETED: 'SUCCESS_PROJECT_DELETED'
+    SUCCESS_PROJECT_DELETED: 'SUCCESS_PROJECT_DELETED',
+    SUCCESS_PROJECT_BACKUP: 'SUCCESS_PROJECT_BACKUP'
 }

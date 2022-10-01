@@ -6,7 +6,7 @@
 
       <v-spacer />
 
-      <v-btn icon :title="$t(i18nDictionary.BACKUP_LOCAL_TT)">
+      <v-btn icon :title="$t(i18nDictionary.BACKUP_LOCAL_TT)" @click="backupProject">
         <v-icon>mdi-content-save-all</v-icon>
       </v-btn>
 
@@ -54,7 +54,10 @@ export default Vue.extend({
   methods: {
     deleteProject() {
       this.$store.dispatch(ActionTypes.PROJECT_DELETE_PROJECT, this.$store.state.app.currentProjectName)
-    }
+    },
+    backupProject() {
+      this.$store.dispatch(ActionTypes.PROJECT_BACKUP_PROJECT, this.$store.state.app.currentProjectName)
+    },
   }
 });
 </script>

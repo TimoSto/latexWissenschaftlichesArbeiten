@@ -7,6 +7,7 @@ import GetProjects from "@/api/app/GetProjects";
 import CreateProject from "@/api/app/CreateProject";
 import router from "@/router";
 import DeleteProject from "@/api/project/DeleteProject";
+import BackupProject from "@/api/project/BackupProject";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -55,5 +56,16 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         } else {
             commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_PROJECT_DELETE'})
         }//TODO: automatisch alles leeren wenn name auf leer gesetzt wird
+    },
+
+    async [ActionTypes.PROJECT_BACKUP_PROJECT]({ commit, dispatch }, payload: string) {
+
+        const msg = await BackupProject(payload);
+
+        if( msg.length > 0 ) {
+            commit(MutationTypes.APP_SET_SUCCESS, "SUCCESS_PROJECT_BACKUP%"+ msg)
+        } else {
+            commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_PROJECT_BACKUP'})
+        }
     },
 };

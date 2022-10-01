@@ -40,7 +40,7 @@ func HandleBackup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	msg := "Created Backup at " + fmt.Sprintf("%s\\backup\\%s-%s", mydir, project, t.Format("2006-01-02_15_04_05"))
+	msg := fmt.Sprintf("%s\\backup\\%s-%s", mydir, project, t.Format("2006-01-02_15_04_05"))
 
 	logger.LogInfo(msg)
 

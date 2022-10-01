@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="propModel">
+  <v-dialog v-model="propModel" max-width="350">
     <v-card>
       <v-card-title>{{title}}</v-card-title>
       <v-card-text v-html="content"></v-card-text>
