@@ -6,12 +6,16 @@
 
       <v-spacer />
 
-      <v-btn icon :title="$t(i18nDictionary.DELETE_PROJECT)">
+      <v-btn icon :title="$t(i18nDictionary.BACKUP_LOCAL_TT)">
+        <v-icon>mdi-content-save-all</v-icon>
+      </v-btn>
+
+      <v-btn icon :title="$t(i18nDictionary.DELETE_PROJECT_TT)">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </v-app-bar>
 
-    <v-sheet id="scroll-project">
+    <v-sheet id="scroll-project" class="content-below-two-bars">
 
     </v-sheet>
 

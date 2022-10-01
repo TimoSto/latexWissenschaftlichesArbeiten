@@ -6,5 +6,6 @@ export const EnglishTranslations: TranslationKeys = {
     SWITCH_DARK: 'Use dark theme',
     SWITCH_LIGHT: 'Use light theme',
     PROJECT_CREATED: 'Project %s successfully created',
-    DELETE_PROJECT: 'Projekt löschen'
+    DELETE_PROJECT_TT: 'Delete project',
+    BACKUP_LOCAL_TT: 'Create local backup'//TODO: load backup
 }

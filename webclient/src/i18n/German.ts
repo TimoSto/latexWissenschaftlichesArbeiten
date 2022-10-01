@@ -6,5 +6,6 @@ export const GermanTranslations: TranslationKeys = {
     SWITCH_DARK: 'Dunkles Design verwenden',
     SWITCH_LIGHT: 'Helles Design verwenden',
     PROJECT_CREATED: 'Project %s erfolgreich erstellt',
-    DELETE_PROJECT: 'Projekt löschen'
+    DELETE_PROJECT_TT: 'Projekt löschen',
+    BACKUP_LOCAL_TT: 'Lokales Backup erstellen'
 }
