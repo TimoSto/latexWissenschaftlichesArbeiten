@@ -16,4 +16,7 @@ export const mutations: MutationTree<MyState> & Mutations = {
     [MutationTypes.APP_SET_ERROR](state, payload: {type: string, message: string}) {
         state.app.error = payload
     },
+    [MutationTypes.APP_SET_SUCCESS](state, payload: string) {
+        state.app.successMessage = payload
+    },
 };

@@ -35,6 +35,7 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         if( success ) {
             dispatch(ActionTypes.APP_GET_PROJECTS);
             commit(MutationTypes.APP_SET_PROJECTNAME, payload)
+            commit(MutationTypes.APP_SET_SUCCESS, "PROJECT_CREATED")
             await router.push('/project/' + payload)
         } else {
             commit(MutationTypes.APP_SET_ERROR, {type: 'Server-Interaktion', message: 'Beim Erstellen des Projektes ist ein Fehler aufgetreten.'})

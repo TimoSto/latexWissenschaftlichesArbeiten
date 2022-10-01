@@ -11,7 +11,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer" />
 
-      <v-toolbar-title>ThesorTeX</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX{{this.newProjectName}}</v-toolbar-title>
 
       <v-spacer />
 
@@ -56,6 +56,20 @@
         </v-card>
       </v-dialog>
 
+      <MySnackbar :timeout="5 * 1000" v-model="snackbarOpened" v-on:timeoutReached="closeSnackbar">
+        <span v-html="snackBarMessage"></span>
+        <template v-slot:action="{ attrs }">
+          <v-btn
+              color="primary"
+              text
+              v-bind="attrs"
+              @click="closeSnackbar"
+          >
+            Schließen
+          </v-btn>
+        </template>
+      </MySnackbar>
+
     </v-main>
 
   </v-app>
@@ -65,9 +79,13 @@
 import Vue from 'vue';
 import {MutationTypes} from "./store/mutation-types";
 import {ActionTypes} from "./store/action-types";
+import { GermanTranslations } from './i18n/German';
+import MySnackbar from './components/MySnackbar.vue';
 
 export default Vue.extend({
   name: 'App',
+
+  components: {MySnackbar},
 
   data: () => ({
     drawer: false,
@@ -86,8 +104,14 @@ export default Vue.extend({
     createNewProject() {
       this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
     },
+    closeSnackbar() {
+      switch (this.$store.state.app.successMessage) {
+        case "PROJECT_CREATED":
+          this.newProjectName = '';
+      }
+      this.$store.commit(MutationTypes.APP_SET_SUCCESS, '')
+    }
   },
-
 
   computed: {
     projectNames(): string[] {
@@ -111,6 +135,23 @@ export default Vue.extend({
         }
       });
       return res && this.newProjectName.length > 0
+    },
+    snackBarMessage() {
+      if( this.$store.state.app.successMessage.length === 0) {
+        return ''
+      }
+
+      let translation = GermanTranslations[this.$store.state.app.successMessage as keyof typeof GermanTranslations]
+
+      switch (this.$store.state.app.successMessage) {
+        case "PROJECT_CREATED":
+          translation = translation.replace("%s", this.newProjectName);
+      }
+
+      return translation
+    },
+    snackbarOpened(): boolean {
+      return !!this.snackBarMessage && this.snackBarMessage.length > 0
     },
   }
 

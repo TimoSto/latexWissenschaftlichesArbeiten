@@ -6,18 +6,20 @@ export type MyState = {
         error: {
             type: string//e.g. server interaction or tex-parsing
             message: string//Stadnard-Text hinterher
-        }
+        },
+        successMessage: string
     }
 }
 
 export const myState: MyState = {
 
     app: {
-        projectNames: ['te'],
+        projectNames: [],
         currentProjectName: '',
         error: {
             type: '',
             message: ''
-        }
+        },
+        successMessage: ''
     }
 }
