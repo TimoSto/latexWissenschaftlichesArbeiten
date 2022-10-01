@@ -20,5 +20,7 @@ export const EnglishTranslations: TranslationKeys = {
     LOAD_BACKUP_HEADING: 'Reset to backup',
     LOAD_BACKUP_DESCR: 'In resetting all your changes since the backup will be lost. You may want to create a backup of the current project first..',
     LOAD_BACKUP_LOAD: 'Reset',
-    SUCCESS_PROJECT_RESET: 'Project successfully reseted'
+    SUCCESS_PROJECT_RESET: 'Project successfully reseted',
+    PROJECT_BIB_ENTRIES: 'Bibliography entries',
+    PROJECT_BIB_TYPES: 'Bibliography types'
 }

@@ -21,6 +21,22 @@
 
     <v-sheet id="scroll-project" class="content-below-two-bars">
 
+      <v-expansion-panels multiple accordion flat tile>
+        <v-expansion-panel>
+          <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_ENTRIES) }}</v-expansion-panel-header>
+          <v-expansion-panel-content>
+
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_TYPES) }}</v-expansion-panel-header>
+          <v-expansion-panel-content>
+
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+
     </v-sheet>
 
     <ConfirmDialog

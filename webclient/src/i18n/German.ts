@@ -20,5 +20,7 @@ export const GermanTranslations: TranslationKeys = {
     LOAD_BACKUP_HEADING: 'Auf Backup zurücksetzen',
     LOAD_BACKUP_DESCR: 'Beim Zurücksetzen auf ein Backup werden alle Änderungen seitdem verworfen. Erstelle ggf. zuerst noch ein Backup vom jetzigen Stand.',
     LOAD_BACKUP_LOAD: 'Zurücksetzen',
-    SUCCESS_PROJECT_RESET: 'Projekt erfolgreich zurückgesetzt'
+    SUCCESS_PROJECT_RESET: 'Projekt erfolgreich zurückgesetzt',
+    PROJECT_BIB_ENTRIES: 'Literatureinträge',
+    PROJECT_BIB_TYPES: 'Literaturtypen'
 }
