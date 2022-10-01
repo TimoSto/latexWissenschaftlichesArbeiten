@@ -35,9 +35,9 @@
 
     <v-dialog v-model="backupResetTriggered" max-width="650">
       <v-card>
-        <v-card-title>Backup laden</v-card-title>
+        <v-card-title>{{$t(i18nDictionary.LOAD_BACKUP_HEADING)}}</v-card-title>
         <v-card-text v-if="backupPaths != null">
-          Beim Zurücksetzen auf ein Backup werden alle Änderungen seitdem verworfen. Erstelle ggf. zuerst noch ein Backup vom jetzigen Stand.
+          {{$t(i18nDictionary.LOAD_BACKUP_DESCR)}}
           <v-list>
             <v-list-item-group v-model="selectedBackupPathIndex" color="accent">
               <v-list-item v-for="path in backupPaths" :key="path">
@@ -49,8 +49,8 @@
         <v-card-text v-if="backupPaths == null">Für dieses Projekt existieren noch keine Backups</v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn text color="primary" @click="closeBackupDialog">Schließen</v-btn>
-          <v-btn text color="primary" :disabled="selectedBackupPathIndex == -1" v-if="backupPaths != null">Laden</v-btn>
+          <v-btn text color="primary" @click="closeBackupDialog">{{$t(i18nDictionary.CLOSE)}}</v-btn>
+          <v-btn text color="primary" :disabled="selectedBackupPathIndex == -1" v-if="backupPaths != null">{{$t(i18nDictionary.LOAD_BACKUP_LOAD)}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

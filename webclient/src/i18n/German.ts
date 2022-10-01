@@ -13,6 +13,10 @@ export const GermanTranslations: TranslationKeys = {
     DELETE_PROJECT_SURE_CONTENT: 'Möchtest du das Projekt <i>%s</i> wirklich unwiderruflich löschen? Falls du Backups erstellt hast, bleiben diese erhalten.',
     ABORT: 'Abbrechen',
     DELETE: 'Löschen',
+    CLOSE: 'Schließen',
     SUCCESS_PROJECT_DELETED: 'Projekt %s erfolgreich gelöscht',
-    SUCCESS_PROJECT_BACKUP: 'Backup erstellt: %v'
+    SUCCESS_PROJECT_BACKUP: 'Backup erstellt: %v',
+    LOAD_BACKUP_HEADING: 'Auf Backup zurücksetzen',
+    LOAD_BACKUP_DESCR: 'Beim Zurücksetzen auf ein Backup werden alle Änderungen seitdem verworfen. Erstelle ggf. zuerst noch ein Backup vom jetzigen Stand.',
+    LOAD_BACKUP_LOAD: 'Zurücksetzen'
 }
