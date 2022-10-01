@@ -82,3 +82,21 @@ export default Vue.extend({
   }
 }
 </style>
+
+<style lang="scss">
+$dark-bg: #121212;
+
+.theme--dark.v-expansion-panels .v-expansion-panel:not(.keep){
+  background-color: $dark-bg;
+}
+.theme--dark.v-list:not(.keep) {
+  background-color: $dark-bg;
+}
+.theme--dark.v-sheet:not(.keep) {
+  background-color: $dark-bg;
+}
+
+.theme--dark.v-sheet.v-card:not(.v-sheet--outlined) {
+  box-shadow: 0px 3px 1px -2px rgba(255,255,255, 0.2), 0px 2px 2px 0px rgba(255, 255, 255, 0.14), 0px 1px 5px 0px rgba(255, 255, 255, 0.12);
+}
+</style>
