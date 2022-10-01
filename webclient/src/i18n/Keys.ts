@@ -1,5 +1,6 @@
 
 export type TranslationKeys = {
+    HOME_TT: string
     PROJECTS: string
     NEW_PROJECT_TOOLTIP: string
     SWITCH_DARK: string
@@ -22,6 +23,7 @@ export type TranslationKeys = {
 }
 
 export const i18nDictionary: TranslationKeys = {
+    HOME_TT: 'HOME_TT',
     PROJECTS: 'PROJECTS',
     NEW_PROJECT_TOOLTIP: 'NEW_PROJECT_TOOLTIP',
     SWITCH_DARK: 'SWITCH_DARK',

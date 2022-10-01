@@ -1,6 +1,7 @@
 import {TranslationKeys} from "@/i18n/Keys";
 
 export const GermanTranslations: TranslationKeys = {
+    HOME_TT: 'Startseite',
     PROJECTS: 'Projekte',
     NEW_PROJECT_TOOLTIP: 'Neues Projekt erstellen',
     SWITCH_DARK: 'Dunkles Design verwenden',

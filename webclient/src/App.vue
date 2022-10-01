@@ -18,6 +18,10 @@
         <v-icon>mdi-brightness-6</v-icon>
       </v-btn>
 
+      <v-btn icon @click="toHome" :title="$t(i18nDictionary.HOME_TT)">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
@@ -123,6 +127,11 @@ export default Vue.extend({
       if( name !== this.currentProjectName ) {
         this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, name)
       }
+    },
+    toHome() {
+      //TODO: check stuff
+      this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+      this.$router.push('/');
     }
   },
 
