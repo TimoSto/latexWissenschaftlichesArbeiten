@@ -107,11 +107,14 @@ export default Vue.extend({
     if( urlParts.length > 1 ) {
       this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, urlParts[1])
     }
+
+    this.$vuetify.theme.dark = localStorage.getItem('ThesorTeX_darkMode') === 'true'
   },
 
   methods: {
     toggleDark() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      localStorage.setItem('ThesorTeX_darkMode', `${this.$vuetify.theme.dark}`)
     },
     createNewProject() {
       this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
@@ -198,7 +201,6 @@ export default Vue.extend({
         return this.$store.state.app.projectNames.indexOf(this.$store.state.app.currentProjectName)
       },
       set(value: number) {
-        console.log(value, this.$store.state.app.projectNames)
         if( value >=0 && value < this.$store.state.app.projectNames.length ) {
           const projectBefore = this.$store.state.app.currentProjectName;
           this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, this.$store.state.app.projectNames[value]);
