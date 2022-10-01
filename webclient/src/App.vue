@@ -31,9 +31,11 @@
       </v-app-bar>
       <v-sheet class="content-below-two-bars" style="padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
         <v-list class="keep">
-          <v-list-item v-for="proj in projectNames" :key="proj">
-            <v-list-item-title v-text="proj"></v-list-item-title>
-          </v-list-item>
+          <v-list-item-group v-model="indexOfCurrentProjectName" color="accent">
+            <v-list-item v-for="(item,i) in projectNames" :key="'project-' + i">
+              <v-list-item-title>{{item}}</v-list-item-title>
+            </v-list-item>
+          </v-list-item-group>
         </v-list>
       </v-sheet>
     </v-navigation-drawer>
@@ -117,6 +119,11 @@ export default Vue.extend({
           this.newProjectName = '';
       }
       this.$store.commit(MutationTypes.APP_SET_SUCCESS, '')
+    },
+    switchToProject(name: string) {
+      if( name !== this.currentProjectName ) {
+        this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, name)
+      }
     }
   },
 
@@ -162,6 +169,21 @@ export default Vue.extend({
     },
     snackbarOpened(): boolean {
       return !!this.snackBarMessage && this.snackBarMessage.length > 0
+    },
+    indexOfCurrentProjectName: {
+      get() {
+        return this.$store.state.app.projectNames.indexOf(this.$store.state.app.currentProjectName)
+      },
+      set(value: number) {
+        if( value >=0 && value < this.$store.state.app.projectNames.length ) {
+          const projectBefore = this.$store.state.app.currentProjectName;
+          this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, this.$store.state.app.projectNames[value]);
+          if( projectBefore !== this.$store.state.app.projectNames[value] ) {
+            // this.$store.dispatch(ActionTypes.GET_PROJECT_DATA, this.$store.state.project);
+            // window.location.hash = '#/project/' + this.$store.state.project;
+          }
+        }
+      }
     },
   }
 
