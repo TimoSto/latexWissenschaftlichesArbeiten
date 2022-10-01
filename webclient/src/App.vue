@@ -4,8 +4,9 @@
       app
       color="primary"
       clipped-left
-      elevation="0"
+      elevation="1"
       fixed
+      elevate-on-scroll
     >
 
       <v-app-bar-nav-icon @click="drawer = !drawer" />
@@ -21,14 +22,14 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
-      <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar">
+      <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar" dense>
         <v-toolbar-title v-if="!drawer">Projekte</v-toolbar-title>
         <v-spacer v-if="!drawer"></v-spacer>
         <v-btn icon :to="'/new'" title="Neues Projekt erstellen">
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
-      <v-sheet class="content-below-two-bars" style="overflow-y: auto; padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
+      <v-sheet class="content-below-two-bars" style="padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
         <v-list class="keep">
           <v-list-item v-for="proj in projectNames" :key="proj">
             <v-list-item-title v-text="proj"></v-list-item-title>
@@ -101,10 +102,21 @@ $dark-bg: #121212;
 }
 
 .content-below-two-bars {
-  height: calc(100vh - 128px);
+  height: calc(100vh - 112px);
+  overflow-y: auto;
 
-  @media screen and (max-width: 960px) {
-    height: calc(100vh - 112px)!important;
+  @media screen and (max-width: 959px) {
+    height: calc(100vh - 105px)!important;
   }
 }
+
+.content-below-one-bar {
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+
+  @media screen and (max-width: 959px) {
+    height: calc(100vh - 56px);
+  }
+}
+
 </style>
