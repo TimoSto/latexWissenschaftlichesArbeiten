@@ -3,8 +3,8 @@
     <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar" style="z-index: 100" dense>
       <v-toolbar-title>Willkommen bei ThesorTex!</v-toolbar-title>
     </v-app-bar>
-    <v-sheet class="content-below-two-bars" style="padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
-      <p>Dieses Tool bietet dir alles, was du brauchst, um eine wissenschaftliche Arbeit mit LaTeX zu schreiben.</p>
+    <v-sheet class="content-below-two-bars" style="padding: 8px; background-color: var(--v-background-base)" id="scroll-sidebar">
+      <p style="margin: 0 8px">Dieses Tool bietet dir alles, was du brauchst, um eine wissenschaftliche Arbeit mit LaTeX zu schreiben.</p>
       <div class="tilesContainer">
         <HomeTile v-for="(t,i) in tiles" :key="'tile-'+i" :title="t.Title" :content="t.Content"/>
         <div style="clear:both"></div>
