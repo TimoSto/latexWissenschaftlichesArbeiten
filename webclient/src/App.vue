@@ -15,7 +15,7 @@
 
       <v-spacer />
 
-      <v-btn icon @click="toggleDark">
+      <v-btn icon @click="toggleDark" :title="$vuetify.theme.dark ? $t(i18nDictionary.SWITCH_LIGHT) : $t(i18nDictionary.SWITCH_DARK)">
         <v-icon>mdi-brightness-6</v-icon>
       </v-btn>
 
@@ -23,9 +23,9 @@
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
       <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar" dense>
-        <v-toolbar-title v-if="!drawer">Projekte</v-toolbar-title>
+        <v-toolbar-title v-if="!drawer">{{$t(i18nDictionary.PROJECTS)}}</v-toolbar-title>
         <v-spacer v-if="!drawer"></v-spacer>
-        <v-btn icon @click="newDialog = !newDialog" title="Neues Projekt erstellen">
+        <v-btn icon @click="newDialog = !newDialog" :title="$t(i18nDictionary.NEW_PROJECT_TOOLTIP)">
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
@@ -81,6 +81,7 @@ import {MutationTypes} from "./store/mutation-types";
 import {ActionTypes} from "./store/action-types";
 import { GermanTranslations } from './i18n/German';
 import MySnackbar from './components/MySnackbar.vue';
+import {i18nDictionary} from "./i18n/Keys";
 
 export default Vue.extend({
   name: 'App',
@@ -90,7 +91,8 @@ export default Vue.extend({
   data: () => ({
     drawer: false,
     newDialog: false,
-    newProjectName: ''
+    newProjectName: '',
+    i18nDictionary: i18nDictionary
   }),
 
   mounted() {
