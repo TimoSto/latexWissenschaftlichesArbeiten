@@ -5,5 +5,6 @@ export const EnglishTranslations: TranslationKeys = {
     NEW_PROJECT_TOOLTIP: 'Create new project',
     SWITCH_DARK: 'Use dark theme',
     SWITCH_LIGHT: 'Use light theme',
-    PROJECT_CREATED: 'Project %s successfully created'
+    PROJECT_CREATED: 'Project %s successfully created',
+    DELETE_PROJECT: 'Projekt löschen'
 }

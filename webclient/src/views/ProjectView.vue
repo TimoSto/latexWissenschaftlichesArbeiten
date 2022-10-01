@@ -1,24 +1,46 @@
 <template>
-  <div>
+  <div style="display: flex" :class="layoutClass">
 
-    <v-app-bar dense color="background" elevation="1" elevate-on-scroll style="z-index: 100">
-      <v-toolbar-title>{{projectName}}</v-toolbar-title>
-    </v-app-bar>
+    <div id="pages">
+      <ProjectOverView :projectName="projectName" />
+    </div>
 
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from "vue";
+import ProjectOverView from "./ProjectOverView.vue";
 
 export default Vue.extend({
   name: "Project-View",
+  components: {ProjectOverView},
   props: [
       'projectName'
-  ]
+  ],
+  data() {
+    return {
+      //
+    }
+  },
+
+  computed: {
+    layoutClass(): string[] {
+      return [
+          "editor-closed",
+          "one-page"
+      ]
+    }
+  }
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+.editor-closed {
+  & #pages {
+    width: 100%;
+  }
+}
 
 </style>

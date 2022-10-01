@@ -5,6 +5,7 @@ export type TranslationKeys = {
     SWITCH_DARK: string
     SWITCH_LIGHT: string
     PROJECT_CREATED: string
+    DELETE_PROJECT: string
 }
 
 export const i18nDictionary: TranslationKeys = {
@@ -13,5 +14,5 @@ export const i18nDictionary: TranslationKeys = {
     SWITCH_DARK: 'SWITCH_DARK',
     SWITCH_LIGHT: 'SWITCH_LIGHT',
     PROJECT_CREATED: 'PROJECT_CREATED',
-
+    DELETE_PROJECT: 'DELETE_PROJECT'
 }

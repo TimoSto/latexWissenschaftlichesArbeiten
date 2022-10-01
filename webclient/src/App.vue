@@ -4,9 +4,8 @@
       app
       color="primary"
       clipped-left
-      elevation="1"
+      elevation="0"
       fixed
-      elevate-on-scroll
     >
 
       <v-app-bar-nav-icon @click="drawer = !drawer" />
