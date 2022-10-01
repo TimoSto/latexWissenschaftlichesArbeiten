@@ -110,6 +110,8 @@ func main() {
 
 	mux.Handle("/getBackups", http.HandlerFunc(handlers.GetBackupsHandler))
 
+	mux.Handle("/resetToBackup", http.HandlerFunc(handlers.HandleBackupReset))
+
 	mux.Handle("/saveType", http.HandlerFunc(handlers.HandleSaveType))
 
 	mux.Handle("/deleteType", http.HandlerFunc(handlers.HandleDeleteType))

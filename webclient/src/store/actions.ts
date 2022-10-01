@@ -9,6 +9,7 @@ import router from "@/router";
 import DeleteProject from "@/api/project/DeleteProject";
 import BackupProject from "@/api/project/BackupProject";
 import GetBackupPaths from "@/api/project/GetBackupPaths";
+import ResetToBackup from "@/api/project/ResetToBackup";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -81,5 +82,16 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         } else {
             commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_GET_PROJECT_BACKUPS'})
         }
+    },
+
+    async [ActionTypes.PROJECT_RESET_TO_BACKUP]({ commit, dispatch }, payload: {project: string, backup: string}) {
+
+        const success = await ResetToBackup(payload.project, payload.backup);
+
+        if( success ) {
+            commit(MutationTypes.APP_SET_SUCCESS, "SUCCESS_PROJECT_RESET")
+        } else {
+            commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_PROJECT_DELETE'})
+        }//TODO: automatisch alles leeren wenn name auf leer gesetzt wird
     },
 };

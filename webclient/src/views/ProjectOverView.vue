@@ -50,7 +50,7 @@
         <v-card-actions>
           <v-spacer />
           <v-btn text color="primary" @click="closeBackupDialog">{{$t(i18nDictionary.CLOSE)}}</v-btn>
-          <v-btn text color="primary" :disabled="selectedBackupPathIndex == -1" v-if="backupPaths != null">{{$t(i18nDictionary.LOAD_BACKUP_LOAD)}}</v-btn>
+          <v-btn text color="primary" :disabled="selectedBackupPathIndex == -1" v-if="backupPaths != null" @click="resetToBackup">{{$t(i18nDictionary.LOAD_BACKUP_LOAD)}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -92,6 +92,12 @@ export default Vue.extend({
     },
     closeBackupDialog() {
       this.backupResetTriggered = false;
+    },
+    resetToBackup() {
+      this.$store.dispatch(ActionTypes.PROJECT_RESET_TO_BACKUP, {
+        project: this.$store.state.app.currentProjectName,
+        backup: this.backupPaths[this.selectedBackupPathIndex]
+      })
     }
   },
 
