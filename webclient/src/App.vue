@@ -28,7 +28,7 @@
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
-      <v-sheet style="overflow-y: auto; height: calc(100vh - 130px); padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
+      <v-sheet style="overflow-y: auto; height: calc(100vh - 112px); padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
         <v-list class="keep">
           <v-list-item v-for="proj in projectNames" :key="proj">
             <v-list-item-title v-text="proj"></v-list-item-title>
