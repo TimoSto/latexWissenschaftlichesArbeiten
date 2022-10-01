@@ -28,7 +28,7 @@
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
-      <v-sheet style="overflow-y: auto; height: calc(100vh - 112px); padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
+      <v-sheet class="content-below-two-bars" style="overflow-y: auto; padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
         <v-list class="keep">
           <v-list-item v-for="proj in projectNames" :key="proj">
             <v-list-item-title v-text="proj"></v-list-item-title>
@@ -98,5 +98,13 @@ $dark-bg: #121212;
 
 .theme--dark.v-sheet.v-card:not(.v-sheet--outlined) {
   box-shadow: 0px 3px 1px -2px rgba(255,255,255, 0.2), 0px 2px 2px 0px rgba(255, 255, 255, 0.14), 0px 1px 5px 0px rgba(255, 255, 255, 0.12);
+}
+
+.content-below-two-bars {
+  height: calc(100vh - 128px);
+
+  @media screen and (max-width: 960px) {
+    height: calc(100vh - 112px)!important;
+  }
 }
 </style>
