@@ -39,7 +39,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view/>
+      <router-view :projectName="currentProjectName" />
 
       <v-dialog v-model="newDialog" width="300">
         <v-card>
@@ -96,7 +96,12 @@ export default Vue.extend({
   }),
 
   mounted() {
-    this.$store.dispatch(ActionTypes.APP_GET_PROJECTS)
+    this.$store.dispatch(ActionTypes.APP_GET_PROJECTS);
+
+    let urlParts = window.location.hash.split("/project/")
+    if( urlParts.length > 1 ) {
+      this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, urlParts[1])
+    }
   },
 
   methods: {
@@ -118,6 +123,9 @@ export default Vue.extend({
   computed: {
     projectNames(): string[] {
       return this.$store.state.app.projectNames
+    },
+    currentProjectName(): string {
+      return this.$store.state.app.currentProjectName;
     },
     newProjectRules() {
       return [

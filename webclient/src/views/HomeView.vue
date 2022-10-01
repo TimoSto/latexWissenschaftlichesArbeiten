@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar" style="z-index: 100" dense>
       <v-toolbar-title>Willkommen bei ThesorTex!</v-toolbar-title>
     </v-app-bar>
