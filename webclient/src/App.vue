@@ -25,7 +25,7 @@
       <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar" dense>
         <v-toolbar-title v-if="!drawer">Projekte</v-toolbar-title>
         <v-spacer v-if="!drawer"></v-spacer>
-        <v-btn icon :to="'/new'" title="Neues Projekt erstellen">
+        <v-btn icon @click="newDialog = !newDialog" title="Neues Projekt erstellen">
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-app-bar>
@@ -40,7 +40,24 @@
 
     <v-main>
       <router-view/>
+
+      <v-dialog v-model="newDialog" width="300">
+        <v-card>
+          <v-card-title>Neues Projekt</v-card-title>
+          <v-card-text style="padding-bottom: 0">
+            <v-text-field v-model="newProjectName" label="Projektname" filled style="width: 250px" :rules="newProjectRules">
+            </v-text-field>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" text @click="newDialog = false">Abbrechen</v-btn>
+            <v-btn color="primary" @click="createNewProject(); newDialog = false" :disabled="!newProjectNameValid">Speichern</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
     </v-main>
+
   </v-app>
 </template>
 
@@ -53,7 +70,9 @@ export default Vue.extend({
   name: 'App',
 
   data: () => ({
-    drawer: false
+    drawer: false,
+    newDialog: false,
+    newProjectName: ''
   }),
 
   mounted() {
@@ -63,14 +82,36 @@ export default Vue.extend({
   methods: {
     toggleDark() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    }
+    },
+    createNewProject() {
+      this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
+    },
   },
 
 
   computed: {
     projectNames(): string[] {
       return this.$store.state.app.projectNames
-    }
+    },
+    newProjectRules() {
+      return [
+        (v: string) => {
+          if ( this.projectNames.indexOf(v) !== -1) return 'Projektname bereits vergeben'
+          if ( v.indexOf(' ') >= 0 ) return 'Projektname darf kein Leerzeichen enthalten‚'
+          return true
+        },
+      ]
+    },
+    newProjectNameValid() {
+      let res = true;
+      this.newProjectRules.forEach(rule => {
+        const val = rule(this.newProjectName)
+        if ( val !== true ) {
+          res = false;
+        }
+      });
+      return res && this.newProjectName.length > 0
+    },
   }
 
 });

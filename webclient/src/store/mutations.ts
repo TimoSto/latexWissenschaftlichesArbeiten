@@ -10,4 +10,10 @@ export const mutations: MutationTree<MyState> & Mutations = {
     [MutationTypes.APP_SET_PROJECTNAMES](state, payload: string[]) {
         state.app.projectNames = payload
     },
+    [MutationTypes.APP_SET_PROJECTNAME](state, payload: string) {
+        state.app.currentProjectName = payload
+    },
+    [MutationTypes.APP_SET_ERROR](state, payload: {type: string, message: string}) {
+        state.app.error = payload
+    },
 };
