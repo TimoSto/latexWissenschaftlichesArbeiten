@@ -97,7 +97,8 @@ export default Vue.extend({
       this.$store.dispatch(ActionTypes.PROJECT_RESET_TO_BACKUP, {
         project: this.$store.state.app.currentProjectName,
         backup: this.backupPaths[this.selectedBackupPathIndex]
-      })
+      });
+      this.backupResetTriggered = false;
     }
   },
 

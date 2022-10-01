@@ -18,5 +18,6 @@ export const GermanTranslations: TranslationKeys = {
     SUCCESS_PROJECT_BACKUP: 'Backup erstellt: %v',
     LOAD_BACKUP_HEADING: 'Auf Backup zurücksetzen',
     LOAD_BACKUP_DESCR: 'Beim Zurücksetzen auf ein Backup werden alle Änderungen seitdem verworfen. Erstelle ggf. zuerst noch ein Backup vom jetzigen Stand.',
-    LOAD_BACKUP_LOAD: 'Zurücksetzen'
+    LOAD_BACKUP_LOAD: 'Zurücksetzen',
+    SUCCESS_PROJECT_RESET: 'Projekt erfolgreich zurückgesetzt'
 }

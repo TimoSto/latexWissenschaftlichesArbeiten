@@ -18,6 +18,7 @@ export type TranslationKeys = {
     LOAD_BACKUP_HEADING: string
     LOAD_BACKUP_DESCR: string
     LOAD_BACKUP_LOAD: string
+    SUCCESS_PROJECT_RESET: string
 }
 
 export const i18nDictionary: TranslationKeys = {
@@ -38,5 +39,6 @@ export const i18nDictionary: TranslationKeys = {
     SUCCESS_PROJECT_BACKUP: 'SUCCESS_PROJECT_BACKUP',
     LOAD_BACKUP_HEADING: 'LOAD_BACKUP_HEADING',
     LOAD_BACKUP_DESCR: 'LOAD_BACKUP_DESCR',
-    LOAD_BACKUP_LOAD: 'LOAD_BACKUP_LOAD'
+    LOAD_BACKUP_LOAD: 'LOAD_BACKUP_LOAD',
+    SUCCESS_PROJECT_RESET: 'SUCCESS_PROJECT_RESET'
 }
