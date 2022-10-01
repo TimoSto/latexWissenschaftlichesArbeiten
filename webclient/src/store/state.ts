@@ -1,7 +1,6 @@
 
 export type MyState = {
     app: {
-        t: string
         projectNames: string [],
     }
 }
@@ -9,7 +8,6 @@ export type MyState = {
 export const myState: MyState = {
 
     app: {
-        t: 'test',
         projectNames: ['te'],
     }
 }

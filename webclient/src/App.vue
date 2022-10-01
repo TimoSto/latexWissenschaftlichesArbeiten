@@ -10,7 +10,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer" />
 
-      <v-toolbar-title>ThesorTeX{{$store.state.app.t}}</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX</v-toolbar-title>
 
       <v-spacer />
 
