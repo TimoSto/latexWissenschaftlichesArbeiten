@@ -1,3 +1,5 @@
+import {BibType} from "@/api/bibType/BibType";
+import {BibEntry} from "@/api/bibEntry/BibEntry";
 
 export type MyState = {
     app: {
@@ -11,7 +13,9 @@ export type MyState = {
         deletedProject: string
     },
     project: {
-        backupPaths: string[]
+        backupPaths: string[],
+        bibTypes: BibType[],
+        bibEntries: BibEntry[],
     }
 }
 
@@ -28,6 +32,8 @@ export const myState: MyState = {
         deletedProject: ''
     },
     project: {
-        backupPaths: []
+        backupPaths: [],
+        bibTypes: [],
+        bibEntries: []
     }
 }

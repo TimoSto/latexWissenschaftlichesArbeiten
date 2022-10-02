@@ -10,6 +10,7 @@ import DeleteProject from "@/api/project/DeleteProject";
 import BackupProject from "@/api/project/BackupProject";
 import GetBackupPaths from "@/api/project/GetBackupPaths";
 import ResetToBackup from "@/api/project/ResetToBackup";
+import GetProjectData from "@/api/project/GetProjectData";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -93,5 +94,16 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         } else {
             commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_PROJECT_DELETE'})
         }//TODO: automatisch alles leeren wenn name auf leer gesetzt wird
+    },
+
+    async [ActionTypes.PROJECT_GET_PROJECT_DATA]({ commit, dispatch }, payload: string) {
+
+        const obj = await GetProjectData(payload);
+
+        if( obj.CompletelyLoaded ) {
+            commit(MutationTypes.PROJECT_SET_PROJECT_DATA, obj)
+        } else {
+            commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_GET_PROJECT_DATA'})
+        }
     },
 };

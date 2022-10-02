@@ -1,6 +1,6 @@
 <template>
   <div class="line">
-    <FlexBtn v-for="action in actions" :key="action.text" :action="action" :text-visible="showLarge">
+    <FlexBtn v-for="action in actions" :key="action.text" :action="action" :text-visible="showLarge" v-on:click="$emit(action.action)">
     </FlexBtn>
   </div>
 </template>

@@ -112,6 +112,10 @@ func main() {
 
 	mux.Handle("/resetToBackup", http.HandlerFunc(handlers.HandleBackupReset))
 
+	mux.Handle("/projectData", http.HandlerFunc(handlers.GetProjectData))
+
+	//old
+
 	mux.Handle("/saveType", http.HandlerFunc(handlers.HandleSaveType))
 
 	mux.Handle("/deleteType", http.HandlerFunc(handlers.HandleDeleteType))

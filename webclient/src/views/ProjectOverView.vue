@@ -29,6 +29,8 @@
             <FlexBtnContainer :actions="entryActions" i="0" :showLarge="showLargeEntryBtns">
             </FlexBtnContainer>
 
+
+
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -103,25 +105,30 @@ export default Vue.extend({
         {
           icon: 'mdi-plus',
           text: 'Eintrag hinzufügen',
+          action: 'addEntry'
         },
         {
           icon: 'mdi-vacuum',
-          text: 'Zitate aufräumen'
+          text: 'Zitate aufräumen',
+          action: 'cleanupCites'
         }
       ],
       showLargeEntryBtns: true,
       typeActions: [
         {
           icon: 'mdi-star',
-          text: 'Als Standard festlegen'
+          text: 'Als Standard festlegen',
+          action: 'toggleStandard'
         },
         {
           icon: 'mdi-reload',
-          text: 'Standard aktualisieren'
+          text: 'Standard aktualisieren',
+          action: 'refreshStandard'
         },
         {
           icon: 'mdi-plus',
-          text: 'Typen hinzufügen'
+          text: 'Typen hinzufügen',
+          action: 'addType'
         }
       ],
       showLargeTypeBtns: true
@@ -155,6 +162,13 @@ export default Vue.extend({
     backupPaths(): string[] {
       return this.$store.state.project.backupPaths
     },
+  },
+
+  mounted() {
+    this.$nextTick(()=> {
+      console.log(this.projectName)
+      this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.projectName)
+    })
   }
 });
 </script>

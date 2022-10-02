@@ -1,6 +1,7 @@
 import { MutationTree } from 'vuex';
 import { MutationTypes } from './mutation-types';
 import {MyState} from './state';
+import {ProjectData} from "@/api/project/GetProjectData";
 
 export type Mutations<S = MyState> = {
     [MutationTypes.APP_SET_PROJECTNAMES](state: S, payload: string[]): void;
@@ -25,4 +26,8 @@ export const mutations: MutationTree<MyState> & Mutations = {
     [MutationTypes.PROJECT_SET_BACKUP_PATHS](state, payload: string[]) {
         state.project.backupPaths = payload
     },
+    [MutationTypes.PROJECT_SET_PROJECT_DATA](state, payload: ProjectData) {
+        state.project.bibEntries = payload.BibEntries
+        state.project.bibTypes = payload.BibTypes
+    }
 };

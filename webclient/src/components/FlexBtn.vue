@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="primary" ref="myBtn">
+  <v-btn color="primary" ref="myBtn" @click="$emit('click')">
     <v-icon>{{action.icon}}</v-icon>
     <span v-if="textVisible">{{action.text}}</span>
   </v-btn>
