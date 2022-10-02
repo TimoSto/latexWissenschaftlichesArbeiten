@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="primary">
+  <v-btn color="primary" ref="myBtn">
     <v-icon>{{action.icon}}</v-icon>
     <span v-if="textVisible">{{action.text}}</span>
   </v-btn>

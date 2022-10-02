@@ -26,7 +26,7 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_ENTRIES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <FlexBtnContainer :actions="entryActions" i="0">
+            <FlexBtnContainer :actions="entryActions" i="0" :showLarge="showLargeEntryBtns">
             </FlexBtnContainer>
 
           </v-expansion-panel-content>
@@ -36,7 +36,7 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_TYPES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <FlexBtnContainer :actions="typeActions" i="1">
+            <FlexBtnContainer :actions="typeActions" :showLarge="showLargeTypeBtns">
             </FlexBtnContainer>
 
           </v-expansion-panel-content>
@@ -102,13 +102,14 @@ export default Vue.extend({
       entryActions: [
         {
           icon: 'mdi-plus',
-          text: 'Eintrag hinzufügen'
+          text: 'Eintrag hinzufügen',
         },
         {
           icon: 'mdi-vacuum',
           text: 'Zitate aufräumen'
         }
       ],
+      showLargeEntryBtns: true,
       typeActions: [
         {
           icon: 'mdi-star',
@@ -122,7 +123,8 @@ export default Vue.extend({
           icon: 'mdi-plus',
           text: 'Typen hinzufügen'
         }
-      ]
+      ],
+      showLargeTypeBtns: true
     }
   },
 
