@@ -58,6 +58,7 @@ export default Vue.extend({
     },
     toggleTwoThirds() {
       this.$store.commit(MutationTypes.APP_TOGGLE_TWO_THIRDS);
+      window.localStorage.setItem('ThesorTeX_twoThirdsLayout', this.$store.state.app.twoThirdsActive)
     }
   }
 });

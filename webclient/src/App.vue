@@ -109,6 +109,11 @@ export default Vue.extend({
     }
 
     this.$vuetify.theme.dark = localStorage.getItem('ThesorTeX_darkMode') === 'true'
+
+    if( localStorage.getItem('ThesorTeX_twoThirdsLayout') === 'true' ) {
+      this.$store.commit(MutationTypes.APP_TOGGLE_TWO_THIRDS)
+    }
+
   },
 
   methods: {
