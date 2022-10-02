@@ -50,6 +50,44 @@
 
         </v-expansion-panel>
 
+        <v-expansion-panel>
+          <v-expansion-panel-header>Attribute</v-expansion-panel-header>
+          <v-expansion-panel-content>
+
+            <v-simple-table disable-sort dense class="two-col-table">
+              <tbody>
+
+              <!--TODO: Wenn genug platz, in zwei spalten-->
+                <tr v-for="(attr,i) in fields" :key="attr.Field">
+                  <td>
+                    {{attr.Field}}
+                  </td>
+                  <td>
+                    <v-text-field
+                      v-model="$store.state.editor.entryToEdit.Fields[i]"
+                      type="string"
+                      ></v-text-field>
+                  </td>
+                </tr>
+
+                <tr v-for="(attr,i) in citeFields" :key="attr.Field">
+                  <td>
+                    {{attr.Field}}
+                  </td>
+                  <td>
+                    <v-text-field
+                        v-model="$store.state.editor.entryToEdit.Fields[i + fields.length]"
+                        type="string"
+                    ></v-text-field>
+                  </td>
+                </tr>
+
+              </tbody>
+            </v-simple-table>
+
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
       </v-expansion-panels>
 
     </v-sheet>
@@ -58,6 +96,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import {BibType, Field} from "../api/bibType/BibType";
 
 export default Vue.extend({
   name: "EntryEditor-View",
@@ -74,7 +113,30 @@ export default Vue.extend({
       }
       console.warn('type not found')
       return false
-    }
+    },
+    fields(): Field[] {
+      let fields = [] as Field[];
+      this.$store.state.project.bibTypes.forEach((bType: BibType) => {
+        if( bType.Name === this.$store.state.editor.entryToEdit.Typ ) {
+          fields = bType.Fields;
+        }
+      });
+      return fields;
+    },
+    citeFields(): Field[] {
+      let fields = [] as Field[];
+      this.$store.state.project.bibTypes.forEach((bType: BibType) => {
+        if( bType.Name === this.$store.state.editor.entryToEdit.Typ ) {
+          const fieldsInBib = bType.Fields.map(field => field.Field);
+          bType.CiteFields.forEach(field => {
+            if ( fieldsInBib.indexOf(field.Field) === -1 ) {
+              fields.push(field);
+            }
+          })
+        }
+      });
+      return fields;
+    },
   },
 })
 </script>
