@@ -11,6 +11,7 @@ export type MyState = {
         },
         successMessage: string
         deletedProject: string
+        twoThirdsActive: boolean
     },
     project: {
         backupPaths: string[],
@@ -35,7 +36,8 @@ export const myState: MyState = {
             message: ''
         },
         successMessage: '',
-        deletedProject: ''
+        deletedProject: '',
+        twoThirdsActive: false
     },
     project: {
         backupPaths: [],

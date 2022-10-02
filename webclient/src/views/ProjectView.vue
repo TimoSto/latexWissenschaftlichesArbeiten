@@ -49,22 +49,30 @@ export default Vue.extend({
 
 <style scoped lang='scss'>
 
-#pages {
-  transition: width .25s ease-in-out;
+#pages, #editor {
+  transition: width .25s ease-in;
 }
 
 #editor {
   flex-grow: 1;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .editor-closed {
   & #pages {
     width: 100%;
   }
+  & #editor {
+    width: 0;
+  }
 }
 
 .editor-opened {
   & #pages {
+    width: 50%;
+  }
+  & #editor {
     width: 50%;
   }
 }

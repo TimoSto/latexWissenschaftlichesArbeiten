@@ -52,7 +52,7 @@
             </FlexBtnContainer>
 
             <v-list two-line>
-              <v-list-item v-for="el in bibTypes" :key="el.Name" ripple two-line style="cursor: pointer" @click="$emit('editor', {Type: 'Type', Key: el.Name})">
+              <v-list-item v-for="el in bibTypes" :key="el.Name" ripple two-line style="cursor: pointer" @click="$emit('editor', {Type: 'bibType', Key: el.Name})">
                 <v-list-item-content>
                   <v-list-item-title>{{ el.Name }}</v-list-item-title>
                   <v-list-item-subtitle v-html="el.Model"></v-list-item-subtitle>
