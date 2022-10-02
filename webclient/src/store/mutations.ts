@@ -3,7 +3,8 @@ import { MutationTypes } from './mutation-types';
 import {MyState} from './state';
 import {ProjectData} from "@/api/project/GetProjectData";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
-import {BibType} from "@/api/bibType/BibType";
+import {BibType, CreateField} from "@/api/bibType/BibType";
+import {GenerateModelForBibType} from "@/api/bibType/GenerateModelForBibTypes";
 
 export type Mutations<S = MyState> = {
     [MutationTypes.APP_SET_PROJECTNAMES](state: S, payload: string[]): void;
@@ -60,5 +61,23 @@ export const mutations: MutationTree<MyState> & Mutations = {
                 }
             }
         }
+    },
+    [MutationTypes.EDITOR_TYPE_ADD_FIELD](state, payload: boolean) {
+        if( payload ) {
+            state.editor.typeToEdit.CiteFields.push(CreateField('', 'normal', '', ''))
+        } else {
+            state.editor.typeToEdit.Fields.push(CreateField('', 'normal', '', ''))
+        }
+    },
+    [MutationTypes.EDITOR_TYPE_RM_FIELD](state, payload: {cite: boolean, index: number}) {
+        if( payload.cite ) {
+            state.editor.typeToEdit.CiteFields.splice(payload.index, 1)
+        } else {
+            state.editor.typeToEdit.Fields.splice(payload.index, 1)
+        }
+    },
+    [MutationTypes.EDITOR_TYPE_UPDATE_MODELS](state) {
+        state.editor.typeToEdit.Model = GenerateModelForBibType(state.editor.typeToEdit.Fields);
+        state.editor.typeToEdit.CiteModel = GenerateModelForBibType(state.editor.typeToEdit.CiteFields);
     }
 };

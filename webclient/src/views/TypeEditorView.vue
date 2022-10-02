@@ -100,7 +100,10 @@
             <MyDataTable
                 keyprefix="bib"
                 :fields="$store.state.editor.typeToEdit.Fields"
-              show-citavi-attrs="true"
+                show-citavi-attrs="true"
+                v-on:changed="HandleChangeInFields"
+                v-on:removed="RmBibAttr($event)"
+                v-on:added="AddBibAttr"
             ></MyDataTable>
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -122,6 +125,7 @@
 <script lang="ts">
 import Vue from "vue";
 import MyDataTable from "../components/MyDataTable.vue";
+import {MutationTypes} from "../store/mutation-types";
 
 export default Vue.extend({
   name: "TypeEditor-View",
@@ -150,6 +154,18 @@ export default Vue.extend({
       }
       console.warn('type not found')
       return false
+    }
+  },
+
+  methods: {
+    HandleChangeInFields() {
+      this.$store.commit(MutationTypes.EDITOR_TYPE_UPDATE_MODELS);
+    },
+    AddBibAttr() {
+      this.$store.commit(MutationTypes.EDITOR_TYPE_ADD_FIELD, false)
+    },
+    RmBibAttr(evt: any) {
+      this.$store.commit(MutationTypes.EDITOR_TYPE_RM_FIELD, {cite: false, index: evt})
     }
   }
 })
