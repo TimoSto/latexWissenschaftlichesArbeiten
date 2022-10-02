@@ -97,6 +97,11 @@
           <v-expansion-panel-header>Literaturverzeichnis</v-expansion-panel-header>
           <v-expansion-panel-content>
 
+            <MyDataTable
+                keyprefix="bib"
+                :fields="$store.state.editor.typeToEdit.Fields"
+              show-citavi-attrs="true"
+            ></MyDataTable>
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -116,9 +121,11 @@
 
 <script lang="ts">
 import Vue from "vue";
+import MyDataTable from "../components/MyDataTable.vue";
 
 export default Vue.extend({
   name: "TypeEditor-View",
+  components: {MyDataTable},
   props: [
       'projectName',
       'layoutBtnContent'
