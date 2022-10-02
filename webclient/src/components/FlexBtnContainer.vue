@@ -1,6 +1,6 @@
 <template>
   <div class="line" :id="'line-ref-' + i">
-    <FlexBtn v-for="action in actions" :key="action.text" :action="action" :text-visible="!childrenLarger && rendered" ref="btns">
+    <FlexBtn v-for="action in actions" :key="action.text" :action="action" :text-visible="!childrenLarger || !rendered" ref="btns">
     </FlexBtn>
   </div>
 </template>

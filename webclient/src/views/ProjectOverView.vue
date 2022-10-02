@@ -119,7 +119,7 @@ export default Vue.extend({
           text: 'Standard aktualisieren'
         },
         {
-          icon: 'mdi-add',
+          icon: 'mdi-plus',
           text: 'Typen hinzufügen'
         }
       ]
