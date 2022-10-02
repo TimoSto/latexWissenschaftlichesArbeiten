@@ -28,3 +28,9 @@ export function CreateField(f: string, s: string, p:string, suf:string): Field {
         CitaviAttributes: []
     }
 }
+
+export type BibTypeSaveObj = {
+    Type: BibType,
+    Project: string,
+    InitialName: string
+}

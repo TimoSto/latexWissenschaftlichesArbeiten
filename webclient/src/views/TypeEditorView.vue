@@ -8,7 +8,7 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary">
+      <v-btn icon :disabled="!saveNecessary" @click="saveType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
     </v-app-bar>
@@ -143,6 +143,7 @@
 import Vue from "vue";
 import MyDataTable from "../components/MyDataTable.vue";
 import {MutationTypes} from "../store/mutation-types";
+import {ActionTypes} from "../store/action-types";
 
 export default Vue.extend({
   name: "TypeEditor-View",
@@ -164,8 +165,10 @@ export default Vue.extend({
 
   computed: {
     saveNecessary(): boolean {
+      console.log('checkS')
       for( let i = 0 ; i < this.$store.state.project.bibTypes.length ; i++ ) {
         if( this.$store.state.project.bibTypes[i].Name === this.$store.state.editor.key ) {
+          console.log('check-save-necessary', this.$store.state.project.bibTypes[i], this.$store.state.editor.typeToEdit)
           return JSON.stringify(this.$store.state.project.bibTypes[i]) !== JSON.stringify(this.$store.state.editor.typeToEdit)
         }
       }
@@ -184,6 +187,16 @@ export default Vue.extend({
     RmAttr(evt: any, cite: boolean) {
       this.$store.commit(MutationTypes.EDITOR_TYPE_RM_FIELD, {cite: cite, index: evt})
       this.$store.commit(MutationTypes.EDITOR_TYPE_UPDATE_MODELS);
+    },
+    saveType() {
+      const obj = {
+        Type: this.$store.state.editor.typeToEdit,
+        Project: this.$store.state.app.currentProjectName,
+        InitialName: this.$store.state.editor.key
+      }
+
+      this.$store.dispatch(ActionTypes.EDITOR_SAVE_TYPE, obj)
+
     }
   }
 })

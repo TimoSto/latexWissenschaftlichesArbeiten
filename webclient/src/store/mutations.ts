@@ -5,6 +5,7 @@ import {ProjectData} from "@/api/project/GetProjectData";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
 import {BibType, CreateField} from "@/api/bibType/BibType";
 import {GenerateModelForBibType} from "@/api/bibType/GenerateModelForBibTypes";
+import Vue from "vue";
 
 export type Mutations<S = MyState> = {
     [MutationTypes.APP_SET_PROJECTNAMES](state: S, payload: string[]): void;
@@ -79,5 +80,19 @@ export const mutations: MutationTree<MyState> & Mutations = {
     [MutationTypes.EDITOR_TYPE_UPDATE_MODELS](state) {
         state.editor.typeToEdit.Model = GenerateModelForBibType(state.editor.typeToEdit.Fields);
         state.editor.typeToEdit.CiteModel = GenerateModelForBibType(state.editor.typeToEdit.CiteFields);
+    },
+    [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state) {
+        for( let i = 0 ; i < state.project.bibTypes.length ; i++ ) {
+            if( state.project.bibTypes[i].Name === state.editor.key ) {
+                Vue.set(state.editor, 'key', state.editor.typeToEdit.Name);
+                Vue.set(state.project.bibTypes[i], 'Name', state.editor.typeToEdit.Name);
+                // state.project.bibTypes[i].CiteFields = state.editor.typeToEdit.CiteFields;
+                // state.project.bibTypes[i].CitaviNecessaryFields = state.editor.typeToEdit.CitaviNecessaryFields;
+                // state.project.bibTypes[i].Model = state.editor.typeToEdit.Model;
+                // state.project.bibTypes[i].CiteModel = state.editor.typeToEdit.CiteModel;
+
+                console.log(state.project.bibTypes[i])
+            }
+        }
     }
 };

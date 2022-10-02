@@ -8,7 +8,7 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary">
+      <v-btn icon :disabled="!saveNecessary" @click="saveType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
     </v-app-bar>
@@ -97,6 +97,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {BibType, Field} from "../api/bibType/BibType";
+import {ActionTypes} from "../store/action-types";
 
 export default Vue.extend({
   name: "EntryEditor-View",
@@ -138,6 +139,10 @@ export default Vue.extend({
       return fields;
     },
   },
+
+  methods: {
+
+  }
 })
 </script>
 

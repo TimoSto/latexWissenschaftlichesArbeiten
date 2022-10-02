@@ -11,6 +11,8 @@ import BackupProject from "@/api/project/BackupProject";
 import GetBackupPaths from "@/api/project/GetBackupPaths";
 import ResetToBackup from "@/api/project/ResetToBackup";
 import GetProjectData from "@/api/project/GetProjectData";
+import {BibType, BibTypeSaveObj} from "@/api/bibType/BibType";
+import SaveType from "@/api/bibType/SaveBibType";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -104,6 +106,17 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
             commit(MutationTypes.PROJECT_SET_PROJECT_DATA, obj)
         } else {
             commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_GET_PROJECT_DATA'})
+        }
+    },
+
+    async [ActionTypes.EDITOR_SAVE_TYPE]({ commit }, payload: BibTypeSaveObj) {
+
+        const resp = await SaveType(payload);
+
+        if(resp.ok) {
+            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_TYPE_SAVE');
+            console.log('hey')
+            commit(MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT)
         }
     },
 };
