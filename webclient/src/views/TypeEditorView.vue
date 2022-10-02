@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar dense color="primary" elecation="1" elevate-on-scroll>
+    <v-app-bar dense color="background" elecation="1" elevate-on-scroll>
       <v-toolbar-title>Literaturtyp</v-toolbar-title>
 
       <v-spacer />

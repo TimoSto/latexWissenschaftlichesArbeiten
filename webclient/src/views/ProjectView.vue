@@ -6,7 +6,7 @@
     </div>
 
     <div id='editor'>
-      <TypeEditorView :projectName='projectName'/>
+      <TypeEditorView :projectName='projectName' v-if="this.$store.state.editor.type === 'bibType'" v-on:toggleTwoThirds="toggleTwoThirds"/>
     </div>
 
   </div>
@@ -34,6 +34,7 @@ export default Vue.extend({
     layoutClass(): string[] {
       return [
           this.$store.state.editor.type !== '' && this.$store.state.editor.key !== '' ? 'editor-opened' : 'editor-closed',
+          this.$store.state.app.twoThirdsActive ? 'two-thirds-layout': '',
           'one-page'
       ]
     }
@@ -42,6 +43,9 @@ export default Vue.extend({
   methods: {
     openEditor(evt: {Type: string, Key: string}) {
       this.$store.commit(MutationTypes.EDITOR_OPEN, evt)
+    },
+    toggleTwoThirds() {
+      this.$store.commit(MutationTypes.APP_TOGGLE_TWO_THIRDS);
     }
   }
 });
@@ -74,6 +78,14 @@ export default Vue.extend({
   }
   & #editor {
     width: 50%;
+  }
+  &.two-thirds-layout {
+    & #pages {
+      width: 30%;
+    }
+    & #editor {
+      width: 70%;
+    }
   }
 }
 
