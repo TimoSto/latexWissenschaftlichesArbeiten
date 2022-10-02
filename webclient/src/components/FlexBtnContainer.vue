@@ -1,7 +1,6 @@
 <template>
-  <div class="line">
-    {{childWidths}}-{{lineWidth}}
-    <FlexBtn v-for="action in actions" :key="action.text" :action="action" :text-visible="childWidths < lineWidth" ref="btns">
+  <div class="line" :id="'line-ref-' + i">
+    <FlexBtn v-for="action in actions" :key="action.text" :action="action" :text-visible="!childrenLarger" ref="btns">
     </FlexBtn>
   </div>
 </template>
@@ -11,23 +10,23 @@ import FlexBtn from "@/components/FlexBtn";
 export default {
   name: "FlexBtnContainer",
   components: {FlexBtn},
-  props: ['actions'],
+  props: ['actions', 'i'],
   data(){
     return {
-      childWidths: 0,
-      lineWidth: 0
+      childrenLarger: false
     }
   },
-  mounted() {
-    setTimeout(()=> {
-      //TODO: check if this works everywhere and constantly
-      this.$refs.btns.forEach(b => {
-        console.log(b.width)
-        this.childWidths += b.width + 16;
-      });
-
-      this.lineWidth = this.$el.offsetWidth;
-    }, 0);
+  mounted(){
+    this.$nextTick(()=> {
+      setTimeout(()=>{
+        const lineElem = document.getElementById('line-ref-' + this.i);
+        let childrenWidth = 0;
+        lineElem.childNodes.forEach(n => {
+          childrenWidth += n.offsetWidth;
+        });
+        this.childrenLarger =  childrenWidth > lineElem.offsetWidth;
+      }, 0)
+    })
   },
 }
 </script>

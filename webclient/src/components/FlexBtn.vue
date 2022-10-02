@@ -12,11 +12,6 @@ export default {
       'action',
       'textVisible'
   ],
-  data() {
-    return {
-      width: 0
-    }
-  }
 }
 </script>
 
