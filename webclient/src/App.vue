@@ -264,4 +264,8 @@ $dark-bg: #121212;
   }
 }
 
+.v-toolbar__title {
+  padding-right: 4px;
+}
+
 </style>

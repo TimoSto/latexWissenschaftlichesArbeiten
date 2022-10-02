@@ -30,7 +30,7 @@
             </FlexBtnContainer>
 
             <v-list two-line>
-              <v-list-item v-for="(el,i) in bibEntries" :key="'entry-' + i" @click="$emit('editor', {Type: 'Entry', Key: el.Key})">
+              <v-list-item v-for="(el,i) in bibEntries" :key="'entry-' + i" @click="$emit('editor', {Type: 'bibEntry', Key: el.Key})">
                 <v-list-item-avatar class="cite-count" :title="'Anzahl Zitate ' + el.Key">
                   {{el.CiteNumber}}
                 </v-list-item-avatar>

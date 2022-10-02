@@ -7,6 +7,7 @@
 
     <div id='editor'>
       <TypeEditorView :projectName='projectName' v-if="this.$store.state.editor.type === 'bibType'" v-on:toggleTwoThirds="toggleTwoThirds" :layoutBtnContent="layoutBtnContent"/>
+      <EntryEditorView v-if="this.$store.state.editor.type === 'bibEntry'" v-on:toggleTwoThirds="toggleTwoThirds" :layoutBtnContent="layoutBtnContent"/>
     </div>
 
   </div>
@@ -17,10 +18,11 @@ import Vue from 'vue';
 import ProjectOverView from './ProjectOverView.vue';
 import TypeEditorView from './TypeEditorView.vue';
 import {MutationTypes} from '../store/mutation-types';
+import EntryEditorView from "./EntryEditorView.vue";
 
 export default Vue.extend({
   name: 'Project-View',
-  components: {TypeEditorView, ProjectOverView},
+  components: {EntryEditorView, TypeEditorView, ProjectOverView},
   props: [
       'projectName'
   ],
