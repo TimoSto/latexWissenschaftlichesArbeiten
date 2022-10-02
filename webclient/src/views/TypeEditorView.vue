@@ -183,6 +183,7 @@ export default Vue.extend({
     },
     RmAttr(evt: any, cite: boolean) {
       this.$store.commit(MutationTypes.EDITOR_TYPE_RM_FIELD, {cite: cite, index: evt})
+      this.$store.commit(MutationTypes.EDITOR_TYPE_UPDATE_MODELS);
     }
   }
 })
