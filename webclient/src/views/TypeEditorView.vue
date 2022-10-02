@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar dense color="background" elecation="1" elevate-on-scroll scroll-target="#scroll-editor">
+    <v-app-bar dense color="background" elevation="1" elevate-on-scroll scroll-target="#scroll-editor" style="z-index: 100">
       <v-toolbar-title>Literaturtyp: <i>{{$store.state.editor.key}}</i></v-toolbar-title>
 
       <v-spacer />
