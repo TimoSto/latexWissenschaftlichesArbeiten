@@ -1,6 +1,6 @@
 <template>
   <div class="line" :id="'line-ref-' + i">
-    <FlexBtn v-for="action in actions" :key="action.text" :action="action" :text-visible="!childrenLarger" ref="btns">
+    <FlexBtn v-for="action in actions" :key="action.text" :action="action" :text-visible="!childrenLarger && rendered" ref="btns">
     </FlexBtn>
   </div>
 </template>
@@ -13,7 +13,8 @@ export default {
   props: ['actions', 'i'],
   data(){
     return {
-      childrenLarger: false
+      childrenLarger: false,
+      rendered: false
     }
   },
   mounted(){
@@ -25,6 +26,7 @@ export default {
           childrenWidth += n.offsetWidth;
         });
         this.childrenLarger =  childrenWidth > lineElem.offsetWidth;
+        this.rendered = true;
       }, 0)
     })
   },
