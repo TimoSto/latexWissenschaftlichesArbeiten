@@ -6,7 +6,7 @@
     </div>
 
     <div id='editor'>
-      <TypeEditorView :projectName='projectName' v-if="this.$store.state.editor.type === 'bibType'" v-on:toggleTwoThirds="toggleTwoThirds"/>
+      <TypeEditorView :projectName='projectName' v-if="this.$store.state.editor.type === 'bibType'" v-on:toggleTwoThirds="toggleTwoThirds" :layoutBtnContent="layoutBtnContent"/>
     </div>
 
   </div>
@@ -37,7 +37,19 @@ export default Vue.extend({
           this.$store.state.app.twoThirdsActive ? 'two-thirds-layout': '',
           'one-page'
       ]
-    }
+    },
+    layoutBtnContent() {
+      if( this.$store.state.app.twoThirdsActive ) {
+        return [
+          '&#189;',
+          'Wechsel zu 50:50-Layout'
+        ]
+      }
+      return [
+        '&#8532;',
+        'Wechsel zu 70:30-Layout'
+      ]
+    },
   },
   
   methods: {

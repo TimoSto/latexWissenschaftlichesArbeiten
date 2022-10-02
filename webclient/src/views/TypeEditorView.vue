@@ -117,7 +117,8 @@ import Vue from "vue";
 export default Vue.extend({
   name: "TypeEditor-View",
   props: [
-      'projectName'
+      'projectName',
+      'layoutBtnContent'
   ],
 
   data() {
@@ -131,18 +132,7 @@ export default Vue.extend({
   },
 
   computed: {
-    layoutBtnContent() {
-      if( this.$store.state.app.twoThirdsActive ) {
-        return [
-          '&#189;',
-          'Wechsel zu 50:50-Layout'
-        ]
-      }
-      return [
-        '&#8532;',
-        'Wechsel zu 70:30-Layout'
-      ]
-    },
+
   }
 })
 </script>
