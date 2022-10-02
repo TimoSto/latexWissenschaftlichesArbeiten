@@ -2,6 +2,8 @@ import { MutationTree } from 'vuex';
 import { MutationTypes } from './mutation-types';
 import {MyState} from './state';
 import {ProjectData} from "@/api/project/GetProjectData";
+import {BibEntry} from "@/api/bibEntry/BibEntry";
+import {BibType} from "@/api/bibType/BibType";
 
 export type Mutations<S = MyState> = {
     [MutationTypes.APP_SET_PROJECTNAMES](state: S, payload: string[]): void;
@@ -29,5 +31,26 @@ export const mutations: MutationTree<MyState> & Mutations = {
     [MutationTypes.PROJECT_SET_PROJECT_DATA](state, payload: ProjectData) {
         state.project.bibEntries = payload.BibEntries
         state.project.bibTypes = payload.BibTypes
+    },
+    [MutationTypes.EDITOR_OPEN](state, payload: {Type: string, Key: string}) {
+        state.editor.type = payload.Type;
+        state.editor.key = payload.Key;
+        if( payload.Type === 'bibType' ) {
+            state.editor.entryToEdit = <BibEntry>{};
+            for( let i = 0; i < state.project.bibTypes.length ; i++ ) {
+                if( state.project.bibTypes[i].Name === payload.Key ) {
+                    state.editor.typeToEdit = JSON.parse(JSON.stringify(state.project.bibTypes[i]));
+                    break;
+                }
+            }
+        } else if( payload.Type === 'bibEntry' ) {
+            state.editor.typeToEdit = <BibType>{};
+            for( let i = 0; i < state.project.bibEntries.length ; i++ ) {
+                if( state.project.bibEntries[i].Key === payload.Key ) {
+                    state.editor.entryToEdit = JSON.parse(JSON.stringify(state.project.bibEntries[i]));
+                    break;
+                }
+            }
+        }
     }
 };

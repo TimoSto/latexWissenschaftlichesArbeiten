@@ -16,6 +16,12 @@ export type MyState = {
         backupPaths: string[],
         bibTypes: BibType[],
         bibEntries: BibEntry[],
+    },
+    editor: {
+        type: string,
+        key: string,
+        typeToEdit: BibType,
+        entryToEdit: BibEntry
     }
 }
 
@@ -35,5 +41,11 @@ export const myState: MyState = {
         backupPaths: [],
         bibTypes: [],
         bibEntries: []
+    },
+    editor: {
+        type: '',
+        key: '',
+        typeToEdit: <BibType>{},
+        entryToEdit: <BibEntry>{}
     }
 }
