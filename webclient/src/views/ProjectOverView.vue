@@ -26,12 +26,18 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_ENTRIES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
+            <FlexBtnContainer :actions="entryActions">
+            </FlexBtnContainer>
+
           </v-expansion-panel-content>
         </v-expansion-panel>
 
         <v-expansion-panel>
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_TYPES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
+
+            <FlexBtnContainer :actions="typeActions">
+            </FlexBtnContainer>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -79,10 +85,11 @@ import Vue from "vue";
 import {i18nDictionary} from "@/i18n/Keys";
 import ConfirmDialog from "@/components/ConfirmDialog.vue";
 import {ActionTypes} from "@/store/action-types";
+import FlexBtnContainer from "../components/FlexBtnContainer.vue";
 
 export default Vue.extend({
   name: "Project-OverView",
-  components: {ConfirmDialog},
+  components: {FlexBtnContainer, ConfirmDialog},
   props: [
       'projectName'
   ],
@@ -91,7 +98,31 @@ export default Vue.extend({
       i18nDictionary: i18nDictionary,
       deleteTriggered: false,
       backupResetTriggered: false,
-      selectedBackupPathIndex: -1
+      selectedBackupPathIndex: -1,
+      entryActions: [
+        {
+          icon: 'mdi-plus',
+          text: 'Eintrag hinzufügen'
+        },
+        {
+          icon: 'mdi-vacuum',
+          text: 'Zitate aufräumen'
+        }
+      ],
+      typeActions: [
+        {
+          icon: 'mdi-star',
+          text: 'Als Standard festlegen'
+        },
+        {
+          icon: 'mdi-reload',
+          text: 'Standard aktualisieren'
+        },
+        {
+          icon: 'mdi-add',
+          text: 'Typen hinzufügen'
+        }
+      ]
     }
   },
 
@@ -126,6 +157,6 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
