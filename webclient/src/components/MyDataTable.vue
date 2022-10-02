@@ -21,7 +21,6 @@
           </th>
           <th class="text-left" style="width: 18%;" v-if="showCitaviAttrs === 'true'">
             Citavi-Attribute
-            <v-icon style="cursor: pointer; scale: 0.6; margin-top: -5px" title="Citavi-Attribute, die diesem Feld zugeordnet werden sollen">mdi-help-circle-outline</v-icon>
           </th>
           <th style="width: 5%;"></th>
         </tr>

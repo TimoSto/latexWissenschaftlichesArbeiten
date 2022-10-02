@@ -97,6 +97,10 @@
           <v-expansion-panel-header>Literaturverzeichnis</v-expansion-panel-header>
           <v-expansion-panel-content>
 
+            <div class="preview-area">
+              <p v-html="$store.state.editor.typeToEdit.Model"></p>
+            </div>
+
             <MyDataTable
                 keyprefix="bib"
                 :fields="$store.state.editor.typeToEdit.Fields"
