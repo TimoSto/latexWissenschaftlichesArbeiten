@@ -106,8 +106,8 @@
                 :fields="$store.state.editor.typeToEdit.Fields"
                 show-citavi-attrs="true"
                 v-on:changed="HandleChangeInFields"
-                v-on:removed="RmBibAttr($event)"
-                v-on:added="AddBibAttr"
+                v-on:removed="RmAttr($event, false)"
+                v-on:added="AddAttr(false)"
             ></MyDataTable>
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -115,6 +115,19 @@
         <v-expansion-panel>
           <v-expansion-panel-header>Zitate</v-expansion-panel-header>
           <v-expansion-panel-content>
+
+            <div class="preview-area">
+              <p v-html="$store.state.editor.typeToEdit.CiteModel"></p>
+            </div>
+
+            <MyDataTable
+                keyprefix="bib"
+                :fields="$store.state.editor.typeToEdit.CiteFields"
+                show-citavi-attrs="true"
+                v-on:changed="HandleChangeInFields"
+                v-on:removed="RmAttr($event, true)"
+                v-on:added="AddAttr(true)"
+            ></MyDataTable>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -165,11 +178,11 @@ export default Vue.extend({
     HandleChangeInFields() {
       this.$store.commit(MutationTypes.EDITOR_TYPE_UPDATE_MODELS);
     },
-    AddBibAttr() {
-      this.$store.commit(MutationTypes.EDITOR_TYPE_ADD_FIELD, false)
+    AddAttr(cite: boolean) {
+      this.$store.commit(MutationTypes.EDITOR_TYPE_ADD_FIELD, cite)
     },
-    RmBibAttr(evt: any) {
-      this.$store.commit(MutationTypes.EDITOR_TYPE_RM_FIELD, {cite: false, index: evt})
+    RmAttr(evt: any, cite: boolean) {
+      this.$store.commit(MutationTypes.EDITOR_TYPE_RM_FIELD, {cite: cite, index: evt})
     }
   }
 })
