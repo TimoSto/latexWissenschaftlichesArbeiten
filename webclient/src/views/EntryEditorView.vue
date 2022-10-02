@@ -15,6 +15,43 @@
 
     <v-sheet id="scroll-editor" class="content-below-two-bars">
 
+      <v-expansion-panels flat tile multiple accordion>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header>Allgemein</v-expansion-panel-header>
+
+          <v-expansion-panel-content>
+            <v-simple-table disable-sort dense class="two-col-table">
+              <tbody>
+                <tr>
+                  <td>
+                    Schlüssel
+                  </td>
+                  <td>
+                    <v-text-field type="string" v-model="$store.state.editor.entryToEdit.Key"></v-text-field>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Literaturtyp
+                  </td>
+                  <td>
+                    <v-select
+                        v-model="$store.state.editor.entryToEdit.Typ"
+                        :items="$store.state.project.bibTypes.map(bType=>bType.Name)"
+                        :menu-props="{ bottom: true, offsetY: true }"
+                        type="string"
+                    ></v-select>
+                  </td>
+                </tr>
+              </tbody>
+            </v-simple-table>
+          </v-expansion-panel-content>
+
+        </v-expansion-panel>
+
+      </v-expansion-panels>
+
     </v-sheet>
   </div>
 </template>
