@@ -138,7 +138,6 @@ export default Vue.extend({
     saveNecessary(): boolean {
       for( let i = 0 ; i < this.$store.state.project.bibTypes.length ; i++ ) {
         if( this.$store.state.project.bibTypes[i].Name === this.$store.state.editor.key ) {
-          console.log(this.$store.state.project.bibTypes[i], this.$store.state.editor.typeToEdit)
           return JSON.stringify(this.$store.state.project.bibTypes[i]) !== JSON.stringify(this.$store.state.editor.typeToEdit)
         }
       }
@@ -152,9 +151,8 @@ export default Vue.extend({
 <style scoped lang="scss">
 .two-col-table {
   max-width: 450px;
-  &.theme--light {
-    //border-bottom: 1px solid rgba(128,128,128, 0.25);
-  }
+  border-bottom: 1px solid rgba(128,128,128, 0.25);
+  border-top: 1px solid rgba(128,128,128, 0.25);
   & tr {
     & td:first-child {
       width: 150px;
