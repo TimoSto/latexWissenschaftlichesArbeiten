@@ -31,7 +31,7 @@ export default Vue.extend({
   computed: {
     saveNecessary(): boolean {
       for( let i = 0 ; i < this.$store.state.project.bibEntries.length ; i++ ) {
-        if( this.$store.state.project.bibEntries[i].Name === this.$store.state.editor.key ) {
+        if( this.$store.state.project.bibEntries[i].Key === this.$store.state.editor.key ) {
           return JSON.stringify(this.$store.state.project.bibEntries[i]) !== JSON.stringify(this.$store.state.editor.entryToEdit)
         }
       }
