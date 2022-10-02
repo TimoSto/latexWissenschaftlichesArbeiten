@@ -29,7 +29,17 @@
             <FlexBtnContainer :actions="entryActions" i="0" :showLarge="showLargeEntryBtns">
             </FlexBtnContainer>
 
-
+            <v-list two-line>
+              <v-list-item v-for="(el,i) in bibEntries" :key="'entry-' + i" @click="$emit('editor', {Type: 'Entry', Key: el.Key})">
+                <v-list-item-avatar class="cite-count" :title="'Anzahl Zitate ' + el.Key">
+                  {{el.CiteNumber}}
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title>{{ el.Key }} - {{ el.Typ }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ el.Fields[0] }} - {{ el.Fields[1] }}</v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -40,6 +50,15 @@
 
             <FlexBtnContainer :actions="typeActions" :showLarge="showLargeTypeBtns">
             </FlexBtnContainer>
+
+            <v-list two-line>
+              <v-list-item v-for="el in bibTypes" :key="el.Name" ripple two-line style="cursor: pointer" @click="$emit('editor', {Type: 'Type', Key: el.Name})">
+                <v-list-item-content>
+                  <v-list-item-title>{{ el.Name }}</v-list-item-title>
+                  <v-list-item-subtitle v-html="el.Model"></v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -88,6 +107,8 @@ import {i18nDictionary} from "@/i18n/Keys";
 import ConfirmDialog from "@/components/ConfirmDialog.vue";
 import {ActionTypes} from "@/store/action-types";
 import FlexBtnContainer from "../components/FlexBtnContainer.vue";
+import {BibType} from "../api/bibType/BibType";
+import {BibEntry} from "../api/bibEntry/BibEntry";
 
 export default Vue.extend({
   name: "Project-OverView",
@@ -162,13 +183,18 @@ export default Vue.extend({
     backupPaths(): string[] {
       return this.$store.state.project.backupPaths
     },
+    bibTypes(): BibType[] {
+      return this.$store.state.project.bibTypes;
+    },
+    bibEntries(): BibEntry[] {
+      return this.$store.state.project.bibEntries;
+    }
   },
 
   mounted() {
     this.$nextTick(()=> {
-      console.log(this.projectName)
       this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.projectName)
-    })
+    });
   }
 });
 </script>

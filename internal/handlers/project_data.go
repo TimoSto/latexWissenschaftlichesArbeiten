@@ -12,8 +12,8 @@ import (
 )
 
 type ProjectData struct {
-	BibTypes []LiteratureType
-	BibEntry []BibEntry
+	BibTypes   []LiteratureType
+	BibEntries []BibEntry
 }
 
 func GetProjectData(w http.ResponseWriter, r *http.Request) {
@@ -42,8 +42,8 @@ func GetProjectData(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := ProjectData{
-		BibTypes: literatureTypes.Types,
-		BibEntry: entries,
+		BibTypes:   literatureTypes.Types,
+		BibEntries: entries,
 	}
 
 	jsonData, err := json.Marshal(&data)
