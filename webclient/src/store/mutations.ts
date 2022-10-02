@@ -34,6 +34,11 @@ export const mutations: MutationTree<MyState> & Mutations = {
     [MutationTypes.PROJECT_SET_PROJECT_DATA](state, payload: ProjectData) {
         state.project.bibEntries = payload.BibEntries
         state.project.bibTypes = payload.BibTypes
+        state.project.bibTypes.forEach(t => {
+            if( !t.CitaviNecessaryFields ) {
+                t.CitaviNecessaryFields = [];
+            }
+        })
     },
     [MutationTypes.EDITOR_OPEN](state, payload: {Type: string, Key: string}) {
         state.editor.type = payload.Type;

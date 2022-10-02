@@ -8,6 +8,9 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
+      <v-btn icon :disabled="!saveNecessary">
+        <v-icon>mdi-content-save</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-sheet id="scroll-editor" class="content-below-two-bars">
@@ -132,7 +135,16 @@ export default Vue.extend({
   },
 
   computed: {
-
+    saveNecessary(): boolean {
+      for( let i = 0 ; i < this.$store.state.project.bibTypes.length ; i++ ) {
+        if( this.$store.state.project.bibTypes[i].Name === this.$store.state.editor.key ) {
+          console.log(this.$store.state.project.bibTypes[i], this.$store.state.editor.typeToEdit)
+          return JSON.stringify(this.$store.state.project.bibTypes[i]) !== JSON.stringify(this.$store.state.editor.typeToEdit)
+        }
+      }
+      console.warn('type not found')
+      return false
+    }
   }
 })
 </script>
