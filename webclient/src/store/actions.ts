@@ -94,6 +94,7 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
 
         if( success ) {
             commit(MutationTypes.APP_SET_SUCCESS, "SUCCESS_PROJECT_RESET")
+            dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, payload.project);
         } else {
             commit(MutationTypes.APP_SET_ERROR, {type: 'SERVER_CALL', message: 'ERROR_PROJECT_DELETE'})
         }//TODO: automatisch alles leeren wenn name auf leer gesetzt wird
