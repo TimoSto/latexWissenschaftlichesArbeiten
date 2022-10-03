@@ -84,7 +84,7 @@
         <v-card-actions>
           <v-spacer />
           <v-btn text color="primary" @click="tryUnsafeClose=false">Abbrechen</v-btn>
-          <v-btn text color="primary" @click="closeEditor">Fortfahren</v-btn>
+          <v-btn text color="primary" @click="acceptUnsafeClose">Fortfahren</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -110,7 +110,8 @@ export default Vue.extend({
     newDialog: false,
     newProjectName: '',
     i18nDictionary: i18nDictionary,
-    tryUnsafeClose: false
+    tryUnsafeClose: false,
+
   }),
 
   mounted() {
@@ -126,6 +127,8 @@ export default Vue.extend({
     if( localStorage.getItem('ThesorTeX_twoThirdsLayout') === 'true' ) {
       this.$store.commit(MutationTypes.APP_TOGGLE_TWO_THIRDS)
     }
+
+    this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.$store.state.app.currentProjectName);
 
   },
 
@@ -157,7 +160,7 @@ export default Vue.extend({
     openUnsafeDialog() {
       this.tryUnsafeClose = true;
     },
-    closeEditor() {
+    acceptUnsafeClose() {
       this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
       this.tryUnsafeClose = false;
     }
@@ -228,9 +231,10 @@ export default Vue.extend({
       set(value: number) {
         if( value >=0 && value < this.$store.state.app.projectNames.length ) {
           const projectBefore = this.$store.state.app.currentProjectName;
-          this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, this.$store.state.app.projectNames[value]);
           if( projectBefore !== this.$store.state.app.projectNames[value] ) {
+            this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, this.$store.state.app.projectNames[value]);
             this.$router.push(`/project/${this.$store.state.app.projectNames[value]}`)
+            this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.$store.state.app.currentProjectName);
           }
         }
       }

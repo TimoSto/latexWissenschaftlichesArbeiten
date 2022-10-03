@@ -190,12 +190,6 @@ export default Vue.extend({
       return this.$store.state.project.bibEntries;
     }
   },
-
-  mounted() {
-    this.$nextTick(()=> {
-      this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.projectName)
-    });
-  }
 });
 </script>
 
