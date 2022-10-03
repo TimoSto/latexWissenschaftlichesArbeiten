@@ -149,7 +149,16 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.EDITOR_SET_SAVELY_CLOSABLE, !saveNecessary);
     },
     indexOfEdited(i) {
-      this.entryToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibEntries[i]));
+      if( i > -1) {
+        this.entryToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibEntries[i]));
+      } else {
+        this.entryToEdit = {
+          Key: '',
+          Typ: '',
+          Fields: [],
+          CiteNumber: 0
+        }
+      }
     }
   },
 

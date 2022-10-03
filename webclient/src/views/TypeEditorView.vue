@@ -209,7 +209,19 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.EDITOR_SET_SAVELY_CLOSABLE, !saveNecessary);
     },
     indexOfEdited(i) {
-      this.typeToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibTypes[i]));
+      if( i > -1 ) {
+        this.typeToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibTypes[i]));
+      } else {
+        this.typeToEdit = {
+          Name: '',
+          CitaviType: '',
+          CitaviNecessaryFields: [],
+          Fields: [],
+          CiteFields: [],
+          Model: '',
+          CiteModel: ''
+        }
+      }
     }
   },
 
