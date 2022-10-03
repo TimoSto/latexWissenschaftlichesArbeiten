@@ -142,6 +142,16 @@
 
     </v-sheet>
 
+    <ConfirmDialog
+        :model="deleteTriggered"
+        :title="$t(i18nDictionary.DELETE_TYPE_SURE_TITLE)"
+        :content="$t(i18nDictionary.DELETE_TYPE_SURE_CONTENT).replace('%s', $store.state.editor.key)"
+        :action="$t(i18nDictionary.DELETE)"
+        :abort="$t(i18nDictionary.ABORT)"
+        @declined="deleteTriggered = false"
+        @confirmed="deleteType"
+    />
+
   </div>
 </template>
 
@@ -152,10 +162,12 @@ import {MutationTypes} from "../store/mutation-types";
 import {ActionTypes} from "../store/action-types";
 import {BibType, CreateField, Field} from "../api/bibType/BibType";
 import {GenerateModelForBibType} from "../api/bibType/GenerateModelForBibTypes";
+import {i18nDictionary} from "../i18n/Keys";
+import ConfirmDialog from "../components/ConfirmDialog.vue";
 
 export default Vue.extend({
   name: "TypeEditor-View",
-  components: {MyDataTable},
+  components: {ConfirmDialog, MyDataTable},
   props: [
       'projectName',
       'layoutBtnContent'
@@ -177,6 +189,8 @@ export default Vue.extend({
         Model: '',
         CiteModel: ''
       },
+      deleteTriggered: false,
+      i18nDictionary: i18nDictionary
     }
   },
 
@@ -245,6 +259,9 @@ export default Vue.extend({
       }
     },
     triggerDeleteType() {
+      this.deleteTriggered = true;
+    },
+    deleteType() {
       this.$store.dispatch(ActionTypes.EDITOR_DELETE_TYPE, {Project: this.$store.state.app.currentProjectName, Key: this.$store.state.editor.key});
     }
   }

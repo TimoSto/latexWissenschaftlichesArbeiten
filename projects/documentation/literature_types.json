@@ -747,13 +747,6 @@
 					"CitaviAttributes": null
 				}
 			]
-		},
-		{
-			"Name": "bastardo",
-			"CitaviType": "",
-			"CitaviNecessaryFields": [],
-			"Fields": [],
-			"CiteFields": []
 		}
 	]
 }

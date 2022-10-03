@@ -24,5 +24,7 @@ export const EnglishTranslations: TranslationKeys = {
     PROJECT_BIB_ENTRIES: 'Bibliography entries',
     PROJECT_BIB_TYPES: 'Bibliography types',
     DELETE_ENTRY_SURE_TITLE: 'Delete entry',
-    DELETE_ENTRY_SURE_CONTENT: 'Do you really want to delete the bibliography entry <i>%s</i>? The only way to restore it, will be to load a backup..'
+    DELETE_ENTRY_SURE_CONTENT: 'Do you really want to delete the bibliography entry <i>%s</i>? The only way to restore it, will be to load a backup.',
+    DELETE_TYPE_SURE_TITLE: 'Delete type',
+    DELETE_TYPE_SURE_CONTENT: 'Do you really want to delete the bibliography type <i>%s</i>? The only way to restore it, will be to load a backup.'
 }
