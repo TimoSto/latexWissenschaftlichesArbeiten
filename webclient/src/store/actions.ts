@@ -13,6 +13,7 @@ import ResetToBackup from "@/api/project/ResetToBackup";
 import GetProjectData from "@/api/project/GetProjectData";
 import {BibType, BibTypeSaveObj} from "@/api/bibType/BibType";
 import SaveType from "@/api/bibType/SaveBibType";
+import SaveBibEntry, {BibEntrySaveObj} from "@/api/bibEntry/SaveBibEntry";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -115,8 +116,17 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
 
         if(resp.ok) {
             commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_TYPE_SAVE');
-            console.log('hey')
             commit(MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT, payload.Type)
+        }//TODO: Error-Handling
+    },
+
+    async [ActionTypes.EDITOR_SAVE_ENTRY]({ commit }, payload: BibEntrySaveObj) {
+
+        const resp = await SaveBibEntry(payload);
+
+        if(resp.ok) {
+            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_ENTRY_SAVE');
+            commit(MutationTypes.PROJECT_UPDATE_ENTRY_TO_EDIT, payload.Entry)
         }
     },
 };

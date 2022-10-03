@@ -80,6 +80,7 @@ export const mutations: MutationTree<MyState> & Mutations = {
     [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state, payload: BibType) {
         state.editor.key = payload.Name;
 
+        //TODO: why dont I need slice here to decouple values? Because they are complex types?
         state.project.bibTypes[state.editor.indexOfEdited].Name = payload.Name;
         state.project.bibTypes[state.editor.indexOfEdited].CitaviType = payload.CitaviType;
         state.project.bibTypes[state.editor.indexOfEdited].CitaviNecessaryFields = payload.CitaviNecessaryFields;
@@ -87,6 +88,13 @@ export const mutations: MutationTree<MyState> & Mutations = {
         state.project.bibTypes[state.editor.indexOfEdited].CiteFields = payload.CiteFields;
         state.project.bibTypes[state.editor.indexOfEdited].Model = payload.Model;
         state.project.bibTypes[state.editor.indexOfEdited].CiteModel = payload.CiteModel;
+    },
+    [MutationTypes.PROJECT_UPDATE_ENTRY_TO_EDIT](state, payload: BibEntry) {
+        state.editor.key = payload.Key;
+
+        state.project.bibEntries[state.editor.indexOfEdited].Key = payload.Key;
+        state.project.bibEntries[state.editor.indexOfEdited].Typ = payload.Typ;
+        state.project.bibEntries[state.editor.indexOfEdited].Fields = payload.Fields.slice(0);
     },
     [MutationTypes.EDITOR_SET_SAVELY_CLOSABLE](state, payload: boolean) {
         state.editor.savelyClosable = payload;

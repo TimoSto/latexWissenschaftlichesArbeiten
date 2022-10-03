@@ -8,7 +8,7 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary" @click="saveType">
+      <v-btn icon :disabled="!saveNecessary" @click="saveEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
     </v-app-bar>
@@ -28,7 +28,7 @@
                     Schlüssel
                   </td>
                   <td>
-                    <v-text-field type="string" v-model="$store.state.editor.entryToEdit.Key"></v-text-field>
+                    <v-text-field type="string" v-model="entryToEdit.Key"></v-text-field>
                   </td>
                 </tr>
                 <tr>
@@ -37,7 +37,7 @@
                   </td>
                   <td>
                     <v-select
-                        v-model="$store.state.editor.entryToEdit.Typ"
+                        v-model="entryToEdit.Typ"
                         :items="$store.state.project.bibTypes.map(bType=>bType.Name)"
                         :menu-props="{ bottom: true, offsetY: true }"
                         type="string"
@@ -64,7 +64,7 @@
                   </td>
                   <td>
                     <v-text-field
-                      v-model="$store.state.editor.entryToEdit.Fields[i]"
+                      v-model="entryToEdit.Fields[i]"
                       type="string"
                       ></v-text-field>
                   </td>
@@ -76,7 +76,7 @@
                   </td>
                   <td>
                     <v-text-field
-                        v-model="$store.state.editor.entryToEdit.Fields[i + fields.length]"
+                        v-model="entryToEdit.Fields[i + fields.length]"
                         type="string"
                     ></v-text-field>
                   </td>
@@ -105,20 +105,32 @@ export default Vue.extend({
       'layoutBtnContent'
   ],
 
+  data() {
+    return {
+      entryToEdit: {
+        Key: '',
+        Typ: '',
+        Fields: [] as string[]
+      }
+    }
+  },
+
+  mounted() {
+    //copy type at indexToEdit from store to data
+    this.$nextTick(()=>{
+      this.entryToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited]));
+
+    });
+  },
+
   computed: {
     saveNecessary(): boolean {
-      for( let i = 0 ; i < this.$store.state.project.bibEntries.length ; i++ ) {
-        if( this.$store.state.project.bibEntries[i].Key === this.$store.state.editor.key ) {
-          return JSON.stringify(this.$store.state.project.bibEntries[i]) !== JSON.stringify(this.$store.state.editor.entryToEdit)
-        }
-      }
-      console.warn('type not found')
-      return false
+      return JSON.stringify(this.entryToEdit) !== JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited])
     },
     fields(): Field[] {
       let fields = [] as Field[];
       this.$store.state.project.bibTypes.forEach((bType: BibType) => {
-        if( bType.Name === this.$store.state.editor.entryToEdit.Typ ) {
+        if( bType.Name === this.entryToEdit.Typ ) {
           fields = bType.Fields;
         }
       });
@@ -127,7 +139,7 @@ export default Vue.extend({
     citeFields(): Field[] {
       let fields = [] as Field[];
       this.$store.state.project.bibTypes.forEach((bType: BibType) => {
-        if( bType.Name === this.$store.state.editor.entryToEdit.Typ ) {
+        if( bType.Name === this.entryToEdit.Typ ) {
           const fieldsInBib = bType.Fields.map(field => field.Field);
           bType.CiteFields.forEach(field => {
             if ( fieldsInBib.indexOf(field.Field) === -1 ) {
@@ -141,7 +153,15 @@ export default Vue.extend({
   },
 
   methods: {
+    saveEntry() {
+      const obj = {
+        Project: this.$store.state.app.currentProjectName,
+        InitialKey: this.$store.state.editor.key,
+        Entry: this.entryToEdit
+      }
 
+      this.$store.dispatch(ActionTypes.EDITOR_SAVE_ENTRY, obj);
+    }
   }
 })
 </script>

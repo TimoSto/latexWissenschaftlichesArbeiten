@@ -1,14 +1,14 @@
 [
 	{
-		"Key": "xcv",
+		"Key": "hans",
 		"Typ": "Buch",
 		"Fields": [
-			"xcvsdf",
-			"xcv",
-			"xcv",
-			"xcv",
-			"xcv",
-			"xcv"
+			"Hammelsohn, Hans",
+			"2022",
+			"Hans und der Peter",
+			"2",
+			"Testdruckerei",
+			"Hammelsohn"
 		],
 		"Comment": "",
 		"CiteNumber": 0
