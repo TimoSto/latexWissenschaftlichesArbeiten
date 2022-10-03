@@ -26,12 +26,12 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_ENTRIES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <div class="d-flex">
-              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px;" @click="$emit('editor', {Type: 'bibEntry', Key: ''})">
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+              <v-btn color="primary" style="flex-grow: 1; margin: 8px;" @click="$emit('editor', {Type: 'bibEntry', Key: ''})">
                 <v-icon>mdi-plus</v-icon>
                 Eintrag hinzufügen
               </v-btn>
-              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px;">
+              <v-btn color="primary" style="flex-grow: 1; margin: 8px;">
                 <v-icon>mdi-vacuum</v-icon>
                 Zitate aufräumen
               </v-btn>
@@ -56,16 +56,16 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_TYPES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <div class="d-flex">
-              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px">
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+              <v-btn color="primary" style="flex-grow: 1; margin: 8px">
                 <v-icon>mdi-star</v-icon>
                 Als Standard festlegen
               </v-btn>
-              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px">
+              <v-btn color="primary" style="flex-grow: 1; margin: 8px">
                 <v-icon>mdi-reload</v-icon>
                 Standard aktualisieren
               </v-btn>
-              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px" @click="$emit('editor', {Type:'bibType', Key: ''})">
+              <v-btn color="primary" style="flex-grow: 1; margin: 8px" @click="$emit('editor', {Type:'bibType', Key: ''})">
                 <v-icon>mdi-plus</v-icon>
                 Typen hinzufügen
               </v-btn>
