@@ -11,6 +11,9 @@
       <v-btn icon :disabled="!saveNecessary" @click="saveEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
+      <v-btn icon @click="triggerDeleteEntry">
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
       <v-btn icon @click="closeEditorIfSave">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -138,7 +141,6 @@ export default Vue.extend({
   computed: {
     saveNecessary(): boolean {
       if( this.$store.state.editor.indexOfEdited >= 0 ) {
-        console.log(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited], this.entryToEdit)
         return JSON.stringify(this.entryToEdit) !== JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited])
       }
       return true;
@@ -184,6 +186,9 @@ export default Vue.extend({
       } else {
         this.$emit('unsafeClose');
       }
+    },
+    triggerDeleteEntry() {
+      this.$store.dispatch(ActionTypes.EDITOR_DELETE_ENTRY, {Project: this.$store.state.app.currentProjectName, Key: this.$store.state.editor.key});
     }
   }
 })

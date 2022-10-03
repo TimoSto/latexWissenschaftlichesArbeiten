@@ -106,5 +106,11 @@ export const mutations: MutationTree<MyState> & Mutations = {
     },
     [MutationTypes.EDITOR_SET_SAVELY_CLOSABLE](state, payload: boolean) {
         state.editor.savelyClosable = payload;
+    },
+    [MutationTypes.PROJECT_RM_ENTRY](state, payload: string) {
+        const i = state.project.bibEntries.map(e => e.Key).indexOf(payload);
+        if( i >= 0) {
+            state.project.bibEntries.splice(i, 1);
+        }
     }
 };

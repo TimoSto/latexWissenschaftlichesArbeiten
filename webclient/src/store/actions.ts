@@ -14,6 +14,7 @@ import GetProjectData from "@/api/project/GetProjectData";
 import {BibType, BibTypeSaveObj} from "@/api/bibType/BibType";
 import SaveType from "@/api/bibType/SaveBibType";
 import SaveBibEntry, {BibEntrySaveObj} from "@/api/bibEntry/SaveBibEntry";
+import DeleteEntry from "@/api/bibEntry/DeleteEntry";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -130,4 +131,15 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
             commit(MutationTypes.PROJECT_UPDATE_ENTRY_TO_EDIT, payload.Entry)
         }
     },
+
+    async [ActionTypes.EDITOR_DELETE_ENTRY]({commit}, payload: {Project: string, Key: string}) {
+
+        const ok = await DeleteEntry(payload.Project, payload.Key)
+
+        if( ok) {
+            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_ENTRY_DELETE');
+            commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
+            commit(MutationTypes.PROJECT_RM_ENTRY, payload.Key);
+        }
+    }
 };

@@ -1,23 +1,5 @@
 [
 	{
-		"Key": "restttt",
-		"Typ": "aufsatzi",
-		"Fields": [
-			"eett"
-		],
-		"Comment": "",
-		"CiteNumber": 0
-	},
-	{
-		"Key": "tesst",
-		"Typ": "Buch",
-		"Fields": [
-			"esf"
-		],
-		"Comment": "",
-		"CiteNumber": 0
-	},
-	{
 		"Key": "hans",
 		"Typ": "Buch",
 		"Fields": [
