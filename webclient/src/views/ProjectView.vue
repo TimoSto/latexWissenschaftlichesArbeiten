@@ -6,9 +6,21 @@
     </div>
 
     <div id='editor'>
-      <TypeEditorView :projectName='projectName' v-if="this.$store.state.editor.type === 'bibType'" v-on:toggleTwoThirds="toggleTwoThirds" :layoutBtnContent="layoutBtnContent"/>
-      <EntryEditorView v-if="this.$store.state.editor.type === 'bibEntry'" v-on:toggleTwoThirds="toggleTwoThirds" :layoutBtnContent="layoutBtnContent"/>
+      <TypeEditorView :projectName='projectName' v-if="this.$store.state.editor.type === 'bibType'" v-on:toggleTwoThirds="toggleTwoThirds" :layoutBtnContent="layoutBtnContent" v-on:unsafeClose="openUnsafeDialog"/>
+      <EntryEditorView v-if="this.$store.state.editor.type === 'bibEntry'" v-on:toggleTwoThirds="toggleTwoThirds" :layoutBtnContent="layoutBtnContent" v-on:unsafeClose="openUnsafeDialog"/>
     </div>
+
+    <v-dialog attach="#editor" max-width="350" v-model="tryUnsaveClose">
+      <v-card>
+        <v-card-title>Ungespeicherte Änderungen</v-card-title>
+        <v-card-text>Es liegen ungespeicherte Änderungen vor. Wenn du fortfährst, gehen diese verloren.</v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn text color="primary" @click="tryUnsaveClose=false">Abbrechen</v-btn>
+          <v-btn text color="primary" @click="closeEditor">Fortfahren</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 
   </div>
 </template>
@@ -28,7 +40,7 @@ export default Vue.extend({
   ],
   data() {
     return {
-      //
+      tryUnsaveClose: false
     }
   },
 
@@ -61,6 +73,13 @@ export default Vue.extend({
     toggleTwoThirds() {
       this.$store.commit(MutationTypes.APP_TOGGLE_TWO_THIRDS);
       window.localStorage.setItem('ThesorTeX_twoThirdsLayout', this.$store.state.app.twoThirdsActive)
+    },
+    openUnsafeDialog() {
+      this.tryUnsaveClose = true;
+    },
+    closeEditor() {
+      this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
+      this.tryUnsaveClose = false;
     }
   }
 });

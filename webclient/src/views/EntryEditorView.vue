@@ -175,6 +175,8 @@ export default Vue.extend({
     closeEditorIfSave() {
       if( this.$store.state.editor.savelyClosable ) {
         this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''})
+      } else {
+        this.$emit('unsafeClose');
       }
     }
   }
