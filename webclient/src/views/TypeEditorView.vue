@@ -28,7 +28,7 @@
                     Bezeichnung
                   </td>
                   <td style="text-align: right">
-                    <v-text-field type="string" v-model="$store.state.editor.typeToEdit.Name" :rules="nameRules"/>
+                    <v-text-field type="string" v-model="typeToEdit.Name" :rules="nameRules"/>
                   </td>
                 </tr>
               </tbody>
@@ -52,8 +52,8 @@
                       :prefix="citaviPrefix"
                       placeholder="Citavi-Typ"
                       type="string"
-                      v-model="$store.state.editor.typeToEdit.CitaviType"
-                      @blur="citaviPrefix = ($store.state.editor.typeToEdit.CitaviType && $store.state.editor.typeToEdit.CitaviType.length > 0) ? '@' : ''"
+                      v-model="typeToEdit.CitaviType"
+                      @blur="citaviPrefix = (typeToEdit.CitaviType && typeToEdit.CitaviType.length > 0) ? '@' : ''"
                   />
                 </td>
               </tr>
@@ -64,7 +64,7 @@
                 </td>
                 <td>
                   <v-combobox
-                      v-model="$store.state.editor.typeToEdit.CitaviNecessaryFields"
+                      v-model="typeToEdit.CitaviNecessaryFields"
                       multiple
                       :items="['doi', 'url']"
                       @focus="focusedComboCitavi=true"
@@ -80,7 +80,7 @@
                       <span
                           v-if="index === 4"
                           class="grey--text caption"
-                      >(+{{ $store.state.editor.typeToEdit.CitaviNecessaryFields.length - 4 }})</span>
+                      >(+{{ typeToEdit.CitaviNecessaryFields.length - 4 }})</span>
                     </template>
 
                   </v-combobox>
@@ -98,12 +98,12 @@
           <v-expansion-panel-content>
 
             <div class="preview-area">
-              <p v-html="$store.state.editor.typeToEdit.Model"></p>
+              <p v-html="typeToEdit.Model"></p>
             </div>
 
             <MyDataTable
                 keyprefix="bib"
-                :fields="$store.state.editor.typeToEdit.Fields"
+                :fields="typeToEdit.Fields"
                 show-citavi-attrs="true"
                 v-on:changed="HandleChangeInFields"
                 v-on:removed="RmAttr($event, false)"
@@ -117,12 +117,12 @@
           <v-expansion-panel-content>
 
             <div class="preview-area">
-              <p v-html="$store.state.editor.typeToEdit.CiteModel"></p>
+              <p v-html="typeToEdit.CiteModel"></p>
             </div>
 
             <MyDataTable
                 keyprefix="bib"
-                :fields="$store.state.editor.typeToEdit.CiteFields"
+                :fields="typeToEdit.CiteFields"
                 show-citavi-attrs="true"
                 v-on:changed="HandleChangeInFields"
                 v-on:removed="RmAttr($event, true)"
@@ -144,6 +144,7 @@ import Vue from "vue";
 import MyDataTable from "../components/MyDataTable.vue";
 import {MutationTypes} from "../store/mutation-types";
 import {ActionTypes} from "../store/action-types";
+import {BibType, CreateField, Field} from "../api/bibType/BibType";
 
 export default Vue.extend({
   name: "TypeEditor-View",
@@ -159,21 +160,32 @@ export default Vue.extend({
         (value: any) => !!value || 'Pflichtfeld',
       ],
       citaviPrefix: '',
-      focusedComboCitavi: false
+      focusedComboCitavi: false,
+      typeToEdit: {
+        Name: '',
+        Fields: [] as Field[],
+        CiteFields: [] as Field[],
+        CitaviType: '',
+        CitaviNecessaryFields: [] as string[],
+        Model: '',
+        CiteModel: ''
+      },
     }
+  },
+
+  mounted() {
+    //copy type at indexToEdit from store to data
+    this.$nextTick(()=>{
+      this.typeToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]));
+
+    });
   },
 
   computed: {
     saveNecessary(): boolean {
-      console.log('checkS')
-      for( let i = 0 ; i < this.$store.state.project.bibTypes.length ; i++ ) {
-        if( this.$store.state.project.bibTypes[i].Name === this.$store.state.editor.key ) {
-          console.log('check-save-necessary', this.$store.state.project.bibTypes[i], this.$store.state.editor.typeToEdit)
-          return JSON.stringify(this.$store.state.project.bibTypes[i]) !== JSON.stringify(this.$store.state.editor.typeToEdit)
-        }
-      }
-      console.warn('type not found')
-      return false
+
+      console.log(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited] , this.typeToEdit)
+      return JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]) !== JSON.stringify(this.typeToEdit)
     }
   },
 
@@ -182,20 +194,27 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.EDITOR_TYPE_UPDATE_MODELS);
     },
     AddAttr(cite: boolean) {
-      this.$store.commit(MutationTypes.EDITOR_TYPE_ADD_FIELD, cite)
+      if( cite ) {
+        this.typeToEdit.CiteFields.push(CreateField('', 'normal', '', ''))
+      } else {
+        this.typeToEdit.Fields.push(CreateField('', 'normal', '', ''))
+      }
     },
     RmAttr(evt: any, cite: boolean) {
-      this.$store.commit(MutationTypes.EDITOR_TYPE_RM_FIELD, {cite: cite, index: evt})
-      this.$store.commit(MutationTypes.EDITOR_TYPE_UPDATE_MODELS);
+      if( cite ) {
+        this.typeToEdit.CiteFields.splice(evt, 1)
+      } else {
+        this.typeToEdit.Fields.splice(evt, 1)
+      }
     },
     saveType() {
-      const obj = {
-        Type: this.$store.state.editor.typeToEdit,
-        Project: this.$store.state.app.currentProjectName,
-        InitialName: this.$store.state.editor.key
-      }
-
-      this.$store.dispatch(ActionTypes.EDITOR_SAVE_TYPE, obj)
+      // const obj = {
+      //   Type: this.$store.state.editor.typeToEdit,
+      //   Project: this.$store.state.app.currentProjectName,
+      //   InitialName: this.$store.state.editor.key
+      // }
+      //
+      // this.$store.dispatch(ActionTypes.EDITOR_SAVE_TYPE, obj)
 
     }
   }

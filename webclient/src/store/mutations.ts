@@ -40,60 +40,72 @@ export const mutations: MutationTree<MyState> & Mutations = {
             if( !t.CitaviNecessaryFields ) {
                 t.CitaviNecessaryFields = [];
             }
+            t.Fields.forEach(f => {
+                if( !f.CitaviAttributes ) {
+                    f.CitaviAttributes = []
+                }
+            })
+            t.CiteFields.forEach(f => {
+                if( !f.CitaviAttributes ) {
+                    f.CitaviAttributes = []
+                }
+            })
         })
     },
     [MutationTypes.EDITOR_OPEN](state, payload: {Type: string, Key: string}) {
         state.editor.type = payload.Type;
         state.editor.key = payload.Key;
         if( payload.Type === 'bibType' ) {
-            state.editor.entryToEdit = <BibEntry>{};
-            for( let i = 0; i < state.project.bibTypes.length ; i++ ) {
-                if( state.project.bibTypes[i].Name === payload.Key ) {
-                    state.editor.typeToEdit = JSON.parse(JSON.stringify(state.project.bibTypes[i]));
-                    break;
-                }
-            }
+            state.editor.indexOfEdited = state.project.bibTypes.map(t => t.Name).indexOf(payload.Key)
+            // state.editor.entryToEdit = <BibEntry>{};
+            // for( let i = 0; i < state.project.bibTypes.length ; i++ ) {
+            //     if( state.project.bibTypes[i].Name === payload.Key ) {
+            //         state.editor.typeToEdit = JSON.parse(JSON.stringify(state.project.bibTypes[i]));
+            //         break;
+            //     }
+            // }
         } else if( payload.Type === 'bibEntry' ) {
-            state.editor.typeToEdit = <BibType>{};
-            for( let i = 0; i < state.project.bibEntries.length ; i++ ) {
-                if( state.project.bibEntries[i].Key === payload.Key ) {
-                    state.editor.entryToEdit = JSON.parse(JSON.stringify(state.project.bibEntries[i]));
-                    break;
-                }
-            }
+            state.editor.indexOfEdited = state.project.bibEntries.map(e => e.Key).indexOf(payload.Key)
+            // state.editor.typeToEdit = <BibType>{};
+            // for( let i = 0; i < state.project.bibEntries.length ; i++ ) {
+            //     if( state.project.bibEntries[i].Key === payload.Key ) {
+            //         state.editor.entryToEdit = JSON.parse(JSON.stringify(state.project.bibEntries[i]));
+            //         break;
+            //     }
+            // }
         }
     },
     [MutationTypes.EDITOR_TYPE_ADD_FIELD](state, payload: boolean) {
-        if( payload ) {
-            state.editor.typeToEdit.CiteFields.push(CreateField('', 'normal', '', ''))
-        } else {
-            state.editor.typeToEdit.Fields.push(CreateField('', 'normal', '', ''))
-        }
+        // if( payload ) {
+        //     state.editor.typeToEdit.CiteFields.push(CreateField('', 'normal', '', ''))
+        // } else {
+        //     state.editor.typeToEdit.Fields.push(CreateField('', 'normal', '', ''))
+        // }
     },
     [MutationTypes.EDITOR_TYPE_RM_FIELD](state, payload: {cite: boolean, index: number}) {
-        if( payload.cite ) {
-            state.editor.typeToEdit.CiteFields.splice(payload.index, 1)
-        } else {
-            state.editor.typeToEdit.Fields.splice(payload.index, 1)
-        }
+        // if( payload.cite ) {
+        //     state.editor.typeToEdit.CiteFields.splice(payload.index, 1)
+        // } else {
+        //     state.editor.typeToEdit.Fields.splice(payload.index, 1)
+        // }
     },
     [MutationTypes.EDITOR_TYPE_UPDATE_MODELS](state) {
-        state.editor.typeToEdit.Model = GenerateModelForBibType(state.editor.typeToEdit.Fields);
-        state.editor.typeToEdit.CiteModel = GenerateModelForBibType(state.editor.typeToEdit.CiteFields);
+        // state.editor.typeToEdit.Model = GenerateModelForBibType(state.editor.typeToEdit.Fields);
+        // state.editor.typeToEdit.CiteModel = GenerateModelForBibType(state.editor.typeToEdit.CiteFields);
     },
     [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state) {
-        for( let i = 0 ; i < state.project.bibTypes.length ; i++ ) {
-            if( state.project.bibTypes[i].Name === state.editor.key ) {//TODO: wie gescheit reaktiv
-                Vue.set(state.editor, 'key', state.editor.typeToEdit.Name);
-                Vue.set(state.project.bibTypes[i], 'Name', state.editor.typeToEdit.Name);
-                Vue.set(state.project.bibTypes[i], 'Fields', state.editor.typeToEdit.Fields);
-                // state.project.bibTypes[i].CiteFields = state.editor.typeToEdit.CiteFields;
-                // state.project.bibTypes[i].CitaviNecessaryFields = state.editor.typeToEdit.CitaviNecessaryFields;
-                // state.project.bibTypes[i].Model = state.editor.typeToEdit.Model;
-                // state.project.bibTypes[i].CiteModel = state.editor.typeToEdit.CiteModel;
-
-                console.log(state.project.bibTypes[i])
-            }
-        }
+        // for( let i = 0 ; i < state.project.bibTypes.length ; i++ ) {
+        //     if( state.project.bibTypes[i].Name === state.editor.key ) {//TODO: wie gescheit reaktiv
+        //         Vue.set(state.editor, 'key', state.editor.typeToEdit.Name);
+        //         Vue.set(state.project.bibTypes[i], 'Name', state.editor.typeToEdit.Name);
+        //         Vue.set(state.project.bibTypes[i], 'Fields', state.editor.typeToEdit.Fields);
+        //         // state.project.bibTypes[i].CiteFields = state.editor.typeToEdit.CiteFields;
+        //         // state.project.bibTypes[i].CitaviNecessaryFields = state.editor.typeToEdit.CitaviNecessaryFields;
+        //         // state.project.bibTypes[i].Model = state.editor.typeToEdit.Model;
+        //         // state.project.bibTypes[i].CiteModel = state.editor.typeToEdit.CiteModel;
+        //
+        //         console.log(state.project.bibTypes[i])
+        //     }
+        //}
     }
 };

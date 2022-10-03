@@ -21,8 +21,7 @@ export type MyState = {
     editor: {
         type: string,
         key: string,
-        typeToEdit: BibType,
-        entryToEdit: BibEntry
+        indexOfEdited: number
     }
 }
 
@@ -47,7 +46,6 @@ export const myState: MyState = {
     editor: {
         type: '',
         key: '',
-        typeToEdit: <BibType>{},
-        entryToEdit: <BibEntry>{}
+        indexOfEdited: -1
     }
 }
