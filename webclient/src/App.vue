@@ -44,7 +44,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view :projectName="currentProjectName" v-on:unsafeClose="openUnsafeDialog"/>
+      <router-view :projectName="currentProjectName" v-on:unsafeClose="openUnsafeDialog" v-on:unsafeSwitch="openUnsafeDialog($event)"/>
 
       <v-dialog v-model="newDialog" width="300">
         <v-card>
@@ -111,7 +111,8 @@ export default Vue.extend({
     newProjectName: '',
     i18nDictionary: i18nDictionary,
     tryUnsafeClose: false,
-    trySwitchToProject: ''
+    trySwitchToProject: '',
+    switchObj: {Type: '', Key: ''}
   }),
 
   mounted() {
@@ -164,15 +165,22 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
       this.$router.push('/');
     },
-    openUnsafeDialog() {
+    openUnsafeDialog(switchTo?: {Type: string, Key: string}) {
       this.tryUnsafeClose = true;
+      if( switchTo ) {
+        this.switchObj = switchTo
+      }
     },
     acceptUnsafeClose() {
-      this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
       this.tryUnsafeClose = false;
-      if( this.trySwitchToProject.length > 0 ) {
-        this.switchToProject(this.trySwitchToProject);
-        this.trySwitchToProject = '';
+      if( this.switchObj.Type.length > 0 ) {
+        this.$store.commit(MutationTypes.EDITOR_OPEN, this.switchObj);
+      } else {
+        this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
+        if (this.trySwitchToProject.length > 0) {
+          this.switchToProject(this.trySwitchToProject);
+          this.trySwitchToProject = '';
+        }
       }
     }
   },

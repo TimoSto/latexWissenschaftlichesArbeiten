@@ -51,7 +51,11 @@ export default Vue.extend({
   
   methods: {
     openEditor(evt: {Type: string, Key: string}) {
-      this.$store.commit(MutationTypes.EDITOR_OPEN, evt)
+      if( this.$store.state.editor.savelyClosable ) {
+        this.$store.commit(MutationTypes.EDITOR_OPEN, evt)
+      } else {
+        this.$emit('unsafeSwitch', evt);
+      }
     },
     toggleTwoThirds() {
       this.$store.commit(MutationTypes.APP_TOGGLE_TWO_THIRDS);
