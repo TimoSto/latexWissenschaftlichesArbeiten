@@ -1,14 +1,5 @@
 [
 	{
-		"Key": "testu",
-		"Typ": "website",
-		"Fields": [
-			""
-		],
-		"Comment": "",
-		"CiteNumber": 0
-	},
-	{
 		"Key": "hans",
 		"Typ": "Buch",
 		"Fields": [
@@ -18,6 +9,22 @@
 			"2",
 			"Testdruckerei",
 			"Hammelsohn"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "test2",
+		"Typ": "citaviAufsatzDoi",
+		"Fields": [],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "testu",
+		"Typ": "website",
+		"Fields": [
+			""
 		],
 		"Comment": "",
 		"CiteNumber": 0

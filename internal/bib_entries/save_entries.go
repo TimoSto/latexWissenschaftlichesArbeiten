@@ -26,9 +26,9 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string, readF
 
 	for n, entry := range entries {
 
-		if len(entry.Fields) == 0 {
-			return fmt.Errorf("empty fields. You propably uploaded an invalid file."), 0, 0
-		}
+		//if len(entry.Fields) == 0 {
+		//	return fmt.Errorf("empty fields. You propably uploaded an invalid file."), 0, 0
+		//}
 
 		fmt.Println(entry.Key, initialKeys[n])
 

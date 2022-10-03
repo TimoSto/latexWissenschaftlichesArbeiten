@@ -24,7 +24,7 @@ func ConvertBibToCSV(project string, readFile func(string) ([]byte, error), writ
 	}
 
 	sort.Slice(bibEntries, func(i, j int) bool {
-		return strings.ToLower(bibEntries[i].Fields[0]) < strings.ToLower(bibEntries[j].Fields[0])
+		return strings.ToLower(bibEntries[i].Key) < strings.ToLower(bibEntries[j].Key)
 	})
 
 	filestring := "key;type;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;\n"

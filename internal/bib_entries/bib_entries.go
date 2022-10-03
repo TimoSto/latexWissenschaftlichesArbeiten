@@ -31,7 +31,7 @@ func ReadBibEntries(project string, readFile func(string) ([]byte, error)) ([]Bi
 	}
 
 	sort.Slice(bibEntries, func(i, j int) bool {
-		return strings.ToLower(bibEntries[i].Fields[0]) < strings.ToLower(bibEntries[j].Fields[0])
+		return strings.ToLower(bibEntries[i].Key) < strings.ToLower(bibEntries[j].Key)
 	})
 
 	bibEntries, err = CountCites(project, bibEntries, readFile)
