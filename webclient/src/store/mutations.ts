@@ -112,5 +112,11 @@ export const mutations: MutationTree<MyState> & Mutations = {
         if( i >= 0) {
             state.project.bibEntries.splice(i, 1);
         }
+    },
+    [MutationTypes.PROJECT_RM_TYPE](state, payload: string) {
+        const i = state.project.bibTypes.map(e => e.Name).indexOf(payload);
+        if( i >= 0) {
+            state.project.bibTypes.splice(i, 1);
+        }
     }
 };

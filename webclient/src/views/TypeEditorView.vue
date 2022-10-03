@@ -11,6 +11,9 @@
       <v-btn icon :disabled="!saveNecessary" @click="saveType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
+      <v-btn icon @click="triggerDeleteType">
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
       <v-btn icon @click="closeEditorIfSave">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -236,6 +239,9 @@ export default Vue.extend({
       } else {
         this.$emit('unsafeClose');
       }
+    },
+    triggerDeleteType() {
+      this.$store.dispatch(ActionTypes.EDITOR_DELETE_TYPE, {Project: this.$store.state.app.currentProjectName, Key: this.$store.state.editor.key});
     }
   }
 })
