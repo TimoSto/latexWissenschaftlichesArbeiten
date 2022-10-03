@@ -217,6 +217,8 @@ export default Vue.extend({
     checkNeededFields() {
       if(this.entryToEdit.Key.length === 0) {
         this.neededFields = false;
+      } else if(this.entryToEdit.Typ.length === 0) {
+        this.neededFields = false;
       } else {
         this.neededFields = true;
       }
