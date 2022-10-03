@@ -75,6 +75,7 @@ export const mutations: MutationTree<MyState> & Mutations = {
             // }
         } else {
             state.editor.indexOfEdited = -1;
+            state.editor.savelyClosable = true;
         }
     },
     [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state, payload: BibType) {

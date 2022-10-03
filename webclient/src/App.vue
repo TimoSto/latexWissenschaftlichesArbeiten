@@ -34,11 +34,11 @@
       </v-app-bar>
       <v-sheet class="content-below-two-bars" style="padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
         <v-list class="keep">
-          <v-list-item-group v-model="indexOfCurrentProjectName" color="accent">
-            <v-list-item v-for="(item,i) in projectNames" :key="'project-' + i">
+<!--          <v-list-item-group v-model="indexOfCurrentProjectName" color="accent">-->
+            <v-list-item v-for="(item,i) in projectNames" :key="'project-' + i" @click="switchToProject(item)">
               <v-list-item-title>{{item}}</v-list-item-title>
             </v-list-item>
-          </v-list-item-group>
+<!--          </v-list-item-group>-->
         </v-list>
       </v-sheet>
     </v-navigation-drawer>
@@ -111,7 +111,7 @@ export default Vue.extend({
     newProjectName: '',
     i18nDictionary: i18nDictionary,
     tryUnsafeClose: false,
-
+    trySwitchToProject: ''
   }),
 
   mounted() {
@@ -149,7 +149,14 @@ export default Vue.extend({
     },
     switchToProject(name: string) {
       if( name !== this.currentProjectName ) {
-        this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, name)
+        if ( this.$store.state.editor.savelyClosable ) {
+          this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, name)
+          this.$router.push(`/project/${name}`)
+          this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.$store.state.app.currentProjectName);
+        } else {
+          this.tryUnsafeClose = true;
+          this.trySwitchToProject = name;
+        }
       }
     },
     toHome() {
@@ -163,6 +170,10 @@ export default Vue.extend({
     acceptUnsafeClose() {
       this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
       this.tryUnsafeClose = false;
+      if( this.trySwitchToProject.length > 0 ) {
+        this.switchToProject(this.trySwitchToProject);
+        this.trySwitchToProject = '';
+      }
     }
   },
 
@@ -223,21 +234,6 @@ export default Vue.extend({
     },
     snackbarOpened(): boolean {
       return !!this.snackBarMessage && this.snackBarMessage.length > 0
-    },
-    indexOfCurrentProjectName: {
-      get() {
-        return this.$store.state.app.projectNames.indexOf(this.$store.state.app.currentProjectName)
-      },
-      set(value: number) {
-        if( value >=0 && value < this.$store.state.app.projectNames.length ) {
-          const projectBefore = this.$store.state.app.currentProjectName;
-          if( projectBefore !== this.$store.state.app.projectNames[value] ) {
-            this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, this.$store.state.app.projectNames[value]);
-            this.$router.push(`/project/${this.$store.state.app.projectNames[value]}`)
-            this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.$store.state.app.currentProjectName);
-          }
-        }
-      }
     },
   }
 
