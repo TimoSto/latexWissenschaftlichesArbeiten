@@ -83,9 +83,10 @@ export const mutations: MutationTree<MyState> & Mutations = {
     },
     [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state) {
         for( let i = 0 ; i < state.project.bibTypes.length ; i++ ) {
-            if( state.project.bibTypes[i].Name === state.editor.key ) {
+            if( state.project.bibTypes[i].Name === state.editor.key ) {//TODO: wie gescheit reaktiv
                 Vue.set(state.editor, 'key', state.editor.typeToEdit.Name);
                 Vue.set(state.project.bibTypes[i], 'Name', state.editor.typeToEdit.Name);
+                Vue.set(state.project.bibTypes[i], 'Fields', state.editor.typeToEdit.Fields);
                 // state.project.bibTypes[i].CiteFields = state.editor.typeToEdit.CiteFields;
                 // state.project.bibTypes[i].CitaviNecessaryFields = state.editor.typeToEdit.CitaviNecessaryFields;
                 // state.project.bibTypes[i].Model = state.editor.typeToEdit.Model;
