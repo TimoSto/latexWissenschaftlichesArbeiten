@@ -116,7 +116,7 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         if(resp.ok) {
             commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_TYPE_SAVE');
             console.log('hey')
-            commit(MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT)
+            commit(MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT, payload.Type)
         }
     },
 };

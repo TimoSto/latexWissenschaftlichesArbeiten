@@ -105,7 +105,7 @@
                 keyprefix="bib"
                 :fields="typeToEdit.Fields"
                 show-citavi-attrs="true"
-                v-on:changed="HandleChangeInFields"
+                v-on:changed="UpdateModels"
                 v-on:removed="RmAttr($event, false)"
                 v-on:added="AddAttr(false)"
             ></MyDataTable>
@@ -124,7 +124,7 @@
                 keyprefix="bib"
                 :fields="typeToEdit.CiteFields"
                 show-citavi-attrs="true"
-                v-on:changed="HandleChangeInFields"
+                v-on:changed="UpdateModels"
                 v-on:removed="RmAttr($event, true)"
                 v-on:added="AddAttr(true)"
             ></MyDataTable>
@@ -145,6 +145,7 @@ import MyDataTable from "../components/MyDataTable.vue";
 import {MutationTypes} from "../store/mutation-types";
 import {ActionTypes} from "../store/action-types";
 import {BibType, CreateField, Field} from "../api/bibType/BibType";
+import {GenerateModelForBibType} from "../api/bibType/GenerateModelForBibTypes";
 
 export default Vue.extend({
   name: "TypeEditor-View",
@@ -183,15 +184,16 @@ export default Vue.extend({
 
   computed: {
     saveNecessary(): boolean {
-
+      //
       console.log(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited] , this.typeToEdit)
       return JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]) !== JSON.stringify(this.typeToEdit)
     }
   },
 
   methods: {
-    HandleChangeInFields() {
-      this.$store.commit(MutationTypes.EDITOR_TYPE_UPDATE_MODELS);
+    UpdateModels() {
+      this.typeToEdit.Model = GenerateModelForBibType(this.typeToEdit.Fields);
+      this.typeToEdit.CiteModel = GenerateModelForBibType(this.typeToEdit.CiteFields);
     },
     AddAttr(cite: boolean) {
       if( cite ) {
@@ -199,6 +201,7 @@ export default Vue.extend({
       } else {
         this.typeToEdit.Fields.push(CreateField('', 'normal', '', ''))
       }
+      this.UpdateModels();
     },
     RmAttr(evt: any, cite: boolean) {
       if( cite ) {
@@ -206,15 +209,16 @@ export default Vue.extend({
       } else {
         this.typeToEdit.Fields.splice(evt, 1)
       }
+      this.UpdateModels();
     },
     saveType() {
-      // const obj = {
-      //   Type: this.$store.state.editor.typeToEdit,
-      //   Project: this.$store.state.app.currentProjectName,
-      //   InitialName: this.$store.state.editor.key
-      // }
-      //
-      // this.$store.dispatch(ActionTypes.EDITOR_SAVE_TYPE, obj)
+      const obj = {
+        Type: this.typeToEdit,
+        Project: this.$store.state.app.currentProjectName,
+        InitialName: this.$store.state.editor.key
+      }
+
+      this.$store.dispatch(ActionTypes.EDITOR_SAVE_TYPE, obj)
 
     }
   }

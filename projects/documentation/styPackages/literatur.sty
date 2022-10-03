@@ -12,12 +12,13 @@
 \newcommand{\printBibEntry}[9]{
 	\IfStrEqCase{#1}{%
 	%Area to add new bibifs via gui
-			{aufsatzfddfg}{\printaufsatzfddfg{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+			{aufsatz}{\printaufsatz{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{Buch}{\printBuch{#2}{#3}{#4}{#5}{#6}}%
 			{citaviAufsatzDoi}{\printcitaviAufsatzDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{citaviInbookDoi}{\printcitaviInbookDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{citaviInCollectionDoi}{\printcitaviInCollectionDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}{#9}}%
 			{citaviInProceedingsDoi}{\printcitaviInProceedingsDoi{#2}{#3}{#4}{#5}{#6}{#7}}%
+			{faufsatz}{\printfaufsatz{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{Norm}{\printNorm{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{onlineAufsatz}{\printonlineAufsatz{#2}{#3}{#4}{#5}{#6}}%
 			{website}{\printwebsite{#2}{#3}{#4}{#5}{#6}}%
@@ -60,7 +61,7 @@
 %!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
 \def\bibparindent{1.5em}
 %Area to add new bibprints via gui
-\newcommand{\printaufsatzfddfg}[7]{
+\newcommand{\printaufsatz}[7]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
@@ -110,6 +111,15 @@
 	\parindent 0pt
 	\hangafter=1
 	\textit{#1} (#2) #3. In: #4, S. #5, https://doi.org/#6
+	\\
+	\vspace{-12pt}
+
+}
+\newcommand{\printfaufsatz}[7]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	\textit{#1} (#2). #3. In: \textit{#4} #5, S. #6, #7
 	\\
 	\vspace{-12pt}
 
@@ -184,12 +194,13 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{aufsatzfddfg}{\footnote{#3\citeaufsatzfddfg{\72}{\66}{#2}.}}%
+			{aufsatz}{\footnote{#3\citeaufsatz{\72}{\66}{#2}.}}%
 			{Buch}{\footnote{#3\citeBuch{\70}{\66}{#2}.}}%
 			{citaviAufsatzDoi}{\footnote{#3\citecitaviAufsatzDoi{\72}{\66}{#2}.}}%
 			{citaviInbookDoi}{\footnote{#3\citecitaviInbookDoi{\72}{\66}{#2}.}}%
 			{citaviInCollectionDoi}{\footnote{#3\citecitaviInCollectionDoi{\73}{\66}{#2}.}}%
 			{citaviInProceedingsDoi}{\footnote{#3\citecitaviInProceedingsDoi{\71}{\66}{#2}.}}%
+			{faufsatz}{\footnote{#3\citefaufsatz{\72}{\66}{#2}.}}%
 			{Norm}{\footnote{#3\citeNorm{\66}{#2}.}}%
 			{onlineAufsatz}{\footnote{#3\citeonlineAufsatz{\70}{\66}{#2}.}}%
 			{website}{\footnote{#3\citewebsite{\70}{\71}{#2}.}}%
@@ -211,12 +222,13 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 			%Area to add citeifs_inline via gui
-			{aufsatzfddfg}{ ({#3\citeaufsatzfddfg{\72}{\66}{#2})}}%
+			{aufsatz}{ ({#3\citeaufsatz{\72}{\66}{#2})}}%
 			{Buch}{ ({#3\citeBuch{\70}{\66}{#2})}}%
 			{citaviAufsatzDoi}{ ({#3\citecitaviAufsatzDoi{\72}{\66}{#2})}}%
 			{citaviInbookDoi}{ ({#3\citecitaviInbookDoi{\72}{\66}{#2})}}%
 			{citaviInCollectionDoi}{ ({#3\citecitaviInCollectionDoi{\73}{\66}{#2})}}%
 			{citaviInProceedingsDoi}{ ({#3\citecitaviInProceedingsDoi{\71}{\66}{#2})}}%
+			{faufsatz}{ ({#3\citefaufsatz{\72}{\66}{#2})}}%
 			{Norm}{ ({#3\citeNorm{\66}{#2})}}%
 			{onlineAufsatz}{ ({#3\citeonlineAufsatz{\70}{\66}{#2})}}%
 			{website}{ ({#3\citewebsite{\70}{\71}{#2})}}%
@@ -231,7 +243,7 @@
 
 %Prints für verschiedene Fußnotenarten
 %Area to add citecommands via gui
-\newcommand{\citeaufsatzfddfg}[3]{%
+\newcommand{\citeaufsatz}[3]{%
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citeBuch}[3]{%
@@ -247,6 +259,9 @@
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citecitaviInProceedingsDoi}[3]{%
+	\textit{#1} (#2), #3%
+}
+\newcommand{\citefaufsatz}[3]{%
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citeNorm}[2]{%

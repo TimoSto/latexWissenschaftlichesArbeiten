@@ -93,19 +93,15 @@ export const mutations: MutationTree<MyState> & Mutations = {
         // state.editor.typeToEdit.Model = GenerateModelForBibType(state.editor.typeToEdit.Fields);
         // state.editor.typeToEdit.CiteModel = GenerateModelForBibType(state.editor.typeToEdit.CiteFields);
     },
-    [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state) {
-        // for( let i = 0 ; i < state.project.bibTypes.length ; i++ ) {
-        //     if( state.project.bibTypes[i].Name === state.editor.key ) {//TODO: wie gescheit reaktiv
-        //         Vue.set(state.editor, 'key', state.editor.typeToEdit.Name);
-        //         Vue.set(state.project.bibTypes[i], 'Name', state.editor.typeToEdit.Name);
-        //         Vue.set(state.project.bibTypes[i], 'Fields', state.editor.typeToEdit.Fields);
-        //         // state.project.bibTypes[i].CiteFields = state.editor.typeToEdit.CiteFields;
-        //         // state.project.bibTypes[i].CitaviNecessaryFields = state.editor.typeToEdit.CitaviNecessaryFields;
-        //         // state.project.bibTypes[i].Model = state.editor.typeToEdit.Model;
-        //         // state.project.bibTypes[i].CiteModel = state.editor.typeToEdit.CiteModel;
-        //
-        //         console.log(state.project.bibTypes[i])
-        //     }
-        //}
+    [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state, payload: BibType) {
+        console.log(state.project.bibTypes[state.editor.indexOfEdited])
+        state.project.bibTypes[state.editor.indexOfEdited].Name = payload.Name;
+        state.project.bibTypes[state.editor.indexOfEdited].CitaviType = payload.CitaviType;
+        state.project.bibTypes[state.editor.indexOfEdited].CitaviNecessaryFields = payload.CitaviNecessaryFields;
+        state.project.bibTypes[state.editor.indexOfEdited].Fields = payload.Fields;
+        state.project.bibTypes[state.editor.indexOfEdited].CiteFields = payload.CiteFields;
+        state.project.bibTypes[state.editor.indexOfEdited].Model = payload.Model;
+        state.project.bibTypes[state.editor.indexOfEdited].CiteModel = payload.CiteModel;
+        console.log('after', state.project.bibTypes[state.editor.indexOfEdited])
     }
 };
