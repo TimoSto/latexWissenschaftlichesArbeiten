@@ -78,7 +78,8 @@ export const mutations: MutationTree<MyState> & Mutations = {
         }
     },
     [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state, payload: BibType) {
-        console.log(state.project.bibTypes[state.editor.indexOfEdited])
+        state.editor.key = payload.Name;
+
         state.project.bibTypes[state.editor.indexOfEdited].Name = payload.Name;
         state.project.bibTypes[state.editor.indexOfEdited].CitaviType = payload.CitaviType;
         state.project.bibTypes[state.editor.indexOfEdited].CitaviNecessaryFields = payload.CitaviNecessaryFields;
@@ -86,7 +87,6 @@ export const mutations: MutationTree<MyState> & Mutations = {
         state.project.bibTypes[state.editor.indexOfEdited].CiteFields = payload.CiteFields;
         state.project.bibTypes[state.editor.indexOfEdited].Model = payload.Model;
         state.project.bibTypes[state.editor.indexOfEdited].CiteModel = payload.CiteModel;
-        console.log('after', state.project.bibTypes[state.editor.indexOfEdited])
     },
     [MutationTypes.EDITOR_SET_SAVELY_CLOSABLE](state, payload: boolean) {
         state.editor.savelyClosable = payload;
