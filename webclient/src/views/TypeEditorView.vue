@@ -8,7 +8,7 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary" @click="saveType">
+      <v-btn icon :disabled="!saveNecessary || !neededFields" @click="saveType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon @click="triggerDeleteType">
@@ -33,7 +33,7 @@
                   <td>
                     Bezeichnung
                   </td>
-                  <td style="text-align: right">
+                  <td style="text-align: right" @input="checkNeededFields">
                     <v-text-field type="string" v-model="typeToEdit.Name" :rules="nameRules"/>
                   </td>
                 </tr>
@@ -190,7 +190,8 @@ export default Vue.extend({
         CiteModel: ''
       },
       deleteTriggered: false,
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      neededFields: true
     }
   },
 
@@ -263,6 +264,13 @@ export default Vue.extend({
     },
     deleteType() {
       this.$store.dispatch(ActionTypes.EDITOR_DELETE_TYPE, {Project: this.$store.state.app.currentProjectName, Key: this.$store.state.editor.key});
+    },
+    checkNeededFields() {
+      if(this.typeToEdit.Name.length === 0) {
+        this.neededFields = false;
+      }  else {
+        this.neededFields = true;
+      }
     }
   }
 })
