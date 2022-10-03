@@ -8,7 +8,7 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary" @click="saveEntry">
+      <v-btn icon :disabled="!saveNecessary || !neededFields" @click="saveEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon @click="triggerDeleteEntry">
@@ -34,7 +34,7 @@
                     Schlüssel
                   </td>
                   <td>
-                    <v-text-field type="string" v-model="entryToEdit.Key" :rules="nameRules"></v-text-field>
+                    <v-text-field type="string" v-model="entryToEdit.Key" :rules="nameRules" @input="checkNeededFields"></v-text-field>
                   </td>
                 </tr>
                 <tr>
@@ -48,6 +48,7 @@
                         :menu-props="{ bottom: true, offsetY: true }"
                         :rules="nameRules"
                         type="string"
+                        @input="checkNeededFields"
                     ></v-select>
                   </td>
                 </tr>
@@ -139,6 +140,7 @@ export default Vue.extend({
       nameRules: [
         (value: any) => !!value || 'Pflichtfeld',
       ],
+      neededFields: true
     }
   },
 
@@ -211,6 +213,13 @@ export default Vue.extend({
     },
     deleteEntry() {
       this.$store.dispatch(ActionTypes.EDITOR_DELETE_ENTRY, {Project: this.$store.state.app.currentProjectName, Key: this.$store.state.editor.key});
+    },
+    checkNeededFields() {
+      if(this.entryToEdit.Key.length === 0) {
+        this.neededFields = false;
+      } else {
+        this.neededFields = true;
+      }
     }
   }
 })
