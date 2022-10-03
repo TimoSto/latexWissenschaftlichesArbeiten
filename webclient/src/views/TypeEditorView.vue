@@ -11,7 +11,7 @@
       <v-btn icon :disabled="!saveNecessary || !neededFields" @click="saveType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
-      <v-btn icon @click="triggerDeleteType">
+      <v-btn icon @click="triggerDeleteType" :disabled="$store.state.editor.key.length === 0">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
       <v-btn icon @click="closeEditorIfSave">
