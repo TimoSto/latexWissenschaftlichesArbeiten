@@ -82,13 +82,19 @@ export const mutations: MutationTree<MyState> & Mutations = {
         state.editor.key = payload.Name;
 
         //TODO: why dont I need slice here to decouple values? Because they are complex types?
-        state.project.bibTypes[state.editor.indexOfEdited].Name = payload.Name;
-        state.project.bibTypes[state.editor.indexOfEdited].CitaviType = payload.CitaviType;
-        state.project.bibTypes[state.editor.indexOfEdited].CitaviNecessaryFields = payload.CitaviNecessaryFields;
-        state.project.bibTypes[state.editor.indexOfEdited].Fields = payload.Fields;
-        state.project.bibTypes[state.editor.indexOfEdited].CiteFields = payload.CiteFields;
-        state.project.bibTypes[state.editor.indexOfEdited].Model = payload.Model;
-        state.project.bibTypes[state.editor.indexOfEdited].CiteModel = payload.CiteModel;
+        if( state.editor.indexOfEdited >= 0 ) {
+            state.project.bibTypes[state.editor.indexOfEdited].Name = payload.Name;
+            state.project.bibTypes[state.editor.indexOfEdited].CitaviType = payload.CitaviType;
+            state.project.bibTypes[state.editor.indexOfEdited].CitaviNecessaryFields = payload.CitaviNecessaryFields;
+            state.project.bibTypes[state.editor.indexOfEdited].Fields = payload.Fields;
+            state.project.bibTypes[state.editor.indexOfEdited].CiteFields = payload.CiteFields;
+            state.project.bibTypes[state.editor.indexOfEdited].Model = payload.Model;
+            state.project.bibTypes[state.editor.indexOfEdited].CiteModel = payload.CiteModel;
+        } else {
+            const newType = JSON.parse(JSON.stringify(payload))
+            state.project.bibTypes.push(newType);
+            state.editor.indexOfEdited = state.project.bibTypes.length - 1;
+        }
     },
     [MutationTypes.PROJECT_UPDATE_ENTRY_TO_EDIT](state, payload: BibEntry) {
         state.editor.key = payload.Key;
@@ -97,7 +103,7 @@ export const mutations: MutationTree<MyState> & Mutations = {
             state.project.bibEntries[state.editor.indexOfEdited].Key = payload.Key;
             state.project.bibEntries[state.editor.indexOfEdited].Typ = payload.Typ;
             state.project.bibEntries[state.editor.indexOfEdited].Fields = payload.Fields.slice(0);
-        } else {
+        } else {//TODO: alphabethisch sortiert einfügen
             const newEntry = JSON.parse(JSON.stringify(payload))
             newEntry.CiteNumber = 0;
             state.project.bibEntries.push(newEntry);

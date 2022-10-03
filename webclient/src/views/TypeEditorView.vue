@@ -183,8 +183,9 @@ export default Vue.extend({
   mounted() {
     //copy type at indexToEdit from store to data
     this.$nextTick(()=>{
-      this.typeToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]));
-
+      if( this.$store.state.editor.indexOfEdited >= 0) {
+        this.typeToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]));
+      }
     });
   },
 
@@ -197,8 +198,11 @@ export default Vue.extend({
   computed: {
     saveNecessary(): boolean {
       //
-      console.log(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited] , this.typeToEdit)
-      return JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]) !== JSON.stringify(this.typeToEdit)
+      if( this.$store.state.editor.indexOfEdited >= 0) {
+        return JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]) !== JSON.stringify(this.typeToEdit)
+      }
+
+      return true
     }
   },
 

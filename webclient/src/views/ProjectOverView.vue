@@ -56,8 +56,20 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_TYPES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <FlexBtnContainer :actions="typeActions" :showLarge="showLargeTypeBtns">
-            </FlexBtnContainer>
+            <div class="d-flex">
+              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px">
+                <v-icon>mdi-star</v-icon>
+                Als Standard festlegen
+              </v-btn>
+              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px">
+                <v-icon>mdi-reload</v-icon>
+                Standard aktualisieren
+              </v-btn>
+              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px" @click="$emit('editor', {Type:'bibType', Key: ''})">
+                <v-icon>mdi-plus</v-icon>
+                Typen hinzufügen
+              </v-btn>
+            </div>
 
             <v-list two-line>
               <v-list-item v-for="el in bibTypes" :key="el.Name" ripple two-line style="cursor: pointer" @click="$emit('editor', {Type: 'bibType', Key: el.Name})">
@@ -114,13 +126,12 @@ import Vue from "vue";
 import {i18nDictionary} from "@/i18n/Keys";
 import ConfirmDialog from "@/components/ConfirmDialog.vue";
 import {ActionTypes} from "@/store/action-types";
-import FlexBtnContainer from "../components/FlexBtnContainer.vue";
 import {BibType} from "../api/bibType/BibType";
 import {BibEntry} from "../api/bibEntry/BibEntry";
 
 export default Vue.extend({
   name: "Project-OverView",
-  components: {FlexBtnContainer, ConfirmDialog},
+  components: {ConfirmDialog},
   props: [
       'projectName'
   ],
