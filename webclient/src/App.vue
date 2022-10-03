@@ -44,7 +44,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view :projectName="currentProjectName" />
+      <router-view :projectName="currentProjectName" v-on:unsafeClose="openUnsafeDialog"/>
 
       <v-dialog v-model="newDialog" width="300">
         <v-card>
@@ -77,6 +77,18 @@
 
     </v-main>
 
+    <v-dialog max-width="350" v-model="tryUnsafeClose">
+      <v-card>
+        <v-card-title>Ungespeicherte Änderungen</v-card-title>
+        <v-card-text>Es liegen ungespeicherte Änderungen vor. Wenn du fortfährst, gehen diese verloren.</v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn text color="primary" @click="tryUnsafeClose=false">Abbrechen</v-btn>
+          <v-btn text color="primary" @click="closeEditor">Fortfahren</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
   </v-app>
 </template>
 
@@ -97,7 +109,8 @@ export default Vue.extend({
     drawer: false,
     newDialog: false,
     newProjectName: '',
-    i18nDictionary: i18nDictionary
+    i18nDictionary: i18nDictionary,
+    tryUnsafeClose: false
   }),
 
   mounted() {
@@ -140,6 +153,13 @@ export default Vue.extend({
       //TODO: check stuff
       this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
       this.$router.push('/');
+    },
+    openUnsafeDialog() {
+      this.tryUnsafeClose = true;
+    },
+    closeEditor() {
+      this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
+      this.tryUnsafeClose = false;
     }
   },
 
