@@ -97,6 +97,16 @@
       </v-expansion-panels>
 
     </v-sheet>
+
+    <ConfirmDialog
+        :model="deleteTriggered"
+        :title="$t(i18nDictionary.DELETE_ENTRY_SURE_TITLE)"
+        :content="$t(i18nDictionary.DELETE_ENTRY_SURE_CONTENT).replace('%s', $store.state.editor.key)"
+        :action="$t(i18nDictionary.DELETE)"
+        :abort="$t(i18nDictionary.ABORT)"
+        @declined="deleteTriggered = false"
+        @confirmed="deleteEntry"
+    />
   </div>
 </template>
 
@@ -105,12 +115,15 @@ import Vue from "vue";
 import {BibType, Field} from "../api/bibType/BibType";
 import {ActionTypes} from "../store/action-types";
 import {MutationTypes} from "../store/mutation-types";
+import {i18nDictionary} from "../i18n/Keys";
+import ConfirmDialog from "../components/ConfirmDialog.vue";
 
 export default Vue.extend({
   name: "EntryEditor-View",
   props: [
       'layoutBtnContent'
   ],
+  components: {ConfirmDialog},
 
   data() {
     return {
@@ -119,7 +132,9 @@ export default Vue.extend({
         Typ: '',
         Fields: [] as string[],
         CiteNumber: 0
-      }
+      },
+      deleteTriggered: false,
+      i18nDictionary: i18nDictionary
     }
   },
 
@@ -188,6 +203,9 @@ export default Vue.extend({
       }
     },
     triggerDeleteEntry() {
+      this.deleteTriggered = true;
+    },
+    deleteEntry() {
       this.$store.dispatch(ActionTypes.EDITOR_DELETE_ENTRY, {Project: this.$store.state.app.currentProjectName, Key: this.$store.state.editor.key});
     }
   }

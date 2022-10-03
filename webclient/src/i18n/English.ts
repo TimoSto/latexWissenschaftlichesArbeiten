@@ -22,5 +22,7 @@ export const EnglishTranslations: TranslationKeys = {
     LOAD_BACKUP_LOAD: 'Reset',
     SUCCESS_PROJECT_RESET: 'Project successfully reseted',
     PROJECT_BIB_ENTRIES: 'Bibliography entries',
-    PROJECT_BIB_TYPES: 'Bibliography types'
+    PROJECT_BIB_TYPES: 'Bibliography types',
+    DELETE_ENTRY_SURE_TITLE: 'Delete entry',
+    DELETE_ENTRY_SURE_CONTENT: 'Do you really want to delete the bibliography entry <i>%s</i>? The only way to restore it, will be to load a backup..'
 }

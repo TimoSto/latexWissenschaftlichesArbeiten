@@ -22,5 +22,7 @@ export const GermanTranslations: TranslationKeys = {
     LOAD_BACKUP_LOAD: 'Zurücksetzen',
     SUCCESS_PROJECT_RESET: 'Projekt erfolgreich zurückgesetzt',
     PROJECT_BIB_ENTRIES: 'Literatureinträge',
-    PROJECT_BIB_TYPES: 'Literaturtypen'
+    PROJECT_BIB_TYPES: 'Literaturtypen',
+    DELETE_ENTRY_SURE_TITLE: 'Eintrag löschen',
+    DELETE_ENTRY_SURE_CONTENT: 'Möchtest du den Literatureintrag <i>%s</i> wirklich löschen? Die einzige Möglichkeit, ihn wiederherzustellen ist, ein Backup zu laden.'
 }
