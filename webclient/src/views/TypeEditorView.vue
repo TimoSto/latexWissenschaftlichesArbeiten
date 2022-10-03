@@ -11,6 +11,9 @@
       <v-btn icon :disabled="!saveNecessary" @click="saveType">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
+      <v-btn icon @click="closeEditorIfSave">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <v-sheet id="scroll-editor" class="content-below-two-bars">
@@ -182,6 +185,12 @@ export default Vue.extend({
     });
   },
 
+  watch: {
+    saveNecessary(saveNecessary) {
+      this.$store.commit(MutationTypes.EDITOR_SET_SAVELY_CLOSABLE, !saveNecessary);
+    }
+  },
+
   computed: {
     saveNecessary(): boolean {
       //
@@ -220,6 +229,11 @@ export default Vue.extend({
 
       this.$store.dispatch(ActionTypes.EDITOR_SAVE_TYPE, obj)
 
+    },
+    closeEditorIfSave() {
+      if( this.$store.state.editor.savelyClosable ) {
+        this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''})
+      }
     }
   }
 })

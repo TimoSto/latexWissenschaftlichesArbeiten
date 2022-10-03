@@ -73,25 +73,9 @@ export const mutations: MutationTree<MyState> & Mutations = {
             //         break;
             //     }
             // }
+        } else {
+            state.editor.indexOfEdited = -1;
         }
-    },
-    [MutationTypes.EDITOR_TYPE_ADD_FIELD](state, payload: boolean) {
-        // if( payload ) {
-        //     state.editor.typeToEdit.CiteFields.push(CreateField('', 'normal', '', ''))
-        // } else {
-        //     state.editor.typeToEdit.Fields.push(CreateField('', 'normal', '', ''))
-        // }
-    },
-    [MutationTypes.EDITOR_TYPE_RM_FIELD](state, payload: {cite: boolean, index: number}) {
-        // if( payload.cite ) {
-        //     state.editor.typeToEdit.CiteFields.splice(payload.index, 1)
-        // } else {
-        //     state.editor.typeToEdit.Fields.splice(payload.index, 1)
-        // }
-    },
-    [MutationTypes.EDITOR_TYPE_UPDATE_MODELS](state) {
-        // state.editor.typeToEdit.Model = GenerateModelForBibType(state.editor.typeToEdit.Fields);
-        // state.editor.typeToEdit.CiteModel = GenerateModelForBibType(state.editor.typeToEdit.CiteFields);
     },
     [MutationTypes.PROJECT_UPDATE_TYPE_TO_EDIT](state, payload: BibType) {
         console.log(state.project.bibTypes[state.editor.indexOfEdited])
@@ -103,5 +87,8 @@ export const mutations: MutationTree<MyState> & Mutations = {
         state.project.bibTypes[state.editor.indexOfEdited].Model = payload.Model;
         state.project.bibTypes[state.editor.indexOfEdited].CiteModel = payload.CiteModel;
         console.log('after', state.project.bibTypes[state.editor.indexOfEdited])
+    },
+    [MutationTypes.EDITOR_SET_SAVELY_CLOSABLE](state, payload: boolean) {
+        state.editor.savelyClosable = payload;
     }
 };

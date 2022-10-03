@@ -22,6 +22,7 @@ export type MyState = {
         type: string,
         key: string,
         indexOfEdited: number
+        savelyClosable: boolean
     }
 }
 
@@ -46,6 +47,7 @@ export const myState: MyState = {
     editor: {
         type: '',
         key: '',
-        indexOfEdited: -1
+        indexOfEdited: -1,
+        savelyClosable: true
     }
 }

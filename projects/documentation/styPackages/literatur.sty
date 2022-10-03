@@ -12,7 +12,7 @@
 \newcommand{\printBibEntry}[9]{
 	\IfStrEqCase{#1}{%
 	%Area to add new bibifs via gui
-			{aufsatz}{\printaufsatz{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
+			{aufsatzg}{\printaufsatzg{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{Buch}{\printBuch{#2}{#3}{#4}{#5}{#6}}%
 			{citaviAufsatzDoi}{\printcitaviAufsatzDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
 			{citaviInbookDoi}{\printcitaviInbookDoi{#2}{#3}{#4}{#5}{#6}{#7}{#8}}%
@@ -61,7 +61,7 @@
 %!!!LEERZEILE IN PRINTS NICHT ENTFERNEN!!! (Sind wichtig, damit ab zweiter Zeile immer eingerückt ist)
 \def\bibparindent{1.5em}
 %Area to add new bibprints via gui
-\newcommand{\printaufsatz}[7]{
+\newcommand{\printaufsatzg}[7]{
 	\hangindent=\bibparindent
 	\parindent 0pt
 	\hangafter=1
@@ -194,7 +194,7 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 				%Area to add citeifs via gui
-			{aufsatz}{\footnote{#3\citeaufsatz{\72}{\66}{#2}.}}%
+			{aufsatzg}{\footnote{#3\citeaufsatzg{\72}{\66}{#2}.}}%
 			{Buch}{\footnote{#3\citeBuch{\70}{\66}{#2}.}}%
 			{citaviAufsatzDoi}{\footnote{#3\citecitaviAufsatzDoi{\72}{\66}{#2}.}}%
 			{citaviInbookDoi}{\footnote{#3\citecitaviInbookDoi{\72}{\66}{#2}.}}%
@@ -222,7 +222,7 @@
 			\renewcommand{\entryfound}{true}%
 			\IfStrEqCase{\type}{%
 			%Area to add citeifs_inline via gui
-			{aufsatz}{ ({#3\citeaufsatz{\72}{\66}{#2})}}%
+			{aufsatzg}{ ({#3\citeaufsatzg{\72}{\66}{#2})}}%
 			{Buch}{ ({#3\citeBuch{\70}{\66}{#2})}}%
 			{citaviAufsatzDoi}{ ({#3\citecitaviAufsatzDoi{\72}{\66}{#2})}}%
 			{citaviInbookDoi}{ ({#3\citecitaviInbookDoi{\72}{\66}{#2})}}%
@@ -243,7 +243,7 @@
 
 %Prints für verschiedene Fußnotenarten
 %Area to add citecommands via gui
-\newcommand{\citeaufsatz}[3]{%
+\newcommand{\citeaufsatzg}[3]{%
 	\textit{#1} (#2), #3%
 }
 \newcommand{\citeBuch}[3]{%
