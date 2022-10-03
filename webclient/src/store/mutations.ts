@@ -93,9 +93,16 @@ export const mutations: MutationTree<MyState> & Mutations = {
     [MutationTypes.PROJECT_UPDATE_ENTRY_TO_EDIT](state, payload: BibEntry) {
         state.editor.key = payload.Key;
 
-        state.project.bibEntries[state.editor.indexOfEdited].Key = payload.Key;
-        state.project.bibEntries[state.editor.indexOfEdited].Typ = payload.Typ;
-        state.project.bibEntries[state.editor.indexOfEdited].Fields = payload.Fields.slice(0);
+        if( state.editor.indexOfEdited >= 0 ) {
+            state.project.bibEntries[state.editor.indexOfEdited].Key = payload.Key;
+            state.project.bibEntries[state.editor.indexOfEdited].Typ = payload.Typ;
+            state.project.bibEntries[state.editor.indexOfEdited].Fields = payload.Fields.slice(0);
+        } else {
+            const newEntry = JSON.parse(JSON.stringify(payload))
+            newEntry.CiteNumber = 0;
+            state.project.bibEntries.push(newEntry);
+            state.editor.indexOfEdited = state.project.bibEntries.length - 1;
+        }
     },
     [MutationTypes.EDITOR_SET_SAVELY_CLOSABLE](state, payload: boolean) {
         state.editor.savelyClosable = payload;

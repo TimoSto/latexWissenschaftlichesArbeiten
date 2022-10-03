@@ -1,5 +1,23 @@
 [
 	{
+		"Key": "restttt",
+		"Typ": "aufsatzi",
+		"Fields": [
+			"eett"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "tesst",
+		"Typ": "Buch",
+		"Fields": [
+			"esf"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
 		"Key": "hans",
 		"Typ": "Buch",
 		"Fields": [
@@ -9,6 +27,78 @@
 			"2",
 			"Testdruckerei",
 			"Hammelsohn"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "test",
+		"Typ": "website",
+		"Fields": [
+			"john doe"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "rreees",
+		"Typ": "aufsatzi",
+		"Fields": [
+			"reessster"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "rreeesfgh",
+		"Typ": "aufsatzi",
+		"Fields": [
+			"reessster"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "aws",
+		"Typ": "aufsatzi",
+		"Fields": [
+			"s"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "aaa",
+		"Typ": "citaviAufsatzDoi",
+		"Fields": [
+			"sss"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "awa",
+		"Typ": "aufsatzi",
+		"Fields": [
+			"sss"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "aaatesttttttt",
+		"Typ": "Buch",
+		"Fields": [
+			"t"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
+		"Key": "yyy",
+		"Typ": "aufsatzi",
+		"Fields": [
+			"xxxxx"
 		],
 		"Comment": "",
 		"CiteNumber": 0

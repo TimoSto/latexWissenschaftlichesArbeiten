@@ -30,7 +30,7 @@ export default Vue.extend({
   computed: {
     layoutClass(): string[] {
       return [
-          this.$store.state.editor.type !== '' && this.$store.state.editor.key !== '' ? 'editor-opened' : 'editor-closed',
+          this.$store.state.editor.type !== '' ? 'editor-opened' : 'editor-closed',
           this.$store.state.app.twoThirdsActive ? 'two-thirds-layout': '',
           'one-page'
       ]

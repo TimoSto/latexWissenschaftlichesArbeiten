@@ -26,8 +26,16 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_ENTRIES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <FlexBtnContainer :actions="entryActions" i="0" :showLarge="showLargeEntryBtns">
-            </FlexBtnContainer>
+            <div class="d-flex">
+              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px;" @click="$emit('editor', {Type: 'bibEntry', Key: ''})">
+                <v-icon>mdi-plus</v-icon>
+                Eintrag hinzufügen
+              </v-btn>
+              <v-btn color="primary" style="flex-grow: 1; margin: 0 8px;">
+                <v-icon>mdi-vacuum</v-icon>
+                Zitate aufräumen
+              </v-btn>
+            </div>
 
             <v-list two-line>
               <v-list-item v-for="(el,i) in bibEntries" :key="'entry-' + i" @click="$emit('editor', {Type: 'bibEntry', Key: el.Key})">

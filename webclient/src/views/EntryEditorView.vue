@@ -114,7 +114,8 @@ export default Vue.extend({
       entryToEdit: {
         Key: '',
         Typ: '',
-        Fields: [] as string[]
+        Fields: [] as string[],
+        CiteNumber: 0
       }
     }
   },
@@ -128,14 +129,19 @@ export default Vue.extend({
   mounted() {
     //copy type at indexToEdit from store to data
     this.$nextTick(()=>{
-      this.entryToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited]));
-
+      if( this.$store.state.editor.indexOfEdited >= 0) {
+        this.entryToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited]));
+      }
     });
   },
 
   computed: {
     saveNecessary(): boolean {
-      return JSON.stringify(this.entryToEdit) !== JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited])
+      if( this.$store.state.editor.indexOfEdited >= 0 ) {
+        console.log(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited], this.entryToEdit)
+        return JSON.stringify(this.entryToEdit) !== JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited])
+      }
+      return true;
     },
     fields(): Field[] {
       let fields = [] as Field[];
