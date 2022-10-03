@@ -34,7 +34,7 @@
                     Schlüssel
                   </td>
                   <td>
-                    <v-text-field type="string" v-model="entryToEdit.Key"></v-text-field>
+                    <v-text-field type="string" v-model="entryToEdit.Key" :rules="nameRules"></v-text-field>
                   </td>
                 </tr>
                 <tr>
@@ -46,6 +46,7 @@
                         v-model="entryToEdit.Typ"
                         :items="$store.state.project.bibTypes.map(bType=>bType.Name)"
                         :menu-props="{ bottom: true, offsetY: true }"
+                        :rules="nameRules"
                         type="string"
                     ></v-select>
                   </td>
@@ -134,7 +135,10 @@ export default Vue.extend({
         CiteNumber: 0
       },
       deleteTriggered: false,
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      nameRules: [
+        (value: any) => !!value || 'Pflichtfeld',
+      ],
     }
   },
 
