@@ -22,6 +22,7 @@
 			{Norm}{\printNorm{#2}{#3}{#4}{#5}{#6}{#7}}%
 			{onlineAufsatz}{\printonlineAufsatz{#2}{#3}{#4}{#5}{#6}}%
 			{website}{\printwebsite{#2}{#3}{#4}{#5}{#6}}%
+			{bastardo}{\printbastardo}%
 		%end area
 		{empty}{}%
 	}[{\color{red}Oppsss, unknown case '\type'.}\color{black}]%
@@ -151,6 +152,15 @@
 	\vspace{-12pt}
 
 }
+\newcommand{\printbastardo}[0]{
+	\hangindent=\bibparindent
+	\parindent 0pt
+	\hangafter=1
+	
+	\\
+	\vspace{-12pt}
+
+}
 
 		%end area
 
@@ -204,6 +214,7 @@
 			{Norm}{\footnote{#3\citeNorm{\66}{#2}.}}%
 			{onlineAufsatz}{\footnote{#3\citeonlineAufsatz{\70}{\66}{#2}.}}%
 			{website}{\footnote{#3\citewebsite{\70}{\71}{#2}.}}%
+			{bastardo}{\footnote{#3\citebastardo{#2}.}}%
 		%end area
 			}[\footnote{{\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)}}]%
 		}}%
@@ -232,6 +243,7 @@
 			{Norm}{ ({#3\citeNorm{\66}{#2})}}%
 			{onlineAufsatz}{ ({#3\citeonlineAufsatz{\70}{\66}{#2})}}%
 			{website}{ ({#3\citewebsite{\70}{\71}{#2})}}%
+			{bastardo}{ ({#3\citebastardo{#2})}}%
 		%end area
 			}[ ({\color{red}Typ "\type " nicht gefunden. Ändern oder in literatur.sty hinzufügen (siehe README)})]%
 		}}%
@@ -272,6 +284,9 @@
 }
 \newcommand{\citewebsite}[3]{%
 	\textit{#1} (#2)#3%
+}
+\newcommand{\citebastardo}[1]{%
+	#1%
 }
 %end area
 

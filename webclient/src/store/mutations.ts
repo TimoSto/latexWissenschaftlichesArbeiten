@@ -93,7 +93,10 @@ export const mutations: MutationTree<MyState> & Mutations = {
         } else {
             const newType = JSON.parse(JSON.stringify(payload))
             state.project.bibTypes.push(newType);
-            state.editor.indexOfEdited = state.project.bibTypes.length - 1;
+            state.project.bibTypes.sort((a,b): number => {
+                return a.Name.toUpperCase() > b.Name.toUpperCase() ? 1 : -1
+            });
+            state.editor.indexOfEdited = state.project.bibTypes.map(t => t.Name).indexOf(payload.Name);
         }
     },
     [MutationTypes.PROJECT_UPDATE_ENTRY_TO_EDIT](state, payload: BibEntry) {
@@ -103,11 +106,14 @@ export const mutations: MutationTree<MyState> & Mutations = {
             state.project.bibEntries[state.editor.indexOfEdited].Key = payload.Key;
             state.project.bibEntries[state.editor.indexOfEdited].Typ = payload.Typ;
             state.project.bibEntries[state.editor.indexOfEdited].Fields = payload.Fields.slice(0);
-        } else {//TODO: alphabethisch sortiert einfügen
+        } else {
             const newEntry = JSON.parse(JSON.stringify(payload))
             newEntry.CiteNumber = 0;
             state.project.bibEntries.push(newEntry);
-            state.editor.indexOfEdited = state.project.bibEntries.length - 1;
+            state.project.bibEntries.sort((a,b): number => {
+                return a.Key.toUpperCase() > b.Key.toUpperCase() ? 1 : -1
+            });
+            state.editor.indexOfEdited = state.project.bibEntries.map(t => t.Key).indexOf(payload.Key);
         }
     },
     [MutationTypes.EDITOR_SET_SAVELY_CLOSABLE](state, payload: boolean) {
