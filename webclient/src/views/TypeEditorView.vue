@@ -207,6 +207,9 @@ export default Vue.extend({
   watch: {
     saveNecessary(saveNecessary) {
       this.$store.commit(MutationTypes.EDITOR_SET_SAVELY_CLOSABLE, !saveNecessary);
+    },
+    indexOfEdited(i) {
+      this.typeToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibTypes[i]));
     }
   },
 
@@ -218,6 +221,9 @@ export default Vue.extend({
       }
 
       return true
+    },
+    indexOfEdited(): number {
+      return this.$store.state.editor.indexOfEdited;
     }
   },
 
