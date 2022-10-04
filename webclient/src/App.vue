@@ -139,7 +139,11 @@ export default Vue.extend({
       localStorage.setItem('ThesorTeX_darkMode', `${this.$vuetify.theme.dark}`)
     },
     createNewProject() {
-      this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
+      if( this.$store.state.editor.savelyClosable ) {
+        this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
+      } else {
+        this.tryUnsafeClose = true;
+      }
     },
     closeSnackbar() {
       switch (this.$store.state.app.successMessage) {
@@ -175,6 +179,8 @@ export default Vue.extend({
       this.tryUnsafeClose = false;
       if( this.switchObj.Type.length > 0 ) {
         this.$store.commit(MutationTypes.EDITOR_OPEN, this.switchObj);
+      } else if (this.newProjectName.length > 0) {
+        this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
       } else {
         this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
         if (this.trySwitchToProject.length > 0) {
@@ -182,6 +188,12 @@ export default Vue.extend({
           this.trySwitchToProject = '';
         }
       }
+    }
+  },
+
+  watch: {
+    currentProjectName() {
+      this.newProjectName = '';
     }
   },
 

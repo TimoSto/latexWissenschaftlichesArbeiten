@@ -14,6 +14,17 @@
 		"CiteNumber": 0
 	},
 	{
+		"Key": "res1",
+		"Typ": "Buch",
+		"Fields": [
+			"hert",
+			"2022",
+			"Das Herz im Kopf"
+		],
+		"Comment": "",
+		"CiteNumber": 0
+	},
+	{
 		"Key": "test2",
 		"Typ": "citaviAufsatzDoi",
 		"Fields": [],
@@ -26,13 +37,6 @@
 		"Fields": [
 			""
 		],
-		"Comment": "",
-		"CiteNumber": 0
-	},
-	{
-		"Key": "res",
-		"Typ": "Buch",
-		"Fields": [],
 		"Comment": "",
 		"CiteNumber": 0
 	}

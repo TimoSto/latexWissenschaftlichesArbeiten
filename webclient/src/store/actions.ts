@@ -44,6 +44,7 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
 
         if( success ) {
             dispatch(ActionTypes.APP_GET_PROJECTS);
+            commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''})
             commit(MutationTypes.APP_SET_PROJECTNAME, payload)
             commit(MutationTypes.APP_SET_SUCCESS, "PROJECT_CREATED")
             await router.push('/project/' + payload)
