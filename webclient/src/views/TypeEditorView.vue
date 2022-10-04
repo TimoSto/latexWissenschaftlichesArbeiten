@@ -24,14 +24,14 @@
       <v-expansion-panels multiple accordion flat tile>
 
         <v-expansion-panel>
-          <v-expansion-panel-header>Allgemein</v-expansion-panel-header>
+          <v-expansion-panel-header>{{$t(i18nDictionary.COMMON_GENERAL)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
             <v-simple-table disable-sort dense class="two-col-table">
               <tbody>
                 <tr>
                   <td>
-                    Bezeichnung
+                    {{$t(i18nDictionary.TYPE_EDITOR_NAME)}}
                   </td>
                   <td style="text-align: right" @input="checkNeededFields">
                     <v-text-field type="string" v-model="typeToEdit.Name" :rules="nameRules"/>
@@ -44,19 +44,19 @@
         </v-expansion-panel>
 
         <v-expansion-panel>
-          <v-expansion-panel-header>Citavi-Import</v-expansion-panel-header>
+          <v-expansion-panel-header>{{$t(i18nDictionary.TYPE_EDITOR_CITAVI_IMPORT)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
             <v-simple-table disable-sort dense class="two-col-table">
               <tbody>
               <tr>
                 <td>
-                  Citavi-Typ
+                  {{$t(i18nDictionary.TYPE_EDITOR_CITAVI_TYPE)}}
                 </td>
                 <td>
                   <v-text-field
                       :prefix="citaviPrefix"
-                      placeholder="Citavi-Typ"
+                      :placeholder="$t(i18nDictionary.TYPE_EDITOR_CITAVI_TYPE)"
                       type="string"
                       v-model="typeToEdit.CitaviType"
                       @blur="citaviPrefix = (typeToEdit.CitaviType && typeToEdit.CitaviType.length > 0) ? '@' : ''"
@@ -66,7 +66,7 @@
 
               <tr>
                 <td>
-                  Citavi-Pflichtfelder
+                  {{$t(i18nDictionary.TYPE_EDITOR_CITAVI_MANDATORY_FIELDS)}}
                 </td>
                 <td>
                   <v-combobox
@@ -100,7 +100,7 @@
         </v-expansion-panel>
 
         <v-expansion-panel>
-          <v-expansion-panel-header>Literaturverzeichnis</v-expansion-panel-header>
+          <v-expansion-panel-header>{{$t(i18nDictionary.TYPE_EDITOR_BIBLIOGRAPHY_ENTRY)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
             <div class="preview-area">
@@ -119,7 +119,7 @@
         </v-expansion-panel>
 
         <v-expansion-panel>
-          <v-expansion-panel-header>Zitate</v-expansion-panel-header>
+          <v-expansion-panel-header>{{$t(i18nDictionary.TYPE_EDITOR_CITE)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
             <div class="preview-area">

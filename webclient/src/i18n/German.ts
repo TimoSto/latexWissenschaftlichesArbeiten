@@ -39,5 +39,20 @@ export const GermanTranslations: TranslationKeys = {
     COMMON_BIB_TYPE: 'Literaturtyp',
     COMMON_MANDATORY_FIELD: 'Pflichtfeld',
     APP_50_50_LAYOUT: 'Wechsle zu 50:50-Layout',
-    APP_30_70_LAYOUT: 'Wechsle zu 30:70-Layout'
+    APP_30_70_LAYOUT: 'Wechsle zu 30:70-Layout',
+    TYPE_EDITOR_NAME: 'Bezeichnung',
+    TYPE_EDITOR_CITAVI_IMPORT: 'Citavi-Import',
+    TYPE_EDITOR_CITAVI_TYPE: 'Citavi-Typ',
+    TYPE_EDITOR_CITAVI_MANDATORY_FIELDS: 'Citavi-Pflichtfelder',
+    TYPE_EDITOR_BIBLIOGRAPHY_ENTRY: 'Eintrag Literaturverzeichnis',
+    TYPE_EDITOR_CITE: 'Zitate',
+    TYPE_EDITOR_ATTRIBUTE: 'Attribut',
+    TYPE_EDITOR_STYLE: 'Format',
+    TYPE_EDITOR_PREFIX: 'Prefix',
+    TYPE_EDITOR_SUFFIX: 'Suffix',
+    TYPE_EDITOR_TEX_VALUE: 'TeX-Wert',
+    TYPE_EDITOR_CITAVI_ATTRIBUTE: 'Citavi-Attribute',
+    TYPE_EDITOR_BOLD: 'fett',
+    TYPE_EDITOR_NORMAL: 'normal',
+    TYPE_EDITOR_ITALIC: 'kursiv'
 }

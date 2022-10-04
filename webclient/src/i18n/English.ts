@@ -39,5 +39,20 @@ export const EnglishTranslations: TranslationKeys = {
     COMMON_BIB_TYPE: 'Bibliography type',
     COMMON_MANDATORY_FIELD: 'Mandatory field',
     APP_50_50_LAYOUT: 'Switch to 50:50-Layout',
-    APP_30_70_LAYOUT: 'Switch to 30:70-Layout'
+    APP_30_70_LAYOUT: 'Switch to 30:70-Layout',
+    TYPE_EDITOR_NAME: 'Name',
+    TYPE_EDITOR_CITAVI_IMPORT: 'Citavi import',
+    TYPE_EDITOR_CITAVI_TYPE: 'Citavi typ',
+    TYPE_EDITOR_CITAVI_MANDATORY_FIELDS: 'Citavi mandatory fields',
+    TYPE_EDITOR_BIBLIOGRAPHY_ENTRY: 'Bibliography entry',
+    TYPE_EDITOR_CITE: 'Cites',
+    TYPE_EDITOR_ATTRIBUTE: 'Attribut',
+    TYPE_EDITOR_STYLE: 'Format',
+    TYPE_EDITOR_PREFIX: 'Prefix',
+    TYPE_EDITOR_SUFFIX: 'Suffix',
+    TYPE_EDITOR_TEX_VALUE: 'TeX value',
+    TYPE_EDITOR_CITAVI_ATTRIBUTE: 'Citavi attribute',
+    TYPE_EDITOR_NORMAL: 'normal',
+    TYPE_EDITOR_ITALIC: 'italic',
+    TYPE_EDITOR_BOLD: 'bold'
 }

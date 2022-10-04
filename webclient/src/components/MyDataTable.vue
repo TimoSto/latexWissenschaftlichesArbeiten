@@ -113,6 +113,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import {i18nDictionary} from "../i18n/Keys";
 
 export default Vue.extend({
   name: "My-DataTable",
@@ -123,10 +124,11 @@ export default Vue.extend({
   ],
   data() {
     return {
-      headers: [{text: 'Attribut', value: 'Field', width: '25%'}, {text: 'Style', value: 'Style', width: '25%'}, {text: 'Prefix', value: 'Prefix', width: '25%'}, {text: 'Suffix', value: 'Suffix', width: '25%'}, {text: 'TeX-Wert', value: 'TexValue', width: '5%', align: 'center'},  ``],
-      fontStyles: [{text: 'normal', value: 'normal'}, {text:'kursiv', value:'italic'}, {text:'fett', value: 'bold'}],
+      headers: [{text: this.$t(i18nDictionary.TYPE_EDITOR_ATTRIBUTE), value: 'Field', width: '25%'}, {text: this.$t(i18nDictionary.TYPE_EDITOR_STYLE), value: 'Style', width: '25%'}, {text: this.$t(i18nDictionary.TYPE_EDITOR_PREFIX), value: 'Prefix', width: '25%'}, {text: this.$t(i18nDictionary.TYPE_EDITOR_SUFFIX), value: 'Suffix', width: '25%'}, {text: this.$t(i18nDictionary.TYPE_EDITOR_TEX_VALUE), value: 'TexValue', width: '5%', align: 'center'},  ``],
+      fontStyles: [{text: this.$t(i18nDictionary.TYPE_EDITOR_NORMAL), value: 'normal'}, {text:this.$t(i18nDictionary.TYPE_EDITOR_ITALIC), value:'italic'}, {text:this.$t(i18nDictionary.TYPE_EDITOR_BOLD), value: 'bold'}],
       citaviAttrs: ['author', 'title', 'booktitle', 'publisher', 'year', 'address', 'editor', 'isbn', 'pages', 'url', 'doi'],
-      focusedCombo: -1
+      focusedCombo: -1,
+      i18nDictionary: i18nDictionary
     }
   },
   methods: {
