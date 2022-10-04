@@ -58,5 +58,6 @@ export const EnglishTranslations: TranslationKeys = {
     SUCCESS_TYPE_SAVE: 'Bibliography type successfully saved',
     SUCCESS_TYPE_DELETE: 'Bibliography type successfully deleted',
     SUCCESS_ENTRY_SAVE: 'Bibliography entry successfully saved',
-    SUCCESS_ENTRY_DELETE: 'Bibliography entry successfully deleted'
+    SUCCESS_ENTRY_DELETE: 'Bibliography entry successfully deleted',
+    SUCCESS_CLEANUP_CITES: 'Cites have been cleaned up successfully'
 }

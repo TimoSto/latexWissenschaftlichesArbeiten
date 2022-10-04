@@ -58,6 +58,7 @@ export type TranslationKeys = {
     SUCCESS_TYPE_DELETE: string
     SUCCESS_ENTRY_SAVE: string
     SUCCESS_ENTRY_DELETE: string
+    SUCCESS_CLEANUP_CITES: string
 }
 
 export const i18nDictionary: TranslationKeys = {
@@ -118,5 +119,6 @@ export const i18nDictionary: TranslationKeys = {
     SUCCESS_TYPE_SAVE: 'SUCCESS_TYPE_SAVE',
     SUCCESS_TYPE_DELETE: 'SUCCESS_TYPE_DELETE',
     SUCCESS_ENTRY_SAVE: 'SUCCESS_ENTRY_SAVE',
-    SUCCESS_ENTRY_DELETE: 'SUCCESS_ENTRY_DELETE'
+    SUCCESS_ENTRY_DELETE: 'SUCCESS_ENTRY_DELETE',
+    SUCCESS_CLEANUP_CITES: 'SUCCESS_CLEANUP_CITES'
 }

@@ -16,6 +16,7 @@ import SaveType from "@/api/bibType/SaveBibType";
 import SaveBibEntry, {BibEntrySaveObj} from "@/api/bibEntry/SaveBibEntry";
 import DeleteEntry from "@/api/bibEntry/DeleteEntry";
 import DeleteType from "@/api/bibType/DeleteType";
+import CleanupCites from "@/api/project/CleanupCites";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -153,6 +154,14 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
             commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_TYPE_DELETE');
             commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
             commit(MutationTypes.PROJECT_RM_TYPE, payload.Key);
+        }
+    },
+
+    async [ActionTypes.PROJECT_CLEANUP_CITES]({commit}, payload: string) {
+        const resp = await CleanupCites(payload);
+
+        if( resp.ok ) {
+            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_CLEANUP_CITES');
         }
     }
 };
