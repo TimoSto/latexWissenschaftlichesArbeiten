@@ -255,10 +255,5 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.centered {
-  & .v-data-table {
-    margin: 0 auto;
-    border: 1px solid rgba(128,128,128, 0.25);;
-  }
-}
+
 </style>

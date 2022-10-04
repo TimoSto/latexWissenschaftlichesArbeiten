@@ -27,8 +27,9 @@
           <v-expansion-panel-header>{{$t(i18nDictionary.COMMON_GENERAL)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <v-simple-table disable-sort dense class="two-col-table">
-              <tbody>
+            <div class="centered">
+              <v-simple-table disable-sort dense class="two-col-table">
+                <tbody>
                 <tr>
                   <td>
                     {{$t(i18nDictionary.TYPE_EDITOR_NAME)}}
@@ -37,8 +38,9 @@
                     <v-text-field type="string" v-model="typeToEdit.Name" :rules="nameRules"/>
                   </td>
                 </tr>
-              </tbody>
-            </v-simple-table>
+                </tbody>
+              </v-simple-table>
+            </div>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -47,54 +49,56 @@
           <v-expansion-panel-header>{{$t(i18nDictionary.TYPE_EDITOR_CITAVI_IMPORT)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <v-simple-table disable-sort dense class="two-col-table">
-              <tbody>
-              <tr>
-                <td>
-                  {{$t(i18nDictionary.TYPE_EDITOR_CITAVI_TYPE)}}
-                </td>
-                <td>
-                  <v-text-field
-                      :prefix="citaviPrefix"
-                      :placeholder="$t(i18nDictionary.TYPE_EDITOR_CITAVI_TYPE)"
-                      type="string"
-                      v-model="typeToEdit.CitaviType"
-                      @blur="citaviPrefix = (typeToEdit.CitaviType && typeToEdit.CitaviType.length > 0) ? '@' : ''"
-                  />
-                </td>
-              </tr>
+            <div class="centered">
+              <v-simple-table disable-sort dense class="two-col-table">
+                <tbody>
+                <tr>
+                  <td>
+                    {{$t(i18nDictionary.TYPE_EDITOR_CITAVI_TYPE)}}
+                  </td>
+                  <td>
+                    <v-text-field
+                        :prefix="citaviPrefix"
+                        :placeholder="$t(i18nDictionary.TYPE_EDITOR_CITAVI_TYPE)"
+                        type="string"
+                        v-model="typeToEdit.CitaviType"
+                        @blur="citaviPrefix = (typeToEdit.CitaviType && typeToEdit.CitaviType.length > 0) ? '@' : ''"
+                    />
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  {{$t(i18nDictionary.TYPE_EDITOR_CITAVI_MANDATORY_FIELDS)}}
-                </td>
-                <td>
-                  <v-combobox
-                      v-model="typeToEdit.CitaviNecessaryFields"
-                      multiple
-                      :items="['doi', 'url']"
-                      @focus="focusedComboCitavi=true"
-                      @blur="focusedComboCitavi=false"
-                  >
-                    <!--to have no checkbox-->
-                    <template v-slot:item="{ item }">
-                      {{item}}
-                    </template>
-                    <!--to only show 4 in unfocused state -->
-                    <template v-slot:selection="{ item, index }" v-if="!focusedComboCitavi">
-                      <span v-if="index < 4">{{ item }} &nbsp;</span>
-                      <span
-                          v-if="index === 4"
-                          class="grey--text caption"
-                      >(+{{ typeToEdit.CitaviNecessaryFields.length - 4 }})</span>
-                    </template>
+                <tr>
+                  <td>
+                    {{$t(i18nDictionary.TYPE_EDITOR_CITAVI_MANDATORY_FIELDS)}}
+                  </td>
+                  <td>
+                    <v-combobox
+                        v-model="typeToEdit.CitaviNecessaryFields"
+                        multiple
+                        :items="['doi', 'url']"
+                        @focus="focusedComboCitavi=true"
+                        @blur="focusedComboCitavi=false"
+                    >
+                      <!--to have no checkbox-->
+                      <template v-slot:item="{ item }">
+                        {{item}}
+                      </template>
+                      <!--to only show 4 in unfocused state -->
+                      <template v-slot:selection="{ item, index }" v-if="!focusedComboCitavi">
+                        <span v-if="index < 4">{{ item }} &nbsp;</span>
+                        <span
+                            v-if="index === 4"
+                            class="grey--text caption"
+                        >(+{{ typeToEdit.CitaviNecessaryFields.length - 4 }})</span>
+                      </template>
 
-                  </v-combobox>
-                </td>
-              </tr>
+                    </v-combobox>
+                  </td>
+                </tr>
 
-              </tbody>
-            </v-simple-table>
+                </tbody>
+              </v-simple-table>
+            </div>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -103,18 +107,22 @@
           <v-expansion-panel-header>{{$t(i18nDictionary.TYPE_EDITOR_BIBLIOGRAPHY_ENTRY)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <div class="preview-area">
-              <p v-html="typeToEdit.Model"></p>
+            <div class="centered">
+              <div class="preview-area">
+                <p v-html="typeToEdit.Model"></p>
+              </div>
+
+              <MyDataTable
+                  keyprefix="bib"
+                  :fields="typeToEdit.Fields"
+                  show-citavi-attrs="true"
+                  v-on:changed="UpdateModels"
+                  v-on:removed="RmAttr($event, false)"
+                  v-on:added="AddAttr(false)"
+                  style="max-width: 1200px;"
+              ></MyDataTable>
             </div>
 
-            <MyDataTable
-                keyprefix="bib"
-                :fields="typeToEdit.Fields"
-                show-citavi-attrs="true"
-                v-on:changed="UpdateModels"
-                v-on:removed="RmAttr($event, false)"
-                v-on:added="AddAttr(false)"
-            ></MyDataTable>
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -122,18 +130,21 @@
           <v-expansion-panel-header>{{$t(i18nDictionary.TYPE_EDITOR_CITE)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <div class="preview-area">
-              <p v-html="typeToEdit.CiteModel"></p>
-            </div>
+            <div class="centered">
+              <div class="preview-area">
+                <p v-html="typeToEdit.CiteModel"></p>
+              </div>
 
-            <MyDataTable
-                keyprefix="bib"
-                :fields="typeToEdit.CiteFields"
-                show-citavi-attrs="true"
-                v-on:changed="UpdateModels"
-                v-on:removed="RmAttr($event, true)"
-                v-on:added="AddAttr(true)"
-            ></MyDataTable>
+              <MyDataTable
+                  keyprefix="bib"
+                  :fields="typeToEdit.CiteFields"
+                  show-citavi-attrs="true"
+                  v-on:changed="UpdateModels"
+                  v-on:removed="RmAttr($event, true)"
+                  v-on:added="AddAttr(true)"
+                  style="max-width: 1200px"
+              ></MyDataTable>
+            </div>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
