@@ -125,8 +125,6 @@ func GenerateIfsForCiteCommands(types []LiteratureType) string {
 				fieldIndex = len(lType.Fields) + GetFieldIndex(lType.CiteFields, field.Field)
 			}
 
-			fmt.Println(toChar(fieldIndex+1), fieldIndex)
-
 			command += `{\` + toChar(fieldIndex+1) + `}`
 		}
 		command += `{#2}.}`
