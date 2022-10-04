@@ -59,5 +59,8 @@ export const GermanTranslations: TranslationKeys = {
     SUCCESS_TYPE_DELETE: 'Literaturtyp erfolgreich gelöscht',
     SUCCESS_ENTRY_SAVE: 'Literatureintrag erfolgreich gespeichert',
     SUCCESS_ENTRY_DELETE: 'Literatureintrag erfolgreich gelöscht',
-    SUCCESS_CLEANUP_CITES: 'Zitate erfolgreich aufgeräumt'
+    SUCCESS_CLEANUP_CITES: 'Zitate erfolgreich aufgeräumt',
+    PROJECT_CITE_CLEANUP_TITLE: 'Zitate aufräumen',
+    PROJECT_CITE_CLEANUP_CONTENT: 'Dies führt dazu, dass nur noch die aktuell zitierten Einträge im Literaturverzeichnis auftauchen. Wenn du weitere Einträge zitierst, musst du diese Aktion erneut ausführen, damit die Einträge im Literaturverzeichnis auftauchen.',
+    CONTINUE: 'Fortfahren'
 }

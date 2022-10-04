@@ -118,6 +118,16 @@
       </v-card>
     </v-dialog>
 
+    <ConfirmDialog
+        :model="citeCleanupTriggered"
+        :title="$t(i18nDictionary.PROJECT_CITE_CLEANUP_TITLE)"
+        :content="$t(i18nDictionary.PROJECT_CITE_CLEANUP_CONTENT)"
+        :action="$t(i18nDictionary.CONTINUE)"
+        :abort="$t(i18nDictionary.ABORT)"
+        @declined="citeCleanupTriggered = false"
+        @confirmed="cleanupCites"
+    />
+
   </div>
 </template>
 
@@ -171,7 +181,8 @@ export default Vue.extend({
           action: 'addType'
         }
       ],
-      showLargeTypeBtns: true
+      showLargeTypeBtns: true,
+      citeCleanupTriggered: false
     }
   },
 
@@ -197,7 +208,11 @@ export default Vue.extend({
       this.backupResetTriggered = false;
     },
     triggerCiteCleanup() {
+      this.citeCleanupTriggered = true;
+    },
+    cleanupCites() {
       this.$store.dispatch(ActionTypes.PROJECT_CLEANUP_CITES, this.projectName)
+      this.citeCleanupTriggered = false;
     }
   },
 

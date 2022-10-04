@@ -59,5 +59,8 @@ export const EnglishTranslations: TranslationKeys = {
     SUCCESS_TYPE_DELETE: 'Bibliography type successfully deleted',
     SUCCESS_ENTRY_SAVE: 'Bibliography entry successfully saved',
     SUCCESS_ENTRY_DELETE: 'Bibliography entry successfully deleted',
-    SUCCESS_CLEANUP_CITES: 'Cites have been cleaned up successfully'
+    SUCCESS_CLEANUP_CITES: 'Cites have been cleaned up successfully',
+    PROJECT_CITE_CLEANUP_TITLE: 'Cleanup cites',
+    PROJECT_CITE_CLEANUP_CONTENT: 'If you trigger this action, only the at this moment quoted entries will appear in the bibliography. If you cite more entries, you will have to trigger this action again, to show these entries in the bibliography.',
+    CONTINUE: 'Continue'
 }
