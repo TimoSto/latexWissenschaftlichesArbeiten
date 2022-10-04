@@ -167,6 +167,9 @@ export default Vue.extend({
     this.$nextTick(()=>{
       if( this.$store.state.editor.indexOfEdited >= 0) {
         this.entryToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited]));
+      } else {
+        //bei neuem typen sind die felder noch nicht eingetragen
+        this.neededFields = false;
       }
     });
   },

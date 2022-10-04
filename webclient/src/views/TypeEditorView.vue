@@ -200,6 +200,9 @@ export default Vue.extend({
     this.$nextTick(()=>{
       if( this.$store.state.editor.indexOfEdited >= 0) {
         this.typeToEdit = JSON.parse(JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]));
+      } else {
+        //bei neuem typen sind die felder noch nicht eingetragen
+        this.neededFields = false;
       }
     });
   },
