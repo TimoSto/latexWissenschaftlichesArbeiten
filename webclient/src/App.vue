@@ -310,8 +310,6 @@ $dark-bg: #121212;
 
 .two-col-table {
   max-width: 450px!important;
-  border-bottom: 1px solid rgba(128,128,128, 0.25);
-  border-top: 1px solid rgba(128,128,128, 0.25);
   & tr {
     & td:first-child {
       width: 150px;

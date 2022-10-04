@@ -56,8 +56,8 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_TYPES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <div style="display: flex; flex-direction: row; flex-wrap: wrap;" @click="setDefaultTriggered=true">
-              <v-btn color="primary" style="flex-grow: 1; margin: 8px">
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+              <v-btn color="primary" style="flex-grow: 1; margin: 8px" @click="setDefaultTriggered=true">
                 <v-icon>mdi-star</v-icon>
                 {{ $t(i18nDictionary.PROJECT_SET_TYPES_AS_DEFAULT) }}
               </v-btn>

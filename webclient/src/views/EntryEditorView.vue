@@ -21,39 +21,41 @@
 
     <v-sheet id="scroll-editor" class="content-below-two-bars">
 
-      <v-expansion-panels flat tile multiple accordion>
+      <v-expansion-panels flat tile multiple accordion style="max-width: 650px">
 
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.COMMON_GENERAL)}}</v-expansion-panel-header>
 
           <v-expansion-panel-content>
-            <v-simple-table disable-sort dense class="two-col-table">
-              <tbody>
-                <tr>
-                  <td>
-                    {{$t(i18nDictionary.ENTRY_EDITOR_KEY)}}
-                  </td>
-                  <td>
-                    <v-text-field type="string" v-model="entryToEdit.Key" :rules="nameRules" @input="checkNeededFields"></v-text-field>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    {{$t(i18nDictionary.COMMON_BIB_TYPE)}}
-                  </td>
-                  <td>
-                    <v-select
-                        v-model="entryToEdit.Typ"
-                        :items="$store.state.project.bibTypes.map(bType=>bType.Name)"
-                        :menu-props="{ bottom: true, offsetY: true }"
-                        :rules="nameRules"
-                        type="string"
-                        @input="checkNeededFields"
-                    ></v-select>
-                  </td>
-                </tr>
-              </tbody>
-            </v-simple-table>
+              <div class="centered">
+                <v-simple-table disable-sort dense class="two-col-table">
+                  <tbody>
+                  <tr>
+                    <td>
+                      {{$t(i18nDictionary.ENTRY_EDITOR_KEY)}}
+                    </td>
+                    <td>
+                      <v-text-field type="string" v-model="entryToEdit.Key" :rules="nameRules" @input="checkNeededFields"></v-text-field>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{$t(i18nDictionary.COMMON_BIB_TYPE)}}
+                    </td>
+                    <td>
+                      <v-select
+                          v-model="entryToEdit.Typ"
+                          :items="$store.state.project.bibTypes.map(bType=>bType.Name)"
+                          :menu-props="{ bottom: true, offsetY: true }"
+                          :rules="nameRules"
+                          type="string"
+                          @input="checkNeededFields"
+                      ></v-select>
+                    </td>
+                  </tr>
+                  </tbody>
+                </v-simple-table>
+              </div>
           </v-expansion-panel-content>
 
         </v-expansion-panel>
@@ -62,19 +64,20 @@
           <v-expansion-panel-header>{{$t(i18nDictionary.ENTRY_EDITOR_ATTRIBUTES)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <v-simple-table disable-sort dense class="two-col-table">
-              <tbody>
+            <div class="centered">
+              <v-simple-table disable-sort dense class="two-col-table">
+                <tbody>
 
-              <!--TODO: Wenn genug platz, in zwei spalten-->
+                <!--TODO: Wenn genug platz, in zwei spalten-->
                 <tr v-for="(attr,i) in fields" :key="attr.Field">
                   <td>
                     {{attr.Field}}
                   </td>
                   <td>
                     <v-text-field
-                      v-model="entryToEdit.Fields[i]"
-                      type="string"
-                      ></v-text-field>
+                        v-model="entryToEdit.Fields[i]"
+                        type="string"
+                    ></v-text-field>
                   </td>
                 </tr>
 
@@ -90,8 +93,9 @@
                   </td>
                 </tr>
 
-              </tbody>
-            </v-simple-table>
+                </tbody>
+              </v-simple-table>
+            </div>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -250,6 +254,11 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.centered {
+  & .v-data-table {
+    margin: 0 auto;
+    border: 1px solid rgba(128,128,128, 0.25);;
+  }
+}
 </style>
