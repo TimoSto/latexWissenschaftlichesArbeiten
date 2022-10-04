@@ -318,6 +318,7 @@ $dark-bg: #121212;
 }
 
 .centered {
+  padding: 0 8px;
   & .v-data-table {
     margin: 0 auto;
     border: 1px solid rgba(128,128,128, 0.25);;
