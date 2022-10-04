@@ -235,7 +235,8 @@ export default Vue.extend({
         return JSON.stringify(this.$store.state.project.bibTypes[this.$store.state.editor.indexOfEdited]) !== JSON.stringify(this.typeToEdit)
       }
 
-      return true
+      return this.typeToEdit.Name !== '' || this.typeToEdit.CitaviType !== '' || this.typeToEdit.CitaviNecessaryFields.length > 0 ||
+          this.typeToEdit.Fields.length > 0 || this.typeToEdit.CiteFields.length > 0
     },
     indexOfEdited(): number {
       return this.$store.state.editor.indexOfEdited;

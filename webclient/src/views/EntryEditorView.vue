@@ -179,7 +179,12 @@ export default Vue.extend({
       if( this.$store.state.editor.indexOfEdited >= 0 ) {
         return JSON.stringify(this.entryToEdit) !== JSON.stringify(this.$store.state.project.bibEntries[this.$store.state.editor.indexOfEdited])
       }
-      return true;
+      this.entryToEdit.Fields.forEach(f => {
+        if( f.length > 0 ) {
+          return false
+        }
+      });
+      return this.entryToEdit.Key !== '' || this.entryToEdit.Typ !== '';
     },
     fields(): Field[] {
       let fields = [] as Field[];
