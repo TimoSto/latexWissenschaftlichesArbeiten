@@ -115,6 +115,7 @@
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
 
+//TODO: select overflow not shown
 export default Vue.extend({
   name: "My-DataTable",
   props: [

@@ -54,5 +54,9 @@ export const EnglishTranslations: TranslationKeys = {
     TYPE_EDITOR_CITAVI_ATTRIBUTE: 'Citavi attribute',
     TYPE_EDITOR_NORMAL: 'normal',
     TYPE_EDITOR_ITALIC: 'italic',
-    TYPE_EDITOR_BOLD: 'bold'
+    TYPE_EDITOR_BOLD: 'bold',
+    SUCCESS_TYPE_SAVE: 'Bibliography type successfully saved',
+    SUCCESS_TYPE_DELETE: 'Bibliography type successfully deleted',
+    SUCCESS_ENTRY_SAVE: 'Bibliography entry successfully saved',
+    SUCCESS_ENTRY_DELETE: 'Bibliography entry successfully deleted'
 }

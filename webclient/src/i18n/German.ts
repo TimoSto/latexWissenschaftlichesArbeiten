@@ -54,5 +54,9 @@ export const GermanTranslations: TranslationKeys = {
     TYPE_EDITOR_CITAVI_ATTRIBUTE: 'Citavi-Attribute',
     TYPE_EDITOR_BOLD: 'fett',
     TYPE_EDITOR_NORMAL: 'normal',
-    TYPE_EDITOR_ITALIC: 'kursiv'
+    TYPE_EDITOR_ITALIC: 'kursiv',
+    SUCCESS_TYPE_SAVE: 'Literaturtyp erfolgreich gespeichert',
+    SUCCESS_TYPE_DELETE: 'Literaturtyp erfolgreich gelöscht',
+    SUCCESS_ENTRY_SAVE: 'Literatureintrag erfolgreich gespeichert',
+    SUCCESS_ENTRY_DELETE: 'Literatureintrag erfolgreich gelöscht'
 }
