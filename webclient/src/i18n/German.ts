@@ -62,5 +62,11 @@ export const GermanTranslations: TranslationKeys = {
     SUCCESS_CLEANUP_CITES: 'Zitate erfolgreich aufgeräumt',
     PROJECT_CITE_CLEANUP_TITLE: 'Zitate aufräumen',
     PROJECT_CITE_CLEANUP_CONTENT: 'Dies führt dazu, dass nur noch die aktuell zitierten Einträge im Literaturverzeichnis auftauchen. Wenn du weitere Einträge zitierst, musst du diese Aktion erneut ausführen, damit die Einträge im Literaturverzeichnis auftauchen.',
-    CONTINUE: 'Fortfahren'
+    CONTINUE: 'Fortfahren',
+    SUCCESS_RESET_TO_DEFAULT: 'Standard-Literaturtypen erfolgreich zurückgesetzt',
+    SUCCESS_SET_DEFAULT: 'Standard erfolgreich aktualisiert',
+    CONFIRM_SET_DEFAULT_TITLE: 'Als Standard festlegen',
+    CONFIRM_SET_DEFAULT_CONTENT: 'Alle neu erstellten Projekte werden die Literaturtypen dieses Projektes haben. Um den Standard zurückzusetzen, lösche den customStyles-Ordner.',
+    CONFIRM_RESET_DEFAULT_TITLE: 'Auf Standard zurücksetzen',
+    CONFIRM_RESET_DEFAULT_CONTENT: 'Alle Änderungen an den Standard-Typen werden verloren gehen. Von dir selbst erstellte Typen bleiben erhalten.'
 }

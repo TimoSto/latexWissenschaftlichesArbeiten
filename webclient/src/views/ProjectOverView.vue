@@ -56,12 +56,12 @@
           <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_BIB_TYPES) }}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
-            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;" @click="setDefaultTriggered=true">
               <v-btn color="primary" style="flex-grow: 1; margin: 8px">
                 <v-icon>mdi-star</v-icon>
                 {{ $t(i18nDictionary.PROJECT_SET_TYPES_AS_DEFAULT) }}
               </v-btn>
-              <v-btn color="primary" style="flex-grow: 1; margin: 8px">
+              <v-btn color="primary" style="flex-grow: 1; margin: 8px" @click="resetDefaultTriggered=true">
                 <v-icon>mdi-reload</v-icon>
                 {{ $t(i18nDictionary.PROJECT_REFRESH_DEFAULT) }}
               </v-btn>
@@ -128,6 +128,26 @@
         @confirmed="cleanupCites"
     />
 
+    <ConfirmDialog
+        :model="setDefaultTriggered"
+        :title="$t(i18nDictionary.CONFIRM_SET_DEFAULT_TITLE)"
+        :content="$t(i18nDictionary.CONFIRM_SET_DEFAULT_CONTENT)"
+        :action="$t(i18nDictionary.CONTINUE)"
+        :abort="$t(i18nDictionary.ABORT)"
+        @declined="setDefaultTriggered = false"
+        @confirmed="setDefault"
+    />
+
+    <ConfirmDialog
+        :model="resetDefaultTriggered"
+        :title="$t(i18nDictionary.CONFIRM_RESET_DEFAULT_TITLE)"
+        :content="$t(i18nDictionary.CONFIRM_RESET_DEFAULT_CONTENT)"
+        :action="$t(i18nDictionary.CONTINUE)"
+        :abort="$t(i18nDictionary.ABORT)"
+        @declined="resetDefaultTriggered = false"
+        @confirmed="resetDefault"
+    />
+
   </div>
 </template>
 
@@ -182,7 +202,9 @@ export default Vue.extend({
         }
       ],
       showLargeTypeBtns: true,
-      citeCleanupTriggered: false
+      citeCleanupTriggered: false,
+      setDefaultTriggered: false,
+      resetDefaultTriggered: false
     }
   },
 
@@ -213,6 +235,14 @@ export default Vue.extend({
     cleanupCites() {
       this.$store.dispatch(ActionTypes.PROJECT_CLEANUP_CITES, this.projectName)
       this.citeCleanupTriggered = false;
+    },
+    setDefault() {
+      this.$store.dispatch(ActionTypes.PROJECT_SET_AS_DEFAULT, this.projectName);
+      this.setDefaultTriggered = false;
+    },
+    resetDefault() {
+      this.$store.dispatch(ActionTypes.PROJECT_RESET_TO_DEFAULT, this.projectName);
+      this.resetDefaultTriggered = false;
     }
   },
 

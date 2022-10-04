@@ -62,5 +62,11 @@ export const EnglishTranslations: TranslationKeys = {
     SUCCESS_CLEANUP_CITES: 'Cites have been cleaned up successfully',
     PROJECT_CITE_CLEANUP_TITLE: 'Cleanup cites',
     PROJECT_CITE_CLEANUP_CONTENT: 'If you trigger this action, only the at this moment quoted entries will appear in the bibliography. If you cite more entries, you will have to trigger this action again, to show these entries in the bibliography.',
-    CONTINUE: 'Continue'
+    CONTINUE: 'Continue',
+    SUCCESS_RESET_TO_DEFAULT: 'Successfully resetted the default types',
+    SUCCESS_SET_DEFAULT: 'Successfully set default types',
+    CONFIRM_SET_DEFAULT_TITLE: 'Set as default',
+    CONFIRM_SET_DEFAULT_CONTENT: 'All new projects will have the bibliography types of this project. To reset the default, delete the customStyles-folder.',
+    CONFIRM_RESET_DEFAULT_TITLE: 'Reset to default',
+    CONFIRM_RESET_DEFAULT_CONTENT: 'All changes on the default-types will be lost. If you created own types, they will not be changed.'
 }

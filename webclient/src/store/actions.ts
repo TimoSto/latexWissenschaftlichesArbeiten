@@ -17,6 +17,8 @@ import SaveBibEntry, {BibEntrySaveObj} from "@/api/bibEntry/SaveBibEntry";
 import DeleteEntry from "@/api/bibEntry/DeleteEntry";
 import DeleteType from "@/api/bibType/DeleteType";
 import CleanupCites from "@/api/project/CleanupCites";
+import SetDefault from "@/api/project/SetDefault";
+import ResetDefaultTypes from "@/api/project/ResetDefaultTypes";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -162,6 +164,22 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
 
         if( resp.ok ) {
             commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_CLEANUP_CITES');
+        }
+    },
+
+    async [ActionTypes.PROJECT_SET_AS_DEFAULT]({commit}, payload: string) {
+        const resp = await SetDefault(payload);
+
+        if( resp.ok ) {
+            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_SET_DEFAULT');
+        }
+    },
+
+    async [ActionTypes.PROJECT_RESET_TO_DEFAULT]({commit}, payload: string) {
+        const resp = await ResetDefaultTypes(payload);
+
+        if( resp.ok ) {
+            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_RESET_TO_DEFAULT');
         }
     }
 };
