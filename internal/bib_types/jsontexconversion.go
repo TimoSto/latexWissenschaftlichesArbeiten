@@ -63,8 +63,12 @@ func GeneratePrintBibCommands(types []LiteratureType) string {
 	return commands
 }
 
+var alphabeth = []string{
+	"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "m", "l", "n", "o", "p",
+}
+
 func toChar(i int) string {
-	return strings.ToLower(fmt.Sprint('A' - 1 + i))
+	return alphabeth[i-1]
 }
 
 func GenerateIfsForBibCommands(types []LiteratureType) string {
@@ -120,6 +124,9 @@ func GenerateIfsForCiteCommands(types []LiteratureType) string {
 			if fieldIndex == -1 {
 				fieldIndex = len(lType.Fields) + GetFieldIndex(lType.CiteFields, field.Field)
 			}
+
+			fmt.Println(toChar(fieldIndex+1), fieldIndex)
+
 			command += `{\` + toChar(fieldIndex+1) + `}`
 		}
 		command += `{#2}.}`
