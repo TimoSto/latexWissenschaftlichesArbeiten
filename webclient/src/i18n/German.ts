@@ -32,5 +32,10 @@ export const GermanTranslations: TranslationKeys = {
     ENTRY_CITE_COUNT: 'Anzahl Zitate: ',
     PROJECT_SET_TYPES_AS_DEFAULT: 'Als Standard festlegen',
     PROJECT_REFRESH_DEFAULT: 'Standard aktualisieren',
-    PROJECT_ADD_TYPE: 'Typen hinzufügen'
+    PROJECT_ADD_TYPE: 'Typen hinzufügen',
+    COMMON_GENERAL: 'Allgemein',
+    ENTRY_EDITOR_ATTRIBUTES: 'Attribute',
+    ENTRY_EDITOR_KEY: 'Schlüssel',
+    COMMON_BIB_TYPE: 'Literaturtyp',
+    COMMON_MANDATORY_FIELD: 'Pflichtfeld'
 }

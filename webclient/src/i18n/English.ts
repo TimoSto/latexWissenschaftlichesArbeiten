@@ -32,5 +32,10 @@ export const EnglishTranslations: TranslationKeys = {
     ENTRY_CITE_COUNT: 'Number of cites: ',
     PROJECT_SET_TYPES_AS_DEFAULT: 'Set as default',
     PROJECT_REFRESH_DEFAULT: 'Refresh default',
-    PROJECT_ADD_TYPE: 'Add new type'
+    PROJECT_ADD_TYPE: 'Add new type',
+    COMMON_GENERAL: 'General',
+    ENTRY_EDITOR_ATTRIBUTES: 'Attributes',
+    ENTRY_EDITOR_KEY: 'Key',
+    COMMON_BIB_TYPE: 'Bibliography type',
+    COMMON_MANDATORY_FIELD: 'Mandatory field'
 }

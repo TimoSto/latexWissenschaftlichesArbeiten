@@ -24,14 +24,14 @@
       <v-expansion-panels flat tile multiple accordion>
 
         <v-expansion-panel>
-          <v-expansion-panel-header>Allgemein</v-expansion-panel-header>
+          <v-expansion-panel-header>{{$t(i18nDictionary.COMMON_GENERAL)}}</v-expansion-panel-header>
 
           <v-expansion-panel-content>
             <v-simple-table disable-sort dense class="two-col-table">
               <tbody>
                 <tr>
                   <td>
-                    Schlüssel
+                    {{$t(i18nDictionary.ENTRY_EDITOR_KEY)}}
                   </td>
                   <td>
                     <v-text-field type="string" v-model="entryToEdit.Key" :rules="nameRules" @input="checkNeededFields"></v-text-field>
@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                   <td>
-                    Literaturtyp
+                    {{$t(i18nDictionary.COMMON_BIB_TYPE)}}
                   </td>
                   <td>
                     <v-select
@@ -59,7 +59,7 @@
         </v-expansion-panel>
 
         <v-expansion-panel>
-          <v-expansion-panel-header>Attribute</v-expansion-panel-header>
+          <v-expansion-panel-header>{{$t(i18nDictionary.ENTRY_EDITOR_ATTRIBUTES)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
 
             <v-simple-table disable-sort dense class="two-col-table">
@@ -138,7 +138,7 @@ export default Vue.extend({
       deleteTriggered: false,
       i18nDictionary: i18nDictionary,
       nameRules: [
-        (value: any) => !!value || 'Pflichtfeld',
+        (value: any) => !!value || this.$t(this.$data.i18nDictionary.COMMON_MANDATORY_FIELD),
       ],
       neededFields: true
     }
