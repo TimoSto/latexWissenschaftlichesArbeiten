@@ -19,6 +19,7 @@ import ProjectOverView from './ProjectOverView.vue';
 import TypeEditorView from './TypeEditorView.vue';
 import {MutationTypes} from '../store/mutation-types';
 import EntryEditorView from "./EntryEditorView.vue";
+import {i18nDictionary} from "../i18n/Keys";
 
 export default Vue.extend({
   name: 'Project-View',
@@ -26,6 +27,12 @@ export default Vue.extend({
   props: [
       'projectName'
   ],
+
+  data() {
+    return {
+      i18nDictionary: i18nDictionary
+    }
+  },
 
   computed: {
     layoutClass(): string[] {
@@ -39,12 +46,12 @@ export default Vue.extend({
       if( this.$store.state.app.twoThirdsActive ) {
         return [
           '&#189;',
-          'Wechsel zu 50:50-Layout'
+          this.$t(this.$data.i18nDictionary.APP_50_50_LAYOUT)
         ]
       }
       return [
         '&#8532;',
-        'Wechsel zu 70:30-Layout'
+        this.$t(this.$data.i18nDictionary.APP_30_70_LAYOUT)
       ]
     },
   },

@@ -37,5 +37,7 @@ export const GermanTranslations: TranslationKeys = {
     ENTRY_EDITOR_ATTRIBUTES: 'Attribute',
     ENTRY_EDITOR_KEY: 'Schlüssel',
     COMMON_BIB_TYPE: 'Literaturtyp',
-    COMMON_MANDATORY_FIELD: 'Pflichtfeld'
+    COMMON_MANDATORY_FIELD: 'Pflichtfeld',
+    APP_50_50_LAYOUT: 'Wechsle zu 50:50-Layout',
+    APP_30_70_LAYOUT: 'Wechsle zu 30:70-Layout'
 }

@@ -37,6 +37,8 @@ export type TranslationKeys = {
     ENTRY_EDITOR_KEY: string
     COMMON_BIB_TYPE: string
     COMMON_MANDATORY_FIELD: string
+    APP_50_50_LAYOUT: string
+    APP_30_70_LAYOUT: string
 }
 
 export const i18nDictionary: TranslationKeys = {
@@ -76,5 +78,7 @@ export const i18nDictionary: TranslationKeys = {
     ENTRY_EDITOR_ATTRIBUTES: 'ENTRY_EDITOR_ATTRIBUTES',
     ENTRY_EDITOR_KEY: 'ENTRY_EDITOR_KEY',
     COMMON_BIB_TYPE: 'COMMON_BIB_TYPE',
-    COMMON_MANDATORY_FIELD: 'COMMON_MANDATORY_FIELD'
+    COMMON_MANDATORY_FIELD: 'COMMON_MANDATORY_FIELD',
+    APP_50_50_LAYOUT: 'APP_50_50_LAYOUT',
+    APP_30_70_LAYOUT: 'APP_30_70_LAYOUT'
 }
