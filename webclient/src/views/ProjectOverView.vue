@@ -29,17 +29,17 @@
             <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
               <v-btn color="primary" style="flex-grow: 1; margin: 8px;" @click="$emit('editor', {Type: 'bibEntry', Key: ''})">
                 <v-icon>mdi-plus</v-icon>
-                Eintrag hinzufügen
+                {{$t(i18nDictionary.PROJECT_ADD_ENTRY)}}
               </v-btn>
               <v-btn color="primary" style="flex-grow: 1; margin: 8px;">
                 <v-icon>mdi-vacuum</v-icon>
-                Zitate aufräumen
+                {{$t(i18nDictionary.PROJECT_CLEANUP_CITES)}}
               </v-btn>
             </div>
 
             <v-list two-line>
               <v-list-item v-for="(el,i) in bibEntries" :key="'entry-' + i" @click="$emit('editor', {Type: 'bibEntry', Key: el.Key})">
-                <v-list-item-avatar class="cite-count" :title="'Anzahl Zitate ' + el.Key">
+                <v-list-item-avatar class="cite-count" :title="$t(i18nDictionary.ENTRY_CITE_COUNT) + el.Key">
                   {{el.CiteNumber}}
                 </v-list-item-avatar>
                 <v-list-item-content>
@@ -59,15 +59,15 @@
             <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
               <v-btn color="primary" style="flex-grow: 1; margin: 8px">
                 <v-icon>mdi-star</v-icon>
-                Als Standard festlegen
+                {{ $t(i18nDictionary.PROJECT_SET_TYPES_AS_DEFAULT) }}
               </v-btn>
               <v-btn color="primary" style="flex-grow: 1; margin: 8px">
                 <v-icon>mdi-reload</v-icon>
-                Standard aktualisieren
+                {{ $t(i18nDictionary.PROJECT_REFRESH_DEFAULT) }}
               </v-btn>
               <v-btn color="primary" style="flex-grow: 1; margin: 8px" @click="$emit('editor', {Type:'bibType', Key: ''})">
                 <v-icon>mdi-plus</v-icon>
-                Typen hinzufügen
+                {{ $t(i18nDictionary.PROJECT_ADD_TYPE) }}
               </v-btn>
             </div>
 

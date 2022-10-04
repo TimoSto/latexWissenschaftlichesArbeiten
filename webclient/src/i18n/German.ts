@@ -26,5 +26,11 @@ export const GermanTranslations: TranslationKeys = {
     DELETE_ENTRY_SURE_TITLE: 'Eintrag löschen',
     DELETE_ENTRY_SURE_CONTENT: 'Möchtest du den Literatureintrag <i>%s</i> wirklich löschen? Die einzige Möglichkeit, ihn wiederherzustellen ist, ein Backup zu laden.',
     DELETE_TYPE_SURE_TITLE: 'Literaturtyp löschen',
-    DELETE_TYPE_SURE_CONTENT: 'Möchtest du den Literaturtyp <i>%s</i> wirklich löschen? Die einzige Möglichkeit, ihn wiederherzustellen ist, ein Backup zu laden.'
+    DELETE_TYPE_SURE_CONTENT: 'Möchtest du den Literaturtyp <i>%s</i> wirklich löschen? Die einzige Möglichkeit, ihn wiederherzustellen ist, ein Backup zu laden.',
+    PROJECT_ADD_ENTRY: 'Eintrag hinzufügen',
+    PROJECT_CLEANUP_CITES: 'Zitate aufräumen',
+    ENTRY_CITE_COUNT: 'Anzahl Zitate: ',
+    PROJECT_SET_TYPES_AS_DEFAULT: 'Als Standard festlegen',
+    PROJECT_REFRESH_DEFAULT: 'Standard aktualisieren',
+    PROJECT_ADD_TYPE: 'Typen hinzufügen'
 }

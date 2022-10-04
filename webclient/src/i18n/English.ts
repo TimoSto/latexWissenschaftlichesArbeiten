@@ -26,5 +26,11 @@ export const EnglishTranslations: TranslationKeys = {
     DELETE_ENTRY_SURE_TITLE: 'Delete entry',
     DELETE_ENTRY_SURE_CONTENT: 'Do you really want to delete the bibliography entry <i>%s</i>? The only way to restore it, will be to load a backup.',
     DELETE_TYPE_SURE_TITLE: 'Delete type',
-    DELETE_TYPE_SURE_CONTENT: 'Do you really want to delete the bibliography type <i>%s</i>? The only way to restore it, will be to load a backup.'
+    DELETE_TYPE_SURE_CONTENT: 'Do you really want to delete the bibliography type <i>%s</i>? The only way to restore it, will be to load a backup.',
+    PROJECT_ADD_ENTRY: 'Add new entry',
+    PROJECT_CLEANUP_CITES: 'Cleanup cites',
+    ENTRY_CITE_COUNT: 'Number of cites: ',
+    PROJECT_SET_TYPES_AS_DEFAULT: 'Set as default',
+    PROJECT_REFRESH_DEFAULT: 'Refresh default',
+    PROJECT_ADD_TYPE: 'Add new type'
 }
