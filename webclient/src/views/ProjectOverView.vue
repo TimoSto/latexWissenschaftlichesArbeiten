@@ -31,7 +31,7 @@
                 <v-icon>mdi-plus</v-icon>
                 {{$t(i18nDictionary.PROJECT_ADD_ENTRY)}}
               </v-btn>
-              <v-btn color="primary" style="flex-grow: 1; margin: 8px;" @click="triggerCiteCleanup">
+              <v-btn color="primary" style="flex-grow: 1; margin: 8px;" @click="triggerCiteCleanup" v-if="false">
                 <v-icon>mdi-vacuum</v-icon>
                 {{$t(i18nDictionary.PROJECT_CLEANUP_CITES)}}
               </v-btn>
