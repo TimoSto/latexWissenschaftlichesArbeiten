@@ -1,9 +1,11 @@
 import {BibType} from "@/api/bibType/BibType";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
 
-export default function AnalyseDroppedFile(file: string, types: BibType[]): BibEntry[] {
+export default function AnalyseDroppedFile(file: string, types: BibType[]): {Entries: BibEntry[], Unknown: string[]} {
 
     const entriesToUpload: BibEntry[] = []
+
+    const ignoredEntries: string[] = []
 
     //step 1: split att @ at beginning of line
     const entries = file.split(/^@/gm).filter(e => e.length > 0);
@@ -90,8 +92,15 @@ export default function AnalyseDroppedFile(file: string, types: BibType[]): BibE
             });
 
             entriesToUpload.push(entry);
+        } else {
+            ignoredEntries.push(citaviType)//TODO: also give key
         }
     });
 
-    return entriesToUpload;
+    console.log(ignoredEntries)
+
+    return {
+        Entries: entriesToUpload,
+        Unknown: ignoredEntries
+    }
 }

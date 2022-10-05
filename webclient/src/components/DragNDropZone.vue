@@ -16,6 +16,12 @@
               <v-list-item-title>{{e.Key}} - {{e.Typ}}</v-list-item-title>
             </v-list-item>
           </v-list>
+          <div v-if="unknownTypes.length > 0">
+            {{ $t(i18nDictionary.PROJECT_UPLOAD_ENTRIES_CONTENT_2) }}
+            <v-list-item v-for="e in unknownTypes" :key="e">
+              <v-list-item-title>{{e}}</v-list-item-title>
+            </v-list-item>
+          </div>
         </v-card-text>
         <v-card-actions>
           <v-spacer />
@@ -39,7 +45,8 @@ import {BibEntry} from "../api/bibEntry/BibEntry";
       return {
         i18nDictionary: i18nDictionary,
         entriesToUpload: [] as BibEntry[],
-        uploadTriggered: false
+        uploadTriggered: false,
+        unknownTypes: [] as string []
       }
     },
     methods: {
@@ -63,19 +70,20 @@ import {BibEntry} from "../api/bibEntry/BibEntry";
             return
           }
 
-          this.entriesToUpload = AnalyseDroppedFile(reader.result as string, this.$store.state.project.bibTypes);
+          const res = AnalyseDroppedFile(reader.result as string, this.$store.state.project.bibTypes);
+
+          this.entriesToUpload = res.Entries;
+          this.unknownTypes = res.Unknown;
           //this.$store.commit(MutationTypes.SET_DRAG_N_DROP_RESULT, dragNDropRes);
           this.uploadTriggered = true;
         }
       },
       abort() {
         this.entriesToUpload = [];
+        this.unknownTypes = [];
         this.uploadTriggered = false;
       }
     },
-
-    computed: {
-    }
   })
 </script>
 
