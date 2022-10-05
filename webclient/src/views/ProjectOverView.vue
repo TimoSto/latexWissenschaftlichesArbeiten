@@ -37,6 +37,8 @@
               </v-btn>
             </div>
 
+            <DragNDropZone />
+
             <v-list two-line>
               <v-list-item v-for="(el,i) in bibEntries" :key="'entry-' + i" @click="$emit('editor', {Type: 'bibEntry', Key: el.Key})">
                 <v-list-item-avatar class="cite-count" :title="$t(i18nDictionary.ENTRY_CITE_COUNT) + el.Key">
@@ -158,10 +160,11 @@ import ConfirmDialog from "@/components/ConfirmDialog.vue";
 import {ActionTypes} from "@/store/action-types";
 import {BibType} from "../api/bibType/BibType";
 import {BibEntry} from "../api/bibEntry/BibEntry";
+import DragNDropZone from "../components/DragNDropZone.vue";
 
 export default Vue.extend({
   name: "Project-OverView",
-  components: {ConfirmDialog},
+  components: {DragNDropZone, ConfirmDialog},
   props: [
       'projectName'
   ],

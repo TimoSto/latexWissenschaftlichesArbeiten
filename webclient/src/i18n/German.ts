@@ -70,5 +70,6 @@ export const GermanTranslations: TranslationKeys = {
     CONFIRM_RESET_DEFAULT_TITLE: 'Auf Standard zurücksetzen',
     CONFIRM_RESET_DEFAULT_CONTENT: 'Alle Änderungen an den Standard-Typen werden verloren gehen. Von dir selbst erstellte Typen bleiben erhalten.',
     UNSAVED_CHANGES_TITLE: 'Es liegen ungespeicherte Änderungen vor',
-    UNSAVED_CHANGES_CONTENT: 'Wenn du fortfährst gehen diese Änderungen verloren.'
+    UNSAVED_CHANGES_CONTENT: 'Wenn du fortfährst gehen diese Änderungen verloren.',
+    CITAVI_DRAG_N_DROP_LABEL: 'Lade eine aus Citavi exportierte .bib-Datei hoch'
 }

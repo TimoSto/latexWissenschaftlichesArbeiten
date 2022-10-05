@@ -70,5 +70,6 @@ export const EnglishTranslations: TranslationKeys = {
     CONFIRM_RESET_DEFAULT_TITLE: 'Reset to default',
     CONFIRM_RESET_DEFAULT_CONTENT: 'All changes on the default-types will be lost. If you created own types, they will not be changed.',
     UNSAVED_CHANGES_TITLE: 'There are unsaved changes',
-    UNSAVED_CHANGES_CONTENT: 'If you continue, these changes will be lost.'
+    UNSAVED_CHANGES_CONTENT: 'If you continue, these changes will be lost.',
+    CITAVI_DRAG_N_DROP_LABEL: 'Upload a .bib-file exported from Citavi'
 }
