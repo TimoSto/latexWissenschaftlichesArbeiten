@@ -1,7 +1,9 @@
 import {BibType} from "@/api/bibType/BibType";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
 
-export default function AnalyseDroppedFile(file: string, types: BibType[]) {
+export default function AnalyseDroppedFile(file: string, types: BibType[]): BibEntry[] {
+
+    const entriesToUpload: BibEntry[] = []
 
     //step 1: split att @ at beginning of line
     const entries = file.split(/^@/gm).filter(e => e.length > 0);
@@ -83,14 +85,13 @@ export default function AnalyseDroppedFile(file: string, types: BibType[]) {
                         }
 
                     });
-                    //TODO: Set cite-fields
+                    //citavi-attributes only appearing in cite-fields are unnecessary
                 }
             });
 
-            console.log(entry);
-
+            entriesToUpload.push(entry);
         }
+    });
 
-
-    })
+    return entriesToUpload;
 }

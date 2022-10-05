@@ -1,20 +1,47 @@
 <template>
-  <v-container>
-    <div id="drop_zone" @dragover.prevent @drop.prevent="readDroppedFile">
-      <span class="mdc-typography--body1">Ziehe eine aus Citavi exportierte Bib-Datei hier hinein</span>
-    </div>
-    <input type="file" id="fileInput" style="display:none"/>
-  </v-container>
+  <div>
+    <v-container>
+      <div id="drop_zone" @dragover.prevent @drop.prevent="readDroppedFile">
+        <span class="mdc-typography--body1">Ziehe eine aus Citavi exportierte Bib-Datei hier hinein</span>
+      </div>
+      <input type="file" id="fileInput" style="display:none"/>
+    </v-container>
+    <v-dialog max-width="450px" v-model="uploadTriggered">
+      <v-card>
+        <v-card-title>{{$t(i18nDictionary.PROJECT_UPLOAD_ENTRIES_TITLE)}}</v-card-title>
+        <v-card-text>
+          {{ $t(i18nDictionary.PROJECT_UPLOAD_ENTRIES_CONTENT_1) }}
+          <v-list>
+            <v-list-item v-for="e in entriesToUpload" :key="e.Key">
+              <v-list-item-title>{{e.Key}} - {{e.Typ}}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn text color="primary" @click="abort">{{$t(i18nDictionary.ABORT)}}</v-btn>
+          <v-btn text color="primary">{{$t(i18nDictionary.UPLOAD)}}</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script lang="ts">
 import AnalyseDroppedFile from '@/api/citavi/AnalyseDroppedFile';
 import Vue from 'vue'
-import {MutationTypes} from "@/store/mutation-types";
+import {i18nDictionary} from "../i18n/Keys";
+import {BibEntry} from "../api/bibEntry/BibEntry";
 
   export default Vue.extend({
     name: 'DragNDrop-Zone',
-
+    data() {
+      return {
+        i18nDictionary: i18nDictionary,
+        entriesToUpload: [] as BibEntry[],
+        uploadTriggered: false
+      }
+    },
     methods: {
       readDroppedFile(e: DragEvent) {
         const dT = new DataTransfer();
@@ -36,10 +63,18 @@ import {MutationTypes} from "@/store/mutation-types";
             return
           }
 
-          const dragNDropRes = AnalyseDroppedFile(reader.result as string, this.$store.state.project.bibTypes);
+          this.entriesToUpload = AnalyseDroppedFile(reader.result as string, this.$store.state.project.bibTypes);
           //this.$store.commit(MutationTypes.SET_DRAG_N_DROP_RESULT, dragNDropRes);
+          this.uploadTriggered = true;
         }
+      },
+      abort() {
+        this.entriesToUpload = [];
+        this.uploadTriggered = false;
       }
+    },
+
+    computed: {
     }
   })
 </script>

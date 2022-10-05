@@ -71,5 +71,10 @@ export const EnglishTranslations: TranslationKeys = {
     CONFIRM_RESET_DEFAULT_CONTENT: 'All changes on the default-types will be lost. If you created own types, they will not be changed.',
     UNSAVED_CHANGES_TITLE: 'There are unsaved changes',
     UNSAVED_CHANGES_CONTENT: 'If you continue, these changes will be lost.',
-    CITAVI_DRAG_N_DROP_LABEL: 'Upload a .bib-file exported from Citavi'
+    CITAVI_DRAG_N_DROP_LABEL: 'Upload a .bib-file exported from Citavi',
+    PROJECT_UPLOAD_ENTRIES_TITLE: 'Upload entries',
+    PROJECT_UPLOAD_ENTRIES_CONTENT_1: 'Following entries will be uploaded:',
+    PROJECT_UPLOAD_ENTRIES_CONTENT_2: 'Following entries could not be assigned to a type:',
+    PROJECT_UPLOAD_ENTRIES_OVERRIDE: 'Override existing entries',
+    UPLOAD: 'Upload'
 }

@@ -71,5 +71,10 @@ export const GermanTranslations: TranslationKeys = {
     CONFIRM_RESET_DEFAULT_CONTENT: 'Alle Änderungen an den Standard-Typen werden verloren gehen. Von dir selbst erstellte Typen bleiben erhalten.',
     UNSAVED_CHANGES_TITLE: 'Es liegen ungespeicherte Änderungen vor',
     UNSAVED_CHANGES_CONTENT: 'Wenn du fortfährst gehen diese Änderungen verloren.',
-    CITAVI_DRAG_N_DROP_LABEL: 'Lade eine aus Citavi exportierte .bib-Datei hoch'
+    CITAVI_DRAG_N_DROP_LABEL: 'Lade eine aus Citavi exportierte .bib-Datei hoch',
+    PROJECT_UPLOAD_ENTRIES_TITLE: 'Einträge hochladen',
+    PROJECT_UPLOAD_ENTRIES_CONTENT_1: 'Folgende Einträge werden hochgeladen:',
+    PROJECT_UPLOAD_ENTRIES_CONTENT_2: 'Folgende Einträge konnten nicht zugeordnet werden:',
+    PROJECT_UPLOAD_ENTRIES_OVERRIDE: 'Bestehende Einträge überschreiben',
+    UPLOAD: 'Hochladen'
 }
