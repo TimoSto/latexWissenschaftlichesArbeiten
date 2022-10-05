@@ -175,11 +175,12 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         }
     },
 
-    async [ActionTypes.PROJECT_RESET_TO_DEFAULT]({commit}, payload: string) {
+    async [ActionTypes.PROJECT_RESET_TO_DEFAULT]({commit, dispatch}, payload: string) {
         const resp = await ResetDefaultTypes(payload);
 
         if( resp.ok ) {
             commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_RESET_TO_DEFAULT');
+            dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, payload)
         }
     }
 };
