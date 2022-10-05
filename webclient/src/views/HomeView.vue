@@ -16,7 +16,6 @@
 <script lang="ts">
 import Vue from 'vue';
 import HomeTile from "../components/HomeTile.vue";
-import {MutationTypes} from "../store/mutation-types";
 
 type Tile = {
   Title: string,

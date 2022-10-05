@@ -142,7 +142,7 @@ export default Vue.extend({
       deleteTriggered: false,
       i18nDictionary: i18nDictionary,
       nameRules: [
-        (value: any) => !!value || this.$t(this.$data.i18nDictionary.COMMON_MANDATORY_FIELD),
+        (value: string) => !!value || this.$t(this.$data.i18nDictionary.COMMON_MANDATORY_FIELD),
       ],
       neededFields: true
     }

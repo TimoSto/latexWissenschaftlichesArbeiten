@@ -96,7 +96,6 @@
 import Vue from 'vue';
 import {MutationTypes} from "./store/mutation-types";
 import {ActionTypes} from "./store/action-types";
-import { GermanTranslations } from './i18n/German';
 import MySnackbar from './components/MySnackbar.vue';
 import {i18nDictionary} from "./i18n/Keys";
 

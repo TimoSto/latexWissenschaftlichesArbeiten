@@ -171,7 +171,7 @@ import Vue from "vue";
 import MyDataTable from "../components/MyDataTable.vue";
 import {MutationTypes} from "../store/mutation-types";
 import {ActionTypes} from "../store/action-types";
-import {BibType, CreateField, Field} from "../api/bibType/BibType";
+import {CreateField, Field} from "../api/bibType/BibType";
 import {GenerateModelForBibType} from "../api/bibType/GenerateModelForBibTypes";
 import {i18nDictionary} from "../i18n/Keys";
 import ConfirmDialog from "../components/ConfirmDialog.vue";
@@ -187,7 +187,7 @@ export default Vue.extend({
   data() {
     return {
       nameRules: [
-        (value: any) => !!value || 'Pflichtfeld',
+        (value: string) => !!value || 'Pflichtfeld',
       ],
       citaviPrefix: '',
       focusedComboCitavi: false,
@@ -267,7 +267,7 @@ export default Vue.extend({
       }
       this.UpdateModels();
     },
-    RmAttr(evt: any, cite: boolean) {
+    RmAttr(evt: number, cite: boolean) {
       if( cite ) {
         this.typeToEdit.CiteFields.splice(evt, 1)
       } else {

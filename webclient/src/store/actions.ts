@@ -1,5 +1,5 @@
 import { ActionTree, ActionContext } from 'vuex';
-import {myState, MyState} from './state';
+import {MyState} from './state';
 import { Mutations } from './mutations';
 import { ActionTypes } from "@/store/action-types";
 import {MutationTypes} from "@/store/mutation-types";
@@ -11,7 +11,7 @@ import BackupProject from "@/api/project/BackupProject";
 import GetBackupPaths from "@/api/project/GetBackupPaths";
 import ResetToBackup from "@/api/project/ResetToBackup";
 import GetProjectData from "@/api/project/GetProjectData";
-import {BibType, BibTypeSaveObj} from "@/api/bibType/BibType";
+import {BibTypeSaveObj} from "@/api/bibType/BibType";
 import SaveType from "@/api/bibType/SaveBibType";
 import SaveBibEntry, {BibEntrySaveObj} from "@/api/bibEntry/SaveBibEntry";
 import DeleteEntry from "@/api/bibEntry/DeleteEntry";
@@ -70,7 +70,7 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         }//TODO: automatisch alles leeren wenn name auf leer gesetzt wird
     },
 
-    async [ActionTypes.PROJECT_BACKUP_PROJECT]({ commit, dispatch }, payload: string) {
+    async [ActionTypes.PROJECT_BACKUP_PROJECT]({ commit }, payload: string) {
 
         const msg = await BackupProject(payload);
 
@@ -81,7 +81,7 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         }
     },
 
-    async [ActionTypes.PROJECT_GET_BACKUP_PATHS]({ commit, dispatch }, payload: string) {
+    async [ActionTypes.PROJECT_GET_BACKUP_PATHS]({ commit }, payload: string) {
 
         const resp = await GetBackupPaths(payload);
 
@@ -106,7 +106,7 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         }//TODO: automatisch alles leeren wenn name auf leer gesetzt wird
     },
 
-    async [ActionTypes.PROJECT_GET_PROJECT_DATA]({ commit, dispatch }, payload: string) {
+    async [ActionTypes.PROJECT_GET_PROJECT_DATA]({ commit }, payload: string) {
 
         const obj = await GetProjectData(payload);
 

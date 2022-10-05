@@ -1,6 +1,6 @@
 
 export default async function BackupProject(project: string): Promise<string>{
-    let resp = await fetch('/backup?project='+project, {
+    const resp = await fetch('/backup?project='+project, {
         method: 'POST'
     });
 

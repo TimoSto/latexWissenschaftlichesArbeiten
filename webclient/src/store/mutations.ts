@@ -3,9 +3,7 @@ import { MutationTypes } from './mutation-types';
 import {MyState} from './state';
 import {ProjectData} from "@/api/project/GetProjectData";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
-import {BibType, CreateField} from "@/api/bibType/BibType";
-import {GenerateModelForBibType} from "@/api/bibType/GenerateModelForBibTypes";
-import Vue from "vue";
+import {BibType} from "@/api/bibType/BibType";
 
 export type Mutations<S = MyState> = {
     [MutationTypes.APP_SET_PROJECTNAMES](state: S, payload: string[]): void;
