@@ -128,7 +128,9 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.APP_TOGGLE_TWO_THIRDS)
     }
 
-    this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.$store.state.app.currentProjectName);
+    if( this.$store.state.app.currentProjectName !== '' ) {
+      this.$store.dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, this.$store.state.app.currentProjectName);
+    }
 
   },
 
@@ -165,8 +167,12 @@ export default Vue.extend({
     },
     toHome() {
       //TODO: check stuff
-      this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
-      this.$router.push('/');
+      if( this.$store.state.editor.savelyClosable ) {
+        this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+        this.$router.push('/');
+      } else {
+        this.openUnsafeDialog({Type: 'home', Key: ''})
+      }
     },
     openUnsafeDialog(switchTo?: {Type: string, Key: string}) {
       this.tryUnsafeClose = true;
@@ -177,7 +183,12 @@ export default Vue.extend({
     acceptUnsafeClose() {
       this.tryUnsafeClose = false;
       if( this.switchObj.Type.length > 0 ) {
-        this.$store.commit(MutationTypes.EDITOR_OPEN, this.switchObj);
+        if( this.switchObj.Type === 'home' ) {
+          this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+          this.$router.push('/');
+        } else {
+          this.$store.commit(MutationTypes.EDITOR_OPEN, this.switchObj);
+        }
       } else if (this.newProjectName.length > 0) {
         this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
       } else {

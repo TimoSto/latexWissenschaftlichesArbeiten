@@ -14,7 +14,12 @@ export const mutations: MutationTree<MyState> & Mutations = {
         state.app.projectNames = payload
     },
     [MutationTypes.APP_SET_PROJECTNAME](state, payload: string) {
-        state.app.currentProjectName = payload
+        if( payload !== state.app.currentProjectName ) {
+            state.app.currentProjectName = payload
+            state.editor.savelyClosable = true;
+            state.editor.type = '';
+            state.editor.key = '';
+        }
     },
     [MutationTypes.APP_SET_ERROR](state, payload: {type: string, message: string}) {
         state.app.error = payload
