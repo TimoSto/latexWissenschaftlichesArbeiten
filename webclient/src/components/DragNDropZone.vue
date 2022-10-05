@@ -85,7 +85,8 @@ import {ActionTypes} from "../store/action-types";
         this.uploadTriggered = false;
       },
       upload() {
-        this.$store.dispatch(ActionTypes.PROJECT_UPLOAD_ENTRIES, {entries: this.entriesToUpload, project: this.$store.state.app.currentProjectName})
+        this.$store.dispatch(ActionTypes.PROJECT_UPLOAD_ENTRIES, {entries: this.entriesToUpload, project: this.$store.state.app.currentProjectName});
+        this.abort();
       }
     },
   })

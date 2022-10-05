@@ -30,8 +30,6 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string, readF
 		//	return fmt.Errorf("empty fields. You propably uploaded an invalid file."), 0, 0
 		//}
 
-		fmt.Println(entry.Key, initialKeys[n])
-
 		if entry.Key != initialKeys[n] {
 			//if key is changed, make sure it does not already exist
 			for i := 0; i < len(existingEntries); i++ {
