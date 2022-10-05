@@ -9,5 +9,8 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false
+  },
+  "scripts": {
+    "open": "cypress open"
   }
 }
