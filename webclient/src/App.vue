@@ -309,7 +309,6 @@ $dark-bg: #121212;
 }
 
 .two-col-table {
-  max-width: 450px!important;
   & tr {
     & td:first-child {
       width: 150px;

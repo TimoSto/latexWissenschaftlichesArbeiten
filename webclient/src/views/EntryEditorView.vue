@@ -21,14 +21,14 @@
 
     <v-sheet id="scroll-editor" class="content-below-two-bars">
 
-      <v-expansion-panels flat tile multiple accordion style="max-width: 650px">
+      <v-expansion-panels flat tile multiple accordion style="max-width: 950px">
 
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.COMMON_GENERAL)}}</v-expansion-panel-header>
 
           <v-expansion-panel-content>
               <div class="centered">
-                <v-simple-table disable-sort dense class="two-col-table">
+                <v-simple-table disable-sort dense class="two-col-table" style="max-width: 500px">
                   <tbody>
                   <tr>
                     <td>
@@ -65,7 +65,7 @@
           <v-expansion-panel-content>
 
             <div class="centered">
-              <v-simple-table disable-sort dense class="two-col-table">
+              <v-simple-table disable-sort dense class="two-col-table" style="max-width: 850px!important">
                 <tbody>
 
                 <!--TODO: Wenn genug platz, in zwei spalten-->

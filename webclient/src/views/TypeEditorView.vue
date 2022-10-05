@@ -28,7 +28,7 @@
           <v-expansion-panel-content>
 
             <div class="centered">
-              <v-simple-table disable-sort dense class="two-col-table">
+              <v-simple-table disable-sort dense class="two-col-table" style="max-width: 500px">
                 <tbody>
                 <tr>
                   <td>
@@ -50,7 +50,7 @@
           <v-expansion-panel-content>
 
             <div class="centered">
-              <v-simple-table disable-sort dense class="two-col-table">
+              <v-simple-table disable-sort dense class="two-col-table" style="max-width: 500px">
                 <tbody>
                 <tr>
                   <td>
