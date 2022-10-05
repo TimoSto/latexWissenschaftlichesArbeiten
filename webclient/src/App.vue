@@ -77,14 +77,14 @@
 
     </v-main>
 
-    <v-dialog max-width="350" v-model="tryUnsafeClose">
+    <v-dialog max-width="450" v-model="tryUnsafeClose">
       <v-card>
-        <v-card-title>Ungespeicherte Änderungen</v-card-title>
-        <v-card-text>Es liegen ungespeicherte Änderungen vor. Wenn du fortfährst, gehen diese verloren.</v-card-text>
+        <v-card-title>{{$t(i18nDictionary.UNSAVED_CHANGES_TITLE)}}</v-card-title>
+        <v-card-text>{{$t(i18nDictionary.UNSAVED_CHANGES_CONTENT)}}</v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn text color="primary" @click="tryUnsafeClose=false">Abbrechen</v-btn>
-          <v-btn text color="primary" @click="acceptUnsafeClose">Fortfahren</v-btn>
+          <v-btn text color="primary" @click="tryUnsafeClose=false">{{$t(i18nDictionary.ABORT)}}</v-btn>
+          <v-btn text color="primary" @click="acceptUnsafeClose">{{$t(i18nDictionary.CONTINUE)}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

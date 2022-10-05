@@ -68,5 +68,7 @@ export const EnglishTranslations: TranslationKeys = {
     CONFIRM_SET_DEFAULT_TITLE: 'Set as default',
     CONFIRM_SET_DEFAULT_CONTENT: 'All new projects will have the bibliography types of this project. To reset the default, delete the customStyles-folder.',
     CONFIRM_RESET_DEFAULT_TITLE: 'Reset to default',
-    CONFIRM_RESET_DEFAULT_CONTENT: 'All changes on the default-types will be lost. If you created own types, they will not be changed.'
+    CONFIRM_RESET_DEFAULT_CONTENT: 'All changes on the default-types will be lost. If you created own types, they will not be changed.',
+    UNSAVED_CHANGES_TITLE: 'There are unsaved changes',
+    UNSAVED_CHANGES_CONTENT: 'If you continue, these changes will be lost.'
 }

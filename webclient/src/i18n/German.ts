@@ -68,5 +68,7 @@ export const GermanTranslations: TranslationKeys = {
     CONFIRM_SET_DEFAULT_TITLE: 'Als Standard festlegen',
     CONFIRM_SET_DEFAULT_CONTENT: 'Alle neu erstellten Projekte werden die Literaturtypen dieses Projektes haben. Um den Standard zurückzusetzen, lösche den customStyles-Ordner.',
     CONFIRM_RESET_DEFAULT_TITLE: 'Auf Standard zurücksetzen',
-    CONFIRM_RESET_DEFAULT_CONTENT: 'Alle Änderungen an den Standard-Typen werden verloren gehen. Von dir selbst erstellte Typen bleiben erhalten.'
+    CONFIRM_RESET_DEFAULT_CONTENT: 'Alle Änderungen an den Standard-Typen werden verloren gehen. Von dir selbst erstellte Typen bleiben erhalten.',
+    UNSAVED_CHANGES_TITLE: 'Es liegen ungespeicherte Änderungen vor',
+    UNSAVED_CHANGES_CONTENT: 'Wenn sie fortfahren gehen diese Änderungen verloren.'
 }
