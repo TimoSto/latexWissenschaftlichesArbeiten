@@ -19,6 +19,8 @@ import DeleteType from "@/api/bibType/DeleteType";
 import CleanupCites from "@/api/project/CleanupCites";
 import SetDefault from "@/api/project/SetDefault";
 import ResetDefaultTypes from "@/api/project/ResetDefaultTypes";
+import {BibEntry} from "@/api/bibEntry/BibEntry";
+import UploadEntries from "@/api/citavi/UploadEntries";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -181,6 +183,15 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         if( resp.ok ) {
             commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_RESET_TO_DEFAULT');
             dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, payload)
+        }
+    },
+
+    async [ActionTypes.PROJECT_UPLOAD_ENTRIES]({commit, dispatch}, payload: {entries: BibEntry[], project: string}) {
+        const resp = await UploadEntries(payload.entries, payload.project);
+
+        if( resp.ok ) {
+            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_UPLOAD_ENTRIES');
+            dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, payload.project)
         }
     }
 };

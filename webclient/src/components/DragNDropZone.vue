@@ -26,7 +26,7 @@
         <v-card-actions>
           <v-spacer />
           <v-btn text color="primary" @click="abort">{{$t(i18nDictionary.ABORT)}}</v-btn>
-          <v-btn text color="primary">{{$t(i18nDictionary.UPLOAD)}}</v-btn>
+          <v-btn text color="primary" @click="upload">{{$t(i18nDictionary.UPLOAD)}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -38,6 +38,7 @@ import AnalyseDroppedFile from '@/api/citavi/AnalyseDroppedFile';
 import Vue from 'vue'
 import {i18nDictionary} from "../i18n/Keys";
 import {BibEntry} from "../api/bibEntry/BibEntry";
+import {ActionTypes} from "../store/action-types";
 
   export default Vue.extend({
     name: 'DragNDrop-Zone',
@@ -82,6 +83,9 @@ import {BibEntry} from "../api/bibEntry/BibEntry";
         this.entriesToUpload = [];
         this.unknownTypes = [];
         this.uploadTriggered = false;
+      },
+      upload() {
+        this.$store.dispatch(ActionTypes.PROJECT_UPLOAD_ENTRIES, {entries: this.entriesToUpload, project: this.$store.state.app.currentProjectName})
       }
     },
   })
