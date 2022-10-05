@@ -142,6 +142,8 @@ export default Vue.extend({
     createNewProject() {
       if( this.$store.state.editor.savelyClosable ) {
         this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
+        this.newProjectName = '';
+        this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''})
       } else {
         this.tryUnsafeClose = true;
       }
@@ -191,6 +193,8 @@ export default Vue.extend({
         }
       } else if (this.newProjectName.length > 0) {
         this.$store.dispatch(ActionTypes.APP_CREATE_PROJECT, this.newProjectName)
+        this.newProjectName = '';
+        this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''})
       } else {
         this.$store.commit(MutationTypes.EDITOR_OPEN, {Type: '', Key: ''});
         if (this.trySwitchToProject.length > 0) {
