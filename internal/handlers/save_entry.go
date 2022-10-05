@@ -54,7 +54,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		saveObj.InitialKey,
 	}
 
-	err, added, changed := SaveEntries(entries, saveObj.Project, initialKeys, ioutil.ReadFile, ioutil.WriteFile)
+	err, added, changed := SaveEntries(entries, saveObj.Project, initialKeys, true, ioutil.ReadFile, ioutil.WriteFile)
 	if err != nil {
 		logger.LogError("Saving entries", err.Error())
 		if strings.Contains(err.Error(), "already exists") {
@@ -78,8 +78,9 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 }
 
 type UploadEntriesObj struct {
-	Entries []BibEntry
-	Project string
+	Entries  []BibEntry
+	Project  string
+	Override bool
 }
 
 func HandleUploadEntries(w http.ResponseWriter, r *http.Request) {
@@ -98,7 +99,7 @@ func HandleUploadEntries(w http.ResponseWriter, r *http.Request) {
 		initialKeys = append(initialKeys, e.Key)
 	}
 
-	err, added, changed := SaveEntries(saveObj.Entries, saveObj.Project, initialKeys, ioutil.ReadFile, ioutil.WriteFile)
+	err, added, changed := SaveEntries(saveObj.Entries, saveObj.Project, initialKeys, saveObj.Override, ioutil.ReadFile, ioutil.WriteFile)
 	if err != nil {
 		fmt.Println(err)
 		if strings.Contains(err.Error(), "already exists") {

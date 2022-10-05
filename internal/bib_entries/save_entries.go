@@ -10,7 +10,7 @@ import (
 	"WA_LaTeX/pkg/logger"
 )
 
-func SaveEntries(entries []BibEntry, project string, initialKeys []string, readFile func(string) ([]byte, error), writeFile func(string, []byte, fs.FileMode) error) (error, int, int) {
+func SaveEntries(entries []BibEntry, project string, initialKeys []string, override bool, readFile func(string) ([]byte, error), writeFile func(string, []byte, fs.FileMode) error) (error, int, int) {
 
 	existingEntries, err := ReadBibEntries(project, readFile)
 	if err != nil {
@@ -54,14 +54,14 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string, readF
 		//}
 
 		found := false
-		for i := 0; i < len(existingEntries); i++ {
-			if strings.Compare(existingEntries[i].Key, initialKeys[n]) == 0 {
+		for i := 0; i < len(existingEntries); i++ { //TODO: override vereinheitlichen
+			if strings.Compare(existingEntries[i].Key, initialKeys[n]) == 0 && override {
 				existingEntries[i] = entry
 				found = true
 				changed++
 				break
 			} else if strings.Compare(existingEntries[i].Key, entry.Key) == 0 {
-				if !conf.OverrideExistingEntries {
+				if !conf.OverrideExistingEntries || !override {
 					logger.LogInfo(fmt.Sprintf("Entry with key '%s' already exists. Delete the old one or rename the new one.", entry.Key))
 					found = true
 				} else {

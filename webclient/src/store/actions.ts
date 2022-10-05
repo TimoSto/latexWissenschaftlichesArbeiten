@@ -186,8 +186,9 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         }
     },
 
-    async [ActionTypes.PROJECT_UPLOAD_ENTRIES]({commit, dispatch}, payload: {entries: BibEntry[], project: string}) {
-        const resp = await UploadEntries(payload.entries, payload.project);
+    async [ActionTypes.PROJECT_UPLOAD_ENTRIES]({commit, dispatch}, payload: {entries: BibEntry[], project: string, override: boolean}) {
+        console.log(payload.override)
+        const resp = await UploadEntries(payload.entries, payload.project, payload.override);
 
         if( resp.ok ) {
             commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_UPLOAD_ENTRIES');

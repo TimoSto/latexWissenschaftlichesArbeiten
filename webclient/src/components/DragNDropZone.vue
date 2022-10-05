@@ -22,6 +22,14 @@
               <v-list-item-title>{{e}}</v-list-item-title>
             </v-list-item>
           </div>
+          <div
+              class="px-0"
+          >
+            <v-checkbox
+                v-model="override"
+                :label="$t(i18nDictionary.PROJECT_UPLOAD_ENTRIES_OVERRIDE)"
+            ></v-checkbox>
+          </div>
         </v-card-text>
         <v-card-actions>
           <v-spacer />
@@ -47,7 +55,8 @@ import {ActionTypes} from "../store/action-types";
         i18nDictionary: i18nDictionary,
         entriesToUpload: [] as BibEntry[],
         uploadTriggered: false,
-        unknownTypes: [] as string []
+        unknownTypes: [] as string [],
+        override: true,
       }
     },
     methods: {
@@ -85,7 +94,7 @@ import {ActionTypes} from "../store/action-types";
         this.uploadTriggered = false;
       },
       upload() {
-        this.$store.dispatch(ActionTypes.PROJECT_UPLOAD_ENTRIES, {entries: this.entriesToUpload, project: this.$store.state.app.currentProjectName});
+        this.$store.dispatch(ActionTypes.PROJECT_UPLOAD_ENTRIES, {entries: this.entriesToUpload, project: this.$store.state.app.currentProjectName, override: this.override});
         this.abort();
       }
     },

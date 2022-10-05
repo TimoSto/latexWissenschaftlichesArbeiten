@@ -1,9 +1,10 @@
 import {BibEntry} from "@/api/bibEntry/BibEntry";
 
-export default async function UploadEntries(entries: BibEntry[], project: string): Promise<Response> {
+export default async function UploadEntries(entries: BibEntry[], project: string, override: boolean): Promise<Response> {
     const obj = {
         Entries: entries,
-        Project: project
+        Project: project,
+        Override: override
     }
 
     const data = JSON.stringify(obj);
