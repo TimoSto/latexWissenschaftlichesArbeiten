@@ -143,6 +143,7 @@
                   v-on:removed="RmAttr($event, true)"
                   v-on:added="AddAttr(true)"
                   style="max-width: 1200px"
+                  :showCitaviAttrs="false"
               ></MyDataTable>
             </div>
 
