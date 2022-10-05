@@ -65,6 +65,16 @@
           <v-expansion-panel-content>
 
             <div class="centered">
+              <p>
+                <b>Eintrag Literaturverzeichnis: </b>
+                <span v-html="this.bibExample"></span>
+              </p>
+
+              <p>
+                <b>Zitat: </b>
+                <span v-html="this.citeExample"></span>
+              </p>
+
               <v-simple-table disable-sort dense class="two-col-table" style="max-width: 850px!important">
                 <tbody>
 
@@ -123,6 +133,7 @@ import {ActionTypes} from "../store/action-types";
 import {MutationTypes} from "../store/mutation-types";
 import {i18nDictionary} from "../i18n/Keys";
 import ConfirmDialog from "../components/ConfirmDialog.vue";
+import GeneratePreviewsForBibEntry from "../api/bibEntry/GeneratePreviewsForBibEntry";
 
 export default Vue.extend({
   name: "EntryEditor-View",
@@ -139,6 +150,8 @@ export default Vue.extend({
         Fields: [] as string[],
         CiteNumber: 0
       },
+      bibExample: '',
+      citeExample: '',
       deleteTriggered: false,
       i18nDictionary: i18nDictionary,
       nameRules: [
@@ -163,6 +176,17 @@ export default Vue.extend({
           CiteNumber: 0
         }
       }
+    },
+    entryToEdit: {
+      handler: function(nV) {
+        if (nV.Typ.length > 0) {
+          const type = this.$store.getters.getType(nV.Typ)
+          const examples = GeneratePreviewsForBibEntry(type.Fields, type.CiteFields, nV.Fields);
+          this.bibExample = examples[0];
+          this.citeExample = examples[1];
+        }
+      },
+      deep: true
     }
   },
 
@@ -174,6 +198,12 @@ export default Vue.extend({
       } else {
         //bei neuem typen sind die felder noch nicht eingetragen
         this.neededFields = false;
+      }
+      if( this.entryToEdit.Typ.length > 0 ) {
+        const type = this.$store.getters.getType(this.entryToEdit.Typ)
+        const examples = GeneratePreviewsForBibEntry(type.Fields, type.CiteFields, this.entryToEdit.Fields);
+        this.bibExample = examples[0];
+        this.citeExample = examples[1];
       }
     });
   },

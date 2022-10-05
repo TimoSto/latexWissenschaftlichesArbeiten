@@ -9,6 +9,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: myState,
   getters: {
+    getType: (state) => (name: string) => {
+      return state.project.bibTypes.find(t => t.Name === name);
+    }
   },
   mutations: mutations,
   actions: actions,
