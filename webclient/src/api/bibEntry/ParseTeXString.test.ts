@@ -25,4 +25,7 @@ describe('parsing string to tex', ()=> {
     it('Value: "__%_string#s##_"', ()=> {
         expect(ParseStringToTeX('__%_string#s##_')).toEqual('{{\\_}}{{\\_}}{{\\%}}{{\\_}}string{{\\#}}s{{\\#}}{{\\#}}{{\\_}}')
     })
+    it('Value: "&a&b&"', ()=> {
+        expect(ParseStringToTeX('&a&b&')).toEqual('{{\\&}}a{{\\&}}b{{\\&}}')
+    })
 })
