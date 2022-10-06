@@ -114,6 +114,8 @@ func main() {
 
 	mux.Handle("/projectData", http.HandlerFunc(handlers.GetProjectData))
 
+	mux.Handle("/abbreviations", http.HandlerFunc(handlers.HandleSaveAbbreviations))
+
 	//old
 
 	mux.Handle("/saveType", http.HandlerFunc(handlers.HandleSaveType))

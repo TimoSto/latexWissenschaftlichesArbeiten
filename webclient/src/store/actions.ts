@@ -21,6 +21,8 @@ import SetDefault from "@/api/project/SetDefault";
 import ResetDefaultTypes from "@/api/project/ResetDefaultTypes";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
 import UploadEntries from "@/api/citavi/UploadEntries";
+import {Abbreviation} from "@/api/abbreviations/Abbreviation";
+import SaveAbbreviations from "@/api/abbreviations/SaveAbbreviations";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -193,6 +195,16 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         if( resp.ok ) {
             commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_UPLOAD_ENTRIES');
             dispatch(ActionTypes.PROJECT_GET_PROJECT_DATA, payload.project)
+        }
+    },
+
+    async [ActionTypes.PROJECT_SAVE_ABBREVIATIONS]({commit}, payload: {abbrs: Abbreviation[], project: string}) {
+
+        const resp = await SaveAbbreviations(payload.abbrs, payload.project)
+
+        if( resp.ok ) {
+            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_SAVE_ABBRS');
+            commit(MutationTypes.PROJECT_SET_ABBRS, payload.abbrs)
         }
     }
 };

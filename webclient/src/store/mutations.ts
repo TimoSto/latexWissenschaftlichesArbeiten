@@ -4,6 +4,7 @@ import {MyState} from './state';
 import {ProjectData} from "@/api/project/GetProjectData";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
 import {BibType} from "@/api/bibType/BibType";
+import {Abbreviation} from "@/api/abbreviations/Abbreviation";
 
 export type Mutations<S = MyState> = {
     [MutationTypes.APP_SET_PROJECTNAMES](state: S, payload: string[]): void;
@@ -134,5 +135,8 @@ export const mutations: MutationTree<MyState> & Mutations = {
         if( i >= 0) {
             state.project.bibTypes.splice(i, 1);
         }
+    },
+    [MutationTypes.PROJECT_SET_ABBRS](state, payload: Abbreviation[]) {
+        state.project.abbreviations = JSON.parse(JSON.stringify(payload))
     }
 };

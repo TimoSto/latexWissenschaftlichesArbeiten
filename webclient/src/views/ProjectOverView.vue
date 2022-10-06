@@ -95,7 +95,7 @@
                   <v-icon>mdi-lock-reset</v-icon>
                   Zurücksetzen
                 </v-btn>
-                <v-btn color="primary" style="flex-grow: 1; margin: 8px" :disabled="!abbreviationsChanged">
+                <v-btn color="primary" style="flex-grow: 1; margin: 8px" :disabled="!abbreviationsChanged" @click="saveAbbrs">
                   <v-icon>mdi-content-save</v-icon>
                   Speichern
                 </v-btn>
@@ -318,6 +318,9 @@ export default Vue.extend({
     },
     resetAbbr() {
       this.abbreviationsToEdit = JSON.parse(JSON.stringify(this.$store.state.project.abbreviations))
+    },
+    saveAbbrs() {
+      this.$store.dispatch(ActionTypes.PROJECT_SAVE_ABBREVIATIONS, {abbrs: this.abbreviationsToEdit, project: this.$store.state.app.currentProjectName})
     }
   },
 
