@@ -90,6 +90,13 @@
           <v-expansion-panel-content>
             <div class="centered">
 
+              <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <v-btn color="primary" style="flex-grow: 1; margin: 8px" :disabled="!abbreviationsChanged">
+                  <v-icon>mdi-content-save</v-icon>
+                  Speichern
+                </v-btn>
+              </div>
+
               <v-simple-table style="max-width: 500px;">
                 <thead>
                   <tr>
@@ -98,7 +105,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="a in abbreviations" :key="a.Abk">
+                  <tr v-for="(a, i) in abbreviationsToEdit" :key="'abk'+i">
                     <td>
                       <v-text-field type="string" v-model="a.Abk" />
                     </td>
@@ -237,7 +244,14 @@ export default Vue.extend({
       showLargeTypeBtns: true,
       citeCleanupTriggered: false,
       setDefaultTriggered: false,
-      resetDefaultTriggered: false
+      resetDefaultTriggered: false,
+      abbreviationsToEdit: [] as Abbreviation[]
+    }
+  },
+
+  watch: {
+    abbreviations(nV) {
+      this.abbreviationsToEdit = JSON.parse(JSON.stringify(nV));
     }
   },
 
@@ -291,6 +305,9 @@ export default Vue.extend({
     },
     abbreviations(): Abbreviation[] {
       return this.$store.state.project.abbreviations;
+    },
+    abbreviationsChanged(): boolean {
+      return JSON.stringify(this.abbreviationsToEdit) !== JSON.stringify(this.$store.state.project.abbreviations)
     }
   },
 });
