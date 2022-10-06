@@ -13,4 +13,7 @@ describe('parsing string to tex', ()=> {
     it('Value: "h{{\\_}}i"', ()=> {
         expect(ParseStringToTeX('h{{\\_}}i')).toEqual('h{{\\_}}i')
     })
+    it('Value: "hái"', ()=> {
+        expect(ParseStringToTeX('hái')).toEqual('h{{\\\'{a}}}i')
+    })
 })
