@@ -5,11 +5,70 @@ type Pair = {
 }
 
 const pairs: Pair[] = [
-    {String: '_', TeX: '{{\\_}}'},
+    {
+        String: '_',
+        TeX: '{{\\_}}'
+    },
+    {
+        String: ';',
+        TeX: '{{;}}',
+    },
+    {//TODO: ggf vorher amp ersetzen
+        String: '&',
+        TeX: '{{\\&}}',
+    },
+    {
+        String: '$',
+        TeX: '{{\\$}}',
+    },
+    {
+        String: '#',
+        TeX: '{{\\#}}',
+    },
+    {
+        String: '%',
+        TeX: '{{\\%}}',
+    },
     {
         String: 'á',
         TeX: "{{\\'{a}}}",
-    }
+    },
+    {
+        String: 'â',
+        TeX: '{{\\u{a}}}',
+    },
+    {
+        String: 'å',
+        TeX: '{{\\r{a}}}',
+    },
+    {
+        String: 'é',
+        TeX: "{{\\'{e}}}",
+    },
+    {
+        String: 'è',
+        TeX: '{{\\`{e}}}',
+    },
+    {
+        String: '<',
+        TeX: '{{\\textless}}',
+    },
+    {
+        String: '>',
+        TeX: '{{\\textgreater}}',
+    },
+    {
+        String: '°',
+        TeX: '{{\\degree}}',
+    },
+    {
+        String: 'š',
+        TeX: '{{\\v{s}}}',
+    },
+    {
+        String: 'č',
+        TeX: '{{\\v{c}}}',
+    },
 ]
 
 export function ParseTeXToString(s: string): string {
@@ -24,7 +83,7 @@ export function ParseStringToTeX(s: string): string {
     pairs.forEach(p => {
         if( p.TeX === `{{\\${p.String}}}` ) {
             //search for all values that should be surrounded by {{\\}}
-            const matches = [...s.matchAll(new RegExp(p.String, 'g'))];
+            const matches = [...s.matchAll(new RegExp(p.String === '$' ? /\$/ : p.String, 'g'))];
             let added = 0;
             matches.forEach(m => {
                 if( m.index !== undefined ) {
