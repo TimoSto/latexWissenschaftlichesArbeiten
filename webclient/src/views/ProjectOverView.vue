@@ -104,9 +104,9 @@
               <v-simple-table style="max-width: 500px;">
                 <thead>
                   <tr>
-                    <td>Abk</td>
-                    <td>Bed</td>
-                    <td style="width: 48px"></td>
+                    <th>Abk</th>
+                    <th>Bed</th>
+                    <th style="width: 48px"></th>
                   </tr>
                 </thead>
                 <tbody>
