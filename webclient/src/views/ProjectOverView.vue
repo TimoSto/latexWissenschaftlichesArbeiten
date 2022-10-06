@@ -102,6 +102,7 @@
                   <tr>
                     <td>Abk</td>
                     <td>Bed</td>
+                    <td></td>
                   </tr>
                 </thead>
                 <tbody>
@@ -111,6 +112,11 @@
                     </td>
                     <td>
                       <v-text-field type="string" v-model="a.Bed" />
+                    </td>
+                    <td>
+                      <v-btn icon @click="rmAbbr(i)">
+                        <v-icon>mdi-minus</v-icon>
+                      </v-btn>
                     </td>
                   </tr>
                 </tbody>
@@ -290,6 +296,9 @@ export default Vue.extend({
     resetDefault() {
       this.$store.dispatch(ActionTypes.PROJECT_RESET_TO_DEFAULT, this.projectName);
       this.resetDefaultTriggered = false;
+    },
+    rmAbbr(i: number) {
+      this.abbreviationsToEdit.splice(i, 1)
     }
   },
 
