@@ -1,5 +1,6 @@
 import {BibType} from "@/api/bibType/BibType";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
+import GeneralizeTeXEscaping from "@/api/citavi/ParseBibValues";
 
 export default function AnalyseDroppedFile(file: string, types: BibType[]): {Entries: BibEntry[], Unknown: string[]} {
 
@@ -82,7 +83,7 @@ export default function AnalyseDroppedFile(file: string, types: BibType[]): {Ent
                         if (i > -1 ) {
                             i = entry.Fields.indexOf(f.Field)
                             if (i > -1 ) {
-                                entry.Fields[i] = l.substring(eqIndex + 1)
+                                entry.Fields[i] = GeneralizeTeXEscaping(l.substring(eqIndex + 1))
                             }
                         }
 
