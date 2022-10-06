@@ -91,6 +91,10 @@
             <div class="centered">
 
               <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <v-btn color="primary" style="flex-grow: 1; margin: 8px" :disabled="!abbreviationsChanged" @click="resetAbbr">
+                  <v-icon>mdi-lock-reset</v-icon>
+                  Zurücksetzen
+                </v-btn>
                 <v-btn color="primary" style="flex-grow: 1; margin: 8px" :disabled="!abbreviationsChanged">
                   <v-icon>mdi-content-save</v-icon>
                   Speichern
@@ -102,7 +106,7 @@
                   <tr>
                     <td>Abk</td>
                     <td>Bed</td>
-                    <td></td>
+                    <td style="width: 48px"></td>
                   </tr>
                 </thead>
                 <tbody>
@@ -119,6 +123,15 @@
                       </v-btn>
                     </td>
                   </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <v-btn icon @click="addAbbr">
+                      <v-icon>mdi-plus</v-icon>
+                    </v-btn>
+                  </td>
+                </tr>
                 </tbody>
               </v-simple-table>
 
@@ -299,6 +312,12 @@ export default Vue.extend({
     },
     rmAbbr(i: number) {
       this.abbreviationsToEdit.splice(i, 1)
+    },
+    addAbbr() {
+      this.abbreviationsToEdit.push({Abk: '', Bed: ''})
+    },
+    resetAbbr() {
+      this.abbreviationsToEdit = JSON.parse(JSON.stringify(this.$store.state.project.abbreviations))
     }
   },
 
