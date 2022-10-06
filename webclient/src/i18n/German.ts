@@ -76,5 +76,6 @@ export const GermanTranslations: TranslationKeys = {
     PROJECT_UPLOAD_ENTRIES_CONTENT_1: 'Folgende Einträge werden hochgeladen:',
     PROJECT_UPLOAD_ENTRIES_CONTENT_2: 'Folgende Einträge konnten nicht zugeordnet werden:',
     PROJECT_UPLOAD_ENTRIES_OVERRIDE: 'Bestehende Einträge überschreiben',
-    UPLOAD: 'Hochladen'
+    UPLOAD: 'Hochladen',
+    PROJECT_ABBREVIATIONS: 'Abkürzungen'
 }

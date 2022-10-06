@@ -76,5 +76,6 @@ export const EnglishTranslations: TranslationKeys = {
     PROJECT_UPLOAD_ENTRIES_CONTENT_1: 'Following entries will be uploaded:',
     PROJECT_UPLOAD_ENTRIES_CONTENT_2: 'Following entries could not be assigned to a type:',
     PROJECT_UPLOAD_ENTRIES_OVERRIDE: 'Override existing entries',
-    UPLOAD: 'Upload'
+    UPLOAD: 'Upload',
+    PROJECT_ABBREVIATIONS: 'Abbreviations'
 }

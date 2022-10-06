@@ -7,13 +7,15 @@ import (
 	"log"
 	"net/http"
 
+	. "WA_LaTeX/internal/abbreviations"
 	. "WA_LaTeX/internal/bib_entries"
 	. "WA_LaTeX/internal/bib_types"
 )
 
 type ProjectData struct {
-	BibTypes   []LiteratureType
-	BibEntries []BibEntry
+	BibTypes      []LiteratureType
+	BibEntries    []BibEntry
+	Abbreviations []Abbreviation
 }
 
 func GetProjectData(w http.ResponseWriter, r *http.Request) {
@@ -41,9 +43,17 @@ func GetProjectData(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	abbrs, err := GetAbbreviations(project)
+	if err != nil {
+		log.Println(err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
 	data := ProjectData{
-		BibTypes:   literatureTypes.Types,
-		BibEntries: entries,
+		BibTypes:      literatureTypes.Types,
+		BibEntries:    entries,
+		Abbreviations: abbrs,
 	}
 
 	jsonData, err := json.Marshal(&data)

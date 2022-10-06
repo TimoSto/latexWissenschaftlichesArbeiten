@@ -84,6 +84,35 @@
 
           </v-expansion-panel-content>
         </v-expansion-panel>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header>{{ $t(i18nDictionary.PROJECT_ABBREVIATIONS) }}</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <div class="centered">
+
+              <v-simple-table style="max-width: 500px;">
+                <thead>
+                  <tr>
+                    <td>Abk</td>
+                    <td>Bed</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="a in abbreviations" :key="a.Abk">
+                    <td>
+                      <v-text-field type="string" v-model="a.Abk" />
+                    </td>
+                    <td>
+                      <v-text-field type="string" v-model="a.Bed" />
+                    </td>
+                  </tr>
+                </tbody>
+              </v-simple-table>
+
+            </div>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
       </v-expansion-panels>
 
     </v-sheet>
@@ -161,6 +190,7 @@ import {ActionTypes} from "@/store/action-types";
 import {BibType} from "../api/bibType/BibType";
 import {BibEntry} from "../api/bibEntry/BibEntry";
 import DragNDropZone from "../components/DragNDropZone.vue";
+import {Abbreviation} from "../api/abbreviations/Abbreviation";
 
 export default Vue.extend({
   name: "Project-OverView",
@@ -258,6 +288,9 @@ export default Vue.extend({
     },
     bibEntries(): BibEntry[] {
       return this.$store.state.project.bibEntries;
+    },
+    abbreviations(): Abbreviation[] {
+      return this.$store.state.project.abbreviations;
     }
   },
 });

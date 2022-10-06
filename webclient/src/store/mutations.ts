@@ -37,6 +37,7 @@ export const mutations: MutationTree<MyState> & Mutations = {
         state.project.backupPaths = payload
     },
     [MutationTypes.PROJECT_SET_PROJECT_DATA](state, payload: ProjectData) {
+        state.project.abbreviations = payload.Abbreviations
         state.project.bibEntries = payload.BibEntries
         state.project.bibTypes = payload.BibTypes
         state.project.bibTypes.forEach(t => {

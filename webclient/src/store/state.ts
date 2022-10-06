@@ -1,5 +1,6 @@
 import {BibType} from "@/api/bibType/BibType";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
+import {Abbreviation} from "@/api/abbreviations/Abbreviation";
 
 export type MyState = {
     app: {
@@ -17,6 +18,7 @@ export type MyState = {
         backupPaths: string[],
         bibTypes: BibType[],
         bibEntries: BibEntry[],
+        abbreviations: Abbreviation[]
     },
     editor: {
         type: string,
@@ -42,7 +44,8 @@ export const myState: MyState = {
     project: {
         backupPaths: [],
         bibTypes: [],
-        bibEntries: []
+        bibEntries: [],
+        abbreviations: []
     },
     editor: {
         type: '',

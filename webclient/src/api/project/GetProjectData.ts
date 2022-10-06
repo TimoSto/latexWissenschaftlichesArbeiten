@@ -2,10 +2,12 @@ import {BibType} from "@/api/bibType/BibType";
 import {GenerateModelForBibType} from "@/api/bibType/GenerateModelForBibTypes";
 import {BibEntry} from "../../api/bibEntry/BibEntry";
 import {ParseTeXToString} from "@/api/bibEntry/ParseTeXString";
+import {Abbreviation} from "@/api/abbreviations/Abbreviation";
 
 export type ProjectData = {
     BibTypes: BibType[],
     BibEntries: BibEntry[],
+    Abbreviations: Abbreviation[],
     CompletelyLoaded: boolean
 }
 
@@ -16,6 +18,7 @@ export default async function GetProjectData(project: string): Promise<ProjectDa
         return {
             BibTypes: [],
             BibEntries: [],
+            Abbreviations: [],
             CompletelyLoaded: false
         }
     }
