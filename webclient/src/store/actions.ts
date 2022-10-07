@@ -203,7 +203,7 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
         const resp = await SaveAbbreviations(payload.abbrs, payload.project)
 
         if( resp.ok ) {
-            commit(MutationTypes.APP_SET_SUCCESS, 'SUCCESS_SAVE_ABBRS');
+            commit(MutationTypes.APP_SET_SUCCESS, 'PROJECT_SUCCESS_ABBREVIATIONS');
             commit(MutationTypes.PROJECT_SET_ABBRS, payload.abbrs)
         }
     }
