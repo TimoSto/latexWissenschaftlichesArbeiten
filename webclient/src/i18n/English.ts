@@ -79,5 +79,6 @@ export const EnglishTranslations: TranslationKeys = {
     UPLOAD: 'Upload',
     PROJECT_ABBREVIATIONS: 'Abbreviations',
     PROJECT_SUCCESS_ABBREVIATIONS: 'Abbreviations successfully saved',
-    CV_HEADING: 'Curriculum vitae'
+    CV_HEADING: 'Curriculum vitae',
+    CV_DESCR: 'Here you can download a blueprint for a cv. You can also build it there.'
 }

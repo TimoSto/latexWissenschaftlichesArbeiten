@@ -79,5 +79,6 @@ export const GermanTranslations: TranslationKeys = {
     UPLOAD: 'Hochladen',
     PROJECT_ABBREVIATIONS: 'Abkürzungen',
     PROJECT_SUCCESS_ABBREVIATIONS: 'Abkürzungen erfolgreich gespeichert',
-    CV_HEADING: 'Lebenslauf'
+    CV_HEADING: 'Lebenslauf',
+    CV_DESCR: 'Hier kannst du eine Vorlage für einen Lebenslauf herunterladen. Du kannst deinen Lebenslauf aber auch hier zusammenbauen.'
 }
