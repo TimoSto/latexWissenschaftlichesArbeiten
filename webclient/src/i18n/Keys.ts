@@ -80,6 +80,8 @@ export type TranslationKeys = {
     PROJECT_SUCCESS_ABBREVIATIONS: string
     CV_HEADING: string
     CV_DESCR: string
+    CVS: string
+    NEW_CV_TT: string
 }
 
 export const i18nDictionary: TranslationKeys = {
@@ -162,5 +164,7 @@ export const i18nDictionary: TranslationKeys = {
     PROJECT_ABBREVIATIONS: 'PROJECT_ABBREVIATIONS',
     PROJECT_SUCCESS_ABBREVIATIONS: 'PROJECT_SUCCESS_ABBREVIATIONS',
     CV_HEADING: 'CV_HEADING',
-    CV_DESCR: 'CV_DESCR'
+    CV_DESCR: 'CV_DESCR',
+    CVS: 'CVS',
+    NEW_CV_TT: 'NEW_CV_TT',
 }

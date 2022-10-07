@@ -63,22 +63,44 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
-      <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar" dense>
-        <v-toolbar-title v-if="!drawer">{{$t(i18nDictionary.PROJECTS)}}</v-toolbar-title>
-        <v-spacer v-if="!drawer"></v-spacer>
-        <v-btn icon @click="newDialog = !newDialog" :title="$t(i18nDictionary.NEW_PROJECT_TOOLTIP)">
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      </v-app-bar>
-      <v-sheet class="content-below-two-bars" style="padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
-        <v-list class="keep">
-<!--          <v-list-item-group v-model="indexOfCurrentProjectName" color="accent">-->
+
+      <div v-if="currentSidebarState === 'project'">
+        <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar" dense>
+          <v-toolbar-title v-if="!drawer">{{$t(i18nDictionary.PROJECTS)}}</v-toolbar-title>
+          <v-spacer v-if="!drawer"></v-spacer>
+          <v-btn icon @click="newDialog = !newDialog" :title="$t(i18nDictionary.NEW_PROJECT_TOOLTIP)">
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+        </v-app-bar>
+        <v-sheet class="content-below-two-bars" style="padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
+          <v-list class="keep">
+            <!--          <v-list-item-group v-model="indexOfCurrentProjectName" color="accent">-->
             <v-list-item v-for="(item,i) in projectNames" :key="'project-' + i" @click="switchToProject(item)">
               <v-list-item-title>{{item}}</v-list-item-title>
             </v-list-item>
-<!--          </v-list-item-group>-->
-        </v-list>
-      </v-sheet>
+            <!--          </v-list-item-group>-->
+          </v-list>
+        </v-sheet>
+      </div>
+      <div v-if="currentSidebarState === 'cv'">
+        <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-sidebar" dense>
+          <v-toolbar-title v-if="!drawer">{{$t(i18nDictionary.CVS)}}</v-toolbar-title>
+          <v-spacer v-if="!drawer"></v-spacer>
+          <v-btn icon @click="newDialog = !newDialog" :title="$t(i18nDictionary.NEW_CV_TT)">
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+        </v-app-bar>
+        <v-sheet class="content-below-two-bars" style="padding: 0; background-color: var(--v-background-base)" id="scroll-sidebar">
+          <v-list class="keep">
+            <!--          <v-list-item-group v-model="indexOfCurrentProjectName" color="accent">-->
+            <v-list-item v-for="(item,i) in cvNames" :key="'cv-' + i">
+              <v-list-item-title>{{item}}</v-list-item-title>
+            </v-list-item>
+            <!--          </v-list-item-group>-->
+          </v-list>
+        </v-sheet>
+      </div>
+
     </v-navigation-drawer>
 
     <v-main>
@@ -319,6 +341,16 @@ export default Vue.extend({
     snackbarOpened(): boolean {
       return !!this.snackBarMessage && this.snackBarMessage.length > 0
     },
+    currentSidebarState() {
+      if( this.$route.path.indexOf('/cv') === 0 ) {
+        return 'cv'
+      }
+
+      return 'project'
+    },
+    cvNames() {
+      return ['CV1', 'CV2']
+    }
   }
 
 });
