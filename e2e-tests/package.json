@@ -11,6 +11,7 @@
     "nonGlobalStepDefinitions": false
   },
   "scripts": {
-    "open": "cypress open"
+    "open": "cypress open",
+    "run": "cypress run --browser=chrome"
   }
 }
