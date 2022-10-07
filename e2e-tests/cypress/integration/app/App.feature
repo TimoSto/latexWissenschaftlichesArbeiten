@@ -12,3 +12,11 @@
       Wenn zum Projekt 'documentation' gewechselt wird
       Dann sind 3 btns in der toolbar
       Und ist der Titel des mittleren Bereiches 'documentation'
+
+    Szenario: Wechsel zurück zu home
+      Angenommen die App wurde mit dem Hash '#/' aufgerufen
+      Dann existiert ein Projekt mit dem Namen 'documentation'
+      Wenn zum Projekt 'documentation' gewechselt wird
+      Dann sind 3 btns in der toolbar
+      Und ist der Titel des mittleren Bereiches 'documentation'
+      Wenn auf das Element 'button[title="Startseite"]' geklickt wird

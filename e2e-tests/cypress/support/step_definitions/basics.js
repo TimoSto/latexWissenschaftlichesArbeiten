@@ -1,6 +1,14 @@
 
 Given('die App wurde mit dem Hash {string} aufgerufen', (hash) => {
-    cy.visit('http://localhost:8080/' + hash)
+    cy.visit('http://localhost:8080/' + hash, {
+        onBeforeLoad (win) {
+
+            // instead we need to define a property like this
+            Object.defineProperty(win.navigator, 'language', {
+                value: 'de'
+            })
+        }
+    })
 });
 
 Then('wird die Startseite mit {int} Cards angezeigt', ()=> {
@@ -21,4 +29,8 @@ When('zum Projekt {string} gewechselt wird', (name) => {
 
 Then('ist der Titel des mittleren Bereiches {string}', (name) => {
     cy.get('main').find('#pages').find('header').contains(name).should('exist').should('be.visible')
+})
+
+When('auf das Element {string} geklickt wird', selector => {
+    cy.get('body').find(selector).click();
 })
