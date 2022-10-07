@@ -22,6 +22,44 @@
         <v-icon>mdi-home</v-icon>
       </v-btn>
 
+      <v-menu offset-y style="z-index: 100" content-class="elevation-3">
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+              icon
+              v-bind="attrs"
+              v-on="on"
+          >
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list style="cursor: pointer">
+<!--          <v-list-item ripple>-->
+<!--            <v-list-item-avatar>-->
+<!--              <v-icon>mdi-book-open-blank-variant</v-icon>-->
+<!--            </v-list-item-avatar>-->
+<!--            <v-list-item-title>Dokumentation</v-list-item-title>-->
+<!--          </v-list-item>-->
+          <v-list-item ripple @click="toCV">
+            <v-list-item-avatar>
+              <v-icon>mdi-account-school</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title>Lebenslauf</v-list-item-title>
+          </v-list-item>
+<!--          <v-list-item ripple>-->
+<!--            <v-list-item-avatar>-->
+<!--              <v-icon>mdi-information-outline</v-icon>-->
+<!--            </v-list-item-avatar>-->
+<!--            <v-list-item-title>Informationen</v-list-item-title>-->
+<!--          </v-list-item>-->
+<!--          <v-list-item ripple>-->
+<!--            <v-list-item-avatar>-->
+<!--              <v-icon>mdi-help-circle-outline</v-icon>-->
+<!--            </v-list-item-avatar>-->
+<!--            <v-list-item-title>Q&A</v-list-item-title>-->
+<!--          </v-list-item>-->
+        </v-list>
+      </v-menu>
+
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
@@ -176,6 +214,15 @@ export default Vue.extend({
         this.openUnsafeDialog({Type: 'home', Key: ''})
       }
     },
+    toCV() {
+      //TODO: check stuff
+      if( this.$store.state.editor.savelyClosable ) {
+        this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+        this.$router.push('/cv');
+      } else {
+        this.openUnsafeDialog({Type: 'cv', Key: ''})
+      }
+    },
     openUnsafeDialog(switchTo?: {Type: string, Key: string}) {
       this.tryUnsafeClose = true;
       if( switchTo ) {
@@ -188,6 +235,9 @@ export default Vue.extend({
         if( this.switchObj.Type === 'home' ) {
           this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
           this.$router.push('/');
+        } else if( this.switchObj.Type === 'cv' ) {
+          this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+          this.$router.push('/cv');
         } else {
           this.$store.commit(MutationTypes.EDITOR_OPEN, this.switchObj);
         }

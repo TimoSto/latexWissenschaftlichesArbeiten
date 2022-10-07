@@ -78,5 +78,6 @@ export const GermanTranslations: TranslationKeys = {
     PROJECT_UPLOAD_ENTRIES_OVERRIDE: 'Bestehende Einträge überschreiben',
     UPLOAD: 'Hochladen',
     PROJECT_ABBREVIATIONS: 'Abkürzungen',
-    PROJECT_SUCCESS_ABBREVIATIONS: 'Abkürzungen erfolgreich gespeichert'
+    PROJECT_SUCCESS_ABBREVIATIONS: 'Abkürzungen erfolgreich gespeichert',
+    CV_HEADING: 'Lebenslauf'
 }

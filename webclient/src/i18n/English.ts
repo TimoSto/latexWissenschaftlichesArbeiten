@@ -78,5 +78,6 @@ export const EnglishTranslations: TranslationKeys = {
     PROJECT_UPLOAD_ENTRIES_OVERRIDE: 'Override existing entries',
     UPLOAD: 'Upload',
     PROJECT_ABBREVIATIONS: 'Abbreviations',
-    PROJECT_SUCCESS_ABBREVIATIONS: 'Abbreviations successfully saved'
+    PROJECT_SUCCESS_ABBREVIATIONS: 'Abbreviations successfully saved',
+    CV_HEADING: 'Curriculum vitae'
 }
