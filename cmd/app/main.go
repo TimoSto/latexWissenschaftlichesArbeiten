@@ -138,7 +138,7 @@ func main() {
 
 	mux.Handle("/documentation", http.HandlerFunc(handlers.HandleDocumentation))
 
-	mux.Handle("/cv", http.HandlerFunc(handlers.HandleCV))
+	mux.Handle("/cvTemplate", http.HandlerFunc(handlers.HandleCVTemplate))
 
 	mux.Handle("/getFile", http.HandlerFunc(handlers.GetTeX))
 
