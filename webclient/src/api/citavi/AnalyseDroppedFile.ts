@@ -8,6 +8,8 @@ export default function AnalyseDroppedFile(file: string, types: BibType[]): {Ent
 
     const ignoredEntries: string[] = []
 
+    file = file.substring(file.indexOf('@'))
+
     //step 1: split att @ at beginning of line
     const entries = file.split(/^@/gm).filter(e => e.length > 0);
 
@@ -67,6 +69,7 @@ export default function AnalyseDroppedFile(file: string, types: BibType[]): {Ent
             //step 6: split at comma not in quotes
             const re = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/
             const lines = e.split(re);
+            console.log(lines)
 
             //step 7: key is first element inside citavi-entry
             entry.Key = lines[0];
@@ -97,8 +100,6 @@ export default function AnalyseDroppedFile(file: string, types: BibType[]): {Ent
             ignoredEntries.push(citaviType)//TODO: also give key
         }
     });
-
-    console.log(ignoredEntries)
 
     return {
         Entries: entriesToUpload,
