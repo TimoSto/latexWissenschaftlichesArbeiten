@@ -26,7 +26,7 @@
 
 \renewcommand\fbox{\fcolorbox{white}{white}}%to hide picture-border
 \photo[90pt][0.4pt]{jacky.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
-%\quote{"Here's Johnny!" - Jack Torrance}
+\quote{"Here's Johnny!" - Jack Torrance}
 
 % Document
 \begin{document}
@@ -38,7 +38,7 @@
 \cvitem{Geburtsdatum}{DEIN GEBURTSDATUM}
 \cvitem{Telefon}{DEINE TELEFONNUMMER}
 \cvitem{Email}{DEINE MAIL}
-\cvitem{Adresse}{DEINE ADRESSE}
+\cvitem{Adresse}{\textbf{DEINE} ADRESSE}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
@@ -99,9 +99,10 @@
 
 \section{Interests}
 
-\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+\renewcommand{\listitemsymbol}{aa~} % Changes the symbol used for lists
 
 \cvlistdoubleitem{Throwing Balls}{Swining Axes}
 \cvlistdoubleitem{Staring into the void}{Screaming}
+\cvlistitem{test}
 
 \end{document}
