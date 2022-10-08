@@ -11,8 +11,10 @@
 
 \usepackage[scale=0.75, bottom=2cm, top=2cm]{geometry} % Reduce document margins
 
-\firstname{DEIN} % Your first name
-\familyname{NAME} % Your last name
+\usepackage{xcolor}
+
+\firstname{\color{color2}{John}} % Your first name
+\familyname{\color{color2}{Doe}} % Your last name
 
 % All information in this block is optional, comment out any lines you don't need
 \title{Lebenslauf}
@@ -20,9 +22,11 @@
 \mobile{(000) 111 1111}
 \phone{(000) 111 1112}
 \fax{(000) 111 1113}
-\email{overlook@hotel.com}
+\email{deine.mail@adresse.com}
+
+\renewcommand\fbox{\fcolorbox{white}{white}}%to hide picture-border
 \photo[90pt][0.4pt]{jacky.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
-\quote{"Here's Johnny!" - Jack Torrance}
+%\quote{"Here's Johnny!" - Jack Torrance}
 
 % Document
 \begin{document}
@@ -30,18 +34,20 @@
 \makecvtitle % Print the CV title
 \pagestyle{empty}
 \vspace*{-1cm}
-\section{Personal Data}
-\cvitem{Birth}{30.02.1950}
-\cvitem{Phone}{012344 5667}
-\cvitem{Email}{overlook@hotel.com}
+\section{Persönliche Daten}
+\cvitem{Geburtsdatum}{DEIN GEBURTSDATUM}
+\cvitem{Telefon}{DEINE TELEFONNUMMER}
+\cvitem{Email}{DEINE MAIL}
+\cvitem{Adresse}{DEINE ADRESSE}
+
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Education}
+\section{Ausbildung}
 
-\cventry{1960--1965}{Masters of Axing Doors}{The University of Navajo and Apache Cults}{Hell}{\textit{GPA -- 8.0}}{First Class Honours}  % Arguments not required can be left empty
-\cventry{1955--1960}{Bachelor of Murdering your Family}{The University of Navajo and Apache Cults}{Purgatory}{\textit{GPA -- 8.0}}{Specializied in the murder of histerical wifes}
+\cventry{START-ENDE}{ABSCHLUSS}{INSTITUT}{ORT}{NOTE}{} % Arguments not required can be left empty
+\cventry{START-ENDE}{ABSCHLUSS-2}{INSTITUT}{ORT}{NOTE}{}
 
 \section{Masters Thesis}
 
