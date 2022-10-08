@@ -11,7 +11,12 @@ func HandleCVTemplate(w http.ResponseWriter, r *http.Request) {
 	keys, ok := r.URL.Query()["type"]
 
 	if ok && len(keys[0]) > 0 {
-		_, err := w.Write([]byte(cv.GetTemplate(keys[0])))
+		var err error
+		if keys[0] == "pdf" {
+			_, err = w.Write([]byte(cv.CV_Zip))
+		} else {
+			_, err = w.Write([]byte(cv.CV_PDF))
+		}
 		if err != nil {
 			fmt.Println(err)
 			w.WriteHeader(http.StatusInternalServerError)

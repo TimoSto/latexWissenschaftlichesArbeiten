@@ -3,14 +3,7 @@ package cv
 import _ "embed"
 
 //go:embed template/curriculumVitae.pdf
-var cvPDF string
+var CV_PDF string
 
-//go:embed template/curriculumVitae.tex
-var cvTex string
-
-func GetTemplate(contentType string) string {
-	if contentType == "pdf" {
-		return cvPDF
-	}
-	return cvTex
-}
+//go:embed template/CV_Template.zip
+var CV_Zip string

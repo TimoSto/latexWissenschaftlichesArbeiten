@@ -80,7 +80,7 @@ export const EnglishTranslations: TranslationKeys = {
     PROJECT_ABBREVIATIONS: 'Abbreviations',
     PROJECT_SUCCESS_ABBREVIATIONS: 'Abbreviations successfully saved',
     CV_HEADING: 'Curriculum vitae',
-    CV_DESCR: 'Here you can download a blueprint for a cv. You can also build it there.',
+    CV_DESCR: 'Here you can download a <a href="/cvTemplate?type=zip" download="CV_Template.zip">template</a> for a cv. You can also build it there.',
     CVS: 'Curriculum vitaes',
     NEW_CV_TT: 'Create new CV'
 }

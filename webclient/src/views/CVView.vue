@@ -4,19 +4,7 @@
       <v-toolbar-title>{{$t(i18nDictionalry.CV_HEADING)}}</v-toolbar-title>
     </v-app-bar>
     <v-sheet class="content-below-two-bars" style="padding: 8px; background-color: var(--v-background-base)" id="scroll-cv">
-      <p style="margin: 0 8px">{{$t(i18nDictionalry.CV_DESCR)}}</p>
-
-      <div class="centered download-area">
-        <a href="/cvTemplate?type=pdf" download="cvTemplate.pdf" class="download-field">
-          <v-icon>mdi-download</v-icon>
-          <span>PDF</span>
-        </a>
-
-        <a href="/cvTemplate?type=tex" download="cvTemplate.tex" class="download-field">
-          <v-icon>mdi-download</v-icon>
-          <span>TeX</span>
-        </a>
-      </div>
+      <p style="margin: 0 8px" v-html="$t(i18nDictionalry.CV_DESCR)"></p>
     </v-sheet>
   </div>
 </template>
@@ -39,11 +27,11 @@ export default Vue.extend({
 
 .download-area {
   max-width: 300px;
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
   padding: 0;
   height: 80px;
+  margin: 8px;
   & .download-field {
     width: 50%;
     border-radius: 8px;
