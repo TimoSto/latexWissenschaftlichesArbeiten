@@ -4,6 +4,7 @@
       <v-toolbar-title>{{$t(i18nDictionalry.CV_HEADING)}}</v-toolbar-title>
     </v-app-bar>
     <v-sheet class="content-below-two-bars" style="padding: 8px; background-color: var(--v-background-base)" id="scroll-cv">
+      <BetaLabel />
       <p style="margin: 0 8px" v-html="$t(i18nDictionalry.CV_DESCR)"></p>
     </v-sheet>
   </div>
@@ -12,9 +13,11 @@
 <script>
 import Vue from "vue";
 import {i18nDictionary} from "@/i18n/Keys";
+import BetaLabel from "@/components/BetaLabel";
 
 export default Vue.extend({
   name: "CV-View",
+  components: {BetaLabel},
   data() {
     return {
       i18nDictionalry: i18nDictionary

@@ -80,7 +80,7 @@ export const GermanTranslations: TranslationKeys = {
     PROJECT_ABBREVIATIONS: 'Abkürzungen',
     PROJECT_SUCCESS_ABBREVIATIONS: 'Abkürzungen erfolgreich gespeichert',
     CV_HEADING: 'Lebenslauf',
-    CV_DESCR: 'Hier kannst du eine <a href="/cvTemplate?type=zip" download="CV_Template.zip">Vorlage</a> für einen Lebenslauf herunterladen. Du kannst deinen Lebenslauf aber auch hier zusammenbauen.',
+    CV_DESCR: 'Hier kannst du eine <a href="/cvTemplate?type=zip" download="CV_Template.zip">Vorlage</a> für einen Lebenslauf herunterladen. Du kannst deinen Lebenslauf aber auch direkt hier zusammenbauen.',
     CVS: 'Lebensläufe',
     NEW_CV_TT: 'Neuen Lebenslauf erstellen'
 }
