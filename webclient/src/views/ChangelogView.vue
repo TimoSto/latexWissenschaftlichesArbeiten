@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div style="padding: 8px 16px;">
     <div v-for="v in versions" :key="v.v">
-      <h4>{{v.v}}</h4>
+      <h2>{{v.v}}</h2>
       <ul>
         <li v-for="e in v.e" :key="e">{{e}}</li>
       </ul>
@@ -16,7 +16,7 @@ export default {
     return {
       de: [
         {
-          v: "1.0.0",
+          v: "Version 1.0.0",
           e: [
               "Vorlage für TeX-Dokument",
               "Eigenes Literatur-System",
@@ -29,7 +29,7 @@ export default {
       ],
       en: [
         {
-          v: "1.0.0",
+          v: "Version 1.0.0",
           e: [
             "Template for TeX-document",
             "Own bibliography-system",
