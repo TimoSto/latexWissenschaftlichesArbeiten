@@ -33,17 +33,17 @@
           </v-btn>
         </template>
         <v-list style="cursor: pointer">
-          <v-list-item ripple @click="toChangelog">
+          <v-list-item ripple @click="toChangelog" v-if="$route.path !== '/changelog'">
             <v-list-item-avatar>
-              <v-icon>mdi-book-open-blank-variant</v-icon>
+              <v-icon>mdi-clipboard-text-clock</v-icon>
             </v-list-item-avatar>
-            <v-list-item-title>Changelog</v-list-item-title>
+            <v-list-item-title>{{$t(i18nDictionary.CHANGELOG_VIEW)}}</v-list-item-title>
           </v-list-item>
-          <v-list-item ripple @click="toCV">
+          <v-list-item ripple @click="toCV" v-if="$route.path !== '/cv'">
             <v-list-item-avatar>
               <v-icon>mdi-account-school</v-icon>
             </v-list-item-avatar>
-            <v-list-item-title>Lebenslauf</v-list-item-title>
+            <v-list-item-title>{{$t(i18nDictionary.CV_VIEW)}}</v-list-item-title>
           </v-list-item>
 <!--          <v-list-item ripple>-->
 <!--            <v-list-item-avatar>-->
