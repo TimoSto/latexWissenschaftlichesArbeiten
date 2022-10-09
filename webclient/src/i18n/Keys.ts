@@ -82,6 +82,9 @@ export type TranslationKeys = {
     CV_DESCR: string
     CVS: string
     NEW_CV_TT: string
+    PROJECT_VIEW: string
+    CV_VIEW: string
+    CHANGELOG_VIEW: string
 }
 
 export const i18nDictionary: TranslationKeys = {
@@ -167,4 +170,7 @@ export const i18nDictionary: TranslationKeys = {
     CV_DESCR: 'CV_DESCR',
     CVS: 'CVS',
     NEW_CV_TT: 'NEW_CV_TT',
+    PROJECT_VIEW: 'PROJECT_VIEW',
+    CV_VIEW: 'CV_VIEW',
+    CHANGELOG_VIEW: 'CHANGELOG_VIEW'
 }

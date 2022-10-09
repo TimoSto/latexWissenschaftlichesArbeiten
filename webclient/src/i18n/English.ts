@@ -82,5 +82,8 @@ export const EnglishTranslations: TranslationKeys = {
     CV_HEADING: 'Curriculum vitae',
     CV_DESCR: 'Here you can download a <a href="/cvTemplate?type=zip" download="CV_Template.zip">template</a> for a cv. You can also build it there.',
     CVS: 'Curriculum vitaes',
-    NEW_CV_TT: 'Create new CV'
+    NEW_CV_TT: 'Create new CV',
+    PROJECT_VIEW: 'Projectview',
+    CV_VIEW: 'Curriculum vitae',
+    CHANGELOG_VIEW: 'Changelog'
 }

@@ -82,5 +82,8 @@ export const GermanTranslations: TranslationKeys = {
     CV_HEADING: 'Lebenslauf',
     CV_DESCR: 'Hier kannst du eine <a href="/cvTemplate?type=zip" download="CV_Template.zip">Vorlage</a> für einen Lebenslauf herunterladen. Du kannst deinen Lebenslauf aber auch direkt hier zusammenbauen.',
     CVS: 'Lebensläufe',
-    NEW_CV_TT: 'Neuen Lebenslauf erstellen'
+    NEW_CV_TT: 'Neuen Lebenslauf erstellen',
+    PROJECT_VIEW: 'Projektansicht',
+    CV_VIEW: 'Lebenslauf',
+    CHANGELOG_VIEW: 'Versionshistorie'
 }

@@ -10,7 +10,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer" />
 
-      <v-toolbar-title>ThesorTeX</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX{{currentStateTitle}}</v-toolbar-title>
 
       <v-spacer />
 
@@ -360,6 +360,16 @@ export default Vue.extend({
     },
     cvNames() {
       return ['CV1', 'CV2']
+    },
+    currentStateTitle() {
+      if( this.$route.path.indexOf('/project/') === 0 ) {
+        return ' - ' + this.$t(this.i18nDictionary.PROJECT_VIEW)
+      } else if( this.$route.path === '/cv' ) {
+        return ' - ' + this.$t(this.i18nDictionary.CV_VIEW)
+      } else if( this.$route.path === '/changelog' ) {
+        return ' - ' + this.$t(this.i18nDictionary.CHANGELOG_VIEW)
+      }
+      return ''
     }
   }
 
