@@ -31,7 +31,16 @@ export default function AnalyseDroppedFile(file: string, types: BibType[]): {Ent
 
         for(let i = 0; i < types.length ; i++) {
             if( types[i].CitaviType.toLowerCase() === citaviType.toLowerCase() ) {
-                typeToUse = types[i];
+                let foundAll = true;
+                types[i].CitaviNecessaryFields.forEach(fName => {//TODO: not so beatuiful, maybe we can get attributes before getting type?
+                    if( e.indexOf(fName + '=') === -1  && e.indexOf(fName + ' =') === -1 ) {
+                        foundAll = false;
+                    }
+                });
+
+                if( foundAll ) {
+                    typeToUse = types[i];
+                }
             }
         }
 
@@ -69,7 +78,6 @@ export default function AnalyseDroppedFile(file: string, types: BibType[]): {Ent
             //step 6: split at comma not in quotes
             const re = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/
             const lines = e.split(re);
-            console.log(lines)
 
             //step 7: key is first element inside citavi-entry
             entry.Key = lines[0];
