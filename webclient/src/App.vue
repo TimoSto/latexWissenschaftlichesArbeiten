@@ -33,12 +33,12 @@
           </v-btn>
         </template>
         <v-list style="cursor: pointer">
-<!--          <v-list-item ripple>-->
-<!--            <v-list-item-avatar>-->
-<!--              <v-icon>mdi-book-open-blank-variant</v-icon>-->
-<!--            </v-list-item-avatar>-->
-<!--            <v-list-item-title>Dokumentation</v-list-item-title>-->
-<!--          </v-list-item>-->
+          <v-list-item ripple @click="toChangelog">
+            <v-list-item-avatar>
+              <v-icon>mdi-book-open-blank-variant</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title>Changelog</v-list-item-title>
+          </v-list-item>
           <v-list-item ripple @click="toCV">
             <v-list-item-avatar>
               <v-icon>mdi-account-school</v-icon>
@@ -237,12 +237,19 @@ export default Vue.extend({
       }
     },
     toCV() {
-      //TODO: check stuff
       if( this.$store.state.editor.savelyClosable ) {
         this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
         this.$router.push('/cv');
       } else {
         this.openUnsafeDialog({Type: 'cv', Key: ''})
+      }
+    },
+    toChangelog() {
+      if( this.$store.state.editor.savelyClosable ) {
+        this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+        this.$router.push('/changelog');
+      } else {
+        this.openUnsafeDialog({Type: 'changelog', Key: ''})
       }
     },
     openUnsafeDialog(switchTo?: {Type: string, Key: string}) {
@@ -260,6 +267,9 @@ export default Vue.extend({
         } else if( this.switchObj.Type === 'cv' ) {
           this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
           this.$router.push('/cv');
+        } else if( this.switchObj.Type === 'changelog' ) {
+          this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+          this.$router.push('/changelog');
         } else {
           this.$store.commit(MutationTypes.EDITOR_OPEN, this.switchObj);
         }

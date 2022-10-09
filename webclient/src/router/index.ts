@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import HomeView from "@/views/HomeView.vue";
 import ProjectView from '@/views/ProjectView.vue';
 import CVView from '@/views/CVView.vue';
+import ChangelogView from '@/views/ChangelogView.vue';
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/cv',
     component: CVView
+  },
+  {
+    path: '/changelog',
+    component: ChangelogView
   }
 ]
 
