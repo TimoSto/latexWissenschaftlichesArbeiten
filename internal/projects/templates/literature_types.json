@@ -2,49 +2,64 @@
 	"Types": [
 		{
 			"Name": "aufsatz",
-			"HasCitePage": false,
+			"CitaviType": "",
+			"CitaviNecessaryFields": null,
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Zeitschrift",
 					"Style": "italic",
 					"Prefix": "In: ",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Ausgabe",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "S. ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "url",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
 			],
 			"CiteFields": [
@@ -52,50 +67,64 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
-			],
-			"Example": "Autor (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten, url"
+			]
 		},
 		{
 			"Name": "Buch",
-			"HasCitePage": false,
+			"CitaviType": "",
+			"CitaviNecessaryFields": null,
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": ") ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Ausgabe",
 					"Style": "normal",
 					"Prefix": "Ausgabe ",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Verlag",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ")"
+					"Suffix": ")",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
 			],
 			"CiteFields": [
@@ -103,56 +132,84 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
-			],
-			"Example": "Autor (Jahr) Titel. Ausgabe Ausgabe (Verlag)"
+			]
 		},
 		{
 			"Name": "citaviAufsatz",
-			"HasCitePage": false,
+			"CitaviType": "article",
+			"CitaviNecessaryFields": [],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Zeitschrift",
 					"Style": "italic",
 					"Prefix": "In: ",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"journal"
+					]
 				},
 				{
 					"Field": "Ausgabe",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"volume"
+					]
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "S. ",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"pages"
+					]
 				}
 			],
 			"CiteFields": [
@@ -160,62 +217,96 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten"
+			]
 		},
 		{
 			"Name": "citaviAufsatzDoi",
-			"HasCitePage": false,
+			"CitaviType": "article",
+			"CitaviNecessaryFields": [
+				"doi"
+			],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Zeitschrift",
 					"Style": "italic",
 					"Prefix": "In: ",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"journal"
+					]
 				},
 				{
 					"Field": "Ausgabe",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"volume"
+					]
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "S. ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"pages"
+					]
 				},
 				{
 					"Field": "doi",
 					"Style": "normal",
 					"Prefix": "https://doi.org/",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"doi"
+					]
 				}
 			],
 			"CiteFields": [
@@ -223,56 +314,84 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr). Titel. In: Zeitschrift Ausgabe, S. Seiten, https://doi.org/doi"
+			]
 		},
 		{
 			"Name": "citaviBook",
-			"HasCitePage": false,
+			"CitaviType": "book",
+			"CitaviNecessaryFields": [],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "ISBN",
 					"Style": "normal",
 					"Prefix": "(ISBN: ",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"isbn"
+					]
 				},
 				{
 					"Field": "Herausgeber",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " (Hrsg.), "
+					"Suffix": " (Hrsg.), ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"publisher"
+					]
 				},
 				{
 					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"address"
+					]
 				}
 			],
 			"CiteFields": [
@@ -280,56 +399,86 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ")"
+					"Suffix": ")",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr). Titel (ISBN: ISBN). Herausgeber (Hrsg.), Ort"
+			]
 		},
 		{
 			"Name": "citaviBookDoi",
-			"HasCitePage": false,
+			"CitaviType": "book",
+			"CitaviNecessaryFields": [
+				"doi"
+			],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "ISBN",
 					"Style": "normal",
 					"Prefix": "(ISBN: ",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"isbn"
+					]
 				},
 				{
 					"Field": "Herausgeber",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " (Hrsg.), "
+					"Suffix": " (Hrsg.), ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"publisher"
+					]
 				},
 				{
 					"Field": "Doi",
 					"Style": "normal",
 					"Prefix": "https://doi.org/",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"doi"
+					]
 				}
 			],
 			"CiteFields": [
@@ -337,62 +486,94 @@
 					"Field": "Autor_kurz",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ")"
+					"Suffix": ")",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr). Titel (ISBN: ISBN). Herausgeber (Hrsg.), https://doi.org/Doi"
+			]
 		},
 		{
 			"Name": "citaviInbook",
-			"HasCitePage": false,
+			"CitaviType": "inbook",
+			"CitaviNecessaryFields": [],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": ") ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "BuchTitel",
 					"Style": "normal",
 					"Prefix": "In: ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"booktitle"
+					]
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "S. ",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"pages"
+					]
 				},
 				{
 					"Field": "Herausgeber",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " (Hrsg.), "
+					"Suffix": " (Hrsg.), ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"publisher"
+					]
 				},
 				{
 					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": "."
+					"Suffix": ".",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"address"
+					]
 				}
 			],
 			"CiteFields": [
@@ -400,68 +581,106 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr) Titel. In: BuchTitel, S. Seiten. Herausgeber (Hrsg.), Ort."
+			]
 		},
 		{
 			"Name": "citaviInbookDoi",
-			"HasCitePage": false,
+			"CitaviType": "inbook",
+			"CitaviNecessaryFields": [
+				"doi"
+			],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": ") ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "BuchTitel",
 					"Style": "normal",
 					"Prefix": "In: ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"booktitle"
+					]
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "S. ",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"pages"
+					]
 				},
 				{
 					"Field": "Herausgeber",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " (Hrsg.), "
+					"Suffix": " (Hrsg.), ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"publisher"
+					]
 				},
 				{
 					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"address"
+					]
 				},
 				{
 					"Field": "Doi",
 					"Style": "normal",
 					"Prefix": "https://doi.org/",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"doi"
+					]
 				}
 			],
 			"CiteFields": [
@@ -469,62 +688,94 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": ""
+			]
 		},
 		{
 			"Name": "citaviInCollection",
-			"HasCitePage": false,
+			"CitaviType": "incollection",
+			"CitaviNecessaryFields": [],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Sammelwerk",
 					"Style": "normal",
 					"Prefix": "In: ",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"booktitle"
+					]
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "(S. ",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"pages"
+					]
 				},
 				{
 					"Field": "Herausgeber",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " (Hrsg.), "
+					"Suffix": " (Hrsg.), ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"publisher"
+					]
 				},
 				{
 					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"address"
+					]
 				}
 			],
 			"CiteFields": [
@@ -532,68 +783,106 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ")"
+					"Suffix": ")",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr). Titel. In: Sammelwerk (S. Seiten). Herausgeber (Hrsg.), Ort"
+			]
 		},
 		{
 			"Name": "citaviInCollectionDoi",
-			"HasCitePage": false,
+			"CitaviType": "incollection",
+			"CitaviNecessaryFields": [
+				"doi"
+			],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": ") ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Sammelwerk",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"booktitle"
+					]
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "(S. ",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"pages"
+					]
 				},
 				{
 					"Field": "Herausgeber",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"publisher"
+					]
 				},
 				{
 					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"address"
+					]
 				},
 				{
 					"Field": "Doi",
 					"Style": "normal",
 					"Prefix": "https://doi.org/",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"doi"
+					]
 				}
 			],
 			"CiteFields": [
@@ -601,56 +890,84 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr) Titel. Sammelwerk (S. Seiten). Herausgeber, Ort. https://doi.org/Doi"
+			]
 		},
 		{
 			"Name": "citaviInProceedings",
-			"HasCitePage": false,
+			"CitaviType": "inproceedings",
+			"CitaviNecessaryFields": [],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": ") ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Buch",
 					"Style": "normal",
 					"Prefix": "In: ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"booktitle"
+					]
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "S. ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"pages"
+					]
 				},
 				{
 					"Field": "URL",
 					"Style": "normal",
 					"Prefix": "abrufbar unter: ",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"url"
+					]
 				}
 			],
 			"CiteFields": [
@@ -658,56 +975,86 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr) Titel. In: Buch, S. Seiten, abrufbar unter: URL"
+			]
 		},
 		{
 			"Name": "citaviInProceedingsDoi",
-			"HasCitePage": false,
+			"CitaviType": "inproceedings",
+			"CitaviNecessaryFields": [
+				"doi"
+			],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": ") ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Buch",
 					"Style": "normal",
 					"Prefix": "In: ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"booktitle"
+					]
 				},
 				{
 					"Field": "Seiten",
 					"Style": "normal",
 					"Prefix": "S. ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"pages"
+					]
 				},
 				{
 					"Field": "Doi",
 					"Style": "normal",
 					"Prefix": "https://doi.org/",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"doi"
+					]
 				}
 			],
 			"CiteFields": [
@@ -715,44 +1062,64 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor (Jahr) Titel. In: Buch, S. Seiten, https://doi.org/Doi"
+			]
 		},
 		{
 			"Name": "citaviProceedings",
-			"HasCitePage": false,
+			"CitaviType": "proceedings",
+			"CitaviNecessaryFields": [],
 			"Fields": [
 				{
 					"Field": "Herausgeber",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"address"
+					]
 				}
 			],
 			"CiteFields": [
@@ -760,44 +1127,66 @@
 					"Field": "Hrsg_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Herausgeber (Jahr). Titel, Ort"
+			]
 		},
 		{
 			"Name": "citaviProceedingsDoi",
-			"HasCitePage": false,
+			"CitaviType": "proceedings",
+			"CitaviNecessaryFields": [
+				"doi"
+			],
 			"Fields": [
 				{
 					"Field": "Herausgeber",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": "  "
+					"Suffix": "  ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Doi",
 					"Style": "normal",
 					"Prefix": "https://doi.org/",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"doi"
+					]
 				}
 			],
 			"CiteFields": [
@@ -805,44 +1194,62 @@
 					"Field": "Hrsg_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Herausgeber  (Jahr). Titel, https://doi.org/Doi"
+			]
 		},
 		{
 			"Name": "citaviThesis",
-			"HasCitePage": false,
+			"CitaviType": "thesis",
+			"CitaviNecessaryFields": [],
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": "  "
+					"Suffix": "  ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"author"
+					]
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "). "
+					"Suffix": "). ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"year"
+					]
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": [
+						"title"
+					]
 				},
 				{
 					"Field": "Schule",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
 			],
 			"CiteFields": [
@@ -850,56 +1257,72 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": []
 				}
-			],
-			"Example": "Autor  (Jahr). Titel, Schule"
+			]
 		},
 		{
 			"Name": "Norm",
-			"HasCitePage": false,
+			"CitaviType": "",
+			"CitaviNecessaryFields": null,
 			"Fields": [
 				{
 					"Field": "Hrsg",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": " (Hrsg.)"
+					"Suffix": " (Hrsg.)",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "ISO-Nr",
 					"Style": "italic",
 					"Prefix": " (",
-					"Suffix": "):"
+					"Suffix": "):",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Verlag",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Ort",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
 			],
 			"CiteFields": [
@@ -907,44 +1330,56 @@
 					"Field": "ISO-Nr",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
-			],
-			"Example": "Hrsg (Hrsg.) (ISO-Nr):Titel, Verlag, Ort, Jahr"
+			]
 		},
 		{
 			"Name": "onlineAufsatz",
-			"HasCitePage": false,
+			"CitaviType": "",
+			"CitaviNecessaryFields": null,
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": ") ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "URL",
 					"Style": "normal",
 					"Prefix": "abrufbar unter: ",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Stand",
 					"Style": "normal",
 					"Prefix": "zuletzt abgerufen am ",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
 			],
 			"CiteFields": [
@@ -952,50 +1387,64 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Jahr",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": "), "
+					"Suffix": "), ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
-			],
-			"Example": "Autor (Jahr) Titel. abrufbar unter: URL, zuletzt abgerufen am Stand"
+			]
 		},
 		{
 			"Name": "website",
-			"HasCitePage": false,
+			"CitaviType": "",
+			"CitaviNecessaryFields": null,
 			"Fields": [
 				{
 					"Field": "Autor",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Datum",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ") "
+					"Suffix": ") ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Titel",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ". "
+					"Suffix": ". ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "URL",
 					"Style": "normal",
 					"Prefix": "",
-					"Suffix": ", "
+					"Suffix": ", ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Stand",
 					"Style": "normal",
 					"Prefix": "zuletzt abgerufen am ",
-					"Suffix": ""
+					"Suffix": "",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
 			],
 			"CiteFields": [
@@ -1003,16 +1452,19 @@
 					"Field": "Autor_kurz",
 					"Style": "italic",
 					"Prefix": "",
-					"Suffix": " "
+					"Suffix": " ",
+					"TexValue": false,
+					"CitaviAttributes": null
 				},
 				{
 					"Field": "Datum_kurz",
 					"Style": "normal",
 					"Prefix": "(",
-					"Suffix": ")"
+					"Suffix": ")",
+					"TexValue": false,
+					"CitaviAttributes": null
 				}
-			],
-			"Example": "Autor (Datum) Titel. URL, zuletzt abgerufen am Stand"
+			]
 		}
 	]
 }
