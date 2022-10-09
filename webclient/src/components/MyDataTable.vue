@@ -62,7 +62,7 @@
             <v-checkbox v-model="field.TexValue" />
           </td>
           <td v-if="showCitaviAttrs === 'true'">
-            <v-combobox v-model="field.CitaviAttributes" multiple :items="citaviAttrs" @focus="focusedCombo = i" @blur="focusedCombo = -1" attach="">
+            <v-combobox v-model="field.CitaviAttributes" multiple :items="citaviAttrs" @focus="focusedCombo = i" @blur="focusedCombo = -1" :menu-props="{closeOnContentClick: true}">
               <template v-slot:item="{ item }">
                 {{item}}
               </template>
