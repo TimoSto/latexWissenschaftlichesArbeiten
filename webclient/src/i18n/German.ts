@@ -85,5 +85,6 @@ export const GermanTranslations: TranslationKeys = {
     NEW_CV_TT: 'Neuen Lebenslauf erstellen',
     PROJECT_VIEW: 'Projektansicht',
     CV_VIEW: 'Lebenslauf',
-    CHANGELOG_VIEW: 'Versionshistorie'
+    CHANGELOG_VIEW: 'Versionshistorie',
+    CONFIG_VIEW: 'Konfiguration'
 }

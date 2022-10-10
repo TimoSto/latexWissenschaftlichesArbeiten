@@ -45,6 +45,12 @@
             </v-list-item-avatar>
             <v-list-item-title>{{$t(i18nDictionary.CV_VIEW)}}</v-list-item-title>
           </v-list-item>
+          <v-list-item ripple @click="toConfig" v-if="$route.path !== '/config'">
+            <v-list-item-avatar>
+              <v-icon>mdi-cog</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title>{{$t(i18nDictionary.CONFIG_VIEW)}}</v-list-item-title>
+          </v-list-item>
 <!--          <v-list-item ripple>-->
 <!--            <v-list-item-avatar>-->
 <!--              <v-icon>mdi-information-outline</v-icon>-->
@@ -244,6 +250,14 @@ export default Vue.extend({
         this.openUnsafeDialog({Type: 'cv', Key: ''})
       }
     },
+    toConfig() {
+      if( this.$store.state.editor.savelyClosable ) {
+        this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+        this.$router.push('/config');
+      } else {
+        this.openUnsafeDialog({Type: 'config', Key: ''})
+      }
+    },
     toChangelog() {
       if( this.$store.state.editor.savelyClosable ) {
         this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
@@ -270,6 +284,9 @@ export default Vue.extend({
         } else if( this.switchObj.Type === 'changelog' ) {
           this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
           this.$router.push('/changelog');
+        } else if( this.switchObj.Type === 'config' ) {
+          this.$store.commit(MutationTypes.APP_SET_PROJECTNAME, '');
+          this.$router.push('/config');
         } else {
           this.$store.commit(MutationTypes.EDITOR_OPEN, this.switchObj);
         }

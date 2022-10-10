@@ -4,6 +4,7 @@ import HomeView from "@/views/HomeView.vue";
 import ProjectView from '@/views/ProjectView.vue';
 import CVView from '@/views/CVView.vue';
 import ChangelogView from '@/views/ChangelogView.vue';
+import ConfigView from'@/views/ConfigView.vue';
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/changelog',
     component: ChangelogView
+  },
+  {
+    path: '/config',
+    component: ConfigView
   }
 ]
 

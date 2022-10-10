@@ -85,6 +85,7 @@ export type TranslationKeys = {
     PROJECT_VIEW: string
     CV_VIEW: string
     CHANGELOG_VIEW: string
+    CONFIG_VIEW: string
 }
 
 export const i18nDictionary: TranslationKeys = {
@@ -172,5 +173,6 @@ export const i18nDictionary: TranslationKeys = {
     NEW_CV_TT: 'NEW_CV_TT',
     PROJECT_VIEW: 'PROJECT_VIEW',
     CV_VIEW: 'CV_VIEW',
-    CHANGELOG_VIEW: 'CHANGELOG_VIEW'
+    CHANGELOG_VIEW: 'CHANGELOG_VIEW',
+    CONFIG_VIEW: 'CONFIG_VIEW'
 }

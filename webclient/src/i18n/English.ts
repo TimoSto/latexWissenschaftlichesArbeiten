@@ -85,5 +85,6 @@ export const EnglishTranslations: TranslationKeys = {
     NEW_CV_TT: 'Create new CV',
     PROJECT_VIEW: 'Projectview',
     CV_VIEW: 'Curriculum vitae',
-    CHANGELOG_VIEW: 'Changelog'
+    CHANGELOG_VIEW: 'Changelog',
+    CONFIG_VIEW: 'Configuration'
 }
