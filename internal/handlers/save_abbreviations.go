@@ -4,6 +4,7 @@ import (
 	. "WA_LaTeX/internal/abbreviations"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -22,7 +23,7 @@ func HandleSaveAbbreviations(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = WriteAbbreviations(saveObj.Abbreviations, saveObj.Project)
+	err = WriteAbbreviations(saveObj.Abbreviations, saveObj.Project, ioutil.WriteFile)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
