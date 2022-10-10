@@ -1,12 +1,12 @@
 package backups
 
 import (
-	"io/ioutil"
+	"io/fs"
 	"strings"
 )
 
-func ReadBackups(project string) ([]string, error) {
-	files, err := ioutil.ReadDir("./backup/")
+func ReadBackups(project string, readDir func(string) ([]fs.FileInfo, error)) ([]string, error) {
+	files, err := readDir("./backup/")
 	if err != nil {
 		return nil, err
 	}

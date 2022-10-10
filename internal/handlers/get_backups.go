@@ -4,6 +4,7 @@ import (
 	"WA_LaTeX/internal/backups"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 )
@@ -25,7 +26,7 @@ func GetBackupsHandler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(project)
 
-	paths, err := backups.ReadBackups(project)
+	paths, err := backups.ReadBackups(project, ioutil.ReadDir)
 	if err != nil {
 		log.Println(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
