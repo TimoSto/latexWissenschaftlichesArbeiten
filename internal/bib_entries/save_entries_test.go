@@ -24,7 +24,7 @@ func TestSaveEntries(t *testing.T) {
 		},
 	}
 
-	err, _, _ = SaveEntries(entries, "test4", []string{""}, mockFileSystem.ReadFile, mockFileSystem.WriteFile)
+	err, _, _ = SaveEntries(entries, "test4", []string{""}, true, mockFileSystem.ReadFile, mockFileSystem.WriteFile)
 	if err != nil {
 		t.Errorf("%s", err)
 	}

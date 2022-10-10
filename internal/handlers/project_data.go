@@ -43,7 +43,7 @@ func GetProjectData(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	abbrs, err := GetAbbreviations(project)
+	abbrs, err := GetAbbreviations(project, ioutil.ReadFile)
 	if err != nil {
 		log.Println(err)
 		http.Error(w, err.Error(), 500)

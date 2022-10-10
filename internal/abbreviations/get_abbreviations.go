@@ -1,15 +1,14 @@
 package abbreviations
 
 import (
-	"io/ioutil"
 	"strings"
 )
 
-func GetAbbreviations(project string) ([]Abbreviation, error) {
+func GetAbbreviations(project string, readFile func(string) ([]byte, error)) ([]Abbreviation, error) {
 
 	var abbrs []Abbreviation
 
-	file, err := ioutil.ReadFile("./projects/" + project + "/abkuerzungen.csv")
+	file, err := readFile("./projects/" + project + "/abkuerzungen.csv")
 	if err != nil {
 		return abbrs, err
 	}
