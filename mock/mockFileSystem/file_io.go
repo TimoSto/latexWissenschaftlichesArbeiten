@@ -2,18 +2,30 @@ package mockFileSystem
 
 import (
 	_ "embed"
-	"fmt"
 	"io/fs"
 	"os"
 	"strings"
 	"time"
 )
 
-//go:embed abk_filled.csv
+//go:embed abks/abk_filled.csv
 var abkFilled string
 
-//go:embed abk_empty.csv
+//go:embed abks/abk_empty.csv
 var abkEmpty string
+
+//go:embed literatures/test1.json
+var test1_bib string
+
+//go:embed literatures/test2.json
+var test2_bib string
+
+//go:embed literatures/test3.json
+var test3_bib string
+
+var test2_csv string
+
+var test3_csv string
 
 func ReadFile(name string) ([]byte, error) {
 	name = strings.TrimLeft(name, "./")
@@ -24,6 +36,25 @@ func ReadFile(name string) ([]byte, error) {
 		}
 		if parts[1] == "project_without_abks" {
 			return []byte(abkEmpty), nil
+		}
+	}
+	if parts[2] == "literatur.json" {
+		if parts[1] == "test1" {
+			return []byte(test1_bib), nil
+		}
+		if parts[1] == "test2" {
+			return []byte(test2_bib), nil
+		}
+		if parts[1] == "test3" {
+			return []byte(test3_bib), nil
+		}
+	}
+	if parts[2] == "literatur.csv" {
+		if parts[1] == "test2" {
+			return []byte(test2_csv), nil
+		}
+		if parts[1] == "test3" {
+			return []byte(test3_csv), nil
 		}
 	}
 
@@ -43,7 +74,31 @@ func WriteFile(path string, data []byte, fm fs.FileMode) error {
 			return nil
 		}
 	}
-	return fmt.Errorf("file not found")
+	if parts[2] == "literatur.csv" {
+		if parts[1] == "test2" {
+			test2_csv = string(data)
+			return nil
+		}
+		if parts[1] == "test3" {
+			test3_csv = string(data)
+			return nil
+		}
+	}
+	if parts[2] == "literatur.json" {
+		if parts[1] == "test1" {
+			test1_bib = string(data)
+			return nil
+		}
+		if parts[1] == "test2" {
+			test2_bib = string(data)
+			return nil
+		}
+		if parts[1] == "test3" {
+			test3_bib = string(data)
+			return nil
+		}
+	}
+	return nil
 }
 
 type MockFileInfo struct {

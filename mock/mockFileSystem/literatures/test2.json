@@ -1,0 +1,34 @@
+[
+  {
+    "Key": "test1",
+    "Typ": "aufsatz",
+    "Fields": [
+      "aaaatcv",
+      "ssdbbbbb",
+      "t",
+      "s",
+      "t",
+      "s",
+      "t",
+      "s"
+    ],
+  "Comment":    "",
+  "CiteNumber": 0
+  },
+  {
+    "Key": "test2",
+    "Typ": "aufsatz",
+    "Fields": [
+      "2aaaatcv",
+      "2ssdbbbbb",
+      "2t",
+      "2s",
+      "2t",
+      "2s",
+      "2t",
+      "2s"
+    ],
+    "Comment":    "",
+    "CiteNumber": 0
+  }
+]

@@ -1,9 +1,8 @@
 package bib_entries
 
 import (
+	"WA_LaTeX/mock/mockFileSystem"
 	"testing"
-
-	"WA_LaTeX/internal/mockFileSystem"
 )
 
 func TestCountCites_empty(t *testing.T) {
