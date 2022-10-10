@@ -6,7 +6,7 @@ import (
 )
 
 func TestCountCites_empty(t *testing.T) {
-	entries, err := ReadBibEntries("test", mockFileSystem.ReadFile)
+	entries, err := ReadBibEntries("test1", mockFileSystem.ReadFile)
 	if err != nil {
 		t.Errorf("%s", err)
 	}

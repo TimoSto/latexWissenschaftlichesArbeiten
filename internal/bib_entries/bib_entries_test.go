@@ -57,7 +57,7 @@ func TestReadBibEntriesWithTwo(t *testing.T) {
 			"s",
 		},
 		Comment:    "",
-		CiteNumber: 0,
+		CiteNumber: 1,
 	}
 	if !reflect.DeepEqual(expObj, entries[0]) {
 		t.Errorf("expected %v, got %v", expObj, entries[0])

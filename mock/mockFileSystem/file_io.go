@@ -27,6 +27,12 @@ var test2_csv string
 
 var test3_csv string
 
+//go:embed tex_files/test1.tex
+var test1_tex string
+
+//go:embed tex_files/test2.tex
+var test2_tex string
+
 func ReadFile(name string) ([]byte, error) {
 	name = strings.TrimLeft(name, "./")
 	parts := strings.Split(name, "/")
@@ -56,6 +62,12 @@ func ReadFile(name string) ([]byte, error) {
 		if parts[1] == "test3" {
 			return []byte(test3_csv), nil
 		}
+	}
+	if parts[2] == "test1.tex" {
+		return []byte(test1_tex), nil
+	}
+	if parts[2] == "test2.tex" {
+		return []byte(test2_tex), nil
 	}
 
 	return nil, nil
