@@ -7,13 +7,13 @@
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
-            <v-checkbox></v-checkbox>
+            <v-checkbox v-model="config.openOnStart"></v-checkbox>
           </v-list-item-avatar>
           <v-list-item-title>Browser automatisch öffnen</v-list-item-title>
         </v-list-item>
         <v-list-item>
           <v-list-item-avatar>
-            <v-checkbox></v-checkbox>
+            <v-checkbox v-model="config.overrideOnDragNDrop"></v-checkbox>
           </v-list-item-avatar>
           <v-list-item-title>Drag'n'Drop überschreiben</v-list-item-title>
         </v-list-item>
@@ -29,7 +29,11 @@ export default {
   name: "ConfigView",
   data() {
     return {
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      config: {
+        openOnStart: false,
+        overrideOnDragNDrop: true
+      }
     }
   }
 }
