@@ -10,7 +10,6 @@ projects/*
 *.mcf
 *.toc
 src/packages/handlers/out/
-out/
 src/packages/handlers/documentation/
 src/cmd/versioninfo.json
 src/cmd/resource.syso
