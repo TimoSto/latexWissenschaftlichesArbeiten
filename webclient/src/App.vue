@@ -320,7 +320,7 @@ export default Vue.extend({
     newProjectRules() {
       return [
         (v: string) => {
-          if ( this.projectNames.indexOf(v) !== -1) return 'Projektname bereits vergeben'
+          if ( this.projectNames && this.projectNames.indexOf(v) !== -1) return 'Projektname bereits vergeben'
           if ( v.indexOf(' ') >= 0 ) return 'Projektname darf kein Leerzeichen enthalten‚'
           return true
         },
