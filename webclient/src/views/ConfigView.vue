@@ -4,6 +4,20 @@
       <v-toolbar-title>{{$t(i18nDictionary.CONFIG_VIEW)}}</v-toolbar-title>
     </v-app-bar>
     <v-sheet id="scroll-config" class="content-below-two-bars">
+      <v-list>
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-checkbox></v-checkbox>
+          </v-list-item-avatar>
+          <v-list-item-title>Browser automatisch öffnen</v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-checkbox></v-checkbox>
+          </v-list-item-avatar>
+          <v-list-item-title>Drag'n'Drop überschreiben</v-list-item-title>
+        </v-list-item>
+      </v-list>
     </v-sheet>
   </div>
 </template>

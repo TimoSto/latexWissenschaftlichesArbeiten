@@ -152,11 +152,11 @@ func main() {
 
 	mux.Handle("/getBibEntries", http.HandlerFunc(handlers.GetBibEntriesHandler))
 
-	logger.LogInfo("Open http://localhost:8081/overview to get started.")
+	logger.LogInfo("Open http://localhost:8081/#/ to get started.")
 
 	go startServer(mux)
 
-	openbrowser("http://localhost:8081/overview")
+	openbrowser("http://localhost:8081/#/")
 
 	sigs := make(chan os.Signal, 1)
 	//done := make(chan bool, 1)
