@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -52,7 +53,7 @@ func HandleDeleteEntry(w http.ResponseWriter, r *http.Request) {
 	str := string(jsonStr)
 	strings.Replace(str, "[", "[\n", -1)
 
-	err = ioutil.WriteFile("./projects/"+project+"/literatur.json", []byte(str), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(project, "literatur.json"), []byte(str), 0644)
 	if err != nil {
 		logger.LogError("Writing new entries to literatur.json", err.Error())
 		http.Error(w, err.Error(), 500)

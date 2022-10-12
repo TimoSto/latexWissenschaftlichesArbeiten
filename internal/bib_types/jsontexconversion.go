@@ -1,6 +1,7 @@
 package bib_types
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"fmt"
 	"io/ioutil"
 	"regexp"
@@ -19,7 +20,7 @@ func SaveTypesToLaTeX(project string, types []LiteratureType) error {
 	ifsForCiteCommands := "%Area to add citeifs via gui\n" + GenerateIfsForCiteCommands(types) + "\t\t%end area"
 	ifsForInlineCiteCommands := "%Area to add citeifs_inline via gui\n" + GenerateIfsForInlineCiteCommands(types) + "\t\t%end area"
 	// fmt.Println(ifsForCiteCommands)
-	file, err := ioutil.ReadFile("./projects/" + project + "/styPackages/literatur.sty")
+	file, err := ioutil.ReadFile(pathbuilder.GetPathInProject(project, "styPackages/literatur.sty"))
 	if err != nil {
 		logger.LogError(fmt.Sprintf("Reading ./projects/%s/styPackages/literatur.sty", project), err.Error())
 		return err
@@ -35,7 +36,7 @@ func SaveTypesToLaTeX(project string, types []LiteratureType) error {
 	m5 := regexp.MustCompile(`(?s)%Area to add citeifs_inline via gui(.*?)%end area`)
 	newFile = m5.ReplaceAllString(newFile, ifsForInlineCiteCommands)
 
-	return ioutil.WriteFile("./projects/"+project+"/styPackages/literatur.sty", []byte(newFile), 0644)
+	return ioutil.WriteFile(pathbuilder.GetPathInProject(project, "styPsckages/literatur.sty"), []byte(newFile), 0644)
 }
 
 func GeneratePrintBibCommands(types []LiteratureType) string {

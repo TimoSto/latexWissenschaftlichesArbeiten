@@ -1,6 +1,7 @@
 package projects
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -11,7 +12,7 @@ import (
 )
 
 func CiteCleanup(project string) error {
-	texFile, err := ioutil.ReadFile("./projects/" + project + "/" + project + ".tex")
+	texFile, err := ioutil.ReadFile(pathbuilder.GetPathInProject(project, project+".tex"))
 	if err != nil {
 		return err
 	}
@@ -29,7 +30,7 @@ func CiteCleanup(project string) error {
 		}
 	}
 
-	filepath.Walk(fmt.Sprintf("./projects/%s/", project), func(path string, info os.FileInfo, err error) error {
+	filepath.Walk(pathbuilder.GetProjectPath(project), func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			log.Fatalf(err.Error())
 		}
@@ -50,7 +51,7 @@ func CiteCleanup(project string) error {
 					filecontent += fmt.Sprintf("%s;\n", match)
 				}
 			}
-			err = ioutil.WriteFile(fmt.Sprintf("./projects/%s/citedKeys.csv", project), []byte(filecontent), 0644)
+			err = ioutil.WriteFile(fmt.Sprintf(pathbuilder.GetPathInProject(project, "citedKeys.csv"), project), []byte(filecontent), 0644)
 			if err != nil {
 				return err
 			}
@@ -59,7 +60,7 @@ func CiteCleanup(project string) error {
 		return nil
 	})
 	// fmt.Println(filecontent)
-	err = ioutil.WriteFile(fmt.Sprintf("./projects/%s/citedKeys.csv", project), []byte(filecontent), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(project, "citedKeys.csv"), []byte(filecontent), 0644)
 	return err
 }
 

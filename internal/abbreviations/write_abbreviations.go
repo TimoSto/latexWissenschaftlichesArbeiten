@@ -1,6 +1,9 @@
 package abbreviations
 
-import "io/fs"
+import (
+	"WA_LaTeX/internal/pathbuilder"
+	"io/fs"
+)
 
 func WriteAbbreviations(abbrs []Abbreviation, project string, writeFile func(string, []byte, fs.FileMode) error) error {
 	fileStr := "abk;bed;"
@@ -9,5 +12,5 @@ func WriteAbbreviations(abbrs []Abbreviation, project string, writeFile func(str
 		fileStr += "\n" + a.Abk + ";" + a.Bed + ";"
 	}
 
-	return writeFile("./projects/"+project+"/abkuerzungen.csv", []byte(fileStr), 06444)
+	return writeFile(pathbuilder.GetPathInProject(project, "abkuerzungen.csv"), []byte(fileStr), 06444)
 }

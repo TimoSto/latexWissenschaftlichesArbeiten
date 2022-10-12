@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"fmt"
 	"net/http"
 	"os"
@@ -24,8 +25,8 @@ func HandleBackup(w http.ResponseWriter, r *http.Request) {
 
 	t := time.Now()
 	err := cp.Copy(
-		fmt.Sprintf("./projects/%s", project),
-		fmt.Sprintf("./backup/%s-%s", project, t.Format("2006-01-02_15_04_05")))
+		pathbuilder.GetProjectPath(project),
+		pathbuilder.GetPathFromExecRoot("backup"+fmt.Sprintf("/%s-%s", project, t.Format("2006-01-02_15_04_05"))))
 
 	if err != nil {
 		logger.LogError(fmt.Sprintf("Creating backup for %s", project), err.Error())

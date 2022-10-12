@@ -1,6 +1,7 @@
 package bib_types
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -50,7 +51,7 @@ func RefreshTypes(project string) error {
 	str := string(jsonStr)
 	strings.Replace(str, "[", "[\n", -1)
 
-	err = ioutil.WriteFile("./projects/"+project+"/literature_types.json", []byte(str), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(project, "literature_types.json"), []byte(str), 0644)
 	if err != nil {
 		logger.LogError("Writing types to file "+"./projects/"+project+"/literature_types.json", err.Error())
 		return err

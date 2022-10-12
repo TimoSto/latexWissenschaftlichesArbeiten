@@ -1,6 +1,7 @@
 package bib_entries
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"encoding/json"
 	"io/fs"
 	"sort"
@@ -12,7 +13,7 @@ import (
 func ConvertBibToCSV(project string, readFile func(string) ([]byte, error), writeFile func(string, []byte, fs.FileMode) error) error {
 	logger.LogInfo("Convertig ./projects/" + project + "/literatur.json to literatur.csv...")
 
-	file, err := readFile("./projects/" + project + "/literatur.json")
+	file, err := readFile(pathbuilder.GetPathInProject(project, "literatur.json"))
 	if err != nil {
 		return err
 	}
@@ -41,5 +42,5 @@ func ConvertBibToCSV(project string, readFile func(string) ([]byte, error), writ
 	}
 	filestring += "empty;empty;a;b;c;d;e;f;g;h;i;j;k;l;m;n;o;p;q;r;s;t;u;v;w;x;y;z;\n"
 
-	return writeFile("./projects/"+project+"/literatur.csv", []byte(filestring), 0644)
+	return writeFile(pathbuilder.GetPathInProject(project, "literature.csv"), []byte(filestring), 0644)
 }

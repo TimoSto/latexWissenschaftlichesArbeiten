@@ -1,12 +1,13 @@
 package backups
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"io/fs"
 	"strings"
 )
 
 func ReadBackups(project string, readDir func(string) ([]fs.FileInfo, error)) ([]string, error) {
-	files, err := readDir("./backup/")
+	files, err := readDir(pathbuilder.GetPathFromExecRoot("backup"))
 	if err != nil {
 		return nil, err
 	}

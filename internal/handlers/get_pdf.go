@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -18,7 +19,7 @@ func GetPDF(w http.ResponseWriter, r *http.Request) {
 
 	project := keys[0]
 
-	file, err := ioutil.ReadFile("./projects/" + project + "/" + project + ".pdf")
+	file, err := ioutil.ReadFile(pathbuilder.GetPathInProject(project, project+".pdf"))
 	if err != nil {
 		fmt.Println(err)
 	}

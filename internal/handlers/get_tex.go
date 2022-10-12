@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"fmt"
+	"WA_LaTeX/internal/pathbuilder"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -19,7 +19,7 @@ func GetTeX(w http.ResponseWriter, r *http.Request) {
 
 	project := keys[0]
 
-	file, err := ioutil.ReadFile(fmt.Sprintf("./projects/%s/%s.tex", project, project))
+	file, err := ioutil.ReadFile(pathbuilder.GetPathInProject(project, project+".tex"))
 	if err != nil {
 		log.Println(err)
 		http.Error(w, "Could not find file", http.StatusBadRequest)

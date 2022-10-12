@@ -1,6 +1,7 @@
 package bib_entries
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"encoding/json"
 	"fmt"
 	"io/fs"
@@ -86,7 +87,7 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string, overr
 	if err != nil {
 		return err, 0, 0
 	}
-	err = writeFile("./projects/"+project+"/literatur.json", jsonStr, 0644)
+	err = writeFile(pathbuilder.GetPathInProject(project, "literatur.json"), jsonStr, 0644)
 	if err != nil {
 
 		return err, 0, 0
