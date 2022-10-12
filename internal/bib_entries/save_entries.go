@@ -61,7 +61,7 @@ func SaveEntries(entries []BibEntry, project string, initialKeys []string, overr
 				changed++
 				break
 			} else if strings.Compare(existingEntries[i].Key, entry.Key) == 0 {
-				if !conf.OverrideExistingEntries || !override {
+				if !conf.ConfigObj.OverrideExistingEntries || !override {
 					logger.LogInfo(fmt.Sprintf("Entry with key '%s' already exists. Delete the old one or rename the new one.", entry.Key))
 					found = true
 				} else {

@@ -12,15 +12,27 @@ import (
 //go:embed VERSION
 var Version string
 
-var AutoOpenBrowser = false
-var OverrideExistingEntries = true
+type Config struct {
+	AutoOpenBrowser         bool
+	OverrideExistingEntries bool
+}
+
+var ConfigObj = Config{
+	AutoOpenBrowser:         false,
+	OverrideExistingEntries: true,
+}
+
 var Protocol = "HTTP"
 
 func ReadConfig() {
 	cfg, err := ini.Load("Config.ini")
 	if err == nil {
-		AutoOpenBrowser, err = cfg.Section("").Key("autoOpenBrowser").Bool()
-		OverrideExistingEntries, err = cfg.Section("").Key("overrideExistingEntries").Bool()
+		autoOpenBrowser, _ := cfg.Section("").Key("autoOpenBrowser").Bool()
+		ConfigObj.AutoOpenBrowser = autoOpenBrowser
+		overrideExistingEntries, err := cfg.Section("").Key("overrideExistingEntries").Bool()
+		if err == nil {
+			ConfigObj.OverrideExistingEntries = overrideExistingEntries
+		}
 	} else {
 		err = WriteConfig("false", "true")
 		if err != nil {

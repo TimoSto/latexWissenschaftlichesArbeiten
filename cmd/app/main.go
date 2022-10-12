@@ -44,7 +44,7 @@ func main() {
 	if len(argsWithoutProg) > 0 && argsWithoutProg[0] == "configure" {
 		fmt.Println("Konfigurationsassistent für WA_LaTeX")
 		v := "Y"
-		if !conf.AutoOpenBrowser {
+		if !conf.ConfigObj.AutoOpenBrowser {
 			v = "N"
 		}
 		fmt.Print(fmt.Sprintf("Soll beim Starten der Anwendung automatisch ein Browser geöffnet werden? (aktuell: %v) [Y/N]", v))
@@ -66,7 +66,7 @@ func main() {
 		}
 
 		v = "Y"
-		if !conf.OverrideExistingEntries {
+		if !conf.ConfigObj.OverrideExistingEntries {
 			v = "N"
 		}
 		fmt.Print(fmt.Sprintf("Sollen ein ggf. existierender Literatureintrag mit demselben Key beim Speichern oder Hochladen überschrieben werden? (aktuell: %v) [Y/N]", v))
@@ -171,7 +171,7 @@ func main() {
 
 func openbrowser(url string) {
 
-	if !conf.AutoOpenBrowser {
+	if !conf.ConfigObj.AutoOpenBrowser {
 		logger.LogInfo("Automatically opening browser is disabled")
 		return
 	}
