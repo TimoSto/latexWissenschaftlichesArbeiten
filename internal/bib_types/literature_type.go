@@ -1,8 +1,8 @@
 package bib_types
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"sort"
 	"strings"
@@ -30,7 +30,7 @@ type Field struct {
 }
 
 func ReadTypes(project string) (LiteratureTypes, error) {
-	file, err := ioutil.ReadFile(fmt.Sprintf("./projects/%s/literature_types.json", project))
+	file, err := ioutil.ReadFile(pathbuilder.GetPathInProject(project, "literature_types.json"))
 	if err != nil {
 		return LiteratureTypes{}, err
 	}

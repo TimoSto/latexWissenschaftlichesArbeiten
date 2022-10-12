@@ -1,18 +1,20 @@
 package projects
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"io/ioutil"
 	"os"
 )
 
 func GetProjects() ([]string, error) {
-	dirContent, err := ioutil.ReadDir("./projects/")
+	projectsPath := pathbuilder.GetPathFromExecRoot("projects")
+	dirContent, err := ioutil.ReadDir(projectsPath)
 	if err != nil {
-		err = os.Mkdir("./projects", 0644)
+		err = os.Mkdir(projectsPath, 0644)
 		if err != nil {
 			return nil, err
 		}
-		dirContent, err = ioutil.ReadDir("./projects/")
+		dirContent, err = ioutil.ReadDir(projectsPath)
 		if err != nil {
 			return nil, err
 		}

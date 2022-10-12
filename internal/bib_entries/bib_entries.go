@@ -1,6 +1,7 @@
 package bib_entries
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"encoding/json"
 	"fmt"
 	"sort"
@@ -19,7 +20,7 @@ func ReadBibEntries(project string, readFile func(string) ([]byte, error)) ([]Bi
 	if len(project) == 0 {
 		return nil, fmt.Errorf("No Project Name provided")
 	}
-	file, err := readFile("./projects/" + project + "/literatur.json")
+	file, err := readFile(pathbuilder.GetPathInProject(project, "literatur.json"))
 	if err != nil {
 		return nil, err
 	}

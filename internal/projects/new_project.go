@@ -1,13 +1,13 @@
 package projects
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
+	"WA_LaTeX/pkg/logger"
 	_ "embed"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"os"
-
-	"WA_LaTeX/pkg/logger"
 )
 
 //go:embed templates/example.tex
@@ -58,12 +58,12 @@ func CreateNewProject(name string) (bool, error) {
 		}
 	}
 
-	err = os.Mkdir("./projects/"+name, 0755)
+	err = os.MkdirAll(pathbuilder.GetProjectPath(name), os.ModePerm)
 	if err != nil {
 		return false, err
 	}
 
-	err = ioutil.WriteFile("./projects/"+name+"/literatur.json", []byte("[]"), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "literatur.json"), []byte("[]"), 0644)
 	if err != nil {
 		return false, err
 	}
@@ -71,7 +71,7 @@ func CreateNewProject(name string) (bool, error) {
 	//if err != nil {
 	//	return false, err
 	//}
-	err = ioutil.WriteFile("./projects/"+name+"/literatur.csv", []byte(literaturCSVTemplate), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "literatur.csv"), []byte(literaturCSVTemplate), 0644)
 	if err != nil {
 		return false, err
 	}
@@ -83,15 +83,15 @@ func CreateNewProject(name string) (bool, error) {
 	//if err != nil {
 	//	return false, err
 	//}
-	err = ioutil.WriteFile("./projects/"+name+"/"+name+".tex", []byte(texTemplate), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, name+".tex"), []byte(texTemplate), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/abkuerzungen.csv", []byte("abk;bed;"), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "abkuerzungen.csv"), []byte("abk;bed;"), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/citedKeys.csv", []byte("ckey;\n*;"), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "citedKeys.csv"), []byte("ckey;\n*;"), 0644)
 	if err != nil {
 		return false, err
 	}
@@ -152,49 +152,49 @@ func CreateNewProject(name string) (bool, error) {
 		}
 	}
 
-	err = ioutil.WriteFile("./projects/"+name+"/literature_types.json", []byte(json), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "literature_types.json"), []byte(json), 0644)
 	if err != nil {
 		return false, err
 	}
 
-	err = os.Mkdir("./projects/"+name+"/styPackages", 0755)
+	err = os.Mkdir(pathbuilder.GetPathInProject(name, "styPackages"), 0755)
 	if err != nil {
 		return false, err
 	}
 
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/abk_verzeichnis.sty", []byte(abk), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/abk_verzeichnis.sty"), []byte(abk), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/anhang.sty", []byte(anhang), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/anhang.sty"), []byte(anhang), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/codes.sty", []byte(codes), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/codes.sty"), []byte(codes), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/fusszeilen.sty", []byte(fusszeilen), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/fusszeilen.sty"), []byte(fusszeilen), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/header_footer.sty", []byte(headerfooter), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/header_footer.sty"), []byte(headerfooter), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/inhaltsverzeichnis.sty", []byte(toc), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/inhaltsverzeichnis.sty"), []byte(toc), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/literatur.sty", []byte(literatur), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/literatur.sty"), []byte(literatur), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/ueberschriften.sty", []byte(ueberschriften), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/ueberschriften.sty"), []byte(ueberschriften), 0644)
 	if err != nil {
 		return false, err
 	}
-	err = ioutil.WriteFile("./projects/"+name+"/styPackages/html.sty", []byte(html), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "styPackages/html.sty"), []byte(html), 0644)
 	if err != nil {
 		return false, err
 	}

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"bufio"
 	"context"
 	_ "embed"
@@ -27,6 +28,8 @@ import (
 var CompileBat string
 
 func main() {
+
+	pathbuilder.Init()
 
 	compFile, err := ioutil.ReadFile("compile.bat")
 

@@ -1,6 +1,7 @@
 package abbreviations
 
 import (
+	"WA_LaTeX/internal/pathbuilder"
 	"strings"
 )
 
@@ -8,7 +9,7 @@ func GetAbbreviations(project string, readFile func(string) ([]byte, error)) ([]
 
 	var abbrs []Abbreviation
 
-	file, err := readFile("./projects/" + project + "/abkuerzungen.csv")
+	file, err := readFile(pathbuilder.GetPathInProject(project, "abkuerzungen.csv"))
 	if err != nil {
 		return abbrs, err
 	}
