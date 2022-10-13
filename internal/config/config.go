@@ -21,6 +21,7 @@ func ReadConfig() {
 	logger.LogInfo("Trying to read Config.ini...")
 	cfg, err := ini.Load("Config.ini")
 	if err == nil {
+		logger.LogInfo("Config.ini found")
 		autoOpenBrowser, err := cfg.Section("").Key("autoOpenBrowser").Bool()
 		if err != nil {
 			logger.LogError("Reading autoOpenBrowser from Config.ini", err.Error())
@@ -32,6 +33,7 @@ func ReadConfig() {
 		if err != nil {
 			logger.LogError("Writing default Config.ini", err.Error())
 		}
+		logger.LogInfo("Using default-config")
 	}
 }
 

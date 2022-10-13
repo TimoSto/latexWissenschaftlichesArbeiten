@@ -33,3 +33,5 @@ func TestConfigReadWhenNoFilePresent(t *testing.T) {
 		t.Errorf("expected auto-open to be true, got %v", autoOpen)
 	}
 }
+
+//TODO: test write
