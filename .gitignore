@@ -9,3 +9,5 @@ projects/*
 *.lot
 *.mcf
 *.toc
+/Config.ini
+/internal/config/Config.ini
