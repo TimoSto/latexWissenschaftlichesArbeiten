@@ -200,7 +200,7 @@ func openbrowser(url string) {
 
 func startServer(mux http.Handler) {
 	isSecure := strings.ToUpper(conf.Protocol) == "HTTPS"
-	port := 8081
+	port := 8082 //TODO: konfigurierbar
 	srvConfig := server.Config{
 		Handler:  mux,
 		IsSecure: isSecure,

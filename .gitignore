@@ -40,3 +40,4 @@ webclient/assets/dist/
 /out/macOS_arm64/projects/ztest/literature.csv
 /out/macOS_arm64/projects/ztest/literature_types.json
 /out/macOS_arm64/projects/ztest/ztest.tex
+/go_build_WA_LaTeX_cmd_app
