@@ -23,6 +23,8 @@ import {BibEntry} from "@/api/bibEntry/BibEntry";
 import UploadEntries from "@/api/citavi/UploadEntries";
 import {Abbreviation} from "@/api/abbreviations/Abbreviation";
 import SaveAbbreviations from "@/api/abbreviations/SaveAbbreviations";
+import ConfigObj from "@/api/config/ConfigObj";
+import ReadConfig from "@/api/config/ReadConfig";
 
 export type AugmentedActionContext = {
     commit<K extends keyof Mutations>(
@@ -206,5 +208,12 @@ export const actions: ActionTree<MyState, MyState> & Actions = {
             commit(MutationTypes.APP_SET_SUCCESS, 'PROJECT_SUCCESS_ABBREVIATIONS');
             commit(MutationTypes.PROJECT_SET_ABBRS, payload.abbrs)
         }
+    },
+
+    async [ActionTypes.APP_GET_CONFIG]({commit}) {
+        const obj = await ReadConfig()
+
+        commit(MutationTypes.APP_SET_CONFIG, obj)
+
     }
 };

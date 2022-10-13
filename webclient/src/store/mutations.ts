@@ -5,6 +5,7 @@ import {ProjectData} from "@/api/project/GetProjectData";
 import {BibEntry} from "@/api/bibEntry/BibEntry";
 import {BibType} from "@/api/bibType/BibType";
 import {Abbreviation} from "@/api/abbreviations/Abbreviation";
+import ConfigObj from "@/api/config/ConfigObj";
 
 export type Mutations<S = MyState> = {
     [MutationTypes.APP_SET_PROJECTNAMES](state: S, payload: string[]): void;
@@ -138,5 +139,9 @@ export const mutations: MutationTree<MyState> & Mutations = {
     },
     [MutationTypes.PROJECT_SET_ABBRS](state, payload: Abbreviation[]) {
         state.project.abbreviations = JSON.parse(JSON.stringify(payload))
+    },
+    [MutationTypes.APP_SET_CONFIG](state, payload: ConfigObj) {
+        state.app.config.openBrowser = payload.AutoOpenBrowser;
+        state.app.config.overrideEntries = payload.OverrideExistingEntries;
     }
 };

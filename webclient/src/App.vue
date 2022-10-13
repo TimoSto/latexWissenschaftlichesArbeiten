@@ -182,6 +182,7 @@ export default Vue.extend({
 
   mounted() {
     this.$store.dispatch(ActionTypes.APP_GET_PROJECTS);
+    this.$store.dispatch(ActionTypes.APP_GET_CONFIG);
 
     let urlParts = window.location.hash.split("/project/")
     if( urlParts.length > 1 ) {

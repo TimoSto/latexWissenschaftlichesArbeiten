@@ -12,7 +12,11 @@ export type MyState = {
         },
         successMessage: string
         deletedProject: string
-        twoThirdsActive: boolean
+        twoThirdsActive: boolean,
+        config: {
+            openBrowser: boolean,
+            overrideEntries: boolean
+        }
     },
     project: {
         backupPaths: string[],
@@ -39,7 +43,11 @@ export const myState: MyState = {
         },
         successMessage: '',
         deletedProject: '',
-        twoThirdsActive: false
+        twoThirdsActive: false,
+        config: {
+            openBrowser: false,
+            overrideEntries: true
+        }
     },
     project: {
         backupPaths: [],

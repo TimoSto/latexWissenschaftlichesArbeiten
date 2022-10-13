@@ -105,6 +105,8 @@ func main() {
 
 	mux.Handle("/", http.HandlerFunc(handlers.HandleAssetsNew))
 
+	mux.Handle("/config", http.HandlerFunc(handlers.HandleConfig))
+
 	mux.Handle("/createProject", http.HandlerFunc(handlers.HandleNewProject))
 
 	mux.Handle("/deleteProject", http.HandlerFunc(handlers.HandleDeleteProject))

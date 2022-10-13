@@ -2,6 +2,10 @@
   <div>
     <v-app-bar dense color="background" elevation="1" elevate-on-scroll scroll-target="#scroll-config" style="z-index: 100">
       <v-toolbar-title>{{$t(i18nDictionary.CONFIG_VIEW)}}</v-toolbar-title>
+      <v-spacer />
+      <v-btn icon>
+        <v-icon>mdi-content-save</v-icon>
+      </v-btn>
     </v-app-bar>
     <v-sheet id="scroll-config" class="content-below-two-bars">
       <v-list>
@@ -35,6 +39,13 @@ export default {
         overrideOnDragNDrop: true
       }
     }
+  },
+  mounted() {
+    this.$nextTick(()=> {
+      this.config = {
+        openOnStart: this.$store.state.app
+      }
+    })
   }
 }
 </script>
