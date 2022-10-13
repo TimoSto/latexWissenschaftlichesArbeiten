@@ -1,6 +1,0 @@
-{
-  "testFiles": "**/*.feature",
-  "stepDefinitions": "cypress/support/step_definitions/*/*.js",
-  "video": false,
-  "retries": 1
-}
