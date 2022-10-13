@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"time"
 
-	"WA_LaTeX/pkg/cert"
 	"WA_LaTeX/pkg/logger"
 )
 
@@ -32,13 +31,6 @@ func New(c *Config) (*Server, error) {
 		return nil, err
 	}
 
-	if c.IsSecure && c.TLSConfig == nil {
-		selfsignedCert := cert.NewSelfsignedCert(fqdn)
-		c.TLSConfig = &tls.Config{
-			MinVersion:   tls.VersionTLS12,
-			Certificates: []tls.Certificate{selfsignedCert.TLS()},
-		}
-	}
 	return &Server{
 		fqdn:  fqdn,
 		port:  fmt.Sprintf("%v", c.Port),
