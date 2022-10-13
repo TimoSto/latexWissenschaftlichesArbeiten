@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
+	logger.Init()
+
 	logger.LogInfo("Starting up ThesorTeX...")
 
 	config.ReadConfig()

@@ -11,3 +11,4 @@ projects/*
 *.toc
 /Config.ini
 /internal/config/Config.ini
+/errorLogs.txt

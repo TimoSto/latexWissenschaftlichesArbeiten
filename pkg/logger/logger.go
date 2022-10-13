@@ -15,6 +15,7 @@ func Init() {
 	}
 
 	ErrorFileLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime)
+	LogInfo("Errormessages will be logged into ./errorLogs.txt")
 }
 
 func LogInfo(msg string) {
