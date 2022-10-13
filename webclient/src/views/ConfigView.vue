@@ -40,10 +40,11 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted() {//TODO: wathcer for initial value, update current as long as not changed
     this.$nextTick(()=> {
       this.config = {
-        openOnStart: this.$store.state.app
+        openOnStart: this.$store.state.app.config.openBrowser,
+        overrideOnDragNDrop: this.$store.state.app.config.overrideEntries
       }
     })
   }
