@@ -13,3 +13,4 @@ Dieses Tool unterstützt dich in Berührungspunkten mit LaTeX, denen du auf dein
 - pkg: Allgemeines
 - e2e-tests: End-2-End-Tests
 - webclient: Vue-Webprojekt
+- tools: tools, die während des Builds genutzt werden
