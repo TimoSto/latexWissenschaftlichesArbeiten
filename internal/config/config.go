@@ -11,10 +11,12 @@ import (
 
 type Config struct {
 	AutoOpenBrowser bool
+	Port            string
 }
 
 var ConfigObj = Config{
 	AutoOpenBrowser: true,
+	Port:            "8448",
 }
 
 func ReadConfig() {
