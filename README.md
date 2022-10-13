@@ -14,3 +14,12 @@ Dieses Tool unterstützt dich in Berührungspunkten mit LaTeX, denen du auf dein
 - e2e-tests: End-2-End-Tests
 - webclient: Vue-Webprojekt
 - tools: tools, die während des Builds genutzt werden
+
+## Testing
+Dieses Projekt soll weitesgehend nach TDD entwickelt werden
+### Backend-Unit-Tests
+Einzelne Funktionen im Backend werden über go getestet
+### Frontend-Unit-Tests
+Funktionen im Frontend werden über Jest getestet
+### Integrationstests
+tdb.
