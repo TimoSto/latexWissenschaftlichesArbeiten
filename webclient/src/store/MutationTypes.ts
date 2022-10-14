@@ -1,7 +1,8 @@
 
 const MutationTypes = {
     App: {
-        SetCurrentView: 'App.SetCurrentView'
+        SetCurrentView: 'App.SetCurrentView',
+        SetProjectNames: 'App.SetProjectNames'
     }
 }
 

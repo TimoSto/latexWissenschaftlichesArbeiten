@@ -35,6 +35,7 @@ import Vue from 'vue';
 import {i18nDictionary} from "./i18n/Keys";
 import MutationTypes from "./store/MutationTypes";
 import SidebarContent from "./components/SidebarContent.vue";
+import ActionTypes from "./store/ActionTypes";
 
 export default Vue.extend({
   name: 'App',
@@ -48,6 +49,8 @@ export default Vue.extend({
     if( this.$route.path.indexOf('/projects') === 0 ) {
       this.$store.commit(MutationTypes.App.SetCurrentView, 'projects')
     }
+
+    this.$store.dispatch(ActionTypes.App.GetAppData);
   },
 
   computed: {
