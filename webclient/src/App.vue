@@ -5,6 +5,7 @@
       color="primary"
       clipped-left
       elevation="0"
+      style="z-index: 101"
     >
 
       <v-app-bar-nav-icon @click="drawer = !drawer" :disabled="!drawerEnabled"/>
