@@ -9,7 +9,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer" :disabled="!drawerEnabled"/>
 
-      <v-toolbar-title>ThesorTeX</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX{{drawerEnabled}}</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -37,7 +37,7 @@ export default Vue.extend({
 
   computed: {
     drawerEnabled() {
-      return (this.$route.path === '#/' || this.$route.path === '/config');
+      return !(this.$route.path === '/' || this.$route.path === '/config');
     },
     currentView() {
       return this.$store.state.App.CurrentView;
