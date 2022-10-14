@@ -99,6 +99,9 @@ export default Vue.extend({
   &.primary * {
     color: var(--v-primaryText-base)!important;
   }
+  &.primary .v-app-bar__nav-icon:disabled i {
+    //color: var(--v-background-darken3)!important;TODO: other color better than default?
+  }
 }
 </style>
 
