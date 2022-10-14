@@ -19,12 +19,15 @@
    </v-app-bar>
 
    <v-sheet style="flex: 1 1 auto; max-height: 600px; overflow-y: auto" id="sidebar-scroll-target">
-     hallo
-     <div style="height: 1234px"></div>
+
    </v-sheet>
 
    <v-bottom-navigation style="flex: 0 1 auto">
-     <v-btn icon :title="$t(i18nDictionary.App.Information)">
+     <v-btn icon :title="$t(i18nDictionary.App.Information)" v-if="closed">
+       <v-icon>mdi-information-outline</v-icon>
+     </v-btn>
+     <v-btn v-if="!closed">
+       {{$t(i18nDictionary.App.Information)}}
        <v-icon>mdi-information-outline</v-icon>
      </v-btn>
    </v-bottom-navigation>
