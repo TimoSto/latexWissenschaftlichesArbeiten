@@ -6,7 +6,7 @@ import (
 
 	"gopkg.in/ini.v1"
 
-	"WA_LaTeX/pkg/logger"
+	"ThesorTeX/pkg/logger"
 )
 
 type Config struct {

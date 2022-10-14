@@ -1,10 +1,10 @@
 package main
 
 import (
-	"WA_LaTeX/internal/config"
-	"WA_LaTeX/internal/pipeline"
-	"WA_LaTeX/pkg/logger"
-	"WA_LaTeX/pkg/webserver"
+	"ThesorTeX/internal/config"
+	"ThesorTeX/internal/pipeline"
+	"ThesorTeX/pkg/logger"
+	"ThesorTeX/pkg/webserver"
 	"fmt"
 	"net"
 	"net/http"

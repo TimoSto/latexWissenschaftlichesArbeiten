@@ -1,8 +1,8 @@
 package pipeline
 
 import (
-	"WA_LaTeX/internal/pipeline/handlers"
-	"WA_LaTeX/pkg/webserver"
+	"ThesorTeX/internal/pipeline/handlers"
+	"ThesorTeX/pkg/webserver"
 	"net/http"
 )
 

@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"WA_LaTeX/internal/templates"
-	"WA_LaTeX/pkg/logger"
+	"ThesorTeX/internal/templates"
+	"ThesorTeX/pkg/logger"
 	"net/http"
 )
 
