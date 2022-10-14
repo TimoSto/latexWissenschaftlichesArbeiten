@@ -64,7 +64,6 @@ export default Vue.extend({
 
   methods: {
     handleCardClick(card: number) {
-      console.log('clicked '+ card)
       switch (card) {
         case 0:
           console.debug('download template');

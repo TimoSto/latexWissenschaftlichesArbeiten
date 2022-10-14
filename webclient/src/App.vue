@@ -77,6 +77,11 @@ export default Vue.extend({
           this.$router.push('/')
         }
       }
+    },
+    drawerEnabled(v) {
+      if( !v ) {
+        this.drawer = true;
+      }
     }
   },
 
