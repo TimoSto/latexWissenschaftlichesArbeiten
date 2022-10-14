@@ -1,5 +1,5 @@
 <template>
-  <v-card style="width: 350px; margin: 8px; float: left; background-color: var(--v-background--lighten2)">
+  <v-card style="width: 350px; margin: 8px; float: left; background-color: var(--v-background--lighten2)" @click="$emit('clicked')">
     <v-card-title>{{title}}<v-spacer /> <v-icon>{{icon}}</v-icon></v-card-title>
     <v-card-text v-html="content">
     </v-card-text>

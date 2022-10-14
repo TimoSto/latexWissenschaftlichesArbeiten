@@ -6,7 +6,12 @@
     <v-sheet class="content-below-two-bars" style="padding: 8px; background-color: var(--v-background-base)" id="scroll-home">
       <p style="margin: 0 8px">{{$t(i18nDictionary.Home.Description)}}</p>
       <div class="tilesContainer">
-        <HomeTile v-for="(t,i) in tiles" :key="'tile-'+i" :title="t.Title" :content="t.Content" :icon="t.Icon"/>
+        <HomeTile v-for="(t,i) in tiles" :key="'tile-'+i"
+                  :title="t.Title"
+                  :content="t.Content"
+                  :icon="t.Icon"
+                  v-on:clicked="handleCardClick(i)"
+        />
         <div style="clear:both"></div>
       </div>
     </v-sheet>
@@ -56,8 +61,25 @@ export default Vue.extend({
     }
   },
 
-  mounted() {
-    //this.$store.commit(MutationTypes.APP_SET_PROJECT, '')
+  methods: {
+    handleCardClick(card: number) {
+      console.log('clicked '+ card)
+      switch (card) {
+        case 0:
+          console.debug('download template');
+          break;
+        case 1:
+          console.debug('go to projects');
+          break;
+        case 2:
+          console.debug('download cv-template');
+          break;
+        case 3:
+          console.debug('go to github');
+          window.open('https://github.com/TimoSto/latexWissenschaftlichesArbeiten/issues','_blank')
+          break;
+      }
+    }
   }
 })
 </script>
