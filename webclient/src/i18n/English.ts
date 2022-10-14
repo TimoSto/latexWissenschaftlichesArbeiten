@@ -11,6 +11,10 @@ export const EnglishTranslations: TranslationKeys = {
         BibCard: {
             Title: 'Bibliography management',
             Content: 'The template uses an own bib-system. You can choose attributes for the bibliography-entry and cites. You can also import your bibliography from citavi. Look to the documentation for more information.'
+        },
+        CVCard: {
+            Title: 'Curriculum Vitae template',
+            Content: 'Download template'
         }
     }
 }

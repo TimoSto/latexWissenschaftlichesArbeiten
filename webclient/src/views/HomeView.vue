@@ -41,8 +41,8 @@ export default Vue.extend({
           Content: this.$t(i18nDictionary.Home.BibCard.Content),
         },
         {
-          Title: 'Lebenslauf',
-          Content: 'Wenn du mithilfe dieses Tools eine perfekte Abschlussarbeit geschrieben hast, kannst du hier eine Vorlage für einen Lebenslauf herunterladen und dich für deinen nächsten Job bewerben!'
+          Title: this.$t(i18nDictionary.Home.CVCard.Title),
+          Content: this.$t(i18nDictionary.Home.CVCard.Content),
         },
         {
           Title: 'Neue Anforderungen',

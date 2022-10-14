@@ -11,6 +11,10 @@ export type TranslationKeys = {
             Title: string
             Content: string
         },
+        CVCard: {
+            Title: string
+            Content: string
+        }
     }
 }
 
@@ -25,6 +29,10 @@ export const i18nDictionary: TranslationKeys = {
         BibCard: {
             Title: 'Home.BibCard.Title',
             Content: 'Home.BibCard.Content'
+        },
+        CVCard: {
+            Title: 'Home.CVCard.Title',
+            Content: 'Home.CVCard.Content'
         }
     }
 }
