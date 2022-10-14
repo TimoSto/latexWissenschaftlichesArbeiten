@@ -9,7 +9,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer" :disabled="!drawerEnabled"/>
 
-      <v-toolbar-title>ThesorTeX</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX{{titleAppendix}}</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -27,12 +27,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {i18nDictionary} from "./i18n/Keys";
 
 export default Vue.extend({
   name: 'App',
 
   data: () => ({
     drawer: false,
+    i18nDictionary: i18nDictionary
   }),
 
   computed: {
@@ -41,6 +43,12 @@ export default Vue.extend({
     },
     currentView() {
       return this.$store.state.App.CurrentView;
+    },
+    titleAppendix() {
+      if( this.$route.path.indexOf('/projects') === 0 ) {
+        return ' - ' + this.$t(i18nDictionary.App.TitleAppendixProjects)
+      }
+      return ''
     }
   },
 

@@ -1,6 +1,9 @@
 import {TranslationKeys} from "@/i18n/Keys";
 
 export const EnglishTranslations: TranslationKeys = {
+    App: {
+        TitleAppendixProjects: 'Projects'
+    },
     Home: {
         Welcome: 'Welcome to ThesorTeX!',
         Description: 'This tool supports you in the usage of LaTeX.',
