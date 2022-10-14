@@ -19,7 +19,11 @@
    </v-app-bar>
 
    <v-sheet style="flex: 1 1 auto; max-height: 600px; overflow-y: auto" id="sidebar-scroll-target">
-
+      <v-list>
+        <v-list-item v-for="item in items" :key="item">
+          <v-list-item-title>{{item}}</v-list-item-title>
+        </v-list-item>
+      </v-list>
    </v-sheet>
 
    <v-bottom-navigation style="flex: 0 1 auto">
@@ -46,7 +50,8 @@ export default {
   },
   props: [
       'closed',
-      'title'
+      'title',
+      'items'
   ]
 }
 </script>

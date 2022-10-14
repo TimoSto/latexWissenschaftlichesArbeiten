@@ -21,7 +21,7 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
-      <SidebarContent :title="$t(i18nDictionary.App.TitleAppendixProjects)" :closed="drawer" v-if="currentView === 'projects'" />
+      <SidebarContent :title="$t(i18nDictionary.App.TitleAppendixProjects)" :closed="drawer" v-if="currentView === 'projects'" :items="projectNames"/>
     </v-navigation-drawer>
 
     <v-main>
@@ -65,6 +65,9 @@ export default Vue.extend({
         return ' - ' + this.$t(i18nDictionary.App.TitleAppendixProjects)
       }
       return ''
+    },
+    projectNames() {
+      return this.$store.state.App.ProjectNames;
     }
   },
 

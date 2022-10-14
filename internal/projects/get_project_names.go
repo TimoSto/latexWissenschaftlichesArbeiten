@@ -10,7 +10,7 @@ func GetProjectNames() ([]string, error) {
 	projectsPath := pathbuilder.GetPathFromExecRoot("projects")
 	dirContent, err := ioutil.ReadDir(projectsPath)
 	if err != nil {
-		err = os.Mkdir(projectsPath, 0644)
+		err = os.Mkdir(projectsPath, 0777)
 		if err != nil {
 			return nil, err
 		}
