@@ -39,6 +39,19 @@ export default Vue.extend({
     drawerEnabled() {
       return (this.$route.path === '#/' || this.$route.path === '/config');
     },
+    currentView() {
+      return this.$store.state.App.CurrentView;
+    }
+  },
+
+  watch: {
+    currentView(value: string) {
+      if( value === 'projects' ) {
+        if( this.$route.path.indexOf('#/projects') !== 0 ) {
+          this.$router.push('/projects')
+        }
+      }
+    }
   }
 });
 </script>

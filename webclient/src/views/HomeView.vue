@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar elevation="1" color="background" elevate-on-scroll scroll-target="#scroll-home" style="z-index: 100" dense>
-      <v-toolbar-title>{{$t(i18nDictionary.Home.Welcome)}}{{$store.state.App.CurrentView}}</v-toolbar-title>
+      <v-toolbar-title>{{$t(i18nDictionary.Home.Welcome)}}</v-toolbar-title>
     </v-app-bar>
     <v-sheet class="content-below-two-bars" style="padding: 8px; background-color: var(--v-background-base)" id="scroll-home">
       <p style="margin: 0 8px">{{$t(i18nDictionary.Home.Description)}}</p>
@@ -71,7 +71,7 @@ export default Vue.extend({
           break;
         case 1:
           console.debug('go to projects');
-          this.$store.commit(MutationTypes.App.SetCurrentView, "test")
+          this.$store.commit(MutationTypes.App.SetCurrentView, "projects")
           break;
         case 2:
           console.debug('download cv-template');
