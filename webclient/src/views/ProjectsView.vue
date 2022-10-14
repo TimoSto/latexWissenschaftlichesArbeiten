@@ -1,12 +1,22 @@
 <template>
   <div style="display: flex">
-    hallo
+    <div style="padding: 8px 16px">
+      <p v-html="$t(i18nDictionary.Home.BibCard.Content)"></p>
+    </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import {i18nDictionary} from "../i18n/Keys";
+
 export default {
-  name: "ProjectsView"
+  name: "ProjectsView",
+
+  data() {
+    return {
+      i18nDictionary: i18nDictionary
+    }
+  }
 }
 </script>
 
