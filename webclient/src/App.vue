@@ -13,6 +13,10 @@
 
       <v-spacer></v-spacer>
 
+      <v-btn icon @click="goToView('home')">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
@@ -28,6 +32,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {i18nDictionary} from "./i18n/Keys";
+import MutationTypes from "./store/MutationTypes";
 
 export default Vue.extend({
   name: 'App',
@@ -36,6 +41,12 @@ export default Vue.extend({
     drawer: false,
     i18nDictionary: i18nDictionary
   }),
+
+  mounted() {
+    if( this.$route.path.indexOf('/projects') === 0 ) {
+      this.$store.commit(MutationTypes.App.SetCurrentView, 'projects')
+    }
+  },
 
   computed: {
     drawerEnabled() {
@@ -54,11 +65,25 @@ export default Vue.extend({
 
   watch: {
     currentView(value: string) {
+      //Here the router is updated
       if( value === 'projects' ) {
-        if( this.$route.path.indexOf('#/projects') !== 0 ) {
+        if( this.$route.path.indexOf('/projects') !== 0 ) {
           this.$router.push('/projects')
         }
       }
+
+      if( value === 'home' ) {
+        if( this.$route.path !== '#/' ) {
+          this.$router.push('/')
+        }
+      }
+    }
+  },
+
+  methods: {
+    goToView(view: string) {
+      //here only state is updated
+      this.$store.commit(MutationTypes.App.SetCurrentView, view)
     }
   }
 });
