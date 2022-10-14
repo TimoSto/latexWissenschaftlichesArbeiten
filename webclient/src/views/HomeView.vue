@@ -33,8 +33,8 @@ export default Vue.extend({
       i18nDictionary: i18nDictionary,
       tiles: [
         {
-          Title: 'Vorlage',
-          Content: 'Die mit diesem Tool gelieferte Vorlage eignet sich für Ausarbeitungen mit wissenschaftlichem Anspruch. Aspekte wie Kopf- und Fußzeile, Inhaltsverzeichnis, Abbildungen, Tabellen und Literatur sowie Zitate sind abgedeckt. Schau in die dazugehörige Dokumentation, um mehr zu erfahren.'
+          Title: this.$t(i18nDictionary.Home.TemplateCard.Title),
+          Content: this.$t(i18nDictionary.Home.TemplateCard.Content)
         },
         {
           Title: 'Literaturmanagement',
