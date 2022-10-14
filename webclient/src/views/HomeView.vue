@@ -76,6 +76,7 @@ export default Vue.extend({
           break;
         case 2:
           console.debug('download cv-template');
+          downloadFile('cvTemplate.zip', '/cvTemplate');
           break;
         case 3:
           console.debug('go to github');
