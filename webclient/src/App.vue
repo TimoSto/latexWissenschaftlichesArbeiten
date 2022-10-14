@@ -116,7 +116,7 @@ $dark-bg: #121212;
 }
 
 .theme--dark.v-sheet.v-card:not(.v-sheet--outlined) {
-  box-shadow: 0px 3px 1px -2px rgba(255,255,255, 0.2), 0px 2px 2px 0px rgba(255, 255, 255, 0.14), 0px 1px 5px 0px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 3px 1px -2px rgba(255,255,255, 0.2), 0 2px 2px 0px rgba(255, 255, 255, 0.14), 0px 1px 5px 0px rgba(255, 255, 255, 0.12);
 }
 
 //TODO: warum funktioniert elevate in home etc. nicht???/Warum ist main-bereich nach ohen scroll-verschiebbar
