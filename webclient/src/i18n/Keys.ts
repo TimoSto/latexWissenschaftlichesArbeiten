@@ -24,6 +24,11 @@ export type TranslationKeys = {
             Title: string
             Content: string
         }
+    },
+    Projects: {
+        Info: {
+            Description: string
+        }
     }
 }
 
@@ -51,6 +56,11 @@ export const i18nDictionary: TranslationKeys = {
         ContactCard: {
             Title: 'Home.ContactCard.Title',
             Content: 'Home.ContactCard.Content'
+        }
+    },
+    Projects: {
+        Info: {
+            Description: 'Projects.Info.Description'
         }
     }
 }

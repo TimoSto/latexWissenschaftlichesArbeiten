@@ -25,5 +25,10 @@ export const EnglishTranslations: TranslationKeys = {
             Title: 'Contact',
             Content: 'If you are missing a feature or you encounter an error, feel free to create an Issue in Github..'
         }
+    },
+    Projects: {
+        Info: {
+            Description: 'A Project contains bibtypes, bibentries, abbreviations, formatting (.sty-files) and texts (.tex-files). The bib-entries, -types and abbreviations can be managed in this application. Click on the <i>+</i> to create a ne project.'
+        }
     }
 }

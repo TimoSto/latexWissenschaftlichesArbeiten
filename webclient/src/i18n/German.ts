@@ -25,5 +25,10 @@ export const GermanTranslations: TranslationKeys = {
             Title: 'Kontakt',
             Content: 'Wenn dir eine Funktionalität fehlt oder dir ein Fehler auffällt, lege gern ein Issue im Github-Repository an.'
         }
+    },
+    Projects: {
+        Info: {
+            Description: 'Ein Projekt beinhaltet die Literatureinträge, Literaturtypen, Abkürzungen, Formattierungen (.sty-Dateinen) und die Texte (.tex-Dateien). Die Literatureinträge, -typen und die Abkürzungen können in dieser Anwendung verwaltet werden. Klicke auf das <i>+</i> um ein neues Projekt zu erstellen.'
+        }
     }
 }
