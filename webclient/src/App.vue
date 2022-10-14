@@ -21,7 +21,7 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
-      <div></div>
+      <SidebarContent title="Projektee" :closed="drawer" v-if="currentView === 'projects'" />
     </v-navigation-drawer>
 
     <v-main>
@@ -34,10 +34,11 @@
 import Vue from 'vue';
 import {i18nDictionary} from "./i18n/Keys";
 import MutationTypes from "./store/MutationTypes";
+import SidebarContent from "./components/SidebarContent.vue";
 
 export default Vue.extend({
   name: 'App',
-
+  components: {SidebarContent},
   data: () => ({
     drawer: false,
     i18nDictionary: i18nDictionary
