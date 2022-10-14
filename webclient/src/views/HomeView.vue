@@ -45,8 +45,8 @@ export default Vue.extend({
           Content: this.$t(i18nDictionary.Home.CVCard.Content),
         },
         {
-          Title: 'Neue Anforderungen',
-          Content: 'Wenn dir eine Funktionalität fehlt oder dir ein Fehler auffällt, lege gern ein Issue im Github-Repository an.'
+          Title: this.$t(i18nDictionary.Home.ContactCard.Title),
+          Content: this.$t(i18nDictionary.Home.ContactCard.Content),
         }
       ] as Tile[]
     }

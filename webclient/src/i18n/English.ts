@@ -15,6 +15,10 @@ export const EnglishTranslations: TranslationKeys = {
         CVCard: {
             Title: 'Curriculum Vitae template',
             Content: 'Download template'
+        },
+        ContactCard: {
+            Title: 'Contact',
+            Content: 'If you are missing a feature or you encounter an error, feel free to create an Issue in Github..'
         }
     }
 }

@@ -15,6 +15,10 @@ export const GermanTranslations: TranslationKeys = {
         CVCard: {
             Title: 'Vorlage Lebenslauf',
             Content: 'Wenn du mithilfe dieses Tools eine perfekte Abschlussarbeit geschrieben hast, kannst du hier eine Vorlage für einen Lebenslauf herunterladen und dich für deinen nächsten Job bewerben!'
+        },
+        ContactCard: {
+            Title: 'Kontakt',
+            Content: 'Wenn dir eine Funktionalität fehlt oder dir ein Fehler auffällt, lege gern ein Issue im Github-Repository an.'
         }
     }
 }
