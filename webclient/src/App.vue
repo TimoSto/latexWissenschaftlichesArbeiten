@@ -9,7 +9,7 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer" :disabled="!drawerEnabled"/>
 
-      <v-toolbar-title>ThesorTeX{{drawerEnabled}}</v-toolbar-title>
+      <v-toolbar-title>ThesorTeX</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
