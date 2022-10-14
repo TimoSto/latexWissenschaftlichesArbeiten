@@ -3,7 +3,8 @@ import {TranslationKeys} from "@/i18n/Keys";
 export const GermanTranslations: TranslationKeys = {
     App: {
         TitleAppendixProjects: 'Projekte',
-        Information: 'Informationen'
+        Information: 'Informationen',
+        Homepage: 'Startseite'
     },
     Home: {
         Welcome: 'Willkommen bei ThesorTeX!',

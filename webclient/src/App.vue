@@ -14,14 +14,14 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon @click="goToView('home')">
+      <v-btn icon @click="goToView('home')" :title="$t(i18nDictionary.App.Homepage)">
         <v-icon>mdi-home</v-icon>
       </v-btn>
 
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
-      <SidebarContent title="Projektee" :closed="drawer" v-if="currentView === 'projects'" />
+      <SidebarContent :title="$t(i18nDictionary.App.TitleAppendixProjects)" :closed="drawer" v-if="currentView === 'projects'" />
     </v-navigation-drawer>
 
     <v-main>
