@@ -7,13 +7,17 @@
       elevation="0"
     >
 
-      <v-app-bar-nav-icon />
+      <v-app-bar-nav-icon @click="drawer = !drawer"/>
 
       <v-toolbar-title>ThesorTeX</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
     </v-app-bar>
+
+    <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
+      <div></div>
+    </v-navigation-drawer>
 
     <v-main>
       <router-view/>
@@ -28,7 +32,7 @@ export default Vue.extend({
   name: 'App',
 
   data: () => ({
-    //
+    drawer: false
   }),
 });
 </script>
