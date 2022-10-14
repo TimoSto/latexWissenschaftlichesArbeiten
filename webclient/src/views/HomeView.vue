@@ -6,7 +6,7 @@
     <v-sheet class="content-below-two-bars" style="padding: 8px; background-color: var(--v-background-base)" id="scroll-home">
       <p style="margin: 0 8px">{{$t(i18nDictionary.Home.Description)}}</p>
       <div class="tilesContainer">
-        <HomeTile v-for="(t,i) in tiles" :key="'tile-'+i" :title="t.Title" :content="t.Content"/>
+        <HomeTile v-for="(t,i) in tiles" :key="'tile-'+i" :title="t.Title" :content="t.Content" :icon="t.Icon"/>
         <div style="clear:both"></div>
       </div>
     </v-sheet>
@@ -34,19 +34,23 @@ export default Vue.extend({
       tiles: [
         {
           Title: this.$t(i18nDictionary.Home.TemplateCard.Title),
-          Content: this.$t(i18nDictionary.Home.TemplateCard.Content)
+          Content: this.$t(i18nDictionary.Home.TemplateCard.Content),
+          Icon: 'mdi-download'
         },
         {
           Title: this.$t(i18nDictionary.Home.BibCard.Title),
           Content: this.$t(i18nDictionary.Home.BibCard.Content),
+          Icon: 'mdi-folder'
         },
         {
           Title: this.$t(i18nDictionary.Home.CVCard.Title),
           Content: this.$t(i18nDictionary.Home.CVCard.Content),
+          Icon: 'mdi-download'
         },
         {
           Title: this.$t(i18nDictionary.Home.ContactCard.Title),
           Content: this.$t(i18nDictionary.Home.ContactCard.Content),
+          Icon: 'mdi-open-in-new'
         }
       ] as Tile[]
     }
