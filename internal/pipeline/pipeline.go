@@ -12,6 +12,7 @@ func CreateHandlerPipeline() []webserver.Resource {
 		{Pattern: "/", Handler: http.HandlerFunc(handlers.HandleRoot)},
 		{Pattern: "/projectTemplate", Handler: http.HandlerFunc(handlers.HandleProjectTemplate)},
 		{Pattern: "/cvTemplate", Handler: http.HandlerFunc(handlers.HandleCVTemplate)},
+		{Pattern: "/getAppData", Handler: http.HandlerFunc(handlers.HandleGetAppData)},
 	}
 
 	return handler

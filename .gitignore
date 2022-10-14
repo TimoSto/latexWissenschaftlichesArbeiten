@@ -12,3 +12,4 @@ projects/*
 /Config.ini
 /internal/config/Config.ini
 /errorLogs.txt
+/go_build_ThesorTeX_cmd_app
