@@ -23,6 +23,7 @@ import { i18nDictionary } from '@/i18n/Keys';
 import Vue from 'vue';
 import HomeTile from "../components/HomeTile.vue";
 import MutationTypes from "../store/MutationTypes";
+import downloadFile from "../api/app/DownloadFile";
 
 type Tile = {
   Title: string,
@@ -67,6 +68,7 @@ export default Vue.extend({
       switch (card) {
         case 0:
           console.debug('download template');
+          downloadFile('projectTemplate.zip', '/projectTemplate');
           break;
         case 1:
           console.debug('go to projects');
