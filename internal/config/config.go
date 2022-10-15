@@ -11,11 +11,13 @@ import (
 
 type Config struct {
 	AutoOpenBrowser bool
+	DarkMode        bool
 	Port            string
 }
 
 var ConfigObj = Config{
 	AutoOpenBrowser: true,
+	DarkMode:        false,
 	Port:            "8448",
 }
 
@@ -29,6 +31,18 @@ func ReadConfig() {
 			logger.LogError("Reading autoOpenBrowser from Config.ini", err.Error())
 		} else {
 			ConfigObj.AutoOpenBrowser = autoOpenBrowser
+		}
+
+		darkMode, err := cfg.Section("").Key("darkMode").Bool()
+		if err != nil {
+			logger.LogError("Reading darkMode from Config.ini", err.Error())
+		} else {
+			ConfigObj.DarkMode = darkMode
+		}
+
+		ConfigObj.Port = cfg.Section("").Key("port").String()
+		if len(ConfigObj.Port) == 0 {
+			ConfigObj.Port = "8448"
 		}
 	} else {
 		err = WriteConfig()
@@ -54,6 +68,8 @@ func WriteConfig() error {
 	}
 
 	cfg.Section("").Key("autoOpenBrowser").SetValue(strconv.FormatBool(ConfigObj.AutoOpenBrowser))
+	cfg.Section("").Key("darkMode").SetValue(strconv.FormatBool(ConfigObj.DarkMode))
+	cfg.Section("").Key("port").SetValue(ConfigObj.Port)
 	return cfg.SaveTo("Config.ini")
 
 }
