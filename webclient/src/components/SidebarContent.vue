@@ -41,9 +41,10 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import {i18nDictionary} from "@/i18n/Keys";
 
-export default {
+export default Vue.extend({
   name: "SidebarContent",
   data() {
     return {
@@ -52,7 +53,7 @@ export default {
     }
   },
   watch: {
-    model(value) {
+    model(value: number) {
       this.$emit('modelchange', value)
     }
   },
@@ -69,7 +70,7 @@ export default {
       this.model = n;
     }
   }
-}
+});
 </script>
 
 <style scoped>
