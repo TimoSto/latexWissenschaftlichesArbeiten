@@ -144,6 +144,10 @@ export default Vue.extend({
   &.primary.theme--light .v-btn:disabled i{
     color: rgba(255, 255,255, 0.65)!important;
   }
+  &.primary.theme--dark .v-app-bar__nav-icon:disabled i,
+  &.primary.theme--dark .v-btn:disabled i{
+    color: rgba(255, 255,255, 0.65)!important;
+  }
 }
 </style>
 
@@ -157,6 +161,9 @@ $dark-bg: #121212;
   background-color: $dark-bg;
 }
 .theme--dark.v-sheet:not(.keep) {
+  background-color: $dark-bg;
+}
+.theme--dark.v-navigation-drawer:not(.keep) {
   background-color: $dark-bg;
 }
 
