@@ -3,7 +3,6 @@ import {TranslationKeys} from "@/i18n/Keys";
 export const EnglishTranslations: TranslationKeys = {
     App: {
         TitleAppendixProjects: 'Projects',
-        TitleAppendixConfig: 'Configuration',
         Information: 'Information',
         Homepage: 'Homepage'
     },
@@ -35,5 +34,10 @@ export const EnglishTranslations: TranslationKeys = {
         Info: {
             Description: 'A Project contains bibtypes, bibentries, abbreviations, formatting (.sty-files) and texts (.tex-files). The bib-entries, -types and abbreviations can be managed in this application. Click on the <i>+</i> to create a ne project.'
         }
+    },
+    Config: {
+        Title: 'Global Configuration',
+        DarkMode: 'Use darkmode',
+        AutoOpen: 'Open browser when starting the application'
     }
 }

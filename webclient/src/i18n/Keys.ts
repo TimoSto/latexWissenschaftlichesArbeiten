@@ -2,7 +2,6 @@
 export type TranslationKeys = {
     App: {
         TitleAppendixProjects: string
-        TitleAppendixConfig: string
         Information: string
         Homepage: string
     },
@@ -34,13 +33,17 @@ export type TranslationKeys = {
         Info: {
             Description: string
         }
+    },
+    Config: {
+        Title: string
+        DarkMode: string
+        AutoOpen: string
     }
 }
 
 export const i18nDictionary: TranslationKeys = {
     App: {
         TitleAppendixProjects: 'App.TitleAppendixProjects',
-        TitleAppendixConfig: 'App.TitleAppendixConfig',
         Information: 'App.Information',
         Homepage: 'App.Homepage'
     },
@@ -72,5 +75,10 @@ export const i18nDictionary: TranslationKeys = {
         Info: {
             Description: 'Projects.Info.Description'
         }
+    },
+    Config: {
+        Title: 'Config.Title',
+        DarkMode: 'Config.DarkMode',
+        AutoOpen: 'Config.AutoOpen'
     }
 }

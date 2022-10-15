@@ -3,7 +3,6 @@ import {TranslationKeys} from "@/i18n/Keys";
 export const GermanTranslations: TranslationKeys = {
     App: {
         TitleAppendixProjects: 'Projekte',
-        TitleAppendixConfig: 'Konfiguration',
         Information: 'Informationen',
         Homepage: 'Startseite'
     },
@@ -35,5 +34,10 @@ export const GermanTranslations: TranslationKeys = {
         Info: {
             Description: 'Ein Projekt beinhaltet die Literatureinträge, Literaturtypen, Abkürzungen, Formattierungen (.sty-Dateinen) und die Texte (.tex-Dateien). Die Literatureinträge, -typen und die Abkürzungen können in dieser Anwendung verwaltet werden. Klicke auf das <i>+</i> um ein neues Projekt zu erstellen.'
         }
+    },
+    Config: {
+        Title: 'Globale Konfigurationen',
+        DarkMode: 'Dunkles Design verwenden',
+        AutoOpen: 'Beim Starten der Anwendung den Browser öffnen'
     }
 }
