@@ -15,4 +15,5 @@ export function SetConfig(state: MyState, config: { AutoOpenBrowser: boolean, Da
     state.App.Config.AutoOpenBrowser = config.AutoOpenBrowser;
     state.App.Config.DarkMode = config.DarkMode;
     state.App.Config.Port = config.Port;
+    state.App.Loaded = true;
 }

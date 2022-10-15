@@ -14,12 +14,12 @@
     </v-app-bar>
     <v-sheet class="content-below-two-bars" style="padding: 8px 16px;">
       <v-checkbox
-          :value="darkMode"
+          v-model="darkMode"
           :label="$t(i18nDictionary.Config.DarkMode)"
           class="shrink mr-0 mt-0"
       />
       <v-checkbox
-          :value="autoOpenBrowser"
+          v-model="autoOpenBrowser"
           :label="$t(i18nDictionary.Config.AutoOpen)"
           class="shrink mr-0 mt-0"
       />
@@ -41,14 +41,38 @@ export default {
     }
   },
 
+  mounted() {
+    this.$nextTick(()=> {
+      console.log(this.$store.state.App.Loaded)
+      if( this.$store.state.App.Loaded ) {
+        this.initialsLoaded = true;
+        this.autoOpenBrowser = this.$store.state.App.Config.AutoOpenBrowser === true;
+        this.darkMode = this.$store.state.App.Config.DarkMode;
+      }
+    })
+  },
+
+  watch: {
+    Loaded(v) {
+      console.log(v, 't')
+      if( !this.initialsLoaded ) {
+        this.initialsLoaded = true;
+        this.autoOpenBrowser = this.$store.state.App.Config.AutoOpenBrowser === true;
+        this.darkMode = this.$store.state.App.Config.DarkMode;
+      }
+    }
+  },
+
   computed: {
     initialValues() {
       return this.$store.state.App.Config
     },
     saveNecessary() {
-      return this.initialsLoaded &&
-          (this.initialValues.DarkMode !== this.darkMode ||
-              this.initialValues.AutoOpenBrowser !== this.autoOpenBrowser)
+      return this.initialsLoaded && (this.autoOpenBrowser !== this.initialValues.AutoOpenBrowser ||
+          this.darkMode !== this.initialValues.DarkMode);
+    },
+    Loaded() {
+      return this.$store.state.App.Loaded;
     }
   }
 }

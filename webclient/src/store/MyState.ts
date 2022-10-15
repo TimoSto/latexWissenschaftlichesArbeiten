@@ -7,7 +7,8 @@ export type MyState = {
             AutoOpenBrowser: boolean
             DarkMode: boolean
             Port: string
-        }
+        },
+        Loaded: boolean
     },
     ProjectView : {
         CurrentProject: string
@@ -22,7 +23,8 @@ export const MyStateObj: MyState = {
             AutoOpenBrowser: false,
             DarkMode: false,
             Port: ''
-        }
+        },
+        Loaded: false
     },
     ProjectView: {
         CurrentProject: ''
