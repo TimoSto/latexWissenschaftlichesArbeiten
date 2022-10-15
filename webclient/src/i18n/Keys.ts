@@ -23,6 +23,10 @@ export type TranslationKeys = {
         ContactCard: {
             Title: string
             Content: string
+        },
+        ConfigCard: {
+            Title: string
+            Content: string
         }
     },
     Projects: {
@@ -56,6 +60,10 @@ export const i18nDictionary: TranslationKeys = {
         ContactCard: {
             Title: 'Home.ContactCard.Title',
             Content: 'Home.ContactCard.Content'
+        },
+        ConfigCard: {
+            Title: 'Home.ConfigCard.Title',
+            Content: 'Home.ConfigCard.Content'
         }
     },
     Projects: {

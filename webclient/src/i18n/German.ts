@@ -24,6 +24,10 @@ export const GermanTranslations: TranslationKeys = {
         ContactCard: {
             Title: 'Kontakt',
             Content: 'Wenn dir eine Funktionalität fehlt oder dir ein Fehler auffällt, lege gern ein Issue im Github-Repository an.'
+        },
+        ConfigCard: {
+            Title: 'Konfiguration',
+            Content: 'Allgemeine Einstellungen zur App'
         }
     },
     Projects: {

@@ -55,6 +55,8 @@ export default Vue.extend({
   mounted() {
     if( this.$route.path.indexOf('/projects') === 0 ) {
       this.$store.commit(MutationTypes.App.SetCurrentView, 'projects')
+    } else if ( this.$route.path === '/config' ) {
+      this.$store.commit(MutationTypes.App.SetCurrentView, 'config');
     }
 
     this.$store.dispatch(ActionTypes.App.GetAppData);
@@ -88,8 +90,14 @@ export default Vue.extend({
       }
 
       if( value === 'home' ) {
-        if( this.$route.path !== '#/' ) {
+        if( this.$route.path !== '/' ) {
           this.$router.push('/')
+        }
+      }
+
+      if( value === 'config' ) {
+        if( this.$route.path !== '/config' ) {
+          this.$router.push('/config')
         }
       }
     },

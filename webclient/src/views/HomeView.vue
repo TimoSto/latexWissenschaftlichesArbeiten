@@ -58,6 +58,11 @@ export default Vue.extend({
           Title: this.$t(i18nDictionary.Home.ContactCard.Title),
           Content: this.$t(i18nDictionary.Home.ContactCard.Content),
           Icon: 'mdi-open-in-new'
+        },
+        {
+          Title: this.$t(i18nDictionary.Home.ConfigCard.Title),
+          Content: this.$t(i18nDictionary.Home.ConfigCard.Content),
+          Icon: 'mdi-cog'
         }
       ] as Tile[]
     }
@@ -81,6 +86,10 @@ export default Vue.extend({
         case 3:
           console.debug('go to github');
           window.open('https://github.com/TimoSto/latexWissenschaftlichesArbeiten/issues','_blank')
+          break;
+        case 4:
+          console.debug('go to config');
+          this.$store.commit(MutationTypes.App.SetCurrentView, "config")
           break;
       }
     }
