@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 8px 16px">
+  <div style="padding: 8px 16px" id="projectInfoPage">
     <p v-html="$t(i18nDictionary.Projects.Info.Description)"></p>
   </div>
 </template>

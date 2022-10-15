@@ -12,7 +12,7 @@ describe('projectsView', ()=> {
 
     describe('display info', ()=> {
         it('middle shows projects-info', () => {
-            ProjectPageAssertions.AssertPage1ContainsElements(2)
+            ProjectPageAssertions.AssertPage1Contains('#projectInfoPage')
         });
 
         it('sidebar-info-btn is disabled', () => {
@@ -29,10 +29,14 @@ describe('projectsView', ()=> {
             AppAssertions.AssertSidebarInfoBtnNotDisabled()
         })
 
+        it('shows project-overview', () => {
+            ProjectPageAssertions.AssertPage1Contains('#projectOverviewPage')
+        })
+
         it('after click on info info-btn is disabled', () => {
             AppActions.ClickSidebarInfo();
             AppAssertions.AssertSidebarInfoBtnDisabled();
-            ProjectPageAssertions.AssertPage1ContainsElements(2)
+            ProjectPageAssertions.AssertPage1Contains('#projectInfoPage')
         })
     })
 })
