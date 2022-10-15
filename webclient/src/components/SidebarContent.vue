@@ -20,7 +20,7 @@
 
    <v-sheet style="flex: 1 1 auto; max-height: 600px; overflow-y: auto" id="sidebar-scroll-target">
       <v-list>
-        <v-list-item v-for="item in items" :key="item">
+        <v-list-item v-for="item in items" :key="item" @click="$emit('clicked', item)">
           <v-list-item-title>{{item}}</v-list-item-title>
         </v-list-item>
       </v-list>

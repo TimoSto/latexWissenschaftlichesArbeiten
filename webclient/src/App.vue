@@ -21,7 +21,13 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
-      <SidebarContent :title="$t(i18nDictionary.App.TitleAppendixProjects)" :closed="drawer" v-if="currentView === 'projects'" :items="projectNames" :info-disabled="currentProjectName === ''"/>
+      <SidebarContent
+          :title="$t(i18nDictionary.App.TitleAppendixProjects)"
+          :closed="drawer" v-if="currentView === 'projects'"
+          :items="projectNames"
+          :info-disabled="currentProjectName === ''"
+          v-on:clicked="handleProjectClick"
+      />
     </v-navigation-drawer>
 
     <v-main>
@@ -100,6 +106,9 @@ export default Vue.extend({
     goToView(view: string) {
       //here only state is updated
       this.$store.commit(MutationTypes.App.SetCurrentView, view)
+    },
+    handleProjectClick(project: string) {
+      alert(project)
     }
   }
 });
