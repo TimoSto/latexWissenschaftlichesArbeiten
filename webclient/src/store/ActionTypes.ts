@@ -1,7 +1,8 @@
 
 const ActionTypes = {
     App: {
-        GetAppData: 'App.GetAppData'
+        GetAppData: 'App.GetAppData',
+        SaveConfig: 'App.SaveConfig'
     }
 }
 

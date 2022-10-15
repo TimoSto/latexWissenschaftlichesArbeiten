@@ -8,7 +8,7 @@
 
       <v-toolbar-title>{{$t(i18nDictionary.Config.Title)}}</v-toolbar-title>
       <v-spacer />
-      <v-btn icon :disabled="!saveNecessary">
+      <v-btn icon :disabled="!saveNecessary" @click="saveConfig">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
     </v-app-bar>
@@ -29,6 +29,7 @@
 
 <script>
 import {i18nDictionary} from "@/i18n/Keys";
+import ActionTypes from "@/store/ActionTypes";
 
 export default {
   name: "ConfigView",
@@ -43,7 +44,6 @@ export default {
 
   mounted() {
     this.$nextTick(()=> {
-      console.log(this.$store.state.App.Loaded)
       if( this.$store.state.App.Loaded ) {
         this.initialsLoaded = true;
         this.autoOpenBrowser = this.$store.state.App.Config.AutoOpenBrowser === true;
@@ -54,7 +54,6 @@ export default {
 
   watch: {
     Loaded(v) {
-      console.log(v, 't')
       if( !this.initialsLoaded ) {
         this.initialsLoaded = true;
         this.autoOpenBrowser = this.$store.state.App.Config.AutoOpenBrowser === true;
@@ -73,6 +72,17 @@ export default {
     },
     Loaded() {
       return this.$store.state.App.Loaded;
+    }
+  },
+
+  methods: {
+    saveConfig() {
+      this.$store.dispatch(ActionTypes.App.SaveConfig, {
+        AutoOpenBrowser: this.autoOpenBrowser,
+        DarkMode: this.darkMode
+      });
+
+      this.$vuetify.theme.dark = this.darkMode;
     }
   }
 }
