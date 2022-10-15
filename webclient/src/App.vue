@@ -72,6 +72,8 @@ export default Vue.extend({
     titleAppendix() {
       if( this.$route.path.indexOf('/projects') === 0 ) {
         return ' - ' + this.$t(i18nDictionary.App.TitleAppendixProjects)
+      } else if( this.$route.path === '/config' ) {
+        return ' - ' + this.$t(i18nDictionary.App.TitleAppendixConfig)
       }
       return ''
     },

@@ -3,6 +3,7 @@ import {TranslationKeys} from "@/i18n/Keys";
 export const EnglishTranslations: TranslationKeys = {
     App: {
         TitleAppendixProjects: 'Projects',
+        TitleAppendixConfig: 'Configuration',
         Information: 'Information',
         Homepage: 'Homepage'
     },
