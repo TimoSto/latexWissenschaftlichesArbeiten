@@ -1,17 +1,20 @@
 <template>
-  <div style="display: flex">
-    <ProjectInfoPage v-if="currentProjectName === ''"/>
-  </div>
+  <NavArea>
+    <template v-slot:page1>
+      <ProjectInfoPage v-if="currentProjectName === ''"/>
+    </template>
+  </NavArea>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
 import ProjectInfoPage from "./projectsPages/ProjectInfoPage.vue";
+import NavArea from "../components/NavArea.vue";
 
 export default Vue.extend({
   name: "ProjectsView",
-  components: {ProjectInfoPage},
+  components: {NavArea, ProjectInfoPage},
   data() {
     return {
       i18nDictionary: i18nDictionary
