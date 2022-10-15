@@ -25,7 +25,6 @@
           :title="$t(i18nDictionary.App.TitleAppendixProjects)"
           :closed="drawer" v-if="currentView === 'projects'"
           :items="projectNames"
-          :info-disabled="currentProjectName === ''"
           v-on:clicked="handleProjectClick"
       />
     </v-navigation-drawer>

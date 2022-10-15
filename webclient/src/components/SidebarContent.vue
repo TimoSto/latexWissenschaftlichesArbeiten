@@ -29,10 +29,10 @@
    </v-sheet>
 
    <v-bottom-navigation style="flex: 0 1 auto">
-     <v-btn icon :title="$t(i18nDictionary.App.Information)" v-if="closed" :disabled="infoDisabled" @click="toInfo">
+     <v-btn icon :title="$t(i18nDictionary.App.Information)" v-if="closed" :disabled="model === -1" @click="toInfo">
        <v-icon>mdi-information-outline</v-icon>
      </v-btn>
-     <v-btn v-if="!closed" :disabled="infoDisabled" @click="toInfo">
+     <v-btn v-if="!closed" :disabled="model === -1" @click="toInfo">
        {{$t(i18nDictionary.App.Information)}}
        <v-icon>mdi-information-outline</v-icon>
      </v-btn>
@@ -51,11 +51,15 @@ export default {
       model: -1
     }
   },
+  watch: {
+    model(value) {
+      console.log(value)
+    }
+  },
   props: [
       'closed',
       'title',
-      'items',
-      'infoDisabled'
+      'items'
   ],
   methods: {
     toInfo() {
