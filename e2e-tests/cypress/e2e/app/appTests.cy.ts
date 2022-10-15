@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import {VisitUrl} from "../../helpers/Browser";
-import {AssertTopAppBarHasText} from "../../helpers/AppAssertions";
+import {AssertTopAppBarHasText} from "../../helpers/AppAssertions.js";
 
 describe('Global app-stuff', ()=> {
     beforeEach(()=> {
