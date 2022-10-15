@@ -14,7 +14,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon @click="goToView('home')" :title="$t(i18nDictionary.App.Homepage)">
+      <v-btn icon @click="goToView('home')" :title="$t(i18nDictionary.App.Homepage)" :disabled="currentView === 'home'">
         <v-icon>mdi-home</v-icon>
       </v-btn>
 

@@ -22,3 +22,11 @@ export function AssertSidebarEmpty() {
 export function AssertSidebarNotEmpty() {
     cy.get('.v-navigation-drawer__content').should('not.be.empty');
 }
+
+export function AssertHomeBtnIsNotDisabled() {
+    cy.get('header:first').find('.v-btn[title="Startseite"]').should('not.be.disabled')
+}
+
+export function AssertHomeBtnIsDisabled() {
+    cy.get('header:first').find('.v-btn[title="Startseite"]').should('be.disabled')
+}

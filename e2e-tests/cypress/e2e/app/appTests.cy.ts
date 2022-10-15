@@ -24,6 +24,10 @@ describe('Global app-stuff', ()=> {
         it('Sidebar is empty', () => {
             App.AssertSidebarEmpty();
         })
+
+        it('home-btn is disabled', () => {
+            App.AssertHomeBtnIsDisabled();
+        })
     })
 
     describe('on projects-page', () => {
@@ -45,6 +49,10 @@ describe('Global app-stuff', ()=> {
 
         it('Sidebar is not empty', () => {
             App.AssertSidebarNotEmpty();
+        })
+
+        it('home-btn is not disabled', () => {
+            App.AssertHomeBtnIsNotDisabled();
         })
     })
 
