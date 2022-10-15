@@ -52,14 +52,17 @@ export default Vue.extend({
     i18nDictionary: i18nDictionary
   }),
 
+  created() {
+    this.$store.dispatch(ActionTypes.App.GetAppData);
+  },
+
   mounted() {
     if( this.$route.path.indexOf('/projects') === 0 ) {
       this.$store.commit(MutationTypes.App.SetCurrentView, 'projects')
     } else if ( this.$route.path === '/config' ) {
       this.$store.commit(MutationTypes.App.SetCurrentView, 'config');
     }
-
-    this.$store.dispatch(ActionTypes.App.GetAppData);
+    this.$vuetify.theme.dark = this.$store.state.App.Config.DarkMode;
   },
 
   computed: {
@@ -79,6 +82,9 @@ export default Vue.extend({
     projectNames() {
       return this.$store.state.App.ProjectNames;
     },
+    Loaded() {
+      return this.$store.state.App.Loaded;
+    }
   },
 
   watch: {
@@ -106,6 +112,9 @@ export default Vue.extend({
       if( !v ) {
         this.drawer = true;
       }
+    },
+    Loaded() {
+      this.$vuetify.theme.dark = this.$store.state.App.Config.DarkMode;
     }
   },
 
