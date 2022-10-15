@@ -1,3 +1,4 @@
+import {BaseURL} from "./Browser";
 
 export function AssertTopAppBarHasText(text) {
     cy.get('header:first').find('.v-toolbar__title').should('have.text', text)
@@ -29,4 +30,10 @@ export function AssertHomeBtnIsNotDisabled() {
 
 export function AssertHomeBtnIsDisabled() {
     cy.get('header:first').find('.v-btn[title="Startseite"]').should('be.disabled')
+}
+
+export function AssertUrlHashIs(hash) {
+    cy.url().then(url => {
+        expect(url).to.eq(BaseURL + '/' + hash)
+    })
 }
