@@ -53,7 +53,7 @@ export default {
   },
 
   watch: {
-    Loaded(v) {
+    Loaded() {
       if( !this.initialsLoaded ) {
         this.initialsLoaded = true;
         this.autoOpenBrowser = this.$store.state.App.Config.AutoOpenBrowser === true;
