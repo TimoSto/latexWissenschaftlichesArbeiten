@@ -8,16 +8,18 @@
 
       <v-toolbar-title>{{$t(i18nDictionary.Config.Title)}}</v-toolbar-title>
       <v-spacer />
-      <v-btn icon>
+      <v-btn icon :disabled="!saveNecessary">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
     </v-app-bar>
     <v-sheet class="content-below-two-bars" style="padding: 8px 16px;">
       <v-checkbox
+          :value="darkMode"
           :label="$t(i18nDictionary.Config.DarkMode)"
           class="shrink mr-0 mt-0"
       />
       <v-checkbox
+          :value="autoOpenBrowser"
           :label="$t(i18nDictionary.Config.AutoOpen)"
           class="shrink mr-0 mt-0"
       />
@@ -32,7 +34,21 @@ export default {
   name: "ConfigView",
   data() {
     return {
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      autoOpenBrowser: false,
+      darkMode: false,
+      initialsLoaded: false
+    }
+  },
+
+  computed: {
+    initialValues() {
+      return this.$store.state.App.Config
+    },
+    saveNecessary() {
+      return this.initialsLoaded &&
+          (this.initialValues.DarkMode !== this.darkMode ||
+              this.initialValues.AutoOpenBrowser !== this.autoOpenBrowser)
     }
   }
 }

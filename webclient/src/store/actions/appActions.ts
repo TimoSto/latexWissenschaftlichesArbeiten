@@ -6,6 +6,7 @@ export async function GetAppData(commit: (type: string,payload?: any,options?: C
     const respObj = await ReadAppData();
 
     if( !respObj.Error ) {
-        commit(MutationTypes.App.SetProjectNames, respObj.Projects)
+        commit(MutationTypes.App.SetProjectNames, respObj.Projects);
+        commit(MutationTypes.App.SetConfig, respObj.Config);
     }
 }

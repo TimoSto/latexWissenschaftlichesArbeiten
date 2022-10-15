@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"ThesorTeX/internal/config"
 	"ThesorTeX/internal/projects"
 	"ThesorTeX/pkg/logger"
 	"encoding/json"
@@ -11,6 +12,7 @@ import (
 
 type AppData struct {
 	Projects []string
+	Config   config.Config
 }
 
 func HandleGetAppData(w http.ResponseWriter, r *http.Request) {
@@ -24,6 +26,7 @@ func HandleGetAppData(w http.ResponseWriter, r *http.Request) {
 
 	obj := AppData{
 		Projects: names,
+		Config:   config.ConfigObj,
 	}
 
 	data, err := json.Marshal(obj)
