@@ -132,8 +132,9 @@ export default Vue.extend({
   &.primary * {
     color: var(--v-primaryText-base)!important;
   }
-  &.primary.theme--light .v-app-bar__nav-icon:disabled i {
-    color: rgba(255, 255,255, 0.5)!important;
+  &.primary.theme--light .v-app-bar__nav-icon:disabled i,
+  &.primary.theme--light .v-btn:disabled i{
+    color: rgba(255, 255,255, 0.65)!important;
   }
 }
 </style>
