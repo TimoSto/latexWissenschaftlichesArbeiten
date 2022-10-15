@@ -25,7 +25,7 @@
           :title="$t(i18nDictionary.App.TitleAppendixProjects)"
           :closed="drawer" v-if="currentView === 'projects'"
           :items="projectNames"
-          v-on:modelchange="handleProjectClick"
+          v-on:modelchange="handleProjectSelect"
           ref="sidebarProjects"
       />
     </v-navigation-drawer>
@@ -58,10 +58,6 @@ export default Vue.extend({
     }
 
     this.$store.dispatch(ActionTypes.App.GetAppData);
-
-    this.$nextTick(()=>{
-      (this.$refs.sidebarProjects as SidebarContentInterface).toItem(0);
-    })
   },
 
   computed: {
@@ -109,7 +105,8 @@ export default Vue.extend({
       //here only state is updated
       this.$store.commit(MutationTypes.App.SetCurrentView, view)
     },
-    handleProjectClick(n: number) {
+    handleProjectSelect(n: number) {
+      //if switch unsafe: (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n); for backswitch
       if( n !== -1 ) {
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n])
       } else {
