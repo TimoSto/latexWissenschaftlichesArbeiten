@@ -40,7 +40,7 @@
  </div>
 </template>
 
-<script>
+<script lang="ts">
 import {i18nDictionary} from "@/i18n/Keys";
 
 export default {
@@ -64,6 +64,9 @@ export default {
   methods: {
     toInfo() {
       this.model = -1;
+    },
+    toItem(n: number) {
+      this.model = n;
     }
   }
 }
