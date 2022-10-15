@@ -20,17 +20,19 @@
 
    <v-sheet style="flex: 1 1 auto; max-height: 600px; overflow-y: auto" id="sidebar-scroll-target">
       <v-list>
-        <v-list-item v-for="item in items" :key="item" @click="$emit('clicked', item)">
-          <v-list-item-title>{{item}}</v-list-item-title>
-        </v-list-item>
+        <v-list-item-group v-model="model">
+          <v-list-item v-for="item in items" :key="item" @click="$emit('clicked', item)">
+            <v-list-item-title>{{item}}</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
    </v-sheet>
 
    <v-bottom-navigation style="flex: 0 1 auto">
-     <v-btn icon :title="$t(i18nDictionary.App.Information)" v-if="closed" :disabled="infoDisabled">
+     <v-btn icon :title="$t(i18nDictionary.App.Information)" v-if="closed" :disabled="infoDisabled" @click="toInfo">
        <v-icon>mdi-information-outline</v-icon>
      </v-btn>
-     <v-btn v-if="!closed" :disabled="infoDisabled">
+     <v-btn v-if="!closed" :disabled="infoDisabled" @click="toInfo">
        {{$t(i18nDictionary.App.Information)}}
        <v-icon>mdi-information-outline</v-icon>
      </v-btn>
@@ -45,7 +47,8 @@ export default {
   name: "SidebarContent",
   data() {
     return {
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      model: -1
     }
   },
   props: [
@@ -53,7 +56,12 @@ export default {
       'title',
       'items',
       'infoDisabled'
-  ]
+  ],
+  methods: {
+    toInfo() {
+      this.model = -1;
+    }
+  }
 }
 </script>
 
