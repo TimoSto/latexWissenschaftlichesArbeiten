@@ -1,6 +1,7 @@
 package mockFileSystem
 
 import (
+	"ThesorTeX/internal/pathbuilder"
 	_ "embed"
 	"io/fs"
 	"os"
@@ -134,6 +135,18 @@ func ReadDir(path string) ([]fs.FileInfo, error) {
 			},
 			MockFileInfo{
 				FileName:    "project_with_backup_1_2_1",
+				IsDirectory: true,
+			},
+		}, nil
+	}
+	if path == pathbuilder.GetPathFromExecRoot("projects") {
+		return []fs.FileInfo{
+			MockFileInfo{
+				FileName:    "project1",
+				IsDirectory: true,
+			},
+			MockFileInfo{
+				FileName:    "project2",
 				IsDirectory: true,
 			},
 		}, nil

@@ -5,6 +5,7 @@ import (
 	"ThesorTeX/pkg/logger"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -14,7 +15,7 @@ type AppData struct {
 
 func HandleGetAppData(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("appData")
-	names, err := projects.GetProjectNames()
+	names, err := projects.GetProjectNames(ioutil.ReadDir)
 	if err != nil {
 		logger.LogError("Reading project names", err.Error())
 		w.WriteHeader(http.StatusInternalServerError)
