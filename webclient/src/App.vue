@@ -108,7 +108,7 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.App.SetCurrentView, view)
     },
     handleProjectClick(project: string) {
-      alert(project)
+      this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, project)
     }
   }
 });
