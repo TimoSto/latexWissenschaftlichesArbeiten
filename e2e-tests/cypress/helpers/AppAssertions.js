@@ -37,3 +37,12 @@ export function AssertUrlHashIs(hash) {
         expect(url).to.eq(BaseURL + '/' + hash)
     })
 }
+
+export function AssertSidebarInfoBtnDisabled() {
+    cy.get('nav').find('.v-bottom-navigation').find('button').should('be.disabled')
+}
+
+export function AssertSidebarInfoBtnNotDisabled() {
+    cy.get('nav').find('.v-bottom-navigation').find('button').should('not.be.disabled')
+}
+
