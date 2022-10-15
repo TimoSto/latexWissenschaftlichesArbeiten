@@ -25,7 +25,7 @@
           :title="$t(i18nDictionary.App.TitleAppendixProjects)"
           :closed="drawer" v-if="currentView === 'projects'"
           :items="projectNames"
-          v-on:clicked="handleProjectClick"
+          v-on:modelchange="handleProjectClick"
       />
     </v-navigation-drawer>
 
@@ -74,9 +74,6 @@ export default Vue.extend({
     projectNames() {
       return this.$store.state.App.ProjectNames;
     },
-    currentProjectName() {
-      return this.$store.state.ProjectView.CurrentProject;
-    }
   },
 
   watch: {
@@ -106,8 +103,12 @@ export default Vue.extend({
       //here only state is updated
       this.$store.commit(MutationTypes.App.SetCurrentView, view)
     },
-    handleProjectClick(project: string) {
-      this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, project)
+    handleProjectClick(n: number) {
+      if( n !== -1 ) {
+        this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n])
+      } else {
+        this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, '')
+      }
     }
   }
 });
