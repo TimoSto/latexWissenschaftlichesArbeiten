@@ -10,33 +10,38 @@ describe('projectsView', ()=> {
         VisitUrl('#/projects')
     });
 
-    describe('display info', ()=> {
-        it('middle shows projects-info', () => {
+    describe('Sidebar', () => {
+        it('display info', ()=> {
             ProjectPageAssertions.AssertPage1Contains('#projectInfoPage')
+
+            AppAssertions.AssertSidebarInfoBtnDisabled()
         });
 
-        it('sidebar-info-btn is disabled', () => {
-            AppAssertions.AssertSidebarInfoBtnDisabled()
-        })
-    });
-
-    describe('switch to project and back to home', () => {
-        before(()=> {
+        it('switch to project and back to home', () => {
             AppActions.ClickSidebarItem(0);
-        })
 
-        it('sidebar-info-btn is not disabled', () => {
             AppAssertions.AssertSidebarInfoBtnNotDisabled()
-        })
 
-        it('shows project-overview', () => {
             ProjectPageAssertions.AssertPage1Contains('#projectOverviewPage')
-        })
 
-        it('after click on info info-btn is disabled', () => {
             AppActions.ClickSidebarInfo();
             AppAssertions.AssertSidebarInfoBtnDisabled();
             ProjectPageAssertions.AssertPage1Contains('#projectInfoPage')
+        })
+    });
+
+    describe('URL', () => {
+        before(() => {
+            VisitUrl('#/projects')
+        });
+
+        it('on info page', () => {
+            AppAssertions.AssertUrlHashIs('#/projects')
+        });
+
+        it('after switch to test', () => {
+            AppActions.ClickSidebarItem(0);
+            AppAssertions.AssertUrlHashIs('#/projects/test')
         })
     })
 })
