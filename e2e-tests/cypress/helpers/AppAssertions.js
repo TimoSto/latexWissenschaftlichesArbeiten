@@ -50,3 +50,7 @@ export function AssertNewDialogIsOpen(title) {
     cy.get('#newDialog').should('be.visible').find('.v-card__title').should('have.text', title);
 }
 
+export function AssertNewDialogSaveEnabled(enabled) {
+    cy.get('#newDialog').should('be.visible').find('.v-btn').contains('Speichern').parent().should(enabled ? 'not.be.disabled' : 'be.disabled');
+}
+

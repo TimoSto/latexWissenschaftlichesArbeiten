@@ -5,14 +5,15 @@
       <v-card-text style="padding-bottom: 0">
         <v-text-field
             filled
+            v-model="value"
           :label="label"
           :rules="rules"
         />
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn text color="primary">{{$t(i18nDictionary.Common.Discard)}}</v-btn>
-        <v-btn text color="primary">{{$t(i18nDictionary.Common.Save)}}</v-btn>
+        <v-btn text color="primary" @click="$emit('discard')">{{$t(i18nDictionary.Common.Discard)}}</v-btn>
+        <v-btn text color="primary" @click="$emit('save', value)" :disabled="calcDisabled">{{$t(i18nDictionary.Common.Save)}}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -33,12 +34,17 @@ export default Vue.extend({
   data() {
     return {
       i18nDictionary: i18nDictionary,
+      value: ''
     }
   },
   computed: {
     opened: {
       get(): boolean { return this.$props.open },
       set(v: boolean) { this.$emit('modelChanged', v) }
+    },
+    calcDisabled(): boolean {
+
+      return this.value.length === 0 || this.rules[0](this.value) !== true
     }
   }
 })

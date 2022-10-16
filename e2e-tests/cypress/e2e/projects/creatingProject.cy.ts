@@ -12,7 +12,20 @@ describe('Creating project', () => {
         });
         it('opening dialog', () => {
             AppActions.ClickSidebarAdd();
-            AppAssertions.AssertNewDialogIsOpen('Neue Projekt erstellen');
+            AppAssertions.AssertNewDialogIsOpen('Neues Projekt erstellen');
+        });
+        describe('saveDisabled', () => {
+            it('initially disabled', () => {
+                AppAssertions.AssertNewDialogSaveEnabled(false);
+            })
+            it('type valid name', () => {
+                AppActions.TypeInNew('testName')
+                AppAssertions.AssertNewDialogSaveEnabled(true);
+            })
+            it('type invalid name', () => {
+                AppActions.TypeInNew('test Name')
+                AppAssertions.AssertNewDialogSaveEnabled(false);
+            })
         })
     })
 

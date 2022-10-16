@@ -14,3 +14,7 @@ export function ClickSidebarInfo() {
 export function ClickSidebarAdd() {
     cy.get('nav').find('.v-app-bar').find('button').click();
 }
+
+export function TypeInNew(v) {
+    cy.get('#newDialog').should('be.visible').find('.v-text-field').find('input').type(v);
+}
