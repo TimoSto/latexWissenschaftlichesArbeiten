@@ -35,7 +35,7 @@
       <router-view v-on:initialProjectSet="setProjectInSidebar"/>
     </v-main>
 
-    <NewDialog :title="newDialogTitle" :label="newDialogLabel" :open="newDialogTriggered" />
+    <NewDialog :title="newDialogTitle" :label="newDialogLabel" :open="newDialogTriggered" :rules="newDialogRules"/>
 
   </v-app>
 </template>
@@ -48,6 +48,7 @@ import SidebarContent from "./components/SidebarContent.vue";
 import ActionTypes from "./store/ActionTypes";
 import { SidebarContentInterface } from './components/SidebarContentInterface';
 import NewDialog from "./components/NewDialog.vue";
+import ProjectNameRules from "./inputRules/ProjectNameRules";
 
 export default Vue.extend({
   name: 'App',
@@ -110,6 +111,12 @@ export default Vue.extend({
         return 'Projektname'
       }
       return ''
+    },
+    newDialogRules(): ((v: string) => boolean | string)[] {
+      if( this.newDialogType === 'newProject' ) {
+        return ProjectNameRules(this.projectNames)
+      }
+      return []
     }
   },
 
