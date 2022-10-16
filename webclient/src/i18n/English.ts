@@ -1,6 +1,10 @@
 import {TranslationKeys} from "@/i18n/Keys";
 
 export const EnglishTranslations: TranslationKeys = {
+    Common: {
+        Discard: 'Discard',
+        Save: 'Save'
+    },
     App: {
         TitleAppendixProjects: 'Projects',
         Information: 'Information',

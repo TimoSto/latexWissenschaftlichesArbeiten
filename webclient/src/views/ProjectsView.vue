@@ -13,7 +13,6 @@ import {i18nDictionary} from "../i18n/Keys";
 import ProjectInfoPage from "./projectsPages/ProjectInfoPage.vue";
 import NavArea from "../components/NavArea.vue";
 import ProjectOverviewPage from "./projectsPages/ProjectOverviewPage.vue";
-import MutationTypes from "../store/MutationTypes";
 
 export default Vue.extend({
   name: "ProjectsView",

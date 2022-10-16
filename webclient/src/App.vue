@@ -33,6 +33,9 @@
     <v-main>
       <router-view v-on:initialProjectSet="setProjectInSidebar"/>
     </v-main>
+
+    <NewDialog :title="'test'" :label="'test'" :open="newDialogTriggered" />
+
   </v-app>
 </template>
 
@@ -43,13 +46,15 @@ import MutationTypes from "./store/MutationTypes";
 import SidebarContent from "./components/SidebarContent.vue";
 import ActionTypes from "./store/ActionTypes";
 import { SidebarContentInterface } from './components/SidebarContentInterface';
+import NewDialog from "./components/NewDialog.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {SidebarContent},
+  components: {NewDialog, SidebarContent},
   data: () => ({
     drawer: false,
     i18nDictionary: i18nDictionary,
+    newDialogTriggered: true
   }),
 
   created() {
@@ -91,7 +96,8 @@ export default Vue.extend({
     },
     Loaded() {
       return this.$store.state.App.Loaded;
-    }
+    },
+
   },
 
   watch: {

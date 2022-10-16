@@ -1,5 +1,9 @@
 
 export type TranslationKeys = {
+    Common: {
+        Discard: string
+        Save: string
+    },
     App: {
         TitleAppendixProjects: string
         Information: string
@@ -42,6 +46,10 @@ export type TranslationKeys = {
 }
 
 export const i18nDictionary: TranslationKeys = {
+    Common: {
+        Discard: 'Common.Discard',
+        Save: 'Common.Save'
+    },
     App: {
         TitleAppendixProjects: 'App.TitleAppendixProjects',
         Information: 'App.Information',
