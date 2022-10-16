@@ -35,7 +35,13 @@
       <router-view v-on:initialProjectSet="setProjectInSidebar"/>
     </v-main>
 
-    <NewDialog :title="newDialogTitle" :label="newDialogLabel" :open="newDialogTriggered" :rules="newDialogRules"/>
+    <NewDialog
+        :title="newDialogTitle"
+        :label="newDialogLabel"
+        :open="newDialogTriggered"
+        :rules="newDialogRules"
+        v-on:discard="newDialogTriggered = false"
+    />
 
   </v-app>
 </template>

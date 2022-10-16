@@ -54,3 +54,7 @@ export function AssertNewDialogSaveEnabled(enabled) {
     cy.get('#newDialog').should('be.visible').find('.v-btn').contains('Speichern').parent().should(enabled ? 'not.be.disabled' : 'be.disabled');
 }
 
+export function AssertNewDialogValueIs(v) {
+    cy.get('#newDialog').should('be.visible').find('.v-text-field').find('input').should('have.value', v);
+}
+

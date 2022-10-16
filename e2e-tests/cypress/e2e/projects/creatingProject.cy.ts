@@ -14,12 +14,27 @@ describe('Creating project', () => {
             AppActions.ClickSidebarAdd();
             AppAssertions.AssertNewDialogIsOpen('Neues Projekt erstellen');
         });
+        describe('reopening', () => {
+            it('from valid', () => {
+                AppActions.TypeInNew('testName')
+                AppActions.ClickOverlay();
+                AppActions.ClickSidebarAdd();
+                AppAssertions.AssertNewDialogValueIs('');
+            })
+            it('from invalid', () => {
+                AppActions.TypeInNew('test Name')
+                AppActions.ClickOverlay();
+                AppActions.ClickSidebarAdd();
+                AppAssertions.AssertNewDialogValueIs('');
+            })
+        })
         describe('saveDisabled', () => {
             it('initially disabled', () => {
                 AppAssertions.AssertNewDialogSaveEnabled(false);
             })
             it('type valid name', () => {
                 AppActions.TypeInNew('testName')
+                AppAssertions.AssertNewDialogValueIs('testName');
                 AppAssertions.AssertNewDialogSaveEnabled(true);
             })
             it('type invalid name', () => {

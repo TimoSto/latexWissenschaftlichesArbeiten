@@ -18,3 +18,7 @@ export function ClickSidebarAdd() {
 export function TypeInNew(v) {
     cy.get('#newDialog').should('be.visible').find('.v-text-field').find('input').type(v);
 }
+
+export function ClickOverlay() {
+    cy.get('.v-overlay').click({force: true});
+}
