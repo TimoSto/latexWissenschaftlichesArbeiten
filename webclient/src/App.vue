@@ -65,13 +65,13 @@ export default Vue.extend({
   },
 
   mounted() {
+    //initial setting up for all views here to have all other components available
     if( this.$route.path.indexOf('/projects') === 0 ) {
       this.$store.commit(MutationTypes.App.SetCurrentView, 'projects')
 
       if( this.$route.path !== '/projects' ) {
         const currentProject = this.$route.path.split('/projects/')[1];
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, currentProject);
-        console.log(currentProject);
       }
 
     } else if ( this.$route.path === '/config' ) {
@@ -113,8 +113,11 @@ export default Vue.extend({
       return ''
     },
     newDialogRules(): ((v: string) => boolean | string)[] {
+      const translator = (v: string) => {
+        return this.$t(v)
+      }
       if( this.newDialogType === 'newProject' ) {
-        return ProjectNameRules(this.projectNames)
+        return ProjectNameRules(this.projectNames, translator)
       }
       return []
     }

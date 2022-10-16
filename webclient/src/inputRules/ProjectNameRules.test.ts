@@ -3,7 +3,7 @@ import ProjectNameRules from "@/inputRules/ProjectNameRules";
 describe('ProjectNameRules', () => {
     let rules: ((v: string) => boolean | string)[];
     beforeEach(() => {
-        rules = ProjectNameRules(["test1", "test2"]);
+        rules = ProjectNameRules(["test1", "test2"], (v: string) => v);
     });
 
     it('should give error on "test1"', () => {
