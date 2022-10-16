@@ -36,6 +36,10 @@ export type TranslationKeys = {
     Projects: {
         Info: {
             Description: string
+        },
+        New: {
+            AlreadyExists: string
+            NoSpaces: string
         }
     },
     Config: {
@@ -82,6 +86,10 @@ export const i18nDictionary: TranslationKeys = {
     Projects: {
         Info: {
             Description: 'Projects.Info.Description'
+        },
+        New: {
+            AlreadyExists: 'Projects.New.AlreadyExists',
+            NoSpaces: 'Projects.New.NoSpaces'
         }
     },
     Config: {

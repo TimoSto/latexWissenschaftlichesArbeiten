@@ -37,6 +37,10 @@ export const GermanTranslations: TranslationKeys = {
     Projects: {
         Info: {
             Description: 'Ein Projekt beinhaltet die Literatureinträge, Literaturtypen, Abkürzungen, Formattierungen (.sty-Dateinen) und die Texte (.tex-Dateien). Die Literatureinträge, -typen und die Abkürzungen können in dieser Anwendung verwaltet werden. Klicke auf das <i>+</i> um ein neues Projekt zu erstellen.'
+        },
+        New: {
+            AlreadyExists: 'Name bereits vergeben',
+            NoSpaces: 'Keine Leerzeichen im Projektnamen erlaubt'
         }
     },
     Config: {

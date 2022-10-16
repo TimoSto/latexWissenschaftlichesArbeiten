@@ -6,8 +6,8 @@ export default function ProjectNameRules(projectNames: string[], i18n: (v: strin
     // console.log(projects);
     return [
         (value: string) => {
-            if ( projectNames && projectNames.indexOf(value) !== -1) return i18n(i18nDictionary.App.TitleAppendixProjects) as string
-            if ( value && value.indexOf(' ') >= 0 ) return i18n('Projektname darf kein Leerzeichen enthalten') as string
+            if ( projectNames && projectNames.indexOf(value) !== -1) return i18n(i18nDictionary.Projects.New.AlreadyExists) as string
+            if ( value && value.indexOf(' ') >= 0 ) return i18n(i18nDictionary.Projects.New.NoSpaces) as string
             return true
         }
     ]

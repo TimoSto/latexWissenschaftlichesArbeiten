@@ -7,15 +7,15 @@ describe('ProjectNameRules', () => {
     });
 
     it('should give error on "test1"', () => {
-        expect(rules[0]('test1')).toEqual('Projektname bereits vergeben')
+        expect(rules[0]('test1')).toEqual('Projects.New.AlreadyExists')
     })
 
     it('should give error on "test2"', () => {
-        expect(rules[0]('test2')).toEqual('Projektname bereits vergeben')
+        expect(rules[0]('test2')).toEqual('Projects.New.AlreadyExists')
     })
 
     it('should give error on "test t"', () => {
-        expect(rules[0]('test t')).toEqual('Projektname darf kein Leerzeichen enthalten')
+        expect(rules[0]('test t')).toEqual('Projects.New.NoSpaces')
     })
 
     it('should not give error on "test"', () => {
