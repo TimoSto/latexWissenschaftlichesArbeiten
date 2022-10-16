@@ -2,6 +2,7 @@ package main
 
 import (
 	"ThesorTeX/internal/config"
+	"ThesorTeX/internal/pathbuilder"
 	"ThesorTeX/internal/pipeline"
 	"ThesorTeX/pkg/logger"
 	"ThesorTeX/pkg/webserver"
@@ -17,6 +18,8 @@ func main() {
 	logger.Init()
 
 	logger.LogInfo("Starting up ThesorTeX...")
+
+	pathbuilder.Init()
 
 	config.ReadConfig()
 
