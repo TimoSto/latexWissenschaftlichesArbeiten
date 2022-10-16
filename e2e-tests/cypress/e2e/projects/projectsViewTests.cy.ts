@@ -27,6 +27,14 @@ describe('projectsView', ()=> {
             AppActions.ClickSidebarInfo();
             AppAssertions.AssertSidebarInfoBtnDisabled();
             ProjectPageAssertions.AssertPage1Contains('#projectInfoPage')
+        });
+
+        it('after reload', () => {
+            AppActions.ClickSidebarItem(0);
+
+            cy.reload(true);
+
+            AppAssertions.AssertSidebarInfoBtnNotDisabled();
         })
     });
 
@@ -41,7 +49,12 @@ describe('projectsView', ()=> {
 
         it('after switch to test', () => {
             AppActions.ClickSidebarItem(0);
-            AppAssertions.AssertUrlHashIs('#/projects/test')
+            AppAssertions.AssertUrlHashIs('#/projects/test');
+        })
+
+        it('after reload', () => {
+            cy.reload();
+            AppAssertions.AssertUrlHashIs('#/projects/test');
         })
     })
 })

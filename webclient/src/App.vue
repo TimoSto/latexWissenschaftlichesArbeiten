@@ -49,7 +49,7 @@ export default Vue.extend({
   components: {SidebarContent},
   data: () => ({
     drawer: false,
-    i18nDictionary: i18nDictionary
+    i18nDictionary: i18nDictionary,
   }),
 
   created() {
@@ -59,6 +59,13 @@ export default Vue.extend({
   mounted() {
     if( this.$route.path.indexOf('/projects') === 0 ) {
       this.$store.commit(MutationTypes.App.SetCurrentView, 'projects')
+
+      if( this.$route.path !== '/projects' ) {
+        const currentProject = this.$route.path.split('/projects/')[1];
+        this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, currentProject);
+        console.log(currentProject);
+      }
+
     } else if ( this.$route.path === '/config' ) {
       this.$store.commit(MutationTypes.App.SetCurrentView, 'config');
     }
@@ -115,6 +122,11 @@ export default Vue.extend({
     },
     Loaded() {
       this.$vuetify.theme.dark = this.$store.state.App.Config.DarkMode;
+    },
+    projectNames(ov, nv) {
+      if( (!ov || ov.length > 0) && this.$store.state.ProjectView.CurrentProject ) {
+        this.setProjectInSidebar(this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject));
+      }
     }
   },
 
@@ -126,18 +138,23 @@ export default Vue.extend({
     handleProjectSelect(n: number) {
       //if switch unsafe: (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n); for backswitch
       if( n !== -1 ) {
-        this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n])
+        this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n]);
+        if( this.$route.path !== `/projects/${this.projectNames[n]}` ) {
+          this.$router.push(`/projects/${this.projectNames[n]}`)
+        }
       } else {
-        this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, '')
+        this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, '');
+        if( this.$route.path !== '/projects' ){
+          this.$router.push('/projects')
+        }
       }
     },
     setProjectInSidebar(n: number) {
       if( !n ) {
         n = this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject);
       }
-      if(n) {
-        (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n);
-      }
+      console.log(n);
+      (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n);
     }
   }
 });
