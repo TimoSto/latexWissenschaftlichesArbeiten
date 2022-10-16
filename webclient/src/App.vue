@@ -41,7 +41,6 @@ import Vue from 'vue';
 import {i18nDictionary} from "./i18n/Keys";
 import MutationTypes from "./store/MutationTypes";
 import SidebarContent from "./components/SidebarContent.vue";
-import {SidebarContentInterface} from "./components/SidebarContentInterface";
 import ActionTypes from "./store/ActionTypes";
 
 export default Vue.extend({
