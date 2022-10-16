@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="opened" width="300">
-    <v-card>
+    <v-card id="newDialog">
       <v-card-title>{{title}}</v-card-title>
       <v-card-text style="padding-bottom: 0">
         <v-text-field

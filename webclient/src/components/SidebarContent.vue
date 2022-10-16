@@ -13,7 +13,7 @@
      <v-spacer v-if="!closed"/>
 
 
-     <v-btn icon :title="$t(i18nDictionary.App.Information)">
+     <v-btn icon :title="$t(i18nDictionary.App.Information)" @click="$emit('triggerAdd')">
        <v-icon>mdi-plus</v-icon>
      </v-btn>
    </v-app-bar>

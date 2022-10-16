@@ -27,6 +27,7 @@
           :items="projectNames"
           v-on:modelchange="handleProjectSelect"
           ref="sidebarProjects"
+          v-on:triggerAdd="openNewDialog('newProject')"
       />
     </v-navigation-drawer>
 
@@ -34,7 +35,7 @@
       <router-view v-on:initialProjectSet="setProjectInSidebar"/>
     </v-main>
 
-    <NewDialog :title="'test'" :label="'test'" :open="newDialogTriggered" />
+    <NewDialog :title="newDialogTitle" :label="newDialogLabel" :open="newDialogTriggered" />
 
   </v-app>
 </template>
@@ -54,7 +55,8 @@ export default Vue.extend({
   data: () => ({
     drawer: false,
     i18nDictionary: i18nDictionary,
-    newDialogTriggered: true
+    newDialogTriggered: false,
+    newDialogType: ''
   }),
 
   created() {
@@ -97,7 +99,18 @@ export default Vue.extend({
     Loaded() {
       return this.$store.state.App.Loaded;
     },
-
+    newDialogTitle() {
+      if( this.newDialogType === 'newProject' ) {
+        return 'Neue Projekt erstellen'
+      }
+      return ''
+    },
+    newDialogLabel() {
+      if( this.newDialogType === 'newProject' ) {
+        return 'Projektname'
+      }
+      return ''
+    }
   },
 
   watch: {
@@ -161,6 +174,10 @@ export default Vue.extend({
       }
       console.log(n);
       (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n);
+    },
+    openNewDialog(type: string) {
+      this.newDialogTriggered = true;
+      this.newDialogType = type;
     }
   }
 });

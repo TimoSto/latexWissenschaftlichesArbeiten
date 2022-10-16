@@ -46,3 +46,7 @@ export function AssertSidebarInfoBtnNotDisabled() {
     cy.get('nav').find('.v-bottom-navigation').find('button').should('not.be.disabled')
 }
 
+export function AssertNewDialogIsOpen(title) {
+    cy.get('#newDialog').should('be.visible').find('.v-card__title').should('have.text', title);
+}
+
