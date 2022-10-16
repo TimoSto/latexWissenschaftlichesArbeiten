@@ -102,13 +102,13 @@ export default Vue.extend({
     },
     newDialogTitle() {
       if( this.newDialogType === 'newProject' ) {
-        return 'Neue Projekt erstellen'
+        return this.$t(i18nDictionary.Projects.New.Title)
       }
       return ''
     },
     newDialogLabel() {
       if( this.newDialogType === 'newProject' ) {
-        return 'Projektname'
+        return this.$t(i18nDictionary.Projects.New.Label)
       }
       return ''
     },

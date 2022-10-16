@@ -38,6 +38,8 @@ export type TranslationKeys = {
             Description: string
         },
         New: {
+            Title: string,
+            Label: string,
             AlreadyExists: string
             NoSpaces: string
         }
@@ -88,6 +90,8 @@ export const i18nDictionary: TranslationKeys = {
             Description: 'Projects.Info.Description'
         },
         New: {
+            Title: 'Projects.New.Title',
+            Label: 'Projects.New.Label',
             AlreadyExists: 'Projects.New.AlreadyExists',
             NoSpaces: 'Projects.New.NoSpaces'
         }

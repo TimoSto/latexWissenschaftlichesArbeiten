@@ -39,6 +39,8 @@ export const EnglishTranslations: TranslationKeys = {
             Description: 'A Project contains bibtypes, bibentries, abbreviations, formatting (.sty-files) and texts (.tex-files). The bib-entries, -types and abbreviations can be managed in this application. Click on the <i>+</i> to create a ne project.'
         },
         New: {
+            Title: 'Create new project',
+            Label: 'Projectname',
             AlreadyExists: 'Project with this name already exists',
             NoSpaces: 'No Spaces in project name allowed'
         }
