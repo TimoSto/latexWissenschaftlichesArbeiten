@@ -40,6 +40,16 @@ describe('Creating project', () => {
             it('type invalid name', () => {
                 AppActions.TypeInNew('test Name')
                 AppAssertions.AssertNewDialogSaveEnabled(false);
+                AppActions.ClickOverlay();
+            })
+        })
+        describe('actually saving', () => {
+            it('save project', () => {
+                AppActions.ClickSidebarAdd();
+                AppActions.TypeInNew('testName');
+                AppActions.NewDialogSaveClick();
+                AppAssertions.AssertUrlHashIs('#/projects/testName')
+                AppAssertions.AssertSidebarInfoBtnNotDisabled();
             })
         })
     })

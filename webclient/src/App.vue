@@ -32,7 +32,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view />
+      <router-view/>
     </v-main>
 
     <NewDialog
@@ -69,22 +69,6 @@ export default Vue.extend({
 
   created() {
     this.$store.dispatch(ActionTypes.App.GetAppData);
-  },
-
-  mounted() {
-    //initial setting up for all views here to have all other components available
-    if( this.$route.path.indexOf('/projects') === 0 ) {
-      this.$store.commit(MutationTypes.App.SetCurrentView, 'projects')
-
-      if( this.$route.path !== '/projects' ) {
-        const currentProject = this.$route.path.split('/projects/')[1];
-        this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, currentProject);
-      }
-
-    } else if ( this.$route.path === '/config' ) {
-      this.$store.commit(MutationTypes.App.SetCurrentView, 'config');
-    }
-    this.$vuetify.theme.dark = this.$store.state.App.Config.DarkMode;
   },
 
   computed: {
@@ -158,12 +142,29 @@ export default Vue.extend({
     },
     Loaded() {
       this.$vuetify.theme.dark = this.$store.state.App.Config.DarkMode;
+
+      //initial setting up for all views here to have all other components available
+      if( this.$route.path.indexOf('/projects') === 0 ) {
+        this.$store.commit(MutationTypes.App.SetCurrentView, 'projects')
+
+        if( this.$route.path !== '/projects' ) {
+          const currentProject = this.$route.path.split('/projects/')[1];
+          this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, currentProject);
+        }
+
+      } else if ( this.$route.path === '/config' ) {
+        this.$store.commit(MutationTypes.App.SetCurrentView, 'config');
+      }
+
+      if( this.$store.state.App.CurrentView === 'projects' ) {
+        this.setSidebarToCurrentProject()
+      }
     },
-    // projectNames(ov, nv) {
-    //   if( (!ov || ov.length > 0) && this.$store.state.ProjectView.CurrentProject ) {
-    //     this.setProjectInSidebar(this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject));
-    //   }
-    // }
+    projectNames(ov, nv) {
+      if( this.$store.state.ProjectView.CurrentProject ) {
+        this.setSidebarToCurrentProject();
+      }
+    }
   },
 
   methods: {
@@ -172,7 +173,7 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.App.SetCurrentView, view)
     },
     handleProjectSelect(n: number) {
-      console.log('sel', n)
+      console.log(n)
       //if switch unsafe: (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n); for backswitch
       if( n !== -1 ) {
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n]);
@@ -186,14 +187,6 @@ export default Vue.extend({
         }
       }
     },
-    // setProjectInSidebar(n: number) {
-    //   if( !n ) {
-    //     n = this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject);
-    //   }
-    //   this.$nextTick(()=> {
-    //     (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n);
-    //   });
-    // },
     openNewDialog(type: string) {
       this.newDialogTriggered = true;
       this.newDialogType = type;
@@ -203,6 +196,15 @@ export default Vue.extend({
         this.newDialogTriggered = false;
         this.newDialogType = '';
         this.$store.dispatch(ActionTypes.Projects.CreateProject, v)
+      }
+    },
+    setSidebarToCurrentProject() {
+      if (this.$refs.sidebarProjects) {
+        (this.$refs.sidebarProjects as SidebarContentInterface).toItem(this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject));
+      } else {
+        this.$nextTick(() => {
+          (this.$refs.sidebarProjects as SidebarContentInterface).toItem(this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject));
+        })
       }
     }
   }

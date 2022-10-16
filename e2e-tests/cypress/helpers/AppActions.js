@@ -22,3 +22,7 @@ export function TypeInNew(v) {
 export function ClickOverlay() {
     cy.get('.v-overlay').click({force: true});
 }
+
+export function NewDialogSaveClick() {
+    cy.get('#newDialog').should('be.visible').find('.v-btn').contains('Speichern').parent().click();
+}

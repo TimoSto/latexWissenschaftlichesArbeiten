@@ -65,9 +65,11 @@ export default Vue.extend({
   methods: {
     toInfo() {
       this.model = -1;
+      this.$emit('modelchange', -1);
     },
     toItem(n: number) {
       this.model = n;
+      this.$emit('modelchange', n)
     }
   }
 });
