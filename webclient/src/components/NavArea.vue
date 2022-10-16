@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex">
+  <div style="display: flex;">
     <div class="pages">
       <div class="page1">
         <slot name="page1"></slot>
@@ -15,5 +15,7 @@ export default {
 </script>
 
 <style scoped>
-
+.pages {
+  width: 100%;
+}
 </style>
