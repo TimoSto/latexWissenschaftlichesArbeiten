@@ -41,6 +41,7 @@
         :open="newDialogTriggered"
         :rules="newDialogRules"
         v-on:discard="newDialogTriggered = false"
+        v-on:save="handleSaveInNewDialog"
     />
 
   </v-app>
@@ -194,6 +195,14 @@ export default Vue.extend({
     openNewDialog(type: string) {
       this.newDialogTriggered = true;
       this.newDialogType = type;
+    },
+    handleSaveInNewDialog(v: string) {
+      if( this.newDialogType === 'newProject' ) {
+        console.log(v)
+        this.newDialogTriggered = false;
+        this.newDialogType = '';
+        this.$store.dispatch(ActionTypes.Projects.CreateProject, v)
+      }
     }
   }
 });

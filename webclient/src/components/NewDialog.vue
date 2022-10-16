@@ -13,7 +13,7 @@
       <v-card-actions>
         <v-spacer />
         <v-btn text color="primary" @click="closeDialog">{{$t(i18nDictionary.Common.Discard)}}</v-btn>
-        <v-btn text color="primary" @click="$emit('save', value)" :disabled="calcDisabled">{{$t(i18nDictionary.Common.Save)}}</v-btn>
+        <v-btn text color="primary" @click="saveValue" :disabled="calcDisabled">{{$t(i18nDictionary.Common.Save)}}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -50,8 +50,11 @@ export default Vue.extend({
 
   methods: {
     closeDialog() {
-      console.log('close')
       this.$emit('discard');
+      this.value = '';
+    },
+    saveValue() {
+      this.$emit('save', this.value);
       this.value = '';
     }
   }
