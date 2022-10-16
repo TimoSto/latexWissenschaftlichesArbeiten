@@ -3,6 +3,7 @@
 import {VisitUrl} from "../../helpers/Browser";
 import * as AppAssertions from "../../helpers/AppAssertions.js";
 import * as AppActions from "../../helpers/AppActions.js";
+import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions.js";
 
 describe('Creating project', () => {
 
@@ -50,6 +51,15 @@ describe('Creating project', () => {
                 AppActions.NewDialogSaveClick();
                 AppAssertions.AssertUrlHashIs('#/projects/testName')
                 AppAssertions.AssertSidebarInfoBtnNotDisabled();
+                ProjectAssertions.AssertOverviewTitleIs('testName');
+            })
+            it('save second project', () => {
+                AppActions.ClickSidebarAdd();
+                AppActions.TypeInNew('testName2');
+                AppActions.NewDialogSaveClick();
+                AppAssertions.AssertUrlHashIs('#/projects/testName2')
+                AppAssertions.AssertSidebarInfoBtnNotDisabled();
+                ProjectAssertions.AssertOverviewTitleIs('testName2');
             })
         })
     })
