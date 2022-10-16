@@ -32,7 +32,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view v-on:initialProjectSet="setProjectInSidebar"/>
+      <router-view />
     </v-main>
 
     <NewDialog
@@ -159,11 +159,11 @@ export default Vue.extend({
     Loaded() {
       this.$vuetify.theme.dark = this.$store.state.App.Config.DarkMode;
     },
-    projectNames(ov, nv) {
-      if( (!ov || ov.length > 0) && this.$store.state.ProjectView.CurrentProject ) {
-        this.setProjectInSidebar(this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject));
-      }
-    }
+    // projectNames(ov, nv) {
+    //   if( (!ov || ov.length > 0) && this.$store.state.ProjectView.CurrentProject ) {
+    //     this.setProjectInSidebar(this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject));
+    //   }
+    // }
   },
 
   methods: {
@@ -172,6 +172,7 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.App.SetCurrentView, view)
     },
     handleProjectSelect(n: number) {
+      console.log('sel', n)
       //if switch unsafe: (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n); for backswitch
       if( n !== -1 ) {
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n]);
@@ -185,20 +186,20 @@ export default Vue.extend({
         }
       }
     },
-    setProjectInSidebar(n: number) {
-      if( !n ) {
-        n = this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject);
-      }
-      console.log(n);
-      (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n);
-    },
+    // setProjectInSidebar(n: number) {
+    //   if( !n ) {
+    //     n = this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject);
+    //   }
+    //   this.$nextTick(()=> {
+    //     (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n);
+    //   });
+    // },
     openNewDialog(type: string) {
       this.newDialogTriggered = true;
       this.newDialogType = type;
     },
     handleSaveInNewDialog(v: string) {
       if( this.newDialogType === 'newProject' ) {
-        console.log(v)
         this.newDialogTriggered = false;
         this.newDialogType = '';
         this.$store.dispatch(ActionTypes.Projects.CreateProject, v)
