@@ -31,7 +31,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view/>
+      <router-view v-on:initialProjectSet="setProjectInSidebar"/>
     </v-main>
   </v-app>
 </template>
@@ -42,6 +42,7 @@ import {i18nDictionary} from "./i18n/Keys";
 import MutationTypes from "./store/MutationTypes";
 import SidebarContent from "./components/SidebarContent.vue";
 import ActionTypes from "./store/ActionTypes";
+import { SidebarContentInterface } from './components/SidebarContentInterface';
 
 export default Vue.extend({
   name: 'App',
@@ -128,6 +129,14 @@ export default Vue.extend({
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n])
       } else {
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, '')
+      }
+    },
+    setProjectInSidebar(n: number) {
+      if( !n ) {
+        n = this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject);
+      }
+      if(n) {
+        (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n);
       }
     }
   }
