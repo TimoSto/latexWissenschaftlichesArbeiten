@@ -61,6 +61,22 @@ describe('Creating project', () => {
                 AppAssertions.AssertSidebarInfoBtnNotDisabled();
                 ProjectAssertions.AssertOverviewTitleIs('testName2');
             })
+            it('switch back to first project', () => {
+                AppActions.ClickSidebarItem(0)
+                AppAssertions.AssertUrlHashIs('#/projects/test')
+                AppAssertions.AssertSidebarInfoBtnNotDisabled();
+                ProjectAssertions.AssertOverviewTitleIs('test');
+                AppActions.ClickSidebarItem(1)
+                AppAssertions.AssertUrlHashIs('#/projects/testName')
+                AppAssertions.AssertSidebarInfoBtnNotDisabled();
+                ProjectAssertions.AssertOverviewTitleIs('testName');
+                AppActions.ClickSidebarItem(2)
+                AppAssertions.AssertUrlHashIs('#/projects/testName2')
+                AppAssertions.AssertSidebarInfoBtnNotDisabled();
+                ProjectAssertions.AssertOverviewTitleIs('testName2');
+                AppActions.ClickSidebarInfo();
+                AppAssertions.AssertSidebarInfoBtnDisabled()
+            })
         })
     })
 
