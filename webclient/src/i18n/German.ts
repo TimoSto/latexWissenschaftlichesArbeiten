@@ -43,6 +43,10 @@ export const GermanTranslations: TranslationKeys = {
             Label: 'Projektname',
             AlreadyExists: 'Name bereits vergeben',
             NoSpaces: 'Keine Leerzeichen im Projektnamen erlaubt'
+        },
+        Overview: {
+            Entries: 'Einträge im Literaturverzeichnis',
+            Types: 'Kategorien für Einträge'
         }
     },
     Config: {

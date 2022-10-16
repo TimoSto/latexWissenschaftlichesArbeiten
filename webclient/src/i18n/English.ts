@@ -43,6 +43,10 @@ export const EnglishTranslations: TranslationKeys = {
             Label: 'Projectname',
             AlreadyExists: 'Project with this name already exists',
             NoSpaces: 'No Spaces in project name allowed'
+        },
+        Overview: {
+            Entries: 'Entries in bibliography',
+            Types: 'Categories for entries'
         }
     },
     Config: {
