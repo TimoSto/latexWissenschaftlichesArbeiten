@@ -5,7 +5,8 @@ const ActionTypes = {
         SaveConfig: 'App.SaveConfig'
     },
     Projects: {
-        CreateProject: 'Projects.CreateProject'
+        CreateProject: 'Projects.CreateProject',
+        GetProjectData: 'Projects.GetProjectData'
     }
 }
 

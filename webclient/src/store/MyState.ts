@@ -1,3 +1,6 @@
+import {BibType} from "@/api/bibtypes/BibType";
+import {BibEntry} from "@/api/entries/Entry";
+import {Abbreviation} from "@/api/abbreviations/Abbreviation";
 
 export type MyState = {
     App: {
@@ -11,7 +14,13 @@ export type MyState = {
         Loaded: boolean
     },
     ProjectView : {
-        CurrentProject: string
+        CurrentProject: string,
+        CurrentProjectData: {
+            backupPaths: string[],
+            bibTypes: BibType[],
+            bibEntries: BibEntry[],
+            abbreviations: Abbreviation[]
+        },
     }
 }
 
@@ -27,6 +36,12 @@ export const MyStateObj: MyState = {
         Loaded: false
     },
     ProjectView: {
-        CurrentProject: ''
+        CurrentProject: '',
+        CurrentProjectData: {
+            backupPaths: [],
+            bibTypes: [],
+            bibEntries: [],
+            abbreviations: []
+        },
     }
 }

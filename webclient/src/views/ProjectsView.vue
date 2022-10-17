@@ -13,6 +13,7 @@ import {i18nDictionary} from "../i18n/Keys";
 import ProjectInfoPage from "./projectsPages/ProjectInfoPage.vue";
 import NavArea from "../components/NavArea.vue";
 import ProjectOverviewPage from "./projectsPages/ProjectOverviewPage.vue";
+import ActionTypes from "../store/ActionTypes";
 
 export default Vue.extend({
   name: "ProjectsView",
@@ -20,6 +21,15 @@ export default Vue.extend({
   data() {
     return {
       i18nDictionary: i18nDictionary
+    }
+  },
+
+  watch: {
+    currentProjectName(nv) {
+      console.log(nv)
+      if( nv && nv.length > 0 ) {
+        this.$store.dispatch(ActionTypes.Projects.GetProjectData, nv);
+      }
     }
   },
 

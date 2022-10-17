@@ -4,7 +4,7 @@ import ActionTypes from "@/store/ActionTypes";
 
 import {GetAppData, SaveConfiguration} from "@/store/actions/appActions";
 import {ConfigSaveObj} from "@/api/app/SaveConfig";
-import {CreateProjectAction} from "@/store/actions/projectsActions";
+import {CreateProjectAction, GetProjectDataAction} from "@/store/actions/projectsActions";
 
 export const actions: ActionTree<MyState, MyState> = {
     async [ActionTypes.App.GetAppData]({ commit }) {
@@ -15,5 +15,8 @@ export const actions: ActionTree<MyState, MyState> = {
     },
     async [ActionTypes.Projects.CreateProject]({ commit }, payload: string) {
         await CreateProjectAction(commit, payload);
+    },
+    async [ActionTypes.Projects.GetProjectData]({ commit }, payload: string) {
+        await GetProjectDataAction(commit, payload);
     }
 }
