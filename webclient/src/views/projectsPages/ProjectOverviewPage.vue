@@ -19,7 +19,7 @@
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Entries)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
-            <EntryTable />
+            <EntryTable :entries="[{Key: '1'}, {Key: '2'}]"/>
           </v-expansion-panel-content>
         </v-expansion-panel>
 

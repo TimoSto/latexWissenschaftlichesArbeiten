@@ -14,8 +14,8 @@
       </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Tiemann.2022</td>
+        <tr v-for="e in entries" :key="e.Key">
+          <td>{{e.Key}}</td>
           <td>CitaviInbookDoi</td>
           <td>Tiemnn, Josf (2013), Was soll der Möppes denn, in: Darmstatter darmen, Darmstadt. Hosenbund-Verlag e.V.</td>
         </tr>
@@ -23,14 +23,20 @@
     </template>
 
   </v-simple-table>
+  <!--TODO: pagination -->
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
+import {Entry} from "../api/entries/Entry";
 
 export default Vue.extend({
   name: "EntryTable",
+
+  props: {
+    entries: [] as unknown as () => Entry[]
+  },
 
   data() {
     return {
