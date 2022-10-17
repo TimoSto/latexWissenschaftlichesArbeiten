@@ -18,10 +18,16 @@
 
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Entries)}}</v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <EntryTable />
+          </v-expansion-panel-content>
         </v-expansion-panel>
 
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Types)}}</v-expansion-panel-header>
+          <v-expansion-panel-content>
+
+          </v-expansion-panel-content>
         </v-expansion-panel>
 
       </v-expansion-panels>
@@ -32,10 +38,11 @@
 <script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "../../i18n/Keys";
+import EntryTable from "../../components/EntryTable.vue";
 
 export default Vue.extend({
   name: "ProjectOverviewPage",
-
+  components: {EntryTable},
   data() {
     return {
       panels: [0],
