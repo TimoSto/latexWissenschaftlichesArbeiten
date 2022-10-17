@@ -15,5 +15,7 @@ export async function CreateProjectAction(commit: (type: string,payload?: any,op
 export async function GetProjectDataAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string ) {
     const obj = await GetProjectData(project);
 
-    console.log(obj)
+    if( obj.CompletelyLoaded ) {
+        commit(MutationTypes.ProjectView.SetCurrentProjectData, obj);
+    }
 }

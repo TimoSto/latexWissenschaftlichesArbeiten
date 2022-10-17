@@ -20,7 +20,7 @@
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Entries)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
             <EntryTable
-                :entries="[{Key: '1'}, {Key: '2'}]"
+                :entries="currentProjectData_Entries"
                 :headers="['Schlüssel', 'KAtegorie', 'Eintrag']"
                 :actions="[{Icon: 'mdi-plus'}, {Icon: 'mdi-plus'}]"
             />
@@ -58,6 +58,10 @@ export default Vue.extend({
 
     projectTitle() {
       return this.$store.state.ProjectView.CurrentProject;
+    },
+
+    currentProjectData_Entries() {
+      return this.$store.state.ProjectView.CurrentProjectData.bibEntries
     }
 
   }

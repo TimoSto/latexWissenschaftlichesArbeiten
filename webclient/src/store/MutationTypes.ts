@@ -7,7 +7,8 @@ const MutationTypes = {
     },
     ProjectView: {
         SetCurrentProject: 'ProjectView.SetCurrentProject',
-        AddProject: 'ProjectView.AddProject'
+        AddProject: 'ProjectView.AddProject',
+        SetCurrentProjectData: 'ProjectView.SetCurrentProjectData'
     }
 }
 
