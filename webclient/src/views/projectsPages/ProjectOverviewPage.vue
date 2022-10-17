@@ -19,7 +19,11 @@
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Entries)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
-            <EntryTable :entries="[{Key: '1'}, {Key: '2'}]"/>
+            <EntryTable
+                :entries="[{Key: '1'}, {Key: '2'}]"
+                :headers="['Schlüssel', 'KAtegorie', 'Eintrag']"
+                :actions="[{Icon: 'mdi-plus'}, {Icon: 'mdi-plus'}]"
+            />
           </v-expansion-panel-content>
         </v-expansion-panel>
 
