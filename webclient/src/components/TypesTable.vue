@@ -6,7 +6,7 @@
         :actions="actions" />
 
       <tbody>
-        <tr v-for="t in types" :key="t.Name">
+        <tr v-for="t in types" :key="t.Name" v-ripple>
           <td>{{t.Name}}</td>
           <td>{{t.CitaviType}}</td>
           <td v-html="t.Model"></td>
