@@ -21,8 +21,13 @@
           <v-expansion-panel-content>
             <EntryTable
                 :entries="currentProjectData_Entries"
-                :headers="['Schlüssel', 'KAtegorie', 'Eintrag']"
-                :actions="[{Icon: 'mdi-plus'}, {Icon: 'mdi-plus'}]"
+                :headers="[
+                    $t(i18nDictionary.Projects.Overview.EntriesTable.Key),
+                    $t(i18nDictionary.Projects.Overview.EntriesTable.Category),
+                    $t(i18nDictionary.Projects.Overview.EntriesTable.Entry),
+                    $t(i18nDictionary.Projects.Overview.EntriesTable.CiteCount)
+                    ]"
+                :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen'}]"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>

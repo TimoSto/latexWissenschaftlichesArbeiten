@@ -6,10 +6,11 @@
         :actions="actions" />
 
       <tbody>
-        <tr v-for="e in entries" :key="e.Key" @click="$emit('select', e.Key)">
+        <tr v-for="e in entries" :key="e.Key" @click="$emit('select', e.Key)" style="cursor: pointer">
           <td>{{e.Key}}</td>
-          <td>CitaviInbookDoi</td>
+          <td>{{e.Typ}}</td>
           <td>Tiemnn, Josf (2013), Was soll der Möppes denn, in: Darmstatter darmen, Darmstadt. Hosenbund-Verlag e.V.</td>
+          <td style="text-align: center">{{e.CiteNumber}}</td>
           <td></td>
         </tr>
       </tbody>

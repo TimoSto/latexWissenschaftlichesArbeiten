@@ -46,6 +46,12 @@ export const EnglishTranslations: TranslationKeys = {
         },
         Overview: {
             Entries: 'Entries in bibliography',
+            EntriesTable: {
+                Key: 'Key',
+                Category: 'Category',
+                Entry: 'Entry bibliography',
+                CiteCount: 'Number of cites'
+            },
             Types: 'Categories for entries'
         }
     },

@@ -46,6 +46,12 @@ export const GermanTranslations: TranslationKeys = {
         },
         Overview: {
             Entries: 'Einträge im Literaturverzeichnis',
+            EntriesTable: {
+                Key: 'Schlüssel',
+                Category: 'Kategorie',
+                Entry: 'Eintrag Literaturverzeichnis',
+                CiteCount: 'Anzahl Zitate'
+            },
             Types: 'Kategorien für Einträge'
         }
     },

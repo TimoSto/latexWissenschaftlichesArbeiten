@@ -45,7 +45,13 @@ export type TranslationKeys = {
         },
         Overview: {
             Entries: string,
-            Types: string
+            EntriesTable: {
+                Key: string,
+                Category: string,
+                Entry: string,
+                CiteCount: string
+            },
+            Types: string,
         }
     },
     Config: {
@@ -101,7 +107,13 @@ export const i18nDictionary: TranslationKeys = {
         },
         Overview: {
             Entries: 'Projects.Overview.Entries',
-            Types: 'Projects.Overview.Types'
+            EntriesTable: {
+                Key: 'Projects.Overview.EntriesTable.Key',
+                Category: 'Projects.Overview.EntriesTable.Category',
+                Entry: 'Projects.Overview.EntriesTable.Entry',
+                CiteCount: 'Projects.Overview.EntriesTable.CiteCount'
+            },
+            Types: 'Projects.Overview.Types',
         }
     },
     Config: {
