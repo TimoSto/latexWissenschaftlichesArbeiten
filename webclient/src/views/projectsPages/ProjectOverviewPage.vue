@@ -30,7 +30,7 @@
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Types)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
-
+            {{currentProjectData_Types}}
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -61,7 +61,11 @@ export default Vue.extend({
     },
 
     currentProjectData_Entries() {
-      return this.$store.state.ProjectView.CurrentProjectData.bibEntries
+      return this.$store.state.ProjectView.CurrentProjectData.bibEntries;
+    },
+
+    currentProjectData_Types() {
+      return this.$store.state.ProjectView.CurrentProjectData.bibTypes;
     }
 
   }

@@ -14,5 +14,7 @@ export function AddProject(state: MyState, project: string) {
 }
 
 export function SetProjectData(state: MyState, data: ProjectData) {
+    console.log(data.BibTypes);
     state.ProjectView.CurrentProjectData.bibEntries = data.BibEntries;
+    state.ProjectView.CurrentProjectData.bibTypes = data.BibTypes;
 }

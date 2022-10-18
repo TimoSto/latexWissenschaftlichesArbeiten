@@ -10,7 +10,8 @@ type BibliographyTypes struct {
 }
 
 func ReadTypes(project string, readFile func(string) ([]byte, error)) ([]BibliographyType, error) {
-	file, err := readFile(pathbuilder.GetPathInProject(project, "bibliography_types.json"))
+	//TODO: migrate to bibliograohy_types
+	file, err := readFile(pathbuilder.GetPathInProject(project, "literature_types.json"))
 	if err != nil {
 		return []BibliographyType{}, err
 	}
