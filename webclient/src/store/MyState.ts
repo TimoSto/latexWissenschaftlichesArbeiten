@@ -1,4 +1,4 @@
-import {BibType} from "@/api/bibtypes/BibType";
+import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/Entry";
 import {Abbreviation} from "@/api/abbreviations/Abbreviation";
 

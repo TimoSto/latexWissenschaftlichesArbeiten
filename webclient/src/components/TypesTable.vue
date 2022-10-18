@@ -9,7 +9,7 @@
         <tr v-for="t in types" :key="t.Name">
           <td>{{t.Name}}</td>
           <td>{{t.CitaviType}}</td>
-          <td>{{t.Model}}</td>
+          <td v-html="t.Model"></td>
           <td></td>
         </tr>
       </tbody>
@@ -22,7 +22,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
-import {BibType} from "../api/bibtypes/BibType";
+import {BibType} from "../api/bibTypes/BibType";
 import CustomTableHead, {TableAction} from "./CustomTableHead.vue";
 
 export default Vue.extend({
