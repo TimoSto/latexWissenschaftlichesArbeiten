@@ -29,7 +29,10 @@
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Types)}}</v-expansion-panel-header>
           <v-expansion-panel-content>
-            {{currentProjectData_Types}}
+            <TypesTable
+                :types="currentProjectData_Types"
+              :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen'}]"
+            />
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -42,10 +45,11 @@
 import Vue from "vue";
 import {i18nDictionary} from "../../i18n/Keys";
 import EntryTable from "../../components/EntryTable.vue";
+import TypesTable from "../../components/TypesTable.vue";
 
 export default Vue.extend({
   name: "ProjectOverviewPage",
-  components: {EntryTable},
+  components: {TypesTable, EntryTable},
   data() {
     return {
       panels: [0],

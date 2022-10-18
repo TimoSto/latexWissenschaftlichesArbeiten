@@ -52,6 +52,11 @@ export type TranslationKeys = {
                 CiteCount: string
             },
             Types: string,
+            TypesTable: {
+                Name: string,
+                EntryExample: string,
+                CitaviType: string
+            }
         }
     },
     Config: {
@@ -114,6 +119,11 @@ export const i18nDictionary: TranslationKeys = {
                 CiteCount: 'Projects.Overview.EntriesTable.CiteCount'
             },
             Types: 'Projects.Overview.Types',
+            TypesTable: {
+                Name: 'Projects.Overview.TypesTable.Name',
+                EntryExample: 'Projects.Overview.TypesTable.EntryExample',
+                CitaviType: 'Projects.Overview.TypesTable.CitaviType'
+            }
         }
     },
     Config: {

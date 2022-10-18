@@ -52,7 +52,12 @@ export const EnglishTranslations: TranslationKeys = {
                 Entry: 'Entry bibliography',
                 CiteCount: 'Number of cites'
             },
-            Types: 'Categories for entries'
+            Types: 'Categories for entries',
+            TypesTable: {
+                Name: 'Name',
+                EntryExample: 'Example bibliogrpahy',
+                CitaviType: 'citavi-type'
+            }
         }
     },
     Config: {

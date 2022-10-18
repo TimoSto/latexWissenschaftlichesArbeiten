@@ -1,0 +1,51 @@
+<template>
+  <v-simple-table>
+    <template v-slot:default>
+      <CustomTableHead
+        :headers="headers"
+        :actions="actions" />
+
+      <tbody>
+        <tr v-for="t in types" :key="t.Name">
+          <td>{{t.Name}}</td>
+          <td>{{t.CitaviType}}</td>
+          <td>{{t.Model}}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </template>
+
+  </v-simple-table>
+  <!--TODO: pagination -->
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+import {i18nDictionary} from "../i18n/Keys";
+import {BibType} from "../api/bibtypes/BibType";
+import CustomTableHead, {TableAction} from "./CustomTableHead.vue";
+
+export default Vue.extend({
+  name: "TypesTable",
+  components: {CustomTableHead},
+  props: {
+    types: [] as unknown as () => BibType[],
+    actions: [] as unknown as () => TableAction[],
+  },
+
+  data() {
+    return {
+      i18nDictionary: i18nDictionary,
+      headers: [
+        this.$t(i18nDictionary.Projects.Overview.TypesTable.Name),
+        this.$t(i18nDictionary.Projects.Overview.TypesTable.CitaviType),
+        this.$t(i18nDictionary.Projects.Overview.TypesTable.EntryExample),
+      ]
+    }
+  }
+})
+</script>
+
+<style scoped>
+
+</style>

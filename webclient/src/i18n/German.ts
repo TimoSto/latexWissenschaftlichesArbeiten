@@ -52,7 +52,12 @@ export const GermanTranslations: TranslationKeys = {
                 Entry: 'Eintrag Literaturverzeichnis',
                 CiteCount: 'Anzahl Zitate'
             },
-            Types: 'Kategorien für Einträge'
+            Types: 'Kategorien für Einträge',
+            TypesTable: {
+                Name: 'Bezeichnung',
+                EntryExample: 'Beispiel Literaturverzeichnis',
+                CitaviType: 'Citavi-Kategorie'
+            }
         }
     },
     Config: {
