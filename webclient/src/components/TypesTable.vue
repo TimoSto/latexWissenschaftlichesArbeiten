@@ -37,9 +37,9 @@ export default Vue.extend({
     return {
       i18nDictionary: i18nDictionary,
       headers: [
-        this.$t(i18nDictionary.Projects.Overview.TypesTable.Name),
-        this.$t(i18nDictionary.Projects.Overview.TypesTable.CitaviType),
-        this.$t(i18nDictionary.Projects.Overview.TypesTable.EntryExample),
+        {Text: this.$t(i18nDictionary.Projects.Overview.TypesTable.Name)},
+        {Text: this.$t(i18nDictionary.Projects.Overview.TypesTable.CitaviType)},
+        {Text: this.$t(i18nDictionary.Projects.Overview.TypesTable.EntryExample)},
       ]
     }
   }

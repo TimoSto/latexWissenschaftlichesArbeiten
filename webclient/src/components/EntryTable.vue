@@ -38,10 +38,10 @@ export default Vue.extend({
     return {
       i18nDictionary: i18nDictionary,
       headers: [
-        this.$t(i18nDictionary.Projects.Overview.EntriesTable.Key),
-        this.$t(i18nDictionary.Projects.Overview.EntriesTable.Category),
-        this.$t(i18nDictionary.Projects.Overview.EntriesTable.Entry),
-        this.$t(i18nDictionary.Projects.Overview.EntriesTable.CiteCount)
+        {Text: this.$t(i18nDictionary.Projects.Overview.EntriesTable.Key)},
+        {Text: this.$t(i18nDictionary.Projects.Overview.EntriesTable.Category)},
+        {Text: this.$t(i18nDictionary.Projects.Overview.EntriesTable.Entry)},
+        {Text: this.$t(i18nDictionary.Projects.Overview.EntriesTable.CiteCount), Centered: true}
       ]
     }
   }
