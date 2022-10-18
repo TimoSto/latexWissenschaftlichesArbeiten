@@ -31,13 +31,18 @@ export default Vue.extend({
   components: {CustomTableHead},
   props: {
     entries: [] as unknown as () => BibEntry[],
-    headers: [] as unknown as () => string[],
     actions: [] as unknown as () => TableAction[],
   },
 
   data() {
     return {
       i18nDictionary: i18nDictionary,
+      headers: [
+        this.$t(i18nDictionary.Projects.Overview.EntriesTable.Key),
+        this.$t(i18nDictionary.Projects.Overview.EntriesTable.Category),
+        this.$t(i18nDictionary.Projects.Overview.EntriesTable.Entry),
+        this.$t(i18nDictionary.Projects.Overview.EntriesTable.CiteCount)
+      ]
     }
   }
 })
