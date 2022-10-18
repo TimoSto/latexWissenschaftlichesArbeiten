@@ -22,14 +22,14 @@
 <script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
-import {Entry} from "../api/entries/Entry";
+import {BibEntry} from "../api/bibEntries/Entry";
 import CustomTableHead, {TableAction} from "./CustomTableHead.vue";
 
 export default Vue.extend({
   name: "EntryTable",
   components: {CustomTableHead},
   props: {
-    entries: [] as unknown as () => Entry[],
+    entries: [] as unknown as () => BibEntry[],
     headers: [] as unknown as () => string[],
     actions: [] as unknown as () => TableAction[],
   },

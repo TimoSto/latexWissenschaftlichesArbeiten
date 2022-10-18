@@ -1,5 +1,5 @@
 import {BibType} from "@/api/bibtypes/BibType";
-import {BibEntry} from "@/api/entries/Entry";
+import {BibEntry} from "@/api/bibEntries/Entry";
 import {Abbreviation} from "@/api/abbreviations/Abbreviation";
 
 export interface ProjectData {
