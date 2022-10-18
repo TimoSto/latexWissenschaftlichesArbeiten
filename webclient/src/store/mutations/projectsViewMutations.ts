@@ -1,7 +1,7 @@
 import {MyState} from "@/store/MyState";
 import {ProjectData} from "@/api/projects/GetProjectData";
 import {BibType} from "@/api/bibTypes/BibType";
-import {GenerateModelForBibType} from "@/api/bibTypes/GenerateModelForBibTypes";
+import {GenerateModelFromFields} from "@/api/bibTypes/GenerateModelFromFields";
 
 export function SetCurrentProject(state: MyState, project: string) {
     state.ProjectView.CurrentProject = project;
@@ -22,7 +22,7 @@ export function SetProjectData(state: MyState, data: ProjectData) {
         if( !t.CitaviType || t.CitaviType === '' ) {
             data.BibTypes[i].CitaviType = '/';
         }
-        data.BibTypes[i].Model = GenerateModelForBibType(t.Fields)
+        data.BibTypes[i].Model = GenerateModelFromFields(t.Fields)
     })
     state.ProjectView.CurrentProjectData.bibTypes = data.BibTypes;
 }

@@ -1,6 +1,6 @@
 import {Field} from "@/api/bibTypes/BibType";
 
-export function GenerateModelForBibType(fields: Field[]): string{
+export function GenerateModelFromFields(fields: Field[]): string{
     let model = '';
     fields.forEach( (field: Field) => {
 
