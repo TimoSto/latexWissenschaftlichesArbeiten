@@ -5,6 +5,7 @@ import {GenerateModelFromFields} from "@/api/bibTypes/GenerateModelFromFields";
 import {BibEntry} from "@/api/bibEntries/Entry";
 import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
 import {ParseTeXToString} from "@/api/bibEntries/ParseTeXString";
+import ParseEntryToString from "@/api/bibEntries/ParseEntryToString";
 
 export function SetCurrentProject(state: MyState, project: string) {
     state.ProjectView.CurrentProject = project;
@@ -23,24 +24,7 @@ export function SetProjectData(state: MyState, data: ProjectData) {
         const bType = data.BibTypes.find(t => t.Name === e.Typ);
 
         if( bType ) {
-            const bibFieldNames = bType.Fields.map(f => f.Field);
-            const citeFields = bType.CiteFields.filter(f => bibFieldNames.indexOf(f.Field) === -1);
-
-            e.Fields.forEach((f:string, j: number) => {
-                if( j < bType.Fields.length ) {
-                    if( !bType.Fields[j].TexValue ) {
-                        data.BibEntries[i].Fields[j] = ParseTeXToString(f)
-                    }
-                } else {
-                    if( !citeFields[j - bibFieldNames.length].TexValue ) {
-                        data.BibEntries[i].Fields[j] = ParseTeXToString(f)
-                    }
-                }
-            })
-
-            const previews = GeneratePreviewsForBibEntry(bType.Fields, bType.CiteFields, e.Fields)
-            data.BibEntries[i].BibPreview = previews[0];
-            data.BibEntries[i].CitePreview = previews[1];
+            data.BibEntries[i] = ParseEntryToString(e, bType);
         }
     })
     state.ProjectView.CurrentProjectData.bibEntries = data.BibEntries;
