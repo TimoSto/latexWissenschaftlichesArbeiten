@@ -52,7 +52,7 @@ export default Vue.extend({
   components: {TypesTable, EntryTable},
   data() {
     return {
-      panels: [0],
+      panels: [0, 1],
       i18nDictionary: i18nDictionary
     }
   },
