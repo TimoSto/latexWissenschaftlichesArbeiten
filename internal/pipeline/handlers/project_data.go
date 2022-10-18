@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"ThesorTeX/internal/bibliography_types"
 	"ThesorTeX/internal/entries"
 	"ThesorTeX/pkg/logger"
 	"encoding/json"
@@ -11,6 +12,7 @@ import (
 
 type ProjectData struct {
 	BibEntries []entries.BibEntry
+	BibTypes   []bibliography_types.BibliographyType
 }
 
 func HandleGetProjectData(w http.ResponseWriter, r *http.Request) {
@@ -24,15 +26,27 @@ func HandleGetProjectData(w http.ResponseWriter, r *http.Request) {
 
 	project := keys[0]
 
-	entries, err := entries.ReadBibEntries(project, ioutil.ReadFile)
+	projEntries, err := entries.ReadBibEntries(project, ioutil.ReadFile)
 	if err != nil {
 		logger.LogError("Reading entries", err.Error())
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
+	projEntries = entries.SortEntries(projEntries)
+
+	bibTypes, err := bibliography_types.ReadTypes(project, ioutil.ReadFile)
+	if err != nil {
+		logger.LogError("Reading types", err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	bibTypes = bibliography_types.SortBibliographyTypes(bibTypes)
+
 	data := ProjectData{
-		BibEntries: entries,
+		BibEntries: projEntries,
+		BibTypes:   bibTypes,
 	}
 
 	jsonData, err := json.Marshal(data)

@@ -1,6 +1,6 @@
-package literature_types
+package bibliography_types
 
-type LiteratureType struct {
+type BibliographyType struct {
 	Name                  string
 	CitaviType            string
 	CitaviNecessaryFields []string //z.B. nur dieser Typ wenn doi existiert

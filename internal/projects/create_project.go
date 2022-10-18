@@ -59,7 +59,7 @@ func CreateNewProject(name string) (bool, error) {
 	var ueberschriften = templates.UeberschriftenSty
 	var html = templates.HtmlSty
 
-	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "literature_types.json"), []byte(json), 0644)
+	err = ioutil.WriteFile(pathbuilder.GetPathInProject(name, "bibliography_types.json"), []byte(json), 0644)
 	if err != nil {
 		return false, err
 	}
