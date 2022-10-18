@@ -14,7 +14,7 @@
       </v-btn>
     </v-app-bar>
     <v-sheet class="content-below-two-bars">
-      <v-expansion-panels tile flat hover focusable multiple v-model="panels">
+      <v-expansion-panels tile flat hover multiple v-model="panels">
 
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Entries)}}</v-expansion-panel-header>
