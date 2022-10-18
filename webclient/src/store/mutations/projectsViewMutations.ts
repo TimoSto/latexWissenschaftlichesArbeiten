@@ -2,6 +2,8 @@ import {MyState} from "@/store/MyState";
 import {ProjectData} from "@/api/projects/GetProjectData";
 import {BibType} from "@/api/bibTypes/BibType";
 import {GenerateModelFromFields} from "@/api/bibTypes/GenerateModelFromFields";
+import {BibEntry} from "@/api/bibEntries/Entry";
+import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
 
 export function SetCurrentProject(state: MyState, project: string) {
     state.ProjectView.CurrentProject = project;
@@ -16,7 +18,15 @@ export function AddProject(state: MyState, project: string) {
 }
 
 export function SetProjectData(state: MyState, data: ProjectData) {
-    console.log(data.BibTypes);
+    data.BibEntries.forEach((e:BibEntry, i: number) => {
+        data.BibTypes.forEach(t => {
+            if( t.Name === e.Typ ) {
+                const previews = GeneratePreviewsForBibEntry(t.Fields, t.CiteFields, e.Fields)
+                data.BibEntries[i].BibPreview = previews[0];
+                data.BibEntries[i].CitePreview = previews[1];
+            }
+        })
+    })
     state.ProjectView.CurrentProjectData.bibEntries = data.BibEntries;
     data.BibTypes.forEach((t: BibType, i: number) => {
         if( !t.CitaviType || t.CitaviType === '' ) {
