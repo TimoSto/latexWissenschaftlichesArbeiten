@@ -16,6 +16,7 @@ func CreateHandlerPipeline() []webserver.Resource {
 		{Pattern: "/saveConfig", Handler: http.HandlerFunc(handlers.HandleSaveConfig)},
 		{Pattern: "/createProject", Handler: http.HandlerFunc(handlers.HandleCreateProject)},
 		{Pattern: "/getProjectData", Handler: http.HandlerFunc(handlers.HandleGetProjectData)},
+		{Pattern: "/deleteProject", Handler: http.HandlerFunc(handlers.HandleDeleteProject)},
 	}
 
 	return handler

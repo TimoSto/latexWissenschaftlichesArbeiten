@@ -6,7 +6,8 @@ const ActionTypes = {
     },
     Projects: {
         CreateProject: 'Projects.CreateProject',
-        GetProjectData: 'Projects.GetProjectData'
+        GetProjectData: 'Projects.GetProjectData',
+        DeleteProject: 'Project.DeleteProject'
     }
 }
 

@@ -6,7 +6,7 @@
       <v-card-actions>
         <v-spacer />
         <v-btn text color="primary" @click="$emit('discard')">{{abort}}</v-btn>
-        <v-btn text color="primary">{{confirm}}</v-btn>
+        <v-btn text color="primary" @click="$emit('confirm')">{{confirm}}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

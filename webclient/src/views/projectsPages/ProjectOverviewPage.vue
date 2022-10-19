@@ -46,6 +46,7 @@
       :confirm="$t(i18nDictionary.Common.Delete)"
       :open="deleteOpen"
       v-on:discard="deleteOpen = false"
+      v-on:confirm="deleteThisProject"
     />
   </div>
 </template>
@@ -56,6 +57,7 @@ import {i18nDictionary} from "../../i18n/Keys";
 import EntryTable from "../../components/EntryTable.vue";
 import TypesTable from "../../components/TypesTable.vue";
 import ConfirmDialog from "../../components/ConfirmDialog.vue";
+import ActionTypes from "../../store/ActionTypes";
 
 export default Vue.extend({
   name: "ProjectOverviewPage",
@@ -82,6 +84,12 @@ export default Vue.extend({
       return this.$store.state.ProjectView.CurrentProjectData.bibTypes;
     }
 
+  },
+
+  methods: {
+    deleteThisProject() {
+      this.$store.dispatch(ActionTypes.Projects.DeleteProject, this.$store.state.ProjectView.CurrentProject);
+    }
   }
 })
 </script>
