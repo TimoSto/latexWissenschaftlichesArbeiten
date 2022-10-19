@@ -1,21 +1,23 @@
 <template>
-  <v-simple-table>
-    <template v-slot:default>
-      <CustomTableHead
-        :headers="headers"
-        :actions="actions" />
+  <div class="centered">
+    <v-simple-table style="max-width: 800px">
+      <template v-slot:default>
+        <CustomTableHead
+            :headers="headers"
+            :actions="actions" />
 
-      <tbody>
-        <tr v-for="t in types" :key="t.Name" v-ripple>
+        <tbody>
+        <tr v-for="t in types" :key="t.Name" style="cursor: pointer" v-ripple>
           <td>{{t.Name}}</td>
           <td>{{t.CitaviType}}</td>
           <td v-html="t.Model"></td>
           <td></td>
         </tr>
-      </tbody>
-    </template>
+        </tbody>
+      </template>
 
-  </v-simple-table>
+    </v-simple-table>
+  </div>
   <!--TODO: pagination -->
 </template>
 

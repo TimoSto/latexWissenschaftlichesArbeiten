@@ -1,11 +1,12 @@
 <template>
-  <v-simple-table>
-    <template v-slot:default>
-      <CustomTableHead
-        :headers="headers"
-        :actions="actions" />
+  <div class="centered">
+    <v-simple-table style="max-width: 800px">
+      <template v-slot:default>
+        <CustomTableHead
+            :headers="headers"
+            :actions="actions" />
 
-      <tbody>
+        <tbody>
         <tr v-for="e in entries" :key="e.Key" @click="$emit('select', e.Key)" style="cursor: pointer" v-ripple>
           <td>{{e.Key}}</td>
           <td>{{e.Typ}}</td>
@@ -13,10 +14,11 @@
           <td style="text-align: center">{{e.CiteNumber}}</td>
           <td></td>
         </tr>
-      </tbody>
-    </template>
+        </tbody>
+      </template>
 
-  </v-simple-table>
+    </v-simple-table>
+  </div>
   <!--TODO: pagination -->
 </template>
 
