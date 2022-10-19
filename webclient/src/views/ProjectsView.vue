@@ -1,5 +1,5 @@
 <template>
-  <NavArea>
+  <NavArea :editor="true" :layout="twoThirdsMode ? 'two-thrids' : 'half-screen'">
     <template v-slot:page1>
       <ProjectInfoPage v-if="currentProjectName === ''"/>
       <ProjectOverviewPage v-if="currentProjectName !== ''" />
@@ -20,7 +20,8 @@ export default Vue.extend({
   components: {ProjectOverviewPage, NavArea, ProjectInfoPage},
   data() {
     return {
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      twoThirdsMode: false
     }
   },
 
