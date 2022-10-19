@@ -2,6 +2,7 @@ import {MyState} from "@/store/MyState";
 
 export function SetCurrentView(state: MyState, view: string) {
     state.App.CurrentView = view;
+    state.ProjectView.CurrentProject = '';
 }
 
 export function SetProjectNames(state: MyState, projects: string[]) {
