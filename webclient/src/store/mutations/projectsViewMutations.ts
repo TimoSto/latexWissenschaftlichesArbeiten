@@ -3,8 +3,6 @@ import {ProjectData} from "@/api/projects/GetProjectData";
 import {BibType} from "@/api/bibTypes/BibType";
 import {GenerateModelFromFields} from "@/api/bibTypes/GenerateModelFromFields";
 import {BibEntry} from "@/api/bibEntries/Entry";
-import GeneratePreviewsForBibEntry from "@/api/bibEntries/GeneratePreviewsForBibEntry";
-import {ParseTeXToString} from "@/api/bibEntries/ParseTeXString";
 import ParseEntryToString from "@/api/bibEntries/ParseEntryToString";
 
 export function SetCurrentProject(state: MyState, project: string) {
