@@ -5,7 +5,7 @@
        color="background"
        elevate-on-scroll
        scroll-target="#sidebar-scroll-target"
-       style="flex: 0 1 auto"
+       style="flex: 0 1 auto;"
    >
 
      <v-toolbar-title v-if="!closed">{{title}}</v-toolbar-title>

@@ -20,7 +20,7 @@
 
     </v-app-bar>
 
-    <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped>
+    <v-navigation-drawer app v-model="drawer" permanent :mini-variant="drawer" clipped style="z-index: 100">
       <SidebarContent
           :title="$t(i18nDictionary.App.TitleAppendixProjects)"
           :closed="drawer" v-if="currentView === 'projects'"

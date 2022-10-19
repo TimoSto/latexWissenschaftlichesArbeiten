@@ -4,6 +4,8 @@
       dense
       color="background"
       elevate-on-scroll
+      scroll-target="#overview-scroll"
+      style="z-index: 99"
       >
       <v-toolbar-title style="font-style: italic">{{projectTitle}}</v-toolbar-title>
 
@@ -13,7 +15,7 @@
         <v-icon>mdi-delete</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-sheet class="content-below-two-bars">
+    <v-sheet class="content-below-two-bars" id="overview-scroll">
       <v-expansion-panels tile flat hover multiple v-model="panels">
 
         <v-expansion-panel>
