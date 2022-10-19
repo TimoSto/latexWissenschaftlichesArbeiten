@@ -2,6 +2,7 @@ package mockFileSystem
 
 import (
 	"ThesorTeX/internal/pathbuilder"
+	"ThesorTeX/internal/templates"
 	_ "embed"
 	"io/fs"
 	"os"
@@ -69,6 +70,12 @@ func ReadFile(name string) ([]byte, error) {
 	}
 	if parts[2] == "test2.tex" {
 		return []byte(test2_tex), nil
+	}
+
+	if parts[2] == "literature_types.json" {
+		if parts[1] == "template" {
+			return []byte(templates.LiteraturTypesTemplate), nil
+		}
 	}
 
 	return nil, nil
