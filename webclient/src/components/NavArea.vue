@@ -1,6 +1,6 @@
 <template>
-  <div style="display: flex;">
-    <div class="pages" :class="layoutClasses">
+  <div style="display: flex;" :class="layoutClasses">
+    <div class="pages">
       <div class="page page1">
         <slot name="page1"></slot>
       </div>
@@ -11,6 +11,7 @@
     <div class="edit-area">
       <slot name="edit-area"></slot>
     </div>
+
   </div>
 </template>
 
@@ -37,29 +38,40 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+.edit-area {
+  flex-grow: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.page, .edit-area {
+  transition: width .25s ease-in;
+}
+
 .pages {
   width: 100%;
+}
 
-  & .page1, & .page2, & .edit-area {
-    transition: width 0.25s ease-in-out;
+.edit-area {
+  width: 0;
+}
+
+.two-thirds {
+  & .pages {
+    width: 30%;
   }
-
-  &.half-screen {
-    & .page1{
-      width: 50%;
-    }
-    & .edit-area{
-      width: 50%;
-    }
-  }
-
-  &.two-thrids {
-    & .page1{
-      width: 30%;
-    }
-    & .edit-area{
-      width: 70%;
-    }
+  & .edit-area {
+    width: 70%;
   }
 }
+
+.half-screen {
+  & .pages {
+    width: 50%;
+  }
+  & .edit-area {
+    width: 50%;
+  }
+}
+
 </style>

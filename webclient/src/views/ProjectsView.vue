@@ -4,6 +4,9 @@
       <ProjectInfoPage v-if="currentProjectName === ''"/>
       <ProjectOverviewPage v-if="currentProjectName !== ''" />
     </template>
+    <template v-slot:edit-area>
+      <EntryEditor />
+    </template>
   </NavArea>
 </template>
 
@@ -14,10 +17,11 @@ import ProjectInfoPage from "./projectsPages/ProjectInfoPage.vue";
 import NavArea from "../components/NavArea.vue";
 import ProjectOverviewPage from "./projectsPages/ProjectOverviewPage.vue";
 import ActionTypes from "../store/ActionTypes";
+import EntryEditor from "./projectsPages/EntryEditor.vue";
 
 export default Vue.extend({
   name: "ProjectsView",
-  components: {ProjectOverviewPage, NavArea, ProjectInfoPage},
+  components: {EntryEditor, ProjectOverviewPage, NavArea, ProjectInfoPage},
   data() {
     return {
       i18nDictionary: i18nDictionary,
