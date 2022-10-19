@@ -3,6 +3,8 @@ export type TranslationKeys = {
     Common: {
         Discard: string
         Save: string
+        Abort: string
+        Delete: string
     },
     App: {
         TitleAppendixProjects: string
@@ -45,6 +47,10 @@ export type TranslationKeys = {
         },
         Overview: {
             DeleteProject: string,
+            DeleteProjectDialog: {
+                Title: string,
+                Content: string
+            },
             Entries: string,
             EntriesTable: {
                 Key: string,
@@ -70,7 +76,9 @@ export type TranslationKeys = {
 export const i18nDictionary: TranslationKeys = {
     Common: {
         Discard: 'Common.Discard',
-        Save: 'Common.Save'
+        Save: 'Common.Save',
+        Abort: 'Common.Abort',
+        Delete: 'Common.Delete'
     },
     App: {
         TitleAppendixProjects: 'App.TitleAppendixProjects',
@@ -113,6 +121,10 @@ export const i18nDictionary: TranslationKeys = {
         },
         Overview: {
             DeleteProject: 'Projects.Overview.DeleteProject',
+            DeleteProjectDialog: {
+                Title: 'Projects.Overview.DeleteProjectDialog.Title',
+                Content: 'Projects.Overview.DeleteProjectDialog.Content',
+            },
             Entries: 'Projects.Overview.Entries',
             EntriesTable: {
                 Key: 'Projects.Overview.EntriesTable.Key',
@@ -125,7 +137,7 @@ export const i18nDictionary: TranslationKeys = {
                 Name: 'Projects.Overview.TypesTable.Name',
                 EntryExample: 'Projects.Overview.TypesTable.EntryExample',
                 CitaviType: 'Projects.Overview.TypesTable.CitaviType'
-            }
+            },
         }
     },
     Config: {

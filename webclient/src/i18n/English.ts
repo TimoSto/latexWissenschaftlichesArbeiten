@@ -3,7 +3,9 @@ import {TranslationKeys} from "@/i18n/Keys";
 export const EnglishTranslations: TranslationKeys = {
     Common: {
         Discard: 'Discard',
-        Save: 'Save'
+        Save: 'Save',
+        Abort: 'Abort',
+        Delete: 'Delete'
     },
     App: {
         TitleAppendixProjects: 'Projects',
@@ -46,6 +48,10 @@ export const EnglishTranslations: TranslationKeys = {
         },
         Overview: {
             DeleteProject: 'Delete project',
+            DeleteProjectDialog: {
+                Title: 'Delete current project?',
+                Content: 'Are you sure you want to delete the current project? Your backups will remain.',
+            },
             Entries: 'Entries in bibliography',
             EntriesTable: {
                 Key: 'Key',

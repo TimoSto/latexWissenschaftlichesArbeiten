@@ -40,10 +40,10 @@
     </v-sheet>
 
     <ConfirmDialog
-      :title="'Projekt löschen'"
-      :content="'Sicher dass du lsöchen willst'"
-      :abort="'Abbrechen'"
-      :confirm="'Löschen'"
+      :title="$t(i18nDictionary.Projects.Overview.DeleteProjectDialog.Title)"
+      :content="$t(i18nDictionary.Projects.Overview.DeleteProjectDialog.Content)"
+      :abort="$t(i18nDictionary.Common.Abort)"
+      :confirm="$t(i18nDictionary.Common.Delete)"
       :open="deleteOpen"
       v-on:discard="deleteOpen = false"
     />
