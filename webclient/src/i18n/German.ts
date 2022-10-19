@@ -45,6 +45,7 @@ export const GermanTranslations: TranslationKeys = {
             NoSpaces: 'Keine Leerzeichen im Projektnamen erlaubt'
         },
         Overview: {
+            DeleteProject: 'Projekt löschen',
             Entries: 'Einträge im Literaturverzeichnis',
             EntriesTable: {
                 Key: 'Schlüssel',

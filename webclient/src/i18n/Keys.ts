@@ -44,6 +44,7 @@ export type TranslationKeys = {
             NoSpaces: string
         },
         Overview: {
+            DeleteProject: string,
             Entries: string,
             EntriesTable: {
                 Key: string,
@@ -111,6 +112,7 @@ export const i18nDictionary: TranslationKeys = {
             NoSpaces: 'Projects.New.NoSpaces'
         },
         Overview: {
+            DeleteProject: 'Projects.Overview.DeleteProject',
             Entries: 'Projects.Overview.Entries',
             EntriesTable: {
                 Key: 'Projects.Overview.EntriesTable.Key',

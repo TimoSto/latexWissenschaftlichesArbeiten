@@ -45,6 +45,7 @@ export const EnglishTranslations: TranslationKeys = {
             NoSpaces: 'No Spaces in project name allowed'
         },
         Overview: {
+            DeleteProject: 'Delete project',
             Entries: 'Entries in bibliography',
             EntriesTable: {
                 Key: 'Key',

@@ -9,8 +9,8 @@
 
       <v-spacer />
 
-      <v-btn icon>
-        <v-icon>mdi-content-save</v-icon>
+      <v-btn icon :title="$t(i18nDictionary.Projects.Overview.DeleteProject)">
+        <v-icon>mdi-delete</v-icon>
       </v-btn>
     </v-app-bar>
     <v-sheet class="content-below-two-bars">
