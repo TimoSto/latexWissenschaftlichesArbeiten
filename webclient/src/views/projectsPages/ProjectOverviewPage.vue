@@ -18,7 +18,7 @@
 
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Entries)}}</v-expansion-panel-header>
-          <v-expansion-panel-content>
+          <v-expansion-panel-content class="content-width-padding">
             <EntryTable
                 :entries="currentProjectData_Entries"
                 :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen'}]"
@@ -28,7 +28,7 @@
 
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Types)}}</v-expansion-panel-header>
-          <v-expansion-panel-content>
+          <v-expansion-panel-content class="content-width-padding">
             <TypesTable
                 :types="currentProjectData_Types"
               :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen'}]"
@@ -76,5 +76,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
+.content-width-padding {
+  padding: 8px;
+}
 </style>

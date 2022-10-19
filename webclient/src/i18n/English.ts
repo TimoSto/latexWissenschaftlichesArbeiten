@@ -54,7 +54,7 @@ export const EnglishTranslations: TranslationKeys = {
             },
             Types: 'Categories for entries',
             TypesTable: {
-                Name: 'Name',
+                Name: 'Category',
                 EntryExample: 'Example bibliogrpahy',
                 CitaviType: 'citavi-type'
             }

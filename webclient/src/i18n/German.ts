@@ -54,7 +54,7 @@ export const GermanTranslations: TranslationKeys = {
             },
             Types: 'Kategorien für Einträge',
             TypesTable: {
-                Name: 'Bezeichnung',
+                Name: 'Kategorie',
                 EntryExample: 'Beispiel Literaturverzeichnis',
                 CitaviType: 'Citavi-Kategorie'
             }
