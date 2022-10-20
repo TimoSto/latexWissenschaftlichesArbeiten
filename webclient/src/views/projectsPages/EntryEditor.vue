@@ -6,13 +6,29 @@
         dense
         >
       <v-toolbar-title>Eintrag</v-toolbar-title>
+
+      <v-spacer />
+
+      <v-btn icon :title="$t(i18nDictionary.Common.Delete)" >
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
+      <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
     </v-app-bar>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import {i18nDictionary} from "@/i18n/Keys";
+
 export default {
-  name: "EntryEditor"
+  name: "EntryEditor",
+  data() {
+    return {
+      i18nDictionary: i18nDictionary,
+    }
+  }
 }
 </script>
 

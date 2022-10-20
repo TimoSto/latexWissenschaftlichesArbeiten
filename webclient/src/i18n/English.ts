@@ -5,7 +5,8 @@ export const EnglishTranslations: TranslationKeys = {
         Discard: 'Discard',
         Save: 'Save',
         Abort: 'Abort',
-        Delete: 'Delete'
+        Delete: 'Delete',
+        Close: 'Close'
     },
     App: {
         TitleAppendixProjects: 'Projects',

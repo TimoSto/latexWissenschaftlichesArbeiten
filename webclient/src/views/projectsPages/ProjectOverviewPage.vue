@@ -24,6 +24,7 @@
             <EntryTable
                 :entries="currentProjectData_Entries"
                 :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen'}]"
+                v-on:select="$emit('openEditor', {Type: 'entry', Element: $event})"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>

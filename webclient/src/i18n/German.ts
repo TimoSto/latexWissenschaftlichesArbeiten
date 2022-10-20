@@ -5,7 +5,8 @@ export const GermanTranslations: TranslationKeys = {
         Discard: 'Abbrechen',
         Save: 'Speichern',
         Abort: 'Abbrechen',
-        Delete: 'Löschen'
+        Delete: 'Löschen',
+        Close: 'Schließen'
     },
     App: {
         TitleAppendixProjects: 'Projekte',

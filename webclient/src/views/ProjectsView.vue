@@ -1,11 +1,14 @@
 <template>
-  <NavArea :editor="true" :layout="twoThirdsMode ? 'two-thrids' : 'half-screen'">
+  <NavArea :editor="editorOpen" :layout="twoThirdsMode ? 'two-thrids' : 'half-screen'">
     <template v-slot:page1>
       <ProjectInfoPage v-if="currentProjectName === ''"/>
-      <ProjectOverviewPage v-if="currentProjectName !== ''" />
+      <ProjectOverviewPage v-if="currentProjectName !== ''" v-on:openEditor="openEditor($event)"/>
     </template>
     <template v-slot:edit-area>
-      <EntryEditor />
+      <EntryEditor
+          v-if="editorType === 'entry'"
+          v-on:closeEditor="openEditor({Type: '', Element: ''})"
+      />
     </template>
   </NavArea>
 </template>
@@ -19,13 +22,20 @@ import ProjectOverviewPage from "./projectsPages/ProjectOverviewPage.vue";
 import ActionTypes from "../store/ActionTypes";
 import EntryEditor from "./projectsPages/EntryEditor.vue";
 
+export interface EditorEvent {
+  Type: string
+  Element: string
+}
+
 export default Vue.extend({
   name: "ProjectsView",
   components: {EntryEditor, ProjectOverviewPage, NavArea, ProjectInfoPage},
   data() {
     return {
       i18nDictionary: i18nDictionary,
-      twoThirdsMode: false
+      twoThirdsMode: false,
+      editorType: '',
+      editorElement: ''
     }
   },
 
@@ -41,6 +51,16 @@ export default Vue.extend({
   computed: {
     currentProjectName() {
       return this.$store.state.ProjectView.CurrentProject;
+    },
+    editorOpen() {
+      return this.$data.editorType !== ' ' && this.$data.editorElement !== ''
+    }
+  },
+
+  methods: {
+    openEditor(evt: EditorEvent) {
+      this.editorElement = evt.Element;
+      this.editorType = evt.Type;
     }
   }
 })

@@ -5,6 +5,7 @@ export type TranslationKeys = {
         Save: string
         Abort: string
         Delete: string
+        Close: string
     },
     App: {
         TitleAppendixProjects: string
@@ -78,7 +79,8 @@ export const i18nDictionary: TranslationKeys = {
         Discard: 'Common.Discard',
         Save: 'Common.Save',
         Abort: 'Common.Abort',
-        Delete: 'Common.Delete'
+        Delete: 'Common.Delete',
+        Close: 'Common.Close'
     },
     App: {
         TitleAppendixProjects: 'App.TitleAppendixProjects',

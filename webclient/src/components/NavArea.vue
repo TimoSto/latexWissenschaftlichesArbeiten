@@ -44,7 +44,7 @@ export default Vue.extend({
   overflow: hidden;
 }
 
-.page, .edit-area {
+.pages, .edit-area {
   transition: width .25s ease-in;
 }
 
@@ -54,6 +54,7 @@ export default Vue.extend({
 
 .edit-area {
   width: 0;
+  z-index: 100;
 }
 
 .two-thirds {
