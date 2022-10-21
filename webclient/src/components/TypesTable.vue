@@ -7,7 +7,7 @@
             :actions="actions" />
 
         <tbody>
-        <tr v-for="t in types" :key="t.Name" style="cursor: pointer" v-ripple>
+        <tr v-for="t in types" :key="t.Name" style="cursor: pointer" v-ripple @click="$emit('select', t.Name)">
           <td>{{t.Name}}</td>
           <td>{{t.CitaviType}}</td>
           <td v-html="t.Model"></td>

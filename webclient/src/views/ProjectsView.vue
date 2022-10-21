@@ -11,6 +11,12 @@
           v-on:toggleTwoThirds="toggleTwoThirds"
           :layoutBtnContent="layoutBtnContent"
       />
+      <CategoryEditor
+          v-if="editorType === 'category'"
+          v-on:closeEditor="openEditor({Type: '', Element: ''})"
+          v-on:toggleTwoThirds="toggleTwoThirds"
+          :layoutBtnContent="layoutBtnContent"
+      />
     </template>
   </NavArea>
 </template>
@@ -23,6 +29,7 @@ import NavArea from "../components/NavArea.vue";
 import ProjectOverviewPage from "./projectsPages/ProjectOverviewPage.vue";
 import ActionTypes from "../store/ActionTypes";
 import EntryEditor from "./projectsPages/EntryEditor.vue";
+import CategoryEditor from "./projectsPages/CategoryEditor.vue";
 
 export interface EditorEvent {
   Type: string
@@ -31,7 +38,7 @@ export interface EditorEvent {
 
 export default Vue.extend({
   name: "ProjectsView",
-  components: {EntryEditor, ProjectOverviewPage, NavArea, ProjectInfoPage},
+  components: {CategoryEditor, EntryEditor, ProjectOverviewPage, NavArea, ProjectInfoPage},
   data() {
     return {
       i18nDictionary: i18nDictionary,
