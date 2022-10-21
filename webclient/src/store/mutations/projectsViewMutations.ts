@@ -27,9 +27,6 @@ export function SetProjectData(state: MyState, data: ProjectData) {
     })
     state.ProjectView.CurrentProjectData.bibEntries = data.BibEntries;
     data.BibTypes.forEach((t: BibType, i: number) => {
-        if( !t.CitaviType || t.CitaviType === '' ) {
-            data.BibTypes[i].CitaviType = '/';
-        }
         data.BibTypes[i].Model = GenerateModelFromFields(t.Fields)
     })
     state.ProjectView.CurrentProjectData.bibTypes = data.BibTypes;
