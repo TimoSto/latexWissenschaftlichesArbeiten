@@ -3,7 +3,7 @@
     <v-app-bar
         color="background"
         elevate-on-scroll
-        scroll-target="#categroy-editor-scroll"
+        scroll-target="#category-editor-scroll"
         dense
         >
       <v-toolbar-title>{{$t(i18nDictionary.Projects.CategoryEditor.Title)}}</v-toolbar-title>
@@ -26,7 +26,7 @@
 
         <v-expansion-panel>
           <v-expansion-panel-header>
-            Eigenschaften
+            {{$t(i18nDictionary.Projects.CategoryEditor.Properties)}}
           </v-expansion-panel-header>
 
           <v-expansion-panel-content class="content-with-padding">
@@ -34,23 +34,23 @@
               <v-simple-table class="attr-value-table" style="max-width: 500px">
                 <tbody>
                 <tr>
-                  <td>Initiale Bezeichnung</td>
+                  <td>{{$t(i18nDictionary.Projects.CategoryEditor.InitialName)}}</td>
                   <td style="font-style: italic">hallo</td>
                 </tr>
                 <tr>
-                  <td>Bezeichnung</td>
+                  <td>{{$t(i18nDictionary.Projects.CategoryEditor.Name)}}</td>
                   <td>
                     <v-text-field type="string"></v-text-field>
                   </td>
                 </tr>
                 <tr>
-                  <td>Citavi-Kategorie</td>
+                  <td>{{$t(i18nDictionary.Projects.CategoryEditor.CitaviCategory)}}</td>
                   <td>
                     <v-text-field type="string"></v-text-field>
                   </td>
                 </tr>
                 <tr>
-                  <td>Citavi-Attribute</td>
+                  <td>{{$t(i18nDictionary.Projects.CategoryEditor.CitaviNecessaryFields)}}</td>
                   <td>
                     <v-text-field type="string"></v-text-field>
                   </td>

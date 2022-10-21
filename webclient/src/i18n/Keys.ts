@@ -68,6 +68,11 @@ export type TranslationKeys = {
         },
         CategoryEditor: {
             Title: string
+            Properties: string
+            InitialName: string
+            Name: string
+            CitaviCategory: string,
+            CitaviNecessaryFields: string
         }
     },
     Config: {
@@ -145,7 +150,12 @@ export const i18nDictionary: TranslationKeys = {
             },
         },
         CategoryEditor: {
-            Title: 'Projects.CategoryEditor.Title'
+            Title: 'Projects.CategoryEditor.Title',
+            Properties: 'Projects.CategoryEditor.Properties',
+            InitialName: 'Projects.CategoryEditor.InitialName',
+            Name: 'Projects.CategoryEditor.Name',
+            CitaviCategory: 'Projects.CategoryEditor.CitaviCategory',
+            CitaviNecessaryFields: 'Projects.CategoryEditor.CitaviNecessaryFields'
         }
     },
     Config: {

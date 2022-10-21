@@ -68,7 +68,12 @@ export const GermanTranslations: TranslationKeys = {
             }
         },
         CategoryEditor: {
-            Title: 'Kategorie bearbeiten'
+            Title: 'Kategorie bearbeiten',
+            Properties: 'Eigenschaften',
+            InitialName: 'Bezeichnung',
+            Name: 'Neue Bezeichnung',
+            CitaviCategory: 'Citavi-Kategorie',
+            CitaviNecessaryFields: 'Citavi-Pflichtfelder'
         }
     },
     Config: {
