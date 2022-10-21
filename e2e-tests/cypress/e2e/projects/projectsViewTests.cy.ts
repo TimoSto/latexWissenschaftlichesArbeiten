@@ -49,12 +49,12 @@ describe('projectsView', ()=> {
 
         it('after switch to test', () => {
             AppActions.ClickSidebarItem(0);
-            AppAssertions.AssertUrlHashIs('#/projects/test');
+            AppAssertions.AssertUrlHashIs('#/projects/testName');
         })
 
         it('after reload', () => {
             cy.reload();
-            AppAssertions.AssertUrlHashIs('#/projects/test');
+            AppAssertions.AssertUrlHashIs('#/projects/testName');
         })
     })
 })

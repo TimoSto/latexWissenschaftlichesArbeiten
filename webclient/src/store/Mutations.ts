@@ -1,7 +1,7 @@
 import {MutationTree} from "vuex";
 import {MyState} from "@/store/MyState";
 import MutationTypes from "@/store/MutationTypes";
-import {SetConfig, SetCurrentView, SetProjectNames} from "@/store/mutations/appMutations";
+import {RemoveProject, SetConfig, SetCurrentView, SetProjectNames} from "@/store/mutations/appMutations";
 import {AddProject, SetCurrentProject, SetProjectData} from "@/store/mutations/projectsViewMutations";
 import {ProjectData} from "@/api/projects/GetProjectData";
 
@@ -23,5 +23,8 @@ export const mutations: MutationTree<MyState> = {
     },
     [MutationTypes.App.SetConfig](state: MyState, payload: { AutoOpenBrowser: boolean, DarkMode: boolean, Port: string }) {
         SetConfig(state, payload);
+    },
+    [MutationTypes.App.RemoveProject](state: MyState, payload: string) {
+        RemoveProject(state, payload);
     },
 }

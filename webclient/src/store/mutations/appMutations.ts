@@ -18,3 +18,10 @@ export function SetConfig(state: MyState, config: { AutoOpenBrowser: boolean, Da
     state.App.Config.Port = config.Port;
     state.App.Loaded = true;
 }
+
+export function RemoveProject(state: MyState, project: string) {
+    const i = state.App.ProjectNames.indexOf(project);
+    if( i !== -1 ) {
+        state.App.ProjectNames.splice(i, 1);
+    }
+}

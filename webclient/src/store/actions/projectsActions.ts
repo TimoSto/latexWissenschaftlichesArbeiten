@@ -25,6 +25,7 @@ export async function DeleteProjectAction(commit: (type: string,payload?: any,op
     const ok = await DeleteProject(project);
 
     if( ok ) {
-
+        commit(MutationTypes.ProjectView.SetCurrentProject, '');
+        commit(MutationTypes.App.RemoveProject, project);
     }
 }

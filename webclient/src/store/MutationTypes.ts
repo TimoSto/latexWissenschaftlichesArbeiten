@@ -3,7 +3,8 @@ const MutationTypes = {
     App: {
         SetCurrentView: 'App.SetCurrentView',
         SetProjectNames: 'App.SetProjectNames',
-        SetConfig: 'App.SetConfig'//TODO: remove deleted project
+        SetConfig: 'App.SetConfig',
+        RemoveProject: 'App.RemoveProject'
     },
     ProjectView: {
         SetCurrentProject: 'ProjectView.SetCurrentProject',

@@ -63,14 +63,10 @@ describe('Creating project', () => {
             })
             it('switch back to first project', () => {
                 AppActions.ClickSidebarItem(0)
-                AppAssertions.AssertUrlHashIs('#/projects/test')
-                AppAssertions.AssertSidebarInfoBtnNotDisabled();
-                ProjectAssertions.AssertOverviewTitleIs('test');
-                AppActions.ClickSidebarItem(1)
                 AppAssertions.AssertUrlHashIs('#/projects/testName')
                 AppAssertions.AssertSidebarInfoBtnNotDisabled();
                 ProjectAssertions.AssertOverviewTitleIs('testName');
-                AppActions.ClickSidebarItem(2)
+                AppActions.ClickSidebarItem(1)
                 AppAssertions.AssertUrlHashIs('#/projects/testName2')
                 AppAssertions.AssertSidebarInfoBtnNotDisabled();
                 ProjectAssertions.AssertOverviewTitleIs('testName2');

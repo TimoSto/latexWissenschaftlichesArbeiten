@@ -50,10 +50,20 @@ export default Vue.extend({
 
   watch: {
     currentProjectName(nv) {
+      console.log(nv.length)
       if( nv && nv.length > 0 ) {
         this.$store.dispatch(ActionTypes.Projects.GetProjectData, nv);
+        if( this.$route.path !== `/projects/${nv}` ) {
+          this.$router.push(`/projects/${nv}`);
+        }
+      } else if( nv.length === 0 ) {
+        console.log(this.$route.path)
+        if( this.$route.path !== '/projects' ) {
+          this.$router.push('/projects');
+        }
       }
       this.openEditor({Type: '', Element: ''});
+
     }
   },
 
