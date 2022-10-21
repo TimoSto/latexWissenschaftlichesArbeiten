@@ -53,6 +53,7 @@ export default Vue.extend({
       if( nv && nv.length > 0 ) {
         this.$store.dispatch(ActionTypes.Projects.GetProjectData, nv);
       }
+      this.openEditor({Type: '', Element: ''});
     }
   },
 
