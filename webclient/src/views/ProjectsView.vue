@@ -7,15 +7,16 @@
     <template v-slot:edit-area>
       <EntryEditor
           v-if="editorType === 'entry'"
-          v-on:closeEditor="openEditor({Type: '', Element: ''})"
+          v-on:closeEditor="openEditor({Type: '', Element: -1})"
           v-on:toggleTwoThirds="toggleTwoThirds"
           :layoutBtnContent="layoutBtnContent"
       />
       <CategoryEditor
           v-if="editorType === 'category'"
-          v-on:closeEditor="openEditor({Type: '', Element: ''})"
+          v-on:closeEditor="openEditor({Type: '', Element: -1})"
           v-on:toggleTwoThirds="toggleTwoThirds"
           :layoutBtnContent="layoutBtnContent"
+          :index="editorElement"
       />
     </template>
   </NavArea>
@@ -33,7 +34,7 @@ import CategoryEditor from "./projectsPages/CategoryEditor.vue";
 
 export interface EditorEvent {
   Type: string
-  Element: string
+  Element: number
 }
 
 export default Vue.extend({
@@ -44,13 +45,12 @@ export default Vue.extend({
       i18nDictionary: i18nDictionary,
       twoThirdsMode: false,
       editorType: '',
-      editorElement: ''
+      editorElement: -1
     }
   },
 
   watch: {
     currentProjectName(nv) {
-      console.log(nv.length)
       if( nv && nv.length > 0 ) {
         this.$store.dispatch(ActionTypes.Projects.GetProjectData, nv);
         if( this.$route.path !== `/projects/${nv}` ) {
@@ -62,7 +62,7 @@ export default Vue.extend({
           this.$router.push('/projects');
         }
       }
-      this.openEditor({Type: '', Element: ''});
+      this.openEditor({Type: '', Element: -1});
 
     }
   },
@@ -72,7 +72,7 @@ export default Vue.extend({
       return this.$store.state.ProjectView.CurrentProject;
     },
     editorOpen() {
-      return this.$data.editorType !== '' && this.$data.editorElement !== ''
+      return this.$data.editorType !== '' && this.$data.editorElement !== -1
     },
     layoutBtnContent() {
       if( this.$data.twoThirdsMode ) {

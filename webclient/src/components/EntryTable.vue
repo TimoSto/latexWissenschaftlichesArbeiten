@@ -7,7 +7,7 @@
             :actions="actions" />
 
         <tbody>
-        <tr v-for="e in entries" :key="e.Key" @click="$emit('select', e.Key)" style="cursor: pointer" v-ripple>
+        <tr v-for="(e, i) in entries" :key="e.Key" @click="$emit('select', i)" style="cursor: pointer" v-ripple>
           <td>{{e.Key}}</td>
           <td>{{e.Typ}}</td>
           <td v-html="e.BibPreview"></td>

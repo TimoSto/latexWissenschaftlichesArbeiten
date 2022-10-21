@@ -35,24 +35,33 @@
                 <tbody>
                 <tr>
                   <td>{{$t(i18nDictionary.Projects.CategoryEditor.InitialName)}}</td>
-                  <td style="font-style: italic">hallo</td>
+                  <td style="font-style: italic">{{initialName}}</td>
                 </tr>
                 <tr>
                   <td>{{$t(i18nDictionary.Projects.CategoryEditor.Name)}}</td>
                   <td>
-                    <v-text-field type="string"></v-text-field>
+                    <v-text-field
+                        type="string"
+                        v-model="name"
+                    />
                   </td>
                 </tr>
                 <tr>
                   <td>{{$t(i18nDictionary.Projects.CategoryEditor.CitaviCategory)}}</td>
                   <td>
-                    <v-text-field type="string"></v-text-field>
+                    <v-text-field
+                        type="string"
+                        v-model="citaviCategory"
+                    />
                   </td>
                 </tr>
                 <tr>
                   <td>{{$t(i18nDictionary.Projects.CategoryEditor.CitaviNecessaryFields)}}</td>
                   <td>
-                    <v-text-field type="string"></v-text-field>
+                    <v-text-field
+                        type="string"
+                        v-model="citaviNecessaryFields"
+                    />
                   </td>
                 </tr>
                 </tbody>
@@ -69,18 +78,45 @@
 
 <script lang="ts">
 import {i18nDictionary} from "@/i18n/Keys";
+import Vue from "vue";
 
-export default {
+export default Vue.extend({
   name: "CategoryEditor",
   props: [
-      'layoutBtnContent'
+      'layoutBtnContent',
+      'index'
   ],
   data() {
     return {
       i18nDictionary: i18nDictionary,
+      name: '',
+      citaviCategory: '',
+      citaviNecessaryFields: [] as string[]
+    }
+  },
+  computed: {
+    initialName(): string {
+      return this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name;
+    }
+  },
+  watch: {
+    index() {
+      this.setTypeToEdit();
+    }
+  },
+  mounted() {
+    if( this.index >= 0 ) {
+      this.setTypeToEdit();
+    }
+  },
+  methods: {
+    setTypeToEdit() {
+      this.name = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name;
+      this.citaviCategory = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType;
+      this.citaviNecessaryFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields;
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
