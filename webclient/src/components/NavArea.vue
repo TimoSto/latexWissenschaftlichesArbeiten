@@ -50,6 +50,15 @@ export default Vue.extend({
 
 .pages {
   width: 100%;
+  box-sizing: border-box;
+}
+
+.theme--light .pages {
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.theme--dark .pages {
+  border-right: 1px solid rgba(255,255,255,0.1);
 }
 
 .edit-area {
