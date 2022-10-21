@@ -1,5 +1,5 @@
 <template>
-  <NavArea :editor="editorOpen" :layout="twoThirdsMode ? 'two-thrids' : 'half-screen'">
+  <NavArea :editor="editorOpen" :layout="twoThirdsMode ? 'two-thirds' : 'half-screen'">
     <template v-slot:page1>
       <ProjectInfoPage v-if="currentProjectName === ''"/>
       <ProjectOverviewPage v-if="currentProjectName !== ''" v-on:openEditor="openEditor($event)"/>
@@ -8,6 +8,8 @@
       <EntryEditor
           v-if="editorType === 'entry'"
           v-on:closeEditor="openEditor({Type: '', Element: ''})"
+          v-on:toggleTwoThirds="toggleTwoThirds"
+          :layoutBtnContent="layoutBtnContent"
       />
     </template>
   </NavArea>
@@ -41,7 +43,6 @@ export default Vue.extend({
 
   watch: {
     currentProjectName(nv) {
-      console.log(nv)
       if( nv && nv.length > 0 ) {
         this.$store.dispatch(ActionTypes.Projects.GetProjectData, nv);
       }
@@ -53,14 +54,28 @@ export default Vue.extend({
       return this.$store.state.ProjectView.CurrentProject;
     },
     editorOpen() {
-      return this.$data.editorType !== ' ' && this.$data.editorElement !== ''
-    }
+      return this.$data.editorType !== '' && this.$data.editorElement !== ''
+    },
+    layoutBtnContent() {
+      if( this.$data.twoThirdsMode ) {
+        return [
+          '&#189;',
+          this.$t(this.$data.i18nDictionary.APP_50_50_LAYOUT)
+        ]
+      }
+      return [
+        '&#8532;',
+        this.$t(this.$data.i18nDictionary.APP_30_70_LAYOUT)
+      ]
+    },
   },
-
   methods: {
     openEditor(evt: EditorEvent) {
       this.editorElement = evt.Element;
       this.editorType = evt.Type;
+    },
+    toggleTwoThirds() {
+      this.twoThirdsMode = !this.twoThirdsMode;
     }
   }
 })

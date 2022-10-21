@@ -173,7 +173,6 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.App.SetCurrentView, view)
     },
     handleProjectSelect(n: number) {
-      console.log(n)
       //if switch unsafe: (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n); for backswitch
       if( n !== -1 ) {
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n]);

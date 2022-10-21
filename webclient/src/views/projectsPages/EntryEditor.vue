@@ -9,6 +9,9 @@
 
       <v-spacer />
 
+      <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
+        <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
+      </v-btn>
       <v-btn icon :title="$t(i18nDictionary.Common.Delete)" >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
@@ -24,6 +27,9 @@ import {i18nDictionary} from "@/i18n/Keys";
 
 export default {
   name: "EntryEditor",
+  props: [
+      'layoutBtnContent'
+  ],
   data() {
     return {
       i18nDictionary: i18nDictionary,

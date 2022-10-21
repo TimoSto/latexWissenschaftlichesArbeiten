@@ -28,8 +28,8 @@ export default Vue.extend({
     layoutClasses(): string[] {
       if( !this.editor ) {
         return ["full-screen"]
-      } else if ( this.layout === 'two-thrids' ) {
-        return ['two-thrids']
+      } else if ( this.layout === 'two-thirds' ) {
+        return ['two-thirds']
       }
       return ['half-screen']
     }
