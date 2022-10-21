@@ -58,3 +58,6 @@ export function AssertNewDialogValueIs(v) {
     cy.get('#newDialog').should('be.visible').find('.v-text-field').find('input').should('have.value', v);
 }
 
+export function AssertSidebarHasItems(n) {
+    cy.get('nav').find('.v-list-item').should('have.length', n);
+}

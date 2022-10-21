@@ -26,3 +26,7 @@ export function ClickOverlay() {
 export function NewDialogSaveClick() {
     cy.get('#newDialog').should('be.visible').find('.v-btn').contains('Speichern').parent().click();
 }
+
+export function ClickInDialog(selector, i) {
+    cy.get('.v-dialog:visible').find(selector).eq(i).click();
+}
