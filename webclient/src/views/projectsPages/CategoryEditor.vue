@@ -16,6 +16,9 @@
       <v-btn icon :title="$t(i18nDictionary.Common.Delete)" >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
+      <v-btn icon :disabled="!saveNecessary">
+        <v-icon>mdi-content-save</v-icon>
+      </v-btn>
       <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -97,6 +100,11 @@ export default Vue.extend({
   computed: {
     initialName(): string {
       return this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name;
+    },
+    saveNecessary(): boolean {
+      return this.name !== this.initialName ||
+          this.citaviCategory !== this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviCategory;
+
     }
   },
   watch: {
