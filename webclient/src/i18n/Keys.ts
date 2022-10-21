@@ -65,6 +65,9 @@ export type TranslationKeys = {
                 EntryExample: string,
                 CitaviType: string
             }
+        },
+        CategoryEditor: {
+            Title: string
         }
     },
     Config: {
@@ -140,6 +143,9 @@ export const i18nDictionary: TranslationKeys = {
                 EntryExample: 'Projects.Overview.TypesTable.EntryExample',
                 CitaviType: 'Projects.Overview.TypesTable.CitaviType'
             },
+        },
+        CategoryEditor: {
+            Title: 'Projects.CategoryEditor.Title'
         }
     },
     Config: {

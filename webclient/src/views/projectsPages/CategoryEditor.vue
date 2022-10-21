@@ -3,9 +3,10 @@
     <v-app-bar
         color="background"
         elevate-on-scroll
+        scroll-target="#categroy-editor-scroll"
         dense
         >
-      <v-toolbar-title>Kategorie</v-toolbar-title>
+      <v-toolbar-title>{{$t(i18nDictionary.Projects.CategoryEditor.Title)}}</v-toolbar-title>
 
       <v-spacer />
 
@@ -19,6 +20,50 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-app-bar>
+    <v-sheet class="content-below-two-bars" id="category-editor-scroll">
+
+      <v-expansion-panels tile flat hover multiple>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            Eigenschaften
+          </v-expansion-panel-header>
+
+          <v-expansion-panel-content class="content-with-padding">
+            <div class="centered">
+              <v-simple-table class="attr-value-table" style="max-width: 500px">
+                <tbody>
+                <tr>
+                  <td>Initiale Bezeichnung</td>
+                  <td style="font-style: italic">hallo</td>
+                </tr>
+                <tr>
+                  <td>Bezeichnung</td>
+                  <td>
+                    <v-text-field type="string"></v-text-field>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Citavi-Kategorie</td>
+                  <td>
+                    <v-text-field type="string"></v-text-field>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Citavi-Attribute</td>
+                  <td>
+                    <v-text-field type="string"></v-text-field>
+                  </td>
+                </tr>
+                </tbody>
+              </v-simple-table>
+            </div>
+          </v-expansion-panel-content>
+
+        </v-expansion-panel>
+
+      </v-expansion-panels>
+    </v-sheet>
   </div>
 </template>
 
@@ -38,6 +83,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@use "@/styles/tableClasses.scss";
+
 
 </style>

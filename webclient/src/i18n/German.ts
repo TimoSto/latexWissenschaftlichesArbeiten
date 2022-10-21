@@ -66,6 +66,9 @@ export const GermanTranslations: TranslationKeys = {
                 EntryExample: 'Beispiel Literaturverzeichnis',
                 CitaviType: 'Citavi-Kategorie'
             }
+        },
+        CategoryEditor: {
+            Title: 'Kategorie bearbeiten'
         }
     },
     Config: {

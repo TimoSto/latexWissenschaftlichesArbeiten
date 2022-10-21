@@ -1,0 +1,12 @@
+
+.content-with-padding {
+  padding: 8px;
+}
+
+.attr-value-table {
+  & tr {
+    & td:first-child {
+      width: 200px;
+    }
+  }
+}
