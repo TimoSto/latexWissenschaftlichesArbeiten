@@ -7,6 +7,7 @@ import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions.js";
 import * as ProjectActions from "../../helpers/ProjectsPageActions.js";
 import * as CategoryEditorActions from "../../helpers/CategoryPageActions";
 import * as CategoryPageAssertions from "../../helpers/CategoryPageAssertions";
+import {AssertBibModelIs} from "../../helpers/CategoryPageAssertions";
 
 describe('editing existing type', () => {
 
@@ -48,6 +49,22 @@ describe('editing existing type', () => {
             CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);//TODO: sollte false sein, wenn attributname leer => über rules testen
             CategoryEditorActions.TypeInNthFieldWithName('Attribut', 0, "Autor");
             CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(false);
+        })
+    });
+
+    describe('Models', () => {
+        it('typing in bibfield', () => {
+            CategoryEditorActions.TypeInNthFieldWithName('Attribut', 0, "tt");
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
+            CategoryPageAssertions.AssertBibModelIs("<i>Autortt</i> (Jahr). Titel. In: <i>Zeitschrift</i> Ausgabe, S. Seiten, url");
+        })
+    })
+
+    describe('actually saving', () => {
+        it('saving', () => {
+            CategoryEditorActions.ClickCategorySaveBtn();
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(false);
+            ProjectAssertions.AssertBibModelForTypeIs('aufsatz', "<i>Autortt</i> (Jahr). Titel. In: <i>Zeitschrift</i> Ausgabe, S. Seiten, url")
         })
     })
 })

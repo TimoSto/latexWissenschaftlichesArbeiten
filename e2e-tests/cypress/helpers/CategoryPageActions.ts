@@ -19,3 +19,7 @@ export function ClearNthFieldWithName(name: string, n: number) {
     cy.get('.edit-area').find(`input[name="${name}"]`).eq(n).clear();
     cy.get('.edit-area').find(`input[name="${name}"]`).eq(n).parent().click();
 }
+
+export function ClickCategorySaveBtn() {
+    cy.get('.edit-area').find('.v-btn[title="Speichern"]').click();
+}
