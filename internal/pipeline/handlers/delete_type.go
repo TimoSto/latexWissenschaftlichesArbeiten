@@ -1,8 +1,9 @@
 package handlers
 
 import (
+	"ThesorTeX/internal/bibliography_types"
 	"ThesorTeX/pkg/logger"
-	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 )
@@ -32,5 +33,10 @@ func HandleDeleteType(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println(project, typekeys[0])
+	err := bibliography_types.DeleteBibliographyType(project, typekeys[0], ioutil.ReadFile)
+
+	if err != nil {
+		logger.LogError("Writing types", err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
+	}
 }
