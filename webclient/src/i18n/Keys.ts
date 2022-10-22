@@ -71,8 +71,10 @@ export type TranslationKeys = {
             Properties: string
             InitialName: string
             Name: string
-            CitaviCategory: string,
+            CitaviCategory: string
             CitaviNecessaryFields: string
+            BibliographyEntry: string
+            Cite: string
         }
     },
     Config: {
@@ -155,7 +157,9 @@ export const i18nDictionary: TranslationKeys = {
             InitialName: 'Projects.CategoryEditor.InitialName',
             Name: 'Projects.CategoryEditor.Name',
             CitaviCategory: 'Projects.CategoryEditor.CitaviCategory',
-            CitaviNecessaryFields: 'Projects.CategoryEditor.CitaviNecessaryFields'
+            CitaviNecessaryFields: 'Projects.CategoryEditor.CitaviNecessaryFields',
+            BibliographyEntry: 'Projects.CategoryEditor.BibliographyEntry',
+            Cite: 'Projects.CategoryEditor.Cite'
         }
     },
     Config: {

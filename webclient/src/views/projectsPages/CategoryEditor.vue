@@ -75,6 +75,26 @@
 
         </v-expansion-panel>
 
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            {{$t(i18nDictionary.Projects.CategoryEditor.BibliographyEntry)}}
+          </v-expansion-panel-header>
+
+          <v-expansion-panel-content class="content-with-padding">
+
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header>
+            {{$t(i18nDictionary.Projects.CategoryEditor.Cite)}}
+          </v-expansion-panel-header>
+
+          <v-expansion-panel-content class="content-with-padding">
+
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+
       </v-expansion-panels>
     </v-sheet>
   </div>

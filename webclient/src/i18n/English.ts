@@ -73,7 +73,9 @@ export const EnglishTranslations: TranslationKeys = {
             InitialName: 'Name',
             Name: 'New Name',
             CitaviCategory: 'Citavi Category',
-            CitaviNecessaryFields: 'Citavi mandatory fields'
+            CitaviNecessaryFields: 'Citavi mandatory fields',
+            BibliographyEntry: 'Entry in bibliography',
+            Cite: 'Cite'
         }
     },
     Config: {
