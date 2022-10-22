@@ -67,4 +67,31 @@ describe('editing existing type', () => {
             ProjectAssertions.AssertBibModelForTypeIs('aufsatz', "<i>Autortt</i> (Jahr). Titel. In: <i>Zeitschrift</i> Ausgabe, S. Seiten, url")
         })
     })
+
+    describe('creating new type', () => {
+        before(() => {
+            ProjectActions.ClickOnNewType();
+        });
+
+        it('is initially disabled', () => {
+
+        })
+
+        it('type in name', () => {
+            CategoryEditorActions.ClearField('Neue Bezeichnung')
+            CategoryEditorActions.TypeInField('Neue Bezeichnung', 'test');
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
+        })
+
+        it('add attribute', () => {
+            CategoryEditorActions.AddAttributeToBib();
+            CategoryEditorActions.TypeInNthFieldWithName('Attribut', 0, 'teest')
+        })
+
+        it('saving', () => {
+            CategoryEditorActions.ClickCategorySaveBtn();
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
+            ProjectAssertions.AssertBibModelForTypeIs('test', "teest")
+        })
+    })
 })

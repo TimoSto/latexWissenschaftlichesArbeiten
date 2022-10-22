@@ -213,6 +213,12 @@ export default Vue.extend({
         this.citaviNecessaryFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields;
         this.fields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) );
         this.citeFields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields) );
+      } else {
+        this.name = '';
+        this.citaviCategory = '';
+        this.citaviNecessaryFields = [];
+        this.fields = [];
+        this.citeFields = [];
       }
     },
     addAttribute(cite: boolean) {

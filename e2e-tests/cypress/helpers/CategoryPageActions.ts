@@ -23,3 +23,7 @@ export function ClearNthFieldWithName(name: string, n: number) {
 export function ClickCategorySaveBtn() {
     cy.get('.edit-area').find('.v-btn[title="Speichern"]').click();
 }
+
+export function AddAttributeToBib() {
+    cy.get('.edit-area').find('.v-data-table').eq(1).find('tr:last').find('.v-btn').click();
+}

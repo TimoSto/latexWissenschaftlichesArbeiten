@@ -6,3 +6,7 @@ export function ClickOnProjectDelete() {
 export function ClickOnTableElement(t) {
     cy.get('#projectOverviewPage').find('td').contains(t).click();
 }
+
+export function ClickOnNewType() {
+    cy.get('.page1').find('.v-btn[title="Neue Kategorie erstellen"]').click();
+}
