@@ -82,6 +82,9 @@
           </v-expansion-panel-header>
 
           <v-expansion-panel-content class="content-with-padding">
+
+            <p v-html="bibModel"></p>
+
             <CategoryTable
                 keyprefix="bib"
                 :fields="fields"
@@ -98,6 +101,8 @@
           </v-expansion-panel-header>
 
           <v-expansion-panel-content class="content-with-padding">
+
+            <p v-html="citeModel"></p>
 
             <CategoryTable
                 keyprefix="cite"
@@ -119,6 +124,7 @@ import {i18nDictionary} from "@/i18n/Keys";
 import Vue from "vue";
 import {Field} from "../../api/bibTypes/BibType";
 import CategoryTable from "../../components/CategoryTable.vue";
+import {GenerateModelFromFields} from "../../api/bibTypes/GenerateModelFromFields";
 
 export default Vue.extend({
   name: "CategoryEditor",
@@ -147,6 +153,12 @@ export default Vue.extend({
           JSON.stringify(this.citaviNecessaryFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields) ||
           JSON.stringify(this.fields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) ||
           JSON.stringify(this.citeFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields);
+    },
+    bibModel(): string {
+      return GenerateModelFromFields(this.fields);
+    },
+    citeModel(): string {
+      return GenerateModelFromFields(this.citeFields);
     }
   },
   watch: {
