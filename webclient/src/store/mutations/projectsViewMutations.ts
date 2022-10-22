@@ -29,6 +29,16 @@ export function SetProjectData(state: MyState, data: ProjectData) {
     data.BibTypes.forEach((t: BibType, i: number) => {
         data.BibTypes[i].Model = GenerateModelFromFields(t.Fields)
         data.BibTypes[i].CitaviNecessaryFields = t.CitaviNecessaryFields ? t.CitaviNecessaryFields : [];
+        data.BibTypes[i].Fields.forEach((f, j) => {
+            if( !f.CitaviAttributes ) {
+                data.BibTypes[i].Fields[j].CitaviAttributes = [];
+            }
+        });
+        data.BibTypes[i].CiteFields.forEach((f, j) => {
+            if( !f.CitaviAttributes ) {
+                data.BibTypes[i].CiteFields[j].CitaviAttributes = [];
+            }
+        });
     })
     state.ProjectView.CurrentProjectData.bibTypes = data.BibTypes;
 }

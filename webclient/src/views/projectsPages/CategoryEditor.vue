@@ -90,6 +90,8 @@
                 :fields="fields"
                 show-citavi-attrs="true"
                 style="max-width: 1200px;"
+                v-on:added="addAttribute(false)"
+                v-on:removed="removeAttribute($event, false)"
             ></CategoryTable>
 
           </v-expansion-panel-content>
@@ -109,6 +111,8 @@
                 :fields="citeFields"
                 show-citavi-attrs="false"
                 style="max-width: 1100px;"
+                v-on:added="addAttribute(true)"
+                v-on:removed="removeAttribute($event, true)"
             ></CategoryTable>
 
           </v-expansion-panel-content>
@@ -188,6 +192,34 @@ export default Vue.extend({
       this.citaviNecessaryFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields;
       this.fields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) );
       this.citeFields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields) );
+    },
+    addAttribute(cite: boolean) {
+      if( cite ) {
+        this.citeFields.push({
+          Field: '',
+          Style: 'normal',
+          Prefix: '',
+          Suffix: '',
+          TexValue: false,
+          CitaviAttributes: []
+        });
+      } else {
+        this.fields.push({
+          Field: '',
+          Style: 'normal',
+          Prefix: '',
+          Suffix: '',
+          TexValue: false,
+          CitaviAttributes: []
+        });
+      }
+    },
+    removeAttribute(n: number, cite: boolean) {
+      if( cite ) {
+        this.citeFields.splice(n, 1);
+      } else {
+        this.fields.splice(n, 1);
+      }
     }
   }
 })

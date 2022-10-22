@@ -31,7 +31,6 @@
             <v-text-field
                 v-model="field.Field"
                 name="Attribut"
-                @input="emitChange"
                 type="string" />
           </td>
           <td>
@@ -39,7 +38,6 @@
                 v-model="field.Style"
                 :items="fontStyles"
                 name="Style"
-                @input="emitChange"
                 :menu-props="{ bottom: true, offsetY: true }"
                 attach
             ></v-select>
@@ -48,14 +46,12 @@
             <v-text-field
                 v-model="field.Prefix"
                 name="Prefix"
-                @input="emitChange"
                 type="string" />
           </td>
           <td>
             <v-text-field
                 v-model="field.Suffix"
                 name="Suffix"
-                @input="emitChange"
                 type="string" />
           </td>
           <td>
@@ -134,9 +130,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    emitChange() {
-      this.$emit('changed');
-    },
     emitRemove(n: number) {
       this.$emit('removed', n)
     },
