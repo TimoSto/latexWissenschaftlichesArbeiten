@@ -17,7 +17,7 @@
       <v-btn icon :title="$t(i18nDictionary.Common.Delete)" @click="deleteOpen = true">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary" @click="saveThisCategory">
+      <v-btn icon :disabled="!saveNecessary" :title="$t(i18nDictionary.Common.Save)" @click="saveThisCategory">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
