@@ -6,6 +6,7 @@ export type TranslationKeys = {
         Abort: string
         Delete: string
         Close: string
+        MandatoryField: string
     },
     App: {
         TitleAppendixProjects: string
@@ -85,6 +86,10 @@ export type TranslationKeys = {
             DeleteCategoryDialog: {
                 Title: string
                 Content: string
+            },
+            Rules: {
+                NoSpaces: string
+                NameNotAvailable: string
             }
         }
     },
@@ -101,7 +106,8 @@ export const i18nDictionary: TranslationKeys = {
         Save: 'Common.Save',
         Abort: 'Common.Abort',
         Delete: 'Common.Delete',
-        Close: 'Common.Close'
+        Close: 'Common.Close',
+        MandatoryField: 'Common.MandatoryField'
     },
     App: {
         TitleAppendixProjects: 'App.TitleAppendixProjects',
@@ -182,6 +188,10 @@ export const i18nDictionary: TranslationKeys = {
                 Title: 'Projects.CategoryEditor.DeleteCategoryDialog.Title',
                 Content: 'Projects.CategoryEditor.DeleteCategoryDialog.Content',
             },
+            Rules: {
+                NoSpaces: 'Projects.CategoryEditor.Rules.NoSpaces',
+                NameNotAvailable: 'Projects.CategoryEditor.Rules.NameNotAvailable'
+            }
         }
     },
     Config: {

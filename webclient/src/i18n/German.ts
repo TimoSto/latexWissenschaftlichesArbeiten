@@ -6,7 +6,8 @@ export const GermanTranslations: TranslationKeys = {
         Save: 'Speichern',
         Abort: 'Abbrechen',
         Delete: 'Löschen',
-        Close: 'Schließen'
+        Close: 'Schließen',
+        MandatoryField: '*Pflichtfeld'
     },
     App: {
         TitleAppendixProjects: 'Projekte',
@@ -87,6 +88,10 @@ export const GermanTranslations: TranslationKeys = {
                 Title: 'Literaturkategorie löschen',
                 Content: 'Willst du diese Literaturkategorie wirklich löschen? Wenn noch Einträge mit diesem Typen existieren, werden diese nicht mehr richtig dargestellt.',
             },
+            Rules: {
+                NoSpaces: 'Keine Leerzeichen erlaubt',
+                NameNotAvailable: 'Bezeichnung ist bereits vergeben'
+            }
         }
     },
     Config: {

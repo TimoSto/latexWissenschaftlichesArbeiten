@@ -6,7 +6,8 @@ export const EnglishTranslations: TranslationKeys = {
         Save: 'Save',
         Abort: 'Abort',
         Delete: 'Delete',
-        Close: 'Close'
+        Close: 'Close',
+        MandatoryField: '*mandatory field'
     },
     App: {
         TitleAppendixProjects: 'Projects',
@@ -87,6 +88,10 @@ export const EnglishTranslations: TranslationKeys = {
                 Title: 'Delete bibliogrpahy category',
                 Content: 'Do you really want to delete this category? If entries with this category still exist, they will be displayed incorrectly.',
             },
+            Rules: {
+                NoSpaces: 'No spaces permitted',
+                NameNotAvailable: 'This name is already used'
+            }
         }
     },
     Config: {
