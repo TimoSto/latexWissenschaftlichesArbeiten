@@ -7,7 +7,10 @@ const ActionTypes = {
     Projects: {
         CreateProject: 'Projects.CreateProject',
         GetProjectData: 'Projects.GetProjectData',
-        DeleteProject: 'Project.DeleteProject'
+        DeleteProject: 'Projects.DeleteProject',
+        CategoryEditor: {
+            DeleteCategory: 'Projects.CategoryEditor.DeleteCategory'
+        }
     }
 }
 

@@ -83,6 +83,10 @@ export const EnglishTranslations: TranslationKeys = {
             TeX_Value: 'Prevent escaping',
             Normal: 'normal',
             Italic: 'italic',
+            DeleteCategoryDialog: {
+                Title: 'Delete bibliogrpahy category',
+                Content: 'Do you really want to delete this category? If entries with this category still exist, they will be displayed incorrectly.',
+            },
         }
     },
     Config: {

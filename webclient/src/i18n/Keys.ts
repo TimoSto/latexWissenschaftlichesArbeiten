@@ -82,6 +82,10 @@ export type TranslationKeys = {
             TeX_Value: string
             Normal: string
             Italic: string
+            DeleteCategoryDialog: {
+                Title: string
+                Content: string
+            }
         }
     },
     Config: {
@@ -174,6 +178,10 @@ export const i18nDictionary: TranslationKeys = {
             TeX_Value: 'Projects.CategoryEditor.TeX_Value',
             Normal: 'Projects.CategoryEditor.Normal',
             Italic: 'Projects.CategoryEditor.Italic',
+            DeleteCategoryDialog: {
+                Title: 'Projects.CategoryEditor.DeleteCategoryDialog.Title',
+                Content: 'Projects.CategoryEditor.DeleteCategoryDialog.Content',
+            },
         }
     },
     Config: {

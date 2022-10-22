@@ -3,6 +3,7 @@ import CreateProject from "@/api/projects/CreateProject";
 import MutationTypes from "@/store/MutationTypes";
 import GetProjectData from "@/api/projects/GetProjectData";
 import DeleteProject from "@/api/projects/DeleteProject";
+import {DeleteType} from "@/api/bibTypes/DeleteType";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
@@ -28,4 +29,10 @@ export async function DeleteProjectAction(commit: (type: string,payload?: any,op
         commit(MutationTypes.ProjectView.SetCurrentProject, '');
         commit(MutationTypes.App.RemoveProject, project);
     }
+}
+
+export async function DeleteTypeAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, type: string) {
+    const ok = await DeleteType(type, project)
+
+    console.log(ok)
 }

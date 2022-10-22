@@ -83,6 +83,10 @@ export const GermanTranslations: TranslationKeys = {
             TeX_Value: 'Nicht escapen',
             Normal: 'normal',
             Italic: 'kursiv',
+            DeleteCategoryDialog: {
+                Title: 'Literaturkategorie löschen',
+                Content: 'Willst du diese Literaturkategorie wirklich löschen? Wenn noch Einträge mit diesem Typen existieren, werden diese nicht mehr richtig dargestellt.',
+            },
         }
     },
     Config: {

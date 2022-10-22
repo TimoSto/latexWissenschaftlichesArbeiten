@@ -14,7 +14,7 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
-      <v-btn icon :title="$t(i18nDictionary.Common.Delete)" >
+      <v-btn icon :title="$t(i18nDictionary.Common.Delete)" @click="deleteOpen = true">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
       <v-btn icon :disabled="!saveNecessary">
@@ -120,6 +120,17 @@
 
       </v-expansion-panels>
     </v-sheet>
+
+    <ConfirmDialog
+      :open="deleteOpen"
+      :abort="$t(i18nDictionary.Common.Abort)"
+      :confirm="$t(i18nDictionary.Common.Delete)"
+      :title="$t(i18nDictionary.Projects.CategoryEditor.DeleteCategoryDialog.Title)"
+      :content="$t(i18nDictionary.Projects.CategoryEditor.DeleteCategoryDialog.Content)"
+      v-on:discard="deleteOpen = false"
+      v-on:confirm="deleteThisCategory"
+       />
+
   </div>
 </template>
 
@@ -129,10 +140,12 @@ import Vue from "vue";
 import {Field} from "../../api/bibTypes/BibType";
 import CategoryTable from "../../components/CategoryTable.vue";
 import {GenerateModelFromFields} from "../../api/bibTypes/GenerateModelFromFields";
+import ConfirmDialog from "../../components/ConfirmDialog.vue";
+import ActionTypes from "../../store/ActionTypes";
 
 export default Vue.extend({
   name: "CategoryEditor",
-  components: {CategoryTable},
+  components: {ConfirmDialog, CategoryTable},
   props: [
       'layoutBtnContent',
       'index'
@@ -144,7 +157,8 @@ export default Vue.extend({
       citaviCategory: '',
       citaviNecessaryFields: [] as string[],
       fields: [] as Field[],
-      citeFields: [] as Field[]
+      citeFields: [] as Field[],
+      deleteOpen: false
     }
   },
   computed: {
@@ -220,6 +234,12 @@ export default Vue.extend({
       } else {
         this.fields.splice(n, 1);
       }
+    },
+    deleteThisCategory() {
+      this.$store.dispatch(ActionTypes.Projects.CategoryEditor.DeleteCategory, {
+        project: this.$store.state.ProjectView.CurrentProject,
+        type: this.initialName
+      })
     }
   }
 })
