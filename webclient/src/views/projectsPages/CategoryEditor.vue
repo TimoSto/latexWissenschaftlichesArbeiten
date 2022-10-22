@@ -236,10 +236,12 @@ export default Vue.extend({
       }
     },
     deleteThisCategory() {
+      this.deleteOpen = false;
+
       this.$store.dispatch(ActionTypes.Projects.CategoryEditor.DeleteCategory, {
         project: this.$store.state.ProjectView.CurrentProject,
         type: this.initialName
-      })
+      });
     }
   }
 })
