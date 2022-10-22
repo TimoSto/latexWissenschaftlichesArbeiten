@@ -5,6 +5,7 @@ import * as AppAssertions from "../../helpers/AppAssertions.js";
 import * as AppActions from "../../helpers/AppActions.js";
 import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions.js";
 import * as ProjectActions from "../../helpers/ProjectsPageActions.js";
+import * as CategoryEditorActions from "../../helpers/CategoryPageActions";
 
 describe('editing existing type', () => {
     before(() => {
@@ -17,5 +18,6 @@ describe('editing existing type', () => {
     it('editing aufsatz', () => {
         ProjectActions.ClickOnTableElement('aufsatz');
         ProjectAssertions.EditAreaIsVisible();
+        CategoryEditorActions.TypeInNameField('hallo');
     })
 })
