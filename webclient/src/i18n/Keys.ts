@@ -75,6 +75,13 @@ export type TranslationKeys = {
             CitaviNecessaryFields: string
             BibliographyEntry: string
             Cite: string
+            Attribute: string
+            Style: string
+            Prefix: string
+            Suffix: string
+            TeX_Value: string
+            Normal: string
+            Italic: string
         }
     },
     Config: {
@@ -159,7 +166,14 @@ export const i18nDictionary: TranslationKeys = {
             CitaviCategory: 'Projects.CategoryEditor.CitaviCategory',
             CitaviNecessaryFields: 'Projects.CategoryEditor.CitaviNecessaryFields',
             BibliographyEntry: 'Projects.CategoryEditor.BibliographyEntry',
-            Cite: 'Projects.CategoryEditor.Cite'
+            Cite: 'Projects.CategoryEditor.Cite',
+            Attribute: 'Projects.CategoryEditor.Attribute',
+            Style: 'Projects.CategoryEditor.Style',
+            Prefix: 'Projects.CategoryEditor.Prefix',
+            Suffix: 'Projects.CategoryEditor.Suffix',
+            TeX_Value: 'Projects.CategoryEditor.TeX_Value',
+            Normal: 'Projects.CategoryEditor.Normal',
+            Italic: 'Projects.CategoryEditor.Italic',
         }
     },
     Config: {

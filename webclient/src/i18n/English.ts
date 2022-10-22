@@ -75,7 +75,14 @@ export const EnglishTranslations: TranslationKeys = {
             CitaviCategory: 'Citavi Category',
             CitaviNecessaryFields: 'Citavi mandatory fields',
             BibliographyEntry: 'Entry in bibliography',
-            Cite: 'Cite'
+            Cite: 'Cite',
+            Attribute: 'Attribute',
+            Style: 'Style',
+            Prefix: 'Prefix',
+            Suffix: 'Suffix',
+            TeX_Value: 'Prevent escaping',
+            Normal: 'normal',
+            Italic: 'italic',
         }
     },
     Config: {

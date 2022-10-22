@@ -82,6 +82,13 @@
 
           <v-expansion-panel-content class="content-with-padding">
 
+            <CategoryTable
+                keyprefix="bib"
+                :fields="fields"
+                show-citavi-attrs="true"
+                style="max-width: 1200px;"
+            ></CategoryTable>
+
           </v-expansion-panel-content>
         </v-expansion-panel>
 
@@ -91,6 +98,8 @@
           </v-expansion-panel-header>
 
           <v-expansion-panel-content class="content-with-padding">
+
+
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -103,9 +112,12 @@
 <script lang="ts">
 import {i18nDictionary} from "@/i18n/Keys";
 import Vue from "vue";
+import {Field} from "../../api/bibTypes/BibType";
+import CategoryTable from "../../components/CategoryTable.vue";
 
 export default Vue.extend({
   name: "CategoryEditor",
+  components: {CategoryTable},
   props: [
       'layoutBtnContent',
       'index'
@@ -115,7 +127,8 @@ export default Vue.extend({
       i18nDictionary: i18nDictionary,
       name: '',
       citaviCategory: '',
-      citaviNecessaryFields: [] as string[]
+      citaviNecessaryFields: [] as string[],
+      fields: [] as Field[]
     }
   },
   computed: {
@@ -153,6 +166,7 @@ export default Vue.extend({
       this.name = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name;
       this.citaviCategory = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType;
       this.citaviNecessaryFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields;
+      this.fields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields;
     }
   }
 })
