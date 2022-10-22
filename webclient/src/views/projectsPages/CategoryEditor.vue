@@ -26,7 +26,7 @@
     </v-app-bar>
     <v-sheet class="content-below-two-bars" id="category-editor-scroll">
 
-      <v-expansion-panels tile flat hover multiple>
+      <v-expansion-panels tile flat hover multiple v-model="panels">
 
         <v-expansion-panel>
           <v-expansion-panel-header>
@@ -158,7 +158,8 @@ export default Vue.extend({
       citaviNecessaryFields: [] as string[],
       fields: [] as Field[],
       citeFields: [] as Field[],
-      deleteOpen: false
+      deleteOpen: false,
+      panels: [0,1,2]
     }
   },
   computed: {
