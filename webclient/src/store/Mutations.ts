@@ -4,6 +4,7 @@ import MutationTypes from "@/store/MutationTypes";
 import {RemoveProject, SetConfig, SetCurrentView, SetProjectNames} from "@/store/mutations/appMutations";
 import {AddProject, SetCurrentProject, SetProjectData} from "@/store/mutations/projectsViewMutations";
 import {ProjectData} from "@/api/projects/GetProjectData";
+import {RemoveType} from "@/store/mutations/categoryEditorMutations";
 
 export const mutations: MutationTree<MyState> = {
     [MutationTypes.App.SetCurrentView](state: MyState, payload: string) {
@@ -27,4 +28,7 @@ export const mutations: MutationTree<MyState> = {
     [MutationTypes.App.RemoveProject](state: MyState, payload: string) {
         RemoveProject(state, payload);
     },
+    [MutationTypes.CategoryEditor.RemoveType](state: MyState, payload: string) {
+        RemoveType(state, payload)
+    }
 }

@@ -34,5 +34,7 @@ export async function DeleteProjectAction(commit: (type: string,payload?: any,op
 export async function DeleteTypeAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, type: string) {
     const ok = await DeleteType(type, project)
 
-    console.log(ok)
+    if( ok ) {
+        commit(MutationTypes.CategoryEditor.RemoveType, type);
+    }
 }
