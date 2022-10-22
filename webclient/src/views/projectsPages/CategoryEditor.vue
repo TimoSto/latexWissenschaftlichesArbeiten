@@ -98,7 +98,12 @@
 
           <v-expansion-panel-content class="content-with-padding">
 
-
+            <CategoryTable
+                keyprefix="cite"
+                :fields="citeFields"
+                show-citavi-attrs="false"
+                style="max-width: 1100px;"
+            ></CategoryTable>
 
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -127,7 +132,8 @@ export default Vue.extend({
       name: '',
       citaviCategory: '',
       citaviNecessaryFields: [] as string[],
-      fields: [] as Field[]
+      fields: [] as Field[],
+      citeFields: [] as Field[]
     }
   },
   computed: {
@@ -138,7 +144,8 @@ export default Vue.extend({
       return this.name !== this.initialName ||
           this.citaviCategory !== this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType ||
           JSON.stringify(this.citaviNecessaryFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields) ||
-          JSON.stringify(this.fields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields);
+          JSON.stringify(this.fields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) ||
+          JSON.stringify(this.citeFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields);
     }
   },
   watch: {
@@ -167,6 +174,7 @@ export default Vue.extend({
       this.citaviCategory = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType;
       this.citaviNecessaryFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields;
       this.fields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) );
+      this.citeFields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields) );
     }
   }
 })
