@@ -30,5 +30,8 @@ export const mutations: MutationTree<MyState> = {
     },
     [MutationTypes.CategoryEditor.RemoveType](state: MyState, payload: string) {
         RemoveType(state, payload)
+    },
+    [MutationTypes.ProjectView.EditorCloseNeeded](state: MyState, payload: boolean) {
+        state.ProjectView.EditorCloseNeeded = payload;
     }
 }

@@ -36,5 +36,6 @@ export async function DeleteTypeAction(commit: (type: string,payload?: any,optio
 
     if( ok ) {
         commit(MutationTypes.CategoryEditor.RemoveType, type);
+        commit(MutationTypes.ProjectView.EditorCloseNeeded, true);
     }
 }

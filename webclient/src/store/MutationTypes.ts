@@ -9,11 +9,12 @@ const MutationTypes = {
     ProjectView: {
         SetCurrentProject: 'ProjectView.SetCurrentProject',
         AddProject: 'ProjectView.AddProject',
-        SetCurrentProjectData: 'ProjectView.SetCurrentProjectData'
+        SetCurrentProjectData: 'ProjectView.SetCurrentProjectData',
+        EditorCloseNeeded: 'ProjectView.EditorCloseNeeded'
     },//TODO: Struktur von actions und mutations gleich halten
     CategoryEditor: {
-        RemoveType: 'CategoryEditor.DeleteType'
-    }
+        RemoveType: 'CategoryEditor.DeleteType',
+    },
 }
 
 export default MutationTypes

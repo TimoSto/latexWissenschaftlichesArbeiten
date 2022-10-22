@@ -31,6 +31,7 @@ import ProjectOverviewPage from "./projectsPages/ProjectOverviewPage.vue";
 import ActionTypes from "../store/ActionTypes";
 import EntryEditor from "./projectsPages/EntryEditor.vue";
 import CategoryEditor from "./projectsPages/CategoryEditor.vue";
+import MutationTypes from "../store/MutationTypes";
 
 export interface EditorEvent {
   Type: string
@@ -64,6 +65,12 @@ export default Vue.extend({
       }
       this.openEditor({Type: '', Element: -1});
 
+    },
+    editorCloseNeeded(v) {
+      if(v) {
+        this.openEditor({Type: '', Element: -1});
+        this.$store.commit(MutationTypes.ProjectView.EditorCloseNeeded, false);
+      }
     }
   },
 
@@ -86,6 +93,9 @@ export default Vue.extend({
         this.$t(this.$data.i18nDictionary.APP_30_70_LAYOUT)
       ]
     },
+    editorCloseNeeded(): boolean {
+      return this.$store.state.ProjectView.EditorCloseNeeded;
+    }
   },
   methods: {
     openEditor(evt: EditorEvent) {

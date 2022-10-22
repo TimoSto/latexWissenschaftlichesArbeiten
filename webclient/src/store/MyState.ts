@@ -21,7 +21,8 @@ export type MyState = {
             bibEntries: BibEntry[],
             abbreviations: Abbreviation[]
         },
-    }
+        EditorCloseNeeded: boolean
+    },
 }
 
 export const MyStateObj: MyState = {
@@ -43,5 +44,6 @@ export const MyStateObj: MyState = {
             bibEntries: [],
             abbreviations: []
         },
+        EditorCloseNeeded: false
     }
 }
