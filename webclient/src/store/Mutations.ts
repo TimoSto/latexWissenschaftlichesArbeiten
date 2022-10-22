@@ -37,5 +37,8 @@ export const mutations: MutationTree<MyState> = {
     },
     [MutationTypes.ProjectView.EditorCloseNeeded](state: MyState, payload: boolean) {
         state.ProjectView.EditorCloseNeeded = payload;
+    },
+    [MutationTypes.ProjectView.SetEditorUpdateIndex](state: MyState, payload: string) {
+        state.ProjectView.EditorIndexUpdate = state.ProjectView.CurrentProjectData.bibTypes.map(t => t.Name).indexOf(payload);
     }
 }

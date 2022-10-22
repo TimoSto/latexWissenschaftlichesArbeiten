@@ -21,7 +21,8 @@ export type MyState = {
             bibEntries: BibEntry[],
             abbreviations: Abbreviation[]
         },
-        EditorCloseNeeded: boolean
+        EditorCloseNeeded: boolean,
+        EditorIndexUpdate: number
     },
 }
 
@@ -44,6 +45,7 @@ export const MyStateObj: MyState = {
             bibEntries: [],
             abbreviations: []
         },
-        EditorCloseNeeded: false
+        EditorCloseNeeded: false,
+        EditorIndexUpdate: -1
     }
 }

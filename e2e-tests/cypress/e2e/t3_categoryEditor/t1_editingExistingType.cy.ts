@@ -15,7 +15,7 @@ describe('editing existing type', () => {
         it('opening editor', () => {
             VisitUrl('#/projects')
             AppActions.ClickSidebarAdd();
-            AppActions.TypeInNew('testName');
+            AppActions.TypeInNew('testName3');
             AppActions.NewDialogSaveClick();
             ProjectActions.ClickOnTableElement('aufsatz');
             ProjectAssertions.EditAreaIsVisible();
@@ -91,7 +91,7 @@ describe('editing existing type', () => {
 
         it('saving', () => {
             CategoryEditorActions.ClickCategorySaveBtn();
-            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(false);
             ProjectAssertions.AssertBibModelForTypeIs('test', "teest");
             CategoryPageAssertions.AssertInitialNameIs('test');
         })

@@ -71,6 +71,11 @@ export default Vue.extend({
         this.openEditor({Type: '', Element: -1});
         this.$store.commit(MutationTypes.ProjectView.EditorCloseNeeded, false);
       }
+    },
+    editorUpdateIndex(v) {
+      if( v > -1 ) {
+        this.editorElement = v;
+      }
     }
   },
 
@@ -95,6 +100,9 @@ export default Vue.extend({
     },
     editorCloseNeeded(): boolean {
       return this.$store.state.ProjectView.EditorCloseNeeded;
+    },
+    editorIndexUpdate(): number {
+      return this.$store.state.ProjectView.EditorIndexUpdate;
     }
   },
   methods: {

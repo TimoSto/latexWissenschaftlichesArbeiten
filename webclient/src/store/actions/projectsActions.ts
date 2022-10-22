@@ -47,5 +47,6 @@ export async function SaveTypeAction(commit: (type: string,payload?: any,options
 
     if( ok ) {
         commit(MutationTypes.CategoryEditor.UpdateType, {Type: type, initialName: initialName})
+        commit(MutationTypes.ProjectView.SetEditorUpdateIndex, type.Name);
     }
 }
