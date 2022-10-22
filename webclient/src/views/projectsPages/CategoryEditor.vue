@@ -52,7 +52,7 @@
                 <tr>
                   <td>{{$t(i18nDictionary.Projects.CategoryEditor.CitaviCategory)}}</td>
                   <td>
-                    <v-text-field
+                    <v-combobox
                         type="string"
                         v-model="citaviCategory"
                     />
@@ -61,8 +61,9 @@
                 <tr>
                   <td>{{$t(i18nDictionary.Projects.CategoryEditor.CitaviNecessaryFields)}}</td>
                   <td>
-                    <v-text-field
+                    <v-combobox
                         type="string"
+                        multiple
                         v-model="citaviNecessaryFields"
                     />
                   </td>
@@ -103,13 +104,23 @@ export default Vue.extend({
     },
     saveNecessary(): boolean {
       return this.name !== this.initialName ||
-          this.citaviCategory !== this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviCategory;
-
+          this.citaviCategory !== this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType ||
+          JSON.stringify(this.citaviNecessaryFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields);
     }
   },
   watch: {
     index() {
       this.setTypeToEdit();
+    },
+    citaviCategory(nv) {
+      if( !nv ) {
+        this.citaviCategory = '';
+      }
+    },
+    citaviNecessaryFields(nv) {
+      if( !nv ) {
+        this.citaviNecessaryFields = [];
+      }
     }
   },
   mounted() {

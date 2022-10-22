@@ -28,6 +28,7 @@ export function SetProjectData(state: MyState, data: ProjectData) {
     state.ProjectView.CurrentProjectData.bibEntries = data.BibEntries;
     data.BibTypes.forEach((t: BibType, i: number) => {
         data.BibTypes[i].Model = GenerateModelFromFields(t.Fields)
+        data.BibTypes[i].CitaviNecessaryFields = t.CitaviNecessaryFields ? t.CitaviNecessaryFields : [];
     })
     state.ProjectView.CurrentProjectData.bibTypes = data.BibTypes;
 }
