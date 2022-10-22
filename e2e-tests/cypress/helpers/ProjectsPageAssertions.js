@@ -10,3 +10,7 @@ export function AssertPage1Contains(id) {
 export function AssertOverviewTitleIs(t) {
     cy.get('.page1').find('header').find('.v-toolbar__title').should('have.text', t)
 }
+
+export function EditAreaIsVisible() {
+    cy.get('.edit-area').should('be.visible');
+}
