@@ -4,7 +4,7 @@ import (
 	"ThesorTeX/internal/bibliography_types"
 	"ThesorTeX/pkg/logger"
 	"encoding/json"
-	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -29,6 +29,7 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	fmt.Println(data)
+
+	err = bibliography_types.ReplaceBibliographyType(data.Project, data.InitialName, data.Type, ioutil.ReadFile)
 
 }
