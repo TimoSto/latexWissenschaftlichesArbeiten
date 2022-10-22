@@ -78,6 +78,7 @@ describe('editing existing type', () => {
         })
 
         it('type in name', () => {
+            CategoryPageAssertions.AssertInitialNameIs('');
             CategoryEditorActions.ClearField('Neue Bezeichnung')
             CategoryEditorActions.TypeInField('Neue Bezeichnung', 'test');
             CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
@@ -91,7 +92,8 @@ describe('editing existing type', () => {
         it('saving', () => {
             CategoryEditorActions.ClickCategorySaveBtn();
             CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
-            ProjectAssertions.AssertBibModelForTypeIs('test', "teest")
+            ProjectAssertions.AssertBibModelForTypeIs('test', "teest");
+            CategoryPageAssertions.AssertInitialNameIs('test');
         })
     })
 })
