@@ -4,7 +4,8 @@ import MutationTypes from "@/store/MutationTypes";
 import {RemoveProject, SetConfig, SetCurrentView, SetProjectNames} from "@/store/mutations/appMutations";
 import {AddProject, SetCurrentProject, SetProjectData} from "@/store/mutations/projectsViewMutations";
 import {ProjectData} from "@/api/projects/GetProjectData";
-import {RemoveType} from "@/store/mutations/categoryEditorMutations";
+import {AddType, RemoveType} from "@/store/mutations/categoryEditorMutations";
+import {BibType} from "@/api/bibTypes/BibType";
 
 export const mutations: MutationTree<MyState> = {
     [MutationTypes.App.SetCurrentView](state: MyState, payload: string) {
@@ -30,6 +31,9 @@ export const mutations: MutationTree<MyState> = {
     },
     [MutationTypes.CategoryEditor.RemoveType](state: MyState, payload: string) {
         RemoveType(state, payload)
+    },
+    [MutationTypes.CategoryEditor.AddType](state: MyState, payload: BibType) {
+        AddType(state, payload)
     },
     [MutationTypes.ProjectView.EditorCloseNeeded](state: MyState, payload: boolean) {
         state.ProjectView.EditorCloseNeeded = payload;

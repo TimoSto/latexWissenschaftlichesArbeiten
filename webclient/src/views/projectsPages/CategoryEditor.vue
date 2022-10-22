@@ -258,7 +258,9 @@ export default Vue.extend({
           Fields: this.fields,
           CiteFields: this.citeFields,
           CitaviType: this.citaviCategory,
-          CitaviNecessaryFields: this.citaviNecessaryFields
+          CitaviNecessaryFields: this.citaviNecessaryFields,
+          Model: this.bibModel,
+          CiteModel: this.citeModel
         },
         project: this.$store.state.ProjectView.CurrentProject,
         initialName: this.initialName

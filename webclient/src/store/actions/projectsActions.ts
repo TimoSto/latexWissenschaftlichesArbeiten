@@ -45,5 +45,9 @@ export async function DeleteTypeAction(commit: (type: string,payload?: any,optio
 export async function SaveTypeAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, type: BibType, initialName: string) {
     const ok = await SaveType(type, project, initialName)
 
-
+    if( ok ) {
+        if( initialName === '' ) {
+            commit(MutationTypes.CategoryEditor.AddType, type)
+        }
+    }
 }
