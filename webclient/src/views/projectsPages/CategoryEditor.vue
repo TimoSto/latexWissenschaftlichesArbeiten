@@ -47,6 +47,7 @@
                     <v-text-field
                         type="string"
                         v-model="name"
+                        :rules="typeNameRules"
                     />
                   </td>
                 </tr>
@@ -142,6 +143,7 @@ import CategoryTable from "../../components/CategoryTable.vue";
 import {GenerateModelFromFields} from "../../api/bibTypes/GenerateModelFromFields";
 import ConfirmDialog from "../../components/ConfirmDialog.vue";
 import ActionTypes from "../../store/ActionTypes";
+import GetTypeNameRules from "../../inputRules/typeNameRules"
 
 export default Vue.extend({
   name: "CategoryEditor",
@@ -183,6 +185,14 @@ export default Vue.extend({
     },
     citeModel(): string {
       return GenerateModelFromFields(this.citeFields);
+    },
+    typeNameRules() {
+      const translator = (v: string) => {
+        return this.$t(v)
+      }
+      return GetTypeNameRules(this.$store.state.ProjectView.CurrentProjectData.bibTypes,
+          this.index >= 0 ? this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name : '',
+          translator)
     }
   },
   watch: {
