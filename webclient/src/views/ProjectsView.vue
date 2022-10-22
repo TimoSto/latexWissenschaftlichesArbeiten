@@ -72,7 +72,7 @@ export default Vue.extend({
         this.$store.commit(MutationTypes.ProjectView.EditorCloseNeeded, false);
       }
     },
-    editorUpdateIndex(v) {
+    editorIndexUpdate(v) {
       if( v > -1 ) {
         this.editorElement = v;
       }
