@@ -5,6 +5,7 @@
         elevate-on-scroll
         scroll-target="#category-editor-scroll"
         dense
+        style="z-index: 102"
         >
       <v-toolbar-title>{{$t(i18nDictionary.Projects.CategoryEditor.Title)}}</v-toolbar-title>
 

@@ -41,7 +41,7 @@ export default Vue.extend({
 .edit-area {
   flex-grow: 1;
   min-width: 0;
-  overflow: hidden;
+  overflow: hidden;//TODO: shadow on right side if scrolled in overview and editor is open
 }
 
 .pages, .edit-area {
