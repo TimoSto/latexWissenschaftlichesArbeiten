@@ -8,7 +8,7 @@ export default async function SaveType(btype: BibType, project: string, initialN
     }
     const data = JSON.stringify(obj);
 
-    const resp = await fetch('/saveTypes', {
+    const resp = await fetch('/saveType', {
         method: 'POST',
         body: data
     })
