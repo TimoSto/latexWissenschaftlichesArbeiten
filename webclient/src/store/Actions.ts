@@ -8,8 +8,9 @@ import {
     CreateProjectAction,
     DeleteProjectAction,
     DeleteTypeAction,
-    GetProjectDataAction
+    GetProjectDataAction, SaveTypeAction
 } from "@/store/actions/projectsActions";
+import {BibType} from "@/api/bibTypes/BibType";
 
 export const actions: ActionTree<MyState, MyState> = {
     async [ActionTypes.App.GetAppData]({ commit }) {
@@ -28,7 +29,9 @@ export const actions: ActionTree<MyState, MyState> = {
         await DeleteProjectAction(commit, payload);
     },
     async [ActionTypes.Projects.CategoryEditor.DeleteCategory]({ commit }, payload: {type: string, project: string}) {
-        console.log(payload)
         await DeleteTypeAction(commit, payload.project, payload.type)
+    },
+    async [ActionTypes.Projects.CategoryEditor.SaveCategory]({ commit }, payload: {type: BibType, project: string, initialName: string}) {
+        await SaveTypeAction(commit, payload.project, payload.type, payload.initialName)
     }
 }

@@ -4,6 +4,8 @@ import MutationTypes from "@/store/MutationTypes";
 import GetProjectData from "@/api/projects/GetProjectData";
 import DeleteProject from "@/api/projects/DeleteProject";
 import {DeleteType} from "@/api/bibTypes/DeleteType";
+import {BibType} from "@/api/bibTypes/BibType";
+import SaveType from "@/api/bibTypes/SaveType";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
@@ -38,4 +40,10 @@ export async function DeleteTypeAction(commit: (type: string,payload?: any,optio
         commit(MutationTypes.CategoryEditor.RemoveType, type);
         commit(MutationTypes.ProjectView.EditorCloseNeeded, true);
     }
+}
+
+export async function SaveTypeAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, type: BibType, initialName: string) {
+    const ok = await SaveType(type, project, initialName)
+
+
 }

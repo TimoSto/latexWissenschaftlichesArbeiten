@@ -17,7 +17,7 @@
       <v-btn icon :title="$t(i18nDictionary.Common.Delete)" @click="deleteOpen = true">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary">
+      <v-btn icon :disabled="!saveNecessary" @click="saveThisCategory">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
@@ -242,6 +242,19 @@ export default Vue.extend({
         project: this.$store.state.ProjectView.CurrentProject,
         type: this.initialName
       });
+    },
+    saveThisCategory() {
+      this.$store.dispatch(ActionTypes.Projects.CategoryEditor.SaveCategory, {
+        type: {
+          Name: this.name,
+          Fields: this.fields,
+          CiteFields: this.citeFields,
+          CitaviType: this.citaviCategory,
+          CitaviNecessaryFields: this.citaviNecessaryFields
+        },
+        project: this.$store.state.ProjectView.CurrentProject,
+        initialName: this.initialName
+      })
     }
   }
 })

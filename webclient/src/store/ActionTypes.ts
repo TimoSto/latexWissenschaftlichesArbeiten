@@ -9,7 +9,8 @@ const ActionTypes = {
         GetProjectData: 'Projects.GetProjectData',
         DeleteProject: 'Projects.DeleteProject',
         CategoryEditor: {
-            DeleteCategory: 'Projects.CategoryEditor.DeleteCategory'
+            DeleteCategory: 'Projects.CategoryEditor.DeleteCategory',
+            SaveCategory: 'Projects.CategoryEditor.SaveCategory'
         }
     }
 }
