@@ -34,8 +34,9 @@
           <v-expansion-panel-content class="content-with-padding">
             <TypesTable
                 :types="currentProjectData_Types"
-                :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen'}]"
+                :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen', Callback: 'new'}]"
                 v-on:select="$emit('openEditor', {Type: 'category', Element: $event})"
+                v-on:new="$emit('openEditor', {Type: 'category', Element: -1})"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>

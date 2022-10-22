@@ -164,9 +164,14 @@ export default Vue.extend({
   },
   computed: {
     initialName(): string {
-      return this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name;
+      return this.index >= 0 ? this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name : '';
     },
-    saveNecessary(): boolean {
+    saveNecessary(): boolean {//todo: rules checken
+
+      if ( this.index === -1 ) {
+        return true
+      }
+
       return this.name !== this.initialName ||
           this.citaviCategory !== this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType ||
           JSON.stringify(this.citaviNecessaryFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields) ||
@@ -202,11 +207,13 @@ export default Vue.extend({
   },
   methods: {
     setTypeToEdit() {
-      this.name = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name;
-      this.citaviCategory = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType;
-      this.citaviNecessaryFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields;
-      this.fields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) );
-      this.citeFields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields) );
+      if( this.index >= 0 ) {
+        this.name = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name;
+        this.citaviCategory = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType;
+        this.citaviNecessaryFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields;
+        this.fields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) );
+        this.citeFields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields) );
+      }
     },
     addAttribute(cite: boolean) {
       if( cite ) {

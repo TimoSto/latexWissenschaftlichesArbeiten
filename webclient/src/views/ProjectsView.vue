@@ -79,7 +79,7 @@ export default Vue.extend({
       return this.$store.state.ProjectView.CurrentProject;
     },
     editorOpen() {
-      return this.$data.editorType !== '' && this.$data.editorElement !== -1
+      return this.$data.editorType !== ''
     },
     layoutBtnContent() {
       if( this.$data.twoThirdsMode ) {
@@ -99,6 +99,7 @@ export default Vue.extend({
   },
   methods: {
     openEditor(evt: EditorEvent) {
+      console.log(evt)
       this.editorElement = evt.Element;
       this.editorType = evt.Type;
     },
