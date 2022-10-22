@@ -17,7 +17,7 @@
       <v-btn icon :title="$t(i18nDictionary.Common.Delete)" @click="deleteOpen = true">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary" :title="$t(i18nDictionary.Common.Save)" @click="saveThisCategory">
+      <v-btn icon :disabled="!saveNecessary || !rulesAreMet" :title="$t(i18nDictionary.Common.Save)" @click="saveThisCategory">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
@@ -179,6 +179,9 @@ export default Vue.extend({
           JSON.stringify(this.citaviNecessaryFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields) ||
           JSON.stringify(this.fields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) ||
           JSON.stringify(this.citeFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields);
+    },
+    rulesAreMet(): boolean {
+      return this.typeNameRules[0](this.name) === true
     },
     bibModel(): string {
       return GenerateModelFromFields(this.fields);
