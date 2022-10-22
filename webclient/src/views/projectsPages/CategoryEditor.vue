@@ -81,7 +81,6 @@
           </v-expansion-panel-header>
 
           <v-expansion-panel-content class="content-with-padding">
-
             <CategoryTable
                 keyprefix="bib"
                 :fields="fields"
@@ -138,7 +137,8 @@ export default Vue.extend({
     saveNecessary(): boolean {
       return this.name !== this.initialName ||
           this.citaviCategory !== this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType ||
-          JSON.stringify(this.citaviNecessaryFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields);
+          JSON.stringify(this.citaviNecessaryFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields) ||
+          JSON.stringify(this.fields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields);
     }
   },
   watch: {
@@ -166,7 +166,7 @@ export default Vue.extend({
       this.name = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name;
       this.citaviCategory = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType;
       this.citaviNecessaryFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields;
-      this.fields = this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields;
+      this.fields = JSON.parse( JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) );
     }
   }
 })
