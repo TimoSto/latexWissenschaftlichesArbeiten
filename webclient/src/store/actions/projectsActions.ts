@@ -46,8 +46,6 @@ export async function SaveTypeAction(commit: (type: string,payload?: any,options
     const ok = await SaveType(type, project, initialName)
 
     if( ok ) {
-        if( initialName === '' ) {
-            commit(MutationTypes.CategoryEditor.AddType, type)
-        }
+        commit(MutationTypes.CategoryEditor.UpdateType, {Type: type, initialName: initialName})
     }
 }

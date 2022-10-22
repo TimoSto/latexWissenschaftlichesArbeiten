@@ -8,8 +8,14 @@ export function RemoveType(state: MyState, name: string) {
     }
 }
 
-export function AddType(state: MyState, type: BibType) {
-    state.ProjectView.CurrentProjectData.bibTypes.push(type);
+export function UpdateType(state: MyState, type: {Type: BibType, initialName: string}) {
+    const i = state.ProjectView.CurrentProjectData.bibTypes.map(t => t.Name).indexOf(type.initialName)
+    if( i === -1 ) {
+        state.ProjectView.CurrentProjectData.bibTypes.push(type.Type);
+    } else {
+        state.ProjectView.CurrentProjectData.bibTypes[i] = type.Type;
+    }
+
     state.ProjectView.CurrentProjectData.bibTypes.sort((a,b) => {
         return a.Name.toLowerCase() > b.Name.toLowerCase() ? 0 : -1
     })

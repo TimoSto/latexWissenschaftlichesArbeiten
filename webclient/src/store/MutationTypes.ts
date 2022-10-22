@@ -14,7 +14,7 @@ const MutationTypes = {
     },//TODO: Struktur von actions und mutations gleich halten
     CategoryEditor: {
         RemoveType: 'CategoryEditor.DeleteType',
-        AddType: 'CategoryEditor.AddType'
+        UpdateType: 'CategoryEditor.UpdateType'
     },
 }
 
