@@ -33,6 +33,21 @@ describe('editing existing type', () => {
             CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
             CategoryEditorActions.ClearField('Citavi-Kategorie');
             CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(false);
+        });
+        it('change citavi-necessary fields', () => {
+            CategoryEditorActions.TypeInField('Citavi-Pflichtfelder', 'doi');
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
+            CategoryEditorActions.ClearField('Citavi-Pflichtfelder');
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(false);
+        });
+        it('change attribute in bib', () => {
+            //TODO saveNecessar auslagern und dann unittesten
+            CategoryEditorActions.TypeInNthFieldWithName('Attribut', 0, "tt");
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
+            CategoryEditorActions.ClearNthFieldWithName('Attribut', 0);
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);//TODO: sollte false sein, wenn attributname leer => über rules testen
+            CategoryEditorActions.TypeInNthFieldWithName('Attribut', 0, "Autor");
+            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(false);
         })
     })
 })
