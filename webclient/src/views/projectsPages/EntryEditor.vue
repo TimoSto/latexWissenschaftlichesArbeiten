@@ -98,6 +98,7 @@ import {i18nDictionary} from "@/i18n/Keys";
 import {BibType, Field} from "../../api/bibTypes/BibType";
 import Vue from "vue";
 import ActionTypes from "../../store/ActionTypes";
+import GeneratePreviewsForBibEntry from "../../api/bibEntries/GeneratePreviewsForBibEntry";
 
 export default Vue.extend({
   name: "EntryEditor",
@@ -159,6 +160,10 @@ export default Vue.extend({
         return fields;
       }
       return []
+    },
+    preview(): string[] {
+      const btype = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category)
+      return GeneratePreviewsForBibEntry(btype.Fields, btype.CiteFields, this.fields)
     }
   },
   methods: {
@@ -169,7 +174,9 @@ export default Vue.extend({
         entry: {
           Key: this.key,
           Typ: this.category,
-          Fields: this.fields
+          Fields: this.fields,
+          BibPreview: this.preview[0],
+          CitePreview: this.preview[1]
         }
       })
     },
