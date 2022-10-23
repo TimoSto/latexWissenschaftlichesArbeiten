@@ -2,7 +2,6 @@ import {MyState} from "@/store/MyState";
 import {BibEntry} from "@/api/bibEntries/Entry";
 
 export function UpdateEntry(state: MyState, entry: {Entry: BibEntry, initialKey: string}) {
-    console.log(entry.initialKey)
     const i = state.ProjectView.CurrentProjectData.bibEntries.map(e => e.Key).indexOf(entry.initialKey)
     if( i === -1 ) {
         state.ProjectView.CurrentProjectData.bibEntries.push(entry.Entry);

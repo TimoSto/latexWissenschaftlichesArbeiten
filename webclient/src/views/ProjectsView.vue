@@ -59,7 +59,6 @@ export default Vue.extend({
           this.$router.push(`/projects/${nv}`);
         }
       } else if( nv.length === 0 ) {
-        console.log(this.$route.path)
         if( this.$route.path !== '/projects' ) {
           this.$router.push('/projects');
         }
@@ -108,7 +107,6 @@ export default Vue.extend({
   },
   methods: {
     openEditor(evt: EditorEvent) {
-      console.log(evt)
       this.editorElement = evt.Element;
       this.editorType = evt.Type;
     },

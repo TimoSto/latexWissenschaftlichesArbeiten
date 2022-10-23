@@ -7,8 +7,6 @@ export default async function SaveEntry(project: string, entry: BibEntry, initia
         InitialKey: initialName
     }
 
-    console.log(obj)
-
     const resp = await fetch('/saveEntry', {
         method: 'POST',
         body: JSON.stringify(obj)
