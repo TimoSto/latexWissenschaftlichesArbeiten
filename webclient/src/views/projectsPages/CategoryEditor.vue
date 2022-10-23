@@ -55,8 +55,8 @@
                   <td>{{$t(i18nDictionary.Projects.CategoryEditor.CitaviCategory)}}</td>
                   <td>
                     <v-combobox
-                        type="string"
                         v-model="citaviCategory"
+                        :items="citaviTypes"
                     />
                   </td>
                 </tr>
@@ -64,10 +64,26 @@
                   <td>{{$t(i18nDictionary.Projects.CategoryEditor.CitaviNecessaryFields)}}</td>
                   <td>
                     <v-combobox
-                        type="string"
-                        multiple
                         v-model="citaviNecessaryFields"
-                    />
+                        multiple
+                        :items="citaviMandatoryAttributes"
+                        @focus="focusedComboCitavi=true"
+                        @blur="focusedComboCitavi=false"
+                    >
+                      <!--to have no checkbox-->
+                      <template v-slot:item="{ item }">
+                        {{item}}
+                      </template>
+                      <!--to only show 4 in unfocused state -->
+                      <template v-slot:selection="{ item, index }" v-if="!focusedComboCitavi">
+                        <span v-if="index < 4">{{ item }} &nbsp;</span>
+                        <span
+                            v-if="index === 4"
+                            class="grey--text caption"
+                        >(+{{ citaviNecessaryFields.length - 4 }})</span>
+                      </template>
+
+                    </v-combobox>
                   </td>
                 </tr>
                 </tbody>
@@ -162,7 +178,22 @@ export default Vue.extend({
       fields: [] as Field[],
       citeFields: [] as Field[],
       deleteOpen: false,
-      panels: [0,1,2]
+      panels: [0,1,2],
+      citaviTypes: [
+          'article',
+          'proceedings',
+          'book',
+          'collection',
+          'inproceedings',
+          'inbook',
+          'incollection'
+      ],
+      //TODO: check if these are used in fields
+      citaviMandatoryAttributes: [
+          'doi',
+          'url'
+      ],
+      focusedComboCitavi: false
     }
   },
   computed: {
@@ -291,8 +322,11 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@/styles/tableClasses.scss";
 
+.menuable__content__active {
+  z-index: 200!important;
+}
 
 </style>
