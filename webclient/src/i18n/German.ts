@@ -96,7 +96,10 @@ export const GermanTranslations: TranslationKeys = {
         },
         EntryEditor: {
             Fields: 'Felder',
-            NewKey: 'Neuer Schlüssel'
+            NewKey: 'Neuer Schlüssel',
+            Rules:  {
+                KeyNotAvailable: 'Schlüssel bereits vergeben'
+            }
         }
     },
     Config: {

@@ -45,6 +45,7 @@
                     <v-text-field
                       type="string"
                       v-model="key"
+                      :rules="keyRules"
                       />
                   </td>
                 </tr>
@@ -99,6 +100,7 @@ import {BibType, Field} from "../../api/bibTypes/BibType";
 import Vue from "vue";
 import ActionTypes from "../../store/ActionTypes";
 import GeneratePreviewsForBibEntry from "../../api/bibEntries/GeneratePreviewsForBibEntry";
+import { GetEntryKeyRules } from "@/inputRules/entryKeyRules";
 
 export default Vue.extend({
   name: "EntryEditor",
@@ -165,8 +167,14 @@ export default Vue.extend({
       const btype = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category)
       return GeneratePreviewsForBibEntry(btype.Fields, btype.CiteFields, this.fields)
     },
+    keyRules(): ((v: string) => boolean | string)[] {
+      const translate = (v: string) => {
+        return this.$t(v)
+      }
+      return GetEntryKeyRules(this.index, this.$store.state.ProjectView.CurrentProjectData.bibEntries, translate)
+    },
     rulesAreMet(): boolean {
-      return this.key.length > 0 && this.category.length > 0
+      return this.keyRules[0](this.key) === true && this.category.length > 0
     }
   },
   methods: {

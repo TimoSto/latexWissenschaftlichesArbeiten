@@ -96,7 +96,10 @@ export const EnglishTranslations: TranslationKeys = {
         },
         EntryEditor: {
             Fields: 'Fields',
-            NewKey: 'New key'
+            NewKey: 'New key',
+            Rules:  {
+                KeyNotAvailable: 'Key is not available'
+            }
         }
     },
     Config: {
