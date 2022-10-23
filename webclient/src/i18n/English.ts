@@ -95,7 +95,8 @@ export const EnglishTranslations: TranslationKeys = {
             }
         },
         EntryEditor: {
-            Fields: 'Fields'
+            Fields: 'Fields',
+            NewKey: 'New key'
         }
     },
     Config: {

@@ -95,6 +95,7 @@ export type TranslationKeys = {
         },
         EntryEditor: {
             Fields: string
+            NewKey: string
         }
     },
     Config: {
@@ -199,7 +200,8 @@ export const i18nDictionary: TranslationKeys = {
             }
         },
         EntryEditor: {
-            Fields: 'Projects.EntryEditor.Fields'
+            Fields: 'Projects.EntryEditor.Fields',
+            NewKey: 'Projects.EntryEditor.NewKey'
         }
     },
     Config: {

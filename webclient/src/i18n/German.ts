@@ -95,7 +95,8 @@ export const GermanTranslations: TranslationKeys = {
             }
         },
         EntryEditor: {
-            Fields: 'Felder'
+            Fields: 'Felder',
+            NewKey: 'Neuer Schlüssel'
         }
     },
     Config: {
