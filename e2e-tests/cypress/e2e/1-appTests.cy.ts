@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 
-import {VisitUrl} from "../../helpers/Browser";
-import * as AppAsserstions from "../../helpers/AppAssertions";
-import * as AppActions from "../../helpers/AppActions";
-import * as HomeActions from "../../helpers/HomeActions";
+import {VisitUrl} from "../helpers/Browser";
+import * as AppAsserstions from "../helpers/AppAssertions";
+import * as AppActions from "../helpers/AppActions";
+import * as HomeActions from "../helpers/HomeActions";
 
 describe('Global app-stuff', ()=> {
     describe('on home-page', () => {

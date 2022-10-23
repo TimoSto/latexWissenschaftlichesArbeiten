@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 
-import {VisitUrl} from "../../helpers/Browser";
-import * as ProjectPageAssertions from "../../helpers/ProjectsPageAssertions"
-import * as AppAssertions from "../../helpers/AppAssertions";
-import * as AppActions from "../../helpers/AppActions";
+import {VisitUrl} from "../helpers/Browser";
+import * as ProjectPageAssertions from "../helpers/ProjectsPageAssertions"
+import * as AppAssertions from "../helpers/AppAssertions";
+import * as AppActions from "../helpers/AppActions";
 
 describe('projectsView', ()=> {
     before(() => {

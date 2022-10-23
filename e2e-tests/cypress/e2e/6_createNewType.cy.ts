@@ -1,8 +1,10 @@
-import * as ProjectActions from "../../helpers/ProjectsPageActions";
-import * as CategoryPageAssertions from "../../helpers/CategoryPageAssertions";
-import * as CategoryEditorActions from "../../helpers/CategoryPageActions";
-import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions";
-import {VisitUrl} from "../../helpers/Browser";
+import * as ProjectActions from "../helpers/ProjectsPageActions";
+import * as CategoryPageAssertions from "../helpers/CategoryPageAssertions";
+import * as CategoryEditorActions from "../helpers/CategoryPageActions";
+import * as ProjectAssertions from "../helpers/ProjectsPageAssertions";
+import {VisitUrl} from "../helpers/Browser";
+import * as EditorActions from "../helpers/EditorActions";
+import * as EditorAssertions from "../helpers/EditorAssertions";
 
 describe('creating new type', () => {
     before(() => {
@@ -17,8 +19,8 @@ describe('creating new type', () => {
     it('type in name', () => {
         CategoryPageAssertions.AssertInitialNameIs('');
         CategoryEditorActions.ClearField('Neue Bezeichnung')
-        CategoryEditorActions.TypeInField('Neue Bezeichnung', 'test');
-        CategoryPageAssertions.AssertEditorSaveBtnIsEnabled(true);
+        EditorActions.TypeInField('Neue Bezeichnung', 'test');
+        EditorAssertions.AssertEditorSaveBtnIsEnabled(true);
     })
 
     it('add attribute', () => {
@@ -27,8 +29,8 @@ describe('creating new type', () => {
     })
 
     it('saving', () => {
-        CategoryEditorActions.ClickCategorySaveBtn();
-        CategoryPageAssertions.AssertEditorSaveBtnIsEnabled(false);
+        EditorActions.ClickEditorSaveBtn();
+        EditorAssertions.AssertEditorSaveBtnIsEnabled(false);
         ProjectAssertions.AssertBibModelForTypeIs('test', "teest");
         CategoryPageAssertions.AssertInitialNameIs('test');
     });

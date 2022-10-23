@@ -1,8 +1,8 @@
-import {VisitUrl} from "../../helpers/Browser";
-import * as ProjectActions from "../../helpers/ProjectsPageActions";
-import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions";
-import * as EditorAssertions from "../../helpers/EditorAssertions";
-import * as EditorActions from "../../helpers/EditorActions";
+import {VisitUrl} from "../helpers/Browser";
+import * as ProjectActions from "../helpers/ProjectsPageActions";
+import * as ProjectAssertions from "../helpers/ProjectsPageAssertions";
+import * as EditorAssertions from "../helpers/EditorAssertions";
+import * as EditorActions from "../helpers/EditorActions";
 
 describe('opening editor', () => {
     it('opening editor', () => {

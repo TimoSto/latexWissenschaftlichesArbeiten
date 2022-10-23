@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 
-import {VisitUrl} from "../../helpers/Browser";
-import * as AppAssertions from "../../helpers/AppAssertions";
-import * as AppActions from "../../helpers/AppActions";
-import * as ProjectActions from "../../helpers/ProjectsPageActions"
+import {VisitUrl} from "../helpers/Browser";
+import * as AppAssertions from "../helpers/AppAssertions";
+import * as AppActions from "../helpers/AppActions";
+import * as ProjectActions from "../helpers/ProjectsPageActions"
 
 describe('deleting project', () => {
     describe('deleting second', () => {

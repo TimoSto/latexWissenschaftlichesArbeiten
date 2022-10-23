@@ -1,13 +1,13 @@
 /// <reference types="cypress" />
 
-import {VisitUrl} from "../../helpers/Browser";
-import * as AppActions from "../../helpers/AppActions";
-import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions";
-import * as ProjectActions from "../../helpers/ProjectsPageActions";
-import * as CategoryEditorActions from "../../helpers/CategoryPageActions";
-import * as CategoryPageAssertions from "../../helpers/CategoryPageAssertions";
-import * as EditorAssertions from "../../helpers/EditorAssertions";
-import * as EditorActions from "../../helpers/EditorActions";
+import {VisitUrl} from "../helpers/Browser";
+import * as AppActions from "../helpers/AppActions";
+import * as ProjectAssertions from "../helpers/ProjectsPageAssertions";
+import * as ProjectActions from "../helpers/ProjectsPageActions";
+import * as CategoryEditorActions from "../helpers/CategoryPageActions";
+import * as CategoryPageAssertions from "../helpers/CategoryPageAssertions";
+import * as EditorAssertions from "../helpers/EditorAssertions";
+import * as EditorActions from "../helpers/EditorActions";
 
 describe('editing existing type', () => {
 
