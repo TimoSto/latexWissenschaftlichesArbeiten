@@ -5,6 +5,7 @@
         elevate-on-scroll
         dense
         scroll-target="#entry-scroll"
+        style="z-index: 101"
         >
       <v-toolbar-title>Eintrag</v-toolbar-title>
 
