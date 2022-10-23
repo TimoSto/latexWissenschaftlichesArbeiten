@@ -90,7 +90,8 @@ export const EnglishTranslations: TranslationKeys = {
             },
             Rules: {
                 NoSpaces: 'No spaces permitted',
-                NameNotAvailable: 'This name is already used'
+                NameNotAvailable: 'This name is already used',
+                AttributeNotAvailable: 'Attribute already exists'
             }
         }
     },

@@ -31,7 +31,9 @@
             <v-text-field
                 v-model="field.Field"
                 name="Attribut"
-                type="string" />
+                type="string"
+                :rules="attrNameRules"
+            />
           </td>
           <td>
             <v-select
@@ -111,6 +113,8 @@
 <script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
+import {GetTypeAttributeNameRules} from "../inputRules/typeAttributeNameRules";
+import {Field} from "../api/bibTypes/BibType";
 
 //TODO: select overflow not shown
 export default Vue.extend({
@@ -129,12 +133,32 @@ export default Vue.extend({
       i18nDictionary: i18nDictionary
     }
   },
+  computed: {
+    attrNameRules() {
+      const translate = (v: string) => {
+        return this.$t(v)
+      }
+      return GetTypeAttributeNameRules(this.fields, translate)
+    },
+    RulesAreMet(): boolean {
+      this.fields.forEach((f: Field) => {
+        if( this.attrNameRules[0](f.Field) !== true ) {
+          return false
+        }
+      });
+
+      return true
+    }
+  },
   methods: {
     emitRemove(n: number) {
       this.$emit('removed', n)
     },
     emitAdded() {
       this.$emit('added');
+    },
+    getRulesAreMet(): boolean {
+      return this.getRulesAreMet()
     }
   }
 });

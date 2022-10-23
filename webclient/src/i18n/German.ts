@@ -90,7 +90,8 @@ export const GermanTranslations: TranslationKeys = {
             },
             Rules: {
                 NoSpaces: 'Keine Leerzeichen erlaubt',
-                NameNotAvailable: 'Bezeichnung ist bereits vergeben'
+                NameNotAvailable: 'Bezeichnung ist bereits vergeben',
+                AttributeNotAvailable: 'Attribut existiert bereits'
             }
         }
     },

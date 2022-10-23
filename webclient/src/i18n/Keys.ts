@@ -90,6 +90,7 @@ export type TranslationKeys = {
             Rules: {
                 NoSpaces: string
                 NameNotAvailable: string
+                AttributeNotAvailable: string
             }
         }
     },
@@ -190,7 +191,8 @@ export const i18nDictionary: TranslationKeys = {
             },
             Rules: {
                 NoSpaces: 'Projects.CategoryEditor.Rules.NoSpaces',
-                NameNotAvailable: 'Projects.CategoryEditor.Rules.NameNotAvailable'
+                NameNotAvailable: 'Projects.CategoryEditor.Rules.NameNotAvailable',
+                AttributeNotAvailable: 'Projects.CategoryEditor.Rules.AttributeNotAvailable'
             }
         }
     },

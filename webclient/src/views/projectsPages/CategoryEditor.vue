@@ -93,6 +93,7 @@
                 style="max-width: 1200px;"
                 v-on:added="addAttribute(false)"
                 v-on:removed="removeAttribute($event, false)"
+                ref="bibTable"
             ></CategoryTable>
 
           </v-expansion-panel-content>
@@ -181,6 +182,7 @@ export default Vue.extend({
           JSON.stringify(this.citeFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields);
     },
     rulesAreMet(): boolean {
+      //todo: rules are met from table
       return this.typeNameRules[0](this.name) === true
     },
     bibModel(): string {
