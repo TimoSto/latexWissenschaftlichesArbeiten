@@ -115,6 +115,7 @@ import GeneratePreviewsForBibEntry from "../../api/bibEntries/GeneratePreviewsFo
 import { GetEntryKeyRules } from "@/inputRules/entryKeyRules";
 import EntrySaveNecessary from "../../saveNecessary/entrySaveNecessary";
 import ConfirmDialog from "../../components/ConfirmDialog.vue";
+import GetFieldNames from "../../api/bibEntries/GetFieldNames";
 
 export default Vue.extend({
   name: "EntryEditor",
@@ -155,23 +156,8 @@ export default Vue.extend({
       return EntrySaveNecessary(this.$store.state, this.index, this.key, this.category, this.fields)
     },
     fieldNames(): string[] {
-      if( this.category !== '' ) {
-        const category = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category);
 
-        let fields = [] as string[]
-        let citeFields = [] as string[]
-        if( category ) {
-          fields = category.Fields.map((f: Field) => f.Field)
-          citeFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category).CiteFields.map((f: Field) => f.Field)
-        }
-        citeFields.forEach((f: string) => {
-          if( fields.indexOf(f) === -1 ) {
-            fields.push(f)
-          }
-        });
-        return fields;
-      }
-      return []
+      return GetFieldNames(this.$store.state, this.category)
     },
     preview(): string[] {
       const btype = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category)
