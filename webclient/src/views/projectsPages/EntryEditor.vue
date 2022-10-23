@@ -126,7 +126,8 @@ export default Vue.extend({
       }
 
       return this.key !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Key ||
-          this.category !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Typ;
+          this.category !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Typ ||
+          this.fields !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Fields;
     },
     fieldNames(): string[] {
       if( this.category !== '' ) {
