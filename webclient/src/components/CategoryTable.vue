@@ -84,7 +84,7 @@
             <v-text-field disabled placeholder="Attribut"></v-text-field>
           </td>
           <td>
-            <v-select disabled placeholder="Style"></v-select>
+            <v-select disabled placeholder="Style" :menu-props="{closeOnClick: true}"></v-select>
           </td>
           <td>
             <v-text-field disabled placeholder="Prefix"></v-text-field>
@@ -96,7 +96,7 @@
             <v-checkbox disabled/>
           </td>
           <td v-if="showCitaviAttrs === 'true'">
-            <v-combobox disabled />
+            <v-combobox disabled  :menu-props="{closeOnClick: true}"/>
           </td>
           <td>
             <v-btn icon @click="emitAdded">

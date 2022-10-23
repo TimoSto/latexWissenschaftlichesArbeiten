@@ -57,6 +57,7 @@
                     <v-combobox
                         v-model="citaviCategory"
                         :items="citaviTypes"
+                        :menu-props="{closeOnClick: true}"
                     />
                   </td>
                 </tr>
@@ -69,6 +70,8 @@
                         :items="citaviMandatoryAttributes"
                         @focus="focusedComboCitavi=true"
                         @blur="focusedComboCitavi=false"
+                        id="cb2"
+                        attach="#cb2"
                     >
                       <!--to have no checkbox-->
                       <template v-slot:item="{ item }">
