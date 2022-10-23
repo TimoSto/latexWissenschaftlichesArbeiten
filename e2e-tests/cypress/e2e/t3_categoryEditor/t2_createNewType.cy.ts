@@ -18,7 +18,7 @@ describe('creating new type', () => {
         CategoryPageAssertions.AssertInitialNameIs('');
         CategoryEditorActions.ClearField('Neue Bezeichnung')
         CategoryEditorActions.TypeInField('Neue Bezeichnung', 'test');
-        CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
+        CategoryPageAssertions.AssertEditorSaveBtnIsEnabled(true);
     })
 
     it('add attribute', () => {
@@ -28,7 +28,7 @@ describe('creating new type', () => {
 
     it('saving', () => {
         CategoryEditorActions.ClickCategorySaveBtn();
-        CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(false);
+        CategoryPageAssertions.AssertEditorSaveBtnIsEnabled(false);
         ProjectAssertions.AssertBibModelForTypeIs('test', "teest");
         CategoryPageAssertions.AssertInitialNameIs('test');
     });

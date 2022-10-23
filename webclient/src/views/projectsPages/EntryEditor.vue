@@ -17,7 +17,7 @@
       <v-btn icon :title="$t(i18nDictionary.Common.Delete)" >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary" :title="$t(i18nDictionary.Common.Save)" @click="saveThisEntry">
+      <v-btn icon :disabled="!saveNecessary || !rulesAreMet" :title="$t(i18nDictionary.Common.Save)" @click="saveThisEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
@@ -164,6 +164,9 @@ export default Vue.extend({
     preview(): string[] {
       const btype = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category)
       return GeneratePreviewsForBibEntry(btype.Fields, btype.CiteFields, this.fields)
+    },
+    rulesAreMet(): boolean {
+      return this.key.length > 0 && this.category.length > 0
     }
   },
   methods: {
