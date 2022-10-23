@@ -13,7 +13,8 @@ const ActionTypes = {
             SaveCategory: 'Projects.CategoryEditor.SaveCategory'
         },
         EntryEditor: {
-            SaveEntry: 'Projects.EntryEditor.SaveEntry'
+            SaveEntry: 'Projects.EntryEditor.SaveEntry',
+            DeleteEntry: 'Projects.EntryEditor.DeleteEntry'
         }
     }
 }

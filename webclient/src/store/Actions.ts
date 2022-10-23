@@ -5,7 +5,7 @@ import ActionTypes from "@/store/ActionTypes";
 import {GetAppData, SaveConfiguration} from "@/store/actions/appActions";
 import {ConfigSaveObj} from "@/api/app/SaveConfig";
 import {
-    CreateProjectAction,
+    CreateProjectAction, DeleteEntryAction,
     DeleteProjectAction,
     DeleteTypeAction,
     GetProjectDataAction, SaveEntryAction, SaveTypeAction
@@ -36,7 +36,9 @@ export const actions: ActionTree<MyState, MyState> = {
         await SaveTypeAction(commit, payload.project, payload.type, payload.initialName)
     },
     async [ActionTypes.Projects.EntryEditor.SaveEntry]({ commit }, payload: {entry: BibEntry, project: string, initialKey: string}) {
-        console.log(payload)
         await SaveEntryAction(commit, payload.project, payload.entry, payload.initialKey)
+    },
+    async [ActionTypes.Projects.EntryEditor.DeleteEntry]({ commit }, payload: {project: string, entry: string}) {
+        await DeleteEntryAction(commit, payload.project, payload.entry)
     }
 }

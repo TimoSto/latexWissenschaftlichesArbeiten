@@ -218,7 +218,7 @@ export default Vue.extend({
       }
     },
     deleteThisType() {
-      //
+      this.$store.dispatch(ActionTypes.Projects.EntryEditor.DeleteEntry, {project: this.$store.state.ProjectView.CurrentProject, entry: this.initialKey})
     }
   }
 })

@@ -1,5 +1,5 @@
 import {MutationTree} from "vuex";
-import {MyState, MyStateObj} from "@/store/MyState";
+import {MyState} from "@/store/MyState";
 import MutationTypes from "@/store/MutationTypes";
 import {RemoveProject, SetConfig, SetCurrentView, SetProjectNames} from "@/store/mutations/appMutations";
 import {AddProject, SetCurrentProject, SetProjectData} from "@/store/mutations/projectsViewMutations";
@@ -7,7 +7,7 @@ import {ProjectData} from "@/api/projects/GetProjectData";
 import {UpdateType, RemoveType} from "@/store/mutations/categoryEditorMutations";
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/Entry";
-import {UpdateEntry} from "@/store/mutations/entryEditorMutations";
+import {RemoveEntry, UpdateEntry} from "@/store/mutations/entryEditorMutations";
 
 export const mutations: MutationTree<MyState> = {
     [MutationTypes.App.SetCurrentView](state: MyState, payload: string) {
@@ -47,5 +47,8 @@ export const mutations: MutationTree<MyState> = {
     },
     [MutationTypes.EntryEditor.UpdateEntry](state: MyState, payload: {Entry: BibEntry, initialKey: string}) {
         UpdateEntry(state, payload)
+    },
+    [MutationTypes.EntryEditor.RemoveEntry](state: MyState, payload: string) {
+        RemoveEntry(state, payload)
     }
 }

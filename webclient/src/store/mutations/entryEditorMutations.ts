@@ -14,3 +14,10 @@ export function UpdateEntry(state: MyState, entry: {Entry: BibEntry, initialKey:
         return a.Key.toLowerCase() > b.Key.toLowerCase() ? 0 : -1
     })
 }
+
+export function RemoveEntry(state: MyState, key: string) {
+    const i = state.ProjectView.CurrentProjectData.bibEntries.map(e => e.Key).indexOf(key);
+    if( i >= 0 ) {
+        state.ProjectView.CurrentProjectData.bibEntries.splice(i, 1)
+    }
+}
