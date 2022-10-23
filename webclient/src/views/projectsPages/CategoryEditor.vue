@@ -71,8 +71,6 @@
                         :items="citaviMandatoryAttributes"
                         @focus="focusedComboCitavi=true"
                         @blur="focusedComboCitavi=false"
-                        id="cb2"
-                        attach="#cb2"
                         type="string"
                     >
                       <!--to have no checkbox-->
