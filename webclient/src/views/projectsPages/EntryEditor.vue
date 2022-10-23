@@ -17,7 +17,7 @@
       <v-btn icon :title="$t(i18nDictionary.Common.Delete)" >
         <v-icon>mdi-delete</v-icon>
       </v-btn>
-      <v-btn icon :disabled="!saveNecessary" :title="$t(i18nDictionary.Common.Save)">
+      <v-btn icon :disabled="!saveNecessary" :title="$t(i18nDictionary.Common.Save)" @click="saveThisEntry">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
       <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
@@ -97,6 +97,7 @@
 import {i18nDictionary} from "@/i18n/Keys";
 import {BibType, Field} from "../../api/bibTypes/BibType";
 import Vue from "vue";
+import ActionTypes from "../../store/ActionTypes";
 
 export default Vue.extend({
   name: "EntryEditor",
@@ -141,6 +142,19 @@ export default Vue.extend({
         return fields;
       }
       return []
+    }
+  },
+  methods: {
+    saveThisEntry() {
+      this.$store.dispatch(ActionTypes.Projects.EntryEditor.SaveEntry, {
+        initialKey: this.initialKey,
+        project: this.$store.state.ProjectView.CurrentProject,
+        entry: {
+          Key: this.key,
+          Typ: this.category,
+          Fields: this.fields
+        }
+      })
     }
   }
 })

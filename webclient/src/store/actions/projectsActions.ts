@@ -6,6 +6,8 @@ import DeleteProject from "@/api/projects/DeleteProject";
 import {DeleteType} from "@/api/bibTypes/DeleteType";
 import {BibType} from "@/api/bibTypes/BibType";
 import SaveType from "@/api/bibTypes/SaveType";
+import {BibEntry} from "@/api/bibEntries/Entry";
+import SaveEntry from "@/api/bibEntries/SaveEntry";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
@@ -49,4 +51,8 @@ export async function SaveTypeAction(commit: (type: string,payload?: any,options
         commit(MutationTypes.CategoryEditor.UpdateType, {Type: type, initialName: initialName})
         commit(MutationTypes.ProjectView.SetEditorUpdateIndex, type.Name);
     }
+}
+
+export async function SaveEntryAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, entry: BibEntry, initialKey: string) {
+    const ok = await SaveEntry(project, entry, initialKey)
 }
