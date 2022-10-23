@@ -114,6 +114,16 @@ export default Vue.extend({
       fields: []
     }
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.setData();
+    })
+  },
+  watch: {
+    index() {
+      this.setData();
+    }
+  },
   computed: {
     availableTypes(): string[] {
       return this.$store.state.ProjectView.CurrentProjectData.bibTypes.map((t: BibType) => t.Name)
@@ -161,6 +171,18 @@ export default Vue.extend({
           Fields: this.fields
         }
       })
+    },
+    setData() {
+      if( this.index >= 0 ) {
+        const entry = this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index];
+        this.key = entry.Key;
+        this.category = entry.Typ;
+        this.fields = entry.Fields;
+      } else {
+        this.key = '';
+        this.category = '';
+        this.fields = [];
+      }
     }
   }
 })
