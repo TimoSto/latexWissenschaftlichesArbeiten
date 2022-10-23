@@ -19,6 +19,10 @@ export function AssertCitaviCategoryForTypeIs(type: string, citavi: string) {
     cy.get('.page1').find('td').contains(type).parent().find('td').eq(1).should('have.text', citavi)
 }
 
+export function AssertCategoryForEntryIs(entry: string, category: string) {
+    cy.get('.page1').find('td').contains(entry).parent().find('td').eq(1).should('have.text', category)
+}
+
 export function EditAreaIsVisible() {
     cy.get('.edit-area').should('be.visible');
 }
