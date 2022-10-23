@@ -132,8 +132,14 @@ export default Vue.extend({
     },
     fieldNames(): string[] {
       if( this.category !== '' ) {
-        let fields = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category).Fields.map((f: Field) => f.Field)
-        const citeFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category).CiteFields.map((f: Field) => f.Field)
+        const category = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category);
+
+        let fields = [] as string[]
+        let citeFields = [] as string[]
+        if( category ) {
+          fields = category.Fields.map((f: Field) => f.Field)
+          citeFields = this.$store.state.ProjectView.CurrentProjectData.bibTypes.find((t: BibType) => t.Name === this.category).CiteFields.map((f: Field) => f.Field)
+        }
         citeFields.forEach((f: string) => {
           if( fields.indexOf(f) === -1 ) {
             fields.push(f)
