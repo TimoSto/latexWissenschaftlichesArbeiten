@@ -14,7 +14,7 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
-      <v-btn icon :title="$t(i18nDictionary.Common.Delete)" >
+      <v-btn icon :title="$t(i18nDictionary.Common.Delete)" @click="deleteOpen = true">
         <v-icon>mdi-delete</v-icon>
       </v-btn>
       <v-btn icon :disabled="!saveNecessary || !rulesAreMet" :title="$t(i18nDictionary.Common.Save)" @click="saveThisEntry">
@@ -92,6 +92,17 @@
       </v-expansion-panels>
 
     </v-sheet>
+
+    <ConfirmDialog
+        :open="deleteOpen"
+        :abort="$t(i18nDictionary.Common.Abort)"
+        :confirm="$t(i18nDictionary.Common.Delete)"
+        :title="$t(i18nDictionary.Projects.EntryEditor.DeleteEntryDialog.Title)"
+        :content="$t(i18nDictionary.Projects.EntryEditor.DeleteEntryDialog.Content)"
+        v-on:discard="deleteOpen = false"
+        v-on:confirm="deleteThisType"
+    />
+
   </div>
 </template>
 
@@ -103,9 +114,11 @@ import ActionTypes from "../../store/ActionTypes";
 import GeneratePreviewsForBibEntry from "../../api/bibEntries/GeneratePreviewsForBibEntry";
 import { GetEntryKeyRules } from "@/inputRules/entryKeyRules";
 import EntrySaveNecessary from "../../saveNecessary/entrySaveNecessary";
+import ConfirmDialog from "../../components/ConfirmDialog.vue";
 
 export default Vue.extend({
   name: "EntryEditor",
+  components: {ConfirmDialog},
   props: [
       'layoutBtnContent',
       'index'
@@ -116,7 +129,8 @@ export default Vue.extend({
       panels: [0, 1],
       key: '',
       category: '',
-      fields: []
+      fields: [],
+      deleteOpen: false
     }
   },
   mounted() {
@@ -202,6 +216,9 @@ export default Vue.extend({
         this.category = '';
         this.fields = [];
       }
+    },
+    deleteThisType() {
+      //
     }
   }
 })

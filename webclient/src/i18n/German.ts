@@ -99,7 +99,11 @@ export const GermanTranslations: TranslationKeys = {
             NewKey: 'Neuer Schlüssel',
             Rules:  {
                 KeyNotAvailable: 'Schlüssel bereits vergeben'
-            }
+            },
+            DeleteEntryDialog: {
+                Title: 'Literatureintrag löschen',
+                Content: 'Wenn in deinem Dokument noch Zitate mit diesem Eintrag sind, werden sie beim nächsten kompilieren rot hervorgehoben.',
+            },
         }
     },
     Config: {

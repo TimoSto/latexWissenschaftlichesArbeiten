@@ -99,7 +99,11 @@ export const EnglishTranslations: TranslationKeys = {
             NewKey: 'New key',
             Rules:  {
                 KeyNotAvailable: 'Key is not available'
-            }
+            },
+            DeleteEntryDialog: {
+                Title: 'Delete bibliography entry',
+                Content: 'If your document still contains cites of this entry, these will be highlighted in red after the next compiling.',
+            },
         }
     },
     Config: {

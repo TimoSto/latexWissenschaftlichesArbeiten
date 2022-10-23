@@ -98,6 +98,10 @@ export type TranslationKeys = {
             NewKey: string
             Rules: {
                 KeyNotAvailable: string
+            },
+            DeleteEntryDialog: {
+                Title: string
+                Content: string
             }
         }
     },
@@ -207,7 +211,11 @@ export const i18nDictionary: TranslationKeys = {
             NewKey: 'Projects.EntryEditor.NewKey',
             Rules: {
                 KeyNotAvailable: 'Projects.EntryEditor.Rules.KeyNotAvailable',
-            }
+            },
+            DeleteEntryDialog: {
+                Title: 'Projects.EntryEditor.DeleteEntryDialog.Title',
+                Content: 'Projects.EntryEditor.DeleteEntryDialog.Content',
+            },
         }
     },
     Config: {
