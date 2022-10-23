@@ -208,10 +208,6 @@ export default Vue.extend({
     },
     saveNecessary(): boolean {//todo: rules checken
 
-      if ( this.index === -1 ) {
-        return true
-      }
-
       return CategorySaveNecessary(this.$store.state, this.index, this.name, this.citaviCategory, this.citaviNecessaryFields, this.fields, this.citeFields)
     },
     rulesAreMet(): boolean {

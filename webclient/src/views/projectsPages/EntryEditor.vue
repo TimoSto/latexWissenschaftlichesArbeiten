@@ -101,6 +101,7 @@ import Vue from "vue";
 import ActionTypes from "../../store/ActionTypes";
 import GeneratePreviewsForBibEntry from "../../api/bibEntries/GeneratePreviewsForBibEntry";
 import { GetEntryKeyRules } from "@/inputRules/entryKeyRules";
+import EntrySaveNecessary from "../../saveNecessary/entrySaveNecessary";
 
 export default Vue.extend({
   name: "EntryEditor",
@@ -136,13 +137,8 @@ export default Vue.extend({
       return this.index >= 0 ? this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Key : '';
     },
     saveNecessary(): boolean {
-      if( this.index === -1 ) {
-        return true
-      }
 
-      return this.key !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Key ||
-          this.category !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Typ ||
-          JSON.stringify(this.fields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Fields);
+      return EntrySaveNecessary(this.$store.state, this.index, this.key, this.category, this.fields)
     },
     fieldNames(): string[] {
       if( this.category !== '' ) {

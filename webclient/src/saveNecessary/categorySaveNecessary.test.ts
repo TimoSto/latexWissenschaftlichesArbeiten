@@ -60,6 +60,18 @@ describe('categorySaveNecessary', () => {
             }], [])).toBe(false);
     })
 
+    it('should not be necessary to save on new', () => {
+        expect(CategorySaveNecessary(state, -1, 'test1', 'aufsatz', [],
+            [{
+                Field: 'test1',
+                Style: 'normal',
+                Prefix: '',
+                Suffix: '',
+                TexValue: false,
+                CitaviAttributes: []
+            }], [])).toBe(true);
+    })
+
     it('should be necessary to save when name changed', () => {
         expect(CategorySaveNecessary(state, 0, 'test11', 'aufsatz', [],
             [{
