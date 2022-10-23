@@ -105,15 +105,17 @@
 
             <p v-html="bibModel"></p>
 
-            <CategoryTable
-                keyprefix="bib"
-                :fields="fields"
-                show-citavi-attrs="true"
-                style="max-width: 1200px;"
-                v-on:added="addAttribute(false)"
-                v-on:removed="removeAttribute($event, false)"
-                ref="bibTable"
-            ></CategoryTable>
+            <div class="centered">
+              <CategoryTable
+                  keyprefix="bib"
+                  :fields="fields"
+                  show-citavi-attrs="true"
+                  style="max-width: 1200px;"
+                  v-on:added="addAttribute(false)"
+                  v-on:removed="removeAttribute($event, false)"
+                  ref="bibTable"
+              ></CategoryTable>
+            </div>
 
           </v-expansion-panel-content>
         </v-expansion-panel>

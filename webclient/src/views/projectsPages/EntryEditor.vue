@@ -71,6 +71,7 @@
           <v-expansion-panel-content class="content-with-padding">
             <div class="centered">
               <v-simple-table class="attr-value-table" style="max-width: 600px">
+                <!--todo: gehts croll auch ohne head -->
                 <tbody>
                 <tr v-for="(f,i) in fieldNames" :key="'f'+i">
                   <td>{{f}}</td>
