@@ -12,6 +12,8 @@ export type TranslationKeys = {
         TitleAppendixProjects: string
         Information: string
         Homepage: string
+        Layout5050: string
+        Layout3070: string
     },
     Home: {
         Welcome: string
@@ -124,7 +126,9 @@ export const i18nDictionary: TranslationKeys = {
     App: {
         TitleAppendixProjects: 'App.TitleAppendixProjects',
         Information: 'App.Information',
-        Homepage: 'App.Homepage'
+        Homepage: 'App.Homepage',
+        Layout5050: 'App.Layout5050',
+        Layout3070: 'App.Layout3070'
     },
     Home: {
         Welcome: 'Home.Welcome',

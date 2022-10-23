@@ -91,12 +91,12 @@ export default Vue.extend({
       if( this.$data.twoThirdsMode ) {
         return [
           '&#189;',
-          this.$t(this.$data.i18nDictionary.APP_50_50_LAYOUT)
+          this.$t(this.$data.i18nDictionary.App.Layout5050)
         ]
       }
       return [
         '&#8532;',
-        this.$t(this.$data.i18nDictionary.APP_30_70_LAYOUT)
+        this.$t(this.$data.i18nDictionary.App.Layout3070)
       ]
     },
     editorCloseNeeded(): boolean {

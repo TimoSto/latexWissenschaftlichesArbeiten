@@ -12,7 +12,9 @@ export const EnglishTranslations: TranslationKeys = {
     App: {
         TitleAppendixProjects: 'Projects',
         Information: 'Information',
-        Homepage: 'Homepage'
+        Homepage: 'Homepage',
+        Layout5050: '50:50 layout',
+        Layout3070: '30:70 layout'
     },
     Home: {
         Welcome: 'Welcome to ThesorTeX!',
