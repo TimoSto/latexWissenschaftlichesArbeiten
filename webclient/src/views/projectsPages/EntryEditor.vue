@@ -140,7 +140,7 @@ export default Vue.extend({
 
       return this.key !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Key ||
           this.category !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Typ ||
-          this.fields !== this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Fields;
+          JSON.stringify(this.fields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index].Fields);
     },
     fieldNames(): string[] {
       if( this.category !== '' ) {
@@ -185,7 +185,10 @@ export default Vue.extend({
         const entry = this.$store.state.ProjectView.CurrentProjectData.bibEntries[this.index];
         this.key = entry.Key;
         this.category = entry.Typ;
-        this.fields = entry.Fields;
+        this.fields = JSON.parse(JSON.stringify(entry.Fields)).map((s: string) => {
+          if( !s ) return ''
+          return s
+        });
       } else {
         this.key = '';
         this.category = '';
