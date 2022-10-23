@@ -126,6 +126,7 @@ export default Vue.extend({
   },
   computed: {
     availableTypes(): string[] {
+      console.log(this.$store.state.ProjectView.CurrentProjectData.bibTypes)
       return this.$store.state.ProjectView.CurrentProjectData.bibTypes.map((t: BibType) => t.Name)
     },
     initialKey(): string {

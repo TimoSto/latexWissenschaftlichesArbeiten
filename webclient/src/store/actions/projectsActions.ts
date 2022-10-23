@@ -49,10 +49,15 @@ export async function SaveTypeAction(commit: (type: string,payload?: any,options
 
     if( ok ) {
         commit(MutationTypes.CategoryEditor.UpdateType, {Type: type, initialName: initialName})
-        commit(MutationTypes.ProjectView.SetEditorUpdateIndex, type.Name);
+        commit(MutationTypes.ProjectView.SetEditorUpdateIndex, {v: type.Name, entry: false});
     }
 }
 
 export async function SaveEntryAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, entry: BibEntry, initialKey: string) {
     const ok = await SaveEntry(project, entry, initialKey)
+
+    if( ok ) {
+        commit(MutationTypes.EntryEditor.UpdateEntry, {Entry: entry, initialKey: initialKey})
+        commit(MutationTypes.ProjectView.SetEditorUpdateIndex, {v: entry.Key, entry: true});
+    }
 }

@@ -17,6 +17,10 @@ const MutationTypes = {
         RemoveType: 'CategoryEditor.DeleteType',
         UpdateType: 'CategoryEditor.UpdateType'
     },
+    EntryEditor: {
+        RemoveEntry: 'EntryEditor.DeleteEntry',
+        UpdateEntry: 'EntryEditor.UpdateEntry'
+    },
 }
 
 export default MutationTypes

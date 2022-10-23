@@ -8,6 +8,7 @@ export function RemoveType(state: MyState, name: string) {
     }
 }
 
+//TODO unittest
 export function UpdateType(state: MyState, type: {Type: BibType, initialName: string}) {
     const i = state.ProjectView.CurrentProjectData.bibTypes.map(t => t.Name).indexOf(type.initialName)
     if( i === -1 ) {
