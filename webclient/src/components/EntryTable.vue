@@ -4,7 +4,9 @@
       <template v-slot:default>
         <CustomTableHead
             :headers="headers"
-            :actions="actions" />
+            :actions="actions"
+            v-on:clicked="$emit($event)"
+        />
 
         <tbody>
         <tr v-for="(e, i) in entries" :key="e.Key" @click="$emit('select', i)" style="cursor: pointer" v-ripple>

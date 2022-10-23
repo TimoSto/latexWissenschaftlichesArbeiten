@@ -23,8 +23,9 @@
           <v-expansion-panel-content class="content-with-padding">
             <EntryTable
                 :entries="currentProjectData_Entries"
-                :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen'}]"
+                :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen', Callback: 'new'}]"
                 v-on:select="$emit('openEditor', {Type: 'entry', Element: $event})"
+                v-on:new="$emit('openEditor', {Type: 'entry', Element: -1})"
             />
           </v-expansion-panel-content>
         </v-expansion-panel>

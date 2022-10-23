@@ -10,3 +10,7 @@ export function ClickOnTableElement(t) {
 export function ClickOnNewType() {
     cy.get('.page1').find('.v-btn[title="Neue Kategorie erstellen"]').click();
 }
+
+export function ClickOnNewEntry() {
+    cy.get('.page1').find('.v-btn[title="Neuen Eintrag erstellen"]').click();
+}
