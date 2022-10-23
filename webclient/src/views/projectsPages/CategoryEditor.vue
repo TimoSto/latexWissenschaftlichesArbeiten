@@ -166,6 +166,7 @@ import {GenerateModelFromFields} from "../../api/bibTypes/GenerateModelFromField
 import ConfirmDialog from "../../components/ConfirmDialog.vue";
 import ActionTypes from "../../store/ActionTypes";
 import GetTypeNameRules from "../../inputRules/typeNameRules"
+import {CategorySaveNecessary} from "../../saveNecessary/categorySaveNecessary";
 
 export default Vue.extend({
   name: "CategoryEditor",
@@ -211,11 +212,7 @@ export default Vue.extend({
         return true
       }
 
-      return this.name !== this.initialName ||
-          this.citaviCategory !== this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviType ||
-          JSON.stringify(this.citaviNecessaryFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CitaviNecessaryFields) ||
-          JSON.stringify(this.fields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Fields) ||
-          JSON.stringify(this.citeFields) !== JSON.stringify(this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].CiteFields);
+      return CategorySaveNecessary(this.$store.state, this.index, this.name, this.citaviCategory, this.citaviNecessaryFields, this.fields, this.citeFields)
     },
     rulesAreMet(): boolean {
       //todo: rules are met from table
