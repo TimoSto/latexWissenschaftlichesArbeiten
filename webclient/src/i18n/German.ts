@@ -93,6 +93,9 @@ export const GermanTranslations: TranslationKeys = {
                 NameNotAvailable: 'Bezeichnung ist bereits vergeben',
                 AttributeNotAvailable: 'Attribut existiert bereits'
             }
+        },
+        EntryEditor: {
+            Fields: 'Felder'
         }
     },
     Config: {

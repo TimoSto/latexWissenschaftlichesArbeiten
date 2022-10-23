@@ -93,6 +93,9 @@ export const EnglishTranslations: TranslationKeys = {
                 NameNotAvailable: 'This name is already used',
                 AttributeNotAvailable: 'Attribute already exists'
             }
+        },
+        EntryEditor: {
+            Fields: 'Fields'
         }
     },
     Config: {

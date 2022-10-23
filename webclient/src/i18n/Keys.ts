@@ -88,10 +88,13 @@ export type TranslationKeys = {
                 Content: string
             },
             Rules: {
-                NoSpaces: string
+                NoSpaces: string//TODO: migrate to common
                 NameNotAvailable: string
                 AttributeNotAvailable: string
             }
+        },
+        EntryEditor: {
+            Fields: string
         }
     },
     Config: {
@@ -194,6 +197,9 @@ export const i18nDictionary: TranslationKeys = {
                 NameNotAvailable: 'Projects.CategoryEditor.Rules.NameNotAvailable',
                 AttributeNotAvailable: 'Projects.CategoryEditor.Rules.AttributeNotAvailable'
             }
+        },
+        EntryEditor: {
+            Fields: 'Projects.EntryEditor.Fields'
         }
     },
     Config: {

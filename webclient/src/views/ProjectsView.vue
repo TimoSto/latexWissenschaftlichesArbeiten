@@ -10,6 +10,7 @@
           v-on:closeEditor="openEditor({Type: '', Element: -1})"
           v-on:toggleTwoThirds="toggleTwoThirds"
           :layoutBtnContent="layoutBtnContent"
+          :index="editorElement"
       />
       <CategoryEditor
           v-if="editorType === 'category'"

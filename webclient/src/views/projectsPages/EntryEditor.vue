@@ -4,6 +4,7 @@
         color="background"
         elevate-on-scroll
         dense
+        scroll-target="#entry-scroll"
         >
       <v-toolbar-title>Eintrag</v-toolbar-title>
 
@@ -19,6 +20,21 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-app-bar>
+    <v-sheet class="content-below-two-bars" id="entry-scroll">
+
+      <v-expansion-panels tile flat hover multiple v-model="panels">
+
+        <v-expansion-panel>
+          <v-expansion-panel-header>{{$t(i18nDictionary.Projects.CategoryEditor.Properties)}}</v-expansion-panel-header>
+        </v-expansion-panel>
+
+        <v-expansion-panel>
+          <v-expansion-panel-header>{{$t(i18nDictionary.Projects.EntryEditor.Fields)}}</v-expansion-panel-header>
+        </v-expansion-panel>
+
+      </v-expansion-panels>
+
+    </v-sheet>
   </div>
 </template>
 
@@ -28,11 +44,13 @@ import {i18nDictionary} from "@/i18n/Keys";
 export default {
   name: "EntryEditor",
   props: [
-      'layoutBtnContent'
+      'layoutBtnContent',
+      'index'
   ],
   data() {
     return {
       i18nDictionary: i18nDictionary,
+      panels: [0, 1]
     }
   }
 }
