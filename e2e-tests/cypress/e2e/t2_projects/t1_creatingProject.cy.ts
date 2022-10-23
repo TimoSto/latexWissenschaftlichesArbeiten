@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 
 import {VisitUrl} from "../../helpers/Browser";
-import * as AppAssertions from "../../helpers/AppAssertions.js";
-import * as AppActions from "../../helpers/AppActions.js";
-import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions.js";
+import * as AppAssertions from "../../helpers/AppAssertions";
+import * as AppActions from "../../helpers/AppActions";
+import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions";
 
 describe('Creating project', () => {
 

@@ -25,6 +25,7 @@
           :title="$t(i18nDictionary.App.TitleAppendixProjects)"
           :closed="drawer" v-if="currentView === 'projects'"
           :items="projectNames"
+          :addTitle="$t(i18nDictionary.Projects.New.Title)"
           v-on:modelchange="handleProjectSelect"
           ref="sidebarProjects"
           v-on:triggerAdd="openNewDialog('newProject')"

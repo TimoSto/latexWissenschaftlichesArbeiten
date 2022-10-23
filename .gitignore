@@ -13,3 +13,4 @@ projects/*
 /internal/config/Config.ini
 /errorLogs.txt
 /go_build_ThesorTeX_cmd_app
+/e2e-tests/cypress/screenshots/**/*

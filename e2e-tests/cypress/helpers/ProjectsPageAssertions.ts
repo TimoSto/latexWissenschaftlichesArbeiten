@@ -15,6 +15,10 @@ export function AssertBibModelForTypeIs(type, model) {
     cy.get('.page1').find('td').contains(type).parent().find('td').eq(2).should('have.html', model)
 }
 
+export function AssertCitaviCategoryForTypeIs(type: string, citavi: string) {
+    cy.get('.page1').find('td').contains(type).parent().find('td').eq(1).should('have.text', citavi)
+}
+
 export function EditAreaIsVisible() {
     cy.get('.edit-area').should('be.visible');
 }

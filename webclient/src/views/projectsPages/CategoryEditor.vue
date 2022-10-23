@@ -58,6 +58,7 @@
                         v-model="citaviCategory"
                         :items="citaviTypes"
                         :menu-props="{closeOnClick: true}"
+                        type="string"
                     />
                   </td>
                 </tr>
@@ -72,6 +73,7 @@
                         @blur="focusedComboCitavi=false"
                         id="cb2"
                         attach="#cb2"
+                        type="string"
                     >
                       <!--to have no checkbox-->
                       <template v-slot:item="{ item }">

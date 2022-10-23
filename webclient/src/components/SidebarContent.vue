@@ -13,7 +13,7 @@
      <v-spacer v-if="!closed"/>
 
 
-     <v-btn icon :title="$t(i18nDictionary.App.Information)" @click="$emit('triggerAdd')">
+     <v-btn icon :title="addTitle" @click="$emit('triggerAdd')">
        <v-icon>mdi-plus</v-icon>
      </v-btn>
    </v-app-bar>
@@ -60,7 +60,8 @@ export default Vue.extend({
   props: [
       'closed',
       'title',
-      'items'
+      'items',
+      'addTitle'
   ],
   methods: {
     toInfo() {

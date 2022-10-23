@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
 import {VisitUrl} from "../../helpers/Browser";
-import * as AppAssertions from "../../helpers/AppAssertions.js";
-import * as AppActions from "../../helpers/AppActions.js";
-import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions.js";
-import * as ProjectActions from "../../helpers/ProjectsPageActions.js";
+import * as AppAssertions from "../../helpers/AppAssertions";
+import * as AppActions from "../../helpers/AppActions";
+import * as ProjectAssertions from "../../helpers/ProjectsPageAssertions";
+import * as ProjectActions from "../../helpers/ProjectsPageActions";
 import * as CategoryEditorActions from "../../helpers/CategoryPageActions";
 import * as CategoryPageAssertions from "../../helpers/CategoryPageAssertions";
 import {AssertBibModelIs} from "../../helpers/CategoryPageAssertions";
@@ -68,32 +68,11 @@ describe('editing existing type', () => {
         })
     })
 
-    describe('creating new type', () => {
-        before(() => {
-            ProjectActions.ClickOnNewType();
-        });
-
-        it('is initially disabled', () => {
-
-        })
-
-        it('type in name', () => {
-            CategoryPageAssertions.AssertInitialNameIs('');
-            CategoryEditorActions.ClearField('Neue Bezeichnung')
-            CategoryEditorActions.TypeInField('Neue Bezeichnung', 'test');
-            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(true);
-        })
-
-        it('add attribute', () => {
-            CategoryEditorActions.AddAttributeToBib();
-            CategoryEditorActions.TypeInNthFieldWithName('Attribut', 0, 'teest')
-        })
-
-        it('saving', () => {
-            CategoryEditorActions.ClickCategorySaveBtn();
-            CategoryPageAssertions.AssertCategorySaveBtnIsEnabled(false);
-            ProjectAssertions.AssertBibModelForTypeIs('test', "teest");
-            CategoryPageAssertions.AssertInitialNameIs('test');
-        })
+    describe('citavi stuff', () => {
+       it('changing category', () => {
+           CategoryEditorActions.TypeInField('Citavi-Kategorie', 'article');
+           CategoryEditorActions.ClickCategorySaveBtn();
+           ProjectAssertions.AssertCitaviCategoryForTypeIs('aufsatz', 'article');
+       })
     })
 })
