@@ -160,7 +160,7 @@ export default Vue.extend({
         this.setSidebarToCurrentProject()
       }
     },
-    projectNames(ov, nv) {
+    projectNames() {
       if( this.$store.state.ProjectView.CurrentProject ) {
         this.setSidebarToCurrentProject();
       }

@@ -1,5 +1,4 @@
 import ParseEntryToString from "@/api/bibEntries/ParseEntryToString";
-import {Field} from "@/api/bibTypes/BibType";
 
 describe('ParseEntryToString', () => {
     it('with fields', () => {
