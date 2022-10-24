@@ -116,6 +116,7 @@ import { GetEntryKeyRules } from "@/inputRules/entryKeyRules";
 import EntrySaveNecessary from "../../saveNecessary/entrySaveNecessary";
 import ConfirmDialog from "../../components/ConfirmDialog.vue";
 import GetFieldNames from "../../api/bibEntries/GetFieldNames";
+import {ParseStringToTeX} from "../../api/bibEntries/ParseTeXString";
 
 export default Vue.extend({
   name: "EntryEditor",
@@ -175,13 +176,17 @@ export default Vue.extend({
   },
   methods: {
     saveThisEntry() {
+      let parsedFields = [] as string[];
+      this.fields.forEach(f => {
+        parsedFields.push(ParseStringToTeX(f))
+      })
       this.$store.dispatch(ActionTypes.Projects.EntryEditor.SaveEntry, {
         initialKey: this.initialKey,
         project: this.$store.state.ProjectView.CurrentProject,
         entry: {
           Key: this.key,
           Typ: this.category,
-          Fields: this.fields,
+          Fields: parsedFields,
           BibPreview: this.preview[0],
           CitePreview: this.preview[1]
         }

@@ -10,6 +10,7 @@ import {BibEntry} from "@/api/bibEntries/Entry";
 import SaveEntry from "@/api/bibEntries/SaveEntry";
 import DeleteEntry from "@/api/bibEntries/DeleteEntry";
 import {i18nDictionary} from "@/i18n/Keys";
+import {ParseTeXToString} from "@/api/bibEntries/ParseTeXString";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
