@@ -6,6 +6,14 @@ Dieses Tool unterstützt dich in Berührungspunkten mit LaTeX, denen du auf dein
 - Weboberfläche, über die du Literaturtypen definieren und bearbeiten kannst
 - Eine Vorlage für einen Lebenslauf
 
+## Downloads
+Lade die für dein Betriebssystem passende Datei herunter:
+- Für Windows: out/windows/ThesorTeX.exe
+- Für Linux: out/linux/ThesorTeX
+- Für MacOS: out/macOS_amd64/ThesorTeX
+- Für MacOS (M1): out/macOS_arm64/ThesorTeX
+Kopiere diese an einen Ort deiner Wahl und starte die Anwendung durch einen Doppelklick. Ggf. musst du der Anwendung vertrauen und einen Zugriff auf dein Netzwerk zulassen.
+
 ## Projektstruktur
 
 - cmd: Einstiegspunkt
@@ -21,5 +29,5 @@ Dieses Projekt soll weitesgehend nach TDD entwickelt werden
 Einzelne Funktionen im Backend werden über go getestet
 ### Frontend-Unit-Tests
 Funktionen im Frontend werden über Jest getestet
-### Integrationstests
-tdb.
+### End-2-End-Tests
+End-2-End-Tests werden über cypress ausgeführt
