@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"fmt"
+	"ThesorTeX/webclient/assets"
 	"net/http"
 )
 
 func HandleRoot(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("root")
+	http.FileServer(http.FS(assets.SubDir)).ServeHTTP(w, r)
 }
