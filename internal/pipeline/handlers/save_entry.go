@@ -45,4 +45,11 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
+
+	err = entries.ConvertBibToCSV(data.Project, ioutil.ReadFile, ioutil.WriteFile)
+	if err != nil {
+		logger.LogError("converting entries", err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 }
