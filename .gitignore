@@ -15,3 +15,4 @@ projects/*
 /go_build_ThesorTeX_cmd_app
 /e2e-tests/cypress/screenshots/**/*
 /webclient/assets/dist/
+/out/macOS_arm64/projects/
