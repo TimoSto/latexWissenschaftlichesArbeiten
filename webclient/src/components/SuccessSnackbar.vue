@@ -53,7 +53,11 @@ export default Vue.extend({
   },
   watch: {
     value(v) {
-      if (v) this.syncPbar();
+      if (v) {
+        //TODO: reset time on change
+        this.currentTime = 0;
+        this.syncPbar();
+      }
     }
   },
   computed: {
