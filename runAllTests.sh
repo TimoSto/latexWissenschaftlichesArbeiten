@@ -7,4 +7,4 @@ yarn run test:unit
 
 echo "running e2e-tests..."
 cd ../e2e-tests
-yarn cypress run --browser chrome
+yarn cypress run --browser chrome --env systemBaseUri=$1

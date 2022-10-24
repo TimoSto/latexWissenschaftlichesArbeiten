@@ -1,5 +1,5 @@
 
-export let BaseURL = 'http://localhost:8080';
+export let BaseURL = Cypress.env('systemBaseUri') ? Cypress.env('systemBaseUri') : 'http://localhost:8080';
 
 export function VisitUrl(url) {
     cy.visit(BaseURL + url, {
