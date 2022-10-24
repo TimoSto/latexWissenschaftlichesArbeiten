@@ -17,5 +17,6 @@ export async function SaveConfiguration(commit: (type: string,payload?: any,opti
 
     if( success ) {
         commit(MutationTypes.App.SetConfig, obj);
+        commit(MutationTypes.App.SetSuccessMessage, 'App.SuccessSaveConfig')
     }
 }

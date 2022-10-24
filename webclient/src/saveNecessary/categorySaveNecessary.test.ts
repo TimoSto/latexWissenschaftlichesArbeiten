@@ -45,7 +45,7 @@ describe('categorySaveNecessary', () => {
                 EditorCloseNeeded: false,
                 EditorIndexUpdate: -1
             }
-        }
+        } as unknown as MyState
     })
 
     it('should not be necessary to save when all is equal', () => {

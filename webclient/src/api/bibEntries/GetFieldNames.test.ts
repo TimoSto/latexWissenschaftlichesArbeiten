@@ -51,7 +51,7 @@ describe('getFieldNames', () => {
                 EditorCloseNeeded: false,
                 EditorIndexUpdate: -1
             }
-        }
+        } as unknown as MyState
     });
 
     it('should give 4 fields', () => {

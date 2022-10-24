@@ -45,6 +45,8 @@
         v-on:save="handleSaveInNewDialog"
     />
 
+    <SuccessSnackbar />
+
   </v-app>
 </template>
 
@@ -57,10 +59,11 @@ import ActionTypes from "./store/ActionTypes";
 import { SidebarContentInterface } from './components/SidebarContentInterface';
 import NewDialog from "./components/NewDialog.vue";
 import ProjectNameRules from "./inputRules/ProjectNameRules";
+import SuccessSnackbar from "./components/SuccessSnackbar.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {NewDialog, SidebarContent},
+  components: {SuccessSnackbar, NewDialog, SidebarContent},
   data: () => ({
     drawer: false,
     i18nDictionary: i18nDictionary,

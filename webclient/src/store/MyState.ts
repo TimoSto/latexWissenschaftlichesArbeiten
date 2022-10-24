@@ -12,6 +12,7 @@ export type MyState = {
             Port: string
         },
         Loaded: boolean
+        SuccessMessage: string
     },
     ProjectView : {
         CurrentProject: string,
@@ -35,7 +36,8 @@ export const MyStateObj: MyState = {
             DarkMode: false,
             Port: ''
         },
-        Loaded: false
+        Loaded: false,
+        SuccessMessage: ''
     },
     ProjectView: {
         CurrentProject: '',

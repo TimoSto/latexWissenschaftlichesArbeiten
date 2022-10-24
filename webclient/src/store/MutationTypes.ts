@@ -4,7 +4,8 @@ const MutationTypes = {
         SetCurrentView: 'App.SetCurrentView',
         SetProjectNames: 'App.SetProjectNames',
         SetConfig: 'App.SetConfig',
-        RemoveProject: 'App.RemoveProject'
+        RemoveProject: 'App.RemoveProject',
+        SetSuccessMessage: 'App.SetSuccessMessage'
     },
     ProjectView: {
         SetCurrentProject: 'ProjectView.SetCurrentProject',

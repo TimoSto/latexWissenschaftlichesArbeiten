@@ -50,5 +50,9 @@ export const mutations: MutationTree<MyState> = {
     },
     [MutationTypes.EntryEditor.RemoveEntry](state: MyState, payload: string) {
         RemoveEntry(state, payload)
+    },
+    [MutationTypes.App.SetSuccessMessage](state: MyState, payload: string) {
+        console.log(payload)
+        state.App.SuccessMessage = payload;
     }
 }

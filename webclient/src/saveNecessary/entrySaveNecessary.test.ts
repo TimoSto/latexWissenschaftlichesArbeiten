@@ -62,7 +62,7 @@ describe('entrySave necesary', () => {
                 EditorCloseNeeded: false,
                 EditorIndexUpdate: -1
             }
-        }
+        } as unknown as MyState
     });
 
     it('should not be necessary to save on no changes', () => {
