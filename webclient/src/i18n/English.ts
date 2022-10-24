@@ -48,13 +48,15 @@ export const EnglishTranslations: TranslationKeys = {
             Title: 'Create new project',
             Label: 'Projectname',
             AlreadyExists: 'Project with this name already exists',
-            NoSpaces: 'No Spaces in project name allowed'
+            NoSpaces: 'No Spaces in project name allowed',
+            Success: 'New project successfully created'
         },
         Overview: {
             DeleteProject: 'Delete project',
             DeleteProjectDialog: {
                 Title: 'Delete current project?',
                 Content: 'Are you sure you want to delete the current project? Your backups will remain.',
+                Success: 'Project successfully deleted'
             },
             Entries: 'Entries in bibliography',
             EntriesTable: {
@@ -86,9 +88,11 @@ export const EnglishTranslations: TranslationKeys = {
             TeX_Value: 'Prevent escaping',
             Normal: 'normal',
             Italic: 'italic',
+            Success: 'Category successfully saved',
             DeleteCategoryDialog: {
                 Title: 'Delete bibliogrpahy category',
                 Content: 'Do you really want to delete this category? If entries with this category still exist, they will be displayed incorrectly.',
+                Success: 'Category successfully deleted'
             },
             Rules: {
                 NoSpaces: 'No spaces permitted',
@@ -102,15 +106,18 @@ export const EnglishTranslations: TranslationKeys = {
             Rules:  {
                 KeyNotAvailable: 'Key is not available'
             },
+            Success: 'Entry successfully saved',
             DeleteEntryDialog: {
                 Title: 'Delete bibliography entry',
                 Content: 'If your document still contains cites of this entry, these will be highlighted in red after the next compiling.',
+                Success: 'Entry successfully deleted'
             },
         }
     },
     Config: {
         Title: 'Global Configuration',
         DarkMode: 'Use darkmode',
-        AutoOpen: 'Open browser when starting the application'
+        AutoOpen: 'Open browser when starting the application',
+        Success: 'Configuration successfully saved'
     }
 }

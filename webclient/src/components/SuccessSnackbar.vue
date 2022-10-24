@@ -1,7 +1,7 @@
 <template>
   <v-snackbar :value="value">
     <span>
-      <slot></slot>
+      {{message}}
     </span>
 
     <v-progress-linear
@@ -14,6 +14,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import MutationTypes from "../store/MutationTypes";
+import VueI18n from "vue-i18n";
 
 export default Vue.extend({
   name: "SuccessSnackbar",
@@ -40,7 +42,7 @@ export default Vue.extend({
           //Wait 500 miliseconds for the dom to catch up, then reset the snackbar
           setTimeout(() => {
             this.currentTime = 0; // reset the current time
-            this.$emit('timeoutReached')
+            this.$store.commit(MutationTypes.App.SetSuccessMessage, '')
           }, 500);
         } else {
           //Recursivly update the progress bar
@@ -56,7 +58,10 @@ export default Vue.extend({
   },
   computed: {
     value(): boolean {
-      return this.$store.state.App.SuccessMessage;
+      return this.$store.state.App.SuccessMessage !== '';
+    },
+    message(): VueI18n.TranslateResult {
+      return this.$t(this.$store.state.App.SuccessMessage)
     }
   }
 })

@@ -48,13 +48,15 @@ export const GermanTranslations: TranslationKeys = {
             Title: 'Neues Projekt erstellen',
             Label: 'Projektname',
             AlreadyExists: 'Name bereits vergeben',
-            NoSpaces: 'Keine Leerzeichen im Projektnamen erlaubt'
+            NoSpaces: 'Keine Leerzeichen im Projektnamen erlaubt',
+            Success: 'Projekt erfolgreich erstellt'
         },
         Overview: {
             DeleteProject: 'Projekt löschen',
             DeleteProjectDialog: {
                 Title: 'Aktuelles Projekt löschen?',
                 Content: 'Bist du sicher, dass du das aktuelle Projekt löschen willst? Deine Backups bleiben erhalten.',
+                Success: 'Projekt erfolgreich gelöscht'
             },
             Entries: 'Einträge im Literaturverzeichnis',
             EntriesTable: {
@@ -86,9 +88,11 @@ export const GermanTranslations: TranslationKeys = {
             TeX_Value: 'Nicht escapen',
             Normal: 'normal',
             Italic: 'kursiv',
+            Success: 'Kategorie erfolgreich gespeichert',
             DeleteCategoryDialog: {
                 Title: 'Literaturkategorie löschen',
                 Content: 'Willst du diese Literaturkategorie wirklich löschen? Wenn noch Einträge mit diesem Typen existieren, werden diese nicht mehr richtig dargestellt.',
+                Success: 'Kategorie erfolgreich gelöscht'
             },
             Rules: {
                 NoSpaces: 'Keine Leerzeichen erlaubt',
@@ -102,15 +106,18 @@ export const GermanTranslations: TranslationKeys = {
             Rules:  {
                 KeyNotAvailable: 'Schlüssel bereits vergeben'
             },
+            Success: 'Eintrag erfolreich gespeichert',
             DeleteEntryDialog: {
                 Title: 'Literatureintrag löschen',
                 Content: 'Wenn in deinem Dokument noch Zitate mit diesem Eintrag sind, werden sie beim nächsten kompilieren rot hervorgehoben.',
+                Success: 'Eintrag erfolgreichg gelöscht'
             },
         }
     },
     Config: {
         Title: 'Globale Konfigurationen',
         DarkMode: 'Dunkles Design verwenden',
-        AutoOpen: 'Beim Starten der Anwendung den Browser öffnen'
+        AutoOpen: 'Beim Starten der Anwendung den Browser öffnen',
+        Success: 'Konfiugration erfolgreich gespeichert'
     }
 }

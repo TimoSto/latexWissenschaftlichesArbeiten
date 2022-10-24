@@ -9,6 +9,7 @@ import SaveType from "@/api/bibTypes/SaveType";
 import {BibEntry} from "@/api/bibEntries/Entry";
 import SaveEntry from "@/api/bibEntries/SaveEntry";
 import DeleteEntry from "@/api/bibEntries/DeleteEntry";
+import {i18nDictionary} from "@/i18n/Keys";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
@@ -16,7 +17,7 @@ export async function CreateProjectAction(commit: (type: string,payload?: any,op
     if( success ) {
         commit(MutationTypes.ProjectView.AddProject, name);
         commit(MutationTypes.ProjectView.SetCurrentProject, name);
-        commit(MutationTypes.App.SetSuccessMessage, 'Projects.SuccessCreateProject')
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.New.Success)
     }
 }
 
@@ -34,7 +35,7 @@ export async function DeleteProjectAction(commit: (type: string,payload?: any,op
     if( ok ) {
         commit(MutationTypes.ProjectView.SetCurrentProject, '');
         commit(MutationTypes.App.RemoveProject, project);
-        commit(MutationTypes.App.SetSuccessMessage, 'Projects.SuccessDeleteProject')
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.Overview.DeleteProjectDialog.Success)
     }
 }
 
@@ -44,7 +45,7 @@ export async function DeleteTypeAction(commit: (type: string,payload?: any,optio
     if( ok ) {
         commit(MutationTypes.CategoryEditor.RemoveType, type);
         commit(MutationTypes.ProjectView.EditorCloseNeeded, true);
-        commit(MutationTypes.App.SetSuccessMessage, 'Projects.SuccessDeleteType')
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.CategoryEditor.DeleteCategoryDialog.Success)
     }
 }
 
@@ -54,7 +55,7 @@ export async function SaveTypeAction(commit: (type: string,payload?: any,options
     if( ok ) {
         commit(MutationTypes.CategoryEditor.UpdateType, {Type: type, initialName: initialName})
         commit(MutationTypes.ProjectView.SetEditorUpdateIndex, {v: type.Name, entry: false});
-        commit(MutationTypes.App.SetSuccessMessage, 'Projects.SuccessSaveType')
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.CategoryEditor.Success)
     }
 }
 
@@ -64,7 +65,7 @@ export async function SaveEntryAction(commit: (type: string,payload?: any,option
     if( ok ) {
         commit(MutationTypes.EntryEditor.UpdateEntry, {Entry: entry, initialKey: initialKey})
         commit(MutationTypes.ProjectView.SetEditorUpdateIndex, {v: entry.Key, entry: true});
-        commit(MutationTypes.App.SetSuccessMessage, 'Projects.SuccessSaveEntry')
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.EntryEditor.Success)
     }
 }
 
@@ -74,6 +75,6 @@ export async function DeleteEntryAction(commit: (type: string,payload?: any,opti
     if( ok ) {
         commit(MutationTypes.EntryEditor.RemoveEntry, key);
         commit(MutationTypes.ProjectView.EditorCloseNeeded, true);
-        commit(MutationTypes.App.SetSuccessMessage, 'Projects.SuccessDeleteEntry')
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.EntryEditor.DeleteEntryDialog.Success)
     }
 }

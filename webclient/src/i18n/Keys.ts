@@ -48,12 +48,14 @@ export type TranslationKeys = {
             Label: string,
             AlreadyExists: string
             NoSpaces: string
+            Success: string
         },
         Overview: {
             DeleteProject: string,
             DeleteProjectDialog: {
                 Title: string,
                 Content: string
+                Success: string
             },
             Entries: string,
             EntriesTable: {
@@ -85,9 +87,11 @@ export type TranslationKeys = {
             TeX_Value: string
             Normal: string
             Italic: string
+            Success: string
             DeleteCategoryDialog: {
                 Title: string
                 Content: string
+                Success: string
             },
             Rules: {
                 NoSpaces: string//TODO: migrate to common
@@ -101,9 +105,11 @@ export type TranslationKeys = {
             Rules: {
                 KeyNotAvailable: string
             },
+            Success: string
             DeleteEntryDialog: {
                 Title: string
                 Content: string
+                Success: string
             }
         }
     },
@@ -111,6 +117,7 @@ export type TranslationKeys = {
         Title: string
         DarkMode: string
         AutoOpen: string
+        Success: string
     }
 }
 
@@ -162,13 +169,15 @@ export const i18nDictionary: TranslationKeys = {
             Title: 'Projects.New.Title',
             Label: 'Projects.New.Label',
             AlreadyExists: 'Projects.New.AlreadyExists',
-            NoSpaces: 'Projects.New.NoSpaces'
+            NoSpaces: 'Projects.New.NoSpaces',
+            Success: 'Projects.New.Success'
         },
         Overview: {
             DeleteProject: 'Projects.Overview.DeleteProject',
             DeleteProjectDialog: {
                 Title: 'Projects.Overview.DeleteProjectDialog.Title',
                 Content: 'Projects.Overview.DeleteProjectDialog.Content',
+                Success: 'Projects.Overview.DeleteProjectDialog.Success'
             },
             Entries: 'Projects.Overview.Entries',
             EntriesTable: {
@@ -200,9 +209,11 @@ export const i18nDictionary: TranslationKeys = {
             TeX_Value: 'Projects.CategoryEditor.TeX_Value',
             Normal: 'Projects.CategoryEditor.Normal',
             Italic: 'Projects.CategoryEditor.Italic',
+            Success: 'Projects.CategoryEditor.Success',
             DeleteCategoryDialog: {
                 Title: 'Projects.CategoryEditor.DeleteCategoryDialog.Title',
                 Content: 'Projects.CategoryEditor.DeleteCategoryDialog.Content',
+                Success: 'Projects.CategoryEditor.DeleteCategoryDialog.Success',
             },
             Rules: {
                 NoSpaces: 'Projects.CategoryEditor.Rules.NoSpaces',
@@ -216,15 +227,18 @@ export const i18nDictionary: TranslationKeys = {
             Rules: {
                 KeyNotAvailable: 'Projects.EntryEditor.Rules.KeyNotAvailable',
             },
+            Success: 'Projects.EntryEditor.Success',
             DeleteEntryDialog: {
                 Title: 'Projects.EntryEditor.DeleteEntryDialog.Title',
                 Content: 'Projects.EntryEditor.DeleteEntryDialog.Content',
+                Success: 'Projects.EntryEditor.DeleteEntryDialog.Success'
             },
         }
     },
     Config: {
         Title: 'Config.Title',
         DarkMode: 'Config.DarkMode',
-        AutoOpen: 'Config.AutoOpen'
+        AutoOpen: 'Config.AutoOpen',
+        Success: 'Config.Success'
     }
 }

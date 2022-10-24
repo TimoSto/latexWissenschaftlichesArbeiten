@@ -2,6 +2,7 @@ import ReadAppData from "@/api/app/AppData";
 import MutationTypes from "@/store/MutationTypes";
 import {CommitOptions} from "vuex";
 import SaveConfig, {ConfigSaveObj} from "@/api/app/SaveConfig";
+import {i18nDictionary} from "@/i18n/Keys";
 
 export async function GetAppData(commit: (type: string,payload?: any,options?: CommitOptions) => void ) {
     const respObj = await ReadAppData();
@@ -17,6 +18,6 @@ export async function SaveConfiguration(commit: (type: string,payload?: any,opti
 
     if( success ) {
         commit(MutationTypes.App.SetConfig, obj);
-        commit(MutationTypes.App.SetSuccessMessage, 'App.SuccessSaveConfig')
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Config.Success)
     }
 }
