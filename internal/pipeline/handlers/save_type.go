@@ -32,4 +32,12 @@ func HandleSaveType(w http.ResponseWriter, r *http.Request) {
 
 	err = bibliography_types.ReplaceBibliographyType(data.Project, data.InitialName, data.Type, ioutil.ReadFile)
 
+	if err != nil {
+		logger.LogError("saving types in json", err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	err = bibliography_types.SaveTypeToLaTeX(data.Project)
+
 }
