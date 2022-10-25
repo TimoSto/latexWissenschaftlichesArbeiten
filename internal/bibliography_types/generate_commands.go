@@ -39,6 +39,8 @@ func SaveTypeToLaTeX(project string) error {
 	return ioutil.WriteFile(pathbuilder.GetPathInProject(project, "styPackages/literatur.sty"), []byte(newFile), 0644)
 }
 
+//TODO: more unittests
+
 func GeneratePrintBibCommands(types []BibliographyType) string {
 	commands := ""
 	for _, lType := range types {
