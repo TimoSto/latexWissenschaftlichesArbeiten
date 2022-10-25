@@ -21,6 +21,7 @@
         <v-expansion-panel>
           <v-expansion-panel-header>{{$t(i18nDictionary.Projects.Overview.Entries)}}</v-expansion-panel-header>
           <v-expansion-panel-content class="content-with-padding">
+            <CitaviDragNDrop />
             <EntryTable
                 :entries="currentProjectData_Entries"
                 :actions="[{Icon: 'mdi-plus', Title: 'Neuen Eintrag erstellen', Callback: 'new'}]"
@@ -64,10 +65,11 @@ import EntryTable from "../../components/EntryTable.vue";
 import TypesTable from "../../components/TypesTable.vue";
 import ConfirmDialog from "../../components/ConfirmDialog.vue";
 import ActionTypes from "../../store/ActionTypes";
+import CitaviDragNDrop from "../../components/CitaviDragNDrop.vue";
 
 export default Vue.extend({
   name: "ProjectOverviewPage",
-  components: {ConfirmDialog, TypesTable, EntryTable},
+  components: {CitaviDragNDrop, ConfirmDialog, TypesTable, EntryTable},
   data() {
     return {
       panels: [0, 1],

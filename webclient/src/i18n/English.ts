@@ -59,6 +59,7 @@ export const EnglishTranslations: TranslationKeys = {
                 Success: 'Project successfully deleted'
             },
             Entries: 'Entries in bibliography',
+            UploadEntries: 'Upload a bib file exported from citavi',
             EntriesTable: {
                 Key: 'Key',
                 Category: 'Category',

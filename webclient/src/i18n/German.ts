@@ -59,6 +59,7 @@ export const GermanTranslations: TranslationKeys = {
                 Success: 'Projekt erfolgreich gelöscht'
             },
             Entries: 'Einträge im Literaturverzeichnis',
+            UploadEntries: 'Lade eine aus Citavi exportierte Bib-Datei hoch',
             EntriesTable: {
                 Key: 'Schlüssel',
                 Category: 'Kategorie',

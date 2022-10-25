@@ -58,6 +58,7 @@ export type TranslationKeys = {
                 Success: string
             },
             Entries: string,
+            UploadEntries: string,
             EntriesTable: {
                 Key: string,
                 Category: string,
@@ -180,6 +181,7 @@ export const i18nDictionary: TranslationKeys = {
                 Success: 'Projects.Overview.DeleteProjectDialog.Success'
             },
             Entries: 'Projects.Overview.Entries',
+            UploadEntries: 'Projects.Overview.UploadEntries',
             EntriesTable: {
                 Key: 'Projects.Overview.EntriesTable.Key',
                 Category: 'Projects.Overview.EntriesTable.Category',
