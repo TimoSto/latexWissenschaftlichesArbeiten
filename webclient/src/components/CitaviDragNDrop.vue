@@ -1,10 +1,10 @@
 <template>
   <div>
     <v-container style="padding-top: 0">
-      <div id="drop_zone" @dragover.prevent v-ripple>
+      <div id="drop_zone" @dragover.prevent v-ripple @click="triggerUploadDialog">
         <span class="mdc-typography--body1">{{$t(i18nDictionary.Projects.Overview.UploadEntries)}}</span>
       </div>
-      <input type="file" id="fileInput" style="display:none"/>
+      <input type="file" id="fileInput" style="visibility: hidden" ref="uploadInput"/>
     </v-container>
   </div>
 </template>
@@ -18,6 +18,12 @@ export default Vue.extend({
   data() {
     return {
       i18nDictionary: i18nDictionary
+    }
+  },
+
+  methods: {
+    triggerUploadDialog() {
+      (this.$refs.uploadInput as HTMLElement).click();
     }
   }
 })
@@ -33,6 +39,7 @@ export default Vue.extend({
   margin: 0 8px 8px 8px;
   padding: 0 8px;
   display: table;
+  cursor: pointer;
   & span{
     width: 100%;
     text-align: center;
