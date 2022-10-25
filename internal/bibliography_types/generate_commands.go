@@ -114,23 +114,35 @@ func GenerateCiteCommands(types []BibliographyType) string {
 	return commands
 }
 
+func GenerateIfForCite(lType BibliographyType, footnote bool) string {
+	AdditionStart := `\footnote`
+	AdditionEnd := ""
+	if !footnote {
+		AdditionStart = "("
+		AdditionEnd = ")"
+	}
+	command := "\t\t\t{" + lType.Name + `}{` + AdditionStart + `{#3\cite` + lType.Name
+
+	for _, field := range lType.CiteFields {
+		fieldIndex := GetFieldIndex(lType.Fields, field.Field)
+		if fieldIndex == -1 {
+			fieldIndex = len(lType.Fields) + GetFieldIndex(lType.CiteFields, field.Field)
+		}
+
+		command += `{\` + toChar(fieldIndex+1) + `}`
+	}
+	command += `{#2}` + AdditionEnd + `}`
+	command += `}%` + "\n"
+
+	return command
+}
+
 func GenerateIfsForCiteCommands(types []BibliographyType) string {
 	commands := ""
 
 	for _, lType := range types {
-		command := "\t\t\t{" + lType.Name + `}{\footnote{#3\cite` + lType.Name
 
-		for _, field := range lType.CiteFields {
-			fieldIndex := GetFieldIndex(lType.Fields, field.Field)
-			if fieldIndex == -1 {
-				fieldIndex = len(lType.Fields) + GetFieldIndex(lType.CiteFields, field.Field)
-			}
-
-			command += `{\` + toChar(fieldIndex+1) + `}`
-		}
-		command += `{#2}.}`
-		command += `}%` + "\n"
-		commands += command
+		commands += GenerateIfForCite(lType, true)
 	}
 	return commands
 }
@@ -139,18 +151,7 @@ func GenerateIfsForInlineCiteCommands(types []BibliographyType) string {
 	commands := ""
 
 	for _, lType := range types {
-		command := "\t\t\t{" + lType.Name + `}{ ({#3\cite` + lType.Name
-
-		for _, field := range lType.CiteFields {
-			fieldIndex := GetFieldIndex(lType.Fields, field.Field)
-			if fieldIndex == -1 {
-				fieldIndex = len(lType.Fields) + GetFieldIndex(lType.CiteFields, field.Field)
-			}
-			command += `{\` + toChar(fieldIndex+1) + `}`
-		}
-		command += `{#2})}`
-		command += `}%` + "\n"
-		commands += command
+		commands += GenerateIfForCite(lType, false)
 	}
 	return commands
 }
