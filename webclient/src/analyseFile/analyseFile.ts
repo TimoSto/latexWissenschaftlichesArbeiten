@@ -30,6 +30,7 @@ export default async function AnalyseFile(file: File): Promise<{entries: BibEntr
         const key = extractKey(f)
 
         //step 4: extract attributes and values
+        const attributePairs = extractEntryAttributes(f)
 
         //step 5: find associated bibliography-type
     })
@@ -56,7 +57,11 @@ export function getTypeOfEntry(e: string): string {
 }
 
 export function extractKey(e: string): string {
-    return e.substring(e.indexOf('{') + 1, e.indexOf(','))
+    let k = e.substring(e.indexOf('{') + 1, e.indexOf(','));
+    while(k.charAt(0) === '\t' ) {
+        k = k.substring(1);
+    }
+    return k
 }
 
 export function extractEntryAttributes(e: string): AttributeValue[] {

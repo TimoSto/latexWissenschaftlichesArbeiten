@@ -55,7 +55,7 @@ field2="werest"
             expect(extractKey('@book{test,\na1="rotoe"}')).toEqual('test')
         })
         it('should give test', () => {
-            expect(extractKey('@book{\n\ttest,a1="rotoe"}')).toEqual('test')
+            expect(extractKey('@book{\ttest,a1="rotoe"}')).toEqual('test')
         })
     })
 
