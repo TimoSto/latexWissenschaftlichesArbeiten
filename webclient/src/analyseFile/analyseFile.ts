@@ -11,10 +11,24 @@ export default async function AnalyseFile(file: File): Promise<{entries: BibEntr
 
     const content = await file.text();
 
-    console.log(content);
+    const entryParts = separateEntries(content);
+
+    const entries: BibEntry[] = [];
+
+    entryParts.forEach((f: string) => {
+
+    })
 
     return {
-        entries: [],
+        entries: entries,
         error: ''
     }
+}
+
+export function separateEntries(file: string): string[] {
+    file = file.substring(file.indexOf('@'))
+
+    file = file.replace(/\t/g, '');
+
+    return file.split(/^@/gm).filter(e => e.length > 0);
 }
