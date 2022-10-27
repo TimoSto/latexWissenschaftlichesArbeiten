@@ -1,4 +1,4 @@
-import {extractKey, getTypeOfEntry, separateEntries} from "@/analyseFile/analyseFile";
+import {extractEntryAttributes, extractKey, getTypeOfEntry, separateEntries} from "@/analyseFile/analyseFile";
 
 describe('analyseFile', () => {
 
@@ -56,6 +56,21 @@ field2="werest"
         })
         it('should give test', () => {
             expect(extractKey('@book{\n\ttest,a1="rotoe"}')).toEqual('test')
+        })
+    })
+
+    describe('extracting attributes and values', () => {
+        it('should work for unescaped', () => {
+            expect(extractEntryAttributes('{herbert,test="hallo",rudi="sommer"}')).toEqual([
+                {
+                    Attribute: 'test',
+                    Value: 'hallo'
+                },
+                {
+                    Attribute: 'rudi',
+                    Value: 'sommer'
+                }
+            ])
         })
     })
 })
