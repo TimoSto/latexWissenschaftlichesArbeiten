@@ -1,11 +1,12 @@
 import {
+    AttributeValue, CreateEntry,
     extractEntryAttributes,
     extractKey,
     findBibliographyType,
     getTypeOfEntry,
     separateEntries
 } from "@/analyseFile/analyseFile";
-import {BibType} from "@/api/bibTypes/BibType";
+import {BibType, Field} from "@/api/bibTypes/BibType";
 
 describe('analyseFile', () => {
 
@@ -134,6 +135,98 @@ field2="werest"
                 },
             ];
             expect(findBibliographyType('book', [{Attribute: 'doi', Value: '/teste/123'}], aTypes as unknown as BibType[]).Name).toEqual('buchDoi')
+        })
+    });
+
+    describe('createEntry', () => {
+        it('should give correct with only bibfields', () => {
+            const t: BibType = {
+                Name: 't1',
+                CitaviType: 'book',
+                CitaviNecessaryFields: [],
+                Fields: [
+                    {
+                        Field: 'f1',
+                        CitaviAttributes: ['cf1'],
+                    } as Field,
+                    {
+                        Field: 'f2',
+                        CitaviAttributes: ['cf2'],
+                    } as Field,
+                    {
+                        Field: 'f3',
+                        CitaviAttributes: ['cf3'],
+                    } as Field,
+                ],
+                CiteFields: [],
+                Model: '',
+                CiteModel: ''
+            };
+            const attributes: AttributeValue[] = [
+                {
+                    Attribute: 'cf2',
+                    Value: 'test 1'
+                },
+                {
+                    Attribute: 'cf1',
+                    Value: 'test 2'
+                },
+                {
+                    Attribute: 'cf3',
+                    Value: 'test 3'
+                }
+            ];
+            const entry = CreateEntry(t, attributes, 'testkey');
+            expect(entry.Key).toEqual('testkey');
+            expect(entry.Typ).toEqual('t1');
+            expect(entry.Fields).toEqual(['test 2', 'test 1', 'test 3'])
+        })
+        it('should give correct with additional citefields', () => {
+            const t: BibType = {
+                Name: 't1',
+                CitaviType: 'book',
+                CitaviNecessaryFields: [],
+                Fields: [
+                    {
+                        Field: 'f1',
+                        CitaviAttributes: ['cf1'],
+                    } as Field,
+                    {
+                        Field: 'f2',
+                        CitaviAttributes: ['cf2'],
+                    } as Field,
+                    {
+                        Field: 'f3',
+                        CitaviAttributes: ['cf3'],
+                    } as Field,
+                ],
+                CiteFields: [
+                    {
+                        Field: 'f4',
+                        CitaviAttributes: ['cf4'],
+                    } as Field,
+                ],
+                Model: '',
+                CiteModel: ''
+            };
+            const attributes: AttributeValue[] = [
+                {
+                    Attribute: 'cf2',
+                    Value: 'test 1'
+                },
+                {
+                    Attribute: 'cf4',
+                    Value: 'test 4'
+                },
+                {
+                    Attribute: 'cf3',
+                    Value: 'test 3'
+                }
+            ];
+            const entry = CreateEntry(t, attributes, 'testkey');
+            expect(entry.Key).toEqual('testkey');
+            expect(entry.Typ).toEqual('t1');
+            expect(entry.Fields).toEqual(['f1', 'test 1', 'test 3', 'test 4'])
         })
     })
 })

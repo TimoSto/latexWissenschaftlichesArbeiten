@@ -128,3 +128,50 @@ export function findBibliographyType(citaviType: string, attributes: AttributeVa
 
     return typeToReturn;
 }
+
+export function CreateEntry(type: BibType, attributes: AttributeValue[], key: string): BibEntry {
+    const entry: BibEntry = {
+        Key: key,
+        Typ: type.Name,
+        CiteNumber: 0,
+        CitePreview: '',
+        BibPreview: '',
+        Fields: []
+    }
+
+    //fill fields with attribute names
+    type.Fields.forEach(f => {
+        //setting attribute name as default
+        entry.Fields.push(f.Field)
+        //looking for citavi-attribute matching the configured citavi-attributes of field d
+        attributes.forEach(a => {
+            if( f.CitaviAttributes.indexOf(a.Attribute) >= 0 ) {
+                entry.Fields[entry.Fields.indexOf(f.Field)] = a.Value;
+            }
+        })
+    });
+
+    const bibFields = type.Fields.map(f => f.Field);
+
+    type.CiteFields.forEach(f => {
+        if( bibFields.indexOf(f.Field) === -1 ) {
+            //setting attribute name as default
+            entry.Fields.push(f.Field)
+            //looking for citavi-attribute matching the configured citavi-attributes of field d
+            attributes.forEach(a => {
+                if( f.CitaviAttributes.indexOf(a.Attribute) >= 0 ) {
+                    entry.Fields[entry.Fields.indexOf(f.Field)] = a.Value;
+                }
+            })
+        }
+    });
+
+    for( let i = 0 ; i < attributes.length ; i++ ) {
+        const index = entry.Fields.indexOf(attributes[i].Attribute)
+        if (index > -1 ) {
+            entry.Fields[index] = attributes[i].Value;
+        }
+    }
+
+    return entry
+}
