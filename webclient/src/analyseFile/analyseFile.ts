@@ -16,7 +16,16 @@ export default async function AnalyseFile(file: File, types: BibType[]): Promise
         }
     }
 
-    const content = await file.text();
+    let content: string;
+    try {
+        content = await file.text();
+    } catch (e) {
+        console.debug(e)
+        return {
+            entries: [],
+            error: e as string
+        }
+    }
 
     //step 1: separate entries
     const entryParts = separateEntries(content);
@@ -37,7 +46,7 @@ export default async function AnalyseFile(file: File, types: BibType[]): Promise
         const bType = findBibliographyType(cType, attributePairs, types);
 
         //step 6: create entry of type with values
-
+        entries.push(CreateEntry(bType, attributePairs, key))
     })
 
     return {

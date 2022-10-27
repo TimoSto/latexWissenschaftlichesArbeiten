@@ -30,8 +30,7 @@ export default Vue.extend({
     async readFileFromInput() {
       const files = (this.$refs.uploadInput as HTMLInputElement).files;
       if( files ) {
-        const file = files[0];
-        const result = await AnalyseFile(file)
+        const result = await AnalyseFile(files[0], this.$store.state.ProjectView.CurrentProjectData.bibTypes)
         console.log(result)
       }
 
@@ -47,8 +46,7 @@ export default Vue.extend({
       let reader = new FileReader();
       reader.readAsText(dT.files[0], "UTF-8");
       reader.onload = async ()=>{
-
-        const result = await AnalyseFile(dT.files[0])
+        const result = await AnalyseFile(dT.files[0], this.$store.state.ProjectView.CurrentProjectData.bibTypes)
         console.log(result)
       }
     },

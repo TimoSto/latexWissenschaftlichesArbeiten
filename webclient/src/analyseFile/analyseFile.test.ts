@@ -1,4 +1,4 @@
-import {
+import AnalyseFile, {
     AttributeValue, CreateEntry,
     extractEntryAttributes,
     extractKey,
@@ -266,6 +266,53 @@ field2="werest"
             expect(entry.Key).toEqual('testkey');
             expect(entry.Typ).toEqual('t1');
             expect(entry.Fields).toEqual(['test 1', 'test 2'])
+        })
+    })
+
+    describe('analyseFile', () => {
+        it('one entry', async () => {
+           const filecontent = `@book{Thiemann2008,
+title="Barrierefreiheit",
+bookTitle="Benutzerfreundliche Online-Hilfen: Grundlagen und Umsetzung mit MadCap Flare",
+year="2008",
+publisher="Vieweg+Teubner",
+address="Wiesbaden",
+pages="143--157",
+abstract="Barrierefreies Design bedeutet, dass Menschen mit Behinderungen ein elektronisches Angebot uneingeschr{\\"a}nkt und selbstst{\\"a}ndig nutzen k{\\"o}nnen. Im Sinne der Nutzbarkeit muss die Barrierefreiheit beispielsweise einer Online-Hilfe im Web einen Schritt {\\"u}ber die reine Zug{\\"a}nglichkeit hinausgehen: auch behinderte Nutzer sollen mit ihren F{\\"a}higkeiten und Hilfsmitteln elektronische Angebote nutzen k{\\"o}nnen. Barrierefreiheit ist somit Gebrauchstauglichkeit vor dem Hintergrund einer Behinderung oder Einschr{\\"a}nkung.",
+isbn="978-3-8348-9483-0",
+doi="10.1007/978-3-8348-9483-0_7",
+url="https://doi.org/10.1007/978-3-8348-9483-0_7"
+}`
+            const file = {
+               name: 'testfile.bib',
+               async text() {
+                 return filecontent
+               }
+            }
+            const types: BibType[] = [
+                {
+                    Name: 'buch',
+                    CitaviType: 'book',
+                    CitaviNecessaryFields: [],
+                    Fields: [
+                        {
+                            Field: 't1',
+                            CitaviAttributes: ['author']
+                        } as Field,
+                        {
+                            Field: 't2',
+                            CitaviAttributes: ['authori']
+                        } as Field
+                    ],
+                    CiteFields: [],
+                    CiteModel: '',
+                    Model: ''
+                }
+            ]
+            const entries = await AnalyseFile(file as unknown as File, types);
+            expect(entries.error).toEqual('');
+            expect(entries.entries).toHaveLength(1);
+            expect(entries.entries[0].Key).toEqual('Thiemann2008')
         })
     })
 })
