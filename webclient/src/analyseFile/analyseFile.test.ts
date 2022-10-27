@@ -228,5 +228,44 @@ field2="werest"
             expect(entry.Typ).toEqual('t1');
             expect(entry.Fields).toEqual(['f1', 'test 1', 'test 3', 'test 4'])
         })
+        it('should give correct with duplicate', () => {
+            //e.g. author and publisher and both are set => only use first
+            const t: BibType = {
+                Name: 't1',
+                CitaviType: 'book',
+                CitaviNecessaryFields: [],
+                Fields: [
+                    {
+                        Field: 'f1',
+                        CitaviAttributes: ['cf1'],
+                    } as Field,
+                    {
+                        Field: 'f2',
+                        CitaviAttributes: ['cf2', 'cf3'],
+                    } as Field,
+                ],
+                CiteFields: [],
+                Model: '',
+                CiteModel: ''
+            };
+            const attributes: AttributeValue[] = [
+                {
+                    Attribute: 'cf1',
+                    Value: 'test 1'
+                },
+                {
+                    Attribute: 'cf2',
+                    Value: 'test 2'
+                },
+                {
+                    Attribute: 'cf3',
+                    Value: 'test 3'
+                }
+            ];
+            const entry = CreateEntry(t, attributes, 'testkey');
+            expect(entry.Key).toEqual('testkey');
+            expect(entry.Typ).toEqual('t1');
+            expect(entry.Fields).toEqual(['test 1', 'test 2'])
+        })
     })
 })

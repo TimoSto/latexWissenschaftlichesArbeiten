@@ -143,10 +143,13 @@ export function CreateEntry(type: BibType, attributes: AttributeValue[], key: st
     type.Fields.forEach(f => {
         //setting attribute name as default
         entry.Fields.push(f.Field)
-        //looking for citavi-attribute matching the configured citavi-attributes of field d
+        //looking for citavi-attribute matching the configured citavi-attributes of field
         attributes.forEach(a => {
             if( f.CitaviAttributes.indexOf(a.Attribute) >= 0 ) {
-                entry.Fields[entry.Fields.indexOf(f.Field)] = a.Value;
+                const i = entry.Fields.indexOf(f.Field);
+                if( i >= 0 ) {
+                    entry.Fields[i] = a.Value;
+                }
             }
         })
     });
