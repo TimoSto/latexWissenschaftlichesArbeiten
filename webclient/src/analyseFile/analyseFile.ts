@@ -1,4 +1,5 @@
 import {BibEntry} from "@/api/bibEntries/Entry";
+import GeneralizeTeXEscaping from "@/analyseFile/parseBibValues";
 
 export interface AttributeValue {
     Attribute: string
@@ -59,7 +60,32 @@ export function extractKey(e: string): string {
 }
 
 export function extractEntryAttributes(e: string): AttributeValue[] {
-    return []
+    //only have arguments
+    e = e.substring(e.indexOf('{') + 1, e.lastIndexOf('}'));
+
+    //rm all newlines and indents to be equal in all export formats (springer vs ieee vs ...)
+    e = e.replaceAll('\n', '');
+    e = e.replaceAll('\t', '');
+
+    //split at comma not in quotes
+    const re = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/
+    const lines = e.split(re);
+    //ignore first because first is key
+    lines.shift()
+
+    const attributes: AttributeValue[] = []
+
+    lines.forEach(l => {
+        const eqIndex = l.indexOf('=');
+        if( eqIndex > 0 ) {
+            attributes.push({
+                Attribute: l.substring(0, eqIndex),
+                Value: GeneralizeTeXEscaping(l.substring(eqIndex + 1))
+            })
+        }
+    })
+
+    return attributes
 }
 
 export function findBibliographyType(citaviType: string): string {
