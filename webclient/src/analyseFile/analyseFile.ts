@@ -7,12 +7,13 @@ export interface AttributeValue {
     Value: string
 }
 
-export default async function AnalyseFile(file: File, types: BibType[]): Promise<{entries: BibEntry[], error: string}> {
+export default async function AnalyseFile(file: File, types: BibType[]): Promise<{entries: BibEntry[], error: string, unknown: {Key: string, Type: string}[]}> {
     const extension = file.name.substring(file.name.lastIndexOf('.'))
     if( extension !== '.bib' ) {
         return {
             entries: [],
-            error: `type - ${extension}`
+            error: `type - ${extension}`,
+            unknown: []
         }
     }
 
@@ -23,7 +24,8 @@ export default async function AnalyseFile(file: File, types: BibType[]): Promise
         console.debug(e)
         return {
             entries: [],
-            error: e as string
+            error: e as string,
+            unknown: []
         }
     }
 
@@ -31,6 +33,7 @@ export default async function AnalyseFile(file: File, types: BibType[]): Promise
     const entryParts = separateEntries(content);
 
     const entries: BibEntry[] = [];
+    const unknown: {Key: string, Type: string}[] = []
 
     entryParts.forEach((f: string) => {
         //step 2: get citavi-type of entry
@@ -45,13 +48,18 @@ export default async function AnalyseFile(file: File, types: BibType[]): Promise
         //step 5: find associated bibliography-type
         const bType = findBibliographyType(cType, attributePairs, types);
 
-        //step 6: create entry of type with values
-        entries.push(CreateEntry(bType, attributePairs, key))
+        if( bType.Name !== '' ) {
+            //step 6: create entry of type with values
+            entries.push(CreateEntry(bType, attributePairs, key))
+        } else {
+            unknown.push({Key: key, Type: cType})
+        }
     })
 
     return {
         entries: entries,
-        error: ''
+        error: '',
+        unknown: unknown
     }
 }
 
