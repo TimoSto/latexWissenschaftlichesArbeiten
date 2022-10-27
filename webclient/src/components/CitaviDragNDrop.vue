@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container style="padding-top: 0">
-      <div id="drop_zone" @dragover.prevent v-ripple @click="triggerUploadDialog" @drop.prevent="readDroppedFile">
+      <div id="drop_zone" @dragover.prevent v-ripple @click="triggerFileSelect" @drop.prevent="readDroppedFile">
         <span class="mdc-typography--body1">{{$t(i18nDictionary.Projects.Overview.UploadEntries)}}</span>
       </div>
       <input type="file" id="fileInput" style="visibility: hidden" ref="uploadInput" v-on:input="readFileFromInput"/>
@@ -23,7 +23,7 @@ export default Vue.extend({
   },
 
   methods: {
-    triggerUploadDialog() {
+    triggerFileSelect() {
       (this.$refs.uploadInput as HTMLElement).click();
     },
 
