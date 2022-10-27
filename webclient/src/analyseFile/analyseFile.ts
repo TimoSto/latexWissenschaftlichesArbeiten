@@ -1,12 +1,13 @@
 import {BibEntry} from "@/api/bibEntries/Entry";
 import GeneralizeTeXEscaping from "@/analyseFile/parseBibValues";
+import {BibType} from "@/api/bibTypes/BibType";
 
 export interface AttributeValue {
     Attribute: string
     Value: string
 }
 
-export default async function AnalyseFile(file: File): Promise<{entries: BibEntry[], error: string}> {
+export default async function AnalyseFile(file: File, types: BibType[]): Promise<{entries: BibEntry[], error: string}> {
     const extension = file.name.substring(file.name.lastIndexOf('.'))
     if( extension !== '.bib' ) {
         return {
@@ -24,7 +25,7 @@ export default async function AnalyseFile(file: File): Promise<{entries: BibEntr
 
     entryParts.forEach((f: string) => {
         //step 2: get citavi-type of entry
-        const type = getTypeOfEntry(f);
+        const cType = getTypeOfEntry(f);
 
         //step 3: get key
         const key = extractKey(f)
@@ -33,6 +34,10 @@ export default async function AnalyseFile(file: File): Promise<{entries: BibEntr
         const attributePairs = extractEntryAttributes(f)
 
         //step 5: find associated bibliography-type
+        const bType = findBibliographyType(cType, attributePairs, types);
+
+        //step 6: create entry of type with values
+
     })
 
     return {
@@ -93,6 +98,33 @@ export function extractEntryAttributes(e: string): AttributeValue[] {
     return attributes
 }
 
-export function findBibliographyType(citaviType: string): string {
-    return ''
+export function findBibliographyType(citaviType: string, attributes: AttributeValue[], types: BibType[]): BibType {
+
+    let typeToReturn: BibType = {
+        CitaviNecessaryFields: [],
+        CitaviType: "",
+        CiteFields: [],
+        CiteModel: "",
+        Fields: [],
+        Model: "",
+        Name: ""
+    };
+    types.forEach(t => {
+        if( t.CitaviType === citaviType ) {
+            let allFound = true;
+
+            const attrNames = attributes.map(a => a.Attribute);
+            t.CitaviNecessaryFields.forEach(f => {
+                if( attrNames.indexOf(f) === -1 ) {
+                    allFound = false;
+                }
+            })
+
+            if( allFound ) {
+                typeToReturn = t;
+            }
+        }
+    })
+
+    return typeToReturn;
 }

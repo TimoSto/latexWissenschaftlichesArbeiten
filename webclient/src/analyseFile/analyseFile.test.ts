@@ -1,4 +1,11 @@
-import {extractEntryAttributes, extractKey, getTypeOfEntry, separateEntries} from "@/analyseFile/analyseFile";
+import {
+    extractEntryAttributes,
+    extractKey,
+    findBibliographyType,
+    getTypeOfEntry,
+    separateEntries
+} from "@/analyseFile/analyseFile";
+import {BibType} from "@/api/bibTypes/BibType";
 
 describe('analyseFile', () => {
 
@@ -83,6 +90,50 @@ field2="werest"
                     Value: 'sommer'
                 }
             ])
+        })
+    })
+
+    describe('findBibType', () => {
+        it('should give book', () => {
+            const aTypes = [
+                {
+                    Name: 'random1',
+                    CitaviNecessaryFields: []
+                },
+                {
+                    Name: 'buch',
+                    CitaviType: 'book',
+                    CitaviNecessaryFields: []
+                },
+                {
+                    Name: 'random2',
+                    CitaviNecessaryFields: ['doi']
+                },
+            ];
+            expect(findBibliographyType('book', [{Attribute: 'doi', Value: '/teste/123'}], aTypes as unknown as BibType[]).Name).toEqual('buch')
+        })
+        it('should give buchDoi', () => {
+            const aTypes = [
+                {
+                    Name: 'random1',
+                    CitaviNecessaryFields: []
+                },
+                {
+                    Name: 'buch',
+                    CitaviType: 'book',
+                    CitaviNecessaryFields: []
+                },
+                {
+                    Name: 'buchDoi',
+                    CitaviType: 'book',
+                    CitaviNecessaryFields: ['doi']
+                },
+                {
+                    Name: 'random2',
+                    CitaviNecessaryFields: ['doi']
+                },
+            ];
+            expect(findBibliographyType('book', [{Attribute: 'doi', Value: '/teste/123'}], aTypes as unknown as BibType[]).Name).toEqual('buchDoi')
         })
     })
 })
