@@ -1,4 +1,4 @@
-import {separateEntries} from "@/analyseFile/analyseFile";
+import {getTypeOfEntry, separateEntries} from "@/analyseFile/analyseFile";
 
 describe('analyseFile', () => {
 
@@ -35,6 +35,15 @@ field1="werlo",
 field2="werest"
 }`;
             expect(separateEntries(file)).toHaveLength(2);
+        })
+    });
+
+    describe('getTypeOfEntry', () => {
+        it('should give book', () => {
+            expect(getTypeOfEntry('@book{\n\tt="hallo\n"}')).toEqual('book')
+        })
+        it('should give book', () => {
+            expect(getTypeOfEntry('book{\n\tt="hallo\n"}')).toEqual('book')
         })
     })
 })

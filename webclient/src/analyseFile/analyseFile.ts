@@ -16,7 +16,7 @@ export default async function AnalyseFile(file: File): Promise<{entries: BibEntr
     const entries: BibEntry[] = [];
 
     entryParts.forEach((f: string) => {
-
+        const type = getTypeOfEntry(f);
     })
 
     return {
@@ -31,4 +31,11 @@ export function separateEntries(file: string): string[] {
     file = file.replace(/\t/g, '');
 
     return file.split(/^@/gm).filter(e => e.length > 0);
+}
+
+export function getTypeOfEntry(e: string): string {
+    if( e.charAt(0) === '@' ) {
+        e = e.substring(1)
+    }
+    return e.substring(0, e.indexOf('{'))
 }
