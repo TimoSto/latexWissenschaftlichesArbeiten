@@ -72,5 +72,17 @@ field2="werest"
                 }
             ])
         })
+        it('should work for escaped', () => {
+            expect(extractEntryAttributes('{herbert,test={"hallo"},rudi="sommer"}')).toEqual([
+                {
+                    Attribute: 'test',
+                    Value: 'hallo'
+                },
+                {
+                    Attribute: 'rudi',
+                    Value: 'sommer'
+                }
+            ])
+        })
     })
 })
