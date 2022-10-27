@@ -297,11 +297,15 @@ url="https://doi.org/10.1007/978-3-8348-9483-0_7"
                     Fields: [
                         {
                             Field: 't1',
-                            CitaviAttributes: ['author']
+                            CitaviAttributes: ['author', 'publisher']
                         } as Field,
                         {
                             Field: 't2',
-                            CitaviAttributes: ['authori']
+                            CitaviAttributes: ['title']
+                        } as Field,
+                        {
+                            Field: 't3',
+                            CitaviAttributes: ['t44itle']
                         } as Field
                     ],
                     CiteFields: [],
@@ -313,6 +317,7 @@ url="https://doi.org/10.1007/978-3-8348-9483-0_7"
             expect(entries.error).toEqual('');
             expect(entries.entries).toHaveLength(1);
             expect(entries.entries[0].Key).toEqual('Thiemann2008')
+            expect(entries.entries[0].Fields).toEqual(['Vieweg+Teubner', 'Barrierefreiheit', 't3'])
         })
     })
 })
