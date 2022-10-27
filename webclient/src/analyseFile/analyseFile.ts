@@ -119,7 +119,7 @@ export function findBibliographyType(citaviType: string, attributes: AttributeVa
         Name: ""
     };
     types.forEach(t => {
-        if( t.CitaviType === citaviType ) {
+        if( t.CitaviType.toLowerCase() === citaviType.toLowerCase() ) {
             let allFound = true;
 
             const attrNames = attributes.map(a => a.Attribute);
