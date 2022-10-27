@@ -6,6 +6,46 @@
       </div>
       <input type="file" id="fileInput" style="visibility: hidden" ref="uploadInput" v-on:input="readFileFromInput"/>
     </v-container>
+    <v-dialog v-model="dialogOpen" width="450">
+      <v-card>
+        <v-card-title>Einträge hochladen</v-card-title>
+        <v-card-text>
+          Die folgenden Einträge werden hochgeladen:
+          <v-list two-line>
+            <v-list-item v-for="e in entriesToUpload" :key="e.Key">
+              <v-list-item-content>
+                <v-list-item-title>
+                  {{e.Key}}
+                </v-list-item-title>
+                <v-list-item-subtitle>
+                  {{e.Typ}}
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+          <div v-if="unknown.length > 0">
+            Die folgenden Einträge konnten nicht zugeordnet werden:
+            <v-list two-line>
+              <v-list-item v-for="e in unknown" :key="e.Key">
+                <v-list-item-content>
+                  <v-list-item-title>
+                    {{e.Key}}
+                  </v-list-item-title>
+                  <v-list-item-subtitle>
+                    {{e.Type}}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </div>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn text color="primary">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
+          <v-btn text color="primary">Hochlden</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -13,12 +53,16 @@
 import {i18nDictionary} from "../i18n/Keys";
 import Vue from "vue";
 import AnalyseFile from "../analyseFile/analyseFile";
+import {BibEntry} from "../api/bibEntries/Entry";
 
 export default Vue.extend({
   name: "CitaviDragNDrop",
   data() {
     return {
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      entriesToUpload: [] as BibEntry[],
+      unknown: [] as {Key: string, Type: string}[],
+      dialogOpen: false,
     }
   },
 
@@ -31,7 +75,7 @@ export default Vue.extend({
       const files = (this.$refs.uploadInput as HTMLInputElement).files;
       if( files ) {
         const result = await AnalyseFile(files[0], this.$store.state.ProjectView.CurrentProjectData.bibTypes)
-        console.log(result)
+        this.setResult(result)
       }
 
     },
@@ -47,10 +91,18 @@ export default Vue.extend({
       reader.readAsText(dT.files[0], "UTF-8");
       reader.onload = async ()=>{
         const result = await AnalyseFile(dT.files[0], this.$store.state.ProjectView.CurrentProjectData.bibTypes)
-        console.log(result)
+        this.setResult(result)
       }
     },
-  }
+
+    setResult(result: {error: string, entries: BibEntry[], unknown: {Key: string, Type: string}[]}){
+      if( result.error === '' ) {
+        this.entriesToUpload = result.entries;
+        this.unknown = result.unknown;
+        this.dialogOpen = true;
+      }
+    }
+  },
 })
 </script>
 
