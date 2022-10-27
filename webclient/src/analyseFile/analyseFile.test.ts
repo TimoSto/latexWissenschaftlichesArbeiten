@@ -1,4 +1,4 @@
-import {getTypeOfEntry, separateEntries} from "@/analyseFile/analyseFile";
+import {extractKey, getTypeOfEntry, separateEntries} from "@/analyseFile/analyseFile";
 
 describe('analyseFile', () => {
 
@@ -44,6 +44,18 @@ field2="werest"
         })
         it('should give book', () => {
             expect(getTypeOfEntry('book{\n\tt="hallo\n"}')).toEqual('book')
+        })
+    });
+
+    describe('extractKey', () => {
+        it('should give test', () => {
+            expect(extractKey('@book{test,a1="rotoe"}')).toEqual('test')
+        })
+        it('should give test', () => {
+            expect(extractKey('@book{test,\na1="rotoe"}')).toEqual('test')
+        })
+        it('should give test', () => {
+            expect(extractKey('@book{\n\ttest,a1="rotoe"}')).toEqual('test')
         })
     })
 })
