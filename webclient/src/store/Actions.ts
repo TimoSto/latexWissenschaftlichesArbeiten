@@ -13,8 +13,6 @@ import {
 } from "@/store/actions/projectsActions";
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/Entry";
-import CreateBackup from "@/api/projects/CreateBackup";
-import ResetToBackup from "@/api/projects/ResetToBackup";
 
 export const actions: ActionTree<MyState, MyState> = {
     async [ActionTypes.App.GetAppData]({ commit }) {

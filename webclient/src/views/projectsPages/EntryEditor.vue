@@ -108,7 +108,7 @@
 
 <script lang="ts">
 import {i18nDictionary} from "@/i18n/Keys";
-import {BibType, Field} from "../../api/bibTypes/BibType";
+import {BibType} from "../../api/bibTypes/BibType";
 import Vue from "vue";
 import ActionTypes from "../../store/ActionTypes";
 import GeneratePreviewsForBibEntry from "../../api/bibEntries/GeneratePreviewsForBibEntry";

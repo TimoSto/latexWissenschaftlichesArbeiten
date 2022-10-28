@@ -1,5 +1,3 @@
-import GetTypeNameRules from "@/inputRules/typeNameRules";
-import {BibType} from "@/api/bibTypes/BibType";
 import {GetEntryKeyRules} from "@/inputRules/entryKeyRules";
 import {BibEntry} from "@/api/bibEntries/Entry";
 

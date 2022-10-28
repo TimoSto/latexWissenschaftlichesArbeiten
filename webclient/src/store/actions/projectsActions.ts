@@ -1,4 +1,4 @@
-import {CommitOptions, Dispatch, DispatchOptions} from "vuex";
+import {CommitOptions, DispatchOptions} from "vuex";
 import CreateProject from "@/api/projects/CreateProject";
 import MutationTypes from "@/store/MutationTypes";
 import GetProjectData from "@/api/projects/GetProjectData";
@@ -10,7 +10,6 @@ import {BibEntry} from "@/api/bibEntries/Entry";
 import SaveEntry from "@/api/bibEntries/SaveEntry";
 import DeleteEntry from "@/api/bibEntries/DeleteEntry";
 import {i18nDictionary} from "@/i18n/Keys";
-import {ParseTeXToString} from "@/api/bibEntries/ParseTeXString";
 import UploadEntries from "@/api/bibEntries/UploadEntries";
 import CreateBackup from "@/api/projects/CreateBackup";
 import ResetToBackup from "@/api/projects/ResetToBackup";

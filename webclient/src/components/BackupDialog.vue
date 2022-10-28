@@ -47,7 +47,7 @@ export default Vue.extend({
     },
     opened: {
       get(): boolean {return this.open},
-      set(v: boolean) {this.$emit('closed')}
+      set() {this.$emit('closed')}
     }
   },
   methods: {

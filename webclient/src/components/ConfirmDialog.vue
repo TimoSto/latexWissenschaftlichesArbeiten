@@ -33,7 +33,7 @@ export default Vue.extend({
   computed: {
     opened: {
       get(): boolean { return this.open},
-      set(v: boolean)  {this.$emit('discard')}
+      set()  {this.$emit('discard')}
     }
   }
 })
