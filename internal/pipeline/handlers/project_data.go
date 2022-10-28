@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"ThesorTeX/internal/backups"
 	"ThesorTeX/internal/bibliography_types"
 	"ThesorTeX/internal/entries"
 	"ThesorTeX/pkg/logger"
@@ -11,8 +12,9 @@ import (
 )
 
 type ProjectData struct {
-	BibEntries []entries.BibEntry
-	BibTypes   []bibliography_types.BibliographyType
+	BibEntries  []entries.BibEntry
+	BibTypes    []bibliography_types.BibliographyType
+	BackupPaths []string
 }
 
 func HandleGetProjectData(w http.ResponseWriter, r *http.Request) {
@@ -44,9 +46,12 @@ func HandleGetProjectData(w http.ResponseWriter, r *http.Request) {
 
 	bibTypes = bibliography_types.SortBibliographyTypes(bibTypes)
 
+	backupPaths := backups.ReadBackups(project, ioutil.ReadDir)
+
 	data := ProjectData{
-		BibEntries: projEntries,
-		BibTypes:   bibTypes,
+		BibEntries:  projEntries,
+		BibTypes:    bibTypes,
+		BackupPaths: backupPaths,
 	}
 
 	jsonData, err := json.Marshal(data)

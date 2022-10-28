@@ -134,7 +134,7 @@ func (mfi MockFileInfo) IsDir() bool        { return mfi.IsDirectory }
 func (mfi MockFileInfo) Sys() interface{}   { return nil }
 
 func ReadDir(path string) ([]fs.FileInfo, error) {
-	if path == "./backup/" {
+	if path == pathbuilder.GetPathFromExecRoot("/backups/project_with_backup") {
 		return []fs.FileInfo{
 			MockFileInfo{
 				FileName:    "project_with_backup_1_1_1",
