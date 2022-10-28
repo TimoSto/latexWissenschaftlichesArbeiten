@@ -37,7 +37,7 @@ func HandleSaveEntry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	b_entries = entries.AddEntry(data.Entry, data.InitialKey, b_entries)
+	b_entries = entries.AddEntry(data.Entry, data.InitialKey, b_entries, true)
 
 	err = entries.WriteEntries(data.Project, b_entries)
 	if err != nil {

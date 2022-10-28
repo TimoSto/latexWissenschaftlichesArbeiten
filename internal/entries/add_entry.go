@@ -1,11 +1,13 @@
 package entries
 
-func AddEntry(entry BibEntry, initialKey string, entries []BibEntry) []BibEntry {
+func AddEntry(entry BibEntry, initialKey string, entries []BibEntry, override bool) []BibEntry {
 
 	found := false
 	for i, e := range entries {
 		if e.Key == initialKey || e.Key == entry.Key {
-			entries[i] = entry
+			if override {
+				entries[i] = entry
+			}
 			found = true
 			break
 		}
