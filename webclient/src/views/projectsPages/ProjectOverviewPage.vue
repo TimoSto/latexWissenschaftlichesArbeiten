@@ -33,7 +33,7 @@
               <v-icon>mdi-cloud-upload</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>{{$t(i18nDictionary.Projects.Overview.LoadBackup)}}</v-list-item-title>
+              <v-list-item-title>{{$t(i18nDictionary.Projects.Overview.CreateBackup)}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 

@@ -55,7 +55,7 @@ export const i18nDictionary = {
         },
         Overview: {
             CreateBackup: 'Projects.Overview.CreateBackup',
-            LoadBackup: 'Projects.Overview.CreateBackup',
+            LoadBackup: 'Projects.Overview.LoadBackup',
             DeleteProject: 'Projects.Overview.DeleteProject',
             DeleteProjectDialog: {
                 Title: 'Projects.Overview.DeleteProjectDialog.Title',
