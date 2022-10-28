@@ -1,6 +1,12 @@
 #!/bin/sh
 
-cd ./cmd/app
+cd webclient
+echo "cleaning webclient-dist..."
+rm -rf assets/dist
+echo "building webclient..."
+yarn run build
+
+cd ../cmd/app
 
 echo "build prod..."
 set GOOS=windows
