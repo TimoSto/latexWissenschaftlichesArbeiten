@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container style="padding-top: 0">
+    <v-container style="padding-top: 0; padding-bottom: 0">
       <div id="drop_zone" @dragover.prevent v-ripple @click="triggerFileSelect" @drop.prevent="readDroppedFile">
         <span class="mdc-typography--body1">{{$t(i18nDictionary.Projects.Overview.UploadEntries)}}</span>
       </div>
