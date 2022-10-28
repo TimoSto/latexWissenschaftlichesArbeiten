@@ -6,6 +6,7 @@ export interface ProjectData {
     BibTypes: BibType[],
     BibEntries: BibEntry[],
     Abbreviations: Abbreviation[],
+    BackupPaths: string[],
     CompletelyLoaded: boolean
 }
 
@@ -17,6 +18,7 @@ export default async function GetProjectData(project: string): Promise<ProjectDa
             BibTypes: [],
             BibEntries: [],
             Abbreviations: [],
+            BackupPaths: [],
             CompletelyLoaded: false
         }
     }

@@ -89,6 +89,8 @@
       v-on:discard="deleteOpen = false"
       v-on:confirm="deleteThisProject"
     />
+
+    <BackupDialog :open="true"/>
   </div>
 </template>
 
@@ -100,10 +102,11 @@ import TypesTable from "../../components/TypesTable.vue";
 import ConfirmDialog from "../../components/ConfirmDialog.vue";
 import ActionTypes from "../../store/ActionTypes";
 import CitaviDragNDrop from "../../components/CitaviDragNDrop.vue";
+import BackupDialog from "../../components/BackupDialog.vue";
 
 export default Vue.extend({
   name: "ProjectOverviewPage",
-  components: {CitaviDragNDrop, ConfirmDialog, TypesTable, EntryTable},
+  components: {BackupDialog, CitaviDragNDrop, ConfirmDialog, TypesTable, EntryTable},
   data() {
     return {
       panels: [0, 1],

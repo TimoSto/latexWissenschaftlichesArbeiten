@@ -41,4 +41,6 @@ export function SetProjectData(state: MyState, data: ProjectData) {
         });
     })
     state.ProjectView.CurrentProjectData.bibTypes = data.BibTypes;
+
+    state.ProjectView.CurrentProjectData.backupPaths = data.BackupPaths;
 }
