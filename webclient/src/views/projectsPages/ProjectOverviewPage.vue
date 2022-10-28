@@ -11,9 +11,24 @@
 
       <v-spacer />
 
-      <v-btn icon :title="$t(i18nDictionary.Projects.Overview.DeleteProject)" @click="deleteOpen = true">
-        <v-icon>mdi-delete</v-icon>
-      </v-btn>
+      <v-menu offset-y>
+        <template v-slot:activator="{on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item :title="$t(i18nDictionary.Projects.Overview.DeleteProject)" @click="deleteOpen = true">
+            <v-list-item-icon>
+              <v-icon>mdi-delete</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{$t(i18nDictionary.Common.Delete)}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
     <v-sheet class="content-below-two-bars" id="overview-scroll">
       <v-expansion-panels tile flat hover multiple v-model="panels">
