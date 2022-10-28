@@ -12,10 +12,18 @@
 
 
 
-## test
-hallo
+## Motivation
+Die Idee für dieses Tool habe ich während meines Studium bekommen.
+MS-Word ist (meiner Meinung nach) etwas umständlich, wenn es um genaue Formatierungen geht.
+LaTeX ist für mich eine bequeme Alternative, da ich Formatierung über Befehle angenemer und übersichtlicher finde.
+Jedoch fand ich <i>BibTeX</i>, das Standard-Paket von LaTeX für Literaturmanagement, schwierig anzupassen.
+Deshalb hab ich mir was eigenes eifnallen lassen.
 
 
 
-## test test
-was geht
+## Vorlage
+Zunächst habe ich die Vorlage mit dem 
+
+
+### Funktionen
+abc
