@@ -8,22 +8,65 @@
 -->
 
 # ThesorTeX
-### Literaturmanagement
+### Literaturprojekte
 
 
 
 ## Motivation
-Die Idee für dieses Tool habe ich während meines Studium bekommen.
-MS-Word ist (meiner Meinung nach) etwas umständlich, wenn es um genaue Formatierungen geht.
-LaTeX ist für mich eine bequeme Alternative, da ich Formatierung über Befehle angenemer und übersichtlicher finde.
-Jedoch fand ich <i>BibTeX</i>, das Standard-Paket von LaTeX für Literaturmanagement, schwierig anzupassen.
-Deshalb hab ich mir was eigenes eifnallen lassen.
+### Warum das ganze?
+
+
+#### Frustration
+
+Frustrtion über Word
+
+
+#### Unflexibilität von BibLaTeX
+
+ISt nicht sehr komfortabel
 
 
 
-## Vorlage
-Zunächst habe ich die Vorlage mit dem 
+### Vorlage
 
 
-### Funktionen
-abc
+#### Allgemeines Styling
+
+- Kopf- und Fußzeilen
+- 
+
+
+#### Abkürzungen
+
+Die Abkürzungen werden aus der abkuerzungen.csv ausgelesen
+
+
+#### Literatur
+
+Auch aus CSV ausgelesen, Typen als Befehle in literatur.sty
+
+
+
+### Webclient
+
+
+#### Projekt anlegen
+
+Gehe in die gui
+
+
+#### Eintrag hinzufügen
+
+Klicke
+
+
+#### Literatur-Kategorie bearbeiten
+
+klicke
+
+
+
+### Learning by doing!
+
+
+Probier es einfach mal aus und schaue, ob dieses Tool das richtige für dich ist ;)
