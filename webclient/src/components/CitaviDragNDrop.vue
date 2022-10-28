@@ -42,7 +42,7 @@
         <v-card-actions>
           <v-spacer />
           <v-btn text color="primary">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
-          <v-btn text color="primary">Hochlden</v-btn>
+          <v-btn text color="primary">Hochladen</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
