@@ -51,7 +51,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn text color="primary">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
+          <v-btn text color="primary" @click="dialogOpen = false">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
           <v-btn text color="primary">{{$t(i18nDictionary.Common.Upload)}}</v-btn>
         </v-card-actions>
       </v-card>
