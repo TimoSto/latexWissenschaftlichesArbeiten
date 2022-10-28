@@ -52,7 +52,7 @@
         <v-card-actions>
           <v-spacer />
           <v-btn text color="primary" @click="dialogOpen = false">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
-          <v-btn text color="primary">{{$t(i18nDictionary.Common.Upload)}}</v-btn>
+          <v-btn text color="primary" @click="upload">{{$t(i18nDictionary.Common.Upload)}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -64,6 +64,7 @@ import {i18nDictionary} from "../i18n/Keys";
 import Vue from "vue";
 import AnalyseFile from "../analyseFile/analyseFile";
 import {BibEntry} from "../api/bibEntries/Entry";
+import ActionTypes from "../store/ActionTypes";
 
 export default Vue.extend({
   //TODO: in upload-dialog einträge weg x-en
@@ -113,6 +114,14 @@ export default Vue.extend({
         this.unknown = result.unknown;
         this.dialogOpen = true;
       }
+    },
+
+    upload() {
+      this.$store.dispatch(ActionTypes.Projects.Overview.UploadEntries, {
+        project: this.$store.state.ProjectView.CurrentProject,
+        entries: this.entriesToUpload,
+        override: this.override
+      });
     }
   },
 })

@@ -11,6 +11,7 @@ import SaveEntry from "@/api/bibEntries/SaveEntry";
 import DeleteEntry from "@/api/bibEntries/DeleteEntry";
 import {i18nDictionary} from "@/i18n/Keys";
 import {ParseTeXToString} from "@/api/bibEntries/ParseTeXString";
+import UploadEntries from "@/api/bibEntries/UploadEntries";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
@@ -78,4 +79,8 @@ export async function DeleteEntryAction(commit: (type: string,payload?: any,opti
         commit(MutationTypes.ProjectView.EditorCloseNeeded, true);
         commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.EntryEditor.DeleteEntryDialog.Success)
     }
+}
+
+export async function UploadEntriesAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, entries: BibEntry[], override: boolean) {
+    const ok = await UploadEntries(project, entries, override);
 }

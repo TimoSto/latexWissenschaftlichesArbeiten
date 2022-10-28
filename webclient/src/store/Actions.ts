@@ -8,7 +8,7 @@ import {
     CreateProjectAction, DeleteEntryAction,
     DeleteProjectAction,
     DeleteTypeAction,
-    GetProjectDataAction, SaveEntryAction, SaveTypeAction
+    GetProjectDataAction, SaveEntryAction, SaveTypeAction, UploadEntriesAction
 } from "@/store/actions/projectsActions";
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/Entry";
@@ -40,5 +40,8 @@ export const actions: ActionTree<MyState, MyState> = {
     },
     async [ActionTypes.Projects.EntryEditor.DeleteEntry]({ commit }, payload: {project: string, entry: string}) {
         await DeleteEntryAction(commit, payload.project, payload.entry)
+    },
+    async [ActionTypes.Projects.Overview.UploadEntries]({commit}, payload: {project: string, entries: BibEntry[], override: boolean}) {
+        await UploadEntriesAction(commit, payload.project, payload.entries, payload.override);
     }
 }
