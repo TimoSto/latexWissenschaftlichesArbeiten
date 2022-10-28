@@ -11,7 +11,7 @@
 
       <v-spacer />
 
-      <v-menu offset-y>
+      <v-menu :offset-y="true">
         <template v-slot:activator="{on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
@@ -24,9 +24,28 @@
               <v-icon>mdi-delete</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title>{{$t(i18nDictionary.Common.Delete)}}</v-list-item-title>
+              <v-list-item-title>{{$t(i18nDictionary.Projects.Overview.DeleteProject)}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+
+          <v-list-item :title="$t(i18nDictionary.Projects.Overview.CreateBackup)">
+            <v-list-item-icon>
+              <v-icon>mdi-cloud-upload</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{$t(i18nDictionary.Projects.Overview.LoadBackup)}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-list-item :title="$t(i18nDictionary.Projects.Overview.LoadBackup)">
+            <v-list-item-icon>
+              <v-icon>mdi-cloud-download</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{$t(i18nDictionary.Projects.Overview.LoadBackup)}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
         </v-list>
       </v-menu>
     </v-app-bar>

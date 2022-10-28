@@ -54,6 +54,8 @@ export const i18nDictionary = {
             Success: 'Projects.New.Success'
         },
         Overview: {
+            CreateBackup: 'Projects.Overview.CreateBackup',
+            LoadBackup: 'Projects.Overview.CreateBackup',
             DeleteProject: 'Projects.Overview.DeleteProject',
             DeleteProjectDialog: {
                 Title: 'Projects.Overview.DeleteProjectDialog.Title',

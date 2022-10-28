@@ -53,6 +53,8 @@ export const EnglishTranslations: TranslationKeys = {
             Success: 'New project successfully created'
         },
         Overview: {
+            CreateBackup: 'Create backup',
+            LoadBackup: 'Load backup',
             DeleteProject: 'Delete project',
             DeleteProjectDialog: {
                 Title: 'Delete current project?',
