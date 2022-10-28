@@ -40,7 +40,16 @@ export default async function AnalyseFile(file: File, types: BibType[]): Promise
         const cType = getTypeOfEntry(f);
 
         //step 3: get key
-        const key = extractKey(f)
+        let key = extractKey(f)
+        //handle duplicate keys
+        const existingKeys = entries.map(e => e.Key);
+        let addition = 0;
+        let newKey = key;
+        while(existingKeys.indexOf(newKey) !== -1 ) {
+            addition++;
+            newKey = key + `-${addition}`
+        }
+        key = newKey;
 
         //step 4: extract attributes and values
         const attributePairs = extractEntryAttributes(f)

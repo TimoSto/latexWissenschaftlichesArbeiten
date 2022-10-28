@@ -373,5 +373,79 @@ url="https://doi.org/10.1007/978-3-8348-9483-0_7"
             expect(entries.unknown).toHaveLength(1)
             expect(entries.unknown).toEqual([{Key: 'Thiemann2008', Type: 'booki'}])
         })
+
+        it('duplicate key', async () => {
+            const filecontent = `@book{Thiemann2008,
+title="Barrierefreiheit",
+bookTitle="Benutzerfreundliche Online-Hilfen: Grundlagen und Umsetzung mit MadCap Flare",
+year="2008",
+publisher="Vieweg+Teubner",
+address="Wiesbaden",
+pages="143--157",
+abstract="Barrierefreies Design bedeutet, dass Menschen mit Behinderungen ein elektronisches Angebot uneingeschr{\\"a}nkt und selbstst{\\"a}ndig nutzen k{\\"o}nnen. Im Sinne der Nutzbarkeit muss die Barrierefreiheit beispielsweise einer Online-Hilfe im Web einen Schritt {\\"u}ber die reine Zug{\\"a}nglichkeit hinausgehen: auch behinderte Nutzer sollen mit ihren F{\\"a}higkeiten und Hilfsmitteln elektronische Angebote nutzen k{\\"o}nnen. Barrierefreiheit ist somit Gebrauchstauglichkeit vor dem Hintergrund einer Behinderung oder Einschr{\\"a}nkung.",
+isbn="978-3-8348-9483-0",
+doi="10.1007/978-3-8348-9483-0_7",
+url="https://doi.org/10.1007/978-3-8348-9483-0_7"
+}
+@book{Thiemann2008,
+title="Barrierefreiheit",
+bookTitle="Benutzerfreundliche Online-Hilfen: Grundlagen und Umsetzung mit MadCap Flare",
+year="2008",
+publisher="Vieweg+Teubner",
+address="Wiesbaden",
+pages="143--157",
+abstract="Barrierefreies Design bedeutet, dass Menschen mit Behinderungen ein elektronisches Angebot uneingeschr{\\"a}nkt und selbstst{\\"a}ndig nutzen k{\\"o}nnen. Im Sinne der Nutzbarkeit muss die Barrierefreiheit beispielsweise einer Online-Hilfe im Web einen Schritt {\\"u}ber die reine Zug{\\"a}nglichkeit hinausgehen: auch behinderte Nutzer sollen mit ihren F{\\"a}higkeiten und Hilfsmitteln elektronische Angebote nutzen k{\\"o}nnen. Barrierefreiheit ist somit Gebrauchstauglichkeit vor dem Hintergrund einer Behinderung oder Einschr{\\"a}nkung.",
+isbn="978-3-8348-9483-0",
+doi="10.1007/978-3-8348-9483-0_7",
+url="https://doi.org/10.1007/978-3-8348-9483-0_7"
+}
+@book{Thiemann2008,
+title="Barrierefreiheit",
+bookTitle="Benutzerfreundliche Online-Hilfen: Grundlagen und Umsetzung mit MadCap Flare",
+year="2008",
+publisher="Vieweg+Teubner",
+address="Wiesbaden",
+pages="143--157",
+abstract="Barrierefreies Design bedeutet, dass Menschen mit Behinderungen ein elektronisches Angebot uneingeschr{\\"a}nkt und selbstst{\\"a}ndig nutzen k{\\"o}nnen. Im Sinne der Nutzbarkeit muss die Barrierefreiheit beispielsweise einer Online-Hilfe im Web einen Schritt {\\"u}ber die reine Zug{\\"a}nglichkeit hinausgehen: auch behinderte Nutzer sollen mit ihren F{\\"a}higkeiten und Hilfsmitteln elektronische Angebote nutzen k{\\"o}nnen. Barrierefreiheit ist somit Gebrauchstauglichkeit vor dem Hintergrund einer Behinderung oder Einschr{\\"a}nkung.",
+isbn="978-3-8348-9483-0",
+doi="10.1007/978-3-8348-9483-0_7",
+url="https://doi.org/10.1007/978-3-8348-9483-0_7"
+}`
+            const file = {
+                name: 'testfile.bib',
+                async text() {
+                    return filecontent
+                }
+            }
+            const types: BibType[] = [
+                {
+                    Name: 'buch',
+                    CitaviType: 'book',
+                    CitaviNecessaryFields: [],
+                    Fields: [
+                        {
+                            Field: 't1',
+                            CitaviAttributes: ['author', 'publisher']
+                        } as Field,
+                        {
+                            Field: 't2',
+                            CitaviAttributes: ['title']
+                        } as Field,
+                        {
+                            Field: 't3',
+                            CitaviAttributes: ['t44itle']
+                        } as Field
+                    ],
+                    CiteFields: [],
+                    CiteModel: '',
+                    Model: ''
+                }
+            ]
+            const entries = await AnalyseFile(file as unknown as File, types);
+            expect(entries.entries).toHaveLength(3)
+            expect(entries.entries[0].Key).toEqual('Thiemann2008')
+            expect(entries.entries[1].Key).toEqual('Thiemann2008-1')
+            expect(entries.entries[2].Key).toEqual('Thiemann2008-2')
+        })
     })
 })
