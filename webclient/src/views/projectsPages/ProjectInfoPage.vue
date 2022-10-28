@@ -20,7 +20,7 @@ export default Vue.extend({
     this.$nextTick(() => {
       const frame = this.$refs.presentation as HTMLIFrameElement;
       if( frame && frame.contentWindow ) {
-        frame.contentWindow.location.href = '/tutorials/reveal_js/presentation.html'
+        frame.contentWindow.location.href = '/tutorials/reveal_js/presentation.html?presentation=projects&lang=' + this.$i18n.locale;
       }
     })
   }
