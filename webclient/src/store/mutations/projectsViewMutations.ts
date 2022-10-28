@@ -44,3 +44,11 @@ export function SetProjectData(state: MyState, data: ProjectData) {
 
     state.ProjectView.CurrentProjectData.backupPaths = data.BackupPaths;
 }
+
+export function AddBackup(state: MyState, path: string) {
+    state.ProjectView.CurrentProjectData.backupPaths.push(path);
+    state.ProjectView.CurrentProjectData.backupPaths.sort((a,b) => {
+        if( a < b ) return -1
+        return 0
+    })
+}

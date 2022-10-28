@@ -2,7 +2,7 @@ import {MutationTree} from "vuex";
 import {MyState} from "@/store/MyState";
 import MutationTypes from "@/store/MutationTypes";
 import {RemoveProject, SetConfig, SetCurrentView, SetProjectNames} from "@/store/mutations/appMutations";
-import {AddProject, SetCurrentProject, SetProjectData} from "@/store/mutations/projectsViewMutations";
+import {AddBackup, AddProject, SetCurrentProject, SetProjectData} from "@/store/mutations/projectsViewMutations";
 import {ProjectData} from "@/api/projects/GetProjectData";
 import {UpdateType, RemoveType} from "@/store/mutations/categoryEditorMutations";
 import {BibType} from "@/api/bibTypes/BibType";
@@ -53,5 +53,8 @@ export const mutations: MutationTree<MyState> = {
     },
     [MutationTypes.App.SetSuccessMessage](state: MyState, payload: string) {
         state.App.SuccessMessage = payload;
+    },
+    [MutationTypes.ProjectView.AddBackup](state: MyState, payload: string) {
+        AddBackup(state, payload);
     }
 }

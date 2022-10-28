@@ -96,7 +96,12 @@ export async function UploadEntriesAction(commit: (type: string,payload?: any,op
 }
 
 export async function CreateBackupAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string) {
-    const ok = await CreateBackup(project)
+    const resp = await CreateBackup(project)
+
+    if( resp.ok ) {
+        const path = await resp.text()
+        commit(MutationTypes.ProjectView.AddBackup, path.split('/').pop())
+    }
 }
 
 export async function ResetToBackupAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, dispatch: (type: string,payload?: any,options?: DispatchOptions) => void, project: string, backup: string) {

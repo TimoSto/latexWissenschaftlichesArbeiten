@@ -12,7 +12,8 @@ const MutationTypes = {
         AddProject: 'ProjectView.AddProject',
         SetCurrentProjectData: 'ProjectView.SetCurrentProjectData',
         EditorCloseNeeded: 'ProjectView.EditorCloseNeeded',
-        SetEditorUpdateIndex: 'ProjectView.SetEditorUpdateIndex'
+        SetEditorUpdateIndex: 'ProjectView.SetEditorUpdateIndex',
+        AddBackup: 'ProjectView.AddBackup'
     },//TODO: Struktur von actions und mutations gleich halten
     CategoryEditor: {
         RemoveType: 'CategoryEditor.DeleteType',

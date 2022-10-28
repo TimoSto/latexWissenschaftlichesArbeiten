@@ -1,9 +1,8 @@
 
-export default async function CreateBackup(project: string): Promise<boolean> {
+export default async function CreateBackup(project: string): Promise<Response> {
     const resp = await fetch(`/createBackup?project=${project}`, {
         method: 'POST'
     })
-    //TODO: return path to backup
 
-    return resp.ok;
+    return resp;
 }
