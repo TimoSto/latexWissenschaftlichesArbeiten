@@ -37,7 +37,7 @@
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-item :title="$t(i18nDictionary.Projects.Overview.LoadBackup)">
+          <v-list-item :title="$t(i18nDictionary.Projects.Overview.LoadBackup)" @click="backupTriggered = true">
             <v-list-item-icon>
               <v-icon>mdi-cloud-download</v-icon>
             </v-list-item-icon>
@@ -90,7 +90,7 @@
       v-on:confirm="deleteThisProject"
     />
 
-    <BackupDialog :open="true"/>
+    <BackupDialog :open="backupTriggered" v-on:closed="backupTriggered = false"/>
   </div>
 </template>
 
@@ -111,7 +111,8 @@ export default Vue.extend({
     return {
       panels: [0, 1],
       i18nDictionary: i18nDictionary,
-      deleteOpen: false
+      deleteOpen: false,
+      backupTriggered: false
     }
   },
 

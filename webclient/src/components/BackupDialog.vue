@@ -15,7 +15,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn text color="primary">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
+        <v-btn text color="primary" @click="$emit('closed')">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
         <v-btn text color="primary" :disabled="selected === -1" @click="resetToBackup">Reset</v-btn>
       </v-card-actions>
     </v-card>
@@ -30,6 +30,11 @@ import ActionTypes from "../store/ActionTypes";
 export default Vue.extend({
   name: "BackupDialog",
   props: ['open'],
+  watch: {
+    open() {
+      this.selected = -1;
+    }
+  },
   data() {
     return {
       selected: -1,
