@@ -111,5 +111,6 @@ export async function ResetToBackupAction(commit: (type: string,payload?: any,op
 
     if( ok ) {
         dispatch(ActionTypes.Projects.GetProjectData, project)
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.Overview.ResetDialog.Success)
     }
 }
