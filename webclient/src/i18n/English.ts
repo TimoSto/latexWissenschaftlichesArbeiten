@@ -54,6 +54,7 @@ export const EnglishTranslations: TranslationKeys = {
         },
         Overview: {
             CreateBackup: 'Create backup',
+            CreateBackupSuccess: 'Backup successfully created',
             LoadBackup: 'Load backup',
             DeleteProject: 'Delete project',
             DeleteProjectDialog: {
@@ -63,7 +64,8 @@ export const EnglishTranslations: TranslationKeys = {
             },
             ResetDialog: {
                 Title: 'Reset project to backup',
-                Reset: 'Reset'
+                Reset: 'Reset',
+                Success: 'Successfully resetted project to backup'
             },
             Entries: 'Entries in bibliography',
             UploadEntries: 'Upload a bib file exported from citavi',

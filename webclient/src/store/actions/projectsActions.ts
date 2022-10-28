@@ -100,7 +100,9 @@ export async function CreateBackupAction(commit: (type: string,payload?: any,opt
 
     if( resp.ok ) {
         const path = await resp.text()
-        commit(MutationTypes.ProjectView.AddBackup, path.split('/').pop())
+        const backup = path.split('/').pop();
+        commit(MutationTypes.ProjectView.AddBackup, backup)
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.Overview.CreateBackupSuccess)
     }
 }
 

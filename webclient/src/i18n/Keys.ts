@@ -55,6 +55,7 @@ export const i18nDictionary = {
         },
         Overview: {
             CreateBackup: 'Projects.Overview.CreateBackup',
+            CreateBackupSuccess: 'Projects.Overview.CreateBackupSuccess',
             LoadBackup: 'Projects.Overview.LoadBackup',
             DeleteProject: 'Projects.Overview.DeleteProject',
             DeleteProjectDialog: {
@@ -64,7 +65,8 @@ export const i18nDictionary = {
             },
             ResetDialog: {
                 Title: 'Projects.Overview.ResetDialog.Title',
-                Reset: 'Projects.Overview.ResetDialog.Reset'
+                Reset: 'Projects.Overview.ResetDialog.Reset',
+                Success: 'Projects.Overview.ResetDialog.Success'
             },
             Entries: 'Projects.Overview.Entries',
             UploadEntries: 'Projects.Overview.UploadEntries',
