@@ -8,9 +8,10 @@
     </v-container>
     <v-dialog v-model="dialogOpen" width="450">
       <v-card>
-        <v-card-title>Einträge hochladen</v-card-title>
+        <v-card-title>
+          {{$t(i18nDictionary.Projects.Overview.UploadDialog.Title)}}</v-card-title>
         <v-card-text>
-          Die folgenden Einträge werden hochgeladen:
+          {{$t(i18nDictionary.Projects.Overview.UploadDialog.EntriesToUpload)}}
           <v-list two-line>
             <v-list-item v-for="e in entriesToUpload" :key="e.Key">
               <v-list-item-content>
@@ -24,7 +25,7 @@
             </v-list-item>
           </v-list>
           <div v-if="unknown.length > 0">
-            Die folgenden Einträge konnten nicht zugeordnet werden:
+            {{$t(i18nDictionary.Projects.Overview.UploadDialog.UnknownEntries)}}
             <v-list two-line>
               <v-list-item v-for="e in unknown" :key="e.Key">
                 <v-list-item-content>
@@ -42,7 +43,7 @@
         <v-card-actions>
           <v-spacer />
           <v-btn text color="primary">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
-          <v-btn text color="primary">Hochladen</v-btn>
+          <v-btn text color="primary">{{$t(i18nDictionary.Common.Upload)}}</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -56,6 +57,7 @@ import AnalyseFile from "../analyseFile/analyseFile";
 import {BibEntry} from "../api/bibEntries/Entry";
 
 export default Vue.extend({
+  //TODO: in upload-dialog einträge weg x-en
   name: "CitaviDragNDrop",
   data() {
     return {

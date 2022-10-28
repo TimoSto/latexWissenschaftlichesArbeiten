@@ -1,135 +1,15 @@
 
-export type TranslationKeys = {
-    Common: {
-        Discard: string
-        Save: string
-        Abort: string
-        Delete: string
-        Close: string
-        MandatoryField: string
-    },
-    App: {
-        TitleAppendixProjects: string
-        Information: string
-        Homepage: string
-        Layout5050: string
-        Layout3070: string
-    },
-    Home: {
-        Welcome: string
-        Description: string
-        TemplateCard: {
-            Title: string
-            Content: string
-        },
-        BibCard: {
-            Title: string
-            Content: string
-        },
-        CVCard: {
-            Title: string
-            Content: string
-        },
-        ContactCard: {
-            Title: string
-            Content: string
-        },
-        ConfigCard: {
-            Title: string
-            Content: string
-        }
-    },
-    Projects: {
-        Info: {
-            Description: string
-        },
-        New: {
-            Title: string,
-            Label: string,
-            AlreadyExists: string
-            NoSpaces: string
-            Success: string
-        },
-        Overview: {
-            DeleteProject: string,
-            DeleteProjectDialog: {
-                Title: string,
-                Content: string
-                Success: string
-            },
-            Entries: string,
-            UploadEntries: string,
-            EntriesTable: {
-                Key: string,
-                Category: string,
-                Entry: string,
-                CiteCount: string
-            },
-            Types: string,
-            TypesTable: {
-                Name: string,
-                EntryExample: string,
-                CitaviType: string
-            }
-        },
-        CategoryEditor: {
-            Title: string
-            Properties: string
-            InitialName: string
-            Name: string
-            CitaviCategory: string
-            CitaviNecessaryFields: string
-            BibliographyEntry: string
-            Cite: string
-            Attribute: string
-            Style: string
-            Prefix: string
-            Suffix: string
-            TeX_Value: string
-            Normal: string
-            Italic: string
-            Success: string
-            DeleteCategoryDialog: {
-                Title: string
-                Content: string
-                Success: string
-            },
-            Rules: {
-                NoSpaces: string//TODO: migrate to common
-                NameNotAvailable: string
-                AttributeNotAvailable: string
-            }
-        },
-        EntryEditor: {
-            Fields: string
-            NewKey: string
-            Rules: {
-                KeyNotAvailable: string
-            },
-            Success: string
-            DeleteEntryDialog: {
-                Title: string
-                Content: string
-                Success: string
-            }
-        }
-    },
-    Config: {
-        Title: string
-        DarkMode: string
-        AutoOpen: string
-        Success: string
-    }
-}
+export type TranslationKeys = typeof i18nDictionary
 
-export const i18nDictionary: TranslationKeys = {
+export const i18nDictionary = {
     Common: {
         Discard: 'Common.Discard',
         Save: 'Common.Save',
         Abort: 'Common.Abort',
         Delete: 'Common.Delete',
         Close: 'Common.Close',
-        MandatoryField: 'Common.MandatoryField'
+        MandatoryField: 'Common.MandatoryField',
+        Upload: 'Common.Upload'
     },
     App: {
         TitleAppendixProjects: 'App.TitleAppendixProjects',
@@ -182,6 +62,12 @@ export const i18nDictionary: TranslationKeys = {
             },
             Entries: 'Projects.Overview.Entries',
             UploadEntries: 'Projects.Overview.UploadEntries',
+            UploadDialog: {
+                Title: 'Projects.Overview.UploadDialog.Title',
+                EntriesToUpload: 'Projects.Overview.UploadDialog.EntriesToUpload',
+                UnknownEntries: 'Projects.Overview.UploadDialog.UnknownEntries',
+                Override: 'Projects.Overview.UploadDialog.Override'
+            },
             EntriesTable: {
                 Key: 'Projects.Overview.EntriesTable.Key',
                 Category: 'Projects.Overview.EntriesTable.Category',

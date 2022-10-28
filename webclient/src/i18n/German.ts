@@ -7,7 +7,8 @@ export const GermanTranslations: TranslationKeys = {
         Abort: 'Abbrechen',
         Delete: 'Löschen',
         Close: 'Schließen',
-        MandatoryField: '*Pflichtfeld'
+        MandatoryField: '*Pflichtfeld',
+        Upload: 'Hochladen'
     },
     App: {
         TitleAppendixProjects: 'Projekte',
@@ -60,6 +61,12 @@ export const GermanTranslations: TranslationKeys = {
             },
             Entries: 'Einträge im Literaturverzeichnis',
             UploadEntries: 'Lade eine aus Citavi exportierte Bib-Datei hoch',
+            UploadDialog: {
+                Title: 'Einträge hochladen',
+                EntriesToUpload: 'Folgende Einträge werden hochgeladen:',
+                UnknownEntries: 'Folgende Einträge/Kategorien konnten nicht zugeordnet werden:',
+                Override: 'Bestehende Einträge überschreiben'
+            },
             EntriesTable: {
                 Key: 'Schlüssel',
                 Category: 'Kategorie',

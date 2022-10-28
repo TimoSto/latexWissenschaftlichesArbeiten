@@ -7,7 +7,8 @@ export const EnglishTranslations: TranslationKeys = {
         Abort: 'Abort',
         Delete: 'Delete',
         Close: 'Close',
-        MandatoryField: '*mandatory field'
+        MandatoryField: '*mandatory field',
+        Upload: 'Upload'
     },
     App: {
         TitleAppendixProjects: 'Projects',
@@ -60,6 +61,12 @@ export const EnglishTranslations: TranslationKeys = {
             },
             Entries: 'Entries in bibliography',
             UploadEntries: 'Upload a bib file exported from citavi',
+            UploadDialog: {
+                Title: 'Upload entries',
+                EntriesToUpload: 'Following entries will be uploaded:',
+                UnknownEntries: 'Following entries/categories could not be assigned:',
+                Override: 'Override existing entries'
+            },
             EntriesTable: {
                 Key: 'Key',
                 Category: 'Category',
