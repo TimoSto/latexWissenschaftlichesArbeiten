@@ -17,7 +17,8 @@ const ActionTypes = {
             DeleteEntry: 'Projects.EntryEditor.DeleteEntry'
         },
         Overview: {
-            UploadEntries: 'Projects.UploadEntries'
+            UploadEntries: 'Projects.UploadEntries',
+            CreateBackup: 'Projects.CreateBackup'
         }
     }
 }

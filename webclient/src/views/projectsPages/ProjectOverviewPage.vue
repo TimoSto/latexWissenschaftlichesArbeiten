@@ -28,7 +28,7 @@
             </v-list-item-content>
           </v-list-item>
 
-          <v-list-item :title="$t(i18nDictionary.Projects.Overview.CreateBackup)">
+          <v-list-item :title="$t(i18nDictionary.Projects.Overview.CreateBackup)" @click="backupThisProject">
             <v-list-item-icon>
               <v-icon>mdi-cloud-upload</v-icon>
             </v-list-item-icon>
@@ -131,6 +131,9 @@ export default Vue.extend({
   methods: {
     deleteThisProject() {
       this.$store.dispatch(ActionTypes.Projects.DeleteProject, this.$store.state.ProjectView.CurrentProject);
+    },
+    backupThisProject() {
+      this.$store.dispatch(ActionTypes.Projects.Overview.CreateBackup, this.$store.state.ProjectView.CurrentProject);
     }
   }
 })

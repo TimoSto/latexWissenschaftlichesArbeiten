@@ -5,6 +5,7 @@ import ActionTypes from "@/store/ActionTypes";
 import {GetAppData, SaveConfiguration} from "@/store/actions/appActions";
 import {ConfigSaveObj} from "@/api/app/SaveConfig";
 import {
+    CreateBackupAction,
     CreateProjectAction, DeleteEntryAction,
     DeleteProjectAction,
     DeleteTypeAction,
@@ -12,6 +13,7 @@ import {
 } from "@/store/actions/projectsActions";
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/Entry";
+import CreateBackup from "@/api/projects/CreateBackup";
 
 export const actions: ActionTree<MyState, MyState> = {
     async [ActionTypes.App.GetAppData]({ commit }) {
@@ -43,5 +45,8 @@ export const actions: ActionTree<MyState, MyState> = {
     },
     async [ActionTypes.Projects.Overview.UploadEntries]({commit}, payload: {project: string, entries: BibEntry[], override: boolean}) {
         await UploadEntriesAction(commit, payload.project, payload.entries, payload.override);
+    },
+    async [ActionTypes.Projects.Overview.CreateBackup]({commit}, payload: string) {
+        await CreateBackupAction(commit, payload);
     }
 }

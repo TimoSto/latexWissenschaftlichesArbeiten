@@ -12,6 +12,7 @@ import DeleteEntry from "@/api/bibEntries/DeleteEntry";
 import {i18nDictionary} from "@/i18n/Keys";
 import {ParseTeXToString} from "@/api/bibEntries/ParseTeXString";
 import UploadEntries from "@/api/bibEntries/UploadEntries";
+import CreateBackup from "@/api/projects/CreateBackup";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
@@ -90,4 +91,8 @@ export async function UploadEntriesAction(commit: (type: string,payload?: any,op
         });
         commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.Overview.UploadDialog.Success)
     }
+}
+
+export async function CreateBackupAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string) {
+    const ok = await CreateBackup(project)
 }
