@@ -14,3 +14,6 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
+//TODO: Fehler-Dialog
+//TODO: unsafe close
