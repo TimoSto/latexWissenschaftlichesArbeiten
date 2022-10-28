@@ -9,11 +9,12 @@ import {
     CreateProjectAction, DeleteEntryAction,
     DeleteProjectAction,
     DeleteTypeAction,
-    GetProjectDataAction, SaveEntryAction, SaveTypeAction, UploadEntriesAction
+    GetProjectDataAction, ResetToBackupAction, SaveEntryAction, SaveTypeAction, UploadEntriesAction
 } from "@/store/actions/projectsActions";
 import {BibType} from "@/api/bibTypes/BibType";
 import {BibEntry} from "@/api/bibEntries/Entry";
 import CreateBackup from "@/api/projects/CreateBackup";
+import ResetToBackup from "@/api/projects/ResetToBackup";
 
 export const actions: ActionTree<MyState, MyState> = {
     async [ActionTypes.App.GetAppData]({ commit }) {
@@ -48,5 +49,8 @@ export const actions: ActionTree<MyState, MyState> = {
     },
     async [ActionTypes.Projects.Overview.CreateBackup]({commit}, payload: string) {
         await CreateBackupAction(commit, payload);
+    },
+    async [ActionTypes.Projects.Overview.ResetToBackup]({commit}, payload: {project: string, backup: string}) {
+        await ResetToBackupAction(commit, payload.project, payload.backup);
     }
 }

@@ -23,6 +23,7 @@ func CreateHandlerPipeline() []webserver.Resource {
 		{Pattern: "/deleteEntry", Handler: http.HandlerFunc(handlers.HandleDeleteEntry)},
 		{Pattern: "/uploadEntries", Handler: http.HandlerFunc(handlers.HandleUploadEntries)},
 		{Pattern: "/createBackup", Handler: http.HandlerFunc(handlers.HandleCreateBackup)},
+		{Pattern: "/resetToBackup", Handler: http.HandlerFunc(handlers.HandleResetToBackup)},
 	}
 
 	return handler

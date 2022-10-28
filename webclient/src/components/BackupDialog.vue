@@ -16,7 +16,7 @@
       <v-card-actions>
         <v-spacer />
         <v-btn text color="primary">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
-        <v-btn text color="primary" :disabled="selected === -1">Reset</v-btn>
+        <v-btn text color="primary" :disabled="selected === -1" @click="resetToBackup">Reset</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -25,6 +25,7 @@
 <script lang="ts">
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
+import ActionTypes from "../store/ActionTypes";
 
 export default Vue.extend({
   name: "BackupDialog",
@@ -37,12 +38,19 @@ export default Vue.extend({
   },
   computed: {
     paths(): string[] {
-      console.log(this.$store.state.ProjectView.CurrentProjectData.backupPaths)
       return this.$store.state.ProjectView.CurrentProjectData.backupPaths;
     },
     opened: {
       get(): boolean {return this.open},
       set(v: boolean) {this.$emit('closed')}
+    }
+  },
+  methods: {
+    resetToBackup() {
+      this.$store.dispatch(ActionTypes.Projects.Overview.ResetToBackup, {
+        project: this.$store.state.ProjectView.CurrentProject,
+        backup: this.$store.state.ProjectView.CurrentProjectData.backupPaths[this.selected]
+      })
     }
   }
 })

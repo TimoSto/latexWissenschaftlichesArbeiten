@@ -13,6 +13,7 @@ import {i18nDictionary} from "@/i18n/Keys";
 import {ParseTeXToString} from "@/api/bibEntries/ParseTeXString";
 import UploadEntries from "@/api/bibEntries/UploadEntries";
 import CreateBackup from "@/api/projects/CreateBackup";
+import ResetToBackup from "@/api/projects/ResetToBackup";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
@@ -95,4 +96,8 @@ export async function UploadEntriesAction(commit: (type: string,payload?: any,op
 
 export async function CreateBackupAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string) {
     const ok = await CreateBackup(project)
+}
+
+export async function ResetToBackupAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, backup: string) {
+    const ok = ResetToBackup(project, backup)
 }

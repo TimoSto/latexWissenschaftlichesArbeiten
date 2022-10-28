@@ -18,7 +18,8 @@ const ActionTypes = {
         },
         Overview: {
             UploadEntries: 'Projects.UploadEntries',
-            CreateBackup: 'Projects.CreateBackup'
+            CreateBackup: 'Projects.CreateBackup',
+            ResetToBackup: 'Projects.ResetToBackup'
         }
     }
 }
