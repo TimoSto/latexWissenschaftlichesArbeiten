@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="#000000" name="theme-color"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github.min.css" integrity="sha512-0aPQyyeZrWj9sCA46UlmWgKOP0mUipLQ6OZXu8l4IcAmD2u31EPEy9VcIMvl7SoAaKe8bLXZhYoMaE/in+gcgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="./robot-lung.css" rel="stylesheet"/>
+    <!-- Open links in new tab   -->
+    <base target="_blank">
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-markdown="./projects_de.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n">
+        </section>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/marked.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/notes/notes.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.js"></script>
+<script>
+    Reveal.initialize({
+        // used to keep current slide during browser reload
+        // fragment: true,
+        // fragmentInURL: true
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'fast',
+        totalTime: 15 * 60,
+
+        slideNumber: 'c/t',
+
+        // IMPORTANT: The order matters!
+        // So, RevealHightlight must be the LAST to load
+        plugins: [
+            RevealMarkdown, RevealNotes, RevealHighlight,
+        ]
+    });
+</script>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
   <div>
     <div class="reveal">
       <div class="slides">
-        <section data-markdown="" data-separator="^\n\n\n" data-separator-vertical="^\n\n">
+        <section data-markdown="/tutorials/reveal_js/projects_de.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n">
         </section>
       </div>
     </div>
@@ -26,6 +26,7 @@ export default Vue.extend({
       controls: true,
       progress: true,
       center: true,
+      embedded: true,
 
       transition: 'slide', // none/fade/slide/convex/concave/zoom
       transitionSpeed: 'fast',
@@ -38,11 +39,15 @@ export default Vue.extend({
       plugins: [
         Markdown, Notes, Highlight,
       ]
-    })
+    });
+    document.querySelector( '.reveal' ).style.width = '50vw';
+
+// Make reveal.js aware of the size change
+    Reveal.layout();
   }
 })
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+@use "reveal.js/dist/reveal";
 </style>

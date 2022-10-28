@@ -1,23 +1,30 @@
 <template>
   <div style="padding: 8px 16px" id="projectInfoPage">
     <p v-html="$t(i18nDictionary.Projects.Info.Description)"></p>
-    <RevealJsContainer />
+    <iframe style="width: 85%; max-width: 800px" ref="presentation"></iframe>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import {i18nDictionary} from "@/i18n/Keys";
-import RevealJsContainer from "@/components/RevealJsContainer";
+import Vue from "vue";
 
-export default {
+export default Vue.extend({
   name: "ProjectInfoPage",
-  components: {RevealJsContainer},
   data() {
     return {
       i18nDictionary: i18nDictionary
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      const frame = this.$refs.presentation as HTMLIFrameElement;
+      if( frame && frame.contentWindow ) {
+        frame.contentWindow.location.href = '/tutorials/reveal_js/presentation.html'
+      }
+    })
   }
-}
+})
 </script>
 
 <style scoped>
