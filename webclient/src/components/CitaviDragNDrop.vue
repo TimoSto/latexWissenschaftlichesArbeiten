@@ -39,6 +39,15 @@
               </v-list-item>
             </v-list>
           </div>
+          <div
+              class="px-0"
+          >
+            <v-checkbox
+                v-model="override"
+                :label="$t(i18nDictionary.Projects.Overview.UploadDialog.Override)"
+                dense
+            ></v-checkbox>
+          </div>
         </v-card-text>
         <v-card-actions>
           <v-spacer />
@@ -65,6 +74,7 @@ export default Vue.extend({
       entriesToUpload: [] as BibEntry[],
       unknown: [] as {Key: string, Type: string}[],
       dialogOpen: false,
+      override: true
     }
   },
 
