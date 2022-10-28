@@ -1,4 +1,4 @@
-import {CommitOptions} from "vuex";
+import {CommitOptions, Dispatch, DispatchOptions} from "vuex";
 import CreateProject from "@/api/projects/CreateProject";
 import MutationTypes from "@/store/MutationTypes";
 import GetProjectData from "@/api/projects/GetProjectData";
@@ -14,6 +14,7 @@ import {ParseTeXToString} from "@/api/bibEntries/ParseTeXString";
 import UploadEntries from "@/api/bibEntries/UploadEntries";
 import CreateBackup from "@/api/projects/CreateBackup";
 import ResetToBackup from "@/api/projects/ResetToBackup";
+import ActionTypes from "@/store/ActionTypes";
 
 export async function CreateProjectAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, name: string ) {
     const success = await CreateProject(name);
@@ -98,6 +99,10 @@ export async function CreateBackupAction(commit: (type: string,payload?: any,opt
     const ok = await CreateBackup(project)
 }
 
-export async function ResetToBackupAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, backup: string) {
-    const ok = ResetToBackup(project, backup)
+export async function ResetToBackupAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, dispatch: (type: string,payload?: any,options?: DispatchOptions) => void, project: string, backup: string) {
+    const ok = await ResetToBackup(project, backup)
+
+    if( ok ) {
+        dispatch(ActionTypes.Projects.GetProjectData, project)
+    }
 }

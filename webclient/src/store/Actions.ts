@@ -50,7 +50,7 @@ export const actions: ActionTree<MyState, MyState> = {
     async [ActionTypes.Projects.Overview.CreateBackup]({commit}, payload: string) {
         await CreateBackupAction(commit, payload);
     },
-    async [ActionTypes.Projects.Overview.ResetToBackup]({commit}, payload: {project: string, backup: string}) {
-        await ResetToBackupAction(commit, payload.project, payload.backup);
+    async [ActionTypes.Projects.Overview.ResetToBackup]({commit, dispatch}, payload: {project: string, backup: string}) {
+        await ResetToBackupAction(commit, dispatch, payload.project, payload.backup);
     }
 }

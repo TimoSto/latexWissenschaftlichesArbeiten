@@ -55,7 +55,8 @@ export default Vue.extend({
       this.$store.dispatch(ActionTypes.Projects.Overview.ResetToBackup, {
         project: this.$store.state.ProjectView.CurrentProject,
         backup: this.$store.state.ProjectView.CurrentProjectData.backupPaths[this.selected]
-      })
+      });
+      this.$emit('closed');
     }
   }
 })
