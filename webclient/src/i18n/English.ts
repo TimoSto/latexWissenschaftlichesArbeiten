@@ -61,6 +61,10 @@ export const EnglishTranslations: TranslationKeys = {
                 Content: 'Are you sure you want to delete the current project? Your backups will remain.',
                 Success: 'Project successfully deleted'
             },
+            ResetDialog: {
+                Title: 'Reset project to backup',
+                Reset: 'Reset'
+            },
             Entries: 'Entries in bibliography',
             UploadEntries: 'Upload a bib file exported from citavi',
             UploadDialog: {

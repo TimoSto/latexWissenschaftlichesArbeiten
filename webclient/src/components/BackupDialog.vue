@@ -1,7 +1,7 @@
 <template>
   <v-dialog width="450" v-model="opened">
     <v-card>
-      <v-card-title>Projekt auf Backup zurücksetzen</v-card-title>
+      <v-card-title>{{$t(i18nDictionary.Projects.Overview.ResetDialog.Title)}}</v-card-title>
       <v-card-text>
         <v-list>
           <v-list-item-group v-model="selected">
@@ -16,7 +16,7 @@
       <v-card-actions>
         <v-spacer />
         <v-btn text color="primary" @click="$emit('closed')">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
-        <v-btn text color="primary" :disabled="selected === -1" @click="resetToBackup">Reset</v-btn>
+        <v-btn text color="primary" :disabled="selected === -1" @click="resetToBackup">{{$t(i18nDictionary.Projects.Overview.ResetDialog.Reset)}}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

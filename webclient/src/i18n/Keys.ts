@@ -62,6 +62,10 @@ export const i18nDictionary = {
                 Content: 'Projects.Overview.DeleteProjectDialog.Content',
                 Success: 'Projects.Overview.DeleteProjectDialog.Success'
             },
+            ResetDialog: {
+                Title: 'Projects.Overview.ResetDialog.Title',
+                Reset: 'Projects.Overview.ResetDialog.Reset'
+            },
             Entries: 'Projects.Overview.Entries',
             UploadEntries: 'Projects.Overview.UploadEntries',
             UploadDialog: {

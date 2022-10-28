@@ -61,6 +61,10 @@ export const GermanTranslations: TranslationKeys = {
                 Content: 'Bist du sicher, dass du das aktuelle Projekt löschen willst? Deine Backups bleiben erhalten.',
                 Success: 'Projekt erfolgreich gelöscht'
             },
+            ResetDialog: {
+                Title: 'Projekt auf Backup zurücksetzen',
+                Reset: 'Zurücksetzen'
+            },
             Entries: 'Einträge im Literaturverzeichnis',
             UploadEntries: 'Lade eine aus Citavi exportierte Bib-Datei hoch',
             UploadDialog: {
