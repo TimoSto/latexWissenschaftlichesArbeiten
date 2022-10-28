@@ -122,6 +122,7 @@ export default Vue.extend({
         entries: this.entriesToUpload,
         override: this.override
       });
+      this.dialogOpen = false;
     }
   },
 })

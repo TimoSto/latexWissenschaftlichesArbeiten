@@ -65,7 +65,8 @@ export const GermanTranslations: TranslationKeys = {
                 Title: 'Einträge hochladen',
                 EntriesToUpload: 'Folgende Einträge werden hochgeladen:',
                 UnknownEntries: 'Folgende Einträge/Kategorien konnten nicht zugeordnet werden:',
-                Override: 'Bestehende Einträge überschreiben'
+                Override: 'Bestehende Einträge überschreiben',
+                Success: 'Einträge erfolgreich hochgeladen'
             },
             EntriesTable: {
                 Key: 'Schlüssel',

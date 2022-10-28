@@ -65,7 +65,8 @@ export const EnglishTranslations: TranslationKeys = {
                 Title: 'Upload entries',
                 EntriesToUpload: 'Following entries will be uploaded:',
                 UnknownEntries: 'Following entries/categories could not be assigned:',
-                Override: 'Override existing entries'
+                Override: 'Override existing entries',
+                Success: 'Entries successfully uploaded'
             },
             EntriesTable: {
                 Key: 'Key',

@@ -83,4 +83,11 @@ export async function DeleteEntryAction(commit: (type: string,payload?: any,opti
 
 export async function UploadEntriesAction(commit: (type: string,payload?: any,options?: CommitOptions) => void, project: string, entries: BibEntry[], override: boolean) {
     const ok = await UploadEntries(project, entries, override);
+
+    if( ok ) {
+        entries.forEach(e => {
+            commit(MutationTypes.EntryEditor.UpdateEntry, {Entry: e, initialKey: e.Key})
+        });
+        commit(MutationTypes.App.SetSuccessMessage, i18nDictionary.Projects.Overview.UploadDialog.Success)
+    }
 }

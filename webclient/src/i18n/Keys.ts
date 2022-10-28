@@ -66,7 +66,8 @@ export const i18nDictionary = {
                 Title: 'Projects.Overview.UploadDialog.Title',
                 EntriesToUpload: 'Projects.Overview.UploadDialog.EntriesToUpload',
                 UnknownEntries: 'Projects.Overview.UploadDialog.UnknownEntries',
-                Override: 'Projects.Overview.UploadDialog.Override'
+                Override: 'Projects.Overview.UploadDialog.Override',
+                Success: 'Projects.Overview.UploadDialog.Success'
             },
             EntriesTable: {
                 Key: 'Projects.Overview.EntriesTable.Key',
