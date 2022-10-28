@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 8px 16px" id="projectInfoPage">
     <p v-html="$t(i18nDictionary.Projects.Info.Description)"></p>
-    <iframe style="width: 85%; max-width: 800px" ref="presentation"></iframe>
+    <iframe class="presentation-frame" ref="presentation"></iframe>
   </div>
 </template>
 
@@ -28,5 +28,14 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
+.presentation-frame{
+  width: 85%;
+  max-width: 800px;
+  height: 75vh;
+  max-height: calc(100vh - 200px);
+  border: 2px solid var(--v-accent-lighten4);
+  box-shadow: none;
+  display: block;
+  margin: 0 auto;
+}
 </style>
