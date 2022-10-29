@@ -115,6 +115,8 @@ export default Vue.extend({
       if( this.editorClosable ) {
         this.editorElement = evt.Element;
         this.editorType = evt.Type;
+      } else {
+        this.$emit('unsafeCloseTriggered');
       }
     },
     toggleTwoThirds() {

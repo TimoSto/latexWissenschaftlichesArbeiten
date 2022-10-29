@@ -33,7 +33,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view/>
+      <router-view v-on:unsafeCloseTriggered="unsafeSwitchTriggered = true" />
     </v-main>
 
     <NewDialog
@@ -46,6 +46,11 @@
     />
 
     <SuccessSnackbar />
+
+    <UnsavedChangesDialog
+        :open="unsafeSwitchTriggered"
+        v-on:closed="unsafeSwitchTriggered = false"
+    />
 
   </v-app>
 </template>
@@ -60,15 +65,17 @@ import { SidebarContentInterface } from './components/SidebarContentInterface';
 import NewDialog from "./components/NewDialog.vue";
 import ProjectNameRules from "./inputRules/ProjectNameRules";
 import SuccessSnackbar from "./components/SuccessSnackbar.vue";
+import UnsavedChangesDialog from "./components/UnsavedChangesDialog.vue";
 
 export default Vue.extend({
   name: 'App',
-  components: {SuccessSnackbar, NewDialog, SidebarContent},
+  components: {UnsavedChangesDialog, SuccessSnackbar, NewDialog, SidebarContent},
   data: () => ({
     drawer: false,
     i18nDictionary: i18nDictionary,
     newDialogTriggered: false,
-    newDialogType: ''
+    newDialogType: '',
+    unsafeSwitchTriggered: false
   }),
 
   created() {
@@ -179,6 +186,8 @@ export default Vue.extend({
       //here only state is updated
       if( this.switchable ) {
         this.$store.commit(MutationTypes.App.SetCurrentView, view)
+      } else {
+        this.unsafeSwitchTriggered = true;
       }
     },
     handleProjectSelect(n: number) {
@@ -188,9 +197,10 @@ export default Vue.extend({
       }
       if( !this.switchable ) {
         (this.$refs.sidebarProjects as SidebarContentInterface).toItem(newIndex);
+        this.unsafeSwitchTriggered = true;
         return;
       }
-      //if switch unsafe: (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n); for backswitch
+
       if( n !== -1 ) {
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n]);
         if( this.$route.path !== `/projects/${this.projectNames[n]}` ) {
