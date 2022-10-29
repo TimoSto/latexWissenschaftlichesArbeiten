@@ -115,6 +115,9 @@ export default Vue.extend({
         return ProjectNameRules(this.projectNames, translator)
       }
       return []
+    },
+    switchable(): boolean {
+      return !this.$store.state.Global.UnsavedChanged;
     }
   },
 
@@ -177,6 +180,14 @@ export default Vue.extend({
       this.$store.commit(MutationTypes.App.SetCurrentView, view)
     },
     handleProjectSelect(n: number) {
+      const newIndex= this.$store.state.App.ProjectNames.indexOf(this.$store.state.ProjectView.CurrentProject);
+      if( n === newIndex ) {
+        return;
+      }
+      if( !this.switchable ) {
+        (this.$refs.sidebarProjects as SidebarContentInterface).toItem(newIndex);
+        return;
+      }
       //if switch unsafe: (this.$refs.sidebarProjects as SidebarContentInterface).toItem(n); for backswitch
       if( n !== -1 ) {
         this.$store.commit(MutationTypes.ProjectView.SetCurrentProject, this.projectNames[n]);
