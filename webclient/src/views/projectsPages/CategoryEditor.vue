@@ -14,15 +14,37 @@
       <v-btn icon @click="$emit('toggleTwoThirds')" style="font-size: 20px" :title="layoutBtnContent[1]">
         <span v-html="layoutBtnContent[0]" style="color: var(--v-accent-lighten2)"></span>
       </v-btn>
-      <v-btn icon :title="$t(i18nDictionary.Common.Delete)" @click="deleteOpen = true">
-        <v-icon>mdi-delete</v-icon>
-      </v-btn>
+
       <v-btn icon :disabled="!saveNecessary || !rulesAreMet" :title="$t(i18nDictionary.Common.Save)" @click="saveThisCategory">
         <v-icon>mdi-content-save</v-icon>
       </v-btn>
-      <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
-        <v-icon>mdi-close</v-icon>
-      </v-btn>
+
+      <v-menu :offset-y="true">
+        <template v-slot:activator="{on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item :title="$t(i18nDictionary.Common.Delete)" @click="deleteOpen = true">
+            <v-list-item-icon>
+              <v-icon>mdi-delete</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{$t(i18nDictionary.Common.Delete)}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+        </v-list>
+      </v-menu>
+
+      <span style="border-left: 1px solid rgba(0,0,0,0.1)">
+        <v-btn icon :title="$t(i18nDictionary.Common.Close)" @click="$emit('closeEditor')">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </span>
+
     </v-app-bar>
     <v-sheet class="content-below-two-bars" id="category-editor-scroll">
 
