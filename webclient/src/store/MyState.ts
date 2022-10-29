@@ -3,6 +3,9 @@ import {BibEntry} from "@/api/bibEntries/Entry";
 import {Abbreviation} from "@/api/abbreviations/Abbreviation";
 
 export type MyState = {
+    Global: {
+        UnsavedChanged: boolean
+    },
     App: {
         CurrentView: string
         ProjectNames: string[]
@@ -27,7 +30,10 @@ export type MyState = {
     },
 }
 
-export const MyStateObj: MyState = {
+export const MyStateObj = {
+    Global: {
+        UnsavedChanged: false
+    },
     App: {
         CurrentView: 'home',
         ProjectNames: [],

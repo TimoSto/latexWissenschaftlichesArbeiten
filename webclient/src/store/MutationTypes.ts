@@ -1,5 +1,8 @@
 
 const MutationTypes = {
+    Global: {
+        SetUnsavedChanges: 'Global.SetUnsavedChanges'
+    },
     App: {
         SetCurrentView: 'App.SetCurrentView',
         SetProjectNames: 'App.SetProjectNames',

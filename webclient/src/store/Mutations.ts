@@ -10,6 +10,9 @@ import {BibEntry} from "@/api/bibEntries/Entry";
 import {RemoveEntry, UpdateEntry} from "@/store/mutations/entryEditorMutations";
 
 export const mutations: MutationTree<MyState> = {
+    [MutationTypes.Global.SetUnsavedChanges](state: MyState, payload: boolean) {
+        state.Global.UnsavedChanged = payload;
+    },
     [MutationTypes.App.SetCurrentView](state: MyState, payload: string) {
         SetCurrentView(state, payload);
     },

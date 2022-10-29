@@ -7,7 +7,7 @@
     <template v-slot:edit-area>
       <EntryEditor
           v-if="editorType === 'entry'"
-          v-on:closable="editorClosable = $event"
+          v-on:closable="setClosable($event)"
           v-on:closeEditor="openEditor({Type: '', Element: -1})"
           v-on:toggleTwoThirds="toggleTwoThirds"
           :layoutBtnContent="layoutBtnContent"
@@ -15,7 +15,7 @@
       />
       <CategoryEditor
           v-if="editorType === 'category'"
-          v-on:closable="editorClosable = $event"
+          v-on:closable="setClosable($event)"
           v-on:closeEditor="openEditor({Type: '', Element: -1})"
           v-on:toggleTwoThirds="toggleTwoThirds"
           :layoutBtnContent="layoutBtnContent"
@@ -50,7 +50,6 @@ export default Vue.extend({
       twoThirdsMode: false,
       editorType: '',
       editorElement: -1,
-      editorClosable: true
     }
   },
 
@@ -106,6 +105,9 @@ export default Vue.extend({
     },
     editorIndexUpdate(): number {
       return this.$store.state.ProjectView.EditorIndexUpdate;
+    },
+    editorClosable(): boolean {
+      return !this.$store.state.Global.UnsavedChanged;
     }
   },
   methods: {
@@ -117,6 +119,9 @@ export default Vue.extend({
     },
     toggleTwoThirds() {
       this.twoThirdsMode = !this.twoThirdsMode;
+    },
+    setClosable(v: boolean) {
+      this.$store.commit(MutationTypes.Global.SetUnsavedChanges, !v)
     }
   }
 })
