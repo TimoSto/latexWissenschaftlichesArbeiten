@@ -177,7 +177,9 @@ export default Vue.extend({
   methods: {
     goToView(view: string) {
       //here only state is updated
-      this.$store.commit(MutationTypes.App.SetCurrentView, view)
+      if( this.switchable ) {
+        this.$store.commit(MutationTypes.App.SetCurrentView, view)
+      }
     },
     handleProjectSelect(n: number) {
       const newIndex= this.$store.state.App.ProjectNames.indexOf(this.$store.state.ProjectView.CurrentProject);
