@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 8px 16px" id="projectInfoPage">
-    <p v-html="$t(i18nDictionary.Projects.Info.Description)"></p>
-    <iframe class="presentation-frame" ref="presentation"></iframe>
+    <p v-if="!revealJSAvailable">{{$t(i18nDictionary.Projects.Info.Description)}}</p>
+    <iframe class="presentation-frame" ref="presentation" v-if="revealJSAvailable"></iframe>
   </div>
 </template>
 
@@ -13,12 +13,18 @@ export default Vue.extend({
   name: "ProjectInfoPage",
   data() {
     return {
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      revealJSAvailable: true,
     }
   },
   mounted() {
     this.$nextTick(() => {
       const frame = this.$refs.presentation as HTMLIFrameElement;
+      frame.addEventListener('load', () => {
+        if( frame.contentDocument && !frame.contentDocument.body.classList.contains('reveal-viewport') ) {
+          this.revealJSAvailable = false;
+        }
+      });
       if( frame && frame.contentWindow ) {
         frame.contentWindow.location.href = '/tutorials/reveal_js/presentation.html?presentation=projects&lang=' + this.$i18n.locale;
       }
