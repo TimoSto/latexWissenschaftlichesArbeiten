@@ -164,6 +164,9 @@ export default Vue.extend({
   watch: {
     index() {
       this.setData();
+    },
+    saveNecessary(v: boolean) {
+      this.$emit('closable', !v);
     }
   },
   computed: {

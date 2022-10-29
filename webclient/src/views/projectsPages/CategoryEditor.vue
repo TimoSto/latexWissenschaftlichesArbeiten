@@ -228,8 +228,7 @@ export default Vue.extend({
     initialName(): string {
       return this.index >= 0 ? this.$store.state.ProjectView.CurrentProjectData.bibTypes[this.index].Name : '';
     },
-    saveNecessary(): boolean {//todo: rules checken
-
+    saveNecessary(): boolean {
       return CategorySaveNecessary(this.$store.state, this.index, this.name, this.citaviCategory, this.citaviNecessaryFields, this.fields, this.citeFields)
     },
     rulesAreMet(): boolean {
@@ -264,6 +263,9 @@ export default Vue.extend({
       if( !nv ) {
         this.citaviNecessaryFields = [];
       }
+    },
+    saveNecessary(v: boolean) {
+      this.$emit('closable', !v);
     }
   },
   mounted() {

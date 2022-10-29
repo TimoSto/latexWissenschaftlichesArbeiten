@@ -7,6 +7,7 @@
     <template v-slot:edit-area>
       <EntryEditor
           v-if="editorType === 'entry'"
+          v-on:closable="editorClosable = $event"
           v-on:closeEditor="openEditor({Type: '', Element: -1})"
           v-on:toggleTwoThirds="toggleTwoThirds"
           :layoutBtnContent="layoutBtnContent"
@@ -14,6 +15,7 @@
       />
       <CategoryEditor
           v-if="editorType === 'category'"
+          v-on:closable="editorClosable = $event"
           v-on:closeEditor="openEditor({Type: '', Element: -1})"
           v-on:toggleTwoThirds="toggleTwoThirds"
           :layoutBtnContent="layoutBtnContent"
@@ -47,7 +49,8 @@ export default Vue.extend({
       i18nDictionary: i18nDictionary,
       twoThirdsMode: false,
       editorType: '',
-      editorElement: -1
+      editorElement: -1,
+      editorClosable: true
     }
   },
 
@@ -107,8 +110,10 @@ export default Vue.extend({
   },
   methods: {
     openEditor(evt: EditorEvent) {
-      this.editorElement = evt.Element;
-      this.editorType = evt.Type;
+      if( this.editorClosable ) {
+        this.editorElement = evt.Element;
+        this.editorType = evt.Type;
+      }
     },
     toggleTwoThirds() {
       this.twoThirdsMode = !this.twoThirdsMode;
