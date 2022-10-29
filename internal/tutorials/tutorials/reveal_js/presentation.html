@@ -29,7 +29,6 @@
         const urlParams = new URLSearchParams(window.location.search);
         const presentation = urlParams.get('presentation');
         const lang = urlParams.get('lang');
-        console.log(`/tutorials/reveal_js/${presentation}_${lang}.md`)
         document.querySelector('#section').setAttribute('data-markdown', `/tutorials/reveal_js/${presentation}_${lang}.md`);
         Reveal.initialize({
             // used to keep current slide during browser reload

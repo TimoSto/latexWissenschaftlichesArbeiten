@@ -28,7 +28,7 @@
       </v-list>
    </v-sheet>
 
-   <v-bottom-navigation style="flex: 0 1 auto">
+   <v-bottom-navigation style="flex: 0 1 auto; box-shadow: none">
      <v-btn icon :title="$t(i18nDictionary.App.Information)" v-if="closed" :disabled="model === -1" @click="toInfo">
        <v-icon>mdi-information-outline</v-icon>
      </v-btn>
