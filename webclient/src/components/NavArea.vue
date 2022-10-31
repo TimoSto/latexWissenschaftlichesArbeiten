@@ -8,8 +8,13 @@
     </div>
 
     <div class="pages">
-      <div id="page-1" style="background-color: red" class="opened"></div>
-      <div id="page-2" style="background-color: blue"></div>
+      <div
+          v-for="i in pages" :key="`page-${i}`"
+          :id="`page-${i}`"
+          :style="`background-color: ${ i%2 === 0 ? 'red' : 'blue'}`" :class="opened === i ? 'opened' : ''">
+        <button @click="opened++">next</button>
+        <button @click="opened--">back</button>
+      </div>
     </div>
 
     <div class="edit-area">
@@ -29,6 +34,11 @@ export default Vue.extend({
       'editor',
       'pages'
   ],
+  data() {
+    return {
+      opened: 1
+    }
+  },
   computed: {
     layoutClasses(): string[] {
       if( !this.editor ) {
