@@ -26,6 +26,11 @@
 <script lang="ts">
 import Vue from "vue";
 
+export interface NavAreaInterface extends Vue {
+  toNext(): void;
+  toPrev(): void;
+}
+
 export default Vue.extend({
   name: "NavArea",
   props: [
@@ -47,6 +52,18 @@ export default Vue.extend({
       }
       return ['half-screen']
     }
+  },
+  methods: {
+    toNext() {
+      if( this.opened < this.pages ) {
+        this.opened++;
+      }
+    },
+    toPrev() {
+      if( this.opened > 1 ) {
+        this.opened--;
+      }
+    }
   }
 })
 </script>
@@ -67,6 +84,7 @@ export default Vue.extend({
       flex: 1 0 auto;
       height: 100%;
       width: 0;
+      overflow-x: hidden;
       transition: width .25s ease-in-out;
       &.opened {
         width: 100%;

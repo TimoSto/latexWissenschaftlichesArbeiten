@@ -1,9 +1,20 @@
 <template>
-  <NavArea :editor="editorOpen" :layout="twoThirdsMode ? 'two-thirds' : 'half-screen'" :pages="3">
+  <NavArea
+      :editor="editorOpen"
+      :layout="twoThirdsMode ? 'two-thirds'
+      : 'half-screen'"
+      :pages="2"
+      ref="navArea"
+  >
     <template v-slot:page-1>
       <ProjectInfoPage v-if="currentProjectName === ''"/>
       <ProjectOverviewPage v-if="currentProjectName !== ''" v-on:openEditor="openEditor($event)"/>
     </template>
+
+    <template v-slot:page-2>
+      <ProjectInfoPage/>
+    </template>
+
     <template v-slot:edit-area>
       <EntryEditor
           v-if="editorType === 'entry'"
@@ -29,7 +40,7 @@
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
 import ProjectInfoPage from "./projectsPages/ProjectInfoPage.vue";
-import NavArea from "../components/NavArea.vue";
+import NavArea, {NavAreaInterface} from "../components/NavArea.vue";
 import ProjectOverviewPage from "./projectsPages/ProjectOverviewPage.vue";
 import ActionTypes from "../store/ActionTypes";
 import EntryEditor from "./projectsPages/EntryEditor.vue";
@@ -132,6 +143,15 @@ export default Vue.extend({
     setClosable(v: boolean) {
       this.$store.commit(MutationTypes.Global.SetUnsavedChanges, !v)
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      if( this.$refs.navArea ) {
+        setTimeout(() => {
+          (this.$refs.navArea as NavAreaInterface).toNext()
+        }, 2500);
+      }
+    })
   }
 })
 </script>
