@@ -5,6 +5,7 @@ import * as ProjectPageAssertions from "../helpers/ProjectsPageAssertions"
 import * as AppAssertions from "../helpers/AppAssertions";
 import * as AppActions from "../helpers/AppActions";
 import {ClickOnTableElement} from "../helpers/ProjectsPageActions";
+import * as EditorActions from "../helpers/EditorActions";
 
 describe('projectsView', ()=> {
     before(() => {
@@ -57,5 +58,29 @@ describe('projectsView', ()=> {
             cy.reload();
             AppAssertions.AssertUrlHashIs('#/projects/testName');
         })
+    });
+
+    describe('interruptNavigation (category-editor)', () => {
+       describe('home-navigation', () => {
+           before(() => {
+               VisitUrl('#/projects/testName');
+               ClickOnTableElement('aufsatz');
+               EditorActions.TypeInField('Neue Bezeichnung', 'test');
+           })
+           it('should interrupt', () => {
+               AppActions.ClickHomeBtn();
+               AppAssertions.AssertInterruptDialogIsShown();
+           })
+           it('when clicked on abort, it stays', () => {
+               AppActions.ClickInDialog('.v-btn', 0)
+               AppAssertions.AssertUrlHashIs('#/projects/testName')
+           })
+           it('when clicked on continue, it continues', () => {
+               AppActions.ClickHomeBtn();
+               AppAssertions.AssertInterruptDialogIsShown();
+               AppActions.ClickInDialog('.v-btn', 1)
+               AppAssertions.AssertUrlHashIs('#/')
+           })
+       })
     });
 })

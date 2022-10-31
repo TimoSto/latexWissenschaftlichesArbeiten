@@ -61,3 +61,7 @@ export function AssertNewDialogValueIs(v) {
 export function AssertSidebarHasItems(n) {
     cy.get('nav').find('.v-list-item').should('have.length', n);
 }
+
+export function AssertInterruptDialogIsShown() {
+    cy.get('#interruptDialog').should('be.visible');
+}

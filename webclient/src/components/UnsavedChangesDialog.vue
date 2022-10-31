@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="opened" width="350">
-    <v-card>
+    <v-card id="interruptDialog">
       <v-card-title>Es liegen ungespeicherte Änderungen vor</v-card-title>
       <v-card-text>Wenn du fortfährst, gehen diese unwiderruflich verloren.</v-card-text>
       <v-card-actions>
