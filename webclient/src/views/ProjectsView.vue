@@ -8,7 +8,11 @@
   >
     <template v-slot:page-1>
       <ProjectInfoPage v-if="currentProjectName === ''"/>
-      <ProjectOverviewPage v-if="currentProjectName !== ''" v-on:openEditor="openEditor($event)"/>
+      <ProjectOverviewPage
+          v-if="currentProjectName !== ''"
+          v-on:openEditor="openEditor($event)"
+          v-on:toTextEditor="toTextEditor"
+      />
     </template>
 
     <template v-slot:page-2>
@@ -142,17 +146,11 @@ export default Vue.extend({
     },
     setClosable(v: boolean) {
       this.$store.commit(MutationTypes.Global.SetUnsavedChanges, !v)
+    },
+    toTextEditor() {
+      (this.$refs.navArea as NavAreaInterface).toNext();
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      if( this.$refs.navArea ) {
-        setTimeout(() => {
-          (this.$refs.navArea as NavAreaInterface).toNext()
-        }, 2500);
-      }
-    })
-  }
 })
 </script>
 

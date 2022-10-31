@@ -11,6 +11,10 @@
 
       <v-spacer />
 
+      <v-btn icon @click="$emit('toTextEditor')">
+        <v-icon>mdi-text-box-edit-outline</v-icon>
+      </v-btn>
+
       <v-menu :offset-y="true">
         <template v-slot:activator="{on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
