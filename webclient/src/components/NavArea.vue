@@ -11,9 +11,8 @@
       <div
           v-for="i in pages" :key="`page-${i}`"
           :id="`page-${i}`"
-          :style="`background-color: ${ i%2 === 0 ? 'red' : 'blue'}`" :class="opened === i ? 'opened' : ''">
-        <button @click="opened++">next</button>
-        <button @click="opened--">back</button>
+          :class="opened === i ? 'opened' : ''">
+        <slot :name="`page-${i}`"></slot>
       </div>
     </div>
 
@@ -63,6 +62,7 @@ export default Vue.extend({
     display: flex;
     flex: 1 1 auto;
     box-sizing: border-box;
+    transition: width .25s ease-in-out;
     & [id^=page-] {
       flex: 1 0 auto;
       height: 100%;
@@ -71,6 +71,29 @@ export default Vue.extend({
       &.opened {
         width: 100%;
       }
+    }
+  }
+  & .edit-area {
+    width: 0;
+    overflow-x: hidden;
+    transition: width .25s ease-in-out;
+  }
+
+  &.two-thirds {
+    & .pages {
+      width: 30%;
+    }
+    & .edit-area {
+      width: 70%;
+    }
+  }
+
+  &.half-screen {
+    & .pages {
+      width: 50%;
+    }
+    & .edit-area {
+      width: 50%;
     }
   }
 }
