@@ -6,6 +6,7 @@ import * as AppAssertions from "../helpers/AppAssertions";
 import * as AppActions from "../helpers/AppActions";
 import {ClickOnTableElement} from "../helpers/ProjectsPageActions";
 import * as EditorActions from "../helpers/EditorActions";
+import * as EditorAssertions from "../helpers/EditorAssertions";
 
 describe('projectsView', ()=> {
     before(() => {
@@ -102,6 +103,27 @@ describe('projectsView', ()=> {
                 AppActions.ClickInDialog('.v-btn', 1)
                 AppAssertions.AssertUrlHashIs('#/projects/testName2')
             })
-        })
+        });
+        describe('editor close', () => {
+            before(() => {
+                VisitUrl('#/projects/testName');
+                ClickOnTableElement('aufsatz');
+                EditorActions.TypeInField('Neue Bezeichnung', 'test');
+            })
+            it('should interrupt', () => {
+                EditorActions.ClickEditorCloseBtn();
+                AppAssertions.AssertInterruptDialogIsShown();
+            })
+            it('when clicked on abort, it stays', () => {
+                AppActions.ClickInDialog('.v-btn', 0)
+                EditorAssertions.AssertEditorSaveBtnIsEnabled(true)
+            })
+            it('when clicked on continue, it continues', () => {
+                EditorActions.ClickEditorCloseBtn();
+                AppAssertions.AssertInterruptDialogIsShown();
+                AppActions.ClickInDialog('.v-btn', 1)
+                EditorAssertions.AssertEditorIsNotShown()
+            })
+        });
     });
 })

@@ -7,3 +7,7 @@ export function TypeInField(label: string, text: string) {
 export function ClickEditorSaveBtn() {
     cy.get('.edit-area').find('.v-btn[title="Speichern"]').click();
 }
+
+export function ClickEditorCloseBtn() {
+    cy.get('.edit-area').find('.v-btn[title="Schließen"]').click();
+}
