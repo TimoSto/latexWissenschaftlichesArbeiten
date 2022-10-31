@@ -1,6 +1,6 @@
 <template>
-  <NavArea :editor="editorOpen" :layout="twoThirdsMode ? 'two-thirds' : 'half-screen'">
-    <template v-slot:page1>
+  <NavArea :editor="editorOpen" :layout="twoThirdsMode ? 'two-thirds' : 'half-screen'" :pages="3">
+    <template v-slot:page-1>
       <ProjectInfoPage v-if="currentProjectName === ''"/>
       <ProjectOverviewPage v-if="currentProjectName !== ''" v-on:openEditor="openEditor($event)"/>
     </template>

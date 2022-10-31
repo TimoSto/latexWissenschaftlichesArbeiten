@@ -1,13 +1,12 @@
 <template>
   <div style="display: flex;" :class="layoutClasses">
+
     <div class="pages">
-      <div class="page page1">
-        <slot name="page1"></slot>
-      </div>
-      <div class="page page2">
-        <slot name="page2"></slot>
+      <div v-for="i in pages" :key="`page-${i}`" :id="`page-${i}`">
+        <slot :name="`page-${i}`"></slot>
       </div>
     </div>
+
     <div class="edit-area">
       <slot name="edit-area"></slot>
     </div>
@@ -22,7 +21,8 @@ export default Vue.extend({
   name: "NavArea",
   props: [
       'layout',
-      'editor'
+      'editor',
+      'pages'
   ],
   computed: {
     layoutClasses(): string[] {
