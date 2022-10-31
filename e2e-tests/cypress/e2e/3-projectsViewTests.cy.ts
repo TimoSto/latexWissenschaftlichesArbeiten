@@ -82,5 +82,26 @@ describe('projectsView', ()=> {
                AppAssertions.AssertUrlHashIs('#/')
            })
        })
+        describe('project switch', () => {
+            before(() => {
+                VisitUrl('#/projects/testName');
+                ClickOnTableElement('aufsatz');
+                EditorActions.TypeInField('Neue Bezeichnung', 'test');
+            })
+            it('should interrupt', () => {
+                AppActions.ClickSidebarItem(1);
+                AppAssertions.AssertInterruptDialogIsShown();
+            })
+            it('when clicked on abort, it stays', () => {
+                AppActions.ClickInDialog('.v-btn', 0)
+                AppAssertions.AssertUrlHashIs('#/projects/testName')
+            })
+            it('when clicked on continue, it continues', () => {
+                AppActions.ClickSidebarItem(1);
+                AppAssertions.AssertInterruptDialogIsShown();
+                AppActions.ClickInDialog('.v-btn', 1)
+                AppAssertions.AssertUrlHashIs('#/projects/testName2')
+            })
+        })
     });
 })
