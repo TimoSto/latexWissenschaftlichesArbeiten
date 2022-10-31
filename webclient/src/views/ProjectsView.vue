@@ -16,7 +16,7 @@
     </template>
 
     <template v-slot:page-2>
-      <ProjectInfoPage/>
+      <TexEditorPage/>
     </template>
 
     <template v-slot:edit-area>
@@ -50,6 +50,7 @@ import ActionTypes from "../store/ActionTypes";
 import EntryEditor from "./projectsPages/EntryEditor.vue";
 import CategoryEditor from "./projectsPages/CategoryEditor.vue";
 import MutationTypes from "../store/MutationTypes";
+import TexEditorPage from "./projectsPages/TexEditorPage.vue";
 
 export interface EditorEvent {
   Type: string
@@ -58,7 +59,7 @@ export interface EditorEvent {
 
 export default Vue.extend({
   name: "ProjectsView",
-  components: {CategoryEditor, EntryEditor, ProjectOverviewPage, NavArea, ProjectInfoPage},
+  components: {TexEditorPage, CategoryEditor, EntryEditor, ProjectOverviewPage, NavArea, ProjectInfoPage},
   data() {
     return {
       i18nDictionary: i18nDictionary,
