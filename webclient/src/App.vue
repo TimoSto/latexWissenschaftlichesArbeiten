@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts">
-import Vue, {Component} from "vue";
+import Vue from "vue";
 import {i18nDictionary} from "./i18n/Keys";
 import MutationTypes from "./store/MutationTypes";
 import SidebarContent from "./components/SidebarContent.vue";
@@ -191,7 +191,10 @@ export default Vue.extend({
       if( !this.unsavedChanges ) {
         this.interruptNavigationTriggered = true;
         if( this.$refs.interruptDialog ) {
-          (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {alert('hallo')})
+          (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {
+            this.interruptNavigationTriggered = false;
+            this.$store.commit(MutationTypes.App.SetCurrentView, view);
+          });
         }
         return;
       }
