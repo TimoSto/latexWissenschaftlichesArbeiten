@@ -193,14 +193,9 @@ export default Vue.extend({
     goToView(view: string) {
       //here only state is updated
       if( !this.unsavedChanges ) {
-        this.interruptNavigationTriggered = true;
-        if( this.$refs.interruptDialog ) {
-          (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {
-            this.interruptNavigationTriggered = false;
-            this.unsavedChanges = false;
-            this.$store.commit(MutationTypes.App.SetCurrentView, view);
-          });
-        }
+        this.triggerInterrupt(() => {
+          this.goToView(view);
+        })
         return;
       }
 
@@ -213,11 +208,8 @@ export default Vue.extend({
       }
       if( !this.unsavedChanges ) {
         (this.$refs.sidebarProjects as SidebarContentInterface).toItem(newIndex);
-        this.interruptNavigationTriggered = true;
-        (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {
-          this.interruptNavigationTriggered = false;
-          this.unsavedChanges = false;
-          this.handleProjectSelect(n);
+        this.triggerInterrupt(() => {
+            this.handleProjectSelect(n);
         });
         return;
       }
