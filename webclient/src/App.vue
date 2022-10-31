@@ -49,7 +49,6 @@
 
     <UnsavedChangesDialog
         :open="interruptNavigationTriggered"
-        :cb="unsafeSwitchCallback"
         v-on:closed="interruptNavigationTriggered = false"
         ref="interruptDialog"
     />
@@ -127,8 +126,13 @@ export default Vue.extend({
       }
       return []
     },
-    unsavedChanges(): boolean {
-      return !this.$store.state.Global.UnsavedChanged;
+    unsavedChanges: {
+      get(): boolean {
+        return !this.$store.state.Global.UnsavedChanged;
+      },
+      set(v: boolean) {
+        this.$store.commit(MutationTypes.Global.SetUnsavedChanges, v)
+      }
     }
   },
 
@@ -193,6 +197,7 @@ export default Vue.extend({
         if( this.$refs.interruptDialog ) {
           (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {
             this.interruptNavigationTriggered = false;
+            this.unsavedChanges = false;
             this.$store.commit(MutationTypes.App.SetCurrentView, view);
           });
         }
@@ -209,6 +214,11 @@ export default Vue.extend({
       if( !this.unsavedChanges ) {
         (this.$refs.sidebarProjects as SidebarContentInterface).toItem(newIndex);
         this.interruptNavigationTriggered = true;
+        (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {
+          this.interruptNavigationTriggered = false;
+          this.unsavedChanges = false;
+          this.handleProjectSelect(n);
+        });
         return;
       }
 
