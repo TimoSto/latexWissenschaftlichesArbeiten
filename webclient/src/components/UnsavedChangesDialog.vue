@@ -6,6 +6,7 @@
       <v-card-actions>
         <v-spacer />
         <v-btn text color="primary" @click="$emit('closed')">{{$t(i18nDictionary.Common.Abort)}}</v-btn>
+        <v-btn text color="primary" @click="callback">Fortfahren</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -15,11 +16,17 @@
 import Vue from "vue";
 import {i18nDictionary} from "../i18n/Keys";
 
+export interface InterruptNavigationCallback {
+  Type: string,
+  Args: string[]
+}
+
 export default Vue.extend({
   name: "UnsavedChangesDialog",
   data() {
     return {
-      i18nDictionary: i18nDictionary
+      i18nDictionary: i18nDictionary,
+      callback: () => {/*to be changed from App.vue*/}
     }
   },
   props: ['open'],
@@ -27,6 +34,11 @@ export default Vue.extend({
     opened: {
       get(): boolean {return this.open;},
       set() {this.$emit('closed')}
+    }
+  },
+  methods: {
+    setCallback(cb: () => void) {
+      this.callback = cb;
     }
   }
 })

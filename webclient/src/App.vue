@@ -33,7 +33,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view v-on:unsafeCloseTriggered="unsafeSwitchTriggered = true" />
+      <router-view v-on:unsafeCloseTriggered="interruptNavigationTriggered = true" />
     </v-main>
 
     <NewDialog
@@ -48,15 +48,17 @@
     <SuccessSnackbar />
 
     <UnsavedChangesDialog
-        :open="unsafeSwitchTriggered"
-        v-on:closed="unsafeSwitchTriggered = false"
+        :open="interruptNavigationTriggered"
+        :cb="unsafeSwitchCallback"
+        v-on:closed="interruptNavigationTriggered = false"
+        ref="interruptDialog"
     />
 
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, {Component} from "vue";
 import {i18nDictionary} from "./i18n/Keys";
 import MutationTypes from "./store/MutationTypes";
 import SidebarContent from "./components/SidebarContent.vue";
@@ -65,7 +67,8 @@ import { SidebarContentInterface } from './components/SidebarContentInterface';
 import NewDialog from "./components/NewDialog.vue";
 import ProjectNameRules from "./inputRules/ProjectNameRules";
 import SuccessSnackbar from "./components/SuccessSnackbar.vue";
-import UnsavedChangesDialog from "./components/UnsavedChangesDialog.vue";
+import UnsavedChangesDialog, {InterruptNavigationCallback} from "./components/UnsavedChangesDialog.vue";
+import {UnsavedChangesDialogInterface} from "./components/UnsavedChangesDialogInterface";
 
 export default Vue.extend({
   name: 'App',
@@ -75,7 +78,8 @@ export default Vue.extend({
     i18nDictionary: i18nDictionary,
     newDialogTriggered: false,
     newDialogType: '',
-    unsafeSwitchTriggered: false
+    interruptNavigationTriggered: false,
+    interruptNavigationCallback: {} as InterruptNavigationCallback,
   }),
 
   created() {
@@ -123,7 +127,7 @@ export default Vue.extend({
       }
       return []
     },
-    switchable(): boolean {
+    unsavedChanges(): boolean {
       return !this.$store.state.Global.UnsavedChanged;
     }
   },
@@ -184,20 +188,24 @@ export default Vue.extend({
   methods: {
     goToView(view: string) {
       //here only state is updated
-      if( this.switchable ) {
-        this.$store.commit(MutationTypes.App.SetCurrentView, view)
-      } else {
-        this.unsafeSwitchTriggered = true;
+      if( !this.unsavedChanges ) {
+        this.interruptNavigationTriggered = true;
+        if( this.$refs.interruptDialog ) {
+          (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {alert('hallo')})
+        }
+        return;
       }
+
+      this.$store.commit(MutationTypes.App.SetCurrentView, view)
     },
     handleProjectSelect(n: number) {
       const newIndex= this.$store.state.App.ProjectNames.indexOf(this.$store.state.ProjectView.CurrentProject);
       if( n === newIndex ) {
         return;
       }
-      if( !this.switchable ) {
+      if( !this.unsavedChanges ) {
         (this.$refs.sidebarProjects as SidebarContentInterface).toItem(newIndex);
-        this.unsafeSwitchTriggered = true;
+        this.interruptNavigationTriggered = true;
         return;
       }
 
