@@ -247,7 +247,6 @@ export default Vue.extend({
       }
     },
     triggerInterrupt(cb: () => void) {
-      console.log(cb)
       this.interruptNavigationTriggered = true;
 
       (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {
