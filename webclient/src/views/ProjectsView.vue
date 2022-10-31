@@ -106,8 +106,13 @@ export default Vue.extend({
     editorIndexUpdate(): number {
       return this.$store.state.ProjectView.EditorIndexUpdate;
     },
-    editorClosable(): boolean {
-      return !this.$store.state.Global.UnsavedChanged;
+    editorClosable: {
+      get(): boolean {
+        return !this.$store.state.Global.UnsavedChanged;
+      },
+      set(v: boolean) {
+        this.$store.commit(MutationTypes.Global.SetUnsavedChanges, v);
+      }
     }
   },
   methods: {
@@ -116,7 +121,9 @@ export default Vue.extend({
         this.editorElement = evt.Element;
         this.editorType = evt.Type;
       } else {
-        this.$emit('unsafeCloseTriggered');
+        this.$emit('unsafeCloseTriggered', () => {
+          this.openEditor(evt);
+        });
       }
     },
     toggleTwoThirds() {

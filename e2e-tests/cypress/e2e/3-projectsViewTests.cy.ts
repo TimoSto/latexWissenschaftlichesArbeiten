@@ -4,6 +4,7 @@ import {VisitUrl} from "../helpers/Browser";
 import * as ProjectPageAssertions from "../helpers/ProjectsPageAssertions"
 import * as AppAssertions from "../helpers/AppAssertions";
 import * as AppActions from "../helpers/AppActions";
+import {ClickOnTableElement} from "../helpers/ProjectsPageActions";
 
 describe('projectsView', ()=> {
     before(() => {
@@ -56,5 +57,5 @@ describe('projectsView', ()=> {
             cy.reload();
             AppAssertions.AssertUrlHashIs('#/projects/testName');
         })
-    })
+    });
 })

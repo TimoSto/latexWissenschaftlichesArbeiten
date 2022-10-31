@@ -33,7 +33,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view v-on:unsafeCloseTriggered="interruptNavigationTriggered = true" />
+      <router-view v-on:unsafeCloseTriggered="triggerInterrupt($event)" />
     </v-main>
 
     <NewDialog
@@ -253,6 +253,16 @@ export default Vue.extend({
           (this.$refs.sidebarProjects as SidebarContentInterface).toItem(this.projectNames.indexOf(this.$store.state.ProjectView.CurrentProject));
         })
       }
+    },
+    triggerInterrupt(cb: () => void) {
+      console.log(cb)
+      this.interruptNavigationTriggered = true;
+
+      (this.$refs.interruptDialog as UnsavedChangesDialogInterface).setCallback(() => {
+        this.$store.commit(MutationTypes.Global.SetUnsavedChanges, false);
+        this.interruptNavigationTriggered = false;
+        cb();
+      });
     }
   }
 });
