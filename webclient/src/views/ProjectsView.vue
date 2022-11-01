@@ -150,6 +150,7 @@ export default Vue.extend({
     },
     toTextEditor() {
       (this.$refs.navArea as NavAreaInterface).toNext();
+      this.openEditor({Type: '', Element: -1});
     },
     navBack() {
       (this.$refs.navArea as NavAreaInterface).toPrev();
