@@ -1,12 +1,6 @@
 <template>
   <div class="container" :class="layoutClasses">
 
-    <div class="pages" style="display: none">
-      <div v-for="i in pages" :key="`page-${i}`" :id="`page-${i}`">
-        <slot :name="`page-${i}`"></slot>
-      </div>
-    </div>
-
     <div class="pages">
       <div
           v-for="i in pages" :key="`page-${i}`"
