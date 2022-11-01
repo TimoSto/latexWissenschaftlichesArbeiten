@@ -80,13 +80,13 @@ export default Vue.extend({
     display: flex;
     flex: 1 1 auto;
     box-sizing: border-box;
-    transition: width .25s ease-in-out;
+    transition: width .5s ease-in-out;
     & [id^=page-] {
       flex: 1 0 auto;
       height: 100%;
       width: 0;
       overflow-x: hidden;
-      transition: width .25s ease-in-out;
+      transition: width .5s ease-in-out;
       &.opened {
         width: 100%;
       }
@@ -95,7 +95,7 @@ export default Vue.extend({
   & .edit-area {
     width: 0;
     overflow-x: hidden;
-    transition: width .25s ease-in-out;
+    transition: width .5s ease-in-out;
   }
 
   &.two-thirds {
