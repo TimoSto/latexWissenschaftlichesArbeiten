@@ -74,6 +74,7 @@ export default Vue.extend({
   height: 100%;
   width: 100%;
   padding: 0;
+  max-width: unset;
   & .pages {
     width: 100%;
     display: flex;

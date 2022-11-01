@@ -16,7 +16,7 @@
     </template>
 
     <template v-slot:page-2>
-      <TexEditorPage/>
+      <TexEditorPage v-on:navBack="navBack"/>
     </template>
 
     <template v-slot:edit-area>
@@ -150,6 +150,9 @@ export default Vue.extend({
     },
     toTextEditor() {
       (this.$refs.navArea as NavAreaInterface).toNext();
+    },
+    navBack() {
+      (this.$refs.navArea as NavAreaInterface).toPrev();
     }
   },
 })

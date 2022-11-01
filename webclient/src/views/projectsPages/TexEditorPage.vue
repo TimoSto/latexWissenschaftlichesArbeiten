@@ -7,6 +7,9 @@
         scroll-target="#editor-scroll"
         style="z-index: 100"
     >
+      <v-app-bar-nav-icon @click="$emit('navBack')">
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-app-bar-nav-icon>
       <v-toolbar-title>TeX Editor - <i>{{fileName}}</i></v-toolbar-title>
     </v-app-bar>
 
