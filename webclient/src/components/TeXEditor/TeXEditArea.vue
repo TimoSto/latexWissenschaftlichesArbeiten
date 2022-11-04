@@ -1,8 +1,8 @@
 <template>
   <div class="outer-container">
     <div class="inner-container">
-      <TeXEditorLine index="0"/>
-      <TeXEditorLine index="10"/>
+      <TeXEditorLine index="1"/>
+      <TeXEditorLine index="2"/>
     </div>
   </div>
 </template>
