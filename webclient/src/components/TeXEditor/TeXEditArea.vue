@@ -1,11 +1,5 @@
 <template>
-  <div class="container">
-    <div class="line">
-
-    </div>
-    <div class="line" style="width: 2345px">
-
-    </div>
+  <div class="outer-container">
     <TeXEditorLine index="0"/>
     <TeXEditorLine index="10"/>
   </div>
@@ -21,9 +15,10 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.container {
+.outer-container {
   width: auto;
   display: inline-block;
+  min-width: 100%;
   & .line {
     min-width: 100%;
     border: 1px solid black;
