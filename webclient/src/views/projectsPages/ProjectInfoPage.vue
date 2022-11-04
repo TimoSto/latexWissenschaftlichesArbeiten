@@ -50,6 +50,7 @@ export default Vue.extend({
   height: 75vh;
   max-height: calc(100vh - 200px);
   border: 2px solid var(--v-accent-lighten4);
+  border-radius: 8px;
   margin: 0 auto;
   position: relative;
   & iframe {
