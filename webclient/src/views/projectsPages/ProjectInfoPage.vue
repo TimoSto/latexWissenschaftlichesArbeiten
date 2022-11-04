@@ -1,7 +1,9 @@
 <template>
   <div style="padding: 8px 16px" id="projectInfoPage">
     <p v-if="!revealJSAvailable">{{$t(i18nDictionary.Projects.Info.Description)}}</p>
-    <iframe class="presentation-frame" ref="presentation" v-if="revealJSAvailable"></iframe>
+    <div class="presentation-frame">
+      <iframe ref="presentation" v-if="revealJSAvailable"></iframe>
+    </div>
   </div>
 </template>
 
@@ -33,15 +35,20 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .presentation-frame{
   width: 85%;
   max-width: 800px;
   height: 75vh;
   max-height: calc(100vh - 200px);
   border: 2px solid var(--v-accent-lighten4);
-  box-shadow: none;
-  display: block;
   margin: 0 auto;
+  & iframe {
+    box-shadow: none;
+    border: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
