@@ -1,7 +1,9 @@
 <template>
   <div class="outer-container">
-    <TeXEditorLine index="0"/>
-    <TeXEditorLine index="10"/>
+    <div class="inner-container">
+      <TeXEditorLine index="0"/>
+      <TeXEditorLine index="10"/>
+    </div>
   </div>
 </template>
 
@@ -16,14 +18,19 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .outer-container {
-  width: auto;
-  display: inline-block;
-  min-width: 100%;
-  & .line {
-    min-width: 100%;
-    border: 1px solid black;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+  overflow-x: auto;
+  & .inner-container {
     width: auto;
-    height: 40px;
+    display: inline-block;
+    min-width: 100%;
+    & .line {
+      min-width: 100%;
+      border: 1px solid black;
+      width: auto;
+      height: 40px;
+    }
   }
 }
 </style>
