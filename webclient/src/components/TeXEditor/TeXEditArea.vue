@@ -25,12 +25,6 @@ export default Vue.extend({
     width: auto;
     display: inline-block;
     min-width: 100%;
-    & .line {
-      min-width: 100%;
-      border: 1px solid black;
-      width: auto;
-      height: 40px;
-    }
   }
 }
 </style>

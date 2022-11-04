@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="line-container">
     <div class="line-editable" contenteditable="true"></div>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.container {
+.line-container {
   min-width: 100%;
   & .line-editable {
     white-space: nowrap;
