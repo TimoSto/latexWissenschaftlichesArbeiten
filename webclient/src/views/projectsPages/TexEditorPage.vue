@@ -15,15 +15,19 @@
 
     <v-sheet class="content-below-two-bars" id="editor-scroll">
 
+      <TeXEditArea />
+
     </v-sheet>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import TeXEditArea from "../../components/TeXEditor/TeXEditArea.vue";
 
 export default Vue.extend({
   name: "TexEditorPage",
+  components: {TeXEditArea},
   computed: {
     fileName(): string {
       return `${this.$store.state.ProjectView.CurrentProject}.tex`
