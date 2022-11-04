@@ -1,20 +1,13 @@
 <template>
-  <div class="flex">
-    <div>
-      Text to check
+  <div class="container">
+    <div class="line">
+
     </div>
-    <div>
-      Text to check for similar width
+    <div class="line" style="width: 2345px">
+
     </div>
-    <div>
-      Text to check for similar width - will it work
-    </div>
-    <div>
-      <TeXEditorLine index="1"></TeXEditorLine>
-    </div>
-    <div>
-      <TeXEditorLine index="2"></TeXEditorLine>
-    </div>
+    <TeXEditorLine index="0"/>
+    <TeXEditorLine index="10"/>
   </div>
 </template>
 
@@ -28,13 +21,14 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.flex{
-  display:inline-flex;
-  flex-direction:column;
-  align-items:baseline
-}
-.flex > div{
-  background:#aaa;
-  width: 100%;
+.container {
+  width: auto;
+  display: inline-block;
+  & .line {
+    min-width: 100%;
+    border: 1px solid black;
+    width: auto;
+    height: 40px;
+  }
 }
 </style>

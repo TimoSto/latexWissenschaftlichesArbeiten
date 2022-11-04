@@ -17,7 +17,7 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .container {
-  width: 100%;
+  min-width: 100%;
   & .line-editable {
     white-space: nowrap;
     border: 1px solid black;
