@@ -26,7 +26,7 @@ export default Vue.extend({
   name: "TexEditorPage",
   computed: {
     fileName(): string {
-      return 'test.tex'
+      return `${this.$store.state.ProjectView.CurrentProject}.tex`
     }
   }
 })
