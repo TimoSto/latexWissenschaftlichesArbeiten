@@ -60,9 +60,8 @@
 import Vue from "vue";
 import {i18nDictionary} from "./i18n/Keys";
 import MutationTypes from "./store/MutationTypes";
-import SidebarContent from "./components/SidebarContent.vue";
+import SidebarContent, {SidebarContentInterface} from "./components/SidebarContent.vue";
 import ActionTypes from "./store/ActionTypes";
-import { SidebarContentInterface } from './components/SidebarContentInterface';
 import NewDialog from "./components/NewDialog.vue";
 import ProjectNameRules from "./inputRules/ProjectNameRules";
 import SuccessSnackbar from "./components/SuccessSnackbar.vue";

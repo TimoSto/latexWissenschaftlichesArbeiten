@@ -44,6 +44,11 @@
 import Vue from "vue";
 import {i18nDictionary} from "@/i18n/Keys";
 
+export interface SidebarContentInterface extends Vue {
+  toInfo(): void;
+  toItem(n: number): void;
+}
+
 export default Vue.extend({
   name: "SidebarContent",
   data() {
