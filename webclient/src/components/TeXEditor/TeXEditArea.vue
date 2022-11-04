@@ -1,7 +1,20 @@
 <template>
-  <div class="editor-container">
-    <TeXEditorLine index="1"></TeXEditorLine>
-    <TeXEditorLine index="2"></TeXEditorLine>
+  <div class="flex">
+    <div>
+      Text to check
+    </div>
+    <div>
+      Text to check for similar width
+    </div>
+    <div>
+      Text to check for similar width - will it work
+    </div>
+    <div>
+      <TeXEditorLine index="1"></TeXEditorLine>
+    </div>
+    <div>
+      <TeXEditorLine index="2"></TeXEditorLine>
+    </div>
   </div>
 </template>
 
@@ -15,9 +28,13 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.editor-container{
-  width: calc(100% - 16px);
-  margin: 0 auto;
-  overflow-x: auto;
+.flex{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:baseline
+}
+.flex > div{
+  background:#aaa;
+  width: 100%;
 }
 </style>
