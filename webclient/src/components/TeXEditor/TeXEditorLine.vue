@@ -6,9 +6,10 @@
 
 <script lang="ts">
 import Vue from "vue";
+import Cursor from "../../cursor/Cursor";
 
 export interface TeXEditorLineInterface extends Vue{
-  focus(): void
+  focus(caret: number): void
 }
 
 export default Vue.extend({
@@ -24,18 +25,19 @@ export default Vue.extend({
         this.$emit('newline');
       } else if( e.key === 'ArrowUp' ) {
         e.preventDefault()
-        this.$emit('lineUp');
+        this.$emit('lineUp', Cursor.getCurrentCursorPosition(this.$refs.line as HTMLElement));
       } else if( e.key === 'ArrowDown' ) {
         e.preventDefault()
-        this.$emit('lineDown');
+        this.$emit('lineDown', Cursor.getCurrentCursorPosition(this.$refs.line as HTMLElement));
       } else if( e.target ) {
         this.$emit('valueChange', (e.target as HTMLElement).textContent);
       }
     },
-    focus() {
+    focus(caret: number) {
+      Cursor.setCurrentCursorPosition(caret, this.$refs.line as HTMLElement);
       (this.$refs.line as HTMLElement)?.focus();
     }
-  }
+  },
 })
 </script>
 

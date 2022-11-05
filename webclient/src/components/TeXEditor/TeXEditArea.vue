@@ -15,8 +15,8 @@
             :initialValue="l"
             v-on:valueChange="onValueChange(i, $event)"
             v-on:newline="addLine(i)"
-            v-on:lineUp="focusLine(i-1)"
-            v-on:lineDown="focusLine(i+1)"
+            v-on:lineUp="focusLine(i-1, $event)"
+            v-on:lineDown="focusLine(i+1, $event)"
             ref="lineElement"
         />
       </div>
@@ -45,14 +45,14 @@ export default Vue.extend({
     },
     addLine(index: number) {
       this.lines.splice(index + 1, 0, '');
-      this.focusLine(index + 1);
+      this.focusLine(index + 1, 0);
     },
-    focusLine(index: number) {
+    focusLine(index: number, caret: number) {
       if(index < 0 || index >= this.lines.length) {
         return;
       }
       if( this.$refs.lineElement ) {
-        (this.$refs.lineElement as TeXEditorLineInterface[])[index].focus()
+        (this.$refs.lineElement as TeXEditorLineInterface[])[index].focus(caret)
       }
     }
   }
