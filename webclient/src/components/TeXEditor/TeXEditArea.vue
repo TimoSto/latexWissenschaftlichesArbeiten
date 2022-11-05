@@ -45,7 +45,9 @@ export default Vue.extend({
     },
     addLine(index: number) {
       this.lines.splice(index + 1, 0, '');
-      this.focusLine(index + 1, 0);
+      this.$nextTick(() => {
+        this.focusLine(index + 1, 0);
+      })
     },
     focusLine(index: number, caret: number) {
       if(index < 0 || index >= this.lines.length) {
