@@ -13,7 +13,6 @@
             :key="`line-${i}`"
             :index="i"
             :initialValue="l"
-            v-on:valueChange="onValueChange(i, $event)"
             v-on:newline="addLine(i)"
             v-on:lineUp="focusLine(i-1, $event)"
             v-on:lineDown="focusLine(i+1, $event)"
@@ -40,9 +39,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    onValueChange(index: number, value: string) {
-      this.lines[index] = value;
-    },
     addLine(index: number) {
       this.lines.splice(index + 1, 0, '');
       this.$nextTick(() => {

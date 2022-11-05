@@ -29,8 +29,6 @@ export default Vue.extend({
       } else if( e.key === 'ArrowDown' ) {
         e.preventDefault()
         this.$emit('lineDown', Cursor.getCurrentCursorPosition(this.$refs.line as HTMLElement));
-      } else if( e.target ) {
-        this.$emit('valueChange', (e.target as HTMLElement).textContent);
       }
     },
     focus(caret: number) {
