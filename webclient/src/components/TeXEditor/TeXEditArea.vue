@@ -26,10 +26,15 @@ export default Vue.extend({
 .outer-container {
   width: calc(100% - 16px);
   margin: 0 auto;
+  box-sizing: border-box;
+  border: 1px solid var(--v-accent-lighten1);
+  overflow: auto;
   & .index-container {
     width: 60px;
     float: left;
     height: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid var(--v-accent-lighten1);
     & .line-number {
       width: 100%;
       padding-right: 8px;
@@ -46,7 +51,6 @@ export default Vue.extend({
       width: auto;
       display: inline-block;
       min-width: 100%;
-      border: 1px solid red;
     }
   }
 }
