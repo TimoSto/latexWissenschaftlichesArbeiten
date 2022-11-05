@@ -15,6 +15,7 @@
             :initialValue="l"
             v-on:valueChange="onValueChange(i, $event)"
             v-on:newline="addLine(i)"
+            ref="lineElement"
         />
       </div>
     </div>
@@ -23,7 +24,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TeXEditorLine from "./TeXEditorLine.vue";
+import TeXEditorLine, {TeXEditorLineInterface} from "./TeXEditorLine.vue";
 export default Vue.extend({
   name: "TeXEditArea",
   components: {TeXEditorLine},
@@ -41,9 +42,13 @@ export default Vue.extend({
       this.lines[index] = value;
     },
     addLine(index: number) {
-      console.log(this.lines)
       this.lines.splice(index + 1, 0, '');
-      console.log(this.lines)
+      this.focusLine(index + 1);
+    },
+    focusLine(index: number) {
+      if( this.$refs.lineElement ) {
+        (this.$refs.lineElement as TeXEditorLineInterface[])[index].focus()
+      }
     }
   }
 })

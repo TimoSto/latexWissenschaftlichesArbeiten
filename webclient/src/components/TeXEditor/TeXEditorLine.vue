@@ -1,11 +1,15 @@
 <template>
   <div class="line-container">
-    <div class="line-editable" contenteditable="true" ref="line" @keydown="onInput($event)"></div>
+    <div class="line-editable" contenteditable="true" ref="line" @keydown="onInput($event)">{{this.initialValue}}</div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+
+export interface TeXEditorLineInterface extends Vue{
+  focus(): void
+}
 
 export default Vue.extend({
   name: "TeXEditorLine",
@@ -13,14 +17,6 @@ export default Vue.extend({
       "index",
       "initialValue"
   ],
-  mounted() {
-    this.$nextTick(() => {
-      const lineRef = this.$refs.line as HTMLElement;
-      if( lineRef ) {
-        lineRef.textContent = this.initialValue
-      }
-    })
-  },
   methods: {
     onInput(e: KeyboardEvent) {
       if( e.key === 'Enter' ) {
@@ -30,6 +26,9 @@ export default Vue.extend({
       if( e.target ) {
         this.$emit('valueChange', (e.target as HTMLElement).textContent);
       }
+    },
+    focus() {
+      (this.$refs.line as HTMLElement)?.focus();
     }
   }
 })
