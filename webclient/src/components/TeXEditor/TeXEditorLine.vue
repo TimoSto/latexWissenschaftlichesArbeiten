@@ -1,6 +1,6 @@
 <template>
   <div class="line-container">
-    <div class="line-editable" contenteditable="true"></div>
+    <div class="line-editable" contenteditable="true" ref="line" @input="onInput($event)"></div>
   </div>
 </template>
 
@@ -10,8 +10,24 @@ import Vue from "vue";
 export default Vue.extend({
   name: "TeXEditorLine",
   props: [
-      "index"
-  ]
+      "index",
+      "initialValue"
+  ],
+  mounted() {
+    this.$nextTick(() => {
+      const lineRef = this.$refs.line as HTMLElement;
+      if( lineRef ) {
+        lineRef.textContent = this.initialValue
+      }
+    })
+  },
+  methods: {
+    onInput(e: InputEvent) {
+      if( e.target ) {
+        this.$emit('valueChange', (e.target as HTMLElement).textContent);
+      }
+    }
+  }
 })
 </script>
 

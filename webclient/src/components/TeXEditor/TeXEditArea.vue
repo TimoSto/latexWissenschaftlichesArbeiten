@@ -1,13 +1,20 @@
 <template>
   <div class="outer-container">
     <div class="index-container">
-      <div class="line-number">1</div>
-      <div class="line-number">1</div>
+      <div class="line-number"
+           v-for="(_, i) in lines"
+           :key="`line-num-${i}`"
+      >{{i}}</div>
     </div>
     <div class="lines-container">
       <div class="inner-container">
-        <TeXEditorLine index="1"/>
-        <TeXEditorLine index="2"/>
+        <TeXEditorLine
+            v-for="(l, i) in lines"
+            :key="`line-${i}`"
+            :index="i"
+            :initialValue="l"
+            v-on:valueChange="onValueChange(i, $event)"
+        />
       </div>
     </div>
   </div>
@@ -18,7 +25,21 @@ import Vue from "vue";
 import TeXEditorLine from "./TeXEditorLine.vue";
 export default Vue.extend({
   name: "TeXEditArea",
-  components: {TeXEditorLine}
+  components: {TeXEditorLine},
+  data() {
+    return {
+      lines: [
+          'hallo',
+          'du',
+          ''
+      ] as string[]
+    }
+  },
+  methods: {
+    onValueChange(index: number, value: string) {
+      this.lines[index] = value;
+    }
+  }
 })
 </script>
 
@@ -37,10 +58,10 @@ export default Vue.extend({
     border-right: 1px solid var(--v-accent-lighten1);
     & .line-number {
       width: 100%;
-      padding-right: 8px;
+      padding-left: 8px;
       box-sizing: border-box;
       display: inline-block;
-      text-align: right;
+      text-align: left;
     }
   }
   & .lines-container {
