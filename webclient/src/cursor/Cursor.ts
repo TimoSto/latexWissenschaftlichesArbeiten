@@ -34,6 +34,10 @@ export default class Cursor {
         if (chars >= 0) {
             const selection = window.getSelection();
 
+            if( element.innerHTML.length < chars ) {
+                chars = element.innerHTML.length;
+            }
+
             const range = Cursor._createRange(element, chars);
 
             if (range && selection) {
