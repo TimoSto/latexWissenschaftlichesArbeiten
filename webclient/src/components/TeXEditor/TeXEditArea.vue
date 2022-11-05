@@ -1,8 +1,14 @@
 <template>
   <div class="outer-container">
-    <div class="inner-container">
-      <TeXEditorLine index="1"/>
-      <TeXEditorLine index="2"/>
+    <div class="index-container">
+      <div class="line-number">1</div>
+      <div class="line-number">1</div>
+    </div>
+    <div class="lines-container">
+      <div class="inner-container">
+        <TeXEditorLine index="1"/>
+        <TeXEditorLine index="2"/>
+      </div>
     </div>
   </div>
 </template>
@@ -20,11 +26,28 @@ export default Vue.extend({
 .outer-container {
   width: calc(100% - 16px);
   margin: 0 auto;
-  overflow-x: auto;
-  & .inner-container {
-    width: auto;
-    display: inline-block;
-    min-width: 100%;
+  & .index-container {
+    width: 60px;
+    float: left;
+    height: 100%;
+    & .line-number {
+      width: 100%;
+      padding-right: 8px;
+      box-sizing: border-box;
+      display: inline-block;
+      text-align: right;
+    }
+  }
+  & .lines-container {
+    overflow-x: auto;
+    width: calc(100% - 60px);
+    float: left;
+    & .inner-container {
+      width: auto;
+      display: inline-block;
+      min-width: 100%;
+      border: 1px solid red;
+    }
   }
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div class="line-container">
-    <div class="line-index">{{index}}</div>
     <div class="line-editable" contenteditable="true"></div>
   </div>
 </template>
@@ -31,8 +30,7 @@ export default Vue.extend({
   & .line-editable {
     white-space: nowrap;
     display: inline-block;
-    min-width: calc(100% - 60px);
-    margin-left: 60px;
+    min-width: 100%;
     &:focus-within {
       outline: none;
     }
