@@ -15,6 +15,8 @@
             :initialValue="l"
             v-on:valueChange="onValueChange(i, $event)"
             v-on:newline="addLine(i)"
+            v-on:lineUp="focusLine(i-1)"
+            v-on:lineDown="focusLine(i+1)"
             ref="lineElement"
         />
       </div>
@@ -46,6 +48,9 @@ export default Vue.extend({
       this.focusLine(index + 1);
     },
     focusLine(index: number) {
+      if(index < 0 || index >= this.lines.length) {
+        return;
+      }
       if( this.$refs.lineElement ) {
         (this.$refs.lineElement as TeXEditorLineInterface[])[index].focus()
       }

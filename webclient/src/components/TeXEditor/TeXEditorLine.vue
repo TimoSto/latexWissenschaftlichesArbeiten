@@ -22,8 +22,13 @@ export default Vue.extend({
       if( e.key === 'Enter' ) {
         e.preventDefault();
         this.$emit('newline');
-      }
-      if( e.target ) {
+      } else if( e.key === 'ArrowUp' ) {
+        e.preventDefault()
+        this.$emit('lineUp');
+      } else if( e.key === 'ArrowDown' ) {
+        e.preventDefault()
+        this.$emit('lineDown');
+      } else if( e.target ) {
         this.$emit('valueChange', (e.target as HTMLElement).textContent);
       }
     },
