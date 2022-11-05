@@ -1,6 +1,6 @@
 <template>
   <div class="line-container">
-    <div class="line-editable" contenteditable="true" ref="line" @input="onInput($event)"></div>
+    <div class="line-editable" contenteditable="true" ref="line" @keydown="onInput($event)"></div>
   </div>
 </template>
 
@@ -22,7 +22,11 @@ export default Vue.extend({
     })
   },
   methods: {
-    onInput(e: InputEvent) {
+    onInput(e: KeyboardEvent) {
+      if( e.key === 'Enter' ) {
+        e.preventDefault();
+        this.$emit('newline');
+      }
       if( e.target ) {
         this.$emit('valueChange', (e.target as HTMLElement).textContent);
       }

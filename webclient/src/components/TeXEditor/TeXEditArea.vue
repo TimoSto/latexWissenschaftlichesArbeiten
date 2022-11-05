@@ -14,6 +14,7 @@
             :index="i"
             :initialValue="l"
             v-on:valueChange="onValueChange(i, $event)"
+            v-on:newline="addLine(i)"
         />
       </div>
     </div>
@@ -38,6 +39,11 @@ export default Vue.extend({
   methods: {
     onValueChange(index: number, value: string) {
       this.lines[index] = value;
+    },
+    addLine(index: number) {
+      console.log(this.lines)
+      this.lines.splice(index + 1, 0, '');
+      console.log(this.lines)
     }
   }
 })
