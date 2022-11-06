@@ -1,6 +1,6 @@
 <template>
   <div class="line-container">
-    <div class="line-editable" contenteditable="true" ref="line" @keydown="onInput($event)">{{this.initialValue}}</div>
+    <div class="line-editable" contenteditable="true" ref="line" @keydown="onInput($event)"></div>
   </div>
 </template>
 
@@ -18,6 +18,16 @@ export default Vue.extend({
       "index",
       "initialValue"
   ],
+  mounted() {
+    this.$nextTick(() => {
+      this.syncInitialValue();
+    })
+  },
+  watch: {
+    initialValue() {
+      this.syncInitialValue();
+    }
+  },
   methods: {
     onInput(e: KeyboardEvent) {
       if( e.key === 'Enter' ) {
@@ -29,11 +39,18 @@ export default Vue.extend({
       } else if( e.key === 'ArrowDown' ) {
         e.preventDefault()
         this.$emit('lineDown', Cursor.getCurrentCursorPosition(this.$refs.line as HTMLElement));
+      } else {
+        this.$emit('valueChanged', (this.$refs.line as HTMLElement).innerText + e.key)
       }
     },
     focus(caret: number) {
       Cursor.setCurrentCursorPosition(caret, this.$refs.line as HTMLElement);
       (this.$refs.line as HTMLElement)?.focus();
+    },
+    syncInitialValue() {
+      if( this.$refs.line ) {
+        (this.$refs.line as HTMLElement).innerText = this.initialValue;
+      }
     }
   },
 })
