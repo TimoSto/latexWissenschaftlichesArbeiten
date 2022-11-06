@@ -72,6 +72,7 @@ export default Vue.extend({
     white-space: nowrap;
     display: inline-block;
     min-width: 100%;
+    padding-left: 4px; box-sizing: border-box;
     &:focus-within {
       outline: none;
     }
