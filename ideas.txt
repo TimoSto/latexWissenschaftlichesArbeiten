@@ -1,0 +1,3 @@
+TeX-Editor
+- Sidebar mit allen DAteien im Projekt
+- Fileserver für alle DAteien im Projekt
