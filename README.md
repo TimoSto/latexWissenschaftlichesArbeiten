@@ -1,3 +1,6 @@
+> Achtung: 
+Dieses Repo is deprecated. Das Projekt wird [hier](https://github.com/TimoSto/ThesorTeX) fortgeführt: 
+
 # ThesorTeX
 
 Dieses Tool unterstützt dich in Berührungspunkten mit LaTeX, denen du auf deinem akademischen und beruflichen Weg begegnen könntest:
